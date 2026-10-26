@@ -1,14 +1,14 @@
 {
   "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
-  "at": "2026-10-26T19:24:30.510Z",
+  "at": "2026-10-26T20:20:39.021Z",
   "scope": "Completed good wellness journeys only. Regression journeys and partial in-progress reports are excluded. Retained footsteps evidence is limited to its documented unaffected scope; new collected results independently replay actual original callbacks. No browser test is rerun by this evidence aggregation.",
   "sourceFilesVerified": 909,
-  "completedJobs": 26,
+  "completedJobs": 28,
   "preflightComplete": true,
   "complete": false,
-  "goodJourneys": 18,
-  "nativeChecks": 20994,
-  "captures": 444,
+  "goodJourneys": 20,
+  "nativeChecks": 23625,
+  "captures": 493,
   "passedAssessments": 9,
   "rows": [
     {
@@ -600,6 +600,59 @@
           "colours": 224
         }
       ],
+      "originalCallbackEquality": "verified from collected observations"
+    },
+    {
+      "scope": "Completed before the voluntarily interrupted continuation. Original frozen application/protocol; independent original callback equality and durable reload verified. The suspected Tamil reply overflow is withdrawn after actual rectangle measurements and the separate all-language static audit. Shared glyph/translation readiness remains excluded.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps.json",
+      "sha256": "a407520e10c7e9ab7c425b86656981efd065765b246a25513660d9d46c08cafb",
+      "id": "m8-steps",
+      "quality": "high",
+      "language": "ta",
+      "large": false,
+      "checks": 955,
+      "captures": 23,
+      "score": 7500,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 124,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "photoProofs": [
+        {
+          "index": 0,
+          "width": 640,
+          "height": 360,
+          "colours": 388
+        }
+      ],
+      "originalCallbackEquality": "verified from collected observations"
+    },
+    {
+      "scope": "Completed before the voluntarily interrupted continuation. Original frozen application/protocol; independent original callback equality and durable reload verified. The suspected Tamil reply overflow is withdrawn after actual rectangle measurements and the separate all-language static audit. Shared glyph/translation readiness remains excluded.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog.json",
+      "sha256": "37b81e74a73a3b29d1a4aa0e7b66b863a223cf33fd3f3762a04c6be5e7dca979",
+      "id": "m8-dog",
+      "quality": "high",
+      "language": "ta",
+      "large": false,
+      "checks": 1676,
+      "captures": 26,
+      "score": 6700,
+      "stars": {
+        "safety": 3,
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 102,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "photoProofs": null,
       "originalCallbackEquality": "verified from collected observations"
     }
   ]

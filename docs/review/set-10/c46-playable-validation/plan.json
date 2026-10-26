@@ -1,6 +1,6 @@
 {
   "root": "/workspace/c46-safety-wellness",
-  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
   "sources": {
     "assets/3d/kenney-car-kit/LICENSE.txt": "c33b7f6453d134deae7b1b8493717d9ccfa754c25ab97f6de89b88f8fda19b00",
     "assets/3d/kenney-car-kit/SOURCE.md": "eede5b96e2efc5bcff394f300eb391e83280af42a9183d64d9983e14e254a38a",
@@ -752,7 +752,7 @@
     "test/fpwalkaroundworld.js": "806b3c6798d1252f2dbd4f2c890a8cedb47bac84be801753fe7e53cffe56a494",
     "test/fpweather.js": "3816a80606222b740d9873737d07343489b61745d4c6c8b00d59d04192851339",
     "test/fpweatherbrowser.js": "82f9c9fddc1881d04df2f54f438adc17a382311fd130b0965c70b1bca2d249b2",
-    "test/fpwellnessbrowser.js": "bae2f54e2d9ba994ec97b769bfde52e7fed8e1d54c7e9a4e71ab83361733e03b",
+    "test/fpwellnessbrowser.js": "02e1041cfa9f7746459827fdacc33d9186ac25b58a15b6593ce354c70b818ca6",
     "test/fpwellnessgeometry.js": "7894a96e5dbdb63b29355013157f5a9804deb9453193a9a67af09ed00ded7bef",
     "test/fpwellnessscenario.js": "a5d1df831f37847ac6164b57e3b1d884bc657f746c86369a529db63224c1a011",
     "test/fpwellnessstage.js": "1c70f66e4e2803a5926fcf3c9d6a2cff9c10a76ed0fb7fbc3e5a87fada40f7af",
@@ -910,7 +910,9 @@
     "test/trainerkeysbrowser.js": "92e40e5c39bba8d3b11638f565838874f4c4dd3a353caedb74812fa67375a732",
     "test/workday.js": "0ad4239d0c04958d455305e481cd96e31e5ec628ac912da4bb477ae21172b5d8",
     "test/workdayflow.js": "2e9c432205f95c6f901e58e018d00e50864665c48b15c1ab128b4ef769637891",
-    "test/xapi.js": "0e40623bf78b42e47629355d660b63b4d7ce28de89881c172567edf91c7a0b25"
+    "test/xapi.js": "0e40623bf78b42e47629355d660b63b4d7ce28de89881c172567edf91c7a0b25",
+    "test/fppanellayoutbrowser.js": "903e59c46d24c54b987022a1cb34b31fe864beb94797c32d0d6e3d071508f8b8",
+    "test/tools/fp-panel-layout.js": "bbfd8ee4cc4eea4044e594ee83294b549632d37316c8665b5e00f22822ae68b4"
   },
   "sourceChangesFromRetainedCandidate": [
     "src/core/fpwellnessstage.js",
@@ -1298,7 +1300,7 @@
         "test/fpwellnessbrowser.js"
       ],
       "env": {
-        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat",
+        "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat",
         "QA_CASE": "high-ta-normal-heat"
       },
       "group": "matrix",
@@ -1311,7 +1313,7 @@
         "test/fpwellnessbrowser.js"
       ],
       "env": {
-        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-large-steps",
+        "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps",
         "QA_CASE": "high-ta-large-steps"
       },
       "group": "matrix",
@@ -1324,7 +1326,7 @@
         "test/fpwellnessbrowser.js"
       ],
       "env": {
-        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-large-dog",
+        "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-large-dog",
         "QA_CASE": "high-ta-large-dog"
       },
       "group": "matrix",
@@ -1337,7 +1339,7 @@
         "test/fpwellnessbrowser.js"
       ],
       "env": {
-        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-large-heat",
+        "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-large-heat",
         "QA_CASE": "high-ta-large-heat"
       },
       "group": "matrix",
@@ -1350,7 +1352,7 @@
         "test/fpwellnessbrowser.js"
       ],
       "env": {
-        "QA_TAG": "c46-playable-6d83d2e1-resume-critical-trip",
+        "QA_TAG": "c46-horizontal-35bd5bb1-critical-trip",
         "QA_CASE": "low-en-large-steps",
         "QA_VARIANT": "trip"
       },
@@ -1364,7 +1366,7 @@
         "test/fpwellnessbrowser.js"
       ],
       "env": {
-        "QA_TAG": "c46-playable-6d83d2e1-resume-abandon-steps",
+        "QA_TAG": "c46-horizontal-35bd5bb1-abandon-steps",
         "QA_CASE": "low-en-large-steps",
         "QA_VARIANT": "abandon"
       },
@@ -1378,7 +1380,7 @@
         "test/fpwellnessbrowser.js"
       ],
       "env": {
-        "QA_TAG": "c46-playable-6d83d2e1-resume-abandon-dog",
+        "QA_TAG": "c46-horizontal-35bd5bb1-abandon-dog",
         "QA_CASE": "low-en-large-dog",
         "QA_VARIANT": "abandon"
       },
@@ -1392,7 +1394,7 @@
         "test/fpwellnessbrowser.js"
       ],
       "env": {
-        "QA_TAG": "c46-playable-6d83d2e1-resume-abandon-heat",
+        "QA_TAG": "c46-horizontal-35bd5bb1-abandon-heat",
         "QA_CASE": "low-en-large-heat",
         "QA_VARIANT": "abandon"
       },
@@ -1400,7 +1402,7 @@
       "timeout": 3600
     }
   ],
-  "scope": "64 arranged resource views (15 retained unaffected Low, 49 fresh); 24 good native journeys (one retained unaffected footsteps, two fresh preflight, 21 fresh matrix), one critical trip and three abandonments; six repository browser regressions. No shared Tamil glyph/translation/A30/A31/default/current-pilot or Intel FPS acceptance. All fresh jobs stop at the first failure.",
+  "scope": "64 resource views and six repository regressions retained; 20 completed good native journeys retained in explicit prior-protocol scope. Eight unfinished jobs use stronger horizontal panel/button bounds. The application is unchanged at 6d83d2e1; only the native protocol and new static audit/helper changed. All 1896 static M8 panels pass at both sizes in 12 languages. Shared glyph/translation/A31/default/current-pilot/Intel acceptance remains excluded.",
   "retainedJobs": [
     {
       "name": "low-owner-resource",
@@ -1579,6 +1581,69 @@
         "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-heat",
         "QA_CASE": "low-ta-large-heat"
       }
+    },
+    {
+      "name": "matrix-high-en-normal-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-normal-steps",
+        "QA_CASE": "high-en-normal-steps"
+      }
+    },
+    {
+      "name": "matrix-high-en-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-normal-heat",
+        "QA_CASE": "high-en-normal-heat"
+      }
+    },
+    {
+      "name": "matrix-high-en-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps",
+        "QA_CASE": "high-en-large-steps"
+      }
+    },
+    {
+      "name": "matrix-high-en-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-dog",
+        "QA_CASE": "high-en-large-dog"
+      }
+    },
+    {
+      "name": "matrix-high-en-large-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat",
+        "QA_CASE": "high-en-large-heat"
+      }
+    },
+    {
+      "name": "matrix-high-ta-normal-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps",
+        "QA_CASE": "high-ta-normal-steps"
+      }
+    },
+    {
+      "name": "matrix-high-ta-normal-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog",
+        "QA_CASE": "high-ta-normal-dog"
+      }
     }
   ],
   "retainedProofFiles": {
@@ -1589,13 +1654,19 @@
     "routeday.log": "4f55786fe1d596af547866c5de78706ee7c20d0412bb831841db2b0ae5971226",
     "driving.log": "a1688b0176dc0162f10479cd61b06a7e520bfb6640772db5a8da76327ca7717f",
     "high-steps-timeout-20261026/retained-native-snapshot.json": "0054178bdf19e9353897cbff633d7ae006f6ccc6eb26e4e0580ab9c6e4b93d30",
-    "high-steps-timeout-20261026/retained-resource-snapshot.json": "4c9c24696f6b43924cb0491e3a369875d118fd9ce2f3a2dd24ec9e316aa58234"
+    "high-steps-timeout-20261026/retained-resource-snapshot.json": "4c9c24696f6b43924cb0491e3a369875d118fd9ce2f3a2dd24ec9e316aa58234",
+    "../c46-tamil-reply-audit/artifacts/c46-panel-before-resume.json": "1351b487113ed5a77e9c79560bcb28caf049a40dae6dbb7bf0fdf2ee312b6514",
+    "../c46-tamil-reply-audit/resolution.json": "8f3963a0177052ded415ebaa1c64099af3b1bc52d423ff406bb42e2973e268cb",
+    "../c46-tamil-reply-audit/before/c46-playable-validation/results.json": "f92cfa6d8d4f516a5c5785d8b34009c3888d499c2a169b39b69e7239f95b7fe6",
+    "../c46-tamil-reply-audit/test-source-hashes.json": "e298dfc18e4d1ae467489885cc6635468da7d2f3005ff3ee3c5252ef7ed53d0a"
   },
   "continuation": {
     "earlierFailedAttempt": "high-steps-timeout-20261026/manifest.json",
-    "retainedPassingJobs": 21,
-    "remainingJobs": 15,
+    "interruption": "../c46-tamil-reply-audit/resolution.json",
+    "retainedPassingJobs": 28,
+    "remainingJobs": 8,
     "wallTimeoutSeconds": 3600,
-    "scope": "Only the incomplete High footsteps case and fourteen never-started cases run. App/data/assets/browser protocols remain byte-identical across 909 frozen files. All original per-action timeouts, game clocks, pars, scores and resource limits are unchanged."
-  }
+    "scope": "The suspected overflow was withdrawn after measurement. No application change. Retain completed jobs and restart only the voluntarily interrupted heat partial and seven never-started jobs with actual horizontal bounds."
+  },
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5"
 }

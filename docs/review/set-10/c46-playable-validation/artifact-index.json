@@ -1,5 +1,5 @@
 {
-  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
   "scope": "Raw outputs collected from this frozen plan only. Missing jobs, resource failures, partial native journeys and uninspected captures are not acceptance.",
   "files": [
     {
@@ -21,6 +21,56 @@
       "file": "bench-c46-playable-6d83d2e1-remaining-fallback-low-low.json",
       "bytes": 42962,
       "sha256": "7111b623e5d2ba6fc4d69b83a3ed08367cdc959b988f62b7ad976a35278cb064"
+    },
+    {
+      "file": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-brief.png",
+      "bytes": 110175,
+      "sha256": "4628a59e8b3b1fc0cbe7e2793d9407fea30be85633cac77684adf6e7c0fbd7f2"
+    },
+    {
+      "file": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-controls-0.png",
+      "bytes": 79651,
+      "sha256": "bf45e0ae4bcbcb33f5182cc052454d507ad5cd14c38aa1b09df3a70fc0b5ee70"
+    },
+    {
+      "file": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-controls-1.png",
+      "bytes": 85089,
+      "sha256": "08dae2e69971b7b39a470a3329ae7b07c635835d53765d656301fe2ea8ba9480"
+    },
+    {
+      "file": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-controls-2.png",
+      "bytes": 69553,
+      "sha256": "f81cd49f767515ddb62e6d0a0c558ad7e3ed6c78a1fae14b6b8ef222fcf716e2"
+    },
+    {
+      "file": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-controls-3.png",
+      "bytes": 85357,
+      "sha256": "7e836726a038b772f7c712baf2a25002b015817064ddcaa0249ab101bd4051bb"
+    },
+    {
+      "file": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-controls-4.png",
+      "bytes": 86669,
+      "sha256": "c300651546f4e4e0ad7e3cb79a931af43d0a252333ad330ac3e8f72bc0430a23"
+    },
+    {
+      "file": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-controls-5.png",
+      "bytes": 86111,
+      "sha256": "6eb55137f3c4d4d0c971c6520a861eebc189d2e99252f9c33fb7751d9f7b2166"
+    },
+    {
+      "file": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-handheld.png",
+      "bytes": 117832,
+      "sha256": "46850dc395b571fda8b5ad9404b73d8aaa921dee9fdd5d09521fbaad70bff37f"
+    },
+    {
+      "file": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat-high-ta-normal-heat-stop0-safety.png",
+      "bytes": 108823,
+      "sha256": "311986aa7b68c18cc4e41b81cc96f7f49b86f04cb6a3214c10d98d80a5b31a27"
+    },
+    {
+      "file": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat.json",
+      "bytes": 1846,
+      "sha256": "5561228f17a0a185569a8b07be0a9bd485b30b1baaf106dbd3a66d476b9fbe74"
     },
     {
       "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-brief.png",
@@ -2593,6 +2643,141 @@
       "sha256": "d38ed0b6824dcee0799ba2993b1778e947cffe3fa32c2ff5f56df16fbb58fdbf"
     },
     {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-brief.png",
+      "bytes": 101759,
+      "sha256": "65d48e8a6ff68f0516a710a8a9ed38b68033d4b7dd3c1d6036fc1707bf9f15db"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-controls-0.png",
+      "bytes": 79563,
+      "sha256": "42a0eb78a1528e896276f28ab1fa3be64cd545e2cbcae984d08b8e05c4793570"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-controls-1.png",
+      "bytes": 84993,
+      "sha256": "ea31f98bc5dd2c2e6a9a026c309a9112f621e2873286d0631192ea04d91f34d7"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-controls-2.png",
+      "bytes": 70085,
+      "sha256": "938ce04fd6c6b8b3e5979feea4aa49135539a686df9113d6a0d93bf643c6df8f"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-controls-3.png",
+      "bytes": 85265,
+      "sha256": "0be16b58ebbaaf29b1582ecaf211d11fc30575215e23beca3bbf3729cc8f5798"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-controls-4.png",
+      "bytes": 86574,
+      "sha256": "cf510d32c465522743a7da7960d56574a238b0e9892640d9ba094708910cfa60"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-controls-5.png",
+      "bytes": 86015,
+      "sha256": "a57b1834c6a23c272cb86f24050c9128dfbfa3c55eda1cf3034303877d7543b6"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-handheld.png",
+      "bytes": 117690,
+      "sha256": "d102ac05c2d69a8e99c6adb2fcb2ca1815814e2208a1723060d91085533a6466"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-result.png",
+      "bytes": 187802,
+      "sha256": "dbf9484d1097aff072f2b428e87d9288fa614c84765ffe02560bd6d28ad4e50e"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop0-arrival.png",
+      "bytes": 258246,
+      "sha256": "c79dd33d5b997da62f465f845ad0f9c781fcc6dc6c49622107b078cb8ffb66f7"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop0-cargo.png",
+      "bytes": 141885,
+      "sha256": "0d915113af1cf9a8c86686f6cdcd2a8b62634bd1efc761df8108b408560aa6ba"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop0-printed-name.png",
+      "bytes": 93640,
+      "sha256": "61cae5a9b43c6e4b3c3606440821fb1fae85b7817f469c2dda5f6bb2f51f5d8e"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop0-reply-g1.png",
+      "bytes": 108387,
+      "sha256": "5e5fb237237c3bd6e131d9bd7d4f0109f6acbbd182e619974b6d83e6b1c135f2"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop0-report.png",
+      "bytes": 56373,
+      "sha256": "324602ef31bf7c05f995aff4b961037ef25a4592c3e53071d8338967c14ac800"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop1-arrival.png",
+      "bytes": 570866,
+      "sha256": "ca8f0690fa43bf5faa30c78d28c7cafd08a1fb5562ddc6028cc9073b22c723c2"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop1-cargo.png",
+      "bytes": 145422,
+      "sha256": "b704a85eef505fd83e018ec3bd6051db5a0daff520ac8da189ba13425231cc63"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop1-reply-c1.png",
+      "bytes": 93989,
+      "sha256": "1a56f3e27bf09e26c6a15e8d49ed5acbc5136c0d06ad3f966d2e03a8960e0413"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop1-reply-c2.png",
+      "bytes": 96295,
+      "sha256": "d5f120f986ab8a25318560eacda0c43e31829369d63c7ccac4d0791cf40495fa"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop1-reply-c4.png",
+      "bytes": 204172,
+      "sha256": "186d0ea4b301f2b881023b386902f426f9c694c2102ad1b82bde5e270a64b2ed"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop1-report.png",
+      "bytes": 56504,
+      "sha256": "5c079272bfa0acf68c7f8ac8553cd34459fd9fc4c688639d0848cb1cdd7c1667"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop2-arrival.png",
+      "bytes": 182641,
+      "sha256": "7b773e1e6bbab086f4e71d3e848a8f9b9b1f83fd5251ede94191a9a9253b102b"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop2-cargo.png",
+      "bytes": 145990,
+      "sha256": "a51410f7ab40199c735c345bb7e1f7b021a932f56a19217ceb29a010f7e508bf"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop2-printed-name.png",
+      "bytes": 71880,
+      "sha256": "a5dc0daea1e0232b756d269e973a12a3ecc580129704dcef616ec9869f42b486"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop2-reply-p1.png",
+      "bytes": 94446,
+      "sha256": "53106ee9d56f7dc46f5fb2cf4b2bcad6885116b72577a4fad818c73ee8c1eaf0"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop2-reply-p3.png",
+      "bytes": 80549,
+      "sha256": "55198cea8a1e2144e5b21066cfd2669cfda8a5e3f8061008bcbb06e375509abb"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop2-report.png",
+      "bytes": 55761,
+      "sha256": "4e8482ae928342e182b05dc2d228fe2eca75827478dc89e817ad4ad135cad217"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog.json",
+      "bytes": 69331,
+      "sha256": "37b81e74a73a3b29d1a4aa0e7b66b863a223cf33fd3f3762a04c6be5e7dca979"
+    },
+    {
       "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps-high-ta-normal-steps-brief.png",
       "bytes": 98940,
       "sha256": "85217411599ff824505622571ab49b00cef1e1219965dbd44f28f91cae5ab586"
@@ -2631,6 +2816,11 @@
       "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps-high-ta-normal-steps-handheld.png",
       "bytes": 116272,
       "sha256": "ba4b901dcee2393ad356389ea0f4da6aba77854e9df87c37cdfcfe8f15fc4fc9"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps-high-ta-normal-steps-result.png",
+      "bytes": 162158,
+      "sha256": "e0cfc639930639d35d7cef7ef333f4d6b7f3f771a6edffd15c783c9f24029491"
     },
     {
       "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps-high-ta-normal-steps-stop0-arrival.png",
@@ -2683,14 +2873,29 @@
       "sha256": "541bb3ef5fa8fa0b34aba23f2dd6609f95cbf0f787cb890665bd19626e69ed00"
     },
     {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps-high-ta-normal-steps-stop2-arrival.png",
+      "bytes": 118083,
+      "sha256": "affb9bb5beb53fa7676594c93c9da3e8f7be159675059ec285f2494e38d9b178"
+    },
+    {
       "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps-high-ta-normal-steps-stop2-cargo.png",
       "bytes": 127245,
       "sha256": "1b8da42d982c4cfadb5412fe03fcc2b39e353e33837879587602c9bbdc70480e"
     },
     {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps-high-ta-normal-steps-stop2-printed-name.png",
+      "bytes": 64239,
+      "sha256": "c156c6b9b1dfbeb935998a263793b15a1c1f1540dc958abc8c32c4ceb6df68d4"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps-high-ta-normal-steps-stop2-report.png",
+      "bytes": 41164,
+      "sha256": "3ea7c3930bb05d1d4c0ad2fb17198e2cc01e17c772551a218dce35cea9f378d7"
+    },
+    {
       "file": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps.json",
-      "bytes": 8155,
-      "sha256": "cf3d3b3b77856bb280ed154b095ca1c049b2f77ff8975d2e3233e396a8a2efd6"
+      "bytes": 83983,
+      "sha256": "a407520e10c7e9ab7c425b86656981efd065765b246a25513660d9d46c08cafb"
     },
     {
       "file": "c46-playable-6d83d2e1-scanner-regression-low-en-normal-pod-controls-0.png",

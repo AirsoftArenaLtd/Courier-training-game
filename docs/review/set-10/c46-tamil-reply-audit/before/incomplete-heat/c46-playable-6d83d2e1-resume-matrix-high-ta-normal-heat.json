@@ -1,0 +1,94 @@
+{
+  "checks": 572,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "kind": "heat",
+      "shots": [
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-brief.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-controls-0.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-controls-1.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-controls-2.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-controls-3.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-controls-4.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-controls-5.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-handheld.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-stop0-safety.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-stop0-cargo.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-stop0-arrival.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-stop0-photo-framing.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-stop0-photo-review.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-stop0-report.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-stop1-safety.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-stop1-cargo.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-stop1-arrival.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-heat-high-ta-normal-heat-stop1-printed-name.png"
+      ],
+      "stops": [
+        {
+          "index": 0,
+          "phase": "report",
+          "state": {
+            "inVan": true,
+            "carrying": [],
+            "scanned": {
+              "p1": true
+            },
+            "scannedInVan": true,
+            "pulls": 1,
+            "wrongPulls": 0,
+            "addressChecked": false,
+            "knocks": 1,
+            "answered": false,
+            "talked": false,
+            "vanTrips": 0,
+            "outcome": "delivered",
+            "type": "left",
+            "signer": null,
+            "code": null,
+            "tagPrinted": false,
+            "tagAttached": false,
+            "spot": "mat",
+            "photo": {
+              "grade": "good",
+              "pkgIn": true,
+              "doorIn": true,
+              "numIn": false,
+              "personIn": false
+            },
+            "idResult": null,
+            "exitSafe": true,
+            "enterSafe": true,
+            "hazards": {},
+            "delivered": [
+              "p1"
+            ],
+            "elapsed": 46.66978333333124,
+            "done": true
+          },
+          "criticals": []
+        }
+      ],
+      "photoProofs": [
+        {
+          "index": 0,
+          "width": 640,
+          "height": 360,
+          "colours": 225
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "bc6a81db97f1a1dc138ce04057792a43840e44fc",
+  "uncommittedRuntime": false,
+  "protocolSha256": "bae2f54e2d9ba994ec97b769bfde52e7fed8e1d54c7e9a4e71ab83361733e03b",
+  "scope": "Existing-id registration, accessibility and a suspended workday are setup fixtures. Observational wrappers record completed original conversations and pre-evaluation stop facts without changing arguments or return values. Real keys control all walking, aiming, parcels, safety actions, replies, photos, signing and results. No position, timer, node, hazard, signature-completion, score or verdict fixture. Independent original 2D callbacks replay observed choices and evaluate observed stop facts. Bounds checks do not certify Tamil glyph coverage or Intel FPS.",
+  "failure": {
+    "message": "Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.",
+    "stack": "TargetCloseError: Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.\n    at CdpCDPSession.send (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:72:35)\n    at CdpKeyboard.up (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Input.js:113:28)\n    at Object.up (/workspace/c46-safety-wellness/test/fpwellnessbrowser.js:15:155)\n    at /workspace/c46-safety-wellness/test/tools/fp-loading-walk.js:23:55\n    at async walk (/workspace/c46-safety-wellness/test/fpwellnessbrowser.js:16:101)\n    at async /workspace/c46-safety-wellness/test/fpwellnessbrowser.js:62:67"
+  }
+}

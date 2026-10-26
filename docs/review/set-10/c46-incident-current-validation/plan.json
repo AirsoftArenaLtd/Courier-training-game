@@ -1,5 +1,5 @@
 {
-  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
   "root": "/workspace/c46-safety-wellness",
   "port": 8396,
   "sources": {
@@ -753,7 +753,7 @@
     "test/fpwalkaroundworld.js": "806b3c6798d1252f2dbd4f2c890a8cedb47bac84be801753fe7e53cffe56a494",
     "test/fpweather.js": "3816a80606222b740d9873737d07343489b61745d4c6c8b00d59d04192851339",
     "test/fpweatherbrowser.js": "82f9c9fddc1881d04df2f54f438adc17a382311fd130b0965c70b1bca2d249b2",
-    "test/fpwellnessbrowser.js": "bae2f54e2d9ba994ec97b769bfde52e7fed8e1d54c7e9a4e71ab83361733e03b",
+    "test/fpwellnessbrowser.js": "02e1041cfa9f7746459827fdacc33d9186ac25b58a15b6593ce354c70b818ca6",
     "test/fpwellnessgeometry.js": "7894a96e5dbdb63b29355013157f5a9804deb9453193a9a67af09ed00ded7bef",
     "test/fpwellnessscenario.js": "a5d1df831f37847ac6164b57e3b1d884bc657f746c86369a529db63224c1a011",
     "test/fpwellnessstage.js": "1c70f66e4e2803a5926fcf3c9d6a2cff9c10a76ed0fb7fbc3e5a87fada40f7af",
@@ -911,7 +911,9 @@
     "test/trainerkeysbrowser.js": "92e40e5c39bba8d3b11638f565838874f4c4dd3a353caedb74812fa67375a732",
     "test/workday.js": "0ad4239d0c04958d455305e481cd96e31e5ec628ac912da4bb477ae21172b5d8",
     "test/workdayflow.js": "2e9c432205f95c6f901e58e018d00e50864665c48b15c1ab128b4ef769637891",
-    "test/xapi.js": "0e40623bf78b42e47629355d660b63b4d7ce28de89881c172567edf91c7a0b25"
+    "test/xapi.js": "0e40623bf78b42e47629355d660b63b4d7ce28de89881c172567edf91c7a0b25",
+    "test/fppanellayoutbrowser.js": "903e59c46d24c54b987022a1cb34b31fe864beb94797c32d0d6e3d071508f8b8",
+    "test/tools/fp-panel-layout.js": "bbfd8ee4cc4eea4044e594ee83294b549632d37316c8665b5e00f22822ae68b4"
   },
   "waitFor": {
     "results": "/workspace/c46-safety-wellness/docs/review/set-10/c46-playable-validation/results.json",
@@ -926,7 +928,7 @@
     "captures": 19,
     "scope": "Current frozen source/protocol: the completed Low English normal incident regression is retained; it is not rerun."
   },
-  "scope": "Fresh current-source integration of the incident module after shared rendering/conversation changes: seven remaining good quality/language/size cases, critical and abandonment in larger Tamil, and 32 original-ceiling resource views. With the retained current Low English normal case this completes eight incident layouts. Earlier 0777a5f0 component evidence remains at its old source and is not relabelled; shared A31 glyph/translation/readability/default/Intel gates remain separate.",
+  "scope": "Fresh current-source integration of the incident module after shared rendering/conversation changes: seven remaining good quality/language/size cases, critical and abandonment in larger Tamil, and 32 original-ceiling resource views. With the retained current Low English normal case this completes eight incident layouts. Earlier 0777a5f0 component evidence remains at its old source and is not relabelled; shared A31 glyph/translation/readability/default/Intel gates remain separate. Application remains 6d83d2e1; core continuation uses protocol 35bd5bb1.",
   "jobs": [
     {
       "name": "resource-loaded-low",
@@ -1101,5 +1103,6 @@
       },
       "timeout": 7200
     }
-  ]
+  ],
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5"
 }

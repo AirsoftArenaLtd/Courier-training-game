@@ -1,6 +1,6 @@
 {
-  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
-  "scope": "64 arranged resource views (15 retained unaffected Low, 49 fresh); 24 good native journeys (one retained unaffected footsteps, two fresh preflight, 21 fresh matrix), one critical trip and three abandonments; six repository browser regressions. No shared Tamil glyph/translation/A30/A31/default/current-pilot or Intel FPS acceptance. All fresh jobs stop at the first failure.",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "scope": "64 resource views and six repository regressions retained; 20 completed good native journeys retained in explicit prior-protocol scope. Eight unfinished jobs use stronger horizontal panel/button bounds. The application is unchanged at 6d83d2e1; only the native protocol and new static audit/helper changed. All 1896 static M8 panels pass at both sizes in 12 languages. Shared glyph/translation/A31/default/current-pilot/Intel acceptance remains excluded.",
   "retained": [
     {
       "name": "loaded-low-original-15",
@@ -236,6 +236,24 @@
         "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat",
         "QA_CASE": "high-en-large-heat"
       }
+    },
+    {
+      "name": "matrix-high-ta-normal-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps",
+        "QA_CASE": "high-ta-normal-steps"
+      }
+    },
+    {
+      "name": "matrix-high-ta-normal-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog",
+        "QA_CASE": "high-ta-normal-dog"
+      }
     }
   ],
   "preflightComplete": true,
@@ -245,9 +263,10 @@
   ],
   "continuation": {
     "earlierFailedAttempt": "high-steps-timeout-20261026/manifest.json",
-    "retainedPassingJobs": 21,
-    "remainingJobs": 15,
+    "interruption": "../c46-tamil-reply-audit/resolution.json",
+    "retainedPassingJobs": 28,
+    "remainingJobs": 8,
     "wallTimeoutSeconds": 3600,
-    "scope": "Only the incomplete High footsteps case and fourteen never-started cases run. App/data/assets/browser protocols remain byte-identical across 909 frozen files. All original per-action timeouts, game clocks, pars, scores and resource limits are unchanged."
+    "scope": "The suspected overflow was withdrawn after measurement. No application change. Retain completed jobs and restart only the voluntarily interrupted heat partial and seven never-started jobs with actual horizontal bounds."
   }
 }
