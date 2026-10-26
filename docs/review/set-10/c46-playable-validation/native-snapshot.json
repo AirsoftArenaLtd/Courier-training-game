@@ -1,15 +1,15 @@
 {
   "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
-  "at": "2026-10-26T17:29:53.081Z",
+  "at": "2026-10-26T18:29:26.797Z",
   "scope": "Completed good wellness journeys only. Regression journeys and partial in-progress reports are excluded. Retained footsteps evidence is limited to its documented unaffected scope; new collected results independently replay actual original callbacks. No browser test is rerun by this evidence aggregation.",
   "sourceFilesVerified": 909,
-  "completedJobs": 23,
+  "completedJobs": 25,
   "preflightComplete": true,
   "complete": false,
-  "goodJourneys": 15,
-  "nativeChecks": 17529,
-  "captures": 370,
-  "passedAssessments": 6,
+  "goodJourneys": 17,
+  "nativeChecks": 20088,
+  "captures": 419,
+  "passedAssessments": 8,
   "rows": [
     {
       "scope": "955 checks/7500 points/nine stars/one durable play. The footsteps graph never uses ownerAppears at the gate; optional panel-stop is unused on its waypoint walking. The new dog pose is outside this accepted scope.",
@@ -463,6 +463,95 @@
           "colours": 232
         }
       ],
+      "originalCallbackEquality": "verified from collected observations"
+    },
+    {
+      "scope": "Current frozen application/protocol; original callbacks independently replayed from collected conversation and final-stop observations. Shared A31 glyph/translation/default readiness is excluded.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-large-steps.json",
+      "sha256": "fc277886f18263155a20b2b0f2c568c2e66f08f099686b04d21870521b93ea1b",
+      "id": "m8-steps",
+      "quality": "high",
+      "language": "en",
+      "large": true,
+      "checks": 948,
+      "captures": 23,
+      "score": 7500,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 128,
+      "durable": true,
+      "plays": 1,
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793035662802,
+        "pending": false,
+        "at": 1793037626622,
+        "stars": {
+          "safety": 3,
+          "efficiency": 3,
+          "service": 3
+        },
+        "score": 7500,
+        "criticals": [],
+        "lessons": [
+          "Slow down on ice and wet surfaces: short steps, feet flat, and hold SHIFT to walk carefully.",
+          "Clear trip hazards before you walk the path with a package that blocks your view.",
+          "Three points of contact in and out of the cab. Most cab falls happen on the way down."
+        ]
+      },
+      "photoProofs": [
+        {
+          "index": 0,
+          "width": 640,
+          "height": 360,
+          "colours": 425
+        }
+      ],
+      "originalCallbackEquality": "verified from collected observations"
+    },
+    {
+      "scope": "Current frozen High larger-English dog assessment; original callbacks independently replayed from collected choices and final-stop facts. Shared A31/default readiness remains separate.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-large-dog.json",
+      "sha256": "29d7632d026c38a321e9528e8fff9d972a8768203ab7e3d1ccddc6932a61b942",
+      "id": "m8-dog",
+      "quality": "high",
+      "language": "en",
+      "large": true,
+      "checks": 1611,
+      "captures": 26,
+      "score": 6700,
+      "stars": {
+        "safety": 3,
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 98,
+      "durable": true,
+      "plays": 1,
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793037654720,
+        "pending": false,
+        "at": 1793039162711,
+        "stars": {
+          "safety": 3,
+          "service": 3,
+          "efficiency": 3
+        },
+        "score": 6700,
+        "criticals": [],
+        "lessons": [
+          "Never enter a yard with a loose dog. Get the owner to secure it first.",
+          "If a dog charges: stop, stay calm, keep the package between you and it, avoid eye contact and back away slowly. Never run.",
+          "Tucked tail, pinned ears and a low body mean fear, and frightened dogs bite when cornered. Ask the owner to secure the dog."
+        ]
+      },
+      "photoProofs": null,
       "originalCallbackEquality": "verified from collected observations"
     }
   ]
