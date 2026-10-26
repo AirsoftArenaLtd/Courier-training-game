@@ -1,0 +1,29 @@
+{
+  "sourceRevision": "618b5f2f7a46800ba77fbd655d8762bde7cc4175",
+  "requestedViews": [
+    "incidentdamage",
+    "incidentdriver",
+    "incidentwitness",
+    "incidentcab",
+    "incidentreply",
+    "incidentreport",
+    "incidentcontrols",
+    "incidenthandheld"
+  ],
+  "scope": "Selected static incident poses under the original fpbench resource profiles; not native gameplay or laptop FPS acceptance.",
+  "profiles": [
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c46-0777a5f0-incident-resource-accessible-low-accessible-low-low.json",
+      "log": "c46-0777a5f0-incident-resource-accessible-low-accessible-low.log",
+      "peak": {
+        "calls": 31,
+        "triangles": 920,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2163958
+      }
+    }
+  ]
+}

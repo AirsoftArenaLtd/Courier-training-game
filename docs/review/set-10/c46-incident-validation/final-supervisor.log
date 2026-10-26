@@ -1,0 +1,10 @@
+browser-slot {'state': 'waiting'}
+native-good-high-en-normal {'state': 'running'}
+resource-loaded-low {'state': 'running'}
+resource-loaded-high {'state': 'running'}
+resource-accessible-low {'state': 'running'}
+resource-fallback-low {'state': 'running'}
+native-good-low-en-large {'state': 'running'}
+native-critical-low-en-large {'state': 'running'}
+native-abandon-low-en-large {'state': 'running'}
+all-browser-checks {'state': 'passed'}

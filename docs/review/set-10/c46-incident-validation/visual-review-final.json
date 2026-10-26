@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-26T06:19:36.019096+00:00",
+  "applicationRuntime": "0777a5f0dbe016fd8751d003fcfafdf98f167f00",
+  "images": {
+    "completed/resource-loaded-high/c46-0777a5f0-incident-resource-loaded-high-loaded-high-high-incidentdriver.png": "a172af80ea84cfa414467726c947df186b700ef55955ab1a72975a149e1c5528",
+    "completed/resource-loaded-high/c46-0777a5f0-incident-resource-loaded-high-loaded-high-high-incidentwitness.png": "a6e2d3448da33b984e8827fa8175448c7d230d13769bccbdbee4b54eb0273a70",
+    "completed/resource-fallback-low/c46-0777a5f0-incident-resource-fallback-low-fallback-low-low-incidentdamage.png": "87fb4e851d834c8b5e0f23a1a4f52bb958371a435b0652008d06ee341b8fea63",
+    "completed/resource-accessible-low/c46-0777a5f0-incident-resource-accessible-low-accessible-low-low-incidentreport.png": "be9b897aa6fa395f3c69f88c7c48d2472ef94d6d9877009f6645a934f5ac3160",
+    "completed/native-good-high-en-normal/c46-0777a5f0-incident-native-good-high-en-normal-high-en-normal-result.png": "cea3083e4b6a798cd37ce689b92eb77424f581cf222029b20a4b0532c3b4138f",
+    "completed/native-good-low-en-large/c46-0777a5f0-incident-native-good-low-en-large-low-en-large-result.png": "014e73a21f3434d0dfb3b920db609e53413cf161a357305ec1525c81398ec6f8",
+    "completed/native-critical-low-en-large/c46-0777a5f0-incident-native-critical-low-en-large-low-en-large-result.png": "661b230db4b098469e8516e4dd99fa0f18987ac9119405f16acf75cae5054c67",
+    "completed/native-good-high-en-normal/c46-0777a5f0-incident-native-good-high-en-normal-high-en-normal-arrival-4.png": "ee3ea120e02a3f34a4aa19e3e1ecf4e290a3820df28490ae62209e83f78a6bf3"
+  },
+  "observations": [
+    "The locally bundled High driver/sedan and witness/house are present at their actual targets. The fallback damage/fender target remains supported and visible; the approximation is procedural and is not an owner visual-quality sign-off.",
+    "The larger Low final report reply wraps at readable size and all four controls fit. High normal and Low larger-English native results both show nine stars; the larger assessment visibly passes.",
+    "The dishonest-report result visibly fails its assessment at five stars, with the original critical honest-report lesson. All three result layouts fit their takeaways and actions.",
+    "The native witness arrival uses the actual remapped O/U controls and shows the bundled resident. Native records independently match actual original callbacks, including original 4100 good points and 2900 critical points. Abandonment consumes one attempt with no completed play; its evidence is durable state, not a result screenshot."
+  ],
+  "scope": "Eight representative current-source images inspected. Incident component English/native/resource scope only; full C46/remaining layouts/Tamil/shared rollout/Intel remain separate."
+}

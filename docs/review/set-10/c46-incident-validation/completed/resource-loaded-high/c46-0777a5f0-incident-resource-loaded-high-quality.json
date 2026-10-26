@@ -1,0 +1,29 @@
+{
+  "sourceRevision": "618b5f2f7a46800ba77fbd655d8762bde7cc4175",
+  "requestedViews": [
+    "incidentdamage",
+    "incidentdriver",
+    "incidentwitness",
+    "incidentcab",
+    "incidentreply",
+    "incidentreport",
+    "incidentcontrols",
+    "incidenthandheld"
+  ],
+  "scope": "Selected static incident poses under the original fpbench resource profiles; not native gameplay or laptop FPS acceptance.",
+  "profiles": [
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c46-0777a5f0-incident-resource-loaded-high-loaded-high-high.json",
+      "log": "c46-0777a5f0-incident-resource-loaded-high-loaded-high.log",
+      "peak": {
+        "calls": 45,
+        "triangles": 40118,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5807910
+      }
+    }
+  ]
+}
