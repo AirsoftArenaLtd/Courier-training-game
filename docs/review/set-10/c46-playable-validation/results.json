@@ -263,6 +263,33 @@
         "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat",
         "QA_CASE": "high-ta-normal-heat"
       }
+    },
+    {
+      "name": "matrix-high-ta-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps",
+        "QA_CASE": "high-ta-large-steps"
+      }
+    },
+    {
+      "name": "matrix-high-ta-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-large-dog",
+        "QA_CASE": "high-ta-large-dog"
+      }
+    },
+    {
+      "name": "matrix-high-ta-large-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-large-heat",
+        "QA_CASE": "high-ta-large-heat"
+      }
     }
   ],
   "preflightComplete": true,

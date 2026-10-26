@@ -1,0 +1,165 @@
+{
+  "at": "2026-10-26T22:18:05.708Z",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "sourceFilesVerified": 911,
+  "retainedProofFilesVerified": 12,
+  "scope": "The three completed High larger-Tamil core assessments only; mixed protocol scopes remain explicit in the complete24-row snapshot. Shared glyph/translation/readability and unsafe/abandoned/current-incident/current-pilot/Intel acceptance remain separate.",
+  "cases": [
+    {
+      "scope": "Completed High larger-Tamil one-attempt assessment at horizontal protocol35bd5bb1, unchanged application6d83d2e1. Original callbacks independently replay collected choices/stop facts; actual horizontal/vertical bounds and durable saved assessment pass. Shared glyph/translation/readability readiness is excluded.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-large-steps.json",
+      "sha256": "bdbf58b3b37d9a5875adc5aee7edb628edc4ab04e849a8fe910fdb5e7e451654",
+      "protocolSha256": "02e1041cfa9f7746459827fdacc33d9186ac25b58a15b6593ce354c70b818ca6",
+      "id": "m8-steps",
+      "quality": "high",
+      "language": "ta",
+      "large": true,
+      "checks": 1246,
+      "captures": 23,
+      "score": 7500,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 123,
+      "durable": true,
+      "plays": 1,
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793047889789,
+        "pending": false,
+        "at": 1793049835789,
+        "stars": {
+          "safety": 3,
+          "efficiency": 3,
+          "service": 3
+        },
+        "score": 7500,
+        "criticals": [],
+        "lessons": [
+          "Slow down on ice and wet surfaces: short steps, feet flat, and hold SHIFT to walk carefully.",
+          "Clear trip hazards before you walk the path with a package that blocks your view.",
+          "Three points of contact in and out of the cab. Most cab falls happen on the way down."
+        ]
+      },
+      "photoProofs": [
+        {
+          "index": 0,
+          "width": 640,
+          "height": 360,
+          "colours": 434
+        }
+      ],
+      "originalCallbackEquality": "verified from collected observations",
+      "productionScene": "StopScene",
+      "scene3d": null,
+      "default3d": false,
+      "independentOriginalResultEquality": true,
+      "independentOriginalStarEquality": true
+    },
+    {
+      "scope": "Completed High larger-Tamil one-attempt assessment at horizontal protocol35bd5bb1, unchanged application6d83d2e1. Original callbacks independently replay collected choices/stop facts; actual horizontal/vertical bounds and durable saved assessment pass. Shared glyph/translation/readability readiness is excluded.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-large-dog.json",
+      "sha256": "f33c3fd1f1a59fd9a25c005b2fcccc74d75af951a24f4f9ff155f3246fa43387",
+      "protocolSha256": "02e1041cfa9f7746459827fdacc33d9186ac25b58a15b6593ce354c70b818ca6",
+      "id": "m8-dog",
+      "quality": "high",
+      "language": "ta",
+      "large": true,
+      "checks": 2187,
+      "captures": 26,
+      "score": 6700,
+      "stars": {
+        "safety": 3,
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 98,
+      "durable": true,
+      "plays": 1,
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793049870997,
+        "pending": false,
+        "at": 1793051277029,
+        "stars": {
+          "safety": 3,
+          "service": 3,
+          "efficiency": 3
+        },
+        "score": 6700,
+        "criticals": [],
+        "lessons": [
+          "Never enter a yard with a loose dog. Get the owner to secure it first.",
+          "If a dog charges: stop, stay calm, keep the package between you and it, avoid eye contact and back away slowly. Never run.",
+          "Tucked tail, pinned ears and a low body mean fear, and frightened dogs bite when cornered. Ask the owner to secure the dog."
+        ]
+      },
+      "photoProofs": null,
+      "originalCallbackEquality": "verified from collected observations",
+      "productionScene": "StopScene",
+      "scene3d": null,
+      "default3d": false,
+      "independentOriginalResultEquality": true,
+      "independentOriginalStarEquality": true
+    },
+    {
+      "scope": "Completed High larger-Tamil one-attempt assessment at horizontal protocol35bd5bb1, unchanged application6d83d2e1. Original callbacks independently replay collected choices/stop facts; actual horizontal/vertical bounds and durable saved assessment pass. Shared glyph/translation/readability readiness is excluded.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-large-heat.json",
+      "sha256": "7362bf8c9f510e3d64f7f5ee2f17ed9cf9525ce560c7cd44937447d670234073",
+      "protocolSha256": "02e1041cfa9f7746459827fdacc33d9186ac25b58a15b6593ce354c70b818ca6",
+      "id": "m8-heat",
+      "quality": "high",
+      "language": "ta",
+      "large": true,
+      "checks": 1154,
+      "captures": 25,
+      "score": 6900,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 103,
+      "durable": true,
+      "plays": 1,
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793051309340,
+        "pending": false,
+        "at": 1793052936932,
+        "stars": {
+          "safety": 3,
+          "efficiency": 3,
+          "service": 3
+        },
+        "score": 6900,
+        "criticals": [],
+        "lessons": [
+          "Drink water before you're thirsty: small amounts at every stop through a hot shift.",
+          "Use shade and AC to cool down between stops, and pace yourself in extreme heat.",
+          "Dizziness, headache, nausea, cramps or confusion: stop, cool down, hydrate and tell dispatch. Collapse or confusion means call 911."
+        ]
+      },
+      "photoProofs": [
+        {
+          "index": 0,
+          "width": 640,
+          "height": 360,
+          "colours": 240
+        }
+      ],
+      "originalCallbackEquality": "verified from collected observations",
+      "productionScene": "StopScene",
+      "scene3d": null,
+      "default3d": false,
+      "independentOriginalResultEquality": true,
+      "independentOriginalStarEquality": true
+    }
+  ]
+}
