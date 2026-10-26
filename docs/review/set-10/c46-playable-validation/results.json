@@ -146,6 +146,51 @@
         "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-steps",
         "QA_CASE": "low-ta-normal-steps"
       }
+    },
+    {
+      "name": "matrix-low-ta-normal-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-dog",
+        "QA_CASE": "low-ta-normal-dog"
+      }
+    },
+    {
+      "name": "matrix-low-ta-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-heat",
+        "QA_CASE": "low-ta-normal-heat"
+      }
+    },
+    {
+      "name": "matrix-low-ta-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-steps",
+        "QA_CASE": "low-ta-large-steps"
+      }
+    },
+    {
+      "name": "matrix-low-ta-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-dog",
+        "QA_CASE": "low-ta-large-dog"
+      }
+    },
+    {
+      "name": "matrix-low-ta-large-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-heat",
+        "QA_CASE": "low-ta-large-heat"
+      }
     }
   ],
   "preflightComplete": true,
