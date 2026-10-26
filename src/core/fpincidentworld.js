@@ -8,7 +8,7 @@ OTR.fpIncidentWorld={
     const scratch=new T.Object3D(),colour=new T.Color(),meshes=[fixed,moving],pools=[64,32].map(n=>Array.from({length:n},()=>({matrix:new T.Matrix4(),color:new T.Color(),sphere:new T.Sphere()}))),batches=meshes.map(mesh=>({mesh,entries:[]})),imports=[],people=[],sides=[-1,1];let stat=0,dynamic=0,disposed=false;
     fixed.setColorAt(0,colour);moving.setColorAt(0,colour);
     const box=(slot,i,x,y,z,w,h,d,c,angle=0)=>{const e=pools[slot][i];if(!e)throw Error('Incident geometry capacity exceeded');scratch.position.set(x,y,z);scratch.rotation.set(0,angle,0);scratch.scale.set(w,h,d);scratch.updateMatrix();const mesh=meshes[slot];mesh.setMatrixAt(i,scratch.matrix);colour.setHex(c);mesh.setColorAt(i,colour);e.matrix.copy(scratch.matrix);e.color.copy(colour);e.sphere.center.copy(scratch.position);e.sphere.radius=Math.hypot(w,h,d)/2;batches[slot].entries[i]=e;};
-    const solid=(...p)=>box(0,stat++,...p),part=(...p)=>box(1,dynamic++,...p);
+    const solid=(x,y,z,w,h,d,c,a=0)=>box(0,stat++,x,y,z,w,h,d,c,a),part=(x,y,z,w,h,d,c,a=0)=>box(1,dynamic++,x,y,z,w,h,d,c,a);
     const proxy=(x,y,z,w,h,d,id=null)=>{const o=new T.Mesh(cube,proxyPaint);o.layers.set(1);o.position.set(x,y,z);o.scale.set(w,h,d);o.userData.interaction=id;root.add(o);occluders.push(o);if(id)interactions.push(o);return o;};
     const imported=(use,placement)=>{const g=bank?.add(root,use,[placement]);if(!g)return null;imports.push(g);for(const b of g.userData.batches){b.mesh.frustumCulled=false;b.mesh.castShadow=b.mesh.receiveShadow=high;b.mesh.geometry.computeBoundingSphere();for(const e of b.entries)e.sphere=b.mesh.geometry.boundingSphere.clone().applyMatrix4(e.matrix);batches.push(b);}return g;};
     const stage=m.incidentStage,car=stage.car;

@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-26T05:37:42.331982+00:00",
+  "baseline": "e7ad10f9e68cdaddc65a022459a0511039f20380",
+  "applicationDelta": {
+    "src/core/fpincidentworld.js": {
+      "before": "ef8b9e83dcc7eba1a5b2eb2bdb09befc57ab2bbf8a29ecbd8166a005290010d3",
+      "after": "f24b9268d7f1019dc22b79d6ce842d1775f1692bb81a2da9eea6fac55a56a06d"
+    }
+  },
+  "change": "Explicit dynamic box parameters replace per-frame rest-argument arrays; no geometry, score, source dialogue, pass or texture change.",
+  "retainedNodePasses": 96,
+  "rerun": [
+    "test/fpincidentscenario.js",
+    "test/fplighting.js",
+    "test/fpworld.js",
+    "test/fpincidentworld.js",
+    "test/fpincidentgeometry.js"
+  ],
+  "totalPassingSuites": 101,
+  "retainedSyntaxPasses": 14,
+  "rerunSyntax": [
+    "src/core/fpincidentworld.js"
+  ],
+  "cpuLow": {
+    "loaded": {
+      "poses": 4752,
+      "calls": 36,
+      "triangles": 1308
+    },
+    "fallback": {
+      "poses": 4752,
+      "calls": 37,
+      "triangles": 1210
+    }
+  },
+  "browser": "Owned supervisor66097 stopped; exact child groups and port8391 exited and shared lock released before edit. Its first journey was incomplete; no browser acceptance carried forward."
+}

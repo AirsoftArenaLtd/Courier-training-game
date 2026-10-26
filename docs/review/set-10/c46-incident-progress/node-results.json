@@ -266,18 +266,18 @@
   {
     "file": "test/fpincidentgeometry.js",
     "exit": 0,
-    "seconds": 3.451,
+    "seconds": 2.559,
     "sourceSha256": "175288cce3d611abfd6d02e02731fe353ad24f63a459e8aeb19b7383d86d8f6d",
     "log": "fpincidentgeometry.log",
-    "logSha256": "bc6664a1dd47cae30990750b731545d62f74ef7fce32f235222ff67824825ed4"
+    "logSha256": "408e49e3c586885594311cf163f304bd2cb466c55ebde2b09adf424080f478f3"
   },
   {
     "file": "test/fpincidentscenario.js",
     "exit": 0,
-    "seconds": 0.296,
+    "seconds": 0.397,
     "sourceSha256": "a29da4776165c3b8c59c88554a17ed456eb0506f0f5c1eefb01754dc01e9eb71",
     "log": "fpincidentscenario.log",
-    "logSha256": "fa2eb10c0eb7d9128b4dab1502596ed2a9ac58bd47909134a1b31a338fb7ee5d"
+    "logSha256": "2f3dfa2d947bcafa0b60409ff1d72143cb02443c74192935730f5d30c98ea918"
   },
   {
     "file": "test/fpincidentstage.js",
@@ -290,10 +290,10 @@
   {
     "file": "test/fpincidentworld.js",
     "exit": 0,
-    "seconds": 2.558,
+    "seconds": 2.202,
     "sourceSha256": "d89908a77bcb8d6c23c82ba58a1806ef56744a3258e04a852a59f4b4570c8b96",
     "log": "fpincidentworld.log",
-    "logSha256": "2c56048086ca36240121577e616ed55891fe65eda6e81a8f16de87714efde1db"
+    "logSha256": "85d27a9701da9c499dcd27ffaaf3787cb27bc466e8ca0a10205ead15a4b70d13"
   },
   {
     "file": "test/fpjobrunner.js",
@@ -314,10 +314,10 @@
   {
     "file": "test/fplighting.js",
     "exit": 0,
-    "seconds": 0.806,
+    "seconds": 0.998,
     "sourceSha256": "688e552bd298e8753b8da790acb376d365d3f4fb1b1f99ba5cf2c4fad90680e0",
     "log": "fplighting.log",
-    "logSha256": "4674788f1a6b18cd84e6cf62c069f00f77536e41e309042e5aaaa599e14dee26"
+    "logSha256": "d34eb8eda9acce8869bf6f7bb6e141fb3b3917a05c2569b6b3722634d66afcfb"
   },
   {
     "file": "test/fploading.js",
@@ -722,10 +722,10 @@
   {
     "file": "test/fpworld.js",
     "exit": 0,
-    "seconds": 0.792,
+    "seconds": 0.804,
     "sourceSha256": "f028392bbd6a11d85eacd0b3f9ea0c154b1c602c813fe00cf569345b41158159",
     "log": "fpworld.log",
-    "logSha256": "71c5f6d5c1e77d00a473acfe689cf8f3b6cbabcde775fd701554158052db2451"
+    "logSha256": "26485636e7243de6aa310088a139ac88811c7502fa81675fd36a2063539e7cb4"
   },
   {
     "file": "test/glossary.js",

@@ -1,0 +1,9 @@
+{
+  "pid": 66097,
+  "runtime": "e7ad10f9e68cdaddc65a022459a0511039f20380",
+  "planSha256": "419e43393661267a38c5b801418a6686d876f3ebde91a8a1acc41d2e118eb162",
+  "jobs": 8,
+  "sources": 863,
+  "port": 8391,
+  "scope": "Incident component only, not full C46 acceptance."
+}

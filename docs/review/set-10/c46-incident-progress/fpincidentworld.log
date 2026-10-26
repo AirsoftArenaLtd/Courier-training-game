@@ -61,8 +61,8 @@ THREE.ImageBitmapLoader: createImageBitmap() not supported.
 THREE.ImageBitmapLoader: createImageBitmap() not supported.
 THREE.ImageBitmapLoader: createImageBitmap() not supported.
 THREE.ImageBitmapLoader: createImageBitmap() not supported.
-✔ bundled sedan/house and High people have bounded fallbacks, stable buffers and private disposal (1694.597459ms)
-✔ all physical conversation points remain visible from nearby legal positions with loaded assets and fallback (476.557585ms)
+✔ bundled sedan/house and High people have bounded fallbacks, stable buffers and private disposal (1498.92309ms)
+✔ all physical conversation points remain visible from nearby legal positions with loaded assets and fallback (327.564546ms)
 ℹ tests 2
 ℹ suites 0
 ℹ pass 2
@@ -70,4 +70,4 @@ THREE.ImageBitmapLoader: createImageBitmap() not supported.
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 2184.73464
+ℹ duration_ms 1874.8041
