@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-26T00:21:29Z",
+  "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "protocolRevision": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
+  "passedJobs": 30,
+  "expectedJobs": 30,
+  "goodNativeJourneys": 16,
+  "goodNativeChecks": 8484,
+  "allNativeChecks": 9953,
+  "nativeCaptures": 466,
+  "resourceViews": 56,
+  "capturesVisuallyInspected": {
+    "completed/native-good-high-ta-large-load/c44-label-native-good-high-ta-large-load-41056a12-high-ta-large-load-handheld.png": "d835ca77dff9f1954feeef2b9428fbecbcad0d7a835113d36467bbe1a0ee3039",
+    "completed/native-good-high-ta-large-load/c44-label-native-good-high-ta-large-load-41056a12-high-ta-large-load-result.png": "0384266b8b4c151ee38d08f6009c37e0604ad51db059f63463b43b4ddf1fb0cb",
+    "completed/native-good-high-ta-large-find/c44-label-native-good-high-ta-large-find-41056a12-high-ta-large-find-find-label-f10.png": "3a7f06a4d9d73932c248ef3c3d8de3a386bad034c18552f7d8a13d0042a79b47",
+    "completed/native-good-high-ta-large-find/c44-label-native-good-high-ta-large-find-41056a12-high-ta-large-find-result.png": "83bf16d0ed23b561d7ccb9b6ef029d760cb9755ddef6e8db27b3f047da664a0a",
+    "completed/native-bad-load-low-en-large-load/c44-label-native-bad-load-low-en-large-load-41056a12-low-en-large-load-result.png": "5311a0538bafbfbf8914524c9d506d8dcc500ffbbfd1f3222492a68185dae80e",
+    "completed/native-wrong-find-low-en-large-find/c44-label-native-wrong-find-low-en-large-find-41056a12-low-en-large-find-result.png": "b266604d90c13617370ecd4db038ab13b55ddc3ac479ed5afb3592d8149c9cbf"
+  },
+  "observations": [
+    "High larger-Tamil handheld and unit-address panel fit; both good result screens show six stars and the passed assessment. Loading retains 2100 and finding 1545 points, with 161.271/18.746 game seconds and one durable attempt each.",
+    "Unsafe loading visibly shows ASSESSMENT NOT PASSED, zero safety/two efficiency stars, 9/12 placements, one heavy parcel high and floor not strapped. Original callback outcome is 1200 points, durable after reload.",
+    "Near-match finding visibly shows ASSESSMENT NOT PASSED, two efficiency/zero service stars, zero of five first-time correct and five wrong picks. Original callback outcome is 622 points, durable after reload.",
+    "Both abandoned assessments retain one attempt, pending false, passed false, abandoned true and no completed play after full-page reload, verified from their completed reports.",
+    "Shared Tamil missing glyphs and English/mixed new text remain in the result and module panels. These are behavior/bounds passes and cannot establish readable-Tamil or A31/default readiness."
+  ],
+  "repositoryJobs": [
+    "scorm2004",
+    "legacy-modules",
+    "academy",
+    "enterprise",
+    "routeday",
+    "driving"
+  ],
+  "scope": "Final six captures newly inspected, alongside the earlier current-source visual audits. All 30 jobs pass their unchanged source-scoped gates; shared combined-pilot/A30/A31/font/translation/default rollout and owner Intel O1 acceptance remain separate. Registry proposal stays unapplied."
+}

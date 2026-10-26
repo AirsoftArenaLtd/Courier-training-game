@@ -1,9 +1,10 @@
 {
-  "date": "2026-10-25T23:15:40Z",
+  "date": "2026-10-26T00:21:29Z",
   "applicationRuntime": "41056a12d3ce88f5fb37106a35e1f81718c9511c",
   "completed": [
     {
       "case": "low-en-normal-find",
+      "variant": "good",
       "checks": 239,
       "captures": 13,
       "score": 1426,
@@ -15,10 +16,13 @@
       "durable": true,
       "assessed": false,
       "assessmentPassed": null,
-      "assessmentAttempts": null
+      "assessmentAttempts": null,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "low-en-normal-load",
+      "variant": "good",
       "checks": 815,
       "captures": 37,
       "score": 2100,
@@ -30,10 +34,13 @@
       "durable": true,
       "assessed": false,
       "assessmentPassed": null,
-      "assessmentAttempts": null
+      "assessmentAttempts": null,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "low-en-large-load",
+      "variant": "good",
       "checks": 822,
       "captures": 37,
       "score": 2100,
@@ -45,10 +52,13 @@
       "durable": true,
       "assessed": true,
       "assessmentPassed": true,
-      "assessmentAttempts": 1
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "low-en-large-find",
+      "variant": "good",
       "checks": 245,
       "captures": 13,
       "score": 1448,
@@ -60,10 +70,13 @@
       "durable": true,
       "assessed": true,
       "assessmentPassed": true,
-      "assessmentAttempts": 1
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "low-ta-normal-load",
+      "variant": "good",
       "checks": 815,
       "captures": 37,
       "score": 2100,
@@ -75,10 +88,13 @@
       "durable": true,
       "assessed": false,
       "assessmentPassed": null,
-      "assessmentAttempts": null
+      "assessmentAttempts": null,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "low-ta-normal-find",
+      "variant": "good",
       "checks": 239,
       "captures": 13,
       "score": 1437,
@@ -90,10 +106,13 @@
       "durable": true,
       "assessed": false,
       "assessmentPassed": null,
-      "assessmentAttempts": null
+      "assessmentAttempts": null,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "low-ta-large-load",
+      "variant": "good",
       "checks": 822,
       "captures": 37,
       "score": 2100,
@@ -105,10 +124,13 @@
       "durable": true,
       "assessed": true,
       "assessmentPassed": true,
-      "assessmentAttempts": 1
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "low-ta-large-find",
+      "variant": "good",
       "checks": 245,
       "captures": 13,
       "score": 1446,
@@ -120,10 +142,13 @@
       "durable": true,
       "assessed": true,
       "assessmentPassed": true,
-      "assessmentAttempts": 1
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "high-en-normal-find",
+      "variant": "good",
       "checks": 239,
       "captures": 13,
       "score": 1614,
@@ -135,10 +160,13 @@
       "durable": true,
       "assessed": false,
       "assessmentPassed": null,
-      "assessmentAttempts": null
+      "assessmentAttempts": null,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "high-en-normal-load",
+      "variant": "good",
       "checks": 815,
       "captures": 37,
       "score": 2100,
@@ -150,10 +178,13 @@
       "durable": true,
       "assessed": false,
       "assessmentPassed": null,
-      "assessmentAttempts": null
+      "assessmentAttempts": null,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "high-en-large-load",
+      "variant": "good",
       "checks": 822,
       "captures": 37,
       "score": 2100,
@@ -165,10 +196,13 @@
       "durable": true,
       "assessed": true,
       "assessmentPassed": true,
-      "assessmentAttempts": 1
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "high-en-large-find",
+      "variant": "good",
       "checks": 245,
       "captures": 13,
       "score": 1595,
@@ -180,10 +214,13 @@
       "durable": true,
       "assessed": true,
       "assessmentPassed": true,
-      "assessmentAttempts": 1
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "high-ta-normal-load",
+      "variant": "good",
       "checks": 815,
       "captures": 37,
       "score": 2100,
@@ -195,10 +232,13 @@
       "durable": true,
       "assessed": false,
       "assessmentPassed": null,
-      "assessmentAttempts": null
+      "assessmentAttempts": null,
+      "abandoned": false,
+      "completedPlays": 1
     },
     {
       "case": "high-ta-normal-find",
+      "variant": "good",
       "checks": 239,
       "captures": 13,
       "score": 1612,
@@ -210,8 +250,112 @@
       "durable": true,
       "assessed": false,
       "assessmentPassed": null,
-      "assessmentAttempts": null
+      "assessmentAttempts": null,
+      "abandoned": false,
+      "completedPlays": 1
+    },
+    {
+      "case": "high-ta-large-load",
+      "variant": "good",
+      "checks": 822,
+      "captures": 37,
+      "score": 2100,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "seconds": 161.27065666664885,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": true,
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
+    },
+    {
+      "case": "high-ta-large-find",
+      "variant": "good",
+      "checks": 245,
+      "captures": 13,
+      "score": 1545,
+      "stars": {
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 18.746483333332314,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": true,
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
+    },
+    {
+      "case": "low-en-large-load",
+      "variant": "bad-load",
+      "checks": 800,
+      "captures": 36,
+      "score": 1200,
+      "stars": {
+        "safety": 0,
+        "efficiency": 2
+      },
+      "seconds": 166.94997333333706,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": false,
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
+    },
+    {
+      "case": "low-en-large-find",
+      "variant": "wrong-find",
+      "checks": 359,
+      "captures": 18,
+      "score": 622,
+      "stars": {
+        "efficiency": 2,
+        "service": 0
+      },
+      "seconds": 38.74998666666661,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": false,
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
+    },
+    {
+      "case": "low-en-large-load",
+      "variant": "abandon",
+      "checks": 157,
+      "captures": 6,
+      "score": null,
+      "stars": null,
+      "seconds": null,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": false,
+      "assessmentAttempts": 1,
+      "abandoned": true,
+      "completedPlays": 0
+    },
+    {
+      "case": "low-en-large-find",
+      "variant": "abandon",
+      "checks": 153,
+      "captures": 6,
+      "score": null,
+      "stars": null,
+      "seconds": null,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": false,
+      "assessmentAttempts": 1,
+      "abandoned": true,
+      "completedPlays": 0
     }
   ],
-  "scope": "Finished corrected-source journeys only, independently replayed original callbacks; all eight Low layouts, all four High English layouts and both normal-text High Tamil layouts. Six passed one-attempt assessments survive reload. Behavior/bounds passes do not establish readable Tamil, whole-task, current-pilot or default acceptance."
+  "scope": "All 20 source-scoped native cases complete: 16 good journeys, two harmful journeys and two abandoned assessments. Original callbacks, durable records/attempts and workday isolation pass. Shared readable-Tamil/default/current-pilot/Intel acceptance remains separate."
 }
