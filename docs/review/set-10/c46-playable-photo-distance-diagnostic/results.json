@@ -1,0 +1,15 @@
+{
+  "runtime": "21a447a8567e5c1afd413f1ae5b91a9b91ae128e",
+  "scope": "Three current-source native preflight journeys, 60 arranged playable resource views and six repository browser regressions. The full native language/size matrix and harmful/abandonment journeys remain required; this is not full C46 acceptance.",
+  "jobs": [
+    {
+      "name": "low-en-normal-steps",
+      "exit": 1,
+      "env": {
+        "QA_CASE": "low-en-normal-steps",
+        "QA_TAG": "c46-playable-21a447a8-low-en-normal-steps"
+      }
+    }
+  ],
+  "complete": false
+}
