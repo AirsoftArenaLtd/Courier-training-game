@@ -1,0 +1,30 @@
+node:child_process:981
+    throw err;
+    ^
+
+<ref *1> Error: spawnSync /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node EPERM
+    at Object.spawnSync (node:internal/child_process:1160:20)
+    at spawnSync (node:child_process:928:24)
+    at execFileSync (node:child_process:971:15)
+    at Object.<anonymous> (/workspace/c46-safety-wellness/test/reviewsheet.js:86:3)
+    at Module._compile (node:internal/modules/cjs/loader:1872:14)
+    at Object..js (node:internal/modules/cjs/loader:2003:10)
+    at Module.load (node:internal/modules/cjs/loader:1594:32)
+    at Module._load (node:internal/modules/cjs/loader:1396:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5) {
+  errno: -1,
+  code: 'EPERM',
+  syscall: 'spawnSync /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node',
+  path: '/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node',
+  spawnargs: [ '/workspace/c46-safety-wellness/test/tools/review-sheet.js' ],
+  error: [Circular *1],
+  status: 0,
+  signal: null,
+  output: [ null, Buffer(0) [Uint8Array] [], Buffer(0) [Uint8Array] [] ],
+  pid: 65638,
+  stdout: Buffer(0) [Uint8Array] [],
+  stderr: Buffer(0) [Uint8Array] []
+}
+
+Node.js v24.19.0

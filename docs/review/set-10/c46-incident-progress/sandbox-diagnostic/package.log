@@ -1,0 +1,67 @@
+✔ the package holds the run-time files and nothing else (43.61335ms)
+✖ the zip builds with the manifest at the top and stays inside the budget (4659.018619ms)
+✖ the SCORM 2004 package has the 2004 manifest at the top and the same game files (4485.481313ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9201.862944
+
+✖ failing tests:
+
+test at test/package.js:24:1
+✖ the zip builds with the manifest at the top and stays inside the budget (4659.018619ms)
+  <ref *1> Error: spawnSync unzip EPERM
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at TestContext.<anonymous> (/workspace/c46-safety-wellness/test/package.js:28:17)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -1,
+    code: 'EPERM',
+    syscall: 'spawnSync unzip',
+    path: 'unzip',
+    spawnargs: [ '-Z1', '/tmp/otr-pkg-Buw8zI/pkg.zip' ],
+    error: [Circular *1],
+    status: 0,
+    signal: null,
+    output: [ null, <Buffer 61 73 73 65 74 73 2f 33 64 2f 6b 65 6e 6e 65 79 2d 63 61 72 2d 6b 69 74 2f 4c 49 43 45 4e 53 45 2e 74 78 74 0a 61 73 73 65 74 73 2f 33 64 2f 6b 65 6e ... 8115 more bytes>, <Buffer > ],
+    pid: 65652,
+    stdout: <Buffer 61 73 73 65 74 73 2f 33 64 2f 6b 65 6e 6e 65 79 2d 63 61 72 2d 6b 69 74 2f 4c 49 43 45 4e 53 45 2e 74 78 74 0a 61 73 73 65 74 73 2f 33 64 2f 6b 65 6e ... 8115 more bytes>,
+    stderr: <Buffer >
+  }
+
+test at test/package.js:34:1
+✖ the SCORM 2004 package has the 2004 manifest at the top and the same game files (4485.481313ms)
+  <ref *1> Error: spawnSync unzip EPERM
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at TestContext.<anonymous> (/workspace/c46-safety-wellness/test/package.js:37:17)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -1,
+    code: 'EPERM',
+    syscall: 'spawnSync unzip',
+    path: 'unzip',
+    spawnargs: [ '-Z1', '/tmp/otr-pkg-MRryKU/pkg2004.zip' ],
+    error: [Circular *1],
+    status: 0,
+    signal: null,
+    output: [ null, <Buffer 61 73 73 65 74 73 2f 33 64 2f 6b 65 6e 6e 65 79 2d 63 61 72 2d 6b 69 74 2f 4c 49 43 45 4e 53 45 2e 74 78 74 0a 61 73 73 65 74 73 2f 33 64 2f 6b 65 6e ... 8115 more bytes>, <Buffer > ],
+    pid: 65656,
+    stdout: <Buffer 61 73 73 65 74 73 2f 33 64 2f 6b 65 6e 6e 65 79 2d 63 61 72 2d 6b 69 74 2f 4c 49 43 45 4e 53 45 2e 74 78 74 0a 61 73 73 65 74 73 2f 33 64 2f 6b 65 6e ... 8115 more bytes>,
+    stderr: <Buffer >
+  }

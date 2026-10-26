@@ -1,0 +1,24 @@
+/* Real mission/world rays and callback integration; native keyboard/layout checks remain separate. */
+const test=require('node:test'),assert=require('node:assert/strict'),{O,fixture}=require('./tools/fp-incident-context')(),K=O.fpCustomerTalk,S=O.fpIncidentStage,A=O.fpCustomerScenario;
+function aim(scene){const m=scene.model,t=m.incidentStage.target;scene.sync();const eye=scene.view.camera.position,yaw=Math.atan2(t.x-eye.x,-(t.z-eye.z)),pitch=Math.atan2(eye.y-t.y,Math.hypot(t.x-eye.x,t.z-eye.z));if(m.mode==='cab')m.van.look=yaw;else m.player.yaw=yaw;m.player.pitch=pitch;scene.sync();assert.equal(scene.art.pick(),'customer-conversation',JSON.stringify({site:m.incidentStage.site,target:t,pick:scene.art.pick(),eye}));}
+function walk(scene,x,z){scene.closePanel();let n=0;while(Math.hypot(scene.model.player.x-x,scene.model.player.z-z)>.08&&n++<2200){const p=scene.model.player;p.yaw=Math.atan2(x-p.x,-(z-p.z));scene.model.step({forward:true},.025);}assert.ok(n<2200,JSON.stringify({goal:[x,z],player:scene.model.player}));scene.sync();}
+function go(scene){const m=scene.model,s=m.incidentStage;if(m.mode==='cab'){assert.equal(m.exit(),true);scene.sync();}
+ if(s.site==='cab'){if(m.player.x>3){walk(scene,7.5,m.player.z);walk(scene,7.5,-44.4);walk(scene,-.1,-44.4);}walk(scene,-.1,-42.65);const p=m.point('driver');m.player.yaw=Math.atan2(p.x-m.player.x,-(p.z-m.player.z));m.player.pitch=0;scene.sync();assert.equal(scene.art.pick(),'driver');scene.scenarioSession.definition.interact(scene.scenarioSession,scene,'driver');assert.equal(m.mode,'cab');}
+ else if(s.site==='damage'){if(m.player.x>3){walk(scene,7.5,-39.9);walk(scene,7.5,-34.9);walk(scene,-.3,-34.9);walk(scene,-.3,-38);}else walk(scene,-.3,-38);}
+ else {if(m.player.x<5){walk(scene,-.1,-44.4);walk(scene,7.5,-44.4);}if(s.site==='witness'){walk(scene,7.5,-40.6);walk(scene,10.8,-40.6);}else {walk(scene,7.5,-39.9);walk(scene,s.target.x,-39.1);}}
+ aim(scene);
+}
+test('the complete original good incident path walks between the real sedan, people and cab and finishes once',()=>{
+ O.workday.begin();O.workday.report('brief.read',{key:'suspended'});const outside=JSON.stringify(O.workday.events),finished=[];O.flow.complete=(scene,id,result)=>finished.push({id,result});
+ const scene=fixture('m8-incident'),r=scene.scenarioSession,s=scene.model.customerTalk;try{aim(scene);r.definition.interact(r,scene,'customer-conversation');let n=0,trips=0;
+  while(r.phase==='active'&&n++<180){if(!scene.panel){go(scene);trips++;r.definition.interact(r,scene,'customer-conversation');continue;}if(s.phase==='choices'){const best=s.choices.findIndex(ch=>ch.grade==='good');assert.ok(best>=0);A.present(scene,best);}scene.panel.choices[0].action();}
+  assert.ok(n<180);assert.equal(r.phase,'finished');assert.equal(r.result.stats.outcome,'good');assert.equal(r.result.log,s.log);for(const value of Object.values(r.result.ratios))assert.equal(value,1);assert.ok(trips>=5);assert.equal(finished.length,1);assert.equal(finished[0].id,'m8-incident');assert.equal(JSON.stringify(O.workday.events),outside);assert.equal(O.fpScenario.finish(r,scene),false);
+  console.log(JSON.stringify({score:r.result.score,ratios:r.result.ratios,trips}));
+ }finally{scene.art.dispose();}
+});
+test('remote and wrong physical targets cannot advance a decision or bypass entering the cab',()=>{
+ const scene=fixture('m8-incident'),r=scene.scenarioSession,s=scene.model.customerTalk;try{r.definition.interact(r,scene,'driver');assert.equal(s.phase,'brief');scene.closePanel();K.enter(s,'n6');S.apply(scene.model.incidentStage,s);const entries=s.entries;r.definition.interact(r,scene,'customer-conversation');assert.equal(s.entries,entries);assert.equal(s.phase,'line');assert.throws(()=>r.definition.result(r),/incomplete/);}finally{scene.art.dispose();}
+});
+test('stale reply callbacks stay inert and timeout/quit consumes the active assessment without a result',()=>{
+ const scene=fixture('m8-incident',{assessment:true}),r=scene.scenarioSession,s=scene.model.customerTalk;try{aim(scene);r.definition.interact(r,scene,'customer-conversation');while(s.phase==='line'&&!s.node.choices)scene.panel.choices[0].action();scene.panel.choices[0].action();assert.equal(s.phase,'choices');const stale=scene.panel.choices[0].action;scene.panel.choices[0].action();const log=JSON.stringify(s.log.toJSON());stale();assert.equal(JSON.stringify(s.log.toJSON()),log);assert.equal(s.feedback,null);scene.closePanel();scene.handheld.isOpen=true;assert.equal(r.definition.clockActive(r,scene,false),false);scene.handheld.isOpen=false;scene.showPause();assert.equal(r.definition.clockActive(r,scene,false),false);r.definition.timeout(r,scene);scene.panel.choices[0].action();assert.equal(r.phase,'abandoned');assert.equal(O.academy.assessing,null);assert.equal(r.result,null);}finally{scene.art.dispose();}
+});
