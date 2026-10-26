@@ -1,0 +1,1067 @@
+{
+  "checks": 857,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "kind": "business",
+      "shots": [
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-brief.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-controls-0.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-controls-1.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-controls-2.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-controls-3.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-handheld.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-reply.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-counted-cart.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-count-decision.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-label-b1.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-inspection-b1.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-label-b2.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-inspection-b2.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-refusal-b2.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-label-b3.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-inspection-b3.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-label-b4.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-inspection-b4.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-refusal-b4.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-label-b5.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-inspection-b5.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-refusal-b5.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-label-b6.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-inspection-b6.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-receipt.png",
+        "c45-eb40876c-native-good-low-ta-normal-business-low-ta-normal-business-result.png"
+      ],
+      "observation": {
+        "talk": [
+          {
+            "node": "p1",
+            "text": "\"I'll be quick, but I do need to count and check them with you here. It saves us both a claim later.\"",
+            "grade": "good"
+          }
+        ],
+        "counts": [
+          {
+            "ids": [
+              "b1",
+              "b2",
+              "b3",
+              "b4",
+              "b5",
+              "b6"
+            ],
+            "choice": 0
+          }
+        ],
+        "flags": [],
+        "decisions": [
+          {
+            "id": "b1",
+            "accept": true,
+            "reason": null
+          },
+          {
+            "id": "b2",
+            "accept": false,
+            "reason": "PKG"
+          },
+          {
+            "id": "b3",
+            "accept": true,
+            "reason": null
+          },
+          {
+            "id": "b4",
+            "accept": false,
+            "reason": "LBL"
+          },
+          {
+            "id": "b5",
+            "accept": false,
+            "reason": "WGT"
+          },
+          {
+            "id": "b6",
+            "accept": true,
+            "reason": null
+          }
+        ],
+        "elapsed": 50.5999433333326
+      },
+      "original": {
+        "result": {
+          "score": 2300,
+          "ratios": {
+            "service": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Held the inspection standard",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Checking at the counter, with the shipper present, is the only time problems are easy to fix.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Held the inspection standard",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Checking at the counter, with the shipper present, is the only time problems are easy to fix.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Counted every piece waiting (6 of 6)",
+                "good": true,
+                "partial": false,
+                "lesson": "Count every piece yourself. Your signature on the manifest says you did.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Reconciled the piece count with the manifest",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Accepted 77 Queen St",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Clean box, clear label, reasonable weight.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Refused 77 Queen St",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A crushed, re-taped box will not survive the network. Ask for it to be repacked.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Accepted 41 Union Ave",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Good condition and a complete label.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Refused the unlabeled piece",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "No label, no delivery. It needs a label printed before it can be picked up.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Refused 9 Mill Rd",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "164 lb is over the limit for this service. It needs freight handling, not a package pickup.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Accepted 250 Harbor St",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Envelope in good shape with a clear label.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Worked the pickup in good time (51s)",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              }
+            ]
+          },
+          "lessons": [
+            "Count the pieces against the manifest before you sign anything.",
+            "Inspect packaging and labels at pickup: damage found later is much harder to sort out.",
+            "Refusing badly packed freight protects the customer's shipment, not just you."
+          ],
+          "stats": {
+            "log": {
+              "items": [
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Held the inspection standard",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Checking at the counter, with the shipper present, is the only time problems are easy to fix.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Held the inspection standard",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Checking at the counter, with the shipper present, is the only time problems are easy to fix.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Counted every piece waiting (6 of 6)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Count every piece yourself. Your signature on the manifest says you did.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Reconciled the piece count with the manifest",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Accepted 77 Queen St",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Clean box, clear label, reasonable weight.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused 77 Queen St",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A crushed, re-taped box will not survive the network. Ask for it to be repacked.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Accepted 41 Union Ave",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Good condition and a complete label.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused the unlabeled piece",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "No label, no delivery. It needs a label printed before it can be picked up.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused 9 Mill Rd",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "164 lb is over the limit for this service. It needs freight handling, not a package pickup.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Accepted 250 Harbor St",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Envelope in good shape with a clear label.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Worked the pickup in good time (51s)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                }
+              ]
+            }
+          }
+        },
+        "stars": {
+          "service": 3,
+          "efficiency": 3
+        }
+      },
+      "result": {
+        "id": "m7-business",
+        "result": {
+          "score": 2300,
+          "ratios": {
+            "service": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Held the inspection standard",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Checking at the counter, with the shipper present, is the only time problems are easy to fix.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981392390,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Held the inspection standard",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Checking at the counter, with the shipper present, is the only time problems are easy to fix.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981392390,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Counted every piece waiting (6 of 6)",
+                "good": true,
+                "partial": false,
+                "lesson": "Count every piece yourself. Your signature on the manifest says you did.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981439300,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Reconciled the piece count with the manifest",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981439300,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Accepted 77 Queen St",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Clean box, clear label, reasonable weight.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981455408,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Refused 77 Queen St",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A crushed, re-taped box will not survive the network. Ask for it to be repacked.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981463298,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981463298,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Accepted 41 Union Ave",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Good condition and a complete label.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981469822,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Refused the unlabeled piece",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "No label, no delivery. It needs a label printed before it can be picked up.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981479036,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981479036,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Refused 9 Mill Rd",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "164 lb is over the limit for this service. It needs freight handling, not a package pickup.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981487691,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981487691,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Accepted 250 Harbor St",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Envelope in good shape with a clear label.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981494791,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Worked the pickup in good time (51s)",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792981505712,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Count the pieces against the manifest before you sign anything.",
+            "Inspect packaging and labels at pickup: damage found later is much harder to sort out.",
+            "Refusing badly packed freight protects the customer's shipment, not just you."
+          ],
+          "stats": {
+            "log": {
+              "items": [
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Held the inspection standard",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Checking at the counter, with the shipper present, is the only time problems are easy to fix.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981392390,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Held the inspection standard",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Checking at the counter, with the shipper present, is the only time problems are easy to fix.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981392390,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Counted every piece waiting (6 of 6)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Count every piece yourself. Your signature on the manifest says you did.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981439300,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Reconciled the piece count with the manifest",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981439300,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Accepted 77 Queen St",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Clean box, clear label, reasonable weight.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981455408,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused 77 Queen St",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A crushed, re-taped box will not survive the network. Ask for it to be repacked.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981463298,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981463298,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Accepted 41 Union Ave",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Good condition and a complete label.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981469822,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused the unlabeled piece",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "No label, no delivery. It needs a label printed before it can be picked up.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981479036,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981479036,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused 9 Mill Rd",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "164 lb is over the limit for this service. It needs freight handling, not a package pickup.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981487691,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981487691,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Accepted 250 Harbor St",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Envelope in good shape with a clear label.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981494791,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Worked the pickup in good time (51s)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792981505712,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 51
+          }
+        },
+        "stars": {
+          "service": 3,
+          "efficiency": 3
+        },
+        "verdict": {
+          "untested": [],
+          "criticals": [],
+          "takeaways": [
+            {
+              "text": "Count the pieces against the manifest before you sign anything.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "Inspect packaging and labels at pickup: damage found later is much harder to sort out.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "Refusing badly packed freight protects the customer's shipment, not just you.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            }
+          ],
+          "mistakes": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 2300,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792981505713
+        },
+        "elapsed": 50.5999433333326,
+        "runElapsed": 50.5999433333326,
+        "passStars": {
+          "safety": 2,
+          "efficiency": 2,
+          "service": 2
+        }
+      },
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      },
+      "durable": true,
+      "reload": {
+        "record": {
+          "plays": 1,
+          "bestScore": 2300,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792981505713
+        },
+        "scene": "PickupScene",
+        "default3d": false,
+        "scene3d": null
+      }
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "189b8a25808ec0402c5cb9077721b1157069bded",
+  "uncommittedRuntime": false,
+  "protocolSha256": "1f7c302baa650acf696e4fd5b52c2fb029bc00556d577adeeca63bc29b23735a",
+  "sourceFiles": {
+    "index.html": "6547f74cc517273f1e1d736e3058fc3423fcf3603c01dfc54c94356c3253648a",
+    "src/core/fppickup.js": "051c7e3b85e769d38a223d8fb3b30ba379a15f3e2ccfb12a6c48a01ba497422c",
+    "src/core/fppickupworld.js": "bdaab60750a670f5d49f11eb4e96c555d12531ecc739f1de178f34b98ca5761c",
+    "src/core/fppickupscenario.js": "3813f0c8be74b6672767171f73cb2083b455dc7419ab391841d22c154b800d06",
+    "src/core/fpworld.js": "589dacbc063402a10bc8c66604565e968addcb682a0ca2f1bd0df10f16f522e9",
+    "src/core/fpaccess.js": "b8072e8bcbd161959b069b5049325ec636d496d3ac3b2a251bfbed6da968de99",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/core/fpcustomertalk.js": "aea1c7d30cffbb375a4f50804c8daf0185b166c12942b3bad762ee6a169affbb",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/scenes/FirstPersonScenarioScene.js": "5f007f6b50da29848bdad54b7e9e972f7bfa69c1faa3f6d047493be62ac91654",
+    "src/scenes/BaseScenarioScene.js": "7249bc0ebbf84ca584186ddb90979ebaea7c54791cc08aff5939609f2b016135",
+    "src/scenes/m7/PickupScene.js": "ef84a99f9d095989746d5ae1d53804610a9e83e9dd4596684413b12de1be8309",
+    "data/m7_pickups.js": "a6032594d50f824cebb5487c99b42682406c2d0b2e9027d83aad53799cbbd644",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "test/tools/fp-pickup-original.js": "558aba91db98bbc8aefb000cb7cf1c5857e19ce1da279e9b86a0aca9fe3be0e7",
+    "test/tools/fp-loading-walk.js": "fa935591d7988b722cb678a844abafbb01177bd1ae73b5e8bea95d6a275324ab",
+    "test/tools/fp-result-capture.js": "258cb10e46052c769861eff19322b8cba2567d90acd173b1eb3a7ccc08e19707"
+  },
+  "scope": "Only initial existing-id registration, identity/accessibility preferences and a real suspended workday are fixtures. All movement, focus/rays, conversations, counting, paperwork, inspection, refusals, receipt, pause and completion use real keys. No native position, clock, callback, score, result or assessment-completion fixtures. Actual original source callbacks independently replay the observed decisions. Tamil font/translation readiness remains separate.",
+  "complete": true
+}

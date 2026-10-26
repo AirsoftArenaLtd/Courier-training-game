@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-26T02:33:39.281600+00:00",
+  "applicationRuntime": "eb40876c88b101e8d33d3e277fa061634bee067f",
+  "views": 60,
+  "originalLimitsUnchanged": true,
+  "profiles": {
+    "loaded-low": {
+      "calls": 26,
+      "triangles": 1754,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1955056
+    },
+    "loaded-high": {
+      "calls": 33,
+      "triangles": 33772,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 5834224
+    },
+    "accessible-low": {
+      "calls": 26,
+      "triangles": 1754,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2197606
+    },
+    "fallback-low": {
+      "calls": 27,
+      "triangles": 1502,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1955056
+    }
+  },
+  "scope": "All four source-scoped resource profiles pass; no Intel FPS acceptance."
+}

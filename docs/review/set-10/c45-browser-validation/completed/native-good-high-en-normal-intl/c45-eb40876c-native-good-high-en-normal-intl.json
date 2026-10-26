@@ -1,0 +1,762 @@
+{
+  "checks": 1007,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "kind": "intl",
+      "shots": [
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-brief.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-controls-0.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-controls-1.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-controls-2.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-controls-3.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-handheld.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-reply.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-counted-cart.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-count-decision.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-invoice-0.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-invoice-1.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-invoice-2.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-invoice-3.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-invoice-4.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-invoice-5.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-invoice-6.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-invoice-7.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-invoice-8.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-invoice-9.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-invoice-10.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-invoice-submit.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-label-i1.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-inspection-i1.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-refusal-i1.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-label-i2.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-inspection-i2.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-refusal-i2.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-receipt.png",
+        "c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-result.png"
+      ],
+      "observation": {
+        "talk": [
+          {
+            "node": "i1",
+            "text": "\"Let me read through the invoice with you. If customs bounces it, it sits for days.\"",
+            "grade": "good"
+          }
+        ],
+        "counts": [
+          {
+            "ids": [
+              "i1",
+              "i2"
+            ],
+            "choice": 0
+          }
+        ],
+        "flags": [
+          2,
+          5,
+          8,
+          9,
+          10
+        ],
+        "decisions": [
+          {
+            "id": "i1",
+            "accept": false,
+            "reason": "DOC"
+          },
+          {
+            "id": "i2",
+            "accept": false,
+            "reason": "DOC"
+          }
+        ],
+        "elapsed": 33.8842766666659
+      },
+      "original": {
+        "result": {
+          "score": 1800,
+          "ratios": {
+            "service": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Checked the customs paperwork",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Checking together means the shipper can correct it on the spot.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Counted every piece waiting (2 of 2)",
+                "good": true,
+                "partial": false,
+                "lesson": "Count every piece yourself. Your signature on the manifest says you did.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Reconciled the piece count with the manifest",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 5,
+                "max": 5,
+                "label": "Found the customs paperwork problems (5/5)",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Refused 42 Rue Laval",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The commercial invoice is incomplete. Fix it before the shipment leaves, or it stalls at the border.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Refused 42 Rue Laval",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Same shipment, same invoice: both pieces wait until the paperwork is right.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Worked the pickup in good time (34s)",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              }
+            ]
+          },
+          "lessons": [
+            "A customs description has to say what the item actually is, not \"samples\", \"parts\" or \"gift\".",
+            "Value, quantity, country of origin and the shipper's signature all have to be there.",
+            "Catching document problems at pickup saves the customer days of customs delay."
+          ],
+          "stats": {
+            "log": {
+              "items": [
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Checked the customs paperwork",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Checking together means the shipper can correct it on the spot.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Counted every piece waiting (2 of 2)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Count every piece yourself. Your signature on the manifest says you did.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Reconciled the piece count with the manifest",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 5,
+                  "max": 5,
+                  "label": "Found the customs paperwork problems (5/5)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused 42 Rue Laval",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The commercial invoice is incomplete. Fix it before the shipment leaves, or it stalls at the border.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused 42 Rue Laval",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Same shipment, same invoice: both pieces wait until the paperwork is right.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Worked the pickup in good time (34s)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                }
+              ]
+            }
+          }
+        },
+        "stars": {
+          "service": 3,
+          "efficiency": 3
+        }
+      },
+      "result": {
+        "id": "m7-intl",
+        "result": {
+          "score": 1800,
+          "ratios": {
+            "service": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Checked the customs paperwork",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Checking together means the shipper can correct it on the spot.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792983200007,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Counted every piece waiting (2 of 2)",
+                "good": true,
+                "partial": false,
+                "lesson": "Count every piece yourself. Your signature on the manifest says you did.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792983370014,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Reconciled the piece count with the manifest",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792983370014,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 5,
+                "max": 5,
+                "label": "Found the customs paperwork problems (5/5)",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792983454218,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Refused 42 Rue Laval",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The commercial invoice is incomplete. Fix it before the shipment leaves, or it stalls at the border.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792983545812,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792983545812,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Refused 42 Rue Laval",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Same shipment, same invoice: both pieces wait until the paperwork is right.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792983584806,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792983584808,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Worked the pickup in good time (34s)",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1792983657619,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "A customs description has to say what the item actually is, not \"samples\", \"parts\" or \"gift\".",
+            "Value, quantity, country of origin and the shipper's signature all have to be there.",
+            "Catching document problems at pickup saves the customer days of customs delay."
+          ],
+          "stats": {
+            "log": {
+              "items": [
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Checked the customs paperwork",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Checking together means the shipper can correct it on the spot.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792983200007,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Counted every piece waiting (2 of 2)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Count every piece yourself. Your signature on the manifest says you did.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792983370014,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Reconciled the piece count with the manifest",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792983370014,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 5,
+                  "max": 5,
+                  "label": "Found the customs paperwork problems (5/5)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792983454218,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused 42 Rue Laval",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The commercial invoice is incomplete. Fix it before the shipment leaves, or it stalls at the border.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792983545812,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792983545812,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused 42 Rue Laval",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Same shipment, same invoice: both pieces wait until the paperwork is right.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792983584806,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792983584808,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Worked the pickup in good time (34s)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1792983657619,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 34
+          }
+        },
+        "stars": {
+          "service": 3,
+          "efficiency": 3
+        },
+        "verdict": {
+          "untested": [],
+          "criticals": [],
+          "takeaways": [
+            {
+              "text": "A customs description has to say what the item actually is, not \"samples\", \"parts\" or \"gift\".",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "Value, quantity, country of origin and the shipper's signature all have to be there.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "Catching document problems at pickup saves the customer days of customs delay.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            }
+          ],
+          "mistakes": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1800,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792983657625
+        },
+        "elapsed": 33.8842766666659,
+        "runElapsed": 33.8842766666659,
+        "passStars": {
+          "safety": 2,
+          "efficiency": 2,
+          "service": 2
+        }
+      },
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      },
+      "durable": true,
+      "reload": {
+        "record": {
+          "plays": 1,
+          "bestScore": 1800,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1792983657625
+        },
+        "scene": "PickupScene",
+        "default3d": false,
+        "scene3d": null
+      }
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "189b8a25808ec0402c5cb9077721b1157069bded",
+  "uncommittedRuntime": false,
+  "protocolSha256": "1f7c302baa650acf696e4fd5b52c2fb029bc00556d577adeeca63bc29b23735a",
+  "sourceFiles": {
+    "index.html": "6547f74cc517273f1e1d736e3058fc3423fcf3603c01dfc54c94356c3253648a",
+    "src/core/fppickup.js": "051c7e3b85e769d38a223d8fb3b30ba379a15f3e2ccfb12a6c48a01ba497422c",
+    "src/core/fppickupworld.js": "bdaab60750a670f5d49f11eb4e96c555d12531ecc739f1de178f34b98ca5761c",
+    "src/core/fppickupscenario.js": "3813f0c8be74b6672767171f73cb2083b455dc7419ab391841d22c154b800d06",
+    "src/core/fpworld.js": "589dacbc063402a10bc8c66604565e968addcb682a0ca2f1bd0df10f16f522e9",
+    "src/core/fpaccess.js": "b8072e8bcbd161959b069b5049325ec636d496d3ac3b2a251bfbed6da968de99",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/core/fpcustomertalk.js": "aea1c7d30cffbb375a4f50804c8daf0185b166c12942b3bad762ee6a169affbb",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/scenes/FirstPersonScenarioScene.js": "5f007f6b50da29848bdad54b7e9e972f7bfa69c1faa3f6d047493be62ac91654",
+    "src/scenes/BaseScenarioScene.js": "7249bc0ebbf84ca584186ddb90979ebaea7c54791cc08aff5939609f2b016135",
+    "src/scenes/m7/PickupScene.js": "ef84a99f9d095989746d5ae1d53804610a9e83e9dd4596684413b12de1be8309",
+    "data/m7_pickups.js": "a6032594d50f824cebb5487c99b42682406c2d0b2e9027d83aad53799cbbd644",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "test/tools/fp-pickup-original.js": "558aba91db98bbc8aefb000cb7cf1c5857e19ce1da279e9b86a0aca9fe3be0e7",
+    "test/tools/fp-loading-walk.js": "fa935591d7988b722cb678a844abafbb01177bd1ae73b5e8bea95d6a275324ab",
+    "test/tools/fp-result-capture.js": "258cb10e46052c769861eff19322b8cba2567d90acd173b1eb3a7ccc08e19707"
+  },
+  "scope": "Only initial existing-id registration, identity/accessibility preferences and a real suspended workday are fixtures. All movement, focus/rays, conversations, counting, paperwork, inspection, refusals, receipt, pause and completion use real keys. No native position, clock, callback, score, result or assessment-completion fixtures. Actual original source callbacks independently replay the observed decisions. Tamil font/translation readiness remains separate.",
+  "complete": true
+}

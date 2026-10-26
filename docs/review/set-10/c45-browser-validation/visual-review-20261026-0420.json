@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-26T04:20:31.708901+00:00",
+  "applicationRuntime": "eb40876c88b101e8d33d3e277fa061634bee067f",
+  "protocolRevision": "eb40876c88b101e8d33d3e277fa061634bee067f",
+  "snapshot": {
+    "passedJobs": 24,
+    "expectedJobs": 40,
+    "nativeGoodJourneys": 20,
+    "nativeChecks": 17618,
+    "nativeCaptures": 511,
+    "resourceViews": 60
+  },
+  "images": {
+    "completed/native-good-high-en-large-business/c45-eb40876c-native-good-high-en-large-business-high-en-large-business-handheld.png": "2b2b668b158b2ed0989de3fed84b5444f86220fb8c41a4069b86ca27097b55c0",
+    "completed/native-good-high-en-large-intl/c45-eb40876c-native-good-high-en-large-intl-high-en-large-intl-invoice-submit.png": "c87f49d6cc75a8f5e392116af9c51be3ce18d13f28d78ea2c1d025f0a2c14969",
+    "completed/native-good-high-en-large-dg/c45-eb40876c-native-good-high-en-large-dg-high-en-large-dg-result.png": "4286d319ca9ceba36abe5b952bbba992902aa38a3efb987c66a8756d005d2ffe",
+    "completed/native-good-low-ta-large-intl/c45-eb40876c-native-good-low-ta-large-intl-low-ta-large-intl-invoice-submit.png": "f27e0cba19787b1ae9d3cff1365ea0e70c464c7886e39794cd88bf3b5c89a25a",
+    "completed/native-good-low-ta-large-business/c45-eb40876c-native-good-low-ta-large-business-low-ta-large-business-result.png": "c846542c019238f5327add3feb3d3ba64f6d9cc829b816bc7812d067634d463d",
+    "completed/native-good-low-ta-large-dg/c45-eb40876c-native-good-low-ta-large-dg-low-ta-large-dg-inspection-g3.png": "4bb0574781f07a2710f39013b175221fab197d4adaf7ab2b80dfef8a2e404eaa",
+    "completed/native-good-high-en-normal-business/c45-eb40876c-native-good-high-en-normal-business-high-en-normal-business-receipt.png": "65eacf8753f8e605d0a5c758fa87f610385ab7f2cdbf67e6847b879d7551fa93",
+    "completed/native-good-high-ta-normal-intl/c45-eb40876c-native-good-high-ta-normal-intl-high-ta-normal-intl-result.png": "3570e39bc5dd84b1b55e84df060f268bf607a658c6279ab55959241c0ffc67eb",
+    "completed/native-good-high-en-normal-business/c45-eb40876c-native-good-high-en-normal-business-high-en-normal-business-result.png": "9ec470aad3327d9243ecbcc6d2f332e5951baac16cb7e39e003137a723ef5a16",
+    "completed/native-good-high-en-normal-intl/c45-eb40876c-native-good-high-en-normal-intl-high-en-normal-intl-result.png": "d961503d82a18bf0b5fa2178c32965b121dbb828961a953a5754a3f7f57d330d",
+    "completed/native-good-high-en-normal-dg/c45-eb40876c-native-good-high-en-normal-dg-high-en-normal-dg-result.png": "cc6c9b6764ed59956afa2e4a7460570ba1ca86ce0773f4b76766c2ec2e7ee259",
+    "completed/native-good-high-en-large-business/c45-eb40876c-native-good-high-en-large-business-high-en-large-business-result.png": "51aaa1099df64a45638236208aaa7db5f8939cacd8aeb6d8b0472323792193fb",
+    "completed/native-good-high-en-large-intl/c45-eb40876c-native-good-high-en-large-intl-high-en-large-intl-result.png": "682ee1d4dea54544ac0968d1454dbf53796d0d0b9df8a3e069c134d921da8aa3"
+  },
+  "observations": [
+    "All six High English result screens were inspected: each has six stars, all takeaways and both actions fit, and the three larger-text assessment banners visibly pass.",
+    "The native High larger-English business handheld shows the locally bundled shipper, mounted counter sign, supported outgoing parcels and readable two-choice controls. The native High receipt retains the uploaded shipper and mounted paper target; three accepted/three refused and the finish action fit.",
+    "The native larger-English High and larger-Tamil Low invoice confirmations fit all five marked lines and all three final choices. Both are currently in English pending Claude A31.",
+    "The larger-Tamil Low declared-DG inspection fits the four source facts and all three choices without a verdict. It remains English pending A31.",
+    "The larger-Tamil Low business assessment and normal-Tamil High international result both fit their bounds but have missing shared glyphs in takeaways/career and, for business, the title. Business visibly passes once; these images are not readable-Tamil or translation acceptance.",
+    "These thirteen newly inspected images supplement the thirteen in visual-review-20261026-0233.json. Current source/protocol stay frozen and no browser job was repeated for this documentation."
+  ],
+  "scope": "26 representative current-source images inspected across the two visual records. All resource profiles, all Low native cases and all High English native cases pass; remaining High Tamil, harmful, abandonment and repository jobs are pending. Shared readable-Tamil/translation/A30/A31/current-pilot/default/Intel O1 remain separate."
+}
