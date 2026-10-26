@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-26T01:33:59Z",
+  "applicationRuntime": "c75808ccc5ab1ddb0fcdd9156840e9fd13e9ed60",
+  "scope": "Six completed current-source static loaded-Low resource captures inspected. Not native gameplay, other qualities/text sizes/languages, whole-task/default/current-pilot or Intel FPS acceptance.",
+  "images": {
+    "completed/resource-loaded-low/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupcart.png": "b54f3561f04bdff02c1e21cce645491d5232b1bfecd636b06170c838d37f1d2b",
+    "completed/resource-loaded-low/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupinspection.png": "adfec72a0ac00684caef9da2a361ffff6b65b5fd492ad45b069b55b6dea592c9",
+    "completed/resource-loaded-low/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupreceipt.png": "4914a38b526446d71fd4dc20b325edff7ada7e2628d2c5d4f3466b5b849bd156",
+    "completed/resource-loaded-low/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupinvoicelast.png": "d2be889c457dd0559179c07642027fb8f43b55d9fa92fe51413331e3b99342b6",
+    "completed/resource-loaded-low/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupdeclared.png": "f70e8c51013981649fe0694266e536d4269a05a68a1c66dd1d36267638af7844",
+    "completed/resource-loaded-low/c45-c75808cc-resource-loaded-low-loaded-low-low-pickuprefusal.png": "303f176e98ac8032d6c12468371c6adfad17b726ef0075b57e41500d8ecc7d84"
+  },
+  "observations": [
+    "The cart actually faces and prints b6: 250 Harbor St, three pounds. The surrounding parcels remain supported by the outgoing table; a Low procedural shipper stands behind the real counter.",
+    "The package inspection, final invoice line, declared Class 3 parcel information and DG refusal reason fit at readable normal English size with all choices inside their panels.",
+    "The receipt and completion button fit inside the handheld screen with a clear Back action.",
+    "The resource proof independently retains actual b2/g3 ink while their panels hide the generic reticle. This replaces the rejected initial proof failure; no current resource gate was weakened.",
+    "All fifteen resource views pass the original numerical ceilings. Native journeys, larger-text/Tamil views, High and missing assets still require their own completed evidence."
+  ]
+}

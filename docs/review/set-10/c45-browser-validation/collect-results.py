@@ -95,8 +95,10 @@ def main():
             assert quality['requestedViews'] == VIEWS
             assert len(quality['profiles']) == 1 and quality['profiles'][0]['exit'] == 0
             profile = quality['profiles'][0]
+            assert profile['id'] == job['environment']['QA_PROFILES']
             raw_path = ROOT / 'test/out/fp-review' / profile['report']
             raw = json.loads(raw_path.read_text())
+            assert raw['tag'] == tag + '-' + profile['id']
             assert raw['pickupFixture'] and not raw['errors'] and not raw['missingViews']
             assert list(raw['pickupProof']) == VIEWS
             high = profile['id'] == 'loaded-high'

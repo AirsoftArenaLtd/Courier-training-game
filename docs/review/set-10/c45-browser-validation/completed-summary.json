@@ -1,26 +1,57 @@
 {
-  "date": "2026-10-26T01:23:00.073370+00:00",
-  "applicationRuntime": "629d899aeaef13bfabe081ea3360967d4e2925b3",
-  "protocolRevision": "629d899aeaef13bfabe081ea3360967d4e2925b3",
+  "date": "2026-10-26T01:33:59.424836+00:00",
+  "applicationRuntime": "c75808ccc5ab1ddb0fcdd9156840e9fd13e9ed60",
+  "protocolRevision": "c75808ccc5ab1ddb0fcdd9156840e9fd13e9ed60",
   "expectedJobs": 40,
-  "passedJobs": 0,
+  "passedJobs": 1,
   "complete": false,
   "nativeGoodJourneys": 0,
   "nativeChecks": 0,
   "nativeCaptures": 0,
-  "resourceViews": 0,
+  "resourceViews": 15,
   "native": [],
-  "resources": [],
+  "resources": [
+    {
+      "protocolRevision": "c75808ccc5ab1ddb0fcdd9156840e9fd13e9ed60",
+      "id": "resource-loaded-low",
+      "fingerprint": "1698656c5fe903df51ea6fc7e94a2c4ff48738fe097f0a354ba2c250054ede96",
+      "logSha256": "8560a554f12e4cc531b811e83ef8b8d429675d84aa61c08750b095f79a070870",
+      "artifacts": {
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupinvoicelast.png": "d2be889c457dd0559179c07642027fb8f43b55d9fa92fe51413331e3b99342b6",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupfindings.png": "bf74450098c41c71d670acb3b4924d01fce2c7c5c3b1eb20bceef130723ff843",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupcontrols.png": "54b19a5d4d3f410c3a02ffb8b62465240e5b2d1e29757bc1a2cce87c0c2c6912",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupsigned.png": "a6388292f8b06249fceea288c12cecf9477334ed691ef07a7010894c1923eecf",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low.log": "e044a4a8a07479c6eea6201ade97efc9c90d020d4df3daa0ed45a65f1c5e6b0b",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickuprefusal.png": "303f176e98ac8032d6c12468371c6adfad17b726ef0075b57e41500d8ecc7d84",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupinternational.png": "fee276cb33ff5aea56fd01e362ca7f168a5fd04ed7eae1df7dcc467ca58c1f21",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-quality.json": "aed983b8c4a13ea60b1a54f20603273e9c23987f4c7e0fbcb45c2d31548c0328",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupbusiness.png": "ee5282bc60528bde4dcc9df1a1107dc666b506ebb6619fca6014e46f81246104",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupinvoice.png": "a0455b34ae07841f80f9cfa6e4d5508b881186438f51f2861f183d0233cf7770",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupinspection.png": "adfec72a0ac00684caef9da2a361ffff6b65b5fd492ad45b069b55b6dea592c9",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupcart.png": "b54f3561f04bdff02c1e21cce645491d5232b1bfecd636b06170c838d37f1d2b",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupexception.png": "42174697d85fa56168333ed93556450da1e106a681571399f5d8d63903146c94",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupdeclared.png": "f70e8c51013981649fe0694266e536d4269a05a68a1c66dd1d36267638af7844",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupdangerous.png": "776bbc37d012ebbfac21164ec08814b3610c75277bde0cb491097647992d77ea",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupreceipt.png": "4914a38b526446d71fd4dc20b325edff7ada7e2628d2c5d4f3466b5b849bd156",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupcount.png": "a93e28dfb8329b765e6b5375be752b89c12da945204549aa0b6747155ed8b1a8",
+        "test/out/fp-review/bench-c45-c75808cc-resource-loaded-low-loaded-low-low.json": "a8101555fba0a6a4d7dce6d949900d55bfe4fbbc7fba0a2e2c8cb19364f9b5e2"
+      },
+      "views": 15,
+      "peak": {
+        "calls": 26,
+        "triangles": 1754,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1955056
+      },
+      "profile": "loaded-low"
+    }
+  ],
   "followups": [],
   "pending": [
     {
-      "id": "resource-loaded-low",
-      "state": "running",
-      "exit": null
-    },
-    {
       "id": "resource-loaded-high",
-      "state": "not started",
+      "state": "running",
       "exit": null
     },
     {
