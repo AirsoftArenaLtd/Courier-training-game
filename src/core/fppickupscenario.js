@@ -67,12 +67,14 @@ OTR.fpPickupScenario={
   ]);},
   receipt(scene){
     const s=scene.model.pickupTask,K=OTR.fpPickup;if(s.phase==='active'&&!K.receipt(s)){this.notice(scene,'Confirm the count, check any paperwork and decide on every piece before completing the pickup receipt.');return;}if(s.phase!=='receipt')return;
-    const accepted=K.accepted(s).length,refused=s.pieces.length-accepted,ready=!accepted||s.receiptSigned;
-    scene.closePanel();scene.handheld.show({title:'Record the pickup receipt.',lines:[`You accepted ${accepted} pieces and refused ${refused}.`,accepted?`${s.content.shipper.name} signs the pickup receipt.`:'The shipper keeps every refused piece. The pickup exception is recorded.'],
-      ...(!ready?{widget:{type:'signature',onDone:()=>{if(K.signed(s)){scene.handheld.close(false);this.receipt(scene);}}}}:{}),
-      options:ready?[{label:'Finish this pickup scenario.',onPick:()=>{if(K.complete(s)){scene.handheld.close(false);scene.finishScenario();}}}]:[{label:'Confirm the shipper signed the pickup receipt.',onPick:()=>{if(K.signed(s)){scene.handheld.close(false);this.receipt(scene);}}}],
-      back:()=>scene.handheld.close()
-    });
+    const accepted=K.accepted(s).length,refused=s.pieces.length-accepted,ready=!accepted||s.receiptSigned,h=scene.handheld,token={};
+    const current=()=>h.signatureToken===token&&h.isOpen&&scene.model.pickupTask===s&&scene.scenarioSession.phase==='active'&&s.phase==='receipt';
+    const signed=()=>{if(current()&&K.signed(s)){h.close(false);this.receipt(scene);}};
+    scene.closePanel();h.show({title:'Record the pickup receipt.',lines:[`You accepted ${accepted} pieces and refused ${refused}.`,accepted?`${s.content.shipper.name} signs the pickup receipt.`:'The shipper keeps every refused piece. The pickup exception is recorded.'],
+      ...(!ready?{widget:{type:'signature',onDone:signed}}:{}),
+      options:ready?[{label:'Finish this pickup scenario.',onPick:()=>{if(current()&&K.complete(s)){h.close(false);scene.finishScenario();}}}]:[{label:'Confirm the shipper signed the pickup receipt.',onPick:signed}],
+      back:()=>h.close()
+    });h.signatureToken=token;
   },
   controls(scene,page=0){const k=c=>OTR.fpAccess.key(c),pages=[`Use ${k('KeyW')}/${k('KeyA')}/${k('KeyS')}/${k('KeyD')} to walk and ${OTR.fpAccess.lookKeys()} or the mouse to look. Press ${k('KeyP')} to face a nearby visible target, then ${k('KeyE')} to interact.`,`Speak with the shipper, count each outgoing piece and reconcile the count at the physical manifest. Read the invoice at the counter when the pickup has one.`,`Face each package to read its label, packaging, scale reading and marks. Accept it or select a refusal reason. Each decision is final.`,`Face the receipt after inspecting every piece. The handheld has a signature pad and a keyboard confirmation. Menus and pauses stop both scenario clocks.`];this.panel(scene,'Use the pickup controls.',pages[page],[{label:'Read the next controls page.',action:()=>this.controls(scene,(page+1)%pages.length)},{label:'Return to the counter.',action:()=>scene.closePanel()}]);},
   handheld(scene){const s=scene.model.pickupTask;if(s.phase==='receipt'){this.receipt(scene);return;}scene.handheld.show({title:'Read the pickup details.',lines:[`The manifest lists ${s.manifest} pieces.`,`You counted ${Object.keys(s.counted).length} different pieces.`,`You inspected ${Object.keys(s.decided).length} pieces.`],options:[{label:'Read the pickup controls.',onPick:()=>{scene.handheld.close(false);this.controls(scene);}},{label:'Return to the counter.',onPick:()=>scene.handheld.close()}],back:()=>scene.handheld.close()});},

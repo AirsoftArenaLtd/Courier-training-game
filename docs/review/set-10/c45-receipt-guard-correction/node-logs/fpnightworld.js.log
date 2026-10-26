@@ -1,0 +1,14 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ headlights increase visible night distance within each quality range and trainer-off restores it (43.620614ms)
+✔ night visibility never extends a fog or storm weather limit (22.039293ms)
+✔ oncoming glare reuses the existing windscreen geometry/material and reduced motion removes it (38.350884ms)
+✔ leaving the night world restores fog limits and removes owned objects (3.935007ms)
+✔ later daytime fog and storm warn before moving and acknowledge the real headlight control (11.133338ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 130.236009

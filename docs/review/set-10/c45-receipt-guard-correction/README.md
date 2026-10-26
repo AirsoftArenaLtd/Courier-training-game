@@ -1,0 +1,9 @@
+# C45 guarded receipt callbacks — 26 October 2026
+
+C45 remains **doing**. A saved automatic signature callback could sign and reopen a closed receipt on source 629d899a. Its actual failing reproduction, prior source and interrupted pipeline scope are retained in [receipt diagnostics](../c45-receipt-guard-diagnostic/README.md). No completed profile from that source is accepted for this correction.
+
+Automatic signature completion, accessible confirmation and final pickup completion now require the same open receipt page token, same pickup state, active module attempt and receipt phase. The existing owned handheld clears its token when closed or replaced. An old signature or keyboard callback cannot sign, reopen, complete another page or create a result after an attempt was abandoned. No shared handheld/widget/save/scoring/default change is needed.
+
+All **eight actual-world integration cases** pass, including closed/replaced/abandoned signature pages, stale final-completion actions, the actual retained Low label and existing physical-facing grading guards. Three complete original business/international/dangerous-goods workflows still pass. All **97/97 pure Node suites / 23 focused cases pass freshly**, including **6,048 CPU poses** (loaded 31/1746; fallback 37/1592). Both changed JS files pass syntax. Exact source/suite/log hashes match. The corrected clean-source 40-job native/resource/repository sequence starts with this prerequisite passed. All original resource ceilings, source categories/pars/criticals, records and 2D defaults remain unchanged.
+
+The shared signature drawing already ignores destroyed images. The owned guard handles the later onDone call; no shared texture/scanner source edit is made. No corrected native/resource/readable-Tamil/A31/current-pilot/default or Intel O1 acceptance is claimed before its actual evidence completes.

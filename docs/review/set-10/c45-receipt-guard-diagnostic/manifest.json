@@ -1,0 +1,30 @@
+{
+  "status": "superseded source; interrupted for reproduced receipt bug",
+  "files": {
+    "results.json": "b83e9c1d9da8f8491e383ef9bac017cf38c225160f57eac0999238008c0a60f6",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupinvoice.png": "a0455b34ae07841f80f9cfa6e4d5508b881186438f51f2861f183d0233cf7770",
+    "status.json": "9672629a17cc3561d5ad907eea900279a981d21d45945647ab5088d36ebae422",
+    "c45-629d899a-resource-loaded-low-loaded-low.log": "64c8d07888577f3a06c2cf11289fc90c435a7a4a808078ddc02f28494b8d5ad8",
+    "launcher.json": "0d88b387943c75947a0bc8857414b2b889e775778a7370be0880d85add2e0dee",
+    "supervisor.log": "40fcb39b260a25e08106d5f97b9d1d8fbd6c2b1e04ef807c6d9b509130b05dee",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupcount.png": "a93e28dfb8329b765e6b5375be752b89c12da945204549aa0b6747155ed8b1a8",
+    "bench-c45-629d899a-resource-loaded-low-loaded-low-low.json": "aa0e918ef3ed3d8e907bd9f72916c8e02e751cc4d814ae6c5fa7ae8cf3c4bf27",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupfindings.png": "bf74450098c41c71d670acb3b4924d01fce2c7c5c3b1eb20bceef130723ff843",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupreceipt.png": "4914a38b526446d71fd4dc20b325edff7ada7e2628d2c5d4f3466b5b849bd156",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupbusiness.png": "ee5282bc60528bde4dcc9df1a1107dc666b506ebb6619fca6014e46f81246104",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupcart.png": "b54f3561f04bdff02c1e21cce645491d5232b1bfecd636b06170c838d37f1d2b",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupcontrols.png": "54b19a5d4d3f410c3a02ffb8b62465240e5b2d1e29757bc1a2cce87c0c2c6912",
+    "README.md": "ce8eff2f1a404eb73618b93a497365007983b73d3d7a5dac0f9887b559dcca86",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupexception.png": "42174697d85fa56168333ed93556450da1e106a681571399f5d8d63903146c94",
+    "stale-signature-before.log": "10fa2f92e41478abf28bef0244bece1ad8da4b9ca327e96786594c2ff25d23cb",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupinvoicelast.png": "d2be889c457dd0559179c07642027fb8f43b55d9fa92fe51413331e3b99342b6",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickuprefusal.png": "303f176e98ac8032d6c12468371c6adfad17b726ef0075b57e41500d8ecc7d84",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupsigned.png": "a6388292f8b06249fceea288c12cecf9477334ed691ef07a7010894c1923eecf",
+    "plan.json": "ff02274826c039ce741060b999fe9933f11aba8b214287d97405b37620d9e11b",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupdeclared.png": "f70e8c51013981649fe0694266e536d4269a05a68a1c66dd1d36267638af7844",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupinspection.png": "adfec72a0ac00684caef9da2a361ffff6b65b5fd492ad45b069b55b6dea592c9",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupdangerous.png": "776bbc37d012ebbfac21164ec08814b3610c75277bde0cb491097647992d77ea",
+    "c45-629d899a-resource-loaded-low-loaded-low-low-pickupinternational.png": "fee276cb33ff5aea56fd01e362ca7f168a5fd04ed7eae1df7dcc467ca58c1f21",
+    "source-before/fppickupscenario.js": "3c576b6d845a70db900dacd2cf9678029adade2be6b6e2df0ed488a9bab6be1b"
+  }
+}

@@ -1,0 +1,14 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ real mission snapshots replay in a separate world without changing the source, scoring or checkpoint (53.605772ms)
+✔ the live adapter binds the actual record day and publishes only after its matching completion (0.774829ms)
+✔ the standalone prototype and cargo practice do not allocate a workday recording (0.193392ms)
+✔ an older review cannot expose another record even when it has the same plan (0.321114ms)
+✔ replay releases completed UI canvases while preserving borrowed references and loaded assets (0.273503ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 59.834299
