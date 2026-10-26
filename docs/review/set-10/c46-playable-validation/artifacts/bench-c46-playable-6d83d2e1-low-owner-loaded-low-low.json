@@ -1,0 +1,152 @@
+{
+  "tag": "c46-playable-6d83d2e1-low-owner-loaded-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 14,
+    "failed": 0,
+    "fallbacks": 0,
+    "bytes": 824208,
+    "decodedBytes": 354468,
+    "errors": []
+  },
+  "prototype": {
+    "wellnessowner": {
+      "frames": 88,
+      "avgFPS": 8.76,
+      "low1FPS": 3.66,
+      "p99ms": 273.2,
+      "maxMs": 273.2,
+      "peak": {
+        "calls": 31,
+        "triangles": 1600,
+        "textures": 2,
+        "geometries": 14,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1118304,
+        "withMipmapsUpperBytes": 1491072
+      },
+      "worldProfile": {
+        "meshes": 98,
+        "instances": 211,
+        "geometries": 21,
+        "materials": 40,
+        "geometryBytes": 54448,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          30,
+          30,
+          28,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 12,
+          "y": 1.65,
+          "z": -39,
+          "yaw": 0.3,
+          "pitch": -0.12,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "wellnessProof": {
+    "wellnessowner": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": true,
+      "personVisible": true,
+      "gateOpen": false,
+      "gateGap": 0.6000000000000014,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 89,
+        "back": 99,
+        "status": "This is stop 1 of 3."
+      },
+      "weather": "clear",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 1,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-dog",
+      "index": 0,
+      "canonical": true,
+      "phase": "active",
+      "building": 1,
+      "person": true,
+      "extraFixed": 26,
+      "extraMoving": 6,
+      "wellnessLettering": {
+        "count": 118,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "wellnessComponentFixture": false,
+  "wellnessPlayableFixture": true,
+  "phaserTextures": {
+    "count": 86,
+    "baseLevelRGBABytes": 1118304,
+    "withMipmapsUpperBytes": 1491072
+  },
+  "phaserTexturesPeak": {
+    "count": 86,
+    "baseLevelRGBABytes": 1118304,
+    "withMipmapsUpperBytes": 1491072
+  },
+  "missingViews": [],
+  "errors": []
+}

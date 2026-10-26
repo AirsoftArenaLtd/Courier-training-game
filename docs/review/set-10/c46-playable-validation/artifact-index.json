@@ -1,0 +1,171 @@
+{
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Raw outputs collected from this frozen plan only. Missing jobs, resource failures, partial native journeys and uninspected captures are not acceptance.",
+  "files": [
+    {
+      "file": "bench-c46-playable-6d83d2e1-high-loaded-high-high.json",
+      "bytes": 41339,
+      "sha256": "29c53f638e0566add737a0a6567e01d6adfbb1218388c1ae5d9482d8388ef665"
+    },
+    {
+      "file": "bench-c46-playable-6d83d2e1-low-owner-loaded-low-low.json",
+      "bytes": 3415,
+      "sha256": "3187fc53dca53364fbfd9594616b3d67f8504781eb2f5ab89259f2e228bf81b5"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-brief.png",
+      "bytes": 91654,
+      "sha256": "2b1896efb00dd412a67f0a6b08b19bbee12198abc37b7097f087a998bd6939f4"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-controls-0.png",
+      "bytes": 78422,
+      "sha256": "26a81e28ffb7f231c9a3c78f76f23d9bfb2a9e4e834c64da8b6e814f60975265"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-controls-1.png",
+      "bytes": 84851,
+      "sha256": "cc0ad113e76eeae8d48973b74dbe2dae4a62e75105ad3eaef0b0b8a0ea84ae5f"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-controls-2.png",
+      "bytes": 69968,
+      "sha256": "d5dec6420aab37d6ee5d080ad0f41360dff42e16d75a4c05671d289ea5fcb137"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-controls-3.png",
+      "bytes": 84509,
+      "sha256": "e1b7ac1262f16503649057934012e7e3c7e552ad8a6d7ae86c1c72bc0fc16a5b"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-controls-4.png",
+      "bytes": 86993,
+      "sha256": "9fe692736459583f913674df8ab160743a3ce613a9c446c06b4c23f4e30df9f5"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-controls-5.png",
+      "bytes": 85872,
+      "sha256": "8dbff01d1aa63d6bf2806bbb54a0409f3315d551cbe1cce0c90834e6539055a5"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-handheld.png",
+      "bytes": 112112,
+      "sha256": "df79079a539ad13fa01ab785a0ce73ae938455e2a6f06695ace86e3211e63f1e"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop0-cargo.png",
+      "bytes": 119447,
+      "sha256": "9a0d94905fd1b002f779fa1ae5e9507a0fd61a474d41541abe1d059fd8829d82"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog.json",
+      "bytes": 1745,
+      "sha256": "13564f1113891e21ed16a1f75ef65963111461c99871f0b541c5b330e5992417"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnesscab.png",
+      "bytes": 184666,
+      "sha256": "c380cec36d83091affa59a356f0774693d9e45455841cedf8ffc5d69c3a166e2"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnesscarry.png",
+      "bytes": 191732,
+      "sha256": "3a5132a4d5616554843a9e8ef21453aeabf8cb77cff3eb20a315992cb823664e"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnesscharge.png",
+      "bytes": 328726,
+      "sha256": "7f298650efdf88cb0d325a734c9eac84c378ace6dae193c553d141eaf202b911"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnessclinic.png",
+      "bytes": 134917,
+      "sha256": "7969131ba3f9d188f2b2da67dedf3c05d917308c04960c1e82163c187b72b9d7"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnessclutter.png",
+      "bytes": 227354,
+      "sha256": "7e11bd8f5e81b1780fb013823a41464ce1a45aadb961b11b9f370689f4a5f7aa"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnesscontrols.png",
+      "bytes": 161766,
+      "sha256": "239d4cca75f9df6ee6400e04dd921d8ba74629f71eb421b3e2d3206ef31d83a1"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnessdrink.png",
+      "bytes": 245154,
+      "sha256": "37dc7ad3c9d67ab4e55010b78136d935873b38d4ebb3911b3c6ea1e57c4dde81"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnessentry.png",
+      "bytes": 152323,
+      "sha256": "0fef701bf56c2a8c71619aad76fa97ed380e38a226faa598ee0d0d3f06b8fd78"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnessfear.png",
+      "bytes": 331399,
+      "sha256": "db1cf0a702ea1a29b44f14c755bab528d25b39de74416ba963c6a4cf222cf0f8"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnessgate.png",
+      "bytes": 259120,
+      "sha256": "d788913dd51d0033c60efbdb1b0654a05dbde000a0ecc6b716ef663bb6fd7d08"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnesshandheld.png",
+      "bytes": 263909,
+      "sha256": "bcfc430309a33957209893e32677ee357900594609906a78024753fb271bb34c"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnessice.png",
+      "bytes": 255444,
+      "sha256": "34eae6b3d068c6d31c9dcbfa5771462d7ebf8cd7e9c643bf469673329f756254"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnessowner.png",
+      "bytes": 216199,
+      "sha256": "3fc3786f86a30edd2f5923a98a25b7d9788d9b57653306a31780af7b1c0108c6"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnessreply.png",
+      "bytes": 159143,
+      "sha256": "cd8f825a33e1de66f7f619b9f27bc0176951a409d107d5604e91b98caf910405"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnessreverse.png",
+      "bytes": 185493,
+      "sha256": "8cb8fc899079ad56680bc66e50704cbdaa88468812cef1bd43ac307df4ce08ff"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnessshade.png",
+      "bytes": 295311,
+      "sha256": "176f18c82db2392d21bd3ddbd26ebd9702f451d6445b1be79f0f379f2aa60945"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-loaded-high.log",
+      "bytes": 12713,
+      "sha256": "7dc0cf9781e4ea9070cb5c181084d6f1292ed694dba8f02bfe8931b70a6c2fe6"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-quality.json",
+      "bytes": 1027,
+      "sha256": "e5dd3fa8429dcb913e39c3e218104e3b8b048739fad87b1e2fe19ee81cdbfab4"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-low-owner-loaded-low-low-wellnessowner.png",
+      "bytes": 116890,
+      "sha256": "2a8975fe55f2749a504c84699cb4efb1a5c0d592288a86dac03c66ea0cabb283"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-low-owner-loaded-low.log",
+      "bytes": 788,
+      "sha256": "f02b9519f7c0e46290a4c20f3cf892e853189378f668916c75c214b1b86f217d"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-low-owner-quality.json",
+      "bytes": 710,
+      "sha256": "8d45eb2835792ba9a1d24d074be23132dbbe533ee33f8f1294130fdedc0a5f7c"
+    }
+  ]
+}

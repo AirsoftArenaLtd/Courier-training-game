@@ -1,0 +1,21 @@
+{
+  "runtime": "6d83d2e1",
+  "scope": "Three current-source arranged Low/High views inspected. Broader native/layout/Tamil/assessment acceptance remains pending.",
+  "images": [
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-low-owner-loaded-low-low-wellnessowner.png",
+      "sha256": "2a8975fe55f2749a504c84699cb4efb1a5c0d592288a86dac03c66ea0cabb283",
+      "observation": "Loaded Low resident remains behind the closed fence with supported feet; the real status and clock remain readable and separate."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-high-loaded-high-high-wellnessowner.png",
+      "sha256": "3fc3786f86a30edd2f5923a98a25b7d9788d9b57653306a31780af7b1c0108c6",
+      "observation": "Uploaded High resident, house, mounted lettering and local shadows remain visible. The idle pose shows the corrected stand-off behind the fence, with no protruding shoe in this view; the 320 mesh samples cover idle/interact/reduced poses."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-high-loaded-high-high-wellnessreply.png",
+      "sha256": "cd8f825a33e1de66f7f619b9f27bc0176951a409d107d5604e91b98caf910405",
+      "observation": "The timed source reply presents a full-size choice and three separate controls within the panel. Normal English title, countdown and buttons do not overlap or clip."
+    }
+  ]
+}
