@@ -4,7 +4,7 @@ OTR.fpPickup={
   create(id,content,categories,{coaching=true}={}){
     const scenario=OTR_DATA.modules.find(m=>m.id==='m7').scenarios.find(s=>s.id===id);
     if(!scenario||!content?.pieces?.length||content.pieces.length>12||new Set(content.pieces.map(p=>p.id)).size!==content.pieces.length||!content.talk?.nodes||!categories||categories.join()!==scenario.categories.join()||(content.docs?.fields.length||0)>16)throw Error('Invalid pickup scenario');
-    const s={id,content,cats:categories.slice(),coaching,pieces:content.pieces.map(p=>({...p})),manifest:content.manifest,counted:{},decided:{},docFlags:{},docDone:false,countAnswered:false,shortRaised:0,phase:'brief',stage:'talk',elapsed:0,finished:false,finishing:false,log:new OTR.ScoreLog(),result:null,version:0,receiptSigned:false,findings:null};
+    const s={id,content,cats:categories.slice(),coaching,pieces:content.pieces.map(p=>({...p})),manifest:content.manifest,counted:{},decided:{},docFlags:{},docDone:false,countAnswered:false,shortRaised:0,phase:'brief',stage:'talk',elapsed:0,finished:false,finishing:false,log:new OTR.ScoreLog(),result:null,version:0,receiptSigned:false,findings:null,statusVersion:-1,statusText:''};
     s.talk=OTR.fpCustomerTalk.create({...content.talk,cast:{shipper:{name:content.shipper.name,portrait:content.shipper.spec}}},categories,{coaching,log:s.log});
     s.finish=result=>{if(s.finished)return;s.result=result;s.finished=true;s.phase='done';};return s;
   },

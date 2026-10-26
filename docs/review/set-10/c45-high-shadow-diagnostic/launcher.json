@@ -1,0 +1,8 @@
+{
+  "pid": 42498,
+  "plan": "/workspace/c45-pickups-paperwork/test/out/pipelines/c45-c75808cc-counter/plan.json",
+  "planSha256": "5e85b034c4e14c55cea38398546db9cde5e054926e1d6dd11f2200dee984dabf",
+  "sourceCount": 850,
+  "jobs": 40,
+  "runtime": "c75808ccc5ab1ddb0fcdd9156840e9fd13e9ed60"
+}

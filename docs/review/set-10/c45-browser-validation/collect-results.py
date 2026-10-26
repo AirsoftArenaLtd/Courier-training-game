@@ -105,6 +105,9 @@ def main():
             for q in raw['pickupProof'].values():
                 assert q['source'] == 'pickup-static-render-fixture' and q['canonical'] and q['bounded'] and q['supported'] and q['viewedLabelPrinted']
                 assert q['inkTextures'] == 0 and q['highShipper'] == high
+                assert q['shadow']['on'] == q['shadow']['receives'] == q['shadow']['casts'] == high
+                if high:
+                    assert q['shadow']['span'] == 20 and q['shadow']['size'] == [512, 512]
                 assert q['parcels'] == q['modelParcels'] == {'m7-business': 6, 'm7-intl': 2, 'm7-dg': 4}[q['id']]
                 assert q['par'] == {'m7-business': 200, 'm7-intl': 210, 'm7-dg': 220}[q['id']]
                 assert q['piece'] == 'street' and q['phase'] == 'active'

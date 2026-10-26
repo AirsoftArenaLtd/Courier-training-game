@@ -1,0 +1,5 @@
+browser-slot {'state': 'waiting'}
+resource-loaded-low {'state': 'running'}
+resource-loaded-high {'state': 'running'}
+resource-accessible-low {'state': 'running'}
+interrupted {'state': 'interrupted', 'signal': 15}

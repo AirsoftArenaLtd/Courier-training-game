@@ -14,7 +14,7 @@ OTR.fpLighting={
     return time==='midday'?'It is midday.':'It is morning.';
   },
   build(scene,parts){
-    const T=THREE,view=scene.view,world=view.world,high=OTR.gfx.high(),point=new T.Vector3(),sunDir=new T.Vector3(),rig=new T.Group();world.add(rig);
+    const T=THREE,view=scene.view,world=view.world,high=OTR.gfx.high(),shadowSpan=high&&Number.isFinite(parts.shadowSpan)?Math.max(20,Math.min(90,parts.shadowSpan)):90,point=new T.Vector3(),sunDir=new T.Vector3(),rig=new T.Group();world.add(rig);
     const owned=!view.lights,lights=view.lights||{sky:new T.HemisphereLight(0xE9F1FF,0x63594C,1.5),sun:new T.DirectionalLight(0xFFF0DC,1.4)};
     if(owned){world.add(lights.sky,lights.sun,lights.sun.target);view.lights=lights;}
     const sun=lights.sun,ambient=lights.sky,original={sunColour:sun.color.clone(),sunIntensity:sun.intensity,sunPosition:sun.position.clone(),targetPosition:sun.target.position.clone(),skyColour:ambient.color.clone(),skyIntensity:ambient.intensity,background:world.background&&world.background.clone(),fog:world.fog&&world.fog.color.clone(),fogNear:world.fog&&world.fog.near,fogFar:world.fog&&world.fog.far};
@@ -44,7 +44,7 @@ OTR.fpLighting={
     const weatherPaint=new T.Color(),fogColour=new T.Color(),glowColour=new T.Color(),oldAfter=world.onAfterRender;
     let current=null,visible=false,time='morning',weather='',lastSelection=-100,shadowAt=-100,shadowWanted=false,shadowX=Infinity,shadowZ=Infinity,shadowYaw=Infinity,disposed=false;
     if(high){
-      sun.shadow.mapSize.set(512,512);sun.shadow.camera.left=sun.shadow.camera.bottom=-45;sun.shadow.camera.right=sun.shadow.camera.top=45;sun.shadow.camera.near=.5;sun.shadow.camera.far=180;sun.shadow.camera.updateProjectionMatrix();sun.shadow.bias=-.00015;sun.shadow.normalBias=.06;sun.shadow.radius=2;
+      sun.shadow.mapSize.set(512,512);sun.shadow.camera.left=sun.shadow.camera.bottom=-shadowSpan/2;sun.shadow.camera.right=sun.shadow.camera.top=shadowSpan/2;sun.shadow.camera.near=.5;sun.shadow.camera.far=180;sun.shadow.camera.updateProjectionMatrix();sun.shadow.bias=-.00015;sun.shadow.normalBias=.06;sun.shadow.radius=2;
       const vanMeshes=new Set();parts.van.traverse(o=>vanMeshes.add(o));
       world.traverse(o=>{if(!o.isMesh||o===parts.weatherDrops)return;const materials=Array.isArray(o.material)?o.material:[o.material];if(!materials.some(m=>m&&m.isMeshLambertMaterial))return;
         o.castShadow=!vanMeshes.has(o)&&o.geometry!==parts.plane;o.receiveShadow=true;
@@ -88,7 +88,7 @@ OTR.fpLighting={
           for(let i=0;i<7;i++){const box=nearest[i].rect;if(box)rectangles[i+1].set(box.x,box.z,box.w/2,box.d/2);else rectangles[i+1].set(1e6,1e6,0,0);}lastSelection=m.elapsed;
         }
         if(!high||phaseChanged||m.elapsed-shadowAt>=.125||Math.abs(centre.x-shadowX)>.5||Math.abs(centre.z-shadowZ)>.5||Math.abs(v.yaw-shadowYaw)>.03){
-          const grid=90/512,x=Math.round(centre.x/grid)*grid,z=Math.round(centre.z/grid)*grid;sun.target.position.set(x,0,z);sun.position.copy(sunDir).multiplyScalar(70).add(sun.target.position);sun.target.updateMatrixWorld(true);sun.updateMatrixWorld(true);shadowX=centre.x;shadowZ=centre.z;shadowYaw=v.yaw;shadowWanted=high;
+          const grid=shadowSpan/512,x=Math.round(centre.x/grid)*grid,z=Math.round(centre.z/grid)*grid;sun.target.position.set(x,0,z);sun.position.copy(sunDir).multiplyScalar(70).add(sun.target.position);sun.target.updateMatrixWorld(true);sun.updateMatrixWorld(true);shadowX=centre.x;shadowZ=centre.z;shadowYaw=v.yaw;shadowWanted=high;
         }
       },
       caption(){if(!visible)return '';const text=OTR.fpLighting.caption(time,!!current.van.headlights,!!current.nightDrive&&OTR.fpNight.required(current));return current.nightDrive&&time==='night'&&current.van.headlights?'It is night. The headlights are on. Drive within the distance they light.':text;},

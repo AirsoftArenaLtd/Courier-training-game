@@ -1,0 +1,279 @@
+{
+  "date": "2026-10-26T01:37:35.734469+00:00",
+  "applicationRuntime": "c75808ccc5ab1ddb0fcdd9156840e9fd13e9ed60",
+  "protocolRevision": "c75808ccc5ab1ddb0fcdd9156840e9fd13e9ed60",
+  "expectedJobs": 40,
+  "passedJobs": 2,
+  "complete": false,
+  "nativeGoodJourneys": 0,
+  "nativeChecks": 0,
+  "nativeCaptures": 0,
+  "resourceViews": 30,
+  "native": [],
+  "resources": [
+    {
+      "protocolRevision": "c75808ccc5ab1ddb0fcdd9156840e9fd13e9ed60",
+      "id": "resource-loaded-low",
+      "fingerprint": "1698656c5fe903df51ea6fc7e94a2c4ff48738fe097f0a354ba2c250054ede96",
+      "logSha256": "8560a554f12e4cc531b811e83ef8b8d429675d84aa61c08750b095f79a070870",
+      "artifacts": {
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupinvoicelast.png": "d2be889c457dd0559179c07642027fb8f43b55d9fa92fe51413331e3b99342b6",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupfindings.png": "bf74450098c41c71d670acb3b4924d01fce2c7c5c3b1eb20bceef130723ff843",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupcontrols.png": "54b19a5d4d3f410c3a02ffb8b62465240e5b2d1e29757bc1a2cce87c0c2c6912",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupsigned.png": "a6388292f8b06249fceea288c12cecf9477334ed691ef07a7010894c1923eecf",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low.log": "e044a4a8a07479c6eea6201ade97efc9c90d020d4df3daa0ed45a65f1c5e6b0b",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickuprefusal.png": "303f176e98ac8032d6c12468371c6adfad17b726ef0075b57e41500d8ecc7d84",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupinternational.png": "fee276cb33ff5aea56fd01e362ca7f168a5fd04ed7eae1df7dcc467ca58c1f21",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-quality.json": "aed983b8c4a13ea60b1a54f20603273e9c23987f4c7e0fbcb45c2d31548c0328",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupbusiness.png": "ee5282bc60528bde4dcc9df1a1107dc666b506ebb6619fca6014e46f81246104",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupinvoice.png": "a0455b34ae07841f80f9cfa6e4d5508b881186438f51f2861f183d0233cf7770",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupinspection.png": "adfec72a0ac00684caef9da2a361ffff6b65b5fd492ad45b069b55b6dea592c9",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupcart.png": "b54f3561f04bdff02c1e21cce645491d5232b1bfecd636b06170c838d37f1d2b",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupexception.png": "42174697d85fa56168333ed93556450da1e106a681571399f5d8d63903146c94",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupdeclared.png": "f70e8c51013981649fe0694266e536d4269a05a68a1c66dd1d36267638af7844",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupdangerous.png": "776bbc37d012ebbfac21164ec08814b3610c75277bde0cb491097647992d77ea",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupreceipt.png": "4914a38b526446d71fd4dc20b325edff7ada7e2628d2c5d4f3466b5b849bd156",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-low-loaded-low-low-pickupcount.png": "a93e28dfb8329b765e6b5375be752b89c12da945204549aa0b6747155ed8b1a8",
+        "test/out/fp-review/bench-c45-c75808cc-resource-loaded-low-loaded-low-low.json": "a8101555fba0a6a4d7dce6d949900d55bfe4fbbc7fba0a2e2c8cb19364f9b5e2"
+      },
+      "views": 15,
+      "peak": {
+        "calls": 26,
+        "triangles": 1754,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1955056
+      },
+      "profile": "loaded-low"
+    },
+    {
+      "protocolRevision": "c75808ccc5ab1ddb0fcdd9156840e9fd13e9ed60",
+      "id": "resource-loaded-high",
+      "fingerprint": "51fe13990e93edeb72ec7bb7706c0832055009f05a4392a0073f7de9b793d27a",
+      "logSha256": "ff3c63b176f4f362e1e7568cab8bf100b29a723043b0f881f583d2583ecf69e5",
+      "artifacts": {
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupfindings.png": "3a88ad11ade984d465390995da43f2e2f0275da833067a40f726500162120959",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupsigned.png": "469b1aef3ba6ea4d88b38c502e4e361e9a4832c5e5930c897b271058ba07d30e",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupdangerous.png": "c10dcce02f5678c976f58b52d7b256033b380d9671cdd2e5de590764c64e8b5c",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupcontrols.png": "436f80558c984042b509b3693b3f1f6ee508cda5c44e1e4781f30ba6e4b48143",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupinvoicelast.png": "b68f6f401996567f5a8d89a2208f1bc41f04c54029d8b4a71d5662c5d1e6ba4e",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high.log": "90db8017c3d502d666e51de4c7c6e25ef49f17795dd1714cccb6090fadaf6354",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupbusiness.png": "ca5b3a19dd15ef58a3fafc8821db90210ffc878d3014cf458a3a8234ad9d5ab3",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupinternational.png": "9a8feed8b057ca8ead7023e49e49201833716d724707ed1e1e9d7ac47ab6b2a6",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupinspection.png": "a3d70221bd965714c2e7d9a8a955c519969ec33cc3ff07c7c1feaddb6c608123",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickuprefusal.png": "a8e67a43ac3ae195baba84c0d1a760e86696a35f2466da0e885352b1c6d40e26",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-quality.json": "8aa1f7c2dbe1dbea6383f0b43aaa9ff94647d21e09a6d56566fc9dabe0ca0fd5",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupexception.png": "79ed3966a54abcd818057b33ef9c9edeef07ca926f7f2f2f6e68c169f41f0130",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupinvoice.png": "0e72dbf20b59402288148dee34b6bec576cae50ba9ad38fa9f2ca8c903bdc5dd",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupreceipt.png": "d33d67b0f148fb4a5d8bf5052d4a531d4153f1ca754f67ea0adeba7305e263f1",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupcart.png": "d556df09102eab16627dc5617ad2644c5832fcc4f6119f44c433d62798ce3153",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupcount.png": "3a7bf4af2556988e2d3c913d50563055f3f974ae4e7be3c0da839a4bf3e39a67",
+        "test/out/fp-review/c45-c75808cc-resource-loaded-high-loaded-high-high-pickupdeclared.png": "5316df0e7ecd3dd901f716bfc1b40664083817a7e13fb3b5a8c3500e8234bb27",
+        "test/out/fp-review/bench-c45-c75808cc-resource-loaded-high-loaded-high-high.json": "df910f46759cbbff810f8cc7fdd2e547d850120c923295c98b0dfcf1c1071008"
+      },
+      "views": 15,
+      "peak": {
+        "calls": 33,
+        "triangles": 33772,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5834224
+      },
+      "profile": "loaded-high"
+    }
+  ],
+  "followups": [],
+  "pending": [
+    {
+      "id": "resource-accessible-low",
+      "state": "running",
+      "exit": null
+    },
+    {
+      "id": "resource-fallback-low",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-normal-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-normal-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-normal-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-large-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-large-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-large-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-normal-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-normal-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-normal-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-large-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-large-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-large-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-normal-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-normal-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-normal-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-large-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-large-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-large-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-normal-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-normal-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-normal-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-large-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-large-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-large-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-bad-business-low-en-large-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-bad-docs-low-en-large-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-bad-call-low-en-large-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "scorm2004",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "legacy-modules",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "academy",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "enterprise",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "routeday",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "driving",
+      "state": "not started",
+      "exit": null
+    }
+  ],
+  "scope": "Hash-verified source-scoped jobs only. Independently replayed original callback results and durable native records. Static resource fixtures are separate. Shared readable-Tamil, current-pilot/default/A30/A31 and Intel O1 acceptance remain separate."
+}

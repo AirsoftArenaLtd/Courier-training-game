@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-26T01:51:44Z",
+  "nodeSuites": 97,
+  "focusedPickupCases": 23,
+  "additionalCounterLightingCases": 1,
+  "lightingSuiteCases": 13,
+  "syntaxFiles": 7,
+  "sourceAndSuiteAndLogHashesMatch": true,
+  "applicationFiles": 498,
+  "cpuPoses": 6048,
+  "preflightViews": 3,
+  "preflightPeak": {
+    "calls": 33,
+    "triangles": 33772,
+    "textures": 4,
+    "attachmentBytes": 11239424,
+    "phaserBytes": 4748560
+  },
+  "protocolFollowup": "fpqualitygate rerun once after adding test-only shadow span/map/receiver proof; all other passing suites retain their unchanged current-app scope.",
+  "scope": "Corrected application; full clean-source browser/native/visual matrix pending."
+}
