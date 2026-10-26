@@ -1,8 +1,8 @@
 {
   "root": "/workspace/c45-pickups-paperwork",
-  "output": "/workspace/c45-pickups-paperwork/test/out/pipelines/c45-c75808cc-counter",
-  "runtime": "c75808ccc5ab1ddb0fcdd9156840e9fd13e9ed60",
-  "protocolRevision": "c75808ccc5ab1ddb0fcdd9156840e9fd13e9ed60",
+  "output": "/workspace/c45-pickups-paperwork/test/out/pipelines/c45-eb40876c-counter",
+  "runtime": "eb40876c88b101e8d33d3e277fa061634bee067f",
+  "protocolRevision": "eb40876c88b101e8d33d3e277fa061634bee067f",
   "port": 8388,
   "sources": {
     "assets/3d/kenney-car-kit/LICENSE.txt": "c33b7f6453d134deae7b1b8493717d9ccfa754c25ab97f6de89b88f8fda19b00",
@@ -463,7 +463,7 @@
     "src/core/fphandheld.js": "63c07b8209c1f967c0646d00d529acdda46dcea1d1a744533f27c47c2477dded",
     "src/core/fphud.js": "25295e0a2ffbbddf1a3fd4c42cae7724cf5b2218483d4f449948e6a9624ee392",
     "src/core/fplater.js": "fc246807759622c5a22c22385a1ec82851e514ce314c6498259d810f08d0bbf8",
-    "src/core/fplighting.js": "b625119f5cfc731345033344b2241c109c1cfd4c7e118c9a7144ce84bb900af4",
+    "src/core/fplighting.js": "70101202de33843975280c37523a41d0d925578756d5cac8a3b1f42b26763bb0",
     "src/core/fploading.js": "2a7bb76031c4bb9ad5f21bd7682f9149e36e1e8a24a7f88eafde85ccbf19a847",
     "src/core/fploadingscenario.js": "352206b211b62e1b1223f08ddb8b885dd59ed25f51dd6901e5c8afca02e16d47",
     "src/core/fploadingworld.js": "0b3233a157c21636892ee9761199539d1ad198c086dabeae7adb910ce3aa8fba",
@@ -474,8 +474,8 @@
     "src/core/fpmountedwords.js": "256fa361dc895443ce08006832beaafb73781e43401ea000743310b3a9a02de9",
     "src/core/fpnav.js": "0421f4c0a32789c5346285ed1cded006f2010b7f66279d787e7354aaadf510ec",
     "src/core/fpnight.js": "06305903d551e15adab1ca4829869645d4efb21e69c046e6444911175044e01b",
-    "src/core/fppickup.js": "31964f81d55867e7d8cb48f5f945963738cd76d03a28e77162fb0a21dc85b4f2",
-    "src/core/fppickupscenario.js": "6865de5b30c2ae44c9f5d9321a6f6f576b5bf5ff2545e0842780c8ac61278daa",
+    "src/core/fppickup.js": "051c7e3b85e769d38a223d8fb3b30ba379a15f3e2ccfb12a6c48a01ba497422c",
+    "src/core/fppickupscenario.js": "3813f0c8be74b6672767171f73cb2083b455dc7419ab391841d22c154b800d06",
     "src/core/fppickupworld.js": "bdaab60750a670f5d49f11eb4e96c555d12531ecc739f1de178f34b98ca5761c",
     "src/core/fpproblemscenario.js": "e53ea666ad3280b260a22e3ac035914f181d63f9b26e5fec9182ed0508941179",
     "src/core/fpproblemstage.js": "e7ba12a62421d988518c09d086426ee72e5c0b998adf972ba90296ac22e9362b",
@@ -504,7 +504,7 @@
     "src/core/fpwalkaroundflow.js": "18bdcc3c5164898e53d22d4605223d9ce7be67262714b74431992b2ba4788419",
     "src/core/fpwalkaroundui.js": "3f1536123e06cccda82378f813d6d4155c7934411cbcfe59f8a088cf3421b0de",
     "src/core/fpweather.js": "095e9ad404ab386a3103dc142b0d914efe9f4a14354ed588f80325f511470a55",
-    "src/core/fpworld.js": "a5cbecbe723601af34816480d59e20a7ed3056fee0339dae82b4bd0e7b9e958e",
+    "src/core/fpworld.js": "589dacbc063402a10bc8c66604565e968addcb682a0ca2f1bd0df10f16f522e9",
     "src/core/fx.js": "6a5cc3d6bbbe8f73bfccb7f5c383775a8a6e0817439160c7522db5046daebd83",
     "src/core/gfx.js": "ffe28acd91ac9fce48c843c9014f48a5dec5228df3e2b9053a861e1a07ee31ab",
     "src/core/i18n.js": "638592ad3244e5857727b66c03d313be6705a05d436dd505358b41adecc7c09f",
@@ -594,7 +594,7 @@
     "test/fpambientworld.js": "91359964fee1861d5951f5fe5dc83655316ea859022dd44fa48ae4e05a7c56af",
     "test/fpassets.js": "42a9acf7d4570d6b4be5ebacd814511fba63f0691d1f76d01d5112a09a4de2b2",
     "test/fpassetsbrowser.js": "f271b9bceeb2066669efcf1b725b5efc2e19982abdc7850b6a401822db229d67",
-    "test/fpbench.js": "94108e2867d8fd1592bdc2ce8bb00eac8bd8d4ea105f9199e98a411a2993c171",
+    "test/fpbench.js": "8351d08158ad9838ec287bd50d66af704fe16db2d179c08f9360e0bf5cdb4546",
     "test/fpbranding.js": "f570d29fd43e06a414685b1370d72cff16c4767c4f782b5471d92dcc25433916",
     "test/fpbrandingbrowser.js": "d219c2696037b0738d5949d2b8a6330bac5a8580137d0ad78e8453ea9a7b8231",
     "test/fpbriefbrowser.js": "8b8f860a8f5ef794677ca8c47e46e4cbd5bba2e51b7c7d49f287cf416ea78f0f",
@@ -641,7 +641,7 @@
     "test/fpkeysbrowser.js": "2cd3998dbd6a84b27efc88e0de1d99d66a8bf09ad58d264ad9b4cbb69b343ff4",
     "test/fplangsbrowser.js": "e7dabf3bedbac81ce1968a2a50334f40f917260bc372b10a119588ec9593274e",
     "test/fplater.js": "9ec9c173e3793ff6b7de719a4d63b1b9c143bfc0453f407fe4198d7ea85d6dde",
-    "test/fplighting.js": "37beb643517132ef502891d6f2ae11b9288153a43e4d5a405462039bedb8e158",
+    "test/fplighting.js": "688e552bd298e8753b8da790acb376d365d3f4fb1b1f99ba5cf2c4fad90680e0",
     "test/fplightingbrowser.js": "bd5c5ac316942ca7038c8a1c048eeee780430b0c01bbaf85fa16fd78650a274c",
     "test/fploading.js": "c7621eb1eb79f125c61f87b64bdd5246d5202e0e25e1d0b8d6ec9b7954a5c5fd",
     "test/fploadingbrowser.js": "9a42adf1e617d05660b68b20de0a99737238f50fb82b99fde7947e866d3bfe40",
@@ -817,7 +817,7 @@
     "test/tools/fp-pickup-fixture.js": "e07569dfd0d645bda00a028fd62c739d7af354b03bc2b5e8a92b5fa9c5347a02",
     "test/tools/fp-pickup-original.js": "558aba91db98bbc8aefb000cb7cf1c5857e19ce1da279e9b86a0aca9fe3be0e7",
     "test/tools/fp-pickup-pose.js": "ec73939ef687a75551134f5316b59affa9d96020c8587629d0bd580e6b81ade0",
-    "test/tools/fp-pickup-quality.js": "ed7cff0b3c03a40ae4328617da88ec32d659b2cfc66b2e073cca554080fa2aa7",
+    "test/tools/fp-pickup-quality.js": "cfe0df459c62f881e4dccb04b1258b1e3851126a6c1ed97ff81e6b4507d90109",
     "test/tools/fp-problem-context.js": "703a42fda984bb16e96e10c06cb1d39c61f38a32aaa285f27e6c7956c51a2516",
     "test/tools/fp-problem-fixture.js": "149aee8aac5dbe382a16f22a07146ed0aded8e288e62a4161752572af886b3fe",
     "test/tools/fp-problem-pose.js": "89d00b40f57e86837e1cd0010641b5b83ffa739444d6072cf636f1940b966031",
@@ -856,7 +856,7 @@
     "test/workdayflow.js": "2e9c432205f95c6f901e58e018d00e50864665c48b15c1ab128b4ef769637891",
     "test/xapi.js": "0e40623bf78b42e47629355d660b63b4d7ce28de89881c172567edf91c7a0b25"
   },
-  "node_results": "/workspace/c45-pickups-paperwork/docs/review/set-10/c45-receipt-guard-correction/node-results.json",
+  "node_results": "/workspace/c45-pickups-paperwork/docs/review/set-10/c45-local-shadow-correction/node-results.json",
   "node_count": 97,
   "environment": {
     "QA_BROWSER": "/usr/bin/chromium",
@@ -874,12 +874,12 @@
       "environment": {
         "QA_PROFILES": "loaded-low",
         "QA_VIEWS": "",
-        "QA_TAG": "c45-c75808cc-resource-loaded-low"
+        "QA_TAG": "c45-eb40876c-resource-loaded-low"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-resource-loaded-low*",
-        "test/out/fp-review/bench-c45-c75808cc-resource-loaded-low*"
+        "test/out/fp-review/c45-eb40876c-resource-loaded-low*",
+        "test/out/fp-review/bench-c45-eb40876c-resource-loaded-low*"
       ]
     },
     {
@@ -891,12 +891,12 @@
       "environment": {
         "QA_PROFILES": "loaded-high",
         "QA_VIEWS": "",
-        "QA_TAG": "c45-c75808cc-resource-loaded-high"
+        "QA_TAG": "c45-eb40876c-resource-loaded-high"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-resource-loaded-high*",
-        "test/out/fp-review/bench-c45-c75808cc-resource-loaded-high*"
+        "test/out/fp-review/c45-eb40876c-resource-loaded-high*",
+        "test/out/fp-review/bench-c45-eb40876c-resource-loaded-high*"
       ]
     },
     {
@@ -908,12 +908,12 @@
       "environment": {
         "QA_PROFILES": "accessible-low",
         "QA_VIEWS": "",
-        "QA_TAG": "c45-c75808cc-resource-accessible-low"
+        "QA_TAG": "c45-eb40876c-resource-accessible-low"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-resource-accessible-low*",
-        "test/out/fp-review/bench-c45-c75808cc-resource-accessible-low*"
+        "test/out/fp-review/c45-eb40876c-resource-accessible-low*",
+        "test/out/fp-review/bench-c45-eb40876c-resource-accessible-low*"
       ]
     },
     {
@@ -925,12 +925,12 @@
       "environment": {
         "QA_PROFILES": "fallback-low",
         "QA_VIEWS": "",
-        "QA_TAG": "c45-c75808cc-resource-fallback-low"
+        "QA_TAG": "c45-eb40876c-resource-fallback-low"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-resource-fallback-low*",
-        "test/out/fp-review/bench-c45-c75808cc-resource-fallback-low*"
+        "test/out/fp-review/c45-eb40876c-resource-fallback-low*",
+        "test/out/fp-review/bench-c45-eb40876c-resource-fallback-low*"
       ]
     },
     {
@@ -942,11 +942,11 @@
       "environment": {
         "QA_CASE": "low-en-normal-business",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-low-en-normal-business"
+        "QA_TAG": "c45-eb40876c-native-good-low-en-normal-business"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-low-en-normal-business*"
+        "test/out/fp-review/c45-eb40876c-native-good-low-en-normal-business*"
       ]
     },
     {
@@ -958,11 +958,11 @@
       "environment": {
         "QA_CASE": "low-en-normal-intl",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-low-en-normal-intl"
+        "QA_TAG": "c45-eb40876c-native-good-low-en-normal-intl"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-low-en-normal-intl*"
+        "test/out/fp-review/c45-eb40876c-native-good-low-en-normal-intl*"
       ]
     },
     {
@@ -974,11 +974,11 @@
       "environment": {
         "QA_CASE": "low-en-normal-dg",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-low-en-normal-dg"
+        "QA_TAG": "c45-eb40876c-native-good-low-en-normal-dg"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-low-en-normal-dg*"
+        "test/out/fp-review/c45-eb40876c-native-good-low-en-normal-dg*"
       ]
     },
     {
@@ -990,11 +990,11 @@
       "environment": {
         "QA_CASE": "low-en-large-business",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-low-en-large-business"
+        "QA_TAG": "c45-eb40876c-native-good-low-en-large-business"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-low-en-large-business*"
+        "test/out/fp-review/c45-eb40876c-native-good-low-en-large-business*"
       ]
     },
     {
@@ -1006,11 +1006,11 @@
       "environment": {
         "QA_CASE": "low-en-large-intl",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-low-en-large-intl"
+        "QA_TAG": "c45-eb40876c-native-good-low-en-large-intl"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-low-en-large-intl*"
+        "test/out/fp-review/c45-eb40876c-native-good-low-en-large-intl*"
       ]
     },
     {
@@ -1022,11 +1022,11 @@
       "environment": {
         "QA_CASE": "low-en-large-dg",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-low-en-large-dg"
+        "QA_TAG": "c45-eb40876c-native-good-low-en-large-dg"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-low-en-large-dg*"
+        "test/out/fp-review/c45-eb40876c-native-good-low-en-large-dg*"
       ]
     },
     {
@@ -1038,11 +1038,11 @@
       "environment": {
         "QA_CASE": "low-ta-normal-business",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-low-ta-normal-business"
+        "QA_TAG": "c45-eb40876c-native-good-low-ta-normal-business"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-low-ta-normal-business*"
+        "test/out/fp-review/c45-eb40876c-native-good-low-ta-normal-business*"
       ]
     },
     {
@@ -1054,11 +1054,11 @@
       "environment": {
         "QA_CASE": "low-ta-normal-intl",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-low-ta-normal-intl"
+        "QA_TAG": "c45-eb40876c-native-good-low-ta-normal-intl"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-low-ta-normal-intl*"
+        "test/out/fp-review/c45-eb40876c-native-good-low-ta-normal-intl*"
       ]
     },
     {
@@ -1070,11 +1070,11 @@
       "environment": {
         "QA_CASE": "low-ta-normal-dg",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-low-ta-normal-dg"
+        "QA_TAG": "c45-eb40876c-native-good-low-ta-normal-dg"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-low-ta-normal-dg*"
+        "test/out/fp-review/c45-eb40876c-native-good-low-ta-normal-dg*"
       ]
     },
     {
@@ -1086,11 +1086,11 @@
       "environment": {
         "QA_CASE": "low-ta-large-business",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-low-ta-large-business"
+        "QA_TAG": "c45-eb40876c-native-good-low-ta-large-business"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-low-ta-large-business*"
+        "test/out/fp-review/c45-eb40876c-native-good-low-ta-large-business*"
       ]
     },
     {
@@ -1102,11 +1102,11 @@
       "environment": {
         "QA_CASE": "low-ta-large-intl",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-low-ta-large-intl"
+        "QA_TAG": "c45-eb40876c-native-good-low-ta-large-intl"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-low-ta-large-intl*"
+        "test/out/fp-review/c45-eb40876c-native-good-low-ta-large-intl*"
       ]
     },
     {
@@ -1118,11 +1118,11 @@
       "environment": {
         "QA_CASE": "low-ta-large-dg",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-low-ta-large-dg"
+        "QA_TAG": "c45-eb40876c-native-good-low-ta-large-dg"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-low-ta-large-dg*"
+        "test/out/fp-review/c45-eb40876c-native-good-low-ta-large-dg*"
       ]
     },
     {
@@ -1134,11 +1134,11 @@
       "environment": {
         "QA_CASE": "high-en-normal-business",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-high-en-normal-business"
+        "QA_TAG": "c45-eb40876c-native-good-high-en-normal-business"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-high-en-normal-business*"
+        "test/out/fp-review/c45-eb40876c-native-good-high-en-normal-business*"
       ]
     },
     {
@@ -1150,11 +1150,11 @@
       "environment": {
         "QA_CASE": "high-en-normal-intl",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-high-en-normal-intl"
+        "QA_TAG": "c45-eb40876c-native-good-high-en-normal-intl"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-high-en-normal-intl*"
+        "test/out/fp-review/c45-eb40876c-native-good-high-en-normal-intl*"
       ]
     },
     {
@@ -1166,11 +1166,11 @@
       "environment": {
         "QA_CASE": "high-en-normal-dg",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-high-en-normal-dg"
+        "QA_TAG": "c45-eb40876c-native-good-high-en-normal-dg"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-high-en-normal-dg*"
+        "test/out/fp-review/c45-eb40876c-native-good-high-en-normal-dg*"
       ]
     },
     {
@@ -1182,11 +1182,11 @@
       "environment": {
         "QA_CASE": "high-en-large-business",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-high-en-large-business"
+        "QA_TAG": "c45-eb40876c-native-good-high-en-large-business"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-high-en-large-business*"
+        "test/out/fp-review/c45-eb40876c-native-good-high-en-large-business*"
       ]
     },
     {
@@ -1198,11 +1198,11 @@
       "environment": {
         "QA_CASE": "high-en-large-intl",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-high-en-large-intl"
+        "QA_TAG": "c45-eb40876c-native-good-high-en-large-intl"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-high-en-large-intl*"
+        "test/out/fp-review/c45-eb40876c-native-good-high-en-large-intl*"
       ]
     },
     {
@@ -1214,11 +1214,11 @@
       "environment": {
         "QA_CASE": "high-en-large-dg",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-high-en-large-dg"
+        "QA_TAG": "c45-eb40876c-native-good-high-en-large-dg"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-high-en-large-dg*"
+        "test/out/fp-review/c45-eb40876c-native-good-high-en-large-dg*"
       ]
     },
     {
@@ -1230,11 +1230,11 @@
       "environment": {
         "QA_CASE": "high-ta-normal-business",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-high-ta-normal-business"
+        "QA_TAG": "c45-eb40876c-native-good-high-ta-normal-business"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-high-ta-normal-business*"
+        "test/out/fp-review/c45-eb40876c-native-good-high-ta-normal-business*"
       ]
     },
     {
@@ -1246,11 +1246,11 @@
       "environment": {
         "QA_CASE": "high-ta-normal-intl",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-high-ta-normal-intl"
+        "QA_TAG": "c45-eb40876c-native-good-high-ta-normal-intl"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-high-ta-normal-intl*"
+        "test/out/fp-review/c45-eb40876c-native-good-high-ta-normal-intl*"
       ]
     },
     {
@@ -1262,11 +1262,11 @@
       "environment": {
         "QA_CASE": "high-ta-normal-dg",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-high-ta-normal-dg"
+        "QA_TAG": "c45-eb40876c-native-good-high-ta-normal-dg"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-high-ta-normal-dg*"
+        "test/out/fp-review/c45-eb40876c-native-good-high-ta-normal-dg*"
       ]
     },
     {
@@ -1278,11 +1278,11 @@
       "environment": {
         "QA_CASE": "high-ta-large-business",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-high-ta-large-business"
+        "QA_TAG": "c45-eb40876c-native-good-high-ta-large-business"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-high-ta-large-business*"
+        "test/out/fp-review/c45-eb40876c-native-good-high-ta-large-business*"
       ]
     },
     {
@@ -1294,11 +1294,11 @@
       "environment": {
         "QA_CASE": "high-ta-large-intl",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-high-ta-large-intl"
+        "QA_TAG": "c45-eb40876c-native-good-high-ta-large-intl"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-high-ta-large-intl*"
+        "test/out/fp-review/c45-eb40876c-native-good-high-ta-large-intl*"
       ]
     },
     {
@@ -1310,11 +1310,11 @@
       "environment": {
         "QA_CASE": "high-ta-large-dg",
         "QA_VARIANT": "good",
-        "QA_TAG": "c45-c75808cc-native-good-high-ta-large-dg"
+        "QA_TAG": "c45-eb40876c-native-good-high-ta-large-dg"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-good-high-ta-large-dg*"
+        "test/out/fp-review/c45-eb40876c-native-good-high-ta-large-dg*"
       ]
     },
     {
@@ -1326,11 +1326,11 @@
       "environment": {
         "QA_CASE": "low-en-large-business",
         "QA_VARIANT": "bad-business",
-        "QA_TAG": "c45-c75808cc-native-bad-business-low-en-large-business"
+        "QA_TAG": "c45-eb40876c-native-bad-business-low-en-large-business"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-bad-business-low-en-large-business*"
+        "test/out/fp-review/c45-eb40876c-native-bad-business-low-en-large-business*"
       ]
     },
     {
@@ -1342,11 +1342,11 @@
       "environment": {
         "QA_CASE": "low-en-large-intl",
         "QA_VARIANT": "bad-docs",
-        "QA_TAG": "c45-c75808cc-native-bad-docs-low-en-large-intl"
+        "QA_TAG": "c45-eb40876c-native-bad-docs-low-en-large-intl"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-bad-docs-low-en-large-intl*"
+        "test/out/fp-review/c45-eb40876c-native-bad-docs-low-en-large-intl*"
       ]
     },
     {
@@ -1358,11 +1358,11 @@
       "environment": {
         "QA_CASE": "low-en-large-dg",
         "QA_VARIANT": "bad-call",
-        "QA_TAG": "c45-c75808cc-native-bad-call-low-en-large-dg"
+        "QA_TAG": "c45-eb40876c-native-bad-call-low-en-large-dg"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-bad-call-low-en-large-dg*"
+        "test/out/fp-review/c45-eb40876c-native-bad-call-low-en-large-dg*"
       ]
     },
     {
@@ -1374,11 +1374,11 @@
       "environment": {
         "QA_CASE": "low-en-large-business",
         "QA_VARIANT": "abandon",
-        "QA_TAG": "c45-c75808cc-native-abandon-low-en-large-business"
+        "QA_TAG": "c45-eb40876c-native-abandon-low-en-large-business"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-abandon-low-en-large-business*"
+        "test/out/fp-review/c45-eb40876c-native-abandon-low-en-large-business*"
       ]
     },
     {
@@ -1390,11 +1390,11 @@
       "environment": {
         "QA_CASE": "low-en-large-intl",
         "QA_VARIANT": "abandon",
-        "QA_TAG": "c45-c75808cc-native-abandon-low-en-large-intl"
+        "QA_TAG": "c45-eb40876c-native-abandon-low-en-large-intl"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-abandon-low-en-large-intl*"
+        "test/out/fp-review/c45-eb40876c-native-abandon-low-en-large-intl*"
       ]
     },
     {
@@ -1406,11 +1406,11 @@
       "environment": {
         "QA_CASE": "low-en-large-dg",
         "QA_VARIANT": "abandon",
-        "QA_TAG": "c45-c75808cc-native-abandon-low-en-large-dg"
+        "QA_TAG": "c45-eb40876c-native-abandon-low-en-large-dg"
       },
       "timeout": 10800,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-native-abandon-low-en-large-dg*"
+        "test/out/fp-review/c45-eb40876c-native-abandon-low-en-large-dg*"
       ]
     },
     {
@@ -1420,11 +1420,11 @@
         "test/scorm-launch-2004.js"
       ],
       "environment": {
-        "QA_TAG": "c45-c75808cc-scorm2004"
+        "QA_TAG": "c45-eb40876c-scorm2004"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-scorm2004*"
+        "test/out/fp-review/c45-eb40876c-scorm2004*"
       ]
     },
     {
@@ -1434,11 +1434,11 @@
         "test/fpscenariobrowser.js"
       ],
       "environment": {
-        "QA_TAG": "c45-c75808cc-legacy-modules"
+        "QA_TAG": "c45-eb40876c-legacy-modules"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-legacy-modules*"
+        "test/out/fp-review/c45-eb40876c-legacy-modules*"
       ]
     },
     {
@@ -1448,11 +1448,11 @@
         "test/academy.js"
       ],
       "environment": {
-        "QA_TAG": "c45-c75808cc-academy"
+        "QA_TAG": "c45-eb40876c-academy"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-academy*"
+        "test/out/fp-review/c45-eb40876c-academy*"
       ]
     },
     {
@@ -1462,11 +1462,11 @@
         "test/enterprise.js"
       ],
       "environment": {
-        "QA_TAG": "c45-c75808cc-enterprise"
+        "QA_TAG": "c45-eb40876c-enterprise"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-enterprise*"
+        "test/out/fp-review/c45-eb40876c-enterprise*"
       ]
     },
     {
@@ -1476,11 +1476,11 @@
         "test/routeday.js"
       ],
       "environment": {
-        "QA_TAG": "c45-c75808cc-routeday"
+        "QA_TAG": "c45-eb40876c-routeday"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-routeday*"
+        "test/out/fp-review/c45-eb40876c-routeday*"
       ]
     },
     {
@@ -1490,11 +1490,11 @@
         "test/driving.js"
       ],
       "environment": {
-        "QA_TAG": "c45-c75808cc-driving"
+        "QA_TAG": "c45-eb40876c-driving"
       },
       "timeout": 7200,
       "artifacts": [
-        "test/out/fp-review/c45-c75808cc-driving*"
+        "test/out/fp-review/c45-eb40876c-driving*"
       ]
     }
   ]
