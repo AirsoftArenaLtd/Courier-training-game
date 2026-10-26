@@ -1,0 +1,69 @@
+{
+  "checks": 153,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "kind": "find",
+      "shots": [
+        "c44-label-native-abandon-low-en-large-find-41056a12-low-en-large-find-brief.png",
+        "c44-label-native-abandon-low-en-large-find-41056a12-low-en-large-find-controls-0.png",
+        "c44-label-native-abandon-low-en-large-find-41056a12-low-en-large-find-controls-1.png",
+        "c44-label-native-abandon-low-en-large-find-41056a12-low-en-large-find-controls-2.png",
+        "c44-label-native-abandon-low-en-large-find-41056a12-low-en-large-find-controls-3.png",
+        "c44-label-native-abandon-low-en-large-find-41056a12-low-en-large-find-handheld.png"
+      ],
+      "findEvents": [],
+      "placements": [],
+      "abandoned": {
+        "assessment": {
+          "attempts": 1,
+          "passed": false,
+          "startedAt": 1792973007137,
+          "pending": false,
+          "abandoned": true,
+          "at": 1792973022892
+        }
+      },
+      "durable": true,
+      "reload": {
+        "assessment": {
+          "attempts": 1,
+          "passed": false,
+          "startedAt": 1792973007137,
+          "pending": false,
+          "abandoned": true,
+          "at": 1792973022892
+        },
+        "scene": "LoadingScene",
+        "default3d": false,
+        "scene3d": null
+      }
+    }
+  ],
+  "errors": [],
+  "variant": "abandon",
+  "sourceRevision": "ac04735034075006004837da7b7963e5aa9b638b",
+  "uncommittedRuntime": false,
+  "sourceFiles": {
+    "index.html": "72f4d24d9e52bc1be56b84d1714b5667d1d3c540b227e35f972c371831d09a71",
+    "src/core/fploading.js": "2a7bb76031c4bb9ad5f21bd7682f9149e36e1e8a24a7f88eafde85ccbf19a847",
+    "src/core/fploadingworld.js": "0b3233a157c21636892ee9761199539d1ad198c086dabeae7adb910ce3aa8fba",
+    "src/core/fploadingscenario.js": "352206b211b62e1b1223f08ddb8b885dd59ed25f51dd6901e5c8afca02e16d47",
+    "src/core/fpworld.js": "a1b543936a283d666a6fceb46e06ccecb8a6578c0ea3e253e5e73a2ca65cab95",
+    "src/core/fpaccess.js": "44f28280d8603baa61b86acdea51a2be452f0a6f05f3ed756bbbe9c4e11d727b",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/scenes/FirstPersonScenarioScene.js": "5f007f6b50da29848bdad54b7e9e972f7bfa69c1faa3f6d047493be62ac91654",
+    "src/scenes/BaseScenarioScene.js": "7249bc0ebbf84ca584186ddb90979ebaea7c54791cc08aff5939609f2b016135",
+    "src/scenes/m6/LoadingScene.js": "33f83327a465eeea2f0a12f701dbcafbfc2ecb24c4d0e929413f06fa561d783d",
+    "data/m6_loading.js": "eb8c6b499efe80e539159b49f850718af0abadcb3ee92c4ad5188de0c505e192",
+    "data/modules.js": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "test/tools/fp-loading-original.js": "113af86af72d1099ad78d1e86d43c616b1aea7e69fd2fedef203f752a13ab09d"
+  },
+  "protocolSha256": "9a42adf1e617d05660b68b20de0a99737238f50fb82b99fde7947e866d3bfe40",
+  "scope": "Only existing-id registration, accessibility preferences and a real suspended workday are fixtures. All movement, target selection, label reading, carrying, placements, restraints, picks, pauses and completion use real keys. No position, action callback, clock, scoring, result or assessment-completion fixtures. Observations are replayed through actual original 2D callbacks in Node. Tamil glyph/translation readiness remains a separate shared gate.",
+  "complete": true
+}
