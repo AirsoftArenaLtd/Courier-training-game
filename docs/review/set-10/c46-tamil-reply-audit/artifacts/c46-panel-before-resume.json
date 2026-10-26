@@ -1,0 +1,184 @@
+{
+  "checks": 39888,
+  "modes": [
+    {
+      "lang": "en",
+      "large": false,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "es",
+      "large": false,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "es",
+      "large": true,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "fr",
+      "large": false,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "fr",
+      "large": true,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "hi",
+      "large": false,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "hi",
+      "large": true,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "bn",
+      "large": false,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "bn",
+      "large": true,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "mr",
+      "large": false,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "mr",
+      "large": true,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "te",
+      "large": false,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "te",
+      "large": true,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+      "capture": "c46-panel-before-resume-ta-normal-dog-p1.png",
+      "dogReply": {
+        "source": "1. படிகளின் அடியில் நின்று, நீங்கள் மேலே வருவதற்கு முன் பெப்பரை உள்ளே கொண்டு போகவோ அதன் கழுத்துப்பட்டையைப் பிடிக்கவோ அவரிடம் கேளுங்கள்.",
+        "scale": 1,
+        "font": 18,
+        "left": 192.5,
+        "right": 1087.5,
+        "top": 377,
+        "bottom": 421,
+        "button": {
+          "left": 166,
+          "right": 1114,
+          "top": 372,
+          "bottom": 426
+        }
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+      "capture": "c46-panel-before-resume-ta-large-dog-p1.png",
+      "dogReply": {
+        "source": "1. படிகளின் அடியில் நின்று, நீங்கள் மேலே வருவதற்கு முன் பெப்பரை உள்ளே கொண்டு போகவோ அதன் கழுத்துப்பட்டையைப் பிடிக்கவோ அவரிடம் கேளுங்கள்.",
+        "scale": 1,
+        "font": 22,
+        "left": 206.5,
+        "right": 1073.5,
+        "top": 343,
+        "bottom": 421,
+        "button": {
+          "left": 166,
+          "right": 1114,
+          "top": 338,
+          "bottom": 426
+        }
+      }
+    },
+    {
+      "lang": "gu",
+      "large": false,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "gu",
+      "large": true,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "kn",
+      "large": false,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "kn",
+      "large": true,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "ml",
+      "large": false,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "ml",
+      "large": true,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "pa",
+      "large": false,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    {
+      "lang": "pa",
+      "large": true,
+      "panels": 79,
+      "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    }
+  ],
+  "errors": [],
+  "scope": "Static actual FirstPersonScene panels using every original M8 situation line, reply and feedback at both text sizes in twelve languages. Does not advance conversations, score, certify native journeys, glyph coverage or translations.",
+  "complete": true
+}

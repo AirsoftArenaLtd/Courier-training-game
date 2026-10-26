@@ -1,0 +1,271 @@
+{
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "64 arranged resource views (15 retained unaffected Low, 49 fresh); 24 good native journeys (one retained unaffected footsteps, two fresh preflight, 21 fresh matrix), one critical trip and three abandonments; six repository browser regressions. No shared Tamil glyph/translation/A30/A31/default/current-pilot or Intel FPS acceptance. All fresh jobs stop at the first failure.",
+  "retained": [
+    {
+      "name": "loaded-low-original-15",
+      "report": "../c46-playable-preflight/artifacts/c46-playable-563c7b2e-low-first-quality.json",
+      "scope": "All fifteen arranged fixtures keep ownerAtGate false; the new standing distance is unused. No resource ceiling or geometry pool changed."
+    },
+    {
+      "name": "low-en-normal-steps",
+      "report": "../c46-playable-preflight/artifacts/c46-playable-563c7b2e-low-en-normal-steps.json",
+      "scope": "955 checks/7500 points/nine stars/one durable play. The footsteps graph never uses ownerAppears at the gate; optional panel-stop is unused on its waypoint walking. The new dog pose is outside this accepted scope."
+    }
+  ],
+  "jobs": [
+    {
+      "name": "low-owner-resource",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-low-owner",
+        "QA_PROFILES": "loaded-low",
+        "QA_VIEWS": "wellnessowner"
+      }
+    },
+    {
+      "name": "high-resources",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-high",
+        "QA_PROFILES": "loaded-high"
+      }
+    },
+    {
+      "name": "high-en-normal-dog",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-high-en-normal-dog",
+        "QA_CASE": "high-en-normal-dog"
+      }
+    },
+    {
+      "name": "low-en-large-heat",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-low-en-large-heat",
+        "QA_CASE": "low-en-large-heat"
+      }
+    },
+    {
+      "name": "accessible-fallback-resources",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-remaining",
+        "QA_PROFILES": "accessible-low,fallback-low"
+      }
+    },
+    {
+      "name": "scanner-regression",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-scanner-regression",
+        "QA_CASE": "low-en-normal-pod"
+      }
+    },
+    {
+      "name": "incident-regression",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-incident-regression",
+        "QA_CASE": "low-en-normal"
+      }
+    },
+    {
+      "name": "academy",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "enterprise",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "routeday",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "driving",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "matrix-low-en-normal-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-normal-dog",
+        "QA_CASE": "low-en-normal-dog"
+      }
+    },
+    {
+      "name": "matrix-low-en-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-normal-heat",
+        "QA_CASE": "low-en-normal-heat"
+      }
+    },
+    {
+      "name": "matrix-low-en-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-large-steps",
+        "QA_CASE": "low-en-large-steps"
+      }
+    },
+    {
+      "name": "matrix-low-en-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-large-dog",
+        "QA_CASE": "low-en-large-dog"
+      }
+    },
+    {
+      "name": "matrix-low-ta-normal-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-steps",
+        "QA_CASE": "low-ta-normal-steps"
+      }
+    },
+    {
+      "name": "matrix-low-ta-normal-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-dog",
+        "QA_CASE": "low-ta-normal-dog"
+      }
+    },
+    {
+      "name": "matrix-low-ta-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-heat",
+        "QA_CASE": "low-ta-normal-heat"
+      }
+    },
+    {
+      "name": "matrix-low-ta-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-steps",
+        "QA_CASE": "low-ta-large-steps"
+      }
+    },
+    {
+      "name": "matrix-low-ta-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-dog",
+        "QA_CASE": "low-ta-large-dog"
+      }
+    },
+    {
+      "name": "matrix-low-ta-large-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-heat",
+        "QA_CASE": "low-ta-large-heat"
+      }
+    },
+    {
+      "name": "matrix-high-en-normal-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-normal-steps",
+        "QA_CASE": "high-en-normal-steps"
+      }
+    },
+    {
+      "name": "matrix-high-en-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-normal-heat",
+        "QA_CASE": "high-en-normal-heat"
+      }
+    },
+    {
+      "name": "matrix-high-en-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps",
+        "QA_CASE": "high-en-large-steps"
+      }
+    },
+    {
+      "name": "matrix-high-en-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-dog",
+        "QA_CASE": "high-en-large-dog"
+      }
+    },
+    {
+      "name": "matrix-high-en-large-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat",
+        "QA_CASE": "high-en-large-heat"
+      }
+    },
+    {
+      "name": "matrix-high-ta-normal-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps",
+        "QA_CASE": "high-ta-normal-steps"
+      }
+    },
+    {
+      "name": "matrix-high-ta-normal-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog",
+        "QA_CASE": "high-ta-normal-dog"
+      }
+    }
+  ],
+  "preflightComplete": true,
+  "complete": false,
+  "earlierFailedAttempts": [
+    "high-steps-timeout-20261026/manifest.json"
+  ],
+  "continuation": {
+    "earlierFailedAttempt": "high-steps-timeout-20261026/manifest.json",
+    "retainedPassingJobs": 21,
+    "remainingJobs": 15,
+    "wallTimeoutSeconds": 3600,
+    "scope": "Only the incomplete High footsteps case and fourteen never-started cases run. App/data/assets/browser protocols remain byte-identical across 909 frozen files. All original per-action timeouts, game clocks, pars, scores and resource limits are unchanged."
+  }
+}

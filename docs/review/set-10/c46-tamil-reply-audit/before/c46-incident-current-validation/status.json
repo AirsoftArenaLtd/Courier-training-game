@@ -1,0 +1,7 @@
+{
+  "phase": "supervisor-error",
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "pid": 95299,
+  "state": "failed",
+  "error": "Owned incident supervisor interrupted by signal 15"
+}
