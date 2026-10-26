@@ -362,7 +362,7 @@ OTR.fpWorld = {
     }));
     const mirrors=OTR.fpMirrors?OTR.fpMirrors.build(scene,interactions):null;
     const rear=OTR.fpRear&&cab?OTR.fpRear.build(scene,cab.root,interactions,cab.navigation.local):null;
-    const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood,shadowSpan:base.pickupTask||base.incidentStage?20:90}):null;
+    const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood,shadowSpan:base.pickupTask||base.incidentStage||base.customerStop?.wellness?20:90}):null;
     const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab,lighting,weather):null;
     const damage=OTR.fpDamageWorld?OTR.fpDamageWorld.build(scene,base,route,chassis,labels,actors):null;
     const walkVehicle=actors&&actors.vehicle,walkWheel=walkVehicle&&walkVehicle.parts.find(p=>p.name==='wheel-back-left'),walkDoor=walkVehicle&&walkVehicle.parts.find(p=>p.name==='door');

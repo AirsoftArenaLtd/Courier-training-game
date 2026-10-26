@@ -19,7 +19,7 @@ OTR.fpWellnessStage={
     const s=model.wellnessStage,d=s.stop;
     // Fit once per world build, including its imported facade; no object creation during walking.
     s.wall=wall;s.floor=floor;s.hazards.length=s.triggers.length=s.shades.length=s.solids.length=0;s.interiorBuilt=false;
-    const slots={ice_walk:[8.3,-40.25,2.7,1.55],ice_path:[12,-42.05,2.3,1.5],hose:[11.7,-40.5,1.65,1.5],toys:[12.15,-42,1.1,.95],crack:[8.4,-40.6,1.6,1],puddle:[12,wall+1.35,2.3,.85]};
+    const slots={ice_walk:[8.3,-40.25,2.7,1.55],ice_path:[12,-42.05,2.3,1.5],hose:[11.7,-40.5,1.65,1.5],toys:[12.15,-42,1.1,.95],crack:[8.4,-40.6,1.6,1],puddle:[12,wall+.55,2.3,.85]};
     for(const hazard of d.wellness.hazards){
       const spot=slots[hazard.id];
       if(hazard.id==='steps'){

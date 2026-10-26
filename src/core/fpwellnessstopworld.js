@@ -17,16 +17,23 @@ OTR.fpWellnessStopWorld={
     };
     const solid=(x,y,z,w,h,d,hex,angle=0)=>box(0,x,y,z,w,h,d,hex,angle),part=(x,y,z,w,h,d,hex,angle=0)=>box(1,x,y,z,w,h,d,hex,angle);
     const targets=[],proxy=(id,x,y,z,w,h,d)=>{const mesh=new T.Mesh(cube,proxyPaint);mesh.layers.set(1);mesh.userData.interaction=id;mesh.position.set(x,y,z);mesh.scale.set(w,h,d);root.add(mesh);if(id){options.interactions?.push(mesh);targets.push(mesh);}options.occluders?.push(mesh);return mesh;};
+    // Join the public sidewalk to the existing entrance path beneath every source hazard.
+    solid(8.5,-.015,-40.2,7.4,.03,2,0xC8C3B7);solid(12,-.015,-40.05,2.4,.03,1.7,0xC8C3B7);
     const hazards=stage.hazards.map(surface=>{
       const clearable=surface.type==='hose'||surface.type==='toys';
-      const target=clearable?surface.type==='hose'?proxy('wellness-clear-'+surface.id,surface.x,surface.y+.04,surface.z-.23,.35,.12,.25):proxy('wellness-clear-'+surface.id,surface.x-.3,surface.y+.09,surface.z-.2,.25,.18,.3):null;
+      const target=clearable?surface.type==='hose'?proxy('wellness-clear-'+surface.id,surface.x,surface.y+.04,surface.z-.45,.35,.12,.15):proxy('wellness-clear-'+surface.id,surface.x-.3,surface.y+.09,surface.z-.2,.25,.18,.3):null;
+      let hose=null;
+      if(surface.type==='hose'){
+        const points=[[-.4,-.45],[.4,-.45],[.65,-.2],[.65,.2],[.4,.45],[-.4,.45],[-.65,.2],[-.65,-.2]];
+        hose=points.map((point,i)=>{const next=points[(i+1)%points.length],dx=next[0]-point[0],dz=next[1]-point[1];return {x:(point[0]+next[0])/2,z:(point[1]+next[1])/2,w:Math.hypot(dx,dz)+.03,angle:-Math.atan2(dz,dx)};});
+      }
       if(!clearable){
         const ice=surface.type==='ice',crack=surface.type==='crack',y=surface.y;
         solid(surface.x,y,surface.z,surface.w,.018,surface.d,ice?0x8BA7B4:crack?0x686A66:0x7C8E95);
         if(crack){solid(surface.x-surface.w*.24,y+.025,surface.z,surface.w*.46,.06,surface.d,0xA7A79E);solid(surface.x+surface.w*.25,y+.005,surface.z,surface.w*.46,.02,surface.d,0xBEBEB3);}
-        else{solid(surface.x-surface.w*.28,y+.012,surface.z,surface.w*.22,.012,surface.d*.8,ice?0xD6E2E4:0xA8B9BE);solid(surface.x+surface.w*.23,y+.012,surface.z-surface.d*.1,surface.w*.14,.012,surface.d*.6,ice?0xC4D7DB:0x9AADB3);}
+        else{solid(surface.x-surface.w*.08,y+.012,surface.z-surface.d*.15,surface.w*.75,.012,.025,ice?0xBECFD3:0x9AAEB4,.12);solid(surface.x+surface.w*.17,y+.012,surface.z+surface.d*.18,surface.w*.4,.012,.025,ice?0xB6C9CE:0x92A6AD,-.4);}
       }
-      return {surface,target};
+      return {surface,target,hose};
     });
     const gate=model.customerStop.def.fence?proxy('wellness-gate',12,1,-40.53,1.5,.6,.15):null,gateBarrier=gate?proxy(null,12,.6,-40.6,1.5,1.2,.12):null;
     const words=OTR.fpMountedWords.build(root,{high,capacity:128});
@@ -63,8 +70,8 @@ OTR.fpWellnessStopWorld={
           const h=item.surface,state=d.state.hazards[h.id],cleared=state.state==='cleared';if(item.target)item.target.visible=!cleared;
           if(!item.target||cleared)continue;
           if(h.type==='hose'){
-            for(let i=0;i<5;i++)part(h.x-h.w*.4+i*h.w*.2,h.y+.04,h.z+(i%2?.23:-.23),h.w*.23,.07,.08,0x4F7758,i%2?.6:-.6);
-            part(h.x+.48,h.y+.04,h.z+.3,.08,.08,h.d*.55,0x4F7758);
+            for(const segment of item.hose)part(h.x+segment.x,h.y+.04,h.z+segment.z,segment.w,.07,.07,0x4F7758,segment.angle);
+            part(h.x+.65,h.y+.04,h.z+.43,.07,.07,.5,0x4F7758);
           }else{part(h.x-.3,h.y+.09,h.z-.2,.25,.18,.3,0xC48A46);part(h.x+.28,h.y+.12,h.z+.18,.3,.24,.23,0x6B8D9D);part(h.x-.15,h.y+.16,h.z+.25,.16,.32,.16,0x956D7A);}
         }
         if(gate){
@@ -77,8 +84,8 @@ OTR.fpWellnessStopWorld={
         if(dog.visible){
           const fur=d.def.dog.spec.fur||0x876C54,patch=d.def.dog.spec.patch||fur,fear=dog.mood==='fearful',bounce=!reduced&&dog.moving?Math.sin(stage.time*12)*.025:0,x=dog.x,z=dog.z,y=bounce+(fear?-.1:0);
           part(x,.51+y,z,.42,.38,.68,fur);part(x,.79+y,z+.25,.29,.3,.3,fur);part(x,.69+y,z+.43,.22,.13,.24,patch);
-          for(const side of sides){part(x+side*.11,.96+y,z+.24,.09,.2,.14,fur);part(x+side*.17,.22+y,z-.21,.11,.45,.13,fur);part(x+side*.17,.22+y,z+.2,.11,.45,.13,fur);part(x+side*.085,.83+y,z+.407,.035,.035,.018,0x252A2B);}
-          part(x,.55+y,z-.46,.08,fear?.08:.36,.12,fur);part(x,.67+y,z+.21,.43,.07,.12,d.def.dog.spec.collar||0x6B8790);
+          for(const side of sides){part(x+side*(fear?.15:.11),(fear?.87:.96)+y,z+(fear?.12:.24),fear?.13:.09,fear?.06:.2,fear?.25:.14,fur);part(x+side*.17,fear?.15:.22+y,z-.21,.11,fear?.3:.45,.13,fur);part(x+side*.17,fear?.15:.22+y,z+.2,.11,fear?.3:.45,.13,fur);part(x+side*.085,.83+y,z+.407,.035,.035,.018,0x252A2B);}
+          part(x,(fear?.4:.55)+y,z-(fear?.32:.46),.08,fear?.06:.36,fear?.24:.12,fur);part(x,.67+y,z+.21,.43,.07,.12,d.def.dog.spec.collar||0x6B8790);
         }
         moving.count=dynamic;batches[1].entries.length=dynamic;moving.instanceMatrix.needsUpdate=true;moving.instanceColor.needsUpdate=true;root.updateMatrixWorld(true);
       },

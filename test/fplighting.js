@@ -52,3 +52,6 @@ test('the counter focuses the same High shadow map on its room, with matching te
   s.art.dispose();delete m.pickupTask;s.art=O.fpWorld.build(s,m);s.sync();const ordinary=s.art.lighting.sun;assert.equal(ordinary.target.position.x,Math.round(m.player.x/(90/512))*(90/512));assert.equal(ordinary.target.position.z,Math.round(m.player.z/(90/512))*(90/512));if(high)assert.equal(ordinary.shadow.camera.right-ordinary.shadow.camera.left,90);
  }finally{s.art.dispose();}}
 });
+test('only the wellness component uses its local High shadow area, and removing it restores ordinary coverage',()=>{
+ for(const high of [false,true]){const s=scene(high),m=s.model;try{s.art.dispose();m.customerStop={wellness:{}};s.art=O.fpWorld.build(s,m);s.sync();const sun=s.art.lighting.sun;assert.equal(sun.castShadow,high);if(high){assert.equal(sun.shadow.mapSize.width,512);assert.equal(sun.shadow.camera.right-sun.shadow.camera.left,20);}s.art.dispose();delete m.customerStop;s.art=O.fpWorld.build(s,m);s.sync();if(high)assert.equal(s.art.lighting.sun.shadow.camera.right-s.art.lighting.sun.shadow.camera.left,90);}finally{s.art.dispose();}}
+});
