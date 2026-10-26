@@ -1,0 +1,41 @@
+{
+  "checks": 315,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "kind": "heat",
+      "shots": [
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-brief.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-controls-0.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-controls-1.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-controls-2.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-controls-3.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-controls-4.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-controls-5.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-handheld.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-stop0-safety.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-stop0-cargo.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-stop0-arrival.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-stop0-photo-framing.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-stop0-photo-review.png"
+      ],
+      "stops": [],
+      "photoProofs": [
+        {
+          "index": 0,
+          "width": 640,
+          "height": 360,
+          "colours": 224
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "f3ab7d960d9b78ec285386729baf100f21ef32aa",
+  "uncommittedRuntime": false,
+  "protocolSha256": "bae2f54e2d9ba994ec97b769bfde52e7fed8e1d54c7e9a4e71ab83361733e03b",
+  "scope": "Existing-id registration, accessibility and a suspended workday are setup fixtures. Observational wrappers record completed original conversations and pre-evaluation stop facts without changing arguments or return values. Real keys control all walking, aiming, parcels, safety actions, replies, photos, signing and results. No position, timer, node, hazard, signature-completion, score or verdict fixture. Independent original 2D callbacks replay observed choices and evaluate observed stop facts. Bounds checks do not certify Tamil glyph coverage or Intel FPS."
+}

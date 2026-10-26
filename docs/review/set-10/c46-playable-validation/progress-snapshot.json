@@ -1,10 +1,10 @@
 {
-  "at": "2026-10-26T17:32:28.729307+00:00",
+  "at": "2026-10-26T18:32:13.622956+00:00",
   "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
   "sourceFilesVerified": 909,
   "retainedProofsVerified": 8,
   "status": {
-    "phase": "matrix-high-en-large-steps",
+    "phase": "matrix-high-en-large-heat",
     "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
     "pid": 93924,
     "state": "running",
@@ -208,6 +208,24 @@
         "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-normal-heat",
         "QA_CASE": "high-en-normal-heat"
       }
+    },
+    {
+      "name": "matrix-high-en-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps",
+        "QA_CASE": "high-en-large-steps"
+      }
+    },
+    {
+      "name": "matrix-high-en-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-dog",
+        "QA_CASE": "high-en-large-dog"
+      }
     }
   ],
   "preflightComplete": true,
@@ -215,10 +233,10 @@
     "high-steps-timeout-20261026/manifest.json"
   ],
   "resourceViews": 64,
-  "goodJourneys": 15,
-  "nativeChecks": 17529,
-  "captures": 370,
-  "passedAssessments": 6,
+  "goodJourneys": 17,
+  "nativeChecks": 20088,
+  "captures": 419,
+  "passedAssessments": 8,
   "incidentFollowup": {
     "status": {
       "phase": "waiting-for-core-validation",
@@ -231,5 +249,5 @@
     "resourceViews": 32,
     "retainedCurrentCase": "low-en-normal"
   },
-  "scope": "Core steps/dog/heat completed metrics only; partial captures excluded. All High English normal cases now pass; original 802-check timeout stays archived. Incident follow-up is queued and claims no new passes. Overall original-id target is 32 good layouts and 96 resource views. Shared A31/default/current-pilot/Intel acceptance remains separate."
+  "scope": "Completed steps/dog/heat metrics only; partial cases excluded. High larger-English footsteps and dog assessments now pass once and reload durably. Incident follow-up remains queued without new acceptance claims. Shared A31/default/current-pilot/Intel acceptance remains separate."
 }
