@@ -1,0 +1,29 @@
+{
+  "checks": 174,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "kind": "steps",
+      "shots": [
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps-high-en-large-steps-brief.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps-high-en-large-steps-controls-0.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps-high-en-large-steps-controls-1.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps-high-en-large-steps-controls-2.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps-high-en-large-steps-controls-3.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps-high-en-large-steps-controls-4.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps-high-en-large-steps-controls-5.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps-high-en-large-steps-handheld.png",
+        "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps-high-en-large-steps-stop0-cargo.png"
+      ],
+      "stops": []
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "051cf4e2670651f378bbe43b86a8944751ef956f",
+  "uncommittedRuntime": false,
+  "protocolSha256": "bae2f54e2d9ba994ec97b769bfde52e7fed8e1d54c7e9a4e71ab83361733e03b",
+  "scope": "Existing-id registration, accessibility and a suspended workday are setup fixtures. Observational wrappers record completed original conversations and pre-evaluation stop facts without changing arguments or return values. Real keys control all walking, aiming, parcels, safety actions, replies, photos, signing and results. No position, timer, node, hazard, signature-completion, score or verdict fixture. Independent original 2D callbacks replay observed choices and evaluate observed stop facts. Bounds checks do not certify Tamil glyph coverage or Intel FPS."
+}

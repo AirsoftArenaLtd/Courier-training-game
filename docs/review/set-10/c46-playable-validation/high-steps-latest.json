@@ -1,23 +1,23 @@
 {
-  "at": "2026-10-26T16:32:38.909Z",
+  "at": "2026-10-26T16:59:13.804Z",
   "child": 93927,
   "state": {
-    "frame": 780,
-    "index": 0,
-    "phase": "active",
+    "frame": 3484,
+    "index": 2,
+    "phase": "done",
     "player": {
-      "x": 11.898448253070937,
-      "z": -43.232264320285324,
-      "yaw": 0.051499862144254026
+      "x": -0.10899802935525577,
+      "z": -43.63697911483942,
+      "yaw": 1.3507927112246343
     },
-    "clock": 25.288236666665547,
-    "elapsed": 28.288236666665547,
+    "clock": 39.66644000000659,
+    "elapsed": 42.66644000000645,
     "panel": null,
-    "handheld": true,
+    "handheld": false,
     "paused": true,
     "acting": false,
     "locked": 0,
     "walkGoal": null,
-    "outcome": null
+    "outcome": "delivered"
   }
 }

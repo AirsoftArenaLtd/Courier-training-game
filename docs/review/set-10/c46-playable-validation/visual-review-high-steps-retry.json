@@ -1,0 +1,26 @@
+{
+  "runtime": "6d83d2e1",
+  "scope": "Four current-source completed High English normal footsteps retry captures inspected at original resolution. The earlier 802-check timeout remains separately archived and excluded.",
+  "images": [
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-normal-steps-high-en-normal-steps-stop2-arrival.png",
+      "sha256": "a5bf343ac2c97a0d7706c73eaa1246cd8b29a3beaf634d4b37a3503f34d3fc8b",
+      "observation": "The completed retry reaches the third entrance through actual walking. The High house and resident at the right edge are visible beside the real HUD; this door-facing capture is not a whole-body clearance proof."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-normal-steps-high-en-normal-steps-stop2-printed-name.png",
+      "sha256": "d09f49fcd465c56b4820b87047321b7982e043f39fe8b7a8a095f32679830c6d",
+      "observation": "The final printed-name panel fits its title, question and three full-size separate controls, including the original signer name."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-normal-steps-high-en-normal-steps-stop0-photo-review.png",
+      "sha256": "de19567e0eb989312bf3eaac7d0e228f037da522a26efefb0b0c5dacc415bdb2",
+      "observation": "The actual High snowy doorstep/package photo is present in the preview. Native proof separately verifies 640x360 pixels and 425 sampled colors. Caption and three handheld choices remain readable and separate."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-normal-steps-high-en-normal-steps-result.png",
+      "sha256": "0beaa58bc25d886ac30d223a84cb892bd3ad8b09f98aaa0e9234515c612f13bd",
+      "observation": "The settled normal-English result shows nine stars, all three original safety takeaways, career progress and two keyboard-focusable controls within the screen, without overlap or clipping."
+    }
+  ]
+}

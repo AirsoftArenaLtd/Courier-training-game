@@ -1,10 +1,10 @@
 {
-  "at": "2026-10-26T16:30:16.080071+00:00",
+  "at": "2026-10-26T17:32:28.729307+00:00",
   "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
   "sourceFilesVerified": 909,
   "retainedProofsVerified": 8,
   "status": {
-    "phase": "matrix-high-en-normal-steps",
+    "phase": "matrix-high-en-large-steps",
     "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
     "pid": 93924,
     "state": "running",
@@ -190,6 +190,24 @@
         "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-heat",
         "QA_CASE": "low-ta-large-heat"
       }
+    },
+    {
+      "name": "matrix-high-en-normal-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-normal-steps",
+        "QA_CASE": "high-en-normal-steps"
+      }
+    },
+    {
+      "name": "matrix-high-en-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-normal-heat",
+        "QA_CASE": "high-en-normal-heat"
+      }
     }
   ],
   "preflightComplete": true,
@@ -197,9 +215,21 @@
     "high-steps-timeout-20261026/manifest.json"
   ],
   "resourceViews": 64,
-  "goodJourneys": 13,
-  "nativeChecks": 15672,
-  "captures": 322,
+  "goodJourneys": 15,
+  "nativeChecks": 17529,
+  "captures": 370,
   "passedAssessments": 6,
-  "scope": "Retains 21 passing jobs; incomplete 802-check High attempt is excluded. The 15-job continuation changes only wall deadlines and tags, with unchanged source/protocol/gameplay clocks/scoring. Shared Tamil font/translation/readability and rollout/Intel acceptance remain separate."
+  "incidentFollowup": {
+    "status": {
+      "phase": "waiting-for-core-validation",
+      "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+      "pid": 95299,
+      "state": "waiting"
+    },
+    "jobs": 13,
+    "remainingGoodLayouts": 7,
+    "resourceViews": 32,
+    "retainedCurrentCase": "low-en-normal"
+  },
+  "scope": "Core steps/dog/heat completed metrics only; partial captures excluded. All High English normal cases now pass; original 802-check timeout stays archived. Incident follow-up is queued and claims no new passes. Overall original-id target is 32 good layouts and 96 resource views. Shared A31/default/current-pilot/Intel acceptance remains separate."
 }

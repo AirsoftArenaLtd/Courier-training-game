@@ -1,0 +1,5 @@
+{
+  "supervisor": 95299,
+  "phase": "queued after all 36 core jobs pass",
+  "port": 8396
+}

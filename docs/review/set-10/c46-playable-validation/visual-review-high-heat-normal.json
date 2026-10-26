@@ -1,0 +1,16 @@
+{
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Two current-source complete High English normal heat captures inspected at original resolution; larger/Tamil and shared font/translation readiness remain separate.",
+  "images": [
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-normal-heat-high-en-normal-heat-stop2-printed-name.png",
+      "sha256": "de8967a433af1ceb713d646bc5c151765dc7d293e681eba1478703c54d6ed264",
+      "observation": "The High clinic printed-name candidate panel fits its title, question and three separate normal-size controls. The captured first candidate is the clinic name; subsequent real-key paging selects the actual source signer and the completed result preserves the original correct-name check."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-normal-heat-high-en-normal-heat-result.png",
+      "sha256": "8e1b1d30a1a504d43a969e1a15bcf8b1c6716dd4d5ba253b99b4273917803fd3",
+      "observation": "The settled High English heat result fits nine stars, all three safety takeaways, career progress and the two keyboard controls without overlap or clipping."
+    }
+  ]
+}
