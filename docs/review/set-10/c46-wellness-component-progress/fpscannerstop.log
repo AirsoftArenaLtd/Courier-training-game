@@ -1,0 +1,17 @@
+{"callbackAndEvaluationCases":568,"stops":9}
+{"authoredReplyBranches":14}
+{"completeSets":[{"id":"m5-pod","score":6200,"ratios":{"service":1,"efficiency":1,"safety":1}},{"id":"m5-exceptions","score":5100,"ratios":{"service":1,"efficiency":1,"safety":1}},{"id":"m5-adult","score":6200,"ratios":{"service":1,"safety":1,"efficiency":1}}]}
+✔ authored spots, all photo grades and every person/ID/exception choice retain the actual 2D callbacks (76.311317ms)
+✔ an ID refusal never releases, records an exception or prints a tag automatically; a bad release stays critical (1.059111ms)
+✔ original ID card data, fixed training date, Back and stale decision guards remain intact (0.632546ms)
+✔ retaking a placed package photo keeps it at the chosen spot until the original Use action (0.296498ms)
+✔ all scripted scanner replies use actual TalkController effects in their original stop groups (2.872963ms)
+✔ all three completed sets preserve original nextStop scores, ratios, lessons and group logs (2.54ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 89.740758
