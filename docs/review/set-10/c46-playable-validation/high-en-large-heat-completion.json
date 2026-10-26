@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-26T19:24:30.510Z",
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-large-heat.json",
+  "reportSha256": "c87dbd08e079ee8a2e813478450ecf3e8d2e03e9bc14f4c04cc1847d380fcc28",
+  "sourceRevision": "f3ab7d960d9b78ec285386729baf100f21ef32aa",
+  "sourceFilesVerified": 909,
+  "protocolSha256": "bae2f54e2d9ba994ec97b769bfde52e7fed8e1d54c7e9a4e71ab83361733e03b",
+  "complete": true,
+  "errors": [],
+  "checks": 906,
+  "captures": 25,
+  "score": 6900,
+  "stars": {
+    "safety": 3,
+    "efficiency": 3,
+    "service": 3
+  },
+  "seconds": 103,
+  "photoProofs": [
+    {
+      "index": 0,
+      "width": 640,
+      "height": 360,
+      "colours": 224
+    }
+  ],
+  "independentOriginalResultEquality": true,
+  "independentOriginalStarEquality": true,
+  "onePlayAfterReload": true,
+  "assessment": {
+    "attempts": 1,
+    "passed": true,
+    "startedAt": 1793039196420,
+    "pending": false,
+    "at": 1793040840118,
+    "stars": {
+      "safety": 3,
+      "efficiency": 3,
+      "service": 3
+    },
+    "score": 6900,
+    "criticals": [],
+    "lessons": [
+      "Drink water before you're thirsty: small amounts at every stop through a hot shift.",
+      "Use shade and AC to cool down between stops, and pace yourself in extreme heat.",
+      "Dizziness, headache, nausea, cramps or confusion: stop, cool down, hydrate and tell dispatch. Collapse or confusion means call 911."
+    ]
+  },
+  "productionScene": "StopScene",
+  "scene3d": null,
+  "default3d": false,
+  "scope": "Only the completed High English larger-text heat journey. Suspended-workday equality is asserted by the unchanged native protocol before and after full reload. No shared Tamil/A31/current-pilot/Intel acceptance."
+}

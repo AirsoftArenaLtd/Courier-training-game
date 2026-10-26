@@ -1,10 +1,10 @@
 {
-  "at": "2026-10-26T18:32:13.622956+00:00",
+  "at": "2026-10-26T19:24:30.510Z",
   "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
   "sourceFilesVerified": 909,
   "retainedProofsVerified": 8,
   "status": {
-    "phase": "matrix-high-en-large-heat",
+    "phase": "matrix-high-ta-normal-steps",
     "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
     "pid": 93924,
     "state": "running",
@@ -226,6 +226,15 @@
         "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-dog",
         "QA_CASE": "high-en-large-dog"
       }
+    },
+    {
+      "name": "matrix-high-en-large-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat",
+        "QA_CASE": "high-en-large-heat"
+      }
     }
   ],
   "preflightComplete": true,
@@ -233,10 +242,10 @@
     "high-steps-timeout-20261026/manifest.json"
   ],
   "resourceViews": 64,
-  "goodJourneys": 17,
-  "nativeChecks": 20088,
-  "captures": 419,
-  "passedAssessments": 8,
+  "goodJourneys": 18,
+  "nativeChecks": 20994,
+  "captures": 444,
+  "passedAssessments": 9,
   "incidentFollowup": {
     "status": {
       "phase": "waiting-for-core-validation",
@@ -249,5 +258,5 @@
     "resourceViews": 32,
     "retainedCurrentCase": "low-en-normal"
   },
-  "scope": "Completed steps/dog/heat metrics only; partial cases excluded. High larger-English footsteps and dog assessments now pass once and reload durably. Incident follow-up remains queued without new acceptance claims. Shared A31/default/current-pilot/Intel acceptance remains separate."
+  "scope": "Completed steps/dog/heat metrics only; partial cases excluded. All six High English layouts now pass, including three durable one-attempt larger-text assessments. High Tamil runs; current incident follow-up remains queued without new acceptance claims. Shared A31/default/current-pilot/Intel acceptance remains separate."
 }
