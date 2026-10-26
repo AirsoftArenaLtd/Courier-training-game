@@ -1,0 +1,44 @@
+{
+  "at": "2026-10-26T13:35:50.479756+00:00",
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "sourceFilesVerified": 909,
+  "status": {
+    "phase": "high-en-normal-dog",
+    "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+    "pid": 83080,
+    "state": "running",
+    "group": "preflight",
+    "server": 83081
+  },
+  "completedJobs": [
+    {
+      "name": "low-owner-resource",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-low-owner",
+        "QA_PROFILES": "loaded-low",
+        "QA_VIEWS": "wellnessowner"
+      }
+    },
+    {
+      "name": "high-resources",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-high",
+        "QA_PROFILES": "loaded-high"
+      }
+    }
+  ],
+  "nativeProgress": {
+    "tag": "c46-playable-6d83d2e1-high-en-normal-dog",
+    "complete": false,
+    "checks": 1668,
+    "completedStops": 3,
+    "captures": 26,
+    "lastCapture": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-result.png",
+    "failure": null
+  },
+  "scope": "Partial native work is excluded from completed journey/assessment acceptance. Resource peaks remain in README; retained passes keep their documented source scope."
+}

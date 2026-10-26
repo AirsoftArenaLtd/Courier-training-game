@@ -53,14 +53,99 @@
       "sha256": "df79079a539ad13fa01ab785a0ce73ae938455e2a6f06695ace86e3211e63f1e"
     },
     {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-result.png",
+      "bytes": 146354,
+      "sha256": "f8cd01ac6a7c7dc61c4f61982321e53fcbd6b7437a966f4799d8267b834d229f"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop0-arrival.png",
+      "bytes": 236195,
+      "sha256": "bae746a51cf7d343f3b5db066a82912dd1ff16ddcd257c91449ac65ba62dfa26"
+    },
+    {
       "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop0-cargo.png",
       "bytes": 119447,
       "sha256": "9a0d94905fd1b002f779fa1ae5e9507a0fd61a474d41541abe1d059fd8829d82"
     },
     {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop0-printed-name.png",
+      "bytes": 82136,
+      "sha256": "3e8a6e22d9542b85c96f6127d949f42456095a89c4c7cb54c1aa6b04f16109c3"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop0-reply-g1.png",
+      "bytes": 97458,
+      "sha256": "09af981e6c324c2247059432e00f02b3e0bc134840138e5a9e252468493fb73b"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop0-report.png",
+      "bytes": 56331,
+      "sha256": "38875a3b2d2ca84885127a3f601fbac6124bd77d9e9bd73174992e31d3a9b724"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop1-arrival.png",
+      "bytes": 564287,
+      "sha256": "e86e18c4295e147e4cb6ffb9bcb8ebfebb43860790044f6c4bda37c9346734c4"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop1-cargo.png",
+      "bytes": 116117,
+      "sha256": "824669c31aba5c709122feb0cd42cedbde2be9a983748185a389ad29b12fb865"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop1-reply-c1.png",
+      "bytes": 85455,
+      "sha256": "bf3f2b0ff74c1e9f5d2ee723389102e0a267405b9441aaff27e18be3d5e22aff"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop1-reply-c2.png",
+      "bytes": 88703,
+      "sha256": "0880a3884847ccaa8b995f9291fb94bcb29ba1e17d79414016cdd5ddca51bcb4"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop1-reply-c4.png",
+      "bytes": 194505,
+      "sha256": "9b10fe26a45be792e43a5b2978619292fc260d5aea088e24aab124e276950220"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop1-report.png",
+      "bytes": 56465,
+      "sha256": "9bc70888532d7278cae4acc26c946d8b5635cb2fc228eec73fc62aa9738eb466"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop2-arrival.png",
+      "bytes": 155406,
+      "sha256": "e00bcdda273735a6efdf1b3b80ad5535cfa938b46c5065938b3c101d0aa81b4e"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop2-cargo.png",
+      "bytes": 112269,
+      "sha256": "6c343c3d35283c91ab7f0497d6540a3b60dfff9b7f9634c2feec45b97737106f"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop2-printed-name.png",
+      "bytes": 63431,
+      "sha256": "0c2d4820f1d5947f7c75705ad056babeab9f107af31a5b8722e13c95c96678a7"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop2-reply-p1.png",
+      "bytes": 78612,
+      "sha256": "6d96e010bd775b3864a437a0b490b38d42bf7c04aa619b50b4ed338f0e4891c6"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop2-reply-p3.png",
+      "bytes": 77439,
+      "sha256": "180b9a576a9a2f386188fb56ec618ca8d50dc529b1b558ae60ad37b8593a2964"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop2-report.png",
+      "bytes": 55746,
+      "sha256": "3ad17d4a5f5ad574123fcdcd3cb13c2c30601d3c26a3ad85f7896df033615353"
+    },
+    {
       "file": "c46-playable-6d83d2e1-high-en-normal-dog.json",
-      "bytes": 1745,
-      "sha256": "13564f1113891e21ed16a1f75ef65963111461c99871f0b541c5b330e5992417"
+      "bytes": 68961,
+      "sha256": "fd010c83168b915d06f9823cea2027a80e51d769071a77af550a3c3676616742"
     },
     {
       "file": "c46-playable-6d83d2e1-high-loaded-high-high-wellnesscab.png",
@@ -151,6 +236,51 @@
       "file": "c46-playable-6d83d2e1-high-quality.json",
       "bytes": 1027,
       "sha256": "e5dd3fa8429dcb913e39c3e218104e3b8b048739fad87b1e2fe19ee81cdbfab4"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-low-en-large-heat-low-en-large-heat-brief.png",
+      "bytes": 76952,
+      "sha256": "1896706f839ec7fae1a7a34e8b577a55b3617ce9443997656d0a24a5300ab1a5"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-low-en-large-heat-low-en-large-heat-controls-0.png",
+      "bytes": 64946,
+      "sha256": "b9812b361d65685a71b4359019e923302bff4d64ad77890d9a13688c9cbbd4af"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-low-en-large-heat-low-en-large-heat-controls-1.png",
+      "bytes": 69096,
+      "sha256": "e92bcea1ac844db613747d481871678810e910e5a2feea2118d7921b5fc4f3a8"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-low-en-large-heat-low-en-large-heat-controls-2.png",
+      "bytes": 54490,
+      "sha256": "0d2887c652618d109eebc7529bddb1fc53e8b0decafdfcd2a00e87faa981bcba"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-low-en-large-heat-low-en-large-heat-controls-3.png",
+      "bytes": 69446,
+      "sha256": "0fdb2a356fe022ffefe08ac5c6c441697b39a1b74407284e810594e47f669ee6"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-low-en-large-heat-low-en-large-heat-controls-4.png",
+      "bytes": 72138,
+      "sha256": "31d2f28ca3b2ce900db521eda3b5e49275130ac0a89ec1371ef0a15cd34511be"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-low-en-large-heat-low-en-large-heat-controls-5.png",
+      "bytes": 71792,
+      "sha256": "0fc32d9c6eaf1834f4c52d70e08eb3e40c259948adef0fe277f2606be235332b"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-low-en-large-heat-low-en-large-heat-handheld.png",
+      "bytes": 95712,
+      "sha256": "d56b49d9fbeedfb14667d0d6e12f77f94e69aa31aca671695c55c2645be9a38d"
+    },
+    {
+      "file": "c46-playable-6d83d2e1-low-en-large-heat.json",
+      "bytes": 1641,
+      "sha256": "deac8e0be9c47551fb33ab4ae6d526fdbd2d4ad7a7af80c5a0b5d45c1479c328"
     },
     {
       "file": "c46-playable-6d83d2e1-low-owner-loaded-low-low-wellnessowner.png",

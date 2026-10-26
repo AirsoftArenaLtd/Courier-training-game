@@ -1,0 +1,36 @@
+{
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Six current High English normal-text native captures inspected at original resolution. This is visual review of these captures, not full native/result/assessment/Tamil acceptance.",
+  "images": [
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop0-arrival.png",
+      "sha256": "bae746a51cf7d343f3b5db066a82912dd1ff16ddcd257c91449ac65ba62dfa26",
+      "observation": "The uploaded High resident stands behind the closed fence. In this native interaction pose, both feet remain behind the gate and the carried parcel, prompt and real HUD are visible. This capture alone does not cover every animated pose; the separate 320 mesh samples do."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop0-printed-name.png",
+      "sha256": "3e8a6e22d9542b85c96f6127d949f42456095a89c4c7cb54c1aa6b04f16109c3",
+      "observation": "The original printed-name decision is presented with three separate full-size controls. The question, title and controls fit without overlap at normal English text size."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop1-reply-c2.png",
+      "sha256": "0880a3884847ccaa8b995f9291fb94bcb29ba1e17d79414016cdd5ddca51bcb4",
+      "observation": "The complete source instruction for a calm voluntary retreat and keeping the dog in view fits on one readable choice. Paging and step-back controls are separately visible."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop1-arrival.png",
+      "sha256": "e86e18c4295e147e4cb6ffb9bcb8ebfebb43860790044f6c4bda37c9346734c4",
+      "observation": "The source dog remains physically visible after retreat, with the courier beside the van. The HUD, carried package and keyboard routes remain separate and readable."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop2-arrival.png",
+      "sha256": "e00bcdda273735a6efdf1b3b80ad5535cfa938b46c5065938b3c101d0aa81b4e",
+      "observation": "The uploaded male resident is visible at the actual stepped entrance after securing the fearful dog. His feet rest on the porch; the real HUD and keyboard prompts remain readable."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop2-reply-p1.png",
+      "sha256": "6d96e010bd775b3864a437a0b490b38d42bf7c04aa619b50b4ed338f0e4891c6",
+      "observation": "The original fearful-dog safety instruction wraps to two full-size lines inside its button. The three remaining controls stay separate, with no overlap or clipped sentence at normal English size."
+    }
+  ]
+}
