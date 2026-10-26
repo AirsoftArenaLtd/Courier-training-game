@@ -41,8 +41,113 @@
         "QA_TAG": "c46-playable-6d83d2e1-high-en-normal-dog",
         "QA_CASE": "high-en-normal-dog"
       }
+    },
+    {
+      "name": "low-en-large-heat",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-low-en-large-heat",
+        "QA_CASE": "low-en-large-heat"
+      }
+    },
+    {
+      "name": "accessible-fallback-resources",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-remaining",
+        "QA_PROFILES": "accessible-low,fallback-low"
+      }
+    },
+    {
+      "name": "scanner-regression",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-scanner-regression",
+        "QA_CASE": "low-en-normal-pod"
+      }
+    },
+    {
+      "name": "incident-regression",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-incident-regression",
+        "QA_CASE": "low-en-normal"
+      }
+    },
+    {
+      "name": "academy",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "enterprise",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "routeday",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "driving",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "matrix-low-en-normal-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-normal-dog",
+        "QA_CASE": "low-en-normal-dog"
+      }
+    },
+    {
+      "name": "matrix-low-en-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-normal-heat",
+        "QA_CASE": "low-en-normal-heat"
+      }
+    },
+    {
+      "name": "matrix-low-en-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-large-steps",
+        "QA_CASE": "low-en-large-steps"
+      }
+    },
+    {
+      "name": "matrix-low-en-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-large-dog",
+        "QA_CASE": "low-en-large-dog"
+      }
+    },
+    {
+      "name": "matrix-low-ta-normal-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-steps",
+        "QA_CASE": "low-ta-normal-steps"
+      }
     }
   ],
-  "preflightComplete": false,
+  "preflightComplete": true,
   "complete": false
 }

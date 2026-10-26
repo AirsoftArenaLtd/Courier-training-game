@@ -1,13 +1,13 @@
 {
-  "at": "2026-10-26T13:37:27.482876+00:00",
+  "at": "2026-10-26T14:40:31.677594+00:00",
   "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
   "sourceFilesVerified": 909,
   "status": {
-    "phase": "low-en-large-heat",
+    "phase": "matrix-low-ta-normal-dog",
     "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
     "pid": 83080,
     "state": "running",
-    "group": "preflight",
+    "group": "matrix",
     "server": 83081
   },
   "completedJobs": [
@@ -38,36 +38,117 @@
         "QA_TAG": "c46-playable-6d83d2e1-high-en-normal-dog",
         "QA_CASE": "high-en-normal-dog"
       }
+    },
+    {
+      "name": "low-en-large-heat",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-low-en-large-heat",
+        "QA_CASE": "low-en-large-heat"
+      }
+    },
+    {
+      "name": "accessible-fallback-resources",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-remaining",
+        "QA_PROFILES": "accessible-low,fallback-low"
+      }
+    },
+    {
+      "name": "scanner-regression",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-scanner-regression",
+        "QA_CASE": "low-en-normal-pod"
+      }
+    },
+    {
+      "name": "incident-regression",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-incident-regression",
+        "QA_CASE": "low-en-normal"
+      }
+    },
+    {
+      "name": "academy",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "enterprise",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "routeday",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "driving",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "matrix-low-en-normal-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-normal-dog",
+        "QA_CASE": "low-en-normal-dog"
+      }
+    },
+    {
+      "name": "matrix-low-en-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-normal-heat",
+        "QA_CASE": "low-en-normal-heat"
+      }
+    },
+    {
+      "name": "matrix-low-en-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-large-steps",
+        "QA_CASE": "low-en-large-steps"
+      }
+    },
+    {
+      "name": "matrix-low-en-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-large-dog",
+        "QA_CASE": "low-en-large-dog"
+      }
+    },
+    {
+      "name": "matrix-low-ta-normal-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-steps",
+        "QA_CASE": "low-ta-normal-steps"
+      }
     }
   ],
-  "highDogCompletion": {
-    "runtime": "6d83d2e1",
-    "scope": "Post-processing of the completed native report; no browser, action, application clock or original score is changed. Independently replayed actual original callbacks from observed conversation choices and final stop facts.",
-    "report": "c46-playable-6d83d2e1-high-en-normal-dog.json",
-    "reportSha256": "fd010c83168b915d06f9823cea2027a80e51d769071a77af550a3c3676616742",
-    "complete": true,
-    "checks": 1676,
-    "captures": 26,
-    "stops": 3,
-    "score": 6700,
-    "stars": {
-      "safety": 3,
-      "service": 3,
-      "efficiency": 3
-    },
-    "ratios": {
-      "safety": 1,
-      "service": 1,
-      "efficiency": 1
-    },
-    "seconds": 102,
-    "criticals": [],
-    "durable": true,
-    "plays": 1,
-    "originalCallbackEquality": true,
-    "scene": "StopScene",
-    "scene3d": null,
-    "default3d": false
-  },
-  "scope": "Completed dog native journey plus two resource jobs. Retained Low footsteps and fifteen Low resource views keep their documented unaffected scope. Other jobs remain pending."
+  "resourceViews": 64,
+  "goodJourneys": 8,
+  "nativeChecks": 9629,
+  "captures": 197,
+  "passedAssessments": 3,
+  "scope": "Completed evidence only; active partial reports excluded. Shared Tamil glyph/translation/A30/A31/default/current-pilot and Intel FPS acceptance remain separate."
 }

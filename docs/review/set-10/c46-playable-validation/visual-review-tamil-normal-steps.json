@@ -1,0 +1,16 @@
+{
+  "runtime": "6d83d2e1",
+  "scope": "Two current-source Tamil captures inspected at original resolution. Native original-result/reload checks pass; shared glyph coverage and untranslated new controls remain visibly incomplete.",
+  "images": [
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-low-ta-normal-steps-low-ta-normal-steps-result.png",
+      "sha256": "bd74033034fe493906245db0546ce5400427b785ce801eea4399ab058a305477",
+      "observation": "The settled Tamil result fits within its bounds but has missing-glyph boxes in the title, safety category, takeaway heading/body and career text. The first two result buttons remain distinct. This fails readable-Tamil acceptance and belongs to the shared A31 font/translation follow-up."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-low-ta-normal-steps-low-ta-normal-steps-stop1-reply-s1.png",
+      "sha256": "f071e3f05309f51c327500e2171a8c5c22f661a2c600586689083efe72c9bb1c",
+      "observation": "The original Tamil safety reply wraps inside its normal-size button. The new title, instructions and next/back controls remain English. Bounds/behavior pass does not establish a fully translated scenario."
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "at": "2026-10-26T14:39:15.695Z",
+  "scope": "Completed good wellness journeys only. Regression journeys and partial in-progress reports are excluded. Retained footsteps evidence is limited to its documented unaffected scope; new collected results independently replay actual original callbacks. No browser test is rerun by this evidence aggregation.",
+  "sourceFilesVerified": 909,
+  "completedJobs": 16,
+  "preflightComplete": true,
+  "complete": false,
+  "goodJourneys": 8,
+  "nativeChecks": 9629,
+  "captures": 197,
+  "passedAssessments": 3,
+  "rows": [
+    {
+      "scope": "955 checks/7500 points/nine stars/one durable play. The footsteps graph never uses ownerAppears at the gate; optional panel-stop is unused on its waypoint walking. The new dog pose is outside this accepted scope.",
+      "report": "docs/review/set-10/c46-playable-validation/../c46-playable-preflight/artifacts/c46-playable-563c7b2e-low-en-normal-steps.json",
+      "sha256": "6545f68740ec1e51d762ae2e32d9057f0c3ef6e37d94bd03c16aea383b9f5a80",
+      "id": "m8-steps",
+      "quality": "low",
+      "language": "en",
+      "large": false,
+      "checks": 955,
+      "captures": 23,
+      "score": 7500,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 128,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "originalCallbackEquality": "retained from completed source-scoped native proof"
+    },
+    {
+      "scope": "Current frozen application/protocol; Git sourceRevision can advance through documentation-only commits; all 909 content hashes verified.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-high-en-normal-dog.json",
+      "sha256": "fd010c83168b915d06f9823cea2027a80e51d769071a77af550a3c3676616742",
+      "id": "m8-dog",
+      "quality": "high",
+      "language": "en",
+      "large": false,
+      "checks": 1676,
+      "captures": 26,
+      "score": 6700,
+      "stars": {
+        "safety": 3,
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 102,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "originalCallbackEquality": "retained from completed source-scoped native proof"
+    },
+    {
+      "scope": "Current frozen application/protocol; Git sourceRevision can advance through documentation-only commits; all 909 content hashes verified.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-low-en-large-heat.json",
+      "sha256": "2d19f24c919fb34fb1377b30ecee8f79313f565fd921fdd8f65cff448df5c7e7",
+      "id": "m8-heat",
+      "quality": "low",
+      "language": "en",
+      "large": true,
+      "checks": 906,
+      "captures": 25,
+      "score": 6900,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 106,
+      "durable": true,
+      "plays": 1,
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793021757743,
+        "pending": false,
+        "at": 1793022161996,
+        "stars": {
+          "safety": 3,
+          "efficiency": 3,
+          "service": 3
+        },
+        "score": 6900,
+        "criticals": [],
+        "lessons": [
+          "Drink water before you're thirsty: small amounts at every stop through a hot shift.",
+          "Use shade and AC to cool down between stops, and pace yourself in extreme heat.",
+          "Dizziness, headache, nausea, cramps or confusion: stop, cool down, hydrate and tell dispatch. Collapse or confusion means call 911."
+        ]
+      },
+      "originalCallbackEquality": "verified from collected observations"
+    },
+    {
+      "scope": "Current frozen application/protocol; Git sourceRevision can advance through documentation-only commits; all 909 content hashes verified.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-matrix-low-en-normal-dog.json",
+      "sha256": "5f7b9ccdb71f62ac2aa392fba3c31a030deebc99caba03ec854f4973bb6e02be",
+      "id": "m8-dog",
+      "quality": "low",
+      "language": "en",
+      "large": false,
+      "checks": 1676,
+      "captures": 26,
+      "score": 6700,
+      "stars": {
+        "safety": 3,
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 108,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "originalCallbackEquality": "verified from collected observations"
+    },
+    {
+      "scope": "Current frozen application/protocol; Git sourceRevision can advance through documentation-only commits; all 909 content hashes verified.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-matrix-low-en-normal-heat.json",
+      "sha256": "5784f07d3af92ab8912abb0793e4c6fa1e3c2bf0d69f23a412c8985340860a7b",
+      "id": "m8-heat",
+      "quality": "low",
+      "language": "en",
+      "large": false,
+      "checks": 902,
+      "captures": 25,
+      "score": 6900,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 106,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "originalCallbackEquality": "verified from collected observations"
+    },
+    {
+      "scope": "Current frozen application/protocol; Git sourceRevision can advance through documentation-only commits; all 909 content hashes verified.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-matrix-low-en-large-steps.json",
+      "sha256": "ea23e690153e6ad6d782d10a5ee2707981ba48216398094655dde29f9e89facc",
+      "id": "m8-steps",
+      "quality": "low",
+      "language": "en",
+      "large": true,
+      "checks": 948,
+      "captures": 23,
+      "score": 7500,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 129,
+      "durable": true,
+      "plays": 1,
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793023983479,
+        "pending": false,
+        "at": 1793024561423,
+        "stars": {
+          "safety": 3,
+          "efficiency": 3,
+          "service": 3
+        },
+        "score": 7500,
+        "criticals": [],
+        "lessons": [
+          "Slow down on ice and wet surfaces: short steps, feet flat, and hold SHIFT to walk carefully.",
+          "Clear trip hazards before you walk the path with a package that blocks your view.",
+          "Three points of contact in and out of the cab. Most cab falls happen on the way down."
+        ]
+      },
+      "originalCallbackEquality": "verified from collected observations"
+    },
+    {
+      "scope": "Current frozen application/protocol; Git sourceRevision can advance through documentation-only commits; all 909 content hashes verified.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-matrix-low-en-large-dog.json",
+      "sha256": "c9c1c791af1de006d4776ef0e20dcb41d36bd5fca32e877c92b358b8c34386aa",
+      "id": "m8-dog",
+      "quality": "low",
+      "language": "en",
+      "large": true,
+      "checks": 1611,
+      "captures": 26,
+      "score": 6700,
+      "stars": {
+        "safety": 3,
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 101,
+      "durable": true,
+      "plays": 1,
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793024581307,
+        "pending": false,
+        "at": 1793024969702,
+        "stars": {
+          "safety": 3,
+          "service": 3,
+          "efficiency": 3
+        },
+        "score": 6700,
+        "criticals": [],
+        "lessons": [
+          "Never enter a yard with a loose dog. Get the owner to secure it first.",
+          "If a dog charges: stop, stay calm, keep the package between you and it, avoid eye contact and back away slowly. Never run.",
+          "Tucked tail, pinned ears and a low body mean fear, and frightened dogs bite when cornered. Ask the owner to secure the dog."
+        ]
+      },
+      "originalCallbackEquality": "verified from collected observations"
+    },
+    {
+      "scope": "Current frozen application/protocol; first Tamil bounds/behavior journey. Shared glyph/translation readiness is explicitly excluded.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-matrix-low-ta-normal-steps.json",
+      "sha256": "c42ae7ca2b01ee34c0e7e9bb06dd30de978812834465ecf51bcd3d30cb8324c3",
+      "id": "m8-steps",
+      "quality": "low",
+      "language": "ta",
+      "large": false,
+      "checks": 955,
+      "captures": 23,
+      "score": 7500,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 128,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "originalCallbackEquality": "verified from collected observations"
+    }
+  ]
+}
