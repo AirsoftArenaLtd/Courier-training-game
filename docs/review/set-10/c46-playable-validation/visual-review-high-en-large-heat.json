@@ -1,0 +1,27 @@
+{
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "at": "2026-10-26T19:24:30.510Z",
+  "scope": "Four completed High English larger-text heat assessment captures inspected at original resolution. This records only the displayed captures and separately verified native result; remaining High Tamil layouts and shared rollout/Intel acceptance remain open.",
+  "images": [
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-stop0-safety.png",
+      "sha256": "2761ffcfd53987aaad1a7da4bb21cf7ee94d209f6a2d193ed69d0938123fe6e0",
+      "observation": "The larger-English safety choices wrap inside the physical handheld; all four actions and Back fit without overlapping. Cab mirrors remain visibly present behind the device."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-stop0-photo-review.png",
+      "sha256": "662fcd8f844d8ed8b5f363fabbf79d99ced3d8686be9d7c0243f52e62d783504",
+      "observation": "The captured delivery photo shows the parcel and doorstep with the scene shadow. The photo review title, capture confirmation and handheld use/retake/details controls fit separately at larger English text. Actual capture is 640x360 with 224 sampled colors."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-stop2-printed-name.png",
+      "sha256": "638ad7cb4ed30b0d420ba6efc524470c9fddf2bc6ac20b6487b4d2be793ec8bd",
+      "observation": "The larger-English printed-name question and all three controls fit in the panel. The visible Dee Harper candidate matches the actual source signer recorded for the clinic stop."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-large-heat-high-en-large-heat-result.png",
+      "sha256": "29b3a7436dbae9600d7260d2c83c141ca6ed8238c6648e3627bca882677bd4f4",
+      "observation": "The settled larger-English heat assessment result shows nine stars and all three complete takeaways, including the wrapped symptom sentence. The career row and two keyboard controls fit. The career assessment verdict remains smaller than the main controls; existing shared readability work remains separate."
+    }
+  ]
+}
