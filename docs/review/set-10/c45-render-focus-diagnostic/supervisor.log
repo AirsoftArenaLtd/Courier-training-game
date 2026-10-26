@@ -1,0 +1,3 @@
+browser-slot {'state': 'waiting'}
+resource-loaded-low {'state': 'running'}
+resource-loaded-low {'state': 'failed', 'exit': 1}

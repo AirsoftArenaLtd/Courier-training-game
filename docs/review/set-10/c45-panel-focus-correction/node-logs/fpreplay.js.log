@@ -1,0 +1,30 @@
+✔ a long drive retains exactly the ten seconds before the mistake in fixed buffers (33.169444ms)
+✔ a short recording admits its actual duration and can show a mistake before its first timed sample (0.364621ms)
+✔ correct checks, bonuses, unknown types and old restored reports do not invent a clip (0.903484ms)
+✔ newest genuine wrong check or penalty wins; success afterwards does not replace it (0.677773ms)
+✔ a paused decision can freeze its endpoint without filling the ring with duplicate times (5.985394ms)
+✔ continued clean driving cannot overwrite the frozen last mistake (3.765784ms)
+✔ the off-cadence mistake endpoint does not shorten future ten-second history (11.811718ms)
+✔ hiding, a long simulation gap, a rewind and a teleport never interpolate invented travel (4.561044ms)
+✔ a new mission or score stream cannot attach an earlier recording to new reports (0.619535ms)
+✔ record identity and day must match and completed recorders stop accepting new reports (1.150767ms)
+✔ replaying a captured turn takes the short angle path and switches discrete controls at the recorded instant (0.494596ms)
+✔ the rendered traffic and crossing follow their recorded poses without running live AI (0.425963ms)
+✔ recording and playback preserve the live score, mission and save data byte for byte (2.396297ms)
+✔ a newer unrecordable mistake cannot present the earlier mistake as the latest one (0.27197ms)
+✔ an oversized context fails closed without retaining an older clip under a newer mistake (0.707838ms)
+✔ a failed optional snapshot cannot interrupt the live workday or retain a stale replay (0.346934ms)
+✔ an invalid seek returns to the recorded start without non-finite camera or van positions (0.343268ms)
+✔ reduced motion keeps replay paused, supports manual stepping and pauses immediately when enabled (0.632235ms)
+✔ a hidden tab pauses playback and a late frame cannot jump across the recorded mistake (0.479574ms)
+✔ replay ends paused, can be replayed again, and seek never escapes its actual interval (0.743202ms)
+✔ a single recorded frame offers a still image without starting artificial motion (0.247183ms)
+✔ the finished record day stays distinct from the route difficulty day (0.211459ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 80.836931

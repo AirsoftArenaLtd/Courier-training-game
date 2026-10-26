@@ -391,7 +391,7 @@ OTR.fpWorld = {
     const customerStopArt=base.customerStop?.scannerId?OTR.fpScannerStopWorld:OTR.fpCustomerStopWorld;
     const customerStop=base.customerStop&&customerStopArt?customerStopArt.build(route,base,{cube,interactions,occluders,bank:scene.assetBank}):null;
     const loading=base.loading&&OTR.fpLoadingWorld?OTR.fpLoadingWorld.build(route,base,{cube,interactions,occluders,vehicle:actors?.vehicle,focus:()=>scene.target}):null;
-    const pickup=base.pickupTask&&OTR.fpPickupWorld?OTR.fpPickupWorld.build(route,base,{cube,interactions,occluders,bank:scene.assetBank,focus:()=>scene.target}):null;
+    const pickup=base.pickupTask&&OTR.fpPickupWorld?OTR.fpPickupWorld.build(route,base,{cube,interactions,occluders,bank:scene.assetBank,focus:()=>scene.target||scene.panel?.pickupTarget}):null;
     const scanObjects=[...new Set([...occluders,...interactions])],visibleObjects=[],hits=[],projected=new T.Vector3();
     const cast=(ray,objects)=>{
       visibleObjects.length=0;hits.length=0;

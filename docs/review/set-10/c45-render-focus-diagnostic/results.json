@@ -1,0 +1,30 @@
+{
+  "resource-loaded-low": {
+    "exit": 1,
+    "fingerprint": "18113a5a14a1886bd9428283bcfa074d57a6cfd27452e0e9dcc998ecdcc9a0ab",
+    "attempts": 1,
+    "log": "resource-loaded-low-attempt-1.log",
+    "logSha256": "ca6eddfbcb57dfb54e4e22658eff776cfaead831166496522e41cf86f9145390",
+    "timed_out": false,
+    "artifacts": {
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupdangerous.png": "776bbc37d012ebbfac21164ec08814b3610c75277bde0cb491097647992d77ea",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupfindings.png": "bf74450098c41c71d670acb3b4924d01fce2c7c5c3b1eb20bceef130723ff843",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupsigned.png": "a6388292f8b06249fceea288c12cecf9477334ed691ef07a7010894c1923eecf",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupcontrols.png": "54b19a5d4d3f410c3a02ffb8b62465240e5b2d1e29757bc1a2cce87c0c2c6912",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickuprefusal.png": "0a83c87d31e67a3319f60e07ca700b2c8b9ec8432f2efd7009d8c8d66833a177",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupcount.png": "a93e28dfb8329b765e6b5375be752b89c12da945204549aa0b6747155ed8b1a8",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-quality.json": "a33493645c29b9aa56b7cfeb6c352650d76a468f598f56982ed2a919b378130e",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupinvoice.png": "a0455b34ae07841f80f9cfa6e4d5508b881186438f51f2861f183d0233cf7770",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low.log": "764f6b56f20b850d8f99f9ba338aa9e9ca7b06dceb1d1269b911b371777f28d4",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupinternational.png": "fee276cb33ff5aea56fd01e362ca7f168a5fd04ed7eae1df7dcc467ca58c1f21",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupinspection.png": "039c997d023947041dd5c82b236f81e52387b93f572bfe4bb7548e8e41876d98",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupcart.png": "b54f3561f04bdff02c1e21cce645491d5232b1bfecd636b06170c838d37f1d2b",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupdeclared.png": "0df8d6944d7c3339e831ac5969322dea339750f4213454082b49448721242f64",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupbusiness.png": "ee5282bc60528bde4dcc9df1a1107dc666b506ebb6619fca6014e46f81246104",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupexception.png": "42174697d85fa56168333ed93556450da1e106a681571399f5d8d63903146c94",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupreceipt.png": "4914a38b526446d71fd4dc20b325edff7ada7e2628d2c5d4f3466b5b849bd156",
+      "test/out/fp-review/c45-ef1a4edf-resource-loaded-low-loaded-low-low-pickupinvoicelast.png": "d2be889c457dd0559179c07642027fb8f43b55d9fa92fe51413331e3b99342b6",
+      "test/out/fp-review/bench-c45-ef1a4edf-resource-loaded-low-loaded-low-low.json": "818bc11ce76d6a3a5c342bce28f59646a3eb85e489f4660cae49bfd50e63b70d"
+    }
+  }
+}

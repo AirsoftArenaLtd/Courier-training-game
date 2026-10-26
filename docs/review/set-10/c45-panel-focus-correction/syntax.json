@@ -1,0 +1,22 @@
+[
+  {
+    "file": "src/core/fpworld.js",
+    "exit": 0,
+    "sha256": "a5cbecbe723601af34816480d59e20a7ed3056fee0339dae82b4bd0e7b9e958e"
+  },
+  {
+    "file": "src/core/fppickupscenario.js",
+    "exit": 0,
+    "sha256": "3c576b6d845a70db900dacd2cf9678029adade2be6b6e2df0ed488a9bab6be1b"
+  },
+  {
+    "file": "test/fppickupscenario.js",
+    "exit": 0,
+    "sha256": "f6f5cb621f78f4b174b4a70acf1c5d084bd9b5cbeca32cf4da110e5ead803099"
+  },
+  {
+    "file": "test/fppickupbrowser.js",
+    "exit": 0,
+    "sha256": "1f7c302baa650acf696e4fd5b52c2fb029bc00556d577adeeca63bc29b23735a"
+  }
+]
