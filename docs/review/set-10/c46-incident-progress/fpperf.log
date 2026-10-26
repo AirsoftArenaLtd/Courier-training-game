@@ -1,0 +1,11 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ render batching preserves exact solid occlusion and nearby target rays (52.189411ms)
+✔ stable residents keep GPU instance buffers unchanged; outcomes update visibility (89.680872ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 186.207785

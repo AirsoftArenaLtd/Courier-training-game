@@ -1,0 +1,9 @@
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -368,6 +368,7 @@
+         title: 'After a Fender-Bender',
+         icon: 'ic_broken',
+         scene: 'DialogueScene',
++        scene3d: 'wellness-incident',
+         dataKey: 'dialogues.m8_incident',
+         categories: ['safety', 'service', 'efficiency'],

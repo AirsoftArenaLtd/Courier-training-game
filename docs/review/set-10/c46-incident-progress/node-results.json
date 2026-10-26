@@ -1,0 +1,810 @@
+[
+  {
+    "file": "test/aids.js",
+    "exit": 0,
+    "seconds": 0.185,
+    "sourceSha256": "d96825886c6a57d24100de37f0f0f3b3166f17ff4cf2540fcb37704098f39027",
+    "log": "aids.log",
+    "logSha256": "b46c8e4d0f86e80f0524989d8445064234d5c559bbb8cf92f366f3603027b88f"
+  },
+  {
+    "file": "test/assets.js",
+    "exit": 0,
+    "seconds": 0.066,
+    "sourceSha256": "9bc28544fa79d58e8917b38eab22b692aacb7da8ef8441e20bc0789b77cff2f6",
+    "log": "assets.log",
+    "logSha256": "4733c0f012c2879d855dec9de92a66af3a60afcccbc1daf4401f24d87eb3b012"
+  },
+  {
+    "file": "test/auth.js",
+    "exit": 0,
+    "seconds": 3.761,
+    "sourceSha256": "763a92c238d22ff7578bf5434097c90de8569daa66a88f093423d56267ce28ac",
+    "log": "auth.log",
+    "logSha256": "b62b75b7aaf75f7151a9c4bcea9caa5c953181084dafa3a56f6ada49d9b74b91"
+  },
+  {
+    "file": "test/credits.js",
+    "exit": 0,
+    "seconds": 0.183,
+    "sourceSha256": "0d771da8393d5b54aa7025b48461765b6592dd92494d43b60b60b59f9aa9155c",
+    "log": "credits.log",
+    "logSha256": "dffa4a94c66e538f7d3d293208e90e35972cc51b9918f6af7c58bf236f711319"
+  },
+  {
+    "file": "test/data.js",
+    "exit": 0,
+    "seconds": 0.485,
+    "sourceSha256": "e71772516e5a4a5da4e5145b7e6ee0ad16e70792d9cff012906e8e6f4f4fa155",
+    "log": "data.log",
+    "logSha256": "5f95ea8b2a759d035efa4439fd337ccd6080261275ec3bf06ff252b535bc2ec1"
+  },
+  {
+    "file": "test/firstperson.js",
+    "exit": 0,
+    "seconds": 0.202,
+    "sourceSha256": "efc29a7050fa16f0f4fd94e45a6b72e624bf421662c910a7897a86b686f8b797",
+    "log": "firstperson.log",
+    "logSha256": "9320e80708d202b510c09051489c763bb7dfbea17f015a818ec5704ae60125f3"
+  },
+  {
+    "file": "test/fpaccess.js",
+    "exit": 0,
+    "seconds": 0.297,
+    "sourceSha256": "a39ba93ea96674eb0b555528fb09251eeb5fdd2c0ba95808935cda02fe6747df",
+    "log": "fpaccess.log",
+    "logSha256": "c4f327f9006340a950d8d40b1a87387a759dfa7f0f3054b93eae9b9e67f93075"
+  },
+  {
+    "file": "test/fpactors.js",
+    "exit": 0,
+    "seconds": 4.146,
+    "sourceSha256": "594096f7d1d19df24bccb1adf40dcb6a611176fd194b2f7ad4ff4171d86a265a",
+    "log": "fpactors.log",
+    "logSha256": "85c5c394ea660120cf8e57f1a55861f62308e22d9853a2fadc81dce5b7fe3629"
+  },
+  {
+    "file": "test/fpambient.js",
+    "exit": 0,
+    "seconds": 0.303,
+    "sourceSha256": "ccf70413c1c2ca582ffb202db7a3e761d5fc666b974a7a17aa09eeea0abf4158",
+    "log": "fpambient.log",
+    "logSha256": "575f433fe09ad6cc5f54fc45bce6f1cedcd29b7b4e1bbf71760dd1bd105e4d94"
+  },
+  {
+    "file": "test/fpambientassets.js",
+    "exit": 0,
+    "seconds": 2.096,
+    "sourceSha256": "6428da2ca264a916db228fe74b3ff22ea401b128102e08fc8e9a0cb8c2bc3d18",
+    "log": "fpambientassets.log",
+    "logSha256": "e11e21ea4e8f616516be4ddfa289406e103bd8cfac2c343391e9c55870afb73b"
+  },
+  {
+    "file": "test/fpambientworld.js",
+    "exit": 0,
+    "seconds": 18.357,
+    "sourceSha256": "91359964fee1861d5951f5fe5dc83655316ea859022dd44fa48ae4e05a7c56af",
+    "log": "fpambientworld.log",
+    "logSha256": "7e1ab20a97923bec09735bb0d3501c85d6823ecb2c5c64eff3eb383d42c7e497"
+  },
+  {
+    "file": "test/fpassets.js",
+    "exit": 0,
+    "seconds": 1.21,
+    "sourceSha256": "42a9acf7d4570d6b4be5ebacd814511fba63f0691d1f76d01d5112a09a4de2b2",
+    "log": "fpassets.log",
+    "logSha256": "05afa9a5f0693e9ce93d03a7735d20d0b42d5b127cb6227b9213c011301b3de3"
+  },
+  {
+    "file": "test/fpbranding.js",
+    "exit": 0,
+    "seconds": 0.389,
+    "sourceSha256": "f570d29fd43e06a414685b1370d72cff16c4767c4f782b5471d92dcc25433916",
+    "log": "fpbranding.log",
+    "logSha256": "79b03c63d1449a82d38ae14094850f101055fcb2270f87c6c6c7a58701193dff"
+  },
+  {
+    "file": "test/fpcab.js",
+    "exit": 0,
+    "seconds": 0.452,
+    "sourceSha256": "19c2f7b314f0e11c6e48b10c9b98d25f8e87501da1046b17e645b563e1bd23f8",
+    "log": "fpcab.log",
+    "logSha256": "837ed4f10467c75f66e1fd46154ecb5a32414d6f576529ace8d1895ce5958041"
+  },
+  {
+    "file": "test/fpcamera.js",
+    "exit": 0,
+    "seconds": 0.204,
+    "sourceSha256": "6d45872374b82b13f1d121dd8942d4879c79845fec3eb4191891ced956a1ad5c",
+    "log": "fpcamera.log",
+    "logSha256": "90268bf0603335d58829e802b30e6f999d497e9eec133f78c990c4a24391a98e"
+  },
+  {
+    "file": "test/fpcustomergeometry.js",
+    "exit": 0,
+    "seconds": 3.199,
+    "sourceSha256": "48eb27223524c489f8fce6b3b18378b2f6f047d33c2c97c123941b7e78ee4dbd",
+    "log": "fpcustomergeometry.log",
+    "logSha256": "b81846837c43dee642f36a543f733f57c144077caf48e00ad2403d3c64230fe4"
+  },
+  {
+    "file": "test/fpcustomerscenario.js",
+    "exit": 0,
+    "seconds": 0.449,
+    "sourceSha256": "c9eefc7887debf590b11cf41352551fae029d5527c4f30ba878525703fe341ee",
+    "log": "fpcustomerscenario.log",
+    "logSha256": "e0114220fb5b3aa6a48d6d72b80ca276c473277ad94d864d145c7d44a7cbe776"
+  },
+  {
+    "file": "test/fpcustomerstop.js",
+    "exit": 0,
+    "seconds": 0.246,
+    "sourceSha256": "9e910b492682c8a8e2e840f9e2ddf8518ebf70de6f7b7151e02d1f811e8eaa4c",
+    "log": "fpcustomerstop.log",
+    "logSha256": "d25d9de3b9628bd99d305a0344f854ec67ee3124ce60a6af6253071113dd2c93"
+  },
+  {
+    "file": "test/fpcustomerstopgeometry.js",
+    "exit": 0,
+    "seconds": 10.805,
+    "sourceSha256": "d3c661d4568b198e81c853e656c23328dfeb84910539cf4b29a9dbce739f2263",
+    "log": "fpcustomerstopgeometry.log",
+    "logSha256": "4a7e66a5aaf11d3b722cf5e304e34e6bb29e2cae129a064986a67605f5cfe31d"
+  },
+  {
+    "file": "test/fpcustomerstopscenario.js",
+    "exit": 0,
+    "seconds": 0.699,
+    "sourceSha256": "ba81698dfb220416a7a345d287ead7465d9341bfbe075aaf2bea959388931409",
+    "log": "fpcustomerstopscenario.log",
+    "logSha256": "5f2f6a38bbb3000653e7aa8285b590bf1ad6c533b1ef1f8f82d0fa05d8af9622"
+  },
+  {
+    "file": "test/fpcustomerstopworld.js",
+    "exit": 0,
+    "seconds": 2.903,
+    "sourceSha256": "fec9e88c2483165d72f51db37e3028ffcb08b217e67aaf63c8694c52b173ebfd",
+    "log": "fpcustomerstopworld.log",
+    "logSha256": "389bad55b48a81fbe09630b60ac41bec901527a6a602590dd6641de8b247844b"
+  },
+  {
+    "file": "test/fpcustomertalk.js",
+    "exit": 0,
+    "seconds": 2.103,
+    "sourceSha256": "63906969b64ace7b2b24f70c075cf707038ef650226be772dcd354abfb6b5deb",
+    "log": "fpcustomertalk.log",
+    "logSha256": "0ce69557b99d5f521c7528d2cc61ddb55e9869c6a16e0afe8ef40b45b72164af"
+  },
+  {
+    "file": "test/fpcustomerworld.js",
+    "exit": 0,
+    "seconds": 9.093,
+    "sourceSha256": "b632e23de5216f7ce313cfb21169323ae46cb009b6ff77e24e98ebd60dc5faa0",
+    "log": "fpcustomerworld.log",
+    "logSha256": "e76daa836fce1e231876aadd3fcc8a6d6f817679990e54ce495842d3a5adc1b3"
+  },
+  {
+    "file": "test/fpdamage.js",
+    "exit": 0,
+    "seconds": 0.255,
+    "sourceSha256": "097467b45e2129c81d69e3868b55d95da13a58bada7e3fac6595c1869f43468f",
+    "log": "fpdamage.log",
+    "logSha256": "9c33c71026005e6ed03df6f271e1a550ecf7f73ca3ccb1b4d80e5da019324a3e"
+  },
+  {
+    "file": "test/fpdamageassets.js",
+    "exit": 0,
+    "seconds": 2.138,
+    "sourceSha256": "ecb1f16bd64cdda3109ae97a36570ffd29b0075f1a46d03263a9accdecef13b8",
+    "log": "fpdamageassets.log",
+    "logSha256": "c5dad229ea928336a39114c84407f38eac1476b8b5ceb29942649199ebbbf05a"
+  },
+  {
+    "file": "test/fpdamageflow.js",
+    "exit": 0,
+    "seconds": 1.756,
+    "sourceSha256": "371136efd0dc176e2f7374a8b2f904fae7c52943e121db0095b63ee4ddef4082",
+    "log": "fpdamageflow.log",
+    "logSha256": "a9f48535175274bd6037321019c74c5e66f20e6d3e3c727876cd72a7c91c2be5"
+  },
+  {
+    "file": "test/fpdamageworld.js",
+    "exit": 0,
+    "seconds": 1.044,
+    "sourceSha256": "d4e8accb814ceba56919f9ec724a5c9742d2288123dbd526aabdd455d8b2d931",
+    "log": "fpdamageworld.log",
+    "logSha256": "6e53081cd03ef3839d6fcc958c67bd4d8e004a78e6878dfa2f1b3b9813bfa758"
+  },
+  {
+    "file": "test/fpday.js",
+    "exit": 0,
+    "seconds": 0.7,
+    "sourceSha256": "ca6e288f386cad88753a0c57d5af9c8dda9c6c4bc0b717f1b544f6ffb44bb3e0",
+    "log": "fpday.log",
+    "logSha256": "3600e0177180fef476c3adab227bef56d5db246f46ad6d04d274a29bd1600b95"
+  },
+  {
+    "file": "test/fpdoors.js",
+    "exit": 0,
+    "seconds": 1.006,
+    "sourceSha256": "090626355e25dacd21e062ca6beb8f7d37ea582611aa5d62a7742fd987b03ede",
+    "log": "fpdoors.log",
+    "logSha256": "87780a7c2a4836941045c753c24f7f44ab95e6fed9ad6278ac70cea0d31c41f3"
+  },
+  {
+    "file": "test/fpdriving.js",
+    "exit": 0,
+    "seconds": 0.747,
+    "sourceSha256": "95ca0e4e8b12f5f7321565b846b85d0558ae66542a299b8c4c2c55cc6e64483e",
+    "log": "fpdriving.log",
+    "logSha256": "9a8de78a0d8cf9a915c099116a1e9ba7ee81b1c2a892bfbbeb531ff3c598c70e"
+  },
+  {
+    "file": "test/fpguide.js",
+    "exit": 0,
+    "seconds": 0.201,
+    "sourceSha256": "ddd0cd6e571ec5df5078aff6f8c67de4aed7a88e5536a8e28bc1661eef84e784",
+    "log": "fpguide.log",
+    "logSha256": "01092b32056744dfce8857596e5e2afb90a841ccd300fa77b91009bbb5bc14d3"
+  },
+  {
+    "file": "test/fphandheld.js",
+    "exit": 0,
+    "seconds": 0.153,
+    "sourceSha256": "3a8ee4ab6a70f8e7f035e4f98b95b4e72a83c0cea7a79ca54911106878d3873a",
+    "log": "fphandheld.log",
+    "logSha256": "02f75452cb80aa46ac73c1299da6e04e25a809edcacaacc31de88371f087013e"
+  },
+  {
+    "file": "test/fphud.js",
+    "exit": 0,
+    "seconds": 0.1,
+    "sourceSha256": "a9226d016241b4bd78022b99a2c851e6fbeaf348709cbf4d542513d1f8eb9944",
+    "log": "fphud.log",
+    "logSha256": "50996ef0392e362addad8d020327293ec5ee7117c0f8a37033b8ebe36db49916"
+  },
+  {
+    "file": "test/fpincidentgeometry.js",
+    "exit": 0,
+    "seconds": 3.451,
+    "sourceSha256": "175288cce3d611abfd6d02e02731fe353ad24f63a459e8aeb19b7383d86d8f6d",
+    "log": "fpincidentgeometry.log",
+    "logSha256": "bc6664a1dd47cae30990750b731545d62f74ef7fce32f235222ff67824825ed4"
+  },
+  {
+    "file": "test/fpincidentscenario.js",
+    "exit": 0,
+    "seconds": 0.296,
+    "sourceSha256": "a29da4776165c3b8c59c88554a17ed456eb0506f0f5c1eefb01754dc01e9eb71",
+    "log": "fpincidentscenario.log",
+    "logSha256": "fa2eb10c0eb7d9128b4dab1502596ed2a9ac58bd47909134a1b31a338fb7ee5d"
+  },
+  {
+    "file": "test/fpincidentstage.js",
+    "exit": 0,
+    "seconds": 15.096,
+    "sourceSha256": "fa50d0889d48c770a2022b4d79ef8ed53fa594409264830d4ced1e9a0c248801",
+    "log": "fpincidentstage.log",
+    "logSha256": "2c6b0da4dce1e06bc8a6a7be4f7adc3cbacfacb604ad6f02da315f8efa60991f"
+  },
+  {
+    "file": "test/fpincidentworld.js",
+    "exit": 0,
+    "seconds": 2.558,
+    "sourceSha256": "d89908a77bcb8d6c23c82ba58a1806ef56744a3258e04a852a59f4b4570c8b96",
+    "log": "fpincidentworld.log",
+    "logSha256": "2c56048086ca36240121577e616ed55891fe65eda6e81a8f16de87714efde1db"
+  },
+  {
+    "file": "test/fpjobrunner.js",
+    "exit": 0,
+    "seconds": 1.35,
+    "sourceSha256": "4eed74b35a1c9da1013b2461a483d29efb081c9878bf8075024a496e93dc2f0f",
+    "log": "fpjobrunner.log",
+    "logSha256": "f7885cd2bd22f3a85bf5dcbeb376f09a75b672e8005e6d6cc57b4f8cef6f2b98"
+  },
+  {
+    "file": "test/fplater.js",
+    "exit": 0,
+    "seconds": 1.896,
+    "sourceSha256": "9ec9c173e3793ff6b7de719a4d63b1b9c143bfc0453f407fe4198d7ea85d6dde",
+    "log": "fplater.log",
+    "logSha256": "91d70d1226c52a18a23531ae0a05a518ab2c610fbac5a8ff2d154b30ec378b49"
+  },
+  {
+    "file": "test/fplighting.js",
+    "exit": 0,
+    "seconds": 0.806,
+    "sourceSha256": "688e552bd298e8753b8da790acb376d365d3f4fb1b1f99ba5cf2c4fad90680e0",
+    "log": "fplighting.log",
+    "logSha256": "4674788f1a6b18cd84e6cf62c069f00f77536e41e309042e5aaaa599e14dee26"
+  },
+  {
+    "file": "test/fploading.js",
+    "exit": 0,
+    "seconds": 0.448,
+    "sourceSha256": "c7621eb1eb79f125c61f87b64bdd5246d5202e0e25e1d0b8d6ec9b7954a5c5fd",
+    "log": "fploading.log",
+    "logSha256": "3f106b0b308566754dc951ed4125dac2604d21a25ab61906af5a4b1abb2d5426"
+  },
+  {
+    "file": "test/fploadinggeometry.js",
+    "exit": 0,
+    "seconds": 10.298,
+    "sourceSha256": "3fb6744539c6c560f27a5828f3a080eb79b85f67d39484c5a4377cb6d893cc88",
+    "log": "fploadinggeometry.log",
+    "logSha256": "486df353e294ea20f912b3aa4449a35cbc74ca1b00be313e34f57fc508387dd6"
+  },
+  {
+    "file": "test/fploadingreference.js",
+    "exit": 0,
+    "seconds": 0.288,
+    "sourceSha256": "3f8906fd4c7734073fe6ae9ea50fa65cc470066c2caef8b95ce56ed4264d2136",
+    "log": "fploadingreference.log",
+    "logSha256": "5b6bc7bab2e45b7bc766b3457e74352bac477b3d83d896a6cc5febe0645cff4d"
+  },
+  {
+    "file": "test/fploadingscenario.js",
+    "exit": 0,
+    "seconds": 4.051,
+    "sourceSha256": "8486340c422decc265922ef3ab315a30ce013c2aaf9e7400ae7b0a9bde7ddfe0",
+    "log": "fploadingscenario.log",
+    "logSha256": "1c224bdf03b2a9dc0759bcdd9393e24ad4866e268fab7c9e24bc97a84c995563"
+  },
+  {
+    "file": "test/fploadingwalk.js",
+    "exit": 0,
+    "seconds": 12.101,
+    "sourceSha256": "5a6662e53326648d5acf3523a5fe0b83714925bd64b38f6543978bb7768f0135",
+    "log": "fploadingwalk.log",
+    "logSha256": "8421ef00d8143be32c3a64dc9c481811165ab9096629804abc1724cca47c5128"
+  },
+  {
+    "file": "test/fploadingworld.js",
+    "exit": 0,
+    "seconds": 0.45,
+    "sourceSha256": "f1657f7c70f9faf3ad6904cfc96623bef86fd10811293f93f281604504d371bd",
+    "log": "fploadingworld.log",
+    "logSha256": "79945cedf6b50c45e1063792868789e7ee4ffca3fd50e55ce286dc8b06f65a83"
+  },
+  {
+    "file": "test/fploadout.js",
+    "exit": 0,
+    "seconds": 0.246,
+    "sourceSha256": "6dda896c147185111caa45d9a9ffd838d77f2ff259a1b9b3af0d0373f91d3e5d",
+    "log": "fploadout.log",
+    "logSha256": "6c85dce11f24caf472f14d70927242b1debc22646ec9ce396922a3555d21db5b"
+  },
+  {
+    "file": "test/fpmaterials.js",
+    "exit": 0,
+    "seconds": 2.15,
+    "sourceSha256": "cb7c5c6bb6923d71ac75c6f58190b24cd039dadcd084067e1ced9131f95c0238",
+    "log": "fpmaterials.log",
+    "logSha256": "4f6695ba78d7b7091275487f8f59e28bf69e6407ee5d628bcafc04c98aec1be9"
+  },
+  {
+    "file": "test/fpmirrors.js",
+    "exit": 0,
+    "seconds": 0.511,
+    "sourceSha256": "bf26647ace280b36a5b3af00856409a16107d69180af7c8f088afc7008c09923",
+    "log": "fpmirrors.log",
+    "logSha256": "520684c042be9aac20249dff025cf3c915f95dddb0550dfe8846ab1d061624ec"
+  },
+  {
+    "file": "test/fpmission.js",
+    "exit": 0,
+    "seconds": 0.448,
+    "sourceSha256": "fa09011c165e9b8275511dcd825e2627d08c718040415eb071007498c1053ce0",
+    "log": "fpmission.log",
+    "logSha256": "132355a1c026642ad981e0c8ee5fbdfbe95fc2edb9a2a2516fcd067bffbfcd07"
+  },
+  {
+    "file": "test/fpnarration.js",
+    "exit": 0,
+    "seconds": 0.243,
+    "sourceSha256": "d30c042ab301e7f02247bb6f7450f4c558e712c5990a1c16f63d19989b281d35",
+    "log": "fpnarration.log",
+    "logSha256": "016d2a68bf1f35b448bb836ad5abf75ff211d1a86a2c261a0eb4e5682fbda21d"
+  },
+  {
+    "file": "test/fpnav.js",
+    "exit": 0,
+    "seconds": 9.111,
+    "sourceSha256": "bef6b6c4dc41151375c112cd4b7db0a9f05b64619aee53080ff87f4ed305e6ca",
+    "log": "fpnav.log",
+    "logSha256": "558a7e87a753f03abf911bbfdf2884ee0e78b1594cc3f9edc25405e4f5013be3"
+  },
+  {
+    "file": "test/fpnightworld.js",
+    "exit": 0,
+    "seconds": 0.655,
+    "sourceSha256": "7b9ba8462aed1baac10a3c2883c72369ca2b1af38cee4a83c5640e0378815fe0",
+    "log": "fpnightworld.log",
+    "logSha256": "020926d97d54a83b1b435fb38c9e77329ec19d5dcaf7b7a26f104122b934a957"
+  },
+  {
+    "file": "test/fpperf.js",
+    "exit": 0,
+    "seconds": 0.4,
+    "sourceSha256": "dcc3238b060dfcfe3dfc1dc41ae1d86677084cd872d5bc45b96f2b74f8cadf12",
+    "log": "fpperf.log",
+    "logSha256": "c323bcd6ad3866918ab2bf53279274abff05a72cc163f20e106e0c23fdaae863"
+  },
+  {
+    "file": "test/fppickup.js",
+    "exit": 0,
+    "seconds": 1.242,
+    "sourceSha256": "90f26f290235c51ee7a3053d0045cd61a871e54022e8cec57c26d89c204856b3",
+    "log": "fppickup.log",
+    "logSha256": "9678a430d903b80d396760f967e86505c297258f0db8e7a0a80d27724b3363b6"
+  },
+  {
+    "file": "test/fppickupgeometry.js",
+    "exit": 0,
+    "seconds": 12.205,
+    "sourceSha256": "a6aeffef05c60b90efffadfc53e64007c2bae14ac42673e6a67e86e3fe2346ad",
+    "log": "fppickupgeometry.log",
+    "logSha256": "212c3533c53adc41db03ed3c4c3367bdef910953dfc1b1b7cc632a1fb7a03cb2"
+  },
+  {
+    "file": "test/fppickupreference.js",
+    "exit": 0,
+    "seconds": 0.301,
+    "sourceSha256": "cec888142a96b2f1a8a2492882e5b83b35f243431f23a61bb0bece7d84d4e5b3",
+    "log": "fppickupreference.log",
+    "logSha256": "f374cb24c1abb4ec28c1858226f6c02acae7c10b143a0d997661885d54428b4f"
+  },
+  {
+    "file": "test/fppickupscenario.js",
+    "exit": 0,
+    "seconds": 1.706,
+    "sourceSha256": "abeaa8837947f37e720b9f6c3429717c682185e2c63a0f72d84d9059e28b96fa",
+    "log": "fppickupscenario.log",
+    "logSha256": "0a6f6040c34ffdb55fea8b7210c66befb1c5ed6b154794dcd06ba76849f7738a"
+  },
+  {
+    "file": "test/fppickupworld.js",
+    "exit": 0,
+    "seconds": 0.498,
+    "sourceSha256": "a19e20802958a0542e790bfc36f4a141403a11ad79789ae138b3db9120afe45d",
+    "log": "fppickupworld.log",
+    "logSha256": "58d4a85354e3385496c92cd810f99fa9ff4fb0de9192930065518d4cc1ecc5d7"
+  },
+  {
+    "file": "test/fpproblemgeometry.js",
+    "exit": 0,
+    "seconds": 23.294,
+    "sourceSha256": "3a92956dca8e087ba5937b9796711fb93561f49f0f8c54bf73489c93ee327d5a",
+    "log": "fpproblemgeometry.log",
+    "logSha256": "8f3dfa21863cff8724b8513c77d771cc72158bcc59361f5ecfd63105388e56ef"
+  },
+  {
+    "file": "test/fpproblemscenario.js",
+    "exit": 0,
+    "seconds": 0.902,
+    "sourceSha256": "fe9f9e311dbffdaa39a9a1771c79a1d91c1b0d510e6f4ba129d7b4c56a3de42d",
+    "log": "fpproblemscenario.log",
+    "logSha256": "93887878bb884dc24a79246b52e2bbe7f754d85d2a77fdb986bad29fec0d69ba"
+  },
+  {
+    "file": "test/fpproblemstage.js",
+    "exit": 0,
+    "seconds": 0.546,
+    "sourceSha256": "50ed70f7ca268832e9ce735affee0277139884d7c5f7819e26d01592190856b7",
+    "log": "fpproblemstage.log",
+    "logSha256": "a3bdee9e3e70f61ff2751824df827cf6dadd303b54390fe27ad2f16ca461d216"
+  },
+  {
+    "file": "test/fpproblemworld.js",
+    "exit": 0,
+    "seconds": 9.902,
+    "sourceSha256": "5bf940367410f27218eca5971d1e0b8d6510621b05cdc66461035ab9f915e536",
+    "log": "fpproblemworld.log",
+    "logSha256": "3dc1343f1284fb8bd2ea0de46d7f3ef36173bc24f6e22441ea77932cb47434a1"
+  },
+  {
+    "file": "test/fpqualitygate.js",
+    "exit": 0,
+    "seconds": 0.198,
+    "sourceSha256": "f96985927cf14bac5e38a7afd89d55d284e724e2ddc767a00b45bdd26353fb0b",
+    "log": "fpqualitygate.log",
+    "logSha256": "752b5cacf01700d910cab92aa182f61ef079d7ada57a001b44d95f70cc01fa3a"
+  },
+  {
+    "file": "test/fpradio.js",
+    "exit": 0,
+    "seconds": 1.749,
+    "sourceSha256": "fa0d36925189578dc2b38cfa22e10f7a81f14f05273060f9c269cf0f768afba3",
+    "log": "fpradio.log",
+    "logSha256": "300c3e81d8bea02fb71f87ed51f9bc337304f01f0dfb9ffac64ea55c17eac907"
+  },
+  {
+    "file": "test/fprear.js",
+    "exit": 0,
+    "seconds": 0.644,
+    "sourceSha256": "9f05aed732f47c64a7529d31507bb5bda86e84dbee3ffa8e094c57295085b4cf",
+    "log": "fprear.log",
+    "logSha256": "eec9182259200f22bf3b1ecf8f16bea202195d456f7399d88f94b4864e15bed0"
+  },
+  {
+    "file": "test/fpreplay.js",
+    "exit": 0,
+    "seconds": 0.547,
+    "sourceSha256": "6ca1137fdd20105b8f8f4c0c2dc97dcb40cb37dfc323159fb5ad1d6f6d844630",
+    "log": "fpreplay.log",
+    "logSha256": "3a8d3e6f03ea2c278511b4dbb8920ac70d801c3e6c71e73d4dc0a32f6ee83bb9"
+  },
+  {
+    "file": "test/fpreplayworld.js",
+    "exit": 0,
+    "seconds": 0.606,
+    "sourceSha256": "510cd937b3a644855588dc880d3237d14e6c098e4ca85dc17768bca4b5ec9bba",
+    "log": "fpreplayworld.log",
+    "logSha256": "c27fb7ac607f993f0725e9eebcfe970f49da5af4afc4d7dd60e5c5b31b810efb"
+  },
+  {
+    "file": "test/fpresume.js",
+    "exit": 0,
+    "seconds": 39.553,
+    "sourceSha256": "8ff564039019ec8ae900f42b657c135d6b5524ac6105e9edfc91a5efedee3bcf",
+    "log": "fpresume.log",
+    "logSha256": "9a4cc5ec7b665f9f96b635d2e6226c13192f8d88daad5154a153f17547ac3949"
+  },
+  {
+    "file": "test/fproute.js",
+    "exit": 0,
+    "seconds": 3.001,
+    "sourceSha256": "f2e57d2a36496433d455f3c87cc0183da5746ad4618c3765401f8c36a9ea102b",
+    "log": "fproute.log",
+    "logSha256": "1afa5f0c07fa7b8a24ef5fa83d69f0377acf361c269d9844a567d9f6a3f33b2c"
+  },
+  {
+    "file": "test/fpscannerphoto.js",
+    "exit": 0,
+    "seconds": 0.191,
+    "sourceSha256": "172663513b83c511cd40e3f46f884864ad4c09c8d45e03a2237252027830cd35",
+    "log": "fpscannerphoto.log",
+    "logSha256": "3e52ec04f413d544755930f036490df21b2ca35bce2c34ee5457963464e55a73"
+  },
+  {
+    "file": "test/fpscannerstop.js",
+    "exit": 0,
+    "seconds": 0.399,
+    "sourceSha256": "2ad18ba855545cf6b2890daa513e96f7813341718f49e5c86e825cbe2dba237f",
+    "log": "fpscannerstop.log",
+    "logSha256": "4e83605b96da99241bb8a41efcb75cb1ef87defab27b0f8b1c7093f88ef89611"
+  },
+  {
+    "file": "test/fpscannerstopgeometry.js",
+    "exit": 0,
+    "seconds": 14.805,
+    "sourceSha256": "d3a4561e6efa39c8775b9fb9297a435e3423b1ab7af1adcad91189be8bfd5b55",
+    "log": "fpscannerstopgeometry.log",
+    "logSha256": "6a48f539a92a859bc55fc15081ee03a00dc5c0db0c326db1706a1bbb790dd487"
+  },
+  {
+    "file": "test/fpscannerstopscenario.js",
+    "exit": 0,
+    "seconds": 1.542,
+    "sourceSha256": "2ede8b7493d0494931fbbeebc1bc66562d096d301b64a8b0759ddbccf9524eca",
+    "log": "fpscannerstopscenario.log",
+    "logSha256": "574b26f5a6c9f1655fcb1fdc61d3f80092661b36303095d02da3dce8fa470738"
+  },
+  {
+    "file": "test/fpscannerstopworld.js",
+    "exit": 0,
+    "seconds": 6.854,
+    "sourceSha256": "8295e1419db65129b3c50b302f5b904ac75ec26578a592a005143699f5c3bdbd",
+    "log": "fpscannerstopworld.log",
+    "logSha256": "70cb255a575955f1d13e6b56e7341d362aeffaf6385156a88195bf798a1cb5ba"
+  },
+  {
+    "file": "test/fpscenario.js",
+    "exit": 0,
+    "seconds": 0.404,
+    "sourceSha256": "c305d465bdbcb5d7947e3bf2f79dc5b75b3e41a064f4693c787a4f7304933a49",
+    "log": "fpscenario.log",
+    "logSha256": "6b53a4f16744d2f36895c1e65a5a443a6359111038b2235e85994bd6330e491b"
+  },
+  {
+    "file": "test/fpsignal.js",
+    "exit": 0,
+    "seconds": 0.288,
+    "sourceSha256": "ba4f783154ab0605b1ed84def15574f5de93d9d904e3bc1757edc6d248abf4c7",
+    "log": "fpsignal.log",
+    "logSha256": "5f561750211e90ea2bc2cb814f070aba84faabb17f7ae6301e61aea9d13547a8"
+  },
+  {
+    "file": "test/fpsignlettering.js",
+    "exit": 0,
+    "seconds": 0.3,
+    "sourceSha256": "dedb6fb52cf07be34817ca6314b2dca2e545c44a8d35cf808597d19c6625b755",
+    "log": "fpsignlettering.log",
+    "logSha256": "cc58ac313a4fe12f880fac93ce7bc6ca3fe20d1dceea958dba90da3ea52a9fc6"
+  },
+  {
+    "file": "test/fpsigns.js",
+    "exit": 0,
+    "seconds": 0.951,
+    "sourceSha256": "7b09d6180fe69940950a0cb98e81ba9f5a4a890335bb3acab7eb4879e280565d",
+    "log": "fpsigns.log",
+    "logSha256": "a4f9fe0b9d48236a14f05f874724c8625e04b703de54fe93a939f3db5e4ecc2d"
+  },
+  {
+    "file": "test/fpsound.js",
+    "exit": 0,
+    "seconds": 0.148,
+    "sourceSha256": "f3c200032258e45077e47a3bb70742c8f3175a88ef5e49033f0a0e1fb2f1a413",
+    "log": "fpsound.log",
+    "logSha256": "d38d56ac5e8a94ad05186b43e41527bddd62bdd56606b35ebe07b1b18fc67c2e"
+  },
+  {
+    "file": "test/fpstopflow.js",
+    "exit": 0,
+    "seconds": 7.7,
+    "sourceSha256": "208765a1d82f347f75e6ee8d087c547e4c539aff6544f611f2887a09077a50c1",
+    "log": "fpstopflow.log",
+    "logSha256": "ea02e7d1a055d5981955cb2044a17ad75f554fe970a0ab88cc145eac7a07040a"
+  },
+  {
+    "file": "test/fpstoplocker.js",
+    "exit": 0,
+    "seconds": 1.806,
+    "sourceSha256": "659deced50e5a40538714251e35eb0d3f79957817d7a4f233e8e8aefe444c2a6",
+    "log": "fpstoplocker.log",
+    "logSha256": "30fac4d86a3b6120ce2d544558d06966633b0fc9b5c2dd5af0cbf6453424d63d"
+  },
+  {
+    "file": "test/fpstops.js",
+    "exit": 0,
+    "seconds": 0.196,
+    "sourceSha256": "2b39a261d785e81afa4f2b7261c3d452843e2834039b806a0f5914d886c697af",
+    "log": "fpstops.log",
+    "logSha256": "8d3814c625c0d00a92887929d047152c20ac90ab281787bac0e6b3d3c4defc4d"
+  },
+  {
+    "file": "test/fpstopscene.js",
+    "exit": 0,
+    "seconds": 1.207,
+    "sourceSha256": "ba4aa696ecd77f0f7dab645cb02f873302887ee5b8f7e4d735441cad59be4dad",
+    "log": "fpstopscene.log",
+    "logSha256": "92a5a8430835460eb4cf4e7b902f41c8a760aa16a3157e86e4631499121f345e"
+  },
+  {
+    "file": "test/fptown.js",
+    "exit": 0,
+    "seconds": 3.341,
+    "sourceSha256": "d1f68daf11e8f412fe16b27eab762c4d29cc6f09fd487a8df64708aa225b8c14",
+    "log": "fptown.log",
+    "logSha256": "cf212f35f829c52975c09692eb3a3d044dca010f036005486e4803a7139ca1e9"
+  },
+  {
+    "file": "test/fptraffic.js",
+    "exit": 0,
+    "seconds": 19.046,
+    "sourceSha256": "2e58e7f84aba6c3beda857a0e2a481d8a97c4c710228ef607809db839b4112aa",
+    "log": "fptraffic.log",
+    "logSha256": "3f251beaa592346aeee109541c7ca1133f7dcebfd684393b5e55b6c5a1a95f12"
+  },
+  {
+    "file": "test/fpwalkaround.js",
+    "exit": 0,
+    "seconds": 1.109,
+    "sourceSha256": "76a01c1456a50e770072d4f8a1b264542eee4837a824124a6c6f6188c4c7df1d",
+    "log": "fpwalkaround.log",
+    "logSha256": "da960b76603a6e498f23fb31ed2975e26f41a58e6e7c6b44e076289ed84b2375"
+  },
+  {
+    "file": "test/fpwalkaroundflow.js",
+    "exit": 0,
+    "seconds": 0.54,
+    "sourceSha256": "ccd01f17436ab9bb9c5c5204d857bb292f41ecc9363f5770a0c4bcb22bbb4003",
+    "log": "fpwalkaroundflow.log",
+    "logSha256": "8aa8e225abf0c0d1ce10013aef0151482c186d2dbe4e5c69cb207c1ad982e5ee"
+  },
+  {
+    "file": "test/fpwalkaroundworld.js",
+    "exit": 0,
+    "seconds": 2.448,
+    "sourceSha256": "806b3c6798d1252f2dbd4f2c890a8cedb47bac84be801753fe7e53cffe56a494",
+    "log": "fpwalkaroundworld.log",
+    "logSha256": "8745d26ce9814ef67e6e1540e15625472c5f2af76608e192006f93c93cf62963"
+  },
+  {
+    "file": "test/fpweather.js",
+    "exit": 0,
+    "seconds": 0.811,
+    "sourceSha256": "3816a80606222b740d9873737d07343489b61745d4c6c8b00d59d04192851339",
+    "log": "fpweather.log",
+    "logSha256": "8b757cc6c89f20691cf2beab0fb742aa756d165eb7f70d6c56e8d935fd4c23e9"
+  },
+  {
+    "file": "test/fpworld.js",
+    "exit": 0,
+    "seconds": 0.792,
+    "sourceSha256": "f028392bbd6a11d85eacd0b3f9ea0c154b1c602c813fe00cf569345b41158159",
+    "log": "fpworld.log",
+    "logSha256": "71c5f6d5c1e77d00a473acfe689cf8f3b6cbabcde775fd701554158052db2451"
+  },
+  {
+    "file": "test/glossary.js",
+    "exit": 0,
+    "seconds": 1.006,
+    "sourceSha256": "4e11840a4df7b2ec668ffc492c8dfcf3b51d5ba203111c11b25211c541ace204",
+    "log": "glossary.log",
+    "logSha256": "463a79bdf43784ef38b01edf111e96c2d862281bc86e77cb4cc6c29a0ce97aa8"
+  },
+  {
+    "file": "test/i18n.js",
+    "exit": 0,
+    "seconds": 0.704,
+    "sourceSha256": "fc82a567da448f45f706a2abea371cef88470fe3d3dff25bd664777c3d9eb10d",
+    "log": "i18n.log",
+    "logSha256": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6"
+  },
+  {
+    "file": "test/lmsreport.js",
+    "exit": 0,
+    "seconds": 2.801,
+    "sourceSha256": "50241f21c9bf5308f669bbfcba984a73a296515a69cc04ff6bfce5b94311b648",
+    "log": "lmsreport.log",
+    "logSha256": "23895fca6dd044d4eb4da547ad67656e31ba8c39a7447e5a94eca241551a41d6"
+  },
+  {
+    "file": "test/oldsave.js",
+    "exit": 0,
+    "seconds": 0.252,
+    "sourceSha256": "8f0a47e4ea2b346f0389e193f57b8427063b65c94f4fb23d1dbf2ea0b7555c2b",
+    "log": "oldsave.log",
+    "logSha256": "79d73dc102a9d62a4e9e1c8bb6245623c5010abc5c7cf966f73089a2b8623529"
+  },
+  {
+    "file": "test/package.js",
+    "exit": 0,
+    "seconds": 5.256,
+    "sourceSha256": "ab3e2f8fe067badeb8b5c6311b0a141dcf89b4a23bb4599b1664052e0ecb4f52",
+    "log": "package.log",
+    "logSha256": "d71cbcb443dbab46a4e09a67825136c87234ee2181ee55a8c250ba247ff3cb98"
+  },
+  {
+    "file": "test/report.js",
+    "exit": 0,
+    "seconds": 0.508,
+    "sourceSha256": "965d5437578be8dbbef2bec20885b1c24a24c4e518788907d22878a14bb5a3ea",
+    "log": "report.log",
+    "logSha256": "58ad5dce47592286cc104b03a44aac40d0b26805e56a9aad24ff5db81b43bb99"
+  },
+  {
+    "file": "test/reviewsheet.js",
+    "exit": 0,
+    "seconds": 1.758,
+    "sourceSha256": "f4661a6302113c3fb0cf74c7ed7df1f916c22813c0e23a01e7be0255a8ca49df",
+    "log": "reviewsheet.log",
+    "logSha256": "8d020850394d3cab61442298c953a8471019c829faa3d3b1a7045cb510886679"
+  },
+  {
+    "file": "test/savesize.js",
+    "exit": 0,
+    "seconds": 18.432,
+    "sourceSha256": "a3fc5a8e208979c7b3b8cc4a0fa84a9c75bc07e54037a6f994a0c17c5e1bc58a",
+    "log": "savesize.log",
+    "logSha256": "277f9cb3056ecb11f860e207e665683586ecfeca8a9548964d1eee0af061ae3c"
+  },
+  {
+    "file": "test/workday.js",
+    "exit": 0,
+    "seconds": 0.195,
+    "sourceSha256": "0ad4239d0c04958d455305e481cd96e31e5ec628ac912da4bb477ae21172b5d8",
+    "log": "workday.log",
+    "logSha256": "5d3c29d5b97333682bdb99896d768847de592f91f4fb82273cacdb0a614a5065"
+  },
+  {
+    "file": "test/xapi.js",
+    "exit": 0,
+    "seconds": 1.605,
+    "sourceSha256": "0e40623bf78b42e47629355d660b63b4d7ce28de89881c172567edf91c7a0b25",
+    "log": "xapi.log",
+    "logSha256": "0edf42befd0e8d05ed6d491bfa46caa0cfc51b2ddb09b6921f8f6d9ecdfca6be"
+  }
+]

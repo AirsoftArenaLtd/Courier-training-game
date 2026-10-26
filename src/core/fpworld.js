@@ -363,7 +363,7 @@ OTR.fpWorld = {
     }));
     const mirrors=OTR.fpMirrors?OTR.fpMirrors.build(scene,interactions):null;
     const rear=OTR.fpRear&&cab?OTR.fpRear.build(scene,cab.root,interactions,cab.navigation.local):null;
-    const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood,shadowSpan:base.pickupTask?20:90}):null;
+    const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood,shadowSpan:base.pickupTask||base.incidentStage?20:90}):null;
     const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab,lighting,weather):null;
     const damage=OTR.fpDamageWorld?OTR.fpDamageWorld.build(scene,base,route,chassis,labels,actors):null;
     const walkVehicle=actors&&actors.vehicle,walkWheel=walkVehicle&&walkVehicle.parts.find(p=>p.name==='wheel-back-left'),walkDoor=walkVehicle&&walkVehicle.parts.find(p=>p.name==='door');
@@ -399,7 +399,8 @@ OTR.fpWorld = {
     const packageLabels=base.packageLabels&&OTR.fpPackageLabelWorld?OTR.fpPackageLabelWorld.build(route,{cube,interactions,occluders}):null;
     const packageSort=base.packageSort&&OTR.fpPackageSortWorld?OTR.fpPackageSortWorld.build(route,{cube,interactions,occluders}):null;
     const packageLift=base.packageLift&&OTR.fpPackageLiftWorld?OTR.fpPackageLiftWorld.build(route,{cube,interactions,occluders,models:scene.assetBank?.models,uniform:brand.uniform}):null;
-    const customer=base.customerStage&&!base.customerStop&&OTR.fpCustomerWorld?OTR.fpCustomerWorld.build(route,base,{cube,interactions,occluders,bank:scene.assetBank}):null;
+    const customerArt=base.incidentStage?OTR.fpIncidentWorld:OTR.fpCustomerWorld;
+    const customer=base.customerStage&&!base.customerStop&&customerArt?customerArt.build(route,base,{cube,interactions,occluders,bank:scene.assetBank}):null;
     const customerStopArt=base.customerStop?.scannerId?OTR.fpScannerStopWorld:OTR.fpCustomerStopWorld;
     const customerStop=base.customerStop&&customerStopArt?customerStopArt.build(route,base,{cube,interactions,occluders,bank:scene.assetBank}):null;
     const loading=base.loading&&OTR.fpLoadingWorld?OTR.fpLoadingWorld.build(route,base,{cube,interactions,occluders,vehicle:actors?.vehicle,focus:()=>scene.target}):null;

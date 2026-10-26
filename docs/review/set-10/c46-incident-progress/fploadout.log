@@ -1,0 +1,20 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ seeded discrepancies are stable, optional on old saves and excluded from cargo practice (5.802593ms)
+✔ a mis-sort is a physical unlisted parcel; scanning catches it once and Dispatch sets it aside (1.515677ms)
+✔ an extra package earns its catch only when set aside, and cannot be delivered or returned (0.455721ms)
+✔ loading a mis-sort and skipping the count are reported on departure only once (0.895827ms)
+✔ a missing package can be reported, physically recovered, scanned and loaded before counting (0.771309ms)
+✔ rolling out without reporting a missing package fails the check and remains recoverable at Dispatch (0.249919ms)
+✔ a reported late package appears once when parked at a stop with cargo open, and files under that stop (0.701573ms)
+✔ the count requires the physical van load and rejects a wrong number or an unlisted package (0.337021ms)
+✔ bad load-out state and impossible parcel identities do not resume (0.769346ms)
+✔ the extra package has its own real mesh and scan face on the Dispatch counter (15.451193ms)
+✔ load checks also handle five manifest packages and one unlisted package (0.609042ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33.451579

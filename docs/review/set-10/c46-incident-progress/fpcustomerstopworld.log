@@ -1,0 +1,45 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+✔ each stop keeps fixed GPU buffers and local asset ownership in both qualities and real fallback (2318.044753ms)
+✔ step eye height is derived from actual tread positions and never accumulates between syncs (12.569695ms)
+✔ held parcel and actual hand-truck handle rays remain distinct rather than hiding one another (5.318866ms)
+✔ answering opens the physical door and keeps its bell, notice and number on solid surfaces (3.738375ms)
+✔ a captured photo grades actual projected package, doorstep, number and visible person geometry (53.722422ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2489.726995

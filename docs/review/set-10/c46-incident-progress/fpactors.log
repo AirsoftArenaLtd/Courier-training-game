@@ -1,0 +1,69 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+✔ both qualities load semantic van parts and four-clip worker rigs; the static adapter refuses rigs (528.324795ms)
+✔ all workday clips deform one texture-free mesh, keep finite human bounds and cache repeated poses (577.160481ms)
+✔ independent scene rigs never change their templates or each other (10.119961ms)
+✔ source and Low van doors steer and open without replacing any physical target, score, solid or saved field (427.906768ms)
+✔ only the nearest present resident uses the rig; physical door targets remain at the original facade (85.292567ms)
+✔ walkaround courier is visible in reflections and visibility is restored afterwards (87.880384ms)
+✔ missing actor files keep the old procedural vehicle and people while healthy town models still load (28.6262ms)
+✔ semantically incomplete actor files are rejected during preload and keep the procedural fallback (70.86225ms)
+✔ company colours reach the displayed van and courier vertices without changing geometry or source assets (78.852446ms)
+✔ scene rebuild releases every posed mesh exactly once while the bank keeps its source geometry (94.015791ms)
+✔ opening a door exposes a recessed dark doorway without opening a hole in the physical facade (52.386904ms)
+✔ the interior mirror uses the retained cab shell and restores the new exterior after its pass (91.981435ms)
+✔ the lifting cargo door stays inside the original van footprint throughout its movement (768.01578ms)
+✔ residents retain the shirt and skin colours used in the existing ID comparison (41.083036ms)
+✔ resumed contacts keep talking without repeating the walk-up or wave, and distant couriers do no pose work (93.720021ms)
+✔ resuming an away or resolved stop keeps its door closed from the first frame (409.864524ms)
+✔ school children share a bounded High rig draw; Low keeps two solid figures inside the existing batch (360.678338ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3837.999976

@@ -1,0 +1,14 @@
+✔ a trainee with progress, a backup and an account (117.839899ms)
+✔ export and erase need the trainer PIN (12.361817ms)
+✔ export: everything held about the trainee, no password material (7.036113ms)
+✔ erase: progress, backups and the sign-in all go; the audit log keeps the id and time only (45.497809ms)
+✔ B-66: a milestone 8 workday is in the download whole (aids, critical types, road habits, the town, places) and erasing removes it (12.993803ms)
+✔ old backups are purged after OTR_BACKUP_DAYS; recent ones and progress stay (2.641696ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 214.639175
