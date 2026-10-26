@@ -1,9 +1,9 @@
 {
-  "at": "2026-10-26T14:40:31.677594+00:00",
+  "at": "2026-10-26T15:24:18.779893+00:00",
   "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
   "sourceFilesVerified": 909,
   "status": {
-    "phase": "matrix-low-ta-normal-dog",
+    "phase": "matrix-high-en-normal-steps",
     "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
     "pid": 83080,
     "state": "running",
@@ -143,12 +143,57 @@
         "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-steps",
         "QA_CASE": "low-ta-normal-steps"
       }
+    },
+    {
+      "name": "matrix-low-ta-normal-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-dog",
+        "QA_CASE": "low-ta-normal-dog"
+      }
+    },
+    {
+      "name": "matrix-low-ta-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-heat",
+        "QA_CASE": "low-ta-normal-heat"
+      }
+    },
+    {
+      "name": "matrix-low-ta-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-steps",
+        "QA_CASE": "low-ta-large-steps"
+      }
+    },
+    {
+      "name": "matrix-low-ta-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-dog",
+        "QA_CASE": "low-ta-large-dog"
+      }
+    },
+    {
+      "name": "matrix-low-ta-large-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-heat",
+        "QA_CASE": "low-ta-large-heat"
+      }
     }
   ],
   "resourceViews": 64,
-  "goodJourneys": 8,
-  "nativeChecks": 9629,
-  "captures": 197,
-  "passedAssessments": 3,
-  "scope": "Completed evidence only; active partial reports excluded. Shared Tamil glyph/translation/A30/A31/default/current-pilot and Intel FPS acceptance remain separate."
+  "goodJourneys": 13,
+  "nativeChecks": 15672,
+  "captures": 322,
+  "passedAssessments": 6,
+  "scope": "Completed good journeys only. All twelve Low English/Tamil normal/larger cases pass bounds/behavior/results, with six durable one-attempt passed assessments. Shared glyphs, translations and result-verdict readability remain incomplete. High and critical/abandonment jobs continue; resource counts do not certify Intel FPS."
 }

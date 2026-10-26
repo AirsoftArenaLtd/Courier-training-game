@@ -1,0 +1,46 @@
+{
+  "runtime": "6d83d2e1",
+  "scope": "Eight current-source Low larger-Tamil native captures inspected at original resolution. Native original-results/records/assessment/bounds pass; shared glyphs, whole-template translation and result verdict readability remain incomplete.",
+  "images": [
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-low-ta-large-steps-low-ta-large-steps-stop0-photo-review.png",
+      "sha256": "b6dd6c0716526d355555ed05e0dc34c11ba585db9018d2f9fac2ab708138d6fa",
+      "observation": "The actual snowy Low doorstep/package image is visible at its captured 320x180 size. Larger photo caption and handheld choices fit without overlap; the new caption and choices are still English and need the A31 catalogue pass."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-low-ta-large-dog-low-ta-large-dog-stop1-reply-c2.png",
+      "sha256": "c5b64fc71a92094d0bfcdf22f74aaaabf7b418752fabecb04ebf11d8dd30d93e",
+      "observation": "The original Tamil calm-retreat instruction fits at full larger size in a two-line choice. The title, prompt and navigation controls remain English; this is bounds/behavior evidence, not full translation acceptance."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-low-ta-large-heat-low-ta-large-heat-stop0-safety.png",
+      "sha256": "d541a74356f077f7aa7d0892c6e2fe4b7ba2f669a39205772a846539d760fa08",
+      "observation": "Four larger-text safety options remain within the handheld screen with a separate Back control and visible mirrors/dash. The water/cooling/brief choices remain English in this Tamil run."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-low-ta-large-heat-low-ta-large-heat-result.png",
+      "sha256": "7540eb5919a93107adf13ca67a6bbab8cdc74ef50b629f4368e3393ec2503a71",
+      "observation": "The shared result shows a passed nine-star assessment within the screen, but the title/safety/heading/body/career still contain missing glyph boxes. It shows two takeaway entries plus a one-more indicator; the shared assessment verdict in the career row is visibly small at larger text size. A31 must address font coverage and verdict readability before language acceptance."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-low-ta-large-steps-low-ta-large-steps-result.png",
+      "sha256": "74c52127099dfee87208d43e8c91d788402bc35dc3f5a326874571d02839918b",
+      "observation": "The shared footsteps result fits its three takeaways, career row and two controls. Missing glyph boxes remain in the title/safety/takeaways/career, and the passed-category verdict is visibly small. This is not readable-Tamil acceptance."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-low-ta-large-dog-low-ta-large-dog-stop0-arrival.png",
+      "sha256": "b492d01781e37a67458823714ee99420853e799170ceb07c3d2a7b44d509e7b1",
+      "observation": "The native Low resident remains behind the closed fence with feet supported and the warning mounted to the gate. The larger HUD fits its mixed Tamil stop status and English goal/clock; the missing new translations remain visible."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-low-ta-large-dog-low-ta-large-dog-stop2-printed-name.png",
+      "sha256": "2cda048bc309ceca64e9f2914a4d30c670fb12840b8c9b388a3d211f99c370c5",
+      "observation": "The signer controls fit at larger text size and show the actual signer name. The title and choice demonstrate a mixed English/Tamil template (the English signer phrase with the Tamil suffix); next-name/return choices remain English. A31 should translate the whole templates."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-low-ta-large-heat-low-ta-large-heat-controls-2.png",
+      "sha256": "af95d087d4daa418229f485f8b6d0c71594fb2d0946edcc6be175b0b1e1de0e8",
+      "observation": "The hydration/heat condition and two controls fit at full larger size, but the entire new page remains English in the Tamil run."
+    }
+  ]
+}
