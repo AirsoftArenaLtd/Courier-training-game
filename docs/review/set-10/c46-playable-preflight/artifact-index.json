@@ -1,0 +1,161 @@
+{
+  "runtime": "563c7b2e8703124d1c8b64da7c329ceaabcf37fc",
+  "scope": "Raw outputs collected from this frozen plan only. Missing jobs, resource failures, partial native journeys and uninspected captures are not acceptance.",
+  "files": [
+    {
+      "file": "bench-c46-playable-563c7b2e-low-first-loaded-low-low.json",
+      "bytes": 36967,
+      "sha256": "2c47cde636161086cbabb5a2bc26c36f4a009198d0368901d1cbe11cc76aabd8"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-brief.png",
+      "bytes": 81141,
+      "sha256": "833897c69a743b190fc64eafad4b584ef01ca0dbcebebfc5b5b261dc69af6811"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-controls-0.png",
+      "bytes": 71314,
+      "sha256": "7b740dae86a4ed4223315d2608fe935b793accf791c1ffe23a5594b731447bbc"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-controls-1.png",
+      "bytes": 74551,
+      "sha256": "172c4d6bfdb7cec2bb79d8099ad82feef7d2a75c8f3e61c5d91b17a7f8315522"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-controls-2.png",
+      "bytes": 62816,
+      "sha256": "39fbd2043ddbd4e1bd96d8bff76dacc112914ba19371ee7013649df6aa2ffeb2"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-controls-3.png",
+      "bytes": 74553,
+      "sha256": "004bdb43338f85a1c5ec293e7c98b00b6232ca7f2601ab4dee0959ccdaf9a3dd"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-controls-4.png",
+      "bytes": 76425,
+      "sha256": "05a2f5cca7140b9d09b5b5fe2ee0c9b035f6f9d6af4ab66d81e67c60a25010e5"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-controls-5.png",
+      "bytes": 74937,
+      "sha256": "0bda9b24f39977efdc3b0378716f28e2e20292dc6be48f4b654f97c709fb3672"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-handheld.png",
+      "bytes": 116680,
+      "sha256": "e17ae7b00b239cc7dd048550cf4884be31469af8a6a1aa98fb8968b68da64066"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop0-arrival.png",
+      "bytes": 96005,
+      "sha256": "a909dd9f455dc4b7c03f91b0a5f057b7852f6a29121b4e131c958a9a7c9e8606"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop0-cargo.png",
+      "bytes": 132239,
+      "sha256": "eafcf86e72be2385896574d67f89891d8dae27638c5f36b3a11bb51084cd4674"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop0-photo-framing.png",
+      "bytes": 143120,
+      "sha256": "671d8577a691d52a8719fe94ce2f97e3f5b52ba4978004fd4069c1c22f96e4e5"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop0-photo-review.png",
+      "bytes": 147818,
+      "sha256": "e9ea68830a2eae93d9b34bac91ecfe34c670ff36a045020ca439623623265065"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps.json",
+      "bytes": 2196,
+      "sha256": "cd21f43a85e2ecbab90dd9c726e208a2301219d46c5501f2cc0aa416bc2a82c5"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnesscab.png",
+      "bytes": 152359,
+      "sha256": "1dfdf1abe9b261f7f812fb6197c87fd19a27fdb3da56f071a350bd7c3af77e56"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnesscarry.png",
+      "bytes": 105551,
+      "sha256": "b33237931541ac94a7cf0a8c51e1d187660ba2cc4e57cd71ac356983ab9e5e73"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnesscharge.png",
+      "bytes": 81087,
+      "sha256": "caa1d7c44ef201b0613a7a3876b122b17fddeef0ad67b13edf7313c76ef58aa7"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnessclinic.png",
+      "bytes": 92099,
+      "sha256": "cbd5868054c24237bdef841ab6f31df83d6352997c7cbc0433a34dc254e68694"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnessclutter.png",
+      "bytes": 120384,
+      "sha256": "b3f883bd72a4675437c48c15c5b027bf8afa090e66c0f7b3fa76c7697f3e4544"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnesscontrols.png",
+      "bytes": 63059,
+      "sha256": "932c79af4ef5c0c88debfde5bdd3fd6196cfe121658072cf84ae9fbc25bdcaa7"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnessdrink.png",
+      "bytes": 103786,
+      "sha256": "5b491b47a4bae7dc59cee8baf871fa95bf21eb6966c21f9de5c0dd2fbd316d05"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnessentry.png",
+      "bytes": 79004,
+      "sha256": "e1331bf873cc64674e0a54b343899538f77d1d3903c8c1a5cea6da333ab7b342"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnessfear.png",
+      "bytes": 82101,
+      "sha256": "09551ebe5393fe343e7e5959b9644de6ec6635c77300e4983304ee2f86b82bbd"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnessgate.png",
+      "bytes": 117415,
+      "sha256": "cca6a17aca84c83972aeaf21b6aa0c0924239698c4e969c1c8471de81634d288"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnesshandheld.png",
+      "bytes": 80309,
+      "sha256": "5b6216f4dafb0345bc1c7c77dbcc50fdd403d8a4096c5fcd28dbea3e4eef0df8"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnessice.png",
+      "bytes": 175719,
+      "sha256": "978b4dc4c71d63b4cdb98e89fe7b43b7135a7edb38c6f683e2222c2f5ec89edd"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnessreply.png",
+      "bytes": 49909,
+      "sha256": "1ed8d1bce50c41c7150dee3f408f79bdb74ba16b53e57030468ac4d4ce987eec"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnessreverse.png",
+      "bytes": 155765,
+      "sha256": "432683fbf856dad36d778536181c8ece7bf6d229c94ad324327bb216f899218c"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnessshade.png",
+      "bytes": 110208,
+      "sha256": "ccbc27b20748413af6819b985e04241c107cfd3d3da789bc2fa88005b9411804"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-loaded-low.log",
+      "bytes": 11895,
+      "sha256": "064cb2c1606d14a0e100eb07c5fb4d2e7c6e152bf2faebad6263208361f88b1c"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-first-quality.json",
+      "bytes": 1010,
+      "sha256": "a0a88298c49c90f9f41687e1c7cee1d0881fba83dda922321fcf84add43f35c7"
+    }
+  ]
+}

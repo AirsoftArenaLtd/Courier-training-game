@@ -1,0 +1,15 @@
+{
+  "runtime": "563c7b2e8703124d1c8b64da7c329ceaabcf37fc",
+  "scope": "Three current-source native preflight journeys, 60 arranged playable resource views (including actual HUD; Low first) and six repository browser regressions. Full language/size and harmful/abandoned native journeys remain required; this is not full C46 acceptance.",
+  "jobs": [
+    {
+      "name": "loaded-low-resources",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-563c7b2e-low-first",
+        "QA_PROFILES": "loaded-low"
+      }
+    }
+  ],
+  "complete": false
+}
