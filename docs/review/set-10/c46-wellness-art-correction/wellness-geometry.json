@@ -1,0 +1,21 @@
+{
+  "scope": "CPU whole-world geometry with injected unloaded safety components, nine stops and original mirrors; excludes rendered resource, native gameplay, application adapter, GPU and Intel FPS acceptance.",
+  "reports": [
+    {
+      "loaded": true,
+      "poses": 9342,
+      "peak": {
+        "calls": 38,
+        "triangles": 2338
+      }
+    },
+    {
+      "loaded": false,
+      "poses": 9342,
+      "peak": {
+        "calls": 41,
+        "triangles": 2184
+      }
+    }
+  ]
+}

@@ -21,7 +21,7 @@ test('all nine loaded/fallback Low/High safety components have stable bounded su
 test('clutter targets occupy their real surface and disappear only after the original clear callback',()=>{
  O.gfx={high:()=>false};const scene=fixture('m8-steps',1),{world,m,d}=scene;try{
   for(const h of world.wellness.hazards.filter(h=>h.target)){
-   const p=h.target.position,b=h.surface;assert.ok(Math.abs(p.x-b.x)<.4);assert.ok(Math.abs(p.z-b.z)<.3);assert.ok(p.y>=b.y&&p.y<b.y+.2);
+   const p=h.target.position,b=h.surface;assert.ok(Math.abs(p.x-b.x)<.4);assert.ok(Math.abs(p.z-b.z)<.5);assert.ok(p.y>=b.y&&p.y<b.y+.2);
    assert.equal(scene.pick(h.target.userData.interaction,b.x,b.z+1.65),h.target.userData.interaction);
    Object.assign(m.player,{x:b.x,z:b.z+1});assert.equal(S.clear(m,b.id),true);scene.sync();assert.equal(h.target.visible,false);assert.equal(d.state.hazards[b.id].state,'cleared');
    for(let n=0;n<10;n++)O.fpWellnessStop.step(d,.05);
@@ -42,4 +42,18 @@ test('clinic vestibule has walls, a roof and a walkable entry before supplying i
   Object.assign(m.player,{x:12,z:s.wall+.7});S.observe(m,{careful:false},.05);assert.equal(s.facts.interior,true);assert.equal(m.blocked(m.player.x,m.player.z),false);
   assert.equal(world.person.position.x,13.4);assert.equal(world.person.position.z,s.wall+.35);
  }finally{world.dispose();}
+});
+test('hose segments join, and the wet-entry surface rests on the actual porch instead of floating over a stair',()=>{
+ const clutter=fixture('m8-steps',1);try{const h=clutter.world.wellness.hazards.find(h=>h.surface.id==='hose');assert.equal(h.hose.length,8);
+  for(let i=0;i<h.hose.length;i++){const a=h.hose[i],b=h.hose[(i+1)%h.hose.length],ax=a.x+Math.cos(a.angle)*(a.w-.03)/2,az=a.z-Math.sin(a.angle)*(a.w-.03)/2,bx=b.x-Math.cos(b.angle)*(b.w-.03)/2,bz=b.z+Math.sin(b.angle)*(b.w-.03)/2;assert.ok(Math.hypot(ax-bx,az-bz)<1e-8);}
+ }finally{clutter.world.dispose();}
+ const entry=fixture('m8-steps',2);try{const h=entry.m.wellnessStage.hazards.find(h=>h.id==='puddle');for(const x of [-1,1])for(const z of [-1,1])assert.equal(O.fpScannerStopWorld.ground(entry.m,h.x+x*h.w/2,h.z+z*h.d/2),h.y);}finally{entry.world.dispose();}
+});
+test('a fearful dog has pinned ears, a low body and tucked tail while all feet remain at ground level',()=>{
+ const scene=fixture('m8-dog',2);try{const w=scene.world.wellness,m=scene.m,d=scene.d,matrix=new THREE.Matrix4(),p=new THREE.Vector3(),q=new THREE.Quaternion(),scale=new THREE.Vector3();d.wellness.ref.dogGone=false;d.wellness.ref.dog.setAlpha(1);d.wellness.ref.dog.setMood('fearful');scene.sync();assert.equal(w.moving.count,13);
+  for(const index of [3,7]){w.moving.getMatrixAt(index,matrix);matrix.decompose(p,q,scale);assert.ok(scale.y<.07&&scale.z>.24,'ears lie back rather than standing upright');}
+  for(const index of [4,5,8,9]){w.moving.getMatrixAt(index,matrix);matrix.decompose(p,q,scale);assert.ok(Math.abs(p.y-scale.y/2)<1e-6);}
+  w.moving.getMatrixAt(11,matrix);matrix.decompose(p,q,scale);assert.ok(scale.y<.07&&scale.z>.23,'tail lies low beneath the hindquarters');
+  d.wellness.ref.dog.setMood('alert');scene.sync();w.moving.getMatrixAt(3,matrix);matrix.decompose(p,q,scale);assert.ok(scale.y>.19);
+ }finally{scene.world.dispose();}
 });

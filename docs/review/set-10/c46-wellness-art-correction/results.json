@@ -1,0 +1,196 @@
+{
+  "suites": [
+    {
+      "suite": "fpwellnessstop",
+      "exit": 0,
+      "validation": "retained ff0ac496 prerequisite scope"
+    },
+    {
+      "suite": "fpwellnesstalk",
+      "exit": 0,
+      "validation": "retained ff0ac496 prerequisite scope"
+    },
+    {
+      "suite": "fpscannerstop",
+      "exit": 0,
+      "validation": "retained ff0ac496 prerequisite scope"
+    },
+    {
+      "suite": "fpscannerstopscenario",
+      "exit": 0,
+      "validation": "retained ff0ac496 prerequisite scope"
+    },
+    {
+      "suite": "fpscannerstopworld",
+      "exit": 0,
+      "validation": "retained ff0ac496 prerequisite scope"
+    },
+    {
+      "suite": "fpscannerstopgeometry",
+      "exit": 0,
+      "validation": "retained ff0ac496 prerequisite scope"
+    },
+    {
+      "suite": "firstperson",
+      "exit": 0,
+      "validation": "retained ff0ac496 prerequisite scope"
+    },
+    {
+      "suite": "fpqualitygate",
+      "exit": 0,
+      "validation": "retained ff0ac496 prerequisite scope"
+    },
+    {
+      "suite": "pilot-englishtext",
+      "exit": 0,
+      "validation": "retained ff0ac496 prerequisite scope"
+    },
+    {
+      "suite": "fpwellnessstage",
+      "exit": 0,
+      "validation": "fresh art correction"
+    },
+    {
+      "suite": "fpwellnessstopworld",
+      "exit": 0,
+      "validation": "fresh art correction"
+    },
+    {
+      "suite": "fpwellnessgeometry",
+      "exit": 0,
+      "validation": "fresh art correction"
+    },
+    {
+      "suite": "fplighting",
+      "exit": 0,
+      "validation": "fresh art correction"
+    }
+  ],
+  "syntax": [
+    {
+      "file": "src/core/fpscannerstopworld.js",
+      "sha256": "48350869ca8e473539cc203db6a8e8afe278a3d1c8837b52ea7ec6b6f59ab1f0",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "src/core/fpwellnessstage.js",
+      "sha256": "f44196e16f6b7d65e4501922d53aba2d57df58d85233584a00bc6335d04fc86f",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "src/core/fpwellnessstop.js",
+      "sha256": "a7b224af14865ff04266b19d256427adac8b212e4b4cc9b5e3a61509c28d7e87",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "src/core/fpwellnessstopworld.js",
+      "sha256": "993c17f9840383704b1c3acb59316a8ac379edb76be9036123719e578ea9bcad",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "src/core/fpworld.js",
+      "sha256": "39544f6eb97fcffbdfb355e72a839789ea11d03293aee175b2284be87c529e55",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/fpbench.js",
+      "sha256": "fef5440ad9e50e9f66cc372499a19ad159e77a70483ba18e205282c7affa33c2",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/fplighting.js",
+      "sha256": "22bdfac33caf9db4a6b64836b5655c8f8e361e895076b555f50d1ff7beca70cf",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/fpwellnessgeometry.js",
+      "sha256": "8dc0e8d3ea2448bd9d6ba1d8d200064a78f5f9ecfa050bf384de4ed4b3b08940",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/fpwellnessstage.js",
+      "sha256": "1c70f66e4e2803a5926fcf3c9d6a2cff9c10a76ed0fb7fbc3e5a87fada40f7af",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/fpwellnessstop.js",
+      "sha256": "2764d9bac2edce3c72c59ad7703ac9b2c0db578c81f3c9b8e4c72eb4c7f3b6a6",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/fpwellnessstopworld.js",
+      "sha256": "c9e857a427bf83f3a07064023f1eedb5d12601add80118410df329b0ce9975b3",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/fpwellnesstalk.js",
+      "sha256": "df44d2ef4d32b7686b0ea3c5690168b8a4c99650988fd1cee2e904d7f0c0885f",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/tools/fp-wellness-context.js",
+      "sha256": "0556ca3d22bcda0e7970da419fd90e69624cde0d051088eaee23b336f3d0bb83",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/tools/fp-wellness-fixture.js",
+      "sha256": "84d723dd0a27c4395f24da3a16fa97a603d5b6fb4766c439461a47ab90a4d90e",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/tools/fp-wellness-full-context.js",
+      "sha256": "c2e657388e8edf695d1945b7bb4216afe7b26b27b9ecb340721dee17cb94f18c",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/tools/fp-wellness-pose.js",
+      "sha256": "c9402a612bb0d8a2f63267a0cafd5f1895b63d9312241444f4a3641fb2777a30",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/tools/fp-wellness-quality.js",
+      "sha256": "2e1d40d1a45a05fe72278d08b62bdb4b980a2bd097ca41c1320876e886ca81d8",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/tools/fp-wellness-stage-context.js",
+      "sha256": "38e3ef603f963d71c5008031a1eed047c10af33bbd2c54bd1ecf7844b774340c",
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "file": "test/tools/fp-wellness-world-context.js",
+      "sha256": "b1402fcf6f2456be19f06c74f422f5bd8354c9f58007172b506c06f61d722eb6",
+      "exit": 0,
+      "stderr": ""
+    }
+  ],
+  "harnessDiagnostics": [
+    {
+      "suite": "fpquality",
+      "exit": 1
+    },
+    {
+      "suite": "englishtext",
+      "exit": 1
+    }
+  ],
+  "scope": "Four affected correction suites freshly pass and nine unchanged prerequisite passes retained; thirteen scoped suites total. Nineteen changed-JS syntax checks pass. Not a fresh full repository gate."
+}
