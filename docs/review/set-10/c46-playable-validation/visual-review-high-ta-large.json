@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-26T22:18:05.708Z",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Nine completed High larger-Tamil core assessment captures inspected at original resolution. Original result/reload assertions are independently verified. Shared glyph/translation/readability issues remain open; result captures with one-more indicators do not show all takeaway bodies.",
+  "images": [
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-stop0-photo-review.png",
+      "sha256": "9991a06d436e32d56d103eb4333e08281518edcb8a3c4a400572d26b65149e46",
+      "observation": "The actual High snowy doorstep photo contains the parcel and door. Larger-text use/retake/details controls and caption fit; these controls remain untranslated English in the Tamil session. Actual capture is640x360 with434 sampled colors."
+    },
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-stop1-reply-s1.png",
+      "sha256": "16d516c086dd441e7f23294254db7668bd3f97804dff617f76aff2d5f231b4b2",
+      "observation": "The selected original Tamil safety reply wraps to two full-size larger-text lines inside the button. All four choices are separated and fit; reply navigation remains English."
+    },
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-result.png",
+      "sha256": "12c5f1208d7a5993a0430d80222b9e3b1209376fe6b3e90232e87483cf1bb444",
+      "observation": "The larger-Tamil passed assessment shows nine stars, three takeaways and both controls. Title/safety/takeaway/career glyph boxes remain; the assessment verdict in the career row is visibly small. This is not readable-Tamil acceptance."
+    },
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-large-dog-high-ta-large-dog-stop1-reply-c2.png",
+      "sha256": "f36fe5d7e898dfa3c3299518b5114413e85a42bc31278b51ab26b93da678af72",
+      "observation": "The original calm-retreat reply fits in two larger Tamil lines, with all navigation controls separate. No scaling or clipping observed in this capture; English navigation remains untranslated."
+    },
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-large-dog-high-ta-large-dog-stop2-reply-p1.png",
+      "sha256": "737798c0bedb2d5d8134c97df795609303b7cf456670142e5000273f83089b1d",
+      "observation": "The complete fearful-dog instruction wraps to three larger Tamil lines within its expanded button. All following controls remain separated and fit. This confirms the previously measured reply layout at the larger size."
+    },
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-large-dog-high-ta-large-dog-result.png",
+      "sha256": "cdfd77a99c67d875ae8c40964d780d8ef2c220cd21807cd880e82c50229a74e0",
+      "observation": "The settled larger-Tamil dog assessment shows nine stars, two takeaways plus an explicit one-more indicator, and both controls. Missing safety/takeaway/career glyphs and the small career-row assessment verdict remain shared issues; this capture does not show all three takeaway bodies."
+    },
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-large-heat-high-ta-large-heat-stop0-photo-review.png",
+      "sha256": "e62bf882b7272d38e8e38ab97b3800078870335bbf56afbf8146ae09de63968b",
+      "observation": "The actual High photo contains the parcel and doorstep/shadow; larger-text review controls and caption fit separately. Actual capture is640x360 with 240 sampled colors. Review controls remain English."
+    },
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-large-heat-high-ta-large-heat-stop2-printed-name.png",
+      "sha256": "352210feadf24e35d671b8cce36987c122ca0e090b900d5e89783f56ced4ae63",
+      "observation": "The larger-text signer question and all three buttons fit. The displayed Dee Harper candidate matches the completed source signer. Title/choice still mix English with a Tamil template suffix, while navigation remains English."
+    },
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-matrix-high-ta-large-heat-high-ta-large-heat-result.png",
+      "sha256": "012c81c76237347ff13f1347142e39666a52e9cb854a90b41725fc290284d20d",
+      "observation": "The larger-Tamil heat assessment shows nine stars, two takeaway bodies plus the one-more indicator, and separated controls. Title/safety/takeaway/career glyph boxes and the small career-row verdict remain; this is not readable-Tamil acceptance and does not show all three takeaway bodies."
+    }
+  ]
+}

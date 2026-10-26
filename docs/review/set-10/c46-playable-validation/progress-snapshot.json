@@ -1,10 +1,10 @@
 {
-  "at": "2026-10-26T21:14:34.095Z",
+  "at": "2026-10-26T22:18:05.708Z",
   "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
   "sourceFilesVerified": 911,
   "retainedProofsVerified": 12,
   "status": {
-    "phase": "matrix-high-ta-large-steps",
+    "phase": "critical-trip",
     "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
     "pid": 100058,
     "state": "running",
@@ -262,6 +262,33 @@
         "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-normal-heat",
         "QA_CASE": "high-ta-normal-heat"
       }
+    },
+    {
+      "name": "matrix-high-ta-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps",
+        "QA_CASE": "high-ta-large-steps"
+      }
+    },
+    {
+      "name": "matrix-high-ta-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-large-dog",
+        "QA_CASE": "high-ta-large-dog"
+      }
+    },
+    {
+      "name": "matrix-high-ta-large-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-large-heat",
+        "QA_CASE": "high-ta-large-heat"
+      }
     }
   ],
   "preflightComplete": true,
@@ -269,10 +296,10 @@
     "high-steps-timeout-20261026/manifest.json"
   ],
   "resourceViews": 64,
-  "goodJourneys": 21,
-  "nativeChecks": 24775,
-  "captures": 518,
-  "passedAssessments": 9,
+  "goodJourneys": 24,
+  "nativeChecks": 29362,
+  "captures": 592,
+  "passedAssessments": 12,
   "incidentFollowup": {
     "status": {
       "phase": "waiting-for-core-validation",
@@ -285,7 +312,7 @@
     "resourceViews": 32,
     "retainedCurrentCase": "low-en-normal"
   },
-  "scope": "21 completed core good journeys and29 completed jobs. All High normal-Tamil steps/dog/heat now pass. Larger-Tamil steps runs at stronger horizontal protocol. Partials and static-panel audit excluded from native counts. Current incident follow-up waits serially; shared glyph/translation/A31/default/current-pilot/Intel acceptance remains open.",
+  "scope": "All24 core good journeys complete with12 durable passed assessments;32 completed jobs. The loaded-trip critical assessment runs; three abandonments follow. Static-panel and partial/negative/regression checks stay excluded from good-native counts. Current incident follower waits serially. Shared glyph/translation/readability/A31/default/current-pilot/Intel acceptance remains open.",
   "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
   "staticPanelAudit": {
     "panels": 1896,
@@ -293,5 +320,6 @@
     "sizes": 2,
     "complete": true,
     "scope": "Static original M8 conversation text only; excluded from native check/journey counts. Current default font; glyph/translation readiness remains open."
-  }
+  },
+  "goodMatrixComplete": true
 }

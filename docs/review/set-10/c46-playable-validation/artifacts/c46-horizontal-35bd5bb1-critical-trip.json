@@ -1,0 +1,29 @@
+{
+  "checks": 232,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "kind": "steps",
+      "shots": [
+        "c46-horizontal-35bd5bb1-critical-trip-low-en-large-steps-brief.png",
+        "c46-horizontal-35bd5bb1-critical-trip-low-en-large-steps-controls-0.png",
+        "c46-horizontal-35bd5bb1-critical-trip-low-en-large-steps-controls-1.png",
+        "c46-horizontal-35bd5bb1-critical-trip-low-en-large-steps-controls-2.png",
+        "c46-horizontal-35bd5bb1-critical-trip-low-en-large-steps-controls-3.png",
+        "c46-horizontal-35bd5bb1-critical-trip-low-en-large-steps-controls-4.png",
+        "c46-horizontal-35bd5bb1-critical-trip-low-en-large-steps-controls-5.png",
+        "c46-horizontal-35bd5bb1-critical-trip-low-en-large-steps-handheld.png",
+        "c46-horizontal-35bd5bb1-critical-trip-low-en-large-steps-stop0-cargo.png"
+      ],
+      "stops": []
+    }
+  ],
+  "errors": [],
+  "variant": "trip",
+  "sourceRevision": "e44beae4dde3bf9f557bd6b417604c8bb5cec3b3",
+  "uncommittedRuntime": false,
+  "protocolSha256": "02e1041cfa9f7746459827fdacc33d9186ac25b58a15b6593ce354c70b818ca6",
+  "scope": "Existing-id registration, accessibility and a suspended workday are setup fixtures. Observational wrappers record completed original conversations and pre-evaluation stop facts without changing arguments or return values. Real keys control all walking, aiming, parcels, safety actions, replies, photos, signing and results. No position, timer, node, hazard, signature-completion, score or verdict fixture. Independent original 2D callbacks replay observed choices and evaluate observed stop facts. Bounds checks do not certify Tamil glyph coverage or Intel FPS."
+}
