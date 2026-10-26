@@ -1,7 +1,7 @@
 /* The three authored M7 pickups use physical parcels, counter paperwork and an isolated local result. */
 window.OTR=window.OTR||{};
 OTR.fpPickupScenario={
-  panel(scene,title,body,choices){const s=scene.model.pickupTask,v=s.version;scene.showPanel(title,body,choices.map(c=>({...c,action:()=>{if(scene.scenarioSession.phase==='active'&&scene.model.pickupTask===s&&s.version===v)c.action();}})),{accessibleText:true,back:()=>scene.closePanel()});},
+  panel(scene,title,body,choices){const s=scene.model.pickupTask,v=s.version,target=scene.art.pick();scene.showPanel(title,body,choices.map(c=>({...c,action:()=>{if(scene.scenarioSession.phase==='active'&&scene.model.pickupTask===s&&s.version===v)c.action();}})),{accessibleText:true,back:()=>scene.closePanel()});if(scene.panel)scene.panel.pickupTarget=target;},
   notice(scene,body){this.panel(scene,'Read the pickup information.',body,[{label:'Return to the counter.',action:()=>scene.closePanel()}]);},
   facing(scene,id){return scene.art.pick()===id;},
   talk(scene,page=0){

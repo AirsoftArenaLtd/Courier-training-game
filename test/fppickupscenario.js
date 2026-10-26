@@ -26,3 +26,6 @@ test('normal/larger panels expose remapped keys and assessment conversation neve
 test('the ordinary workday pickup method never constructs module-only counter state',()=>{
  const scene=fixture();scene.art.dispose();scene.model=O.fpMission.create('campaign',1);assert.equal(typeof scene.model.pickup,'function');try{scene.art=O.fpWorld.build(scene,scene.model);scene.sync();assert.equal(scene.art.pickup,null);}finally{scene.art?.dispose();}
 });
+test('inspection retains one actually faced printed label after the panel hides the reticle target',()=>{
+ const scene=fixture();try{counter(scene);speak(scene);count(scene);table(scene,12);use(scene,'pickup-parcel-b2');scene.panel.choices[0].action();assert.equal(scene.panel.pickupTarget,'pickup-parcel-b2');scene.target=null;scene.sync();const shown=scene.art.pickup.parcels.filter(p=>p.label?.mesh.visible);assert.equal(shown.length,1);assert.equal(shown[0].data.id,'b2');assert.ok(shown[0].label.entries.some(e=>e.visible));assert.equal(scene.art.pick(),'pickup-parcel-b2');scene.closePanel();scene.sync();assert.equal(scene.art.pickup.parcels.filter(p=>p.label?.mesh.visible).length,0);}finally{scene.art.dispose();}
+});

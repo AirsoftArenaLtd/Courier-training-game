@@ -1,0 +1,43 @@
+{
+  "scope": "CPU-only Low counter: three original ids, four stages, seven walking positions, twelve headings and three pitches, actual gaze ink, main plus most costly retained mirror. No compositor, rendered memory or Intel FPS acceptance.",
+  "reports": [
+    {
+      "loaded": true,
+      "poses": 3024,
+      "peak": {
+        "calls": 31,
+        "triangles": 1746
+      },
+      "overBudget": 0,
+      "worst": {
+        "id": "m7-business",
+        "stage": 1,
+        "x": 14.3,
+        "z": -41.7,
+        "heading": 11,
+        "pitch": 0,
+        "calls": 28,
+        "triangles": 1746
+      }
+    },
+    {
+      "loaded": false,
+      "poses": 3024,
+      "peak": {
+        "calls": 37,
+        "triangles": 1592
+      },
+      "overBudget": 0,
+      "worst": {
+        "id": "m7-business",
+        "stage": 1,
+        "x": 14.3,
+        "z": -41.7,
+        "heading": 11,
+        "pitch": 0,
+        "calls": 33,
+        "triangles": 1592
+      }
+    }
+  ]
+}

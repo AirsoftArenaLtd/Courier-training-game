@@ -1,0 +1,12 @@
+✔ original load oracle retains the fixed perfect and unsafe scores and exact placement (8.768694ms)
+✔ original find oracle executes five actual delayed rounds and the original 2000 perfect score (7.36121ms)
+✔ near-match penalties clamp at zero, lose clean rounds, and slow assistance retains the source result (3.854958ms)
+✔ native oracle rejects orphaned, repeated, early and unauthored observations (5.960827ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31.702677

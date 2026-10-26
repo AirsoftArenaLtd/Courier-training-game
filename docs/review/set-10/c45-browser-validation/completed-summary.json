@@ -1,0 +1,218 @@
+{
+  "date": "2026-10-26T01:14:01.632486+00:00",
+  "applicationRuntime": "ef1a4edf57926c99ac100188d2d3129d320d8f1d",
+  "protocolRevision": "ef1a4edf57926c99ac100188d2d3129d320d8f1d",
+  "expectedJobs": 40,
+  "passedJobs": 0,
+  "complete": false,
+  "nativeGoodJourneys": 0,
+  "nativeChecks": 0,
+  "nativeCaptures": 0,
+  "resourceViews": 0,
+  "native": [],
+  "resources": [],
+  "followups": [],
+  "pending": [
+    {
+      "id": "resource-loaded-low",
+      "state": "failed",
+      "exit": 1
+    },
+    {
+      "id": "resource-loaded-high",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "resource-accessible-low",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "resource-fallback-low",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-normal-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-normal-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-normal-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-large-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-large-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-large-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-normal-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-normal-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-normal-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-large-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-large-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-ta-large-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-normal-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-normal-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-normal-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-large-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-large-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-en-large-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-normal-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-normal-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-normal-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-large-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-large-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-high-ta-large-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-bad-business-low-en-large-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-bad-docs-low-en-large-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-bad-call-low-en-large-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large-business",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large-intl",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large-dg",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "scorm2004",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "legacy-modules",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "academy",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "enterprise",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "routeday",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "driving",
+      "state": "not started",
+      "exit": null
+    }
+  ],
+  "scope": "Hash-verified source-scoped jobs only. Independently replayed original callback results and durable native records. Static resource fixtures are separate. Shared readable-Tamil, current-pilot/default/A30/A31 and Intel O1 acceptance remain separate."
+}
