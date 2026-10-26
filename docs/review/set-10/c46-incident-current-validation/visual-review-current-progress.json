@@ -1,0 +1,43 @@
+{
+  "at": "2026-10-26T23:25:32.005116+00:00",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Named captures inspected at original resolution. Native result/reload and resource acceptance are verified separately; shared glyph/translation/readability/Intel readiness remains open. Uninspected and partial captures are not visual acceptance.",
+  "images": [
+    {
+      "file": "artifacts/c46-incident-current-6d83d2e1-resource-loaded-high-loaded-high-high-incidentdriver.png",
+      "sha256": "a172af80ea84cfa414467726c947df186b700ef55955ab1a72975a149e1c5528",
+      "observation": "The uploaded High driver is visibly rendered beside the sedan, with a clear person interaction point and the actual scene goal/time HUD. The bounded imported geometry remains distinct from the procedural Low/fallback profile."
+    },
+    {
+      "file": "artifacts/c46-incident-current-6d83d2e1-resource-loaded-high-loaded-high-high-incidentwitness.png",
+      "sha256": "00a7fe8157f78a8135414203a15d5c2f1994943c27fbb740d3b44b3817c03a13",
+      "observation": "The uploaded High witness is visibly rendered in front of the imported house, with an unobstructed person target, visible path and scene shadow. HUD and bottom controls remain separate."
+    },
+    {
+      "file": "artifacts/c46-incident-current-6d83d2e1-resource-fallback-low-fallback-low-low-incidentdriver.png",
+      "sha256": "1a9c6108bfedac9a0f560df65f4b11f13f8f7e00d7073e1ca0c8bceee5dd2bcd",
+      "observation": "The intentionally procedural fallback driver and sedan remain visible and targetable in the Low scene, with the goal/time HUD and controls intact. This image is fallback evidence and does not claim High model detail."
+    },
+    {
+      "file": "artifacts/c46-incident-current-6d83d2e1-good-high-en-large-high-en-large-reply-n10.png",
+      "sha256": "4547ed9eda101b86281789957b748606d2641246ed7c8ffbfcf007741b3c0715",
+      "observation": "The full honest-report reply wraps to two larger-English lines inside its button. The remaining three navigation choices are separate and fit; actual original choice/result equality is verified from the completed native observation."
+    },
+    {
+      "file": "artifacts/c46-incident-current-6d83d2e1-good-high-en-large-high-en-large-result.png",
+      "sha256": "1252c2eb97d0aaea7250b38774c1babbd281d286e97f20c350a5ec9376e31dbc",
+      "observation": "The larger-English passed incident assessment shows nine stars, all three full takeaways, career verdict and both controls without overlap. The original 4100-point one-attempt result and saved play survive full reload."
+    },
+    {
+      "file": "artifacts/c46-incident-current-6d83d2e1-good-low-ta-large-low-ta-large-reply-n10.png",
+      "sha256": "a363b8a2639c4f94af312df9f1d65d7e60892878580f3df405ed79deff15c196",
+      "observation": "The original honest-report reply renders in two full-size larger Tamil lines within its button. Heading, instruction and navigation remain English in this Tamil session; translation readiness remains open."
+    },
+    {
+      "file": "artifacts/c46-incident-current-6d83d2e1-good-low-ta-large-low-ta-large-result.png",
+      "sha256": "14e30635be5d26fa2c1a25756248cdcefbee696f17308613a3c888db56d4914e",
+      "observation": "The larger-Tamil result shows nine stars, two takeaway bodies plus a one-more indicator and both controls. Missing title/safety/takeaway/career glyphs and the visibly small career-row assessment verdict remain shared A31 issues. This is not readable-Tamil acceptance and does not show all three takeaway bodies."
+    }
+  ]
+}

@@ -290,10 +290,50 @@
         "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-large-heat",
         "QA_CASE": "high-ta-large-heat"
       }
+    },
+    {
+      "name": "critical-trip",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-critical-trip",
+        "QA_CASE": "low-en-large-steps",
+        "QA_VARIANT": "trip"
+      }
+    },
+    {
+      "name": "abandon-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-abandon-steps",
+        "QA_CASE": "low-en-large-steps",
+        "QA_VARIANT": "abandon"
+      }
+    },
+    {
+      "name": "abandon-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-abandon-dog",
+        "QA_CASE": "low-en-large-dog",
+        "QA_VARIANT": "abandon"
+      }
+    },
+    {
+      "name": "abandon-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-abandon-heat",
+        "QA_CASE": "low-en-large-heat",
+        "QA_VARIANT": "abandon"
+      }
     }
   ],
   "preflightComplete": true,
-  "complete": false,
+  "complete": true,
   "earlierFailedAttempts": [
     "high-steps-timeout-20261026/manifest.json"
   ],

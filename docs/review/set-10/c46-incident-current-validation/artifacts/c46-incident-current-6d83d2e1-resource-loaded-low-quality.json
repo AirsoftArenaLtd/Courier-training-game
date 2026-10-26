@@ -1,0 +1,29 @@
+{
+  "sourceRevision": "4790744f9081f50e55091e8f91fd600448df179d",
+  "requestedViews": [
+    "incidentdamage",
+    "incidentdriver",
+    "incidentwitness",
+    "incidentcab",
+    "incidentreply",
+    "incidentreport",
+    "incidentcontrols",
+    "incidenthandheld"
+  ],
+  "scope": "Selected static incident poses under the original fpbench resource profiles; not native gameplay or laptop FPS acceptance.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c46-incident-current-6d83d2e1-resource-loaded-low-loaded-low-low.json",
+      "log": "c46-incident-current-6d83d2e1-resource-loaded-low-loaded-low.log",
+      "peak": {
+        "calls": 31,
+        "triangles": 920,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1818854
+      }
+    }
+  ]
+}

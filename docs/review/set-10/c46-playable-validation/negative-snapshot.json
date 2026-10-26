@@ -1,0 +1,119 @@
+{
+  "at": "2026-10-26T23:24:28.319Z",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "complete": true,
+  "scope": "Completed unsafe-trip and abandoned core assessments only. Their native checks/captures stay separate from the24 good journeys. Correctly failed/abandoned results are test passes.",
+  "journeys": 4,
+  "nativeChecks": 1890,
+  "captures": 47,
+  "rows": [
+    {
+      "case": "critical-trip",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-horizontal-35bd5bb1-critical-trip.json",
+      "sha256": "d818ea0022e171cc1681a8b4c534e9f4877a43d9d9e9f34f6d1da02702721e46",
+      "checks": 1245,
+      "captures": 23,
+      "id": "m8-steps",
+      "quality": "low",
+      "language": "en",
+      "large": true,
+      "durable": true,
+      "score": 7200,
+      "stars": {
+        "safety": 1,
+        "efficiency": 3,
+        "service": 3
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793052958086,
+        "pending": false,
+        "at": 1793053471501,
+        "stars": {
+          "safety": 1,
+          "efficiency": 3,
+          "service": 3
+        },
+        "score": 7200,
+        "criticals": [
+          "Fell on the garden hose carrying a package"
+        ],
+        "lessons": [
+          "Hold SHIFT and take short steps over anything slippery or cluttered, above all with a package that hides your feet.",
+          "Slow down on ice, wet steps and cluttered walkways. Short steps, eyes on the path, a hand free for balance.",
+          "Slow down on ice and wet surfaces: short steps, feet flat, and hold SHIFT to walk carefully.",
+          "Clear trip hazards before you walk the path with a package that blocks your view.",
+          "Three points of contact in and out of the cab. Most cab falls happen on the way down."
+        ]
+      },
+      "plays": 1,
+      "independentOriginalResultEquality": true,
+      "independentOriginalStarEquality": true
+    },
+    {
+      "case": "abandon-steps",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-horizontal-35bd5bb1-abandon-steps.json",
+      "sha256": "ff99329aa6fa7be8506b059fb87168e89e7d5565c23e20d0678aad282b4ca193",
+      "checks": 215,
+      "captures": 8,
+      "id": "m8-steps",
+      "quality": "low",
+      "language": "en",
+      "large": true,
+      "durable": true,
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793053489454,
+        "pending": false,
+        "abandoned": true,
+        "at": 1793053507991
+      },
+      "plays": 0
+    },
+    {
+      "case": "abandon-dog",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-horizontal-35bd5bb1-abandon-dog.json",
+      "sha256": "762dd42ac0e4d16a51c44955ef0e5db03f4d531347a3c6030c7d36f502e187a9",
+      "checks": 215,
+      "captures": 8,
+      "id": "m8-dog",
+      "quality": "low",
+      "language": "en",
+      "large": true,
+      "durable": true,
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793053516888,
+        "pending": false,
+        "abandoned": true,
+        "at": 1793053530929
+      },
+      "plays": 0
+    },
+    {
+      "case": "abandon-heat",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-horizontal-35bd5bb1-abandon-heat.json",
+      "sha256": "fca6ca721d265423a834bad76828d4d06a5e4c39cce8d5410d60bef4bc86b755",
+      "checks": 215,
+      "captures": 8,
+      "id": "m8-heat",
+      "quality": "low",
+      "language": "en",
+      "large": true,
+      "durable": true,
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793053539741,
+        "pending": false,
+        "abandoned": true,
+        "at": 1793053554703
+      },
+      "plays": 0
+    }
+  ]
+}

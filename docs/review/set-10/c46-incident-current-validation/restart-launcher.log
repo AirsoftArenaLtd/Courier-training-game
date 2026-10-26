@@ -1,1 +1,12 @@
 {"phase": "waiting-for-core-validation", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "waiting"}
+{"phase": "waiting-for-browser-lease", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "waiting"}
+{"phase": "resource-loaded-low", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "resource-loaded-high", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "resource-accessible-low", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "resource-fallback-low", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "good-low-en-large", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "good-low-ta-normal", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "good-low-ta-large", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "good-high-en-normal", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "good-high-en-large", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "good-high-ta-normal", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}

@@ -1,0 +1,100 @@
+{
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "scope": "Fresh current-source integration of the incident module after shared rendering/conversation changes: seven remaining good quality/language/size cases, critical and abandonment in larger Tamil, and 32 original-ceiling resource views. With the retained current Low English normal case this completes eight incident layouts. Earlier 0777a5f0 component evidence remains at its old source and is not relabelled; shared A31 glyph/translation/readability/default/Intel gates remain separate. Application remains 6d83d2e1; core continuation uses protocol 35bd5bb1.",
+  "retained": {
+    "report": "/workspace/c46-safety-wellness/docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-incident-regression.json",
+    "sha256": "2d4271a0593e9fa31a748594fe6281aff51a87f29656f6660313d0166999f696",
+    "case": "low-en-normal",
+    "checks": 1210,
+    "captures": 19,
+    "scope": "Current frozen source/protocol: the completed Low English normal incident regression is retained; it is not rerun."
+  },
+  "jobs": [
+    {
+      "name": "resource-loaded-low",
+      "exit": 0,
+      "env": {
+        "QA_PROFILES": "loaded-low",
+        "QA_TAG": "c46-incident-current-6d83d2e1-resource-loaded-low",
+        "QA_WELLNESS_COMPONENT": "",
+        "QA_WELLNESS_PLAYABLE": ""
+      }
+    },
+    {
+      "name": "resource-loaded-high",
+      "exit": 0,
+      "env": {
+        "QA_PROFILES": "loaded-high",
+        "QA_TAG": "c46-incident-current-6d83d2e1-resource-loaded-high",
+        "QA_WELLNESS_COMPONENT": "",
+        "QA_WELLNESS_PLAYABLE": ""
+      }
+    },
+    {
+      "name": "resource-accessible-low",
+      "exit": 0,
+      "env": {
+        "QA_PROFILES": "accessible-low",
+        "QA_TAG": "c46-incident-current-6d83d2e1-resource-accessible-low",
+        "QA_WELLNESS_COMPONENT": "",
+        "QA_WELLNESS_PLAYABLE": ""
+      }
+    },
+    {
+      "name": "resource-fallback-low",
+      "exit": 0,
+      "env": {
+        "QA_PROFILES": "fallback-low",
+        "QA_TAG": "c46-incident-current-6d83d2e1-resource-fallback-low",
+        "QA_WELLNESS_COMPONENT": "",
+        "QA_WELLNESS_PLAYABLE": ""
+      }
+    },
+    {
+      "name": "good-low-en-large",
+      "exit": 0,
+      "env": {
+        "QA_CASE": "low-en-large",
+        "QA_VARIANT": "good",
+        "QA_TAG": "c46-incident-current-6d83d2e1-good-low-en-large"
+      }
+    },
+    {
+      "name": "good-low-ta-normal",
+      "exit": 0,
+      "env": {
+        "QA_CASE": "low-ta-normal",
+        "QA_VARIANT": "good",
+        "QA_TAG": "c46-incident-current-6d83d2e1-good-low-ta-normal"
+      }
+    },
+    {
+      "name": "good-low-ta-large",
+      "exit": 0,
+      "env": {
+        "QA_CASE": "low-ta-large",
+        "QA_VARIANT": "good",
+        "QA_TAG": "c46-incident-current-6d83d2e1-good-low-ta-large"
+      }
+    },
+    {
+      "name": "good-high-en-normal",
+      "exit": 0,
+      "env": {
+        "QA_CASE": "high-en-normal",
+        "QA_VARIANT": "good",
+        "QA_TAG": "c46-incident-current-6d83d2e1-good-high-en-normal"
+      }
+    },
+    {
+      "name": "good-high-en-large",
+      "exit": 0,
+      "env": {
+        "QA_CASE": "high-en-large",
+        "QA_VARIANT": "good",
+        "QA_TAG": "c46-incident-current-6d83d2e1-good-high-en-large"
+      }
+    }
+  ],
+  "complete": false
+}

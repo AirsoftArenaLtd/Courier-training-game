@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-26T23:24:28.319Z",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "complete": true,
+  "jobs": 36,
+  "allJobExitsZero": true,
+  "goodJourneys": 24,
+  "goodNativeChecks": 29362,
+  "goodCaptures": 592,
+  "passedAssessments": 12,
+  "negativeJourneys": 4,
+  "negativeNativeChecks": 1890,
+  "negativeCaptures": 47,
+  "allCoreNativeChecks": 31252,
+  "allCoreNativeCaptures": 639,
+  "resourceViews": 64,
+  "repositoryRegressions": 6,
+  "sourceFilesVerified": 911,
+  "retainedProofsVerified": 12,
+  "released": {
+    "pid": 100058,
+    "released": true
+  },
+  "scope": "Core steps/dog/heat36-job plan only. Good and negative-native counts exclude repository regression/native-incident/static-panel checks. Current incident integration and optional extensions/shared A31/default/current-pilot/Intel acceptance remain unfinished."
+}
