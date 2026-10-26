@@ -1,0 +1,19 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ all three good safety sets use the real controls and source result scale, with one result and no workday writes (3657.932216ms)
+✔ paused/closed/replaced controls, source activity locks and abandoned callbacks cannot alter a stop (23.958465ms)
+✔ timed source replies advance once while read, stop in pause/handheld controls, and expire once (57.709732ms)
+✔ physical NPC acts wait for movement, preserve the courier pose, pause inertly and reject abandoned completions (647.57545ms)
+✔ a scripted cooling response waits for real shade and then invokes the original cooling and drink callbacks (50.304874ms)
+✔ retreat is slow and voluntary, and its source completion waits for the dog to stay in view (9.718411ms)
+✔ clearing a real hose after a loaded trip retains the original critical in the stop report (145.565815ms)
+✔ clinic handover requires entry, uses the physical counter, and rejects a replaced handheld callback during signing (14.288628ms)
+✔ collapse reports the original emergency once, omits climb-in credit and recovers the next stop as the source does (10.894551ms)
+✔ all authored safety climates build the real weather surfaces and valid lighting presets (23.980298ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4664.370881

@@ -1,0 +1,4 @@
+{ quality: 'low', lang: 'en', large: false, kind: 'steps' }
+Error: Physical target is unreachable: customer-stop-parcel-p1
+    at focus (/workspace/c46-safety-wellness/test/fpwellnessbrowser.js:13:171)
+    at async /workspace/c46-safety-wellness/test/fpwellnessbrowser.js:57:257

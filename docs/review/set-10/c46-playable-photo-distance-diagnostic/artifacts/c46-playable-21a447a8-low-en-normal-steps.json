@@ -1,0 +1,59 @@
+{
+  "checks": 266,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "steps",
+      "shots": [
+        "c46-playable-21a447a8-low-en-normal-steps-low-en-normal-steps-brief.png",
+        "c46-playable-21a447a8-low-en-normal-steps-low-en-normal-steps-controls-0.png",
+        "c46-playable-21a447a8-low-en-normal-steps-low-en-normal-steps-controls-1.png",
+        "c46-playable-21a447a8-low-en-normal-steps-low-en-normal-steps-controls-2.png",
+        "c46-playable-21a447a8-low-en-normal-steps-low-en-normal-steps-controls-3.png",
+        "c46-playable-21a447a8-low-en-normal-steps-low-en-normal-steps-controls-4.png",
+        "c46-playable-21a447a8-low-en-normal-steps-low-en-normal-steps-controls-5.png",
+        "c46-playable-21a447a8-low-en-normal-steps-low-en-normal-steps-handheld.png",
+        "c46-playable-21a447a8-low-en-normal-steps-low-en-normal-steps-stop0-cargo.png",
+        "c46-playable-21a447a8-low-en-normal-steps-low-en-normal-steps-stop0-arrival.png"
+      ],
+      "stops": []
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "21a447a8567e5c1afd413f1ae5b91a9b91ae128e",
+  "uncommittedRuntime": false,
+  "protocolSha256": "078ef86766b83f2fc89943ec17bf534d2c1399f55a6a8d74b19125066c830113",
+  "scope": "Existing-id registration, accessibility and a suspended workday are setup fixtures. Observational wrappers record completed original conversations and pre-evaluation stop facts without changing arguments or return values. Real keys control all walking, aiming, parcels, safety actions, replies, photos, signing and results. No position, timer, node, hazard, signature-completion, score or verdict fixture. Independent original 2D callbacks replay observed choices and evaluate observed stop facts. Bounds checks do not certify Tamil glyph coverage or Intel FPS.",
+  "failure": {
+    "message": "Physical target is unreachable: customer-stop-parcel-p1",
+    "stack": "Error: Physical target is unreachable: customer-stop-parcel-p1\n    at focus (/workspace/c46-safety-wellness/test/fpwellnessbrowser.js:13:171)\n    at async /workspace/c46-safety-wellness/test/fpwellnessbrowser.js:57:257"
+  },
+  "state": {
+    "mode": "walk",
+    "player": {
+      "x": 14.713029037420442,
+      "z": -44.58028751728625,
+      "yaw": 0.025490247625981212,
+      "pitch": 0.14583886554724848
+    },
+    "index": 0,
+    "phase": "active",
+    "run": "active",
+    "clock": 35.81667666666677,
+    "elapsed": 38.81667666666656,
+    "panel": false,
+    "handheld": false,
+    "acting": false,
+    "walkGoal": null,
+    "keepFacing": false,
+    "coolGoal": null,
+    "talkKey": null,
+    "replyPage": 0,
+    "wall": -44.999998012791025,
+    "answered": false,
+    "outcome": null
+  }
+}

@@ -635,5 +635,22 @@
       "exit": 0,
       "seconds": 32.72
     }
-  ]
+  ],
+  "followup": {
+    "scope": "Browser protocol approached the doormat parcel beyond the unchanged 2.65m accessible-selection distance. Only the test route changes to x14.1; the CPU journey now proves real accessible focus from that position before grading the photo. Runtime is unchanged.",
+    "retainedNodeSuites": 106,
+    "rerun": [
+      {
+        "file": "test/fpwellnessscenario.js",
+        "exit": 0,
+        "cases": 10,
+        "log": "fpwellnessscenario-photo-focus.log"
+      }
+    ],
+    "syntaxRefreshed": [
+      "test/fpwellnessbrowser.js",
+      "test/fpwellnessscenario.js"
+    ],
+    "allPriorSyntaxRetained": true
+  }
 }

@@ -1,0 +1,16 @@
+{
+  "runtime": "21a447a8567e5c1afd413f1ae5b91a9b91ae128e",
+  "scope": "Two current-source normal English native captures inspected. Other views and profiles pending.",
+  "images": [
+    {
+      "file": "test/out/fp-review/c46-playable-21a447a8-low-en-normal-steps-low-en-normal-steps-controls-0.png",
+      "sha256": "7b740dae86a4ed4223315d2608fe935b793accf791c1ffe23a5594b731447bbc",
+      "observation": "Normal English controls retain readable text, a two-line movement instruction and separate full-size choices; no clipping or overlap."
+    },
+    {
+      "file": "test/out/fp-review/c46-playable-21a447a8-low-en-normal-steps-low-en-normal-steps-handheld.png",
+      "sha256": "099a935a45f37c3b9bdb870746ac33beddf524d10b075d58836c61f69355fe5d",
+      "observation": "Normal English handheld shows all four actions above Back; the Low cab includes the physical mirror views and authored snow/frost."
+    }
+  ]
+}

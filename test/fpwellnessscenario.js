@@ -12,7 +12,7 @@ function sign(scene,type){
 async function photo(scene){
  A.handheld(scene.scenarioSession,scene);device(scene,'Record a delivery.');for(let n=0;n<3;n++)device(scene,'Read the next delivery method.');device(scene,A.labels.left);device(scene,'Place the package');
  assert.equal(scene.model.customerStop.photoMode,true);const wall=scene.model.scannerStage.wall;
- walk(scene,14.8,wall+.4);Object.assign(scene.model.player,{yaw:Math.atan2(-2.8,-(-.1)),pitch:.8});scene.sync();const p=scene.art.customerStop.photo(scene.view.camera);assert.equal(p.grade,'good',JSON.stringify(p));await A.capturePhoto(scene);device(scene,'Use this photo for the delivery.');
+ walk(scene,14.1,wall+.4);scene.sync();for(let n=0;n<20&&scene.target!=='customer-stop-parcel-p1';n++)O.fpAccess.focus(scene);assert.equal(scene.target,'customer-stop-parcel-p1','the placed parcel is within accessible focus reach');const p=scene.art.customerStop.photo(scene.view.camera);assert.equal(p.grade,'good',JSON.stringify(p));await A.capturePhoto(scene);device(scene,'Use this photo for the delivery.');
 }
 function returnToVan(scene){
  scene.handheld.close();scene.closePanel();const m=scene.model;
