@@ -1,0 +1,115 @@
+{
+  "runtime": "6d83d2e1",
+  "scope": "Completed retry proof and read-only trace summary. The original timed-out case remains archived and excluded. Source/data/assets/protocol/gameplay clocks/scales/resource ceilings are unchanged.",
+  "completedReport": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-normal-steps.json",
+  "reportSha256": "d38ed0b6824dcee0799ba2993b1778e947cffe3fa32c2ff5f56df16fbb58fdbf",
+  "checks": 955,
+  "score": 7500,
+  "stars": 9,
+  "captures": 23,
+  "stops": 3,
+  "gameSeconds": 126,
+  "durable": true,
+  "plays": 1,
+  "observerRecords": 64,
+  "firstByStop": {
+    "0": {
+      "at": "2026-10-26T16:27:37.609Z",
+      "child": 93927,
+      "state": {
+        "frame": 265,
+        "index": 0,
+        "phase": "active",
+        "player": {
+          "x": -0.10000000000000009,
+          "z": -38.273033333333444,
+          "yaw": 0
+        },
+        "clock": 4.261176666666695,
+        "elapsed": 4.261176666666695,
+        "panel": null,
+        "handheld": false,
+        "paused": false,
+        "acting": false,
+        "locked": 0,
+        "walkGoal": null,
+        "outcome": null
+      }
+    },
+    "1": {
+      "at": "2026-10-26T16:40:40.480Z",
+      "child": 93927,
+      "state": {
+        "frame": 1429,
+        "index": 1,
+        "phase": "active",
+        "player": {
+          "x": -0.10000000000000009,
+          "z": -43.7,
+          "yaw": 0
+        },
+        "clock": 1.5423299999998543,
+        "elapsed": 1.5423299999998543,
+        "panel": null,
+        "handheld": false,
+        "paused": false,
+        "acting": false,
+        "locked": 0,
+        "walkGoal": null,
+        "outcome": null
+      }
+    },
+    "2": {
+      "at": "2026-10-26T16:51:42.401Z",
+      "child": 93927,
+      "state": {
+        "frame": 2527,
+        "index": 2,
+        "phase": "active",
+        "player": {
+          "x": -0.1,
+          "z": -43.7,
+          "yaw": 0
+        },
+        "clock": 0.8069900000010385,
+        "elapsed": 0.8069900000010385,
+        "panel": null,
+        "handheld": false,
+        "paused": false,
+        "acting": false,
+        "locked": 0,
+        "walkGoal": null,
+        "outcome": null
+      }
+    }
+  },
+  "lastObservation": {
+    "at": "2026-10-26T16:59:13.804Z",
+    "child": 93927,
+    "state": {
+      "frame": 3484,
+      "index": 2,
+      "phase": "done",
+      "player": {
+        "x": -0.10899802935525577,
+        "z": -43.63697911483942,
+        "yaw": 1.3507927112246343
+      },
+      "clock": 39.66644000000659,
+      "elapsed": 42.66644000000645,
+      "panel": null,
+      "handheld": false,
+      "paused": true,
+      "acting": false,
+      "locked": 0,
+      "walkGoal": null,
+      "outcome": "delivered"
+    }
+  },
+  "observerReleased": {
+    "observer": 94346,
+    "child": 93927,
+    "released": true
+  },
+  "traceSha256": "7ab424e32d5b41111dd0f8a2b7f97171b46d02d13235003a2e27b551b22cb7e3"
+}

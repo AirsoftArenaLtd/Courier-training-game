@@ -1,14 +1,14 @@
 {
   "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
-  "at": "2026-10-26T15:22:14.710Z",
+  "at": "2026-10-26T17:29:53.081Z",
   "scope": "Completed good wellness journeys only. Regression journeys and partial in-progress reports are excluded. Retained footsteps evidence is limited to its documented unaffected scope; new collected results independently replay actual original callbacks. No browser test is rerun by this evidence aggregation.",
   "sourceFilesVerified": 909,
-  "completedJobs": 21,
+  "completedJobs": 23,
   "preflightComplete": true,
   "complete": false,
-  "goodJourneys": 13,
-  "nativeChecks": 15672,
-  "captures": 322,
+  "goodJourneys": 15,
+  "nativeChecks": 17529,
+  "captures": 370,
   "passedAssessments": 6,
   "rows": [
     {
@@ -403,6 +403,66 @@
           "Dizziness, headache, nausea, cramps or confusion: stop, cool down, hydrate and tell dispatch. Collapse or confusion means call 911."
         ]
       },
+      "originalCallbackEquality": "verified from collected observations"
+    },
+    {
+      "scope": "Complete High English normal footsteps retry after the earlier wall-time interruption. The original failed 802-check case remains archived and excluded. All 909 source/protocol hashes are unchanged.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-normal-steps.json",
+      "sha256": "d38ed0b6824dcee0799ba2993b1778e947cffe3fa32c2ff5f56df16fbb58fdbf",
+      "id": "m8-steps",
+      "quality": "high",
+      "language": "en",
+      "large": false,
+      "checks": 955,
+      "captures": 23,
+      "score": 7500,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 126,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "photoProofs": [
+        {
+          "index": 0,
+          "width": 640,
+          "height": 360,
+          "colours": 425
+        }
+      ],
+      "originalCallbackEquality": "verified from collected observations"
+    },
+    {
+      "scope": "Current frozen High English normal heat integration; all original callback/evaluation results independently replayed from observed choices and stop facts.",
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-resume-matrix-high-en-normal-heat.json",
+      "sha256": "ad167628e95344282edaea32454e30c50cf2c81210124e0cc623023833bd3f94",
+      "id": "m8-heat",
+      "quality": "high",
+      "language": "en",
+      "large": false,
+      "checks": 902,
+      "captures": 25,
+      "score": 6900,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "seconds": 102,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "photoProofs": [
+        {
+          "index": 0,
+          "width": 640,
+          "height": 360,
+          "colours": 232
+        }
+      ],
       "originalCallbackEquality": "verified from collected observations"
     }
   ]
