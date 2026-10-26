@@ -1,5 +1,5 @@
 {
-  "checks": 288,
+  "checks": 802,
   "modes": [
     {
       "quality": "high",
@@ -18,9 +18,195 @@
         "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop0-cargo.png",
         "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop0-arrival.png",
         "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop0-photo-framing.png",
-        "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop0-photo-review.png"
+        "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop0-photo-review.png",
+        "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop0-report.png",
+        "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop1-cargo.png",
+        "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop1-reply-s1.png",
+        "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop1-arrival.png",
+        "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop1-printed-name.png",
+        "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop1-report.png",
+        "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop2-cargo.png"
       ],
-      "stops": [],
+      "stops": [
+        {
+          "index": 0,
+          "phase": "report",
+          "state": {
+            "inVan": true,
+            "carrying": [],
+            "scanned": {
+              "p1": true
+            },
+            "scannedInVan": true,
+            "pulls": 1,
+            "wrongPulls": 0,
+            "addressChecked": false,
+            "knocks": 1,
+            "answered": false,
+            "talked": false,
+            "vanTrips": 0,
+            "outcome": "delivered",
+            "type": "left",
+            "signer": null,
+            "code": null,
+            "tagPrinted": false,
+            "tagAttached": false,
+            "spot": "mat",
+            "photo": {
+              "grade": "good",
+              "pkgIn": true,
+              "doorIn": true,
+              "numIn": false,
+              "personIn": false
+            },
+            "idResult": null,
+            "exitSafe": true,
+            "enterSafe": true,
+            "hazards": {
+              "ice_walk": {
+                "id": "ice_walk",
+                "type": "ice",
+                "label": "the icy sidewalk",
+                "img": {
+                  "displayWidth": 180,
+                  "x": 0,
+                  "y": 0,
+                  "setVisible": {}
+                },
+                "state": "careful",
+                "x": 1060,
+                "incident": false,
+                "fastT": 0
+              },
+              "ice_path": {
+                "id": "ice_path",
+                "type": "ice",
+                "label": "the frozen path",
+                "img": {
+                  "displayWidth": 150,
+                  "x": 0,
+                  "y": 0,
+                  "setVisible": {}
+                },
+                "state": "careful",
+                "x": 1290,
+                "incident": false,
+                "fastT": 0
+              },
+              "steps": {
+                "id": "steps",
+                "type": "ice",
+                "label": "the steps",
+                "img": null,
+                "state": "careful",
+                "x": 1369,
+                "incident": false,
+                "fastT": 0
+              }
+            },
+            "delivered": [
+              "p1"
+            ],
+            "elapsed": 47.106410000002214,
+            "done": true
+          },
+          "criticals": []
+        },
+        {
+          "index": 1,
+          "phase": "report",
+          "state": {
+            "inVan": true,
+            "carrying": [],
+            "scanned": {
+              "p1": true
+            },
+            "scannedInVan": true,
+            "pulls": 1,
+            "wrongPulls": 0,
+            "addressChecked": false,
+            "knocks": 1,
+            "answered": true,
+            "talked": true,
+            "vanTrips": 0,
+            "outcome": "delivered",
+            "type": "recipient",
+            "signer": "Sam Okafor",
+            "code": null,
+            "tagPrinted": false,
+            "tagAttached": false,
+            "spot": null,
+            "photo": null,
+            "idResult": null,
+            "exitSafe": true,
+            "enterSafe": true,
+            "hazards": {
+              "hose": {
+                "id": "hose",
+                "type": "hose",
+                "label": "the garden hose",
+                "img": {
+                  "displayWidth": 150,
+                  "x": 0,
+                  "y": 0,
+                  "setVisible": {}
+                },
+                "state": "cleared",
+                "x": 1140,
+                "incident": false,
+                "fastT": 0,
+                "inter": {
+                  "x": 1140,
+                  "y": 490,
+                  "range": 85,
+                  "label": "Move the hose aside",
+                  "when": {},
+                  "onUse": {}
+                }
+              },
+              "toys": {
+                "id": "toys",
+                "type": "toys",
+                "label": "the toys on the path",
+                "img": {
+                  "displayWidth": 90,
+                  "x": 0,
+                  "y": 0,
+                  "setVisible": {}
+                },
+                "state": "cleared",
+                "x": 1310,
+                "incident": false,
+                "fastT": 0,
+                "inter": {
+                  "x": 1310,
+                  "y": 490,
+                  "range": 60,
+                  "label": "Move the toys aside",
+                  "when": {},
+                  "onUse": {}
+                }
+              },
+              "steps": {
+                "id": "steps",
+                "type": "wet",
+                "label": "the steps",
+                "img": null,
+                "state": "careful",
+                "x": 1369,
+                "incident": false,
+                "fastT": 0
+              }
+            },
+            "delivered": [
+              "p1"
+            ],
+            "elapsed": 44.220719999995055,
+            "done": true
+          },
+          "criticals": []
+        }
+      ],
       "photoProofs": [
         {
           "index": 0,
@@ -36,5 +222,9 @@
   "sourceRevision": "40a0664cf95dfc025d056a5f78aab2d5ad9924f4",
   "uncommittedRuntime": false,
   "protocolSha256": "bae2f54e2d9ba994ec97b769bfde52e7fed8e1d54c7e9a4e71ab83361733e03b",
-  "scope": "Existing-id registration, accessibility and a suspended workday are setup fixtures. Observational wrappers record completed original conversations and pre-evaluation stop facts without changing arguments or return values. Real keys control all walking, aiming, parcels, safety actions, replies, photos, signing and results. No position, timer, node, hazard, signature-completion, score or verdict fixture. Independent original 2D callbacks replay observed choices and evaluate observed stop facts. Bounds checks do not certify Tamil glyph coverage or Intel FPS."
+  "scope": "Existing-id registration, accessibility and a suspended workday are setup fixtures. Observational wrappers record completed original conversations and pre-evaluation stop facts without changing arguments or return values. Real keys control all walking, aiming, parcels, safety actions, replies, photos, signing and results. No position, timer, node, hazard, signature-completion, score or verdict fixture. Independent original 2D callbacks replay observed choices and evaluate observed stop facts. Bounds checks do not certify Tamil glyph coverage or Intel FPS.",
+  "failure": {
+    "message": "Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.",
+    "stack": "TargetCloseError: Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.\n    at CdpCDPSession.send (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:72:35)\n    at CdpKeyboard.up (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Input.js:113:28)\n    at walk (/workspace/c46-safety-wellness/test/fpwellnessbrowser.js:16:176)\n    at async /workspace/c46-safety-wellness/test/fpwellnessbrowser.js:53:53"
+  }
 }

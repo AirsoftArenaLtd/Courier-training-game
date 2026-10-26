@@ -1,0 +1,16 @@
+{
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Two original-resolution captures inspected from the incomplete 802-check High footsteps attempt. They are diagnostic evidence, excluded from the 13 accepted journeys.",
+  "images": [
+    {
+      "file": "high-steps-timeout-20261026/artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop0-photo-review.png",
+      "sha256": "dae5609a92bc68de80f01b402c593d027db837415ad539d11ec4f8deeee3c82c",
+      "observation": "The actual High snowy doorstep/package photo is visible inside the preview, with readable caption and three separate handheld choices. This is from the incomplete timed-out journey and is not a completed native pass."
+    },
+    {
+      "file": "high-steps-timeout-20261026/artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop1-arrival.png",
+      "sha256": "2227d473d6df11d4fbbe1fd649564b95d19639afead73c9040a2cd125e7fb0cd",
+      "observation": "The uploaded High resident is visible at the real entrance, with the real goal/clock and remapped keyboard prompts. The case later hit the supervisor wall deadline before finishing the third stop; this capture is diagnostic only."
+    }
+  ]
+}

@@ -194,5 +194,15 @@
     }
   ],
   "preflightComplete": true,
-  "complete": false
+  "complete": false,
+  "earlierFailedAttempts": [
+    "high-steps-timeout-20261026/manifest.json"
+  ],
+  "continuation": {
+    "earlierFailedAttempt": "high-steps-timeout-20261026/manifest.json",
+    "retainedPassingJobs": 21,
+    "remainingJobs": 15,
+    "wallTimeoutSeconds": 3600,
+    "scope": "Only the incomplete High footsteps case and fourteen never-started cases run. App/data/assets/browser protocols remain byte-identical across 909 frozen files. All original per-action timeouts, game clocks, pars, scores and resource limits are unchanged."
+  }
 }

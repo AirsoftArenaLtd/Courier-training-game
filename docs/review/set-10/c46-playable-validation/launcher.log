@@ -21,3 +21,4 @@
 {"phase": "matrix-low-ta-large-dog", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "matrix", "server": 83081}
 {"phase": "matrix-low-ta-large-heat", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "matrix", "server": 83081}
 {"phase": "matrix-high-en-normal-steps", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "matrix", "server": 83081}
+{"phase": "matrix-high-en-normal-steps", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "failed", "exit": 124}
