@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-26T20:20:05.090911+00:00",
+  "application": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "initialScreenshotVerdict": "withdrawn: the first visual read incorrectly suspected horizontal overflow",
+  "applicationChanged": false,
+  "normalReply": {
+    "left": 192.5,
+    "right": 1087.5,
+    "buttonRight": 1114,
+    "font": 18
+  },
+  "largeReply": {
+    "left": 206.5,
+    "right": 1073.5,
+    "buttonRight": 1114,
+    "font": 22
+  },
+  "staticAudit": {
+    "complete": true,
+    "panels": 1896,
+    "languages": 12,
+    "sizes": 2,
+    "report": "artifacts/c46-panel-before-resume.json",
+    "sha256": "1351b487113ed5a77e9c79560bcb28caf049a40dae6dbb7bf0fdf2ee312b6514"
+  },
+  "scope": "The original reply fits; no production text or layout correction. New real-rectangle horizontal assertions guard the remaining native jobs. All earlier completed gameplay evidence retains its source scope. The interrupted High Tamil heat partial is excluded and must restart; no completed job is repeated. Static default-font bounds do not certify readable glyphs or complete translations."
+}

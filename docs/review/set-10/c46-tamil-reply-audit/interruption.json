@@ -1,0 +1,57 @@
+{
+  "at": "2026-10-26T20:14:28.729666+00:00",
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "reason": "Screenshot review finds horizontal overflow in High Tamil normal dog stop2 reply p1. Native layout checks cover only vertical bounds and missed it. Complete gameplay results remain in their original source scope; UI acceptance for this reply is rejected. Active heat partial is excluded. Queued incident follower stopped before acquiring browser/server.",
+  "ownedControllers": [
+    93924,
+    95299
+  ],
+  "released": true,
+  "manifest": [
+    {
+      "file": "before/c46-playable-validation/status.json",
+      "original": "docs/review/set-10/c46-playable-validation/status.json",
+      "sha256": "42e2f91384520ece587b256a511310cc307fbf7207d7e247345a2ec5c64d01b4"
+    },
+    {
+      "file": "before/c46-playable-validation/results.json",
+      "original": "docs/review/set-10/c46-playable-validation/results.json",
+      "sha256": "f92cfa6d8d4f516a5c5785d8b34009c3888d499c2a169b39b69e7239f95b7fe6"
+    },
+    {
+      "file": "before/c46-playable-validation/owned-processes.json",
+      "original": "docs/review/set-10/c46-playable-validation/owned-processes.json",
+      "sha256": "b09f3e0421739ac5baf688b7a8dc2a1d859ef82d97544c5968ae407a4ca03134"
+    },
+    {
+      "file": "before/c46-playable-validation/released.json",
+      "original": "docs/review/set-10/c46-playable-validation/released.json",
+      "sha256": "75b4df5a1f23b726a31b4cb802a6b2d10ee284361afbb90e5f027fe29c389d60"
+    },
+    {
+      "file": "before/c46-playable-validation/native-snapshot.json",
+      "original": "docs/review/set-10/c46-playable-validation/native-snapshot.json",
+      "sha256": "a522eda70f466fe98eb7f314ed95eecab1194436729ad1ae9405651fd092fc0a"
+    },
+    {
+      "file": "before/c46-playable-validation/progress-snapshot.json",
+      "original": "docs/review/set-10/c46-playable-validation/progress-snapshot.json",
+      "sha256": "d391875cd2d309a6e25cb38236c018cad33da8e846156ecedb42035e9e844bc4"
+    },
+    {
+      "file": "before/c46-playable-validation/artifact-index.json",
+      "original": "docs/review/set-10/c46-playable-validation/artifact-index.json",
+      "sha256": "f30d3d540041e908ecadc33e6b03ff8ff195864bdd881b63c23d1b89aba4c555"
+    },
+    {
+      "file": "before/c46-incident-current-validation/status.json",
+      "original": "docs/review/set-10/c46-incident-current-validation/status.json",
+      "sha256": "608112de09c1fcd86804e35cc891446e59ca1d236d5346ea32362e071ff81044"
+    },
+    {
+      "file": "before/c46-incident-current-validation/released.json",
+      "original": "docs/review/set-10/c46-incident-current-validation/released.json",
+      "sha256": "54afc9e02ac50f8d8316e84e4baf61bc7dd9b08d782cfee4b5224b706a20036c"
+    }
+  ]
+}

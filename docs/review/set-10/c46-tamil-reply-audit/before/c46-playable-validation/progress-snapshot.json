@@ -1,0 +1,262 @@
+{
+  "at": "2026-10-26T19:24:30.510Z",
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "sourceFilesVerified": 909,
+  "retainedProofsVerified": 8,
+  "status": {
+    "phase": "matrix-high-ta-normal-steps",
+    "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+    "pid": 93924,
+    "state": "running",
+    "group": "matrix",
+    "server": 93925,
+    "timeout": 3600
+  },
+  "completedJobs": [
+    {
+      "name": "low-owner-resource",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-low-owner",
+        "QA_PROFILES": "loaded-low",
+        "QA_VIEWS": "wellnessowner"
+      }
+    },
+    {
+      "name": "high-resources",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-high",
+        "QA_PROFILES": "loaded-high"
+      }
+    },
+    {
+      "name": "high-en-normal-dog",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-high-en-normal-dog",
+        "QA_CASE": "high-en-normal-dog"
+      }
+    },
+    {
+      "name": "low-en-large-heat",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-low-en-large-heat",
+        "QA_CASE": "low-en-large-heat"
+      }
+    },
+    {
+      "name": "accessible-fallback-resources",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-remaining",
+        "QA_PROFILES": "accessible-low,fallback-low"
+      }
+    },
+    {
+      "name": "scanner-regression",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-scanner-regression",
+        "QA_CASE": "low-en-normal-pod"
+      }
+    },
+    {
+      "name": "incident-regression",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-incident-regression",
+        "QA_CASE": "low-en-normal"
+      }
+    },
+    {
+      "name": "academy",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "enterprise",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "routeday",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "driving",
+      "group": "preflight",
+      "exit": 0,
+      "env": {}
+    },
+    {
+      "name": "matrix-low-en-normal-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-normal-dog",
+        "QA_CASE": "low-en-normal-dog"
+      }
+    },
+    {
+      "name": "matrix-low-en-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-normal-heat",
+        "QA_CASE": "low-en-normal-heat"
+      }
+    },
+    {
+      "name": "matrix-low-en-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-large-steps",
+        "QA_CASE": "low-en-large-steps"
+      }
+    },
+    {
+      "name": "matrix-low-en-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-en-large-dog",
+        "QA_CASE": "low-en-large-dog"
+      }
+    },
+    {
+      "name": "matrix-low-ta-normal-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-steps",
+        "QA_CASE": "low-ta-normal-steps"
+      }
+    },
+    {
+      "name": "matrix-low-ta-normal-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-dog",
+        "QA_CASE": "low-ta-normal-dog"
+      }
+    },
+    {
+      "name": "matrix-low-ta-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-normal-heat",
+        "QA_CASE": "low-ta-normal-heat"
+      }
+    },
+    {
+      "name": "matrix-low-ta-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-steps",
+        "QA_CASE": "low-ta-large-steps"
+      }
+    },
+    {
+      "name": "matrix-low-ta-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-dog",
+        "QA_CASE": "low-ta-large-dog"
+      }
+    },
+    {
+      "name": "matrix-low-ta-large-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-matrix-low-ta-large-heat",
+        "QA_CASE": "low-ta-large-heat"
+      }
+    },
+    {
+      "name": "matrix-high-en-normal-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-normal-steps",
+        "QA_CASE": "high-en-normal-steps"
+      }
+    },
+    {
+      "name": "matrix-high-en-normal-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-normal-heat",
+        "QA_CASE": "high-en-normal-heat"
+      }
+    },
+    {
+      "name": "matrix-high-en-large-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-steps",
+        "QA_CASE": "high-en-large-steps"
+      }
+    },
+    {
+      "name": "matrix-high-en-large-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-dog",
+        "QA_CASE": "high-en-large-dog"
+      }
+    },
+    {
+      "name": "matrix-high-en-large-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat",
+        "QA_CASE": "high-en-large-heat"
+      }
+    }
+  ],
+  "preflightComplete": true,
+  "earlierFailedAttempts": [
+    "high-steps-timeout-20261026/manifest.json"
+  ],
+  "resourceViews": 64,
+  "goodJourneys": 18,
+  "nativeChecks": 20994,
+  "captures": 444,
+  "passedAssessments": 9,
+  "incidentFollowup": {
+    "status": {
+      "phase": "waiting-for-core-validation",
+      "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+      "pid": 95299,
+      "state": "waiting"
+    },
+    "jobs": 13,
+    "remainingGoodLayouts": 7,
+    "resourceViews": 32,
+    "retainedCurrentCase": "low-en-normal"
+  },
+  "scope": "Completed steps/dog/heat metrics only; partial cases excluded. All six High English layouts now pass, including three durable one-attempt larger-text assessments. High Tamil runs; current incident follow-up remains queued without new acceptance claims. Shared A31/default/current-pilot/Intel acceptance remains separate."
+}

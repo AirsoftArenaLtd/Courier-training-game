@@ -1,0 +1,226 @@
+[
+  {
+    "large": false,
+    "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "source": "Stop at the bottom of the steps and ask him to take Pepper inside, or hold her collar, before you come up.",
+    "objects": [
+      {
+        "source": "Read reply 2 of 3.",
+        "text": "Read reply 2 of 3.",
+        "font": "27px",
+        "width": 230,
+        "wrap": null,
+        "left": 525,
+        "right": 755,
+        "top": 111,
+        "bottom": 143,
+        "lines": [
+          "Read reply 2 of 3."
+        ],
+        "lineWidths": [
+          229.36459350585938
+        ]
+      },
+      {
+        "source": "Choose this reply or read another reply.",
+        "text": "Choose this reply or read another reply.",
+        "font": "19px",
+        "width": 354,
+        "wrap": 976,
+        "left": 152,
+        "right": 506,
+        "top": 170,
+        "bottom": 194,
+        "lines": [
+          "Choose this reply or read another reply."
+        ],
+        "lineWidths": [
+          353.74298095703125
+        ]
+      },
+      {
+        "source": "1. படிகளின் அடியில் நின்று, நீங்கள் மேலே வருவதற்கு முன் பெப்பரை உள்ளே கொண்டு போகவோ அதன் கழுத்துப்பட்டையைப் பிடிக்கவோ அவரிடம் கேளுங்கள்.",
+        "text": "1. படிகளின் அடியில் நின்று, நீங்கள் மேலே வருவதற்கு முன் பெப்பரை உள்ளே கொண்டு போகவோ அதன் கழுத்துப்பட்டையைப் பிடிக்கவோ அவரிடம் கேளுங்கள்.",
+        "font": "18px",
+        "width": 895,
+        "wrap": 924,
+        "left": 192.5,
+        "right": 1087.5,
+        "top": 377,
+        "bottom": 421,
+        "lines": [
+          "1. படிகளின் அடியில் நின்று, நீங்கள் மேலே வருவதற்கு முன் பெப்பரை உள்ளே கொண்டு",
+          "போகவோ அதன் கழுத்துப்பட்டையைப் பிடிக்கவோ அவரிடம் கேளுங்கள்."
+        ],
+        "lineWidths": [
+          894.1265869140625,
+          734.08935546875
+        ]
+      },
+      {
+        "source": "2. Read the next reply.",
+        "text": "2. Read the next reply.",
+        "font": "18px",
+        "width": 201,
+        "wrap": 924,
+        "left": 539.5,
+        "right": 740.5,
+        "top": 450,
+        "bottom": 472,
+        "lines": [
+          "2. Read the next reply."
+        ],
+        "lineWidths": [
+          200.23081970214844
+        ]
+      },
+      {
+        "source": "3. Read the question again.",
+        "text": "3. Read the question again.",
+        "font": "18px",
+        "width": 244,
+        "wrap": 924,
+        "left": 518,
+        "right": 762,
+        "top": 508,
+        "bottom": 530,
+        "lines": [
+          "3. Read the question again."
+        ],
+        "lineWidths": [
+          243.862548828125
+        ]
+      },
+      {
+        "source": "4. Step back from the conversation.",
+        "text": "4. Step back from the conversation.",
+        "font": "18px",
+        "width": 318,
+        "wrap": 924,
+        "left": 481,
+        "right": 799,
+        "top": 566,
+        "bottom": 588,
+        "lines": [
+          "4. Step back from the conversation."
+        ],
+        "lineWidths": [
+          317.6260986328125
+        ]
+      }
+    ]
+  },
+  {
+    "large": true,
+    "font": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "source": "Stop at the bottom of the steps and ask him to take Pepper inside, or hold her collar, before you come up.",
+    "objects": [
+      {
+        "source": "Read reply 2 of 3.",
+        "text": "Read reply 2 of 3.",
+        "font": "27px",
+        "width": 230,
+        "wrap": null,
+        "left": 525,
+        "right": 755,
+        "top": 111,
+        "bottom": 143,
+        "lines": [
+          "Read reply 2 of 3."
+        ],
+        "lineWidths": [
+          229.36459350585938
+        ]
+      },
+      {
+        "source": "Choose this reply or read another reply.",
+        "text": "Choose this reply or read another reply.",
+        "font": "23px",
+        "width": 429,
+        "wrap": 976,
+        "left": 152,
+        "right": 581,
+        "top": 170,
+        "bottom": 199,
+        "lines": [
+          "Choose this reply or read another reply."
+        ],
+        "lineWidths": [
+          428.21405029296875
+        ]
+      },
+      {
+        "source": "1. படிகளின் அடியில் நின்று, நீங்கள் மேலே வருவதற்கு முன் பெப்பரை உள்ளே கொண்டு போகவோ அதன் கழுத்துப்பட்டையைப் பிடிக்கவோ அவரிடம் கேளுங்கள்.",
+        "text": "1. படிகளின் அடியில் நின்று, நீங்கள் மேலே வருவதற்கு முன் பெப்பரை உள்ளே கொண்டு போகவோ அதன் கழுத்துப்பட்டையைப் பிடிக்கவோ அவரிடம் கேளுங்கள்.",
+        "font": "22px",
+        "width": 867,
+        "wrap": 924,
+        "left": 206.5,
+        "right": 1073.5,
+        "top": 343,
+        "bottom": 421,
+        "lines": [
+          "1. படிகளின் அடியில் நின்று, நீங்கள் மேலே வருவதற்கு முன் பெப்பரை",
+          "உள்ளே கொண்டு போகவோ அதன் கழுத்துப்பட்டையைப் பிடிக்கவோ",
+          "அவரிடம் கேளுங்கள்."
+        ],
+        "lineWidths": [
+          866.8029174804688,
+          848.9388427734375,
+          268.598876953125
+        ]
+      },
+      {
+        "source": "2. Read the next reply.",
+        "text": "2. Read the next reply.",
+        "font": "22px",
+        "width": 245,
+        "wrap": 924,
+        "left": 517.5,
+        "right": 762.5,
+        "top": 448,
+        "bottom": 474,
+        "lines": [
+          "2. Read the next reply."
+        ],
+        "lineWidths": [
+          244.72882080078125
+        ]
+      },
+      {
+        "source": "3. Read the question again.",
+        "text": "3. Read the question again.",
+        "font": "22px",
+        "width": 299,
+        "wrap": 924,
+        "left": 490.5,
+        "right": 789.5,
+        "top": 506,
+        "bottom": 532,
+        "lines": [
+          "3. Read the question again."
+        ],
+        "lineWidths": [
+          298.0570068359375
+        ]
+      },
+      {
+        "source": "4. Step back from the conversation.",
+        "text": "4. Step back from the conversation.",
+        "font": "22px",
+        "width": 389,
+        "wrap": 924,
+        "left": 445.5,
+        "right": 834.5,
+        "top": 564,
+        "bottom": 590,
+        "lines": [
+          "4. Step back from the conversation."
+        ],
+        "lineWidths": [
+          388.21331787109375
+        ]
+      }
+    ]
+  }
+]
