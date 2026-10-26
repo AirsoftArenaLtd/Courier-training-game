@@ -1,0 +1,13 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ two company themes reach the actual van, livery and uniform materials (46.656135ms)
+✔ van labels follow a moved/rotated van and do not show through its opposite side (7.684818ms)
+✔ neutral defaults and the existing config brand remain usable without optional theme fields (0.307644ms)
+✔ weather cannot repaint company colours that happen to match the road, grass or roofs (8.83136ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 70.822138

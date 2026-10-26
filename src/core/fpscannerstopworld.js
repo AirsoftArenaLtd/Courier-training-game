@@ -36,10 +36,10 @@ OTR.fpScannerStopWorld={
         for(const b of parcels){const q=b.data,held=S.carrying.includes(q.id),placed=S.delivered.includes(q.id)&&S.type==='left';b.w=q.size==='l'?.6:.42;b.h=q.size==='l'?.48:.32;b.d=q.size==='l'?.46:.34;b.visible=q.onShelf?model.cargoOpen:held||placed;
           if(q.onShelf){b.x=model.van.x+(b.index%2?-.62:.62);b.y=1.15;b.z=model.van.z+2-Math.floor(b.index/2)*.75;}
           else if(placed){const point=locations[S.spot]||locations.mat;b.x=point.x;b.y=point.y+b.h/2;b.z=point.z;}
-          else{b.x=p.x+.65*sy;b.y=1+Math.max(0,S.carrying.indexOf(q.id))*.34+W.ground(model);b.z=p.z-.65*cy;}
+          else{const drinking=!!model.wellnessStage&&d.wellness.ref.me.animation==='drink',offset=model.wellnessStage?(drinking?.6:.5):0;b.x=p.x+.65*sy-offset*cy;b.y=1+Math.max(0,S.carrying.indexOf(q.id))*.34+W.ground(model);b.z=p.z-.65*cy-offset*sy;}
           b.proxy.visible=b.visible;b.proxy.position.set(b.x,b.y,b.z);b.proxy.scale.set(b.w,b.h,b.d);if(b.visible){part(b.x,b.y,b.z,b.w,b.h,b.d,0xBE965E);part(b.x,b.y,b.z+b.d/2+.006,b.w*.67,b.h*.58,.012,0xF0EEE6);part(b.x,b.y+b.h/2+.004,b.z,.06,.008,b.d,0xD6B680);}
         }
-        if(human){human.mesh.visible=visible;if(visible){human.mesh.position.set(person.position.x,personFloor,person.position.z);human.mesh.rotation.y=Math.atan2(p.x-person.position.x,p.z-person.position.z);human.pose(d.talk&&d.talk.phase!=='done'?'Interact':'Idle_Neutral',model.customerStage.time,reduced,high);}}
+        if(human){human.mesh.visible=visible;if(visible){human.mesh.position.set(person.position.x,personFloor,person.position.z);human.mesh.rotation.y=Math.atan2(p.x-person.position.x,p.z-person.position.z);human.pose(owner?.moving?'Walk':d.talk&&d.talk.phase!=='done'?'Interact':'Idle_Neutral',model.customerStage.time,reduced,high);}}
         else if(visible){const x=person.position.x,z=person.position.z;part(x,1.08+personFloor,z,.42,.6,.28,portrait.shirt||0x668A91);part(x,1.56+personFloor,z,.27,.3,.26,portrait.skin||0xC9A681);for(const side of sides){part(x+side*.12,.4+personFloor,z,.14,.8,.18,0x3B4D5A);part(x+side*.28,1.03+personFloor,z,.13,.55,.16,portrait.shirt||0x668A91);}}
         if(d.identity&&visible)part(person.position.x-.28,1.2+floor,person.position.z+.25,.24,.15,.012,0xE6F2FA);if(S.tagAttached)part(12.4,1.03+floor,wall+.12,.18,.28,.012,0xEEE7C8);moving.count=dynamic;batches[1].entries.length=dynamic;moving.instanceMatrix.needsUpdate=true;moving.instanceColor.needsUpdate=true;root.updateMatrixWorld(true);
       },

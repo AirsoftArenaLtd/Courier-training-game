@@ -1,0 +1,13 @@
+{"endings":66,"comparisons":568,"timeouts":1,"boundedRepeatedPrefixes":28}
+✔ all five authored graphs retain every bounded source ending, reply effect, dog-secured flag, critical and timeout (92.351643ms)
+✔ assessment replies retain original criticals with no trainer transcript or ending bonus (1.519754ms)
+✔ gate and charging triggers remain once-only, and returning to a charging dog keeps the source critical (1.070075ms)
+✔ paused actions, stale timer handles and old-stop completion callbacks cannot act on a replacement stop (0.931075ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 113.428522

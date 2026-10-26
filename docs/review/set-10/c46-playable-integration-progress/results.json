@@ -1,0 +1,639 @@
+{
+  "scope": "107 plain Node suites and 18 changed-JS syntax checks. The SCORM2004 wrapper also passed through its real browser launcher, separately listed; it ran with no other active browser before the leased native/resource plan. No GPU/performance claim.",
+  "suites": [
+    {
+      "file": "test/aids.js",
+      "exit": 0,
+      "seconds": 0.12
+    },
+    {
+      "file": "test/assets.js",
+      "exit": 0,
+      "seconds": 0.12
+    },
+    {
+      "file": "test/auth.js",
+      "exit": 0,
+      "seconds": 4.27
+    },
+    {
+      "file": "test/credits.js",
+      "exit": 0,
+      "seconds": 0.12
+    },
+    {
+      "file": "test/data.js",
+      "exit": 0,
+      "seconds": 0.34
+    },
+    {
+      "file": "test/firstperson.js",
+      "exit": 0,
+      "seconds": 0.22
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0,
+      "seconds": 0.19
+    },
+    {
+      "file": "test/fpactors.js",
+      "exit": 0,
+      "seconds": 2.44
+    },
+    {
+      "file": "test/fpambient.js",
+      "exit": 0,
+      "seconds": 0.12
+    },
+    {
+      "file": "test/fpambientassets.js",
+      "exit": 0,
+      "seconds": 0.93
+    },
+    {
+      "file": "test/fpambientworld.js",
+      "exit": 0,
+      "seconds": 13.14
+    },
+    {
+      "file": "test/fpassets.js",
+      "exit": 0,
+      "seconds": 0.61
+    },
+    {
+      "file": "test/fpbranding.js",
+      "exit": 0,
+      "seconds": 0.21
+    },
+    {
+      "file": "test/fpcab.js",
+      "exit": 0,
+      "seconds": 0.28
+    },
+    {
+      "file": "test/fpcamera.js",
+      "exit": 0,
+      "seconds": 0.12
+    },
+    {
+      "file": "test/fpcustomergeometry.js",
+      "exit": 0,
+      "seconds": 2.23
+    },
+    {
+      "file": "test/fpcustomerscenario.js",
+      "exit": 0,
+      "seconds": 0.34
+    },
+    {
+      "file": "test/fpcustomerstop.js",
+      "exit": 0,
+      "seconds": 0.17
+    },
+    {
+      "file": "test/fpcustomerstopgeometry.js",
+      "exit": 0,
+      "seconds": 8.61
+    },
+    {
+      "file": "test/fpcustomerstopscenario.js",
+      "exit": 0,
+      "seconds": 0.38
+    },
+    {
+      "file": "test/fpcustomerstopworld.js",
+      "exit": 0,
+      "seconds": 1.86
+    },
+    {
+      "file": "test/fpcustomertalk.js",
+      "exit": 0,
+      "seconds": 1.1
+    },
+    {
+      "file": "test/fpcustomerworld.js",
+      "exit": 0,
+      "seconds": 4.46
+    },
+    {
+      "file": "test/fpdamage.js",
+      "exit": 0,
+      "seconds": 0.17
+    },
+    {
+      "file": "test/fpdamageassets.js",
+      "exit": 0,
+      "seconds": 1.12
+    },
+    {
+      "file": "test/fpdamageflow.js",
+      "exit": 0,
+      "seconds": 0.77
+    },
+    {
+      "file": "test/fpdamageworld.js",
+      "exit": 0,
+      "seconds": 0.38
+    },
+    {
+      "file": "test/fpday.js",
+      "exit": 0,
+      "seconds": 0.32
+    },
+    {
+      "file": "test/fpdoors.js",
+      "exit": 0,
+      "seconds": 0.36
+    },
+    {
+      "file": "test/fpdriving.js",
+      "exit": 0,
+      "seconds": 0.57
+    },
+    {
+      "file": "test/fpguide.js",
+      "exit": 0,
+      "seconds": 0.11
+    },
+    {
+      "file": "test/fphandheld.js",
+      "exit": 0,
+      "seconds": 0.12
+    },
+    {
+      "file": "test/fphud.js",
+      "exit": 0,
+      "seconds": 0.06
+    },
+    {
+      "file": "test/fpincidentgeometry.js",
+      "exit": 0,
+      "seconds": 2.58
+    },
+    {
+      "file": "test/fpincidentscenario.js",
+      "exit": 0,
+      "seconds": 0.27
+    },
+    {
+      "file": "test/fpincidentstage.js",
+      "exit": 0,
+      "seconds": 9.53
+    },
+    {
+      "file": "test/fpincidentworld.js",
+      "exit": 0,
+      "seconds": 1.71
+    },
+    {
+      "file": "test/fpjobrunner.js",
+      "exit": 0,
+      "seconds": 0.42
+    },
+    {
+      "file": "test/fplater.js",
+      "exit": 0,
+      "seconds": 1.23
+    },
+    {
+      "file": "test/fplighting.js",
+      "exit": 0,
+      "seconds": 0.44
+    },
+    {
+      "file": "test/fploading.js",
+      "exit": 0,
+      "seconds": 0.22
+    },
+    {
+      "file": "test/fploadinggeometry.js",
+      "exit": 0,
+      "seconds": 5.44
+    },
+    {
+      "file": "test/fploadingreference.js",
+      "exit": 0,
+      "seconds": 0.12
+    },
+    {
+      "file": "test/fploadingscenario.js",
+      "exit": 0,
+      "seconds": 2.71
+    },
+    {
+      "file": "test/fploadingwalk.js",
+      "exit": 0,
+      "seconds": 7.81
+    },
+    {
+      "file": "test/fploadingworld.js",
+      "exit": 0,
+      "seconds": 0.44
+    },
+    {
+      "file": "test/fploadout.js",
+      "exit": 0,
+      "seconds": 0.13
+    },
+    {
+      "file": "test/fpmaterials.js",
+      "exit": 0,
+      "seconds": 1.08
+    },
+    {
+      "file": "test/fpmirrors.js",
+      "exit": 0,
+      "seconds": 0.34
+    },
+    {
+      "file": "test/fpmission.js",
+      "exit": 0,
+      "seconds": 0.22
+    },
+    {
+      "file": "test/fpnarration.js",
+      "exit": 0,
+      "seconds": 0.12
+    },
+    {
+      "file": "test/fpnav.js",
+      "exit": 0,
+      "seconds": 5.77
+    },
+    {
+      "file": "test/fpnightworld.js",
+      "exit": 0,
+      "seconds": 0.27
+    },
+    {
+      "file": "test/fpperf.js",
+      "exit": 0,
+      "seconds": 0.21
+    },
+    {
+      "file": "test/fppickup.js",
+      "exit": 0,
+      "seconds": 0.42
+    },
+    {
+      "file": "test/fppickupgeometry.js",
+      "exit": 0,
+      "seconds": 6.69
+    },
+    {
+      "file": "test/fppickupreference.js",
+      "exit": 0,
+      "seconds": 0.11
+    },
+    {
+      "file": "test/fppickupscenario.js",
+      "exit": 0,
+      "seconds": 0.78
+    },
+    {
+      "file": "test/fppickupworld.js",
+      "exit": 0,
+      "seconds": 0.16
+    },
+    {
+      "file": "test/fpproblemgeometry.js",
+      "exit": 0,
+      "seconds": 12.51
+    },
+    {
+      "file": "test/fpproblemscenario.js",
+      "exit": 0,
+      "seconds": 0.37
+    },
+    {
+      "file": "test/fpproblemstage.js",
+      "exit": 0,
+      "seconds": 0.23
+    },
+    {
+      "file": "test/fpproblemworld.js",
+      "exit": 0,
+      "seconds": 4.37
+    },
+    {
+      "file": "test/fpqualitygate.js",
+      "exit": 0,
+      "seconds": 0.07
+    },
+    {
+      "file": "test/fpradio.js",
+      "exit": 0,
+      "seconds": 0.57
+    },
+    {
+      "file": "test/fprear.js",
+      "exit": 0,
+      "seconds": 0.22
+    },
+    {
+      "file": "test/fpreplay.js",
+      "exit": 0,
+      "seconds": 0.22
+    },
+    {
+      "file": "test/fpreplayworld.js",
+      "exit": 0,
+      "seconds": 0.17
+    },
+    {
+      "file": "test/fpresume.js",
+      "exit": 0,
+      "seconds": 22.67
+    },
+    {
+      "file": "test/fproute.js",
+      "exit": 0,
+      "seconds": 1.13
+    },
+    {
+      "file": "test/fpscannerphoto.js",
+      "exit": 0,
+      "seconds": 0.06
+    },
+    {
+      "file": "test/fpscannerstop.js",
+      "exit": 0,
+      "seconds": 0.22
+    },
+    {
+      "file": "test/fpscannerstopgeometry.js",
+      "exit": 0,
+      "seconds": 8.86
+    },
+    {
+      "file": "test/fpscannerstopscenario.js",
+      "exit": 0,
+      "seconds": 0.62
+    },
+    {
+      "file": "test/fpscannerstopworld.js",
+      "exit": 0,
+      "seconds": 3.6
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0,
+      "seconds": 0.16
+    },
+    {
+      "file": "test/fpsignal.js",
+      "exit": 0,
+      "seconds": 0.11
+    },
+    {
+      "file": "test/fpsignlettering.js",
+      "exit": 0,
+      "seconds": 0.11
+    },
+    {
+      "file": "test/fpsigns.js",
+      "exit": 0,
+      "seconds": 0.37
+    },
+    {
+      "file": "test/fpsound.js",
+      "exit": 0,
+      "seconds": 0.07
+    },
+    {
+      "file": "test/fpstopflow.js",
+      "exit": 0,
+      "seconds": 2.72
+    },
+    {
+      "file": "test/fpstoplocker.js",
+      "exit": 0,
+      "seconds": 0.87
+    },
+    {
+      "file": "test/fpstops.js",
+      "exit": 0,
+      "seconds": 0.06
+    },
+    {
+      "file": "test/fpstopscene.js",
+      "exit": 0,
+      "seconds": 0.42
+    },
+    {
+      "file": "test/fptown.js",
+      "exit": 0,
+      "seconds": 1.8
+    },
+    {
+      "file": "test/fptraffic.js",
+      "exit": 0,
+      "seconds": 11.88
+    },
+    {
+      "file": "test/fpwalkaround.js",
+      "exit": 0,
+      "seconds": 0.37
+    },
+    {
+      "file": "test/fpwalkaroundflow.js",
+      "exit": 0,
+      "seconds": 0.37
+    },
+    {
+      "file": "test/fpwalkaroundworld.js",
+      "exit": 0,
+      "seconds": 1.21
+    },
+    {
+      "file": "test/fpweather.js",
+      "exit": 0,
+      "seconds": 0.39
+    },
+    {
+      "file": "test/fpwellnessgeometry.js",
+      "exit": 0,
+      "seconds": 16.26
+    },
+    {
+      "file": "test/fpwellnessscenario.js",
+      "exit": 0,
+      "seconds": 5.1
+    },
+    {
+      "file": "test/fpwellnessstage.js",
+      "exit": 0,
+      "seconds": 0.21
+    },
+    {
+      "file": "test/fpwellnessstop.js",
+      "exit": 0,
+      "seconds": 0.21
+    },
+    {
+      "file": "test/fpwellnessstopworld.js",
+      "exit": 0,
+      "seconds": 1.03
+    },
+    {
+      "file": "test/fpwellnesstalk.js",
+      "exit": 0,
+      "seconds": 0.16
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0,
+      "seconds": 0.27
+    },
+    {
+      "file": "test/glossary.js",
+      "exit": 0,
+      "seconds": 0.31
+    },
+    {
+      "file": "test/i18n.js",
+      "exit": 0,
+      "seconds": 0.27
+    },
+    {
+      "file": "test/lmsreport.js",
+      "exit": 0,
+      "seconds": 1.82
+    },
+    {
+      "file": "test/oldsave.js",
+      "exit": 0,
+      "seconds": 0.12
+    },
+    {
+      "file": "test/package.js",
+      "exit": 0,
+      "seconds": 4.43
+    },
+    {
+      "file": "test/report.js",
+      "exit": 0,
+      "seconds": 0.21
+    },
+    {
+      "file": "test/reviewsheet.js",
+      "exit": 0,
+      "seconds": 1.02
+    },
+    {
+      "file": "test/savesize.js",
+      "exit": 0,
+      "seconds": 23.68
+    },
+    {
+      "file": "test/workday.js",
+      "exit": 0,
+      "seconds": 0.12
+    },
+    {
+      "file": "test/xapi.js",
+      "exit": 0,
+      "seconds": 1.49
+    }
+  ],
+  "syntax": [
+    {
+      "file": "src/core/fpaccess.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "src/core/fpcustomerscenario.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "src/core/fplighting.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "src/core/fpscannerstopworld.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "src/core/fpweather.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "src/core/fpwellnessscenario.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "src/core/fpwellnessstage.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "src/core/fpwellnessstopworld.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "src/core/fpworld.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "test/fpbench.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "test/fpwellnessbrowser.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "test/fpwellnessgeometry.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "test/fpwellnessscenario.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "test/tools/fp-wellness-original.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "test/tools/fp-wellness-playable-fixture.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "test/tools/fp-wellness-playable-pose.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "test/tools/fp-wellness-playable-quality.js",
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "file": "test/tools/fp-wellness-scenario-context.js",
+      "exit": 0,
+      "error": ""
+    }
+  ],
+  "repositoryBrowser": [
+    {
+      "file": "test/scorm-launch-2004.js",
+      "exit": 0,
+      "seconds": 32.72
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -335,6 +335,7 @@
+         title: 'Watch Your Step',
+         icon: 'ic_flag',
+         scene: 'StopScene',
++        scene3d: 'wellness-stops',
+         dataKey: 'stopSets.m8_steps',
+         categories: ['safety', 'efficiency', 'service'],
+         blurb: 'Ice, wet steps, a garden hose and a heaved sidewalk. Slips and trips are the injuries that end shifts — walk carefully and clear the path.',
+@@ -346,6 +347,7 @@
+         title: 'Dog Encounter',
+         icon: 'ic_paw',
+         scene: 'StopScene',
++        scene3d: 'wellness-stops',
+         dataKey: 'stopSets.m8_dog',
+         categories: ['safety', 'service', 'efficiency'],
+         blurb: 'A dog behind a gate, a dog that charges, and a frightened dog on a porch. Read the body language and get the delivery done without a bite.',
+@@ -357,6 +359,7 @@
+         title: 'Heat Wave',
+         icon: 'ic_bulb',
+         scene: 'StopScene',
++        scene3d: 'wellness-stops',
+         dataKey: 'stopSets.m8_heat',
+         categories: ['safety', 'efficiency', 'service'],
+         blurb: '102°F and three stops to go. Watch your hydration and body heat, use shade and AC, and know the warning signs of heat illness.',
+@@ -368,6 +371,7 @@
+         title: 'After a Fender-Bender',
+         icon: 'ic_broken',
+         scene: 'DialogueScene',
++        scene3d: 'wellness-incident',
+         dataKey: 'dialogues.m8_incident',
+         categories: ['safety', 'service', 'efficiency'],
+         blurb: 'You backed into a parked car. The next twenty minutes decide whether this is a bumper or a career problem — secure the scene, check on people, report it, and write it up straight.',

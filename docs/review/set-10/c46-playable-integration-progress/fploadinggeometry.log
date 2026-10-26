@@ -1,0 +1,25 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+[{"loaded":true,"poses":2832,"peak":{"calls":39,"triangles":2370},"overBudget":0,"worst":{"id":"m6-find","stage":1,"x":2.84,"z":12.2,"yaw":11,"pitch":0,"calls":39,"triangles":2370}},{"loaded":false,"poses":2832,"peak":{"calls":43,"triangles":2204},"overBudget":0,"worst":{"id":"m6-find","stage":1,"x":2.84,"z":12.2,"yaw":11,"pitch":0,"calls":43,"triangles":2204}}]
+✔ every loaded/fallback cargo pose keeps Low main plus the most costly mirror under 64 calls and 2500 triangles (5234.836663ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5274.4839

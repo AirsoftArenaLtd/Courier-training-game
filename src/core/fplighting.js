@@ -3,6 +3,7 @@ window.OTR=window.OTR||{};
 OTR.fpLighting={
   times:['morning','midday','dusk','night'],
   time(m){
+    const stop=m?.customerStop;if(stop?.wellness){const tod=stop.def?.tod||stop.content?.tod,mapped=tod==='evening'?'dusk':tod==='afternoon'?'midday':tod;if(this.times.includes(mapped))return mapped;}
     const plan=m&&m.routePlan,clock=((m&&m.briefing?m.briefing.clockMin:plan&&Number.isFinite(plan.clockMin)?plan.clockMin:480)+(m?m.elapsed:0)/60)%1440;
     let value=plan&&plan.timeOfDay|| (clock<360||clock>=1140?'night':clock<660?'morning':clock<1020?'midday':'dusk');
     if(value==='night'&&m&&m.workdayRules&&m.workdayRules.night===false)value='morning';return value;
@@ -68,7 +69,7 @@ OTR.fpLighting={
       restore(){shadowAt=-100;shadowWanted=high;},
       sync(m,area){
         current=m;visible=area!=='hub'&&!!m;sky.visible=rig.visible=visible;if(!visible){sun.castShadow=false;ambient.color.copy(original.skyColour);ambient.intensity=original.skyIntensity;sun.color.copy(original.sunColour);sun.intensity=original.sunIntensity;sun.position.copy(original.sunPosition);sun.target.position.copy(original.targetPosition);sun.updateMatrixWorld(true);sun.target.updateMatrixWorld(true);if(world.background&&original.background)world.background.copy(original.background);if(world.fog&&original.fog){world.fog.color.copy(original.fog);world.fog.near=original.fogNear;world.fog.far=original.fogFar;}ao.strength.value=0;return;}
-        const next=OTR.fpLighting.time(m),index=OTR.fpLighting.times.indexOf(next),p=presets[index],condition=m.routeDay?m.routeDay.weather:m.routePlan?m.routePlan.weather:'clear';
+        const next=OTR.fpLighting.time(m),index=OTR.fpLighting.times.indexOf(next),p=presets[index],condition=OTR.fpWeather?OTR.fpWeather.condition(m):m.routeDay?m.routeDay.weather:m.routePlan?m.routePlan.weather:'clear';
         const wet=condition==='storm'||condition==='rain'||condition==='fog'||condition==='snow',overcast=condition==='storm'?.9:condition==='fog'?.8:wet?.6:condition==='cloudy'?.35:.08;
         const phaseChanged=next!==time||condition!==weather;time=next;weather=condition;api.time=time;
         const dim=time==='night'?.52:time==='dusk'?.78:1;skyUniforms.top.value.copy(p.top);skyUniforms.horizon.value.copy(p.horizon);weatherPaint.setHex(time==='night'?0x344459:0xA1ADB6);skyUniforms.top.value.lerp(weatherPaint,overcast*.75);skyUniforms.horizon.value.lerp(weatherPaint,overcast*.65);

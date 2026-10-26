@@ -1,0 +1,13 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+{"score":4100,"ratios":{"safety":1,"service":1,"efficiency":1},"trips":5}
+✔ the complete original good incident path walks between the real sedan, people and cab and finishes once (146.429971ms)
+✔ remote and wrong physical targets cannot advance a decision or bypass entering the cab (5.309924ms)
+✔ stale reply callbacks stay inert and timeout/quit consumes the active assessment without a result (4.752103ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 166.228524

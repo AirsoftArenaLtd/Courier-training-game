@@ -55,7 +55,7 @@ OTR.fpWorld = {
     box(hub,0,0.025,3,2.2,0.04,3,brand.primary);
 
     const base = model || OTR.fpMission.create('campaign',1);
-    const weather=base.routeDay?base.routeDay.weather:base.drivingLesson?base.routePlan.weather:'clear',wet=weather==='rain'||weather==='storm',snow=weather==='snow';
+    const weather=base.customerStop?.wellness&&OTR.fpWeather?OTR.fpWeather.condition(base):base.routeDay?base.routeDay.weather:base.drivingLesson?base.routePlan.weather:'clear',wet=weather==='rain'||weather==='storm',snow=weather==='snow';
     const roadColour=weather==='ice'?0x718D9A:wet?0x3D4951:snow?0x7B8994:0x4B5058,grassColour=wet?0x6A806C:snow?0xE0E5E4:0x789069,roofColour=snow?0xC5CFD3:0x65626B;
     const sky=weather==='fog'?0xB8C3C8:weather==='ice'?0xC7D4DD:weather==='storm'?0x778697:weather==='rain'?0x9DAFBE:snow?0xD4DDE2:weather==='heat'?0xDFC8A4:weather==='cloudy'?0xB5C5CE:0xA7C7DE;
     if(world.background)world.background.setHex(sky);if(world.fog)world.fog.color.setHex(sky);
@@ -401,7 +401,7 @@ OTR.fpWorld = {
     const packageLift=base.packageLift&&OTR.fpPackageLiftWorld?OTR.fpPackageLiftWorld.build(route,{cube,interactions,occluders,models:scene.assetBank?.models,uniform:brand.uniform}):null;
     const customerArt=base.incidentStage?OTR.fpIncidentWorld:OTR.fpCustomerWorld;
     const customer=base.customerStage&&!base.customerStop&&customerArt?customerArt.build(route,base,{cube,interactions,occluders,bank:scene.assetBank}):null;
-    const customerStopArt=base.customerStop?.scannerId?OTR.fpScannerStopWorld:OTR.fpCustomerStopWorld;
+    const customerStopArt=base.customerStop?.wellnessId?OTR.fpWellnessStopWorld:base.customerStop?.scannerId?OTR.fpScannerStopWorld:OTR.fpCustomerStopWorld;
     const customerStop=base.customerStop&&customerStopArt?customerStopArt.build(route,base,{cube,interactions,occluders,bank:scene.assetBank}):null;
     const loading=base.loading&&OTR.fpLoadingWorld?OTR.fpLoadingWorld.build(route,base,{cube,interactions,occluders,vehicle:actors?.vehicle,focus:()=>scene.target}):null;
     const pickup=base.pickupTask&&OTR.fpPickupWorld?OTR.fpPickupWorld.build(route,base,{cube,interactions,occluders,bank:scene.assetBank,focus:()=>scene.target||scene.panel?.pickupTarget}):null;
