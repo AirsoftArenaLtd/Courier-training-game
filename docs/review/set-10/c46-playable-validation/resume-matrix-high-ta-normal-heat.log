@@ -1,0 +1,8 @@
+{ quality: 'high', lang: 'ta', large: false, kind: 'heat' }
+TargetCloseError: Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.
+    at CdpCDPSession.send (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:72:35)
+    at CdpKeyboard.up (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Input.js:113:28)
+    at Object.up (/workspace/c46-safety-wellness/test/fpwellnessbrowser.js:15:155)
+    at /workspace/c46-safety-wellness/test/tools/fp-loading-walk.js:23:55
+    at async walk (/workspace/c46-safety-wellness/test/fpwellnessbrowser.js:16:101)
+    at async /workspace/c46-safety-wellness/test/fpwellnessbrowser.js:62:67

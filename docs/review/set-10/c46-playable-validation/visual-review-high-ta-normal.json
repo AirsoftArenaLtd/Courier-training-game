@@ -1,0 +1,36 @@
+{
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Six completed High Tamil normal-text footsteps/dog captures inspected at original resolution; exact rectangle audit resolves the initial wrong overflow judgement. Shared glyph/translation acceptance remains open.",
+  "images": [
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps-high-ta-normal-steps-stop0-photo-review.png",
+      "sha256": "918fe64df7be2e370fbb1fc7bbcf5b5fa7a65afc7c1f7d13329765667eda0a65",
+      "observation": "The actual High snowy doorstep photo shows the parcel and door within the preview; review controls and caption fit. New photo/control text remains English in the Tamil session."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps-high-ta-normal-steps-stop1-reply-s1.png",
+      "sha256": "7c2dac0950d14dc23410df44c15f2f81b2de840a6e2acd391cfc1a96f2fe825d",
+      "observation": "The Tamil source reply wraps to two readable lines inside its button. The reply navigation and instruction remain English; no glyph/translation completion is claimed."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps-high-ta-normal-steps-result.png",
+      "sha256": "e0cfc639930639d35d7cef7ef333f4d6b7f3f771a6edffd15c783c9f24029491",
+      "observation": "Nine stars and separated controls are visible. The title, safety category, takeaways heading/body and career still contain missing Tamil glyph boxes; shared A31 font coverage remains open."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop1-reply-c2.png",
+      "sha256": "d5f120f986ab8a25318560eacda0c43e31829369d63c7ccac4d0791cf40495fa",
+      "observation": "The calm-retreat reply renders as two Tamil lines within the button, with no overlap. The navigation remains untranslated English."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-stop2-reply-p1.png",
+      "sha256": "53106ee9d56f7dc46f5fb2cf4b2bcad6885116b72577a4fad818c73ee8c1eaf0",
+      "observation": "The fearful-dog reply fits its button. The earlier visual suspicion of horizontal overflow was incorrect and is withdrawn; a measured same-source reproduction gives right=1087.5 within button right=1114 at normal text."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog-high-ta-normal-dog-result.png",
+      "sha256": "dbf9484d1097aff072f2b428e87d9288fa614c84765ffe02560bd6d28ad4e50e",
+      "observation": "The Tamil dog title fits; the safety category, takeaway heading/body and career still show missing glyphs. Nine stars and both keyboard controls fit; this is not readable-Tamil acceptance."
+    }
+  ]
+}

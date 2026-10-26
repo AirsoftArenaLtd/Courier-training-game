@@ -1,15 +1,15 @@
 {
-  "at": "2026-10-26T19:24:30.510Z",
-  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
-  "sourceFilesVerified": 909,
-  "retainedProofsVerified": 8,
+  "at": "2026-10-26T20:23:46.379485+00:00",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "sourceFilesVerified": 911,
+  "retainedProofsVerified": 12,
   "status": {
-    "phase": "matrix-high-ta-normal-steps",
-    "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
-    "pid": 93924,
+    "phase": "matrix-high-ta-normal-heat",
+    "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+    "pid": 100058,
     "state": "running",
     "group": "matrix",
-    "server": 93925,
+    "server": 100060,
     "timeout": 3600
   },
   "completedJobs": [
@@ -235,6 +235,24 @@
         "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-en-large-heat",
         "QA_CASE": "high-en-large-heat"
       }
+    },
+    {
+      "name": "matrix-high-ta-normal-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-steps",
+        "QA_CASE": "high-ta-normal-steps"
+      }
+    },
+    {
+      "name": "matrix-high-ta-normal-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-resume-matrix-high-ta-normal-dog",
+        "QA_CASE": "high-ta-normal-dog"
+      }
     }
   ],
   "preflightComplete": true,
@@ -242,15 +260,15 @@
     "high-steps-timeout-20261026/manifest.json"
   ],
   "resourceViews": 64,
-  "goodJourneys": 18,
-  "nativeChecks": 20994,
-  "captures": 444,
+  "goodJourneys": 20,
+  "nativeChecks": 23625,
+  "captures": 493,
   "passedAssessments": 9,
   "incidentFollowup": {
     "status": {
       "phase": "waiting-for-core-validation",
-      "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
-      "pid": 95299,
+      "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+      "pid": 100059,
       "state": "waiting"
     },
     "jobs": 13,
@@ -258,5 +276,13 @@
     "resourceViews": 32,
     "retainedCurrentCase": "low-en-normal"
   },
-  "scope": "Completed steps/dog/heat metrics only; partial cases excluded. All six High English layouts now pass, including three durable one-attempt larger-text assessments. High Tamil runs; current incident follow-up remains queued without new acceptance claims. Shared A31/default/current-pilot/Intel acceptance remains separate."
+  "scope": "Twenty completed good core journeys, 28 retained passing jobs. Application unchanged at 6d83d2e1. Eight unfinished jobs resume with stronger horizontal panel/button assertions at protocol35bd5bb1. Suspected Tamil reply overflow was withdrawn after measured reproduction; no application fix. Partial heat excluded; incident follower waits serially.",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "staticPanelAudit": {
+    "panels": 1896,
+    "languages": 12,
+    "sizes": 2,
+    "complete": true,
+    "scope": "Static original M8 conversation text only; excluded from native check/journey counts. Current default font; glyph/translation readiness remains open."
+  }
 }

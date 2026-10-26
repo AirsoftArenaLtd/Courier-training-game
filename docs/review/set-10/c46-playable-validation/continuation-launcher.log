@@ -5,3 +5,7 @@
 {"phase": "matrix-high-en-large-dog", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 93924, "state": "running", "group": "matrix", "server": 93925, "timeout": 3600}
 {"phase": "matrix-high-en-large-heat", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 93924, "state": "running", "group": "matrix", "server": 93925, "timeout": 3600}
 {"phase": "matrix-high-ta-normal-steps", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 93924, "state": "running", "group": "matrix", "server": 93925, "timeout": 3600}
+{"phase": "matrix-high-ta-normal-dog", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 93924, "state": "running", "group": "matrix", "server": 93925, "timeout": 3600}
+{"phase": "matrix-high-ta-normal-heat", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 93924, "state": "running", "group": "matrix", "server": 93925, "timeout": 3600}
+{"phase": "supervisor-error", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 93924, "state": "failed", "error": "Owned supervisor interrupted by signal 15"}
+Owned supervisor interrupted by signal 15
