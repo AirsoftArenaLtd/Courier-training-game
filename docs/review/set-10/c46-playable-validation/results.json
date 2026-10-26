@@ -1,0 +1,39 @@
+{
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "64 arranged resource views (15 retained unaffected Low, 49 fresh); 24 good native journeys (one retained unaffected footsteps, two fresh preflight, 21 fresh matrix), one critical trip and three abandonments; six repository browser regressions. No shared Tamil glyph/translation/A30/A31/default/current-pilot or Intel FPS acceptance. All fresh jobs stop at the first failure.",
+  "retained": [
+    {
+      "name": "loaded-low-original-15",
+      "report": "../c46-playable-preflight/artifacts/c46-playable-563c7b2e-low-first-quality.json",
+      "scope": "All fifteen arranged fixtures keep ownerAtGate false; the new standing distance is unused. No resource ceiling or geometry pool changed."
+    },
+    {
+      "name": "low-en-normal-steps",
+      "report": "../c46-playable-preflight/artifacts/c46-playable-563c7b2e-low-en-normal-steps.json",
+      "scope": "955 checks/7500 points/nine stars/one durable play. The footsteps graph never uses ownerAppears at the gate; optional panel-stop is unused on its waypoint walking. The new dog pose is outside this accepted scope."
+    }
+  ],
+  "jobs": [
+    {
+      "name": "low-owner-resource",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-low-owner",
+        "QA_PROFILES": "loaded-low",
+        "QA_VIEWS": "wellnessowner"
+      }
+    },
+    {
+      "name": "high-resources",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-high",
+        "QA_PROFILES": "loaded-high"
+      }
+    }
+  ],
+  "preflightComplete": false,
+  "complete": false
+}

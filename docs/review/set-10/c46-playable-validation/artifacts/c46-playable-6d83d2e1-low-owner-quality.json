@@ -1,0 +1,22 @@
+{
+  "sourceRevision": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "requestedViews": [
+    "wellnessowner"
+  ],
+  "scope": "Arranged resource poses of the actual loaded safety adapter with four original fpbench profiles and limits. Native gameplay, scoring/layout/default/current-pilot and Intel FPS acceptance remain separate.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c46-playable-6d83d2e1-low-owner-loaded-low-low.json",
+      "log": "c46-playable-6d83d2e1-low-owner-loaded-low.log",
+      "peak": {
+        "calls": 31,
+        "triangles": 1600,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1491072
+      }
+    }
+  ]
+}

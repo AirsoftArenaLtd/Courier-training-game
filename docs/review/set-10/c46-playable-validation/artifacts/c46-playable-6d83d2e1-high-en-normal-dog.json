@@ -1,0 +1,29 @@
+{
+  "checks": 174,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "kind": "dog",
+      "shots": [
+        "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-brief.png",
+        "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-controls-0.png",
+        "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-controls-1.png",
+        "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-controls-2.png",
+        "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-controls-3.png",
+        "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-controls-4.png",
+        "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-controls-5.png",
+        "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-handheld.png",
+        "c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop0-cargo.png"
+      ],
+      "stops": []
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "uncommittedRuntime": false,
+  "protocolSha256": "bae2f54e2d9ba994ec97b769bfde52e7fed8e1d54c7e9a4e71ab83361733e03b",
+  "scope": "Existing-id registration, accessibility and a suspended workday are setup fixtures. Observational wrappers record completed original conversations and pre-evaluation stop facts without changing arguments or return values. Real keys control all walking, aiming, parcels, safety actions, replies, photos, signing and results. No position, timer, node, hazard, signature-completion, score or verdict fixture. Independent original 2D callbacks replay observed choices and evaluate observed stop facts. Bounds checks do not certify Tamil glyph coverage or Intel FPS."
+}
