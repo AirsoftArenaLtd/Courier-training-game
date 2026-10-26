@@ -1,0 +1,12 @@
+✔ the same actual snapshot becomes a bounded Low or High preview without changing outcome or workday data (3.347217ms)
+✔ failed, cancelled and stale snapshots restore the UI and never create a photo or an outcome (0.472033ms)
+✔ framing hides the old HUD and restores it before a handheld opens, without hiding that newly opened device (0.310399ms)
+✔ a renderer that never returns a snapshot cannot keep the camera or keyboard locked (0.207173ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10.006537

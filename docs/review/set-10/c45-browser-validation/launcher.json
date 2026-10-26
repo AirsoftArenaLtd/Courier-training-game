@@ -1,8 +1,8 @@
 {
-  "pid": 39151,
-  "plan": "/workspace/c45-pickups-paperwork/test/out/pipelines/c45-ef1a4edf-counter/plan.json",
-  "planSha256": "4756a52925f3511145fd2cadcc29b8b117179ad5a1720a1976c5de0395fc75f3",
+  "pid": 40934,
+  "plan": "/workspace/c45-pickups-paperwork/test/out/pipelines/c45-629d899a-counter/plan.json",
+  "planSha256": "ff02274826c039ce741060b999fe9933f11aba8b214287d97405b37620d9e11b",
   "sourceCount": 850,
   "jobs": 40,
-  "runtime": "ef1a4edf57926c99ac100188d2d3129d320d8f1d"
+  "runtime": "629d899aeaef13bfabe081ea3360967d4e2925b3"
 }

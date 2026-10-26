@@ -1,12 +1,12 @@
 {
   "status": "doing; validation incomplete",
-  "planSha256": "4756a52925f3511145fd2cadcc29b8b117179ad5a1720a1976c5de0395fc75f3",
+  "planSha256": "ff02274826c039ce741060b999fe9933f11aba8b214287d97405b37620d9e11b",
   "files": {
-    "README.md": "97077471d09d7a60fe914d5e1a91d69f368b6afb7e0742a799e93e45ba556e86",
+    "README.md": "497cbc4f6cc7c00bb8bec1b960e7dde04c1ae5de0fcd83845b6e393f512bb2fb",
     "collect-results.py": "cb8eb7aa77dfc2fc6b236ef9536ee184eb404a7a0e8484f67dedee3bbec4453b",
-    "completed-summary.json": "54d4cc1e414b36517500ce82940ade4d646cee220a5ebbd711257c78c7e413a4",
-    "launcher.json": "f692f3074680c059bd71d68c041f02addc7c03d6d755f12334902e6544d365f2",
-    "native-snapshot.json": "aa2f7874138fd0c076cf8b8df4cc4922125eec54e6b074f3018d4cb95343c9ec",
-    "plan.json": "4756a52925f3511145fd2cadcc29b8b117179ad5a1720a1976c5de0395fc75f3"
+    "completed-summary.json": "bbd440c5f98ac1a8371606d312d3de4e6cf635c451d66afb33a9ce7ab29c5ed3",
+    "launcher.json": "0d88b387943c75947a0bc8857414b2b889e775778a7370be0880d85add2e0dee",
+    "native-snapshot.json": "099705177ff1054ba1a3a61e361186c2c5a243085ed08a6b14ec92ba3d24ce57",
+    "plan.json": "ff02274826c039ce741060b999fe9933f11aba8b214287d97405b37620d9e11b"
   }
 }

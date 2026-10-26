@@ -1,6 +1,8 @@
 # C45 frozen browser validation — 26 October 2026
 
-C45 remains **doing** on `codex/c45-pickups-paperwork`, stacked on pushed C44 `fbb766bc`. The initial ef1a4edf sequence stopped after its first Low profile failed actual inspection ink proof. Its exited supervisor and raw results are preserved in `../c45-render-focus-diagnostic/`. The owned panel correction is in `../c45-panel-focus-correction/`; a fresh frozen sequence is pending the new Node gate. No application/protocol edits occur while a supervisor is active. Documentation-only evidence commits may advance the branch without changing frozen bytes.
+C45 remains **doing** on `codex/c45-pickups-paperwork`, stacked on pushed C44 `fbb766bc`. The 629d899a supervisor **40934** was interrupted by its exact PID after a real delayed-receipt callback bug was reproduced. All owned children stopped and the browser lock was released before source changes. Its source/partial resource scope is preserved in [receipt diagnostics](../c45-receipt-guard-diagnostic/README.md). The guarded receipt candidate is running a fresh full Node prerequisite before another frozen 40-job sequence. No previous partial profile counts toward its acceptance.
+
+The initial ef1a4edf sequence stopped correctly after its first Low profile failed actual inspection ink proof. Its exited supervisor/source/raw results remain in [failed diagnostic evidence](../c45-render-focus-diagnostic/README.md). The owned panel correction and fresh 97-suite prerequisite are in [corrected-source validation](../c45-panel-focus-correction/README.md); the first failed sequence contributes no accepted job to this current plan.
 
 The **40-job** sequence uses one browser under `/workspace/.otr-browser-validation.lock`:
 
@@ -9,9 +11,9 @@ The **40-job** sequence uses one browser under `/workspace/.otr-browser-validati
 - Three harmful larger-English Low assessments: incorrect business refusals, missing customs findings with acceptance, and unsafe dangerous-goods acceptance. Three more cases abandon each assessment without completing a play.
 - SCORM2004, legacy modules, academy, enterprise, route day and driving regressions.
 
-All **97 pure Node suites** pass at the initial ef1a4edf source; a fresh corrected-source gate is running; the browser-opening SCORM2004 wrapper is a separate job. The unchanged source/log hashes and CPU/preflight scope are in [initial validation](../c45-initial-validation/README.md). No passing suite is repeated merely for a documentation update.
+All **97 pure Node suites / 22 focused cases** pass at 629d899a; the new guarded-receipt source is running a fresh full gate; the browser-opening SCORM2004 wrapper is a separate job. The unchanged source/log hashes and CPU/preflight scope are in [initial validation](../c45-initial-validation/README.md). No passing suite is repeated merely for a documentation update.
 
-`plan.json` fixes sources, jobs, environment, prerequisites and output. `launcher.json` records owned supervisor PID **39151** and plan hash. Historical initial status/log/ledger: `test/out/pipelines/c45-ef1a4edf-counter/`. The worker uses its owned HTTP server on port **8388**, survives executor restarts, stops on the first failure and never selects processes by name. The earlier owned preflight server on 8387 was stopped by its exact process group.
+`plan.json` fixes sources, jobs, environment, prerequisites and output. `launcher.json` records owned supervisor PID **40934** and plan hash. Historical interrupted status/log/ledger: `test/out/pipelines/c45-629d899a-counter/`. The worker uses its owned HTTP server on port **8388**, survives executor restarts, stops on the first failure and never selects processes by name. The earlier owned preflight server on 8387 was stopped by its exact process group.
 
 Run `python3 docs/review/set-10/c45-browser-validation/collect-results.py` to copy only completed, fingerprint/source/log/artifact-verified results. It independently replays the actual original PickupScene/TalkController callbacks from recorded native observations and independently applies the original resource gate. Static fixtures remain distinct from native actions and records. It never launches a browser. `completed-summary.json` and `native-snapshot.json` state the actual completed scope; pending jobs are not acceptance evidence. `manifest.json` hashes the evidence.
 

@@ -1,0 +1,12 @@
+[
+  {
+    "file": "src/core/fppickupscenario.js",
+    "exit": 0,
+    "sha256": "6865de5b30c2ae44c9f5d9321a6f6f576b5bf5ff2545e0842780c8ac61278daa"
+  },
+  {
+    "file": "test/fppickupscenario.js",
+    "exit": 0,
+    "sha256": "abeaa8837947f37e720b9f6c3429717c682185e2c63a0f72d84d9059e28b96fa"
+  }
+]

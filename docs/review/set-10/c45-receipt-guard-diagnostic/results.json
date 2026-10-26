@@ -1,0 +1,9 @@
+{
+  "resource-loaded-low": {
+    "exit": null,
+    "fingerprint": "578cf970d11a0914fbe7f32a2f2ead257439915313b40f34851523f3e699dee3",
+    "attempts": 1,
+    "log": "resource-loaded-low-attempt-1.log",
+    "state": "running"
+  }
+}
