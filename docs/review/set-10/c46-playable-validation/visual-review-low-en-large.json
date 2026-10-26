@@ -1,0 +1,46 @@
+{
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Eight current-source larger-English and accessible/fallback Low captures inspected at original resolution. Broader languages and all High sizes remain separate.",
+  "images": [
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-low-en-large-heat-low-en-large-heat-stop0-safety.png",
+      "sha256": "9199f83fcdde20ef35de59537319b0e877325cb2311d80e0c72daa0e50c05319",
+      "observation": "Larger-text safety controls fit in the handheld with a readable four-choice list and a separate Back control. The physical mirror and dash remain visible beside the device."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-low-en-large-heat-low-en-large-heat-stop0-photo-review.png",
+      "sha256": "5471f7fb1eb4d7abfc8a02809dd5cf87bf68270f78ad78f6ef84342184f680fd",
+      "observation": "The captured Low delivery image visibly contains the package and doorway. Its larger-text caption and the three handheld photo choices fit without overlap."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-low-en-large-heat-low-en-large-heat-stop2-arrival.png",
+      "sha256": "95197e7bd77666a126c20f7f28d80ca695d50cbd4443489ed6071759325fa954",
+      "observation": "At the clinic entrance, the larger HUD wraps the goal and hydration/heat sentences within its box. This entrance capture precedes the native walk into the interior and does not by itself prove the subsequent counter handover."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-low-en-large-heat-low-en-large-heat-result.png",
+      "sha256": "00981b9c913c96fde707d319b954d10493c4c575f70573390e33f53f21458e11",
+      "observation": "The settled larger-text heat assessment result shows nine stars and all three full safety takeaways within the panel, with separate career and keyboard controls."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-low-en-large-dog-low-en-large-dog-stop1-reply-c2.png",
+      "sha256": "14436a1568f687848d73e3d12ed0cd8c950c4c4a9c11fcccc1ca52014ff87fea",
+      "observation": "The complete calm-retreat instruction wraps to two large lines inside the selected button; all three remaining controls stay separate."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-low-en-large-steps-low-en-large-steps-stop1-reply-s1.png",
+      "sha256": "bd401501b7528dd3fab0ec16e1bf57cd8113246a1342942aec2f41ea1b6ecb0d",
+      "observation": "The complete hose/toys/wet-steps reply wraps at full larger size within its button; the title and other controls remain distinct."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-remaining-accessible-low-low-wellnessdrink.png",
+      "sha256": "fee52423371f39b635c6af500aa870628b6aebb9a2b6c3b887ceea0a563c1135",
+      "observation": "The accessible Low arranged drinking view shows a bottle in the hand and the activity/hydration/heat status. Larger text stays within the HUD and the remappable keyboard routes remain readable. This is a static action pose, not an additional native journey."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-remaining-fallback-low-low-wellnessowner.png",
+      "sha256": "19c6dc62999916da35479c0be0963c3a35192d3f0c5b741c979ccd7bc2d92ab1",
+      "observation": "With uploaded models missing, the procedural house and resident remain present behind the closed fence. The supported fallback actor and real HUD remain visible; this view does not certify High character detail."
+    }
+  ]
+}

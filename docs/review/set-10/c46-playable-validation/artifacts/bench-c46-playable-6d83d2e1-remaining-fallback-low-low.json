@@ -1,0 +1,1890 @@
+{
+  "tag": "c46-playable-6d83d2e1-remaining-fallback-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "assetFailure": "missing-model-files",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 0,
+    "failed": 14,
+    "fallbacks": 0,
+    "bytes": 0,
+    "decodedBytes": 0,
+    "errors": [
+      {
+        "path": "kenney-city-starter/models/garage-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-c-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/tree-small-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/fence-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-commercial/models/building-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/road-straight-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/light-curved-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/sedan-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/delivery-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/resident-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/resident-low.glb",
+        "reason": "Asset could not load"
+      }
+    ]
+  },
+  "prototype": {
+    "wellnessgate": {
+      "frames": 102,
+      "avgFPS": 10.16,
+      "low1FPS": 4.66,
+      "p99ms": 198,
+      "maxMs": 230.9,
+      "peak": {
+        "calls": 29,
+        "triangles": 1480,
+        "textures": 2,
+        "geometries": 10,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1118304,
+        "withMipmapsUpperBytes": 1491072
+      },
+      "worldProfile": {
+        "meshes": 95,
+        "instances": 278,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          35,
+          35,
+          34,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 11.3,
+          "y": 1.65,
+          "z": -38.1,
+          "yaw": 0.25,
+          "pitch": -0.25,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnessice": {
+      "frames": 78,
+      "avgFPS": 7.71,
+      "low1FPS": 3.52,
+      "p99ms": 284.1,
+      "maxMs": 284.1,
+      "peak": {
+        "calls": 30,
+        "triangles": 1072,
+        "textures": 2,
+        "geometries": 10,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1119228,
+        "withMipmapsUpperBytes": 1492304
+      },
+      "worldProfile": {
+        "meshes": 91,
+        "instances": 189,
+        "geometries": 17,
+        "materials": 37,
+        "geometryBytes": 7440,
+        "instanceBytes": 117860,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          26,
+          26,
+          25,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 8,
+          "y": 1.65,
+          "z": -37.7,
+          "yaw": 0.55,
+          "pitch": -0.33,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnessclutter": {
+      "frames": 64,
+      "avgFPS": 6.33,
+      "low1FPS": 2.65,
+      "p99ms": 377.5,
+      "maxMs": 377.5,
+      "peak": {
+        "calls": 29,
+        "triangles": 912,
+        "textures": 2,
+        "geometries": 9,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1118304,
+        "withMipmapsUpperBytes": 1491072
+      },
+      "worldProfile": {
+        "meshes": 93,
+        "instances": 136,
+        "geometries": 17,
+        "materials": 38,
+        "geometryBytes": 7440,
+        "instanceBytes": 117860,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          22,
+          22,
+          21,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 10.2,
+          "y": 1.65,
+          "z": -38.9,
+          "yaw": 0.5,
+          "pitch": -0.52,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnessentry": {
+      "frames": 111,
+      "avgFPS": 11.04,
+      "low1FPS": 5.26,
+      "p99ms": 187.9,
+      "maxMs": 192.2,
+      "peak": {
+        "calls": 27,
+        "triangles": 662,
+        "textures": 2,
+        "geometries": 9,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1145688,
+        "withMipmapsUpperBytes": 1527584
+      },
+      "worldProfile": {
+        "meshes": 90,
+        "instances": 109,
+        "geometries": 16,
+        "materials": 36,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          35,
+          34,
+          33,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 9,
+          "y": 1.65,
+          "z": -39.6,
+          "yaw": 0.5,
+          "pitch": -0.28,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnesscharge": {
+      "frames": 109,
+      "avgFPS": 10.89,
+      "low1FPS": 4.84,
+      "p99ms": 192.7,
+      "maxMs": 220.7,
+      "peak": {
+        "calls": 28,
+        "triangles": 796,
+        "textures": 2,
+        "geometries": 9,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1118304,
+        "withMipmapsUpperBytes": 1491072
+      },
+      "worldProfile": {
+        "meshes": 91,
+        "instances": 131,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          37,
+          36,
+          35,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 11.3,
+          "y": 1.65,
+          "z": -39.4,
+          "yaw": 0.25,
+          "pitch": -0.25,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnessfear": {
+      "frames": 122,
+      "avgFPS": 12.15,
+      "low1FPS": 5.55,
+      "p99ms": 179.3,
+      "maxMs": 181.1,
+      "peak": {
+        "calls": 28,
+        "triangles": 830,
+        "textures": 2,
+        "geometries": 9,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1118304,
+        "withMipmapsUpperBytes": 1491072
+      },
+      "worldProfile": {
+        "meshes": 92,
+        "instances": 123,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          42,
+          41,
+          41,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 11.3,
+          "y": 1.65,
+          "z": -39.4,
+          "yaw": 0.25,
+          "pitch": -0.25,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnessshade": {
+      "frames": 107,
+      "avgFPS": 10.65,
+      "low1FPS": 4.49,
+      "p99ms": 200.2,
+      "maxMs": 245.4,
+      "peak": {
+        "calls": 28,
+        "triangles": 1122,
+        "textures": 2,
+        "geometries": 9,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1171980,
+        "withMipmapsUpperBytes": 1562640
+      },
+      "worldProfile": {
+        "meshes": 96,
+        "instances": 248,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          36,
+          36,
+          35,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 6,
+          "y": 1.65,
+          "z": -37.5,
+          "yaw": 0.65,
+          "pitch": -0.05,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnesscarry": {
+      "frames": 109,
+      "avgFPS": 10.86,
+      "low1FPS": 5.09,
+      "p99ms": 182.9,
+      "maxMs": 209.9,
+      "peak": {
+        "calls": 28,
+        "triangles": 884,
+        "textures": 2,
+        "geometries": 9,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1171980,
+        "withMipmapsUpperBytes": 1562640
+      },
+      "worldProfile": {
+        "meshes": 94,
+        "instances": 134,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          37,
+          37,
+          35,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 9.5,
+          "y": 1.65,
+          "z": -39,
+          "yaw": 0.5,
+          "pitch": -0.1,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnessclinic": {
+      "frames": 86,
+      "avgFPS": 8.56,
+      "low1FPS": 3.82,
+      "p99ms": 261.8,
+      "maxMs": 261.8,
+      "peak": {
+        "calls": 28,
+        "triangles": 1578,
+        "textures": 2,
+        "geometries": 9,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1171980,
+        "withMipmapsUpperBytes": 1562640
+      },
+      "worldProfile": {
+        "meshes": 99,
+        "instances": 479,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          30,
+          29,
+          28,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 11.2,
+          "y": 1.65,
+          "z": -41.2,
+          "yaw": 0.18,
+          "pitch": -0.05,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnesscab": {
+      "frames": 134,
+      "avgFPS": 13.34,
+      "low1FPS": 5.69,
+      "p99ms": 159.1,
+      "maxMs": 192.4,
+      "peak": {
+        "calls": 31,
+        "triangles": 700,
+        "textures": 2,
+        "geometries": 10,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1291312,
+        "withMipmapsUpperBytes": 1721750
+      },
+      "worldProfile": {
+        "meshes": 96,
+        "instances": 86,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          46,
+          46,
+          45,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 1.25,
+          "y": 2.05,
+          "z": -43.45,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 1.25,
+          "baseZ": -43.45,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnessreverse": {
+      "frames": 141,
+      "avgFPS": 14.09,
+      "low1FPS": 4.85,
+      "p99ms": 167.3,
+      "maxMs": 245,
+      "peak": {
+        "calls": 31,
+        "triangles": 700,
+        "textures": 2,
+        "geometries": 10,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1241752,
+        "withMipmapsUpperBytes": 1655670
+      },
+      "worldProfile": {
+        "meshes": 96,
+        "instances": 86,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          24,
+          24,
+          22,
+          68
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 1.25,
+          "y": 2.05,
+          "z": -43.45,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 1.25,
+          "baseZ": -43.45,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnesshandheld": {
+      "frames": 96,
+      "avgFPS": 9.55,
+      "low1FPS": 3.52,
+      "p99ms": 284.2,
+      "maxMs": 284.2,
+      "peak": {
+        "calls": 28,
+        "triangles": 1010,
+        "textures": 2,
+        "geometries": 9,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 95,
+        "baseLevelRGBABytes": 1213168,
+        "withMipmapsUpperBytes": 1617558
+      },
+      "worldProfile": {
+        "meshes": 96,
+        "instances": 192,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          33,
+          33,
+          32,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 8,
+          "y": 1.65,
+          "z": -37.7,
+          "yaw": 0.55,
+          "pitch": -0.33,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnesscontrols": {
+      "frames": 90,
+      "avgFPS": 8.96,
+      "low1FPS": 4.31,
+      "p99ms": 231.8,
+      "maxMs": 231.8,
+      "peak": {
+        "calls": 28,
+        "triangles": 1010,
+        "textures": 2,
+        "geometries": 9,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 92,
+        "baseLevelRGBABytes": 1418288,
+        "withMipmapsUpperBytes": 1891051
+      },
+      "worldProfile": {
+        "meshes": 96,
+        "instances": 192,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          33,
+          33,
+          31,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 8,
+          "y": 1.65,
+          "z": -37.7,
+          "yaw": 0.55,
+          "pitch": -0.33,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnessreply": {
+      "frames": 94,
+      "avgFPS": 9.38,
+      "low1FPS": 3.91,
+      "p99ms": 255.9,
+      "maxMs": 255.9,
+      "peak": {
+        "calls": 29,
+        "triangles": 910,
+        "textures": 2,
+        "geometries": 9,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 94,
+        "baseLevelRGBABytes": 1297204,
+        "withMipmapsUpperBytes": 1729606
+      },
+      "worldProfile": {
+        "meshes": 91,
+        "instances": 148,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          35,
+          34,
+          33,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 8,
+          "y": 1.65,
+          "z": -37.7,
+          "yaw": 0.55,
+          "pitch": -0.33,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnessdrink": {
+      "frames": 79,
+      "avgFPS": 7.89,
+      "low1FPS": 2.66,
+      "p99ms": 375.3,
+      "maxMs": 375.3,
+      "peak": {
+        "calls": 39,
+        "triangles": 1280,
+        "textures": 2,
+        "geometries": 9,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 88,
+        "baseLevelRGBABytes": 1430668,
+        "withMipmapsUpperBytes": 1907558
+      },
+      "worldProfile": {
+        "meshes": 96,
+        "instances": 249,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          26,
+          25,
+          24,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 0.1,
+          "y": 1.65,
+          "z": -41.9,
+          "yaw": 0.6,
+          "pitch": -0.35,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "wellnessowner": {
+      "frames": 107,
+      "avgFPS": 10.69,
+      "low1FPS": 5.15,
+      "p99ms": 189.7,
+      "maxMs": 199,
+      "peak": {
+        "calls": 30,
+        "triangles": 1256,
+        "textures": 2,
+        "geometries": 10,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 88,
+        "baseLevelRGBABytes": 1376992,
+        "withMipmapsUpperBytes": 1835990
+      },
+      "worldProfile": {
+        "meshes": 95,
+        "instances": 221,
+        "geometries": 16,
+        "materials": 37,
+        "geometryBytes": 7228,
+        "instanceBytes": 116708,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          38,
+          38,
+          36,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 12,
+          "y": 1.65,
+          "z": -39,
+          "yaw": 0.3,
+          "pitch": -0.12,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "wellnessProof": {
+    "wellnessgate": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 89,
+        "back": 99,
+        "status": "This is stop 1 of 3."
+      },
+      "weather": "clear",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 1,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-dog",
+      "index": 0,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 30,
+      "extraMoving": 19,
+      "wellnessLettering": {
+        "count": 118,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnessice": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 89,
+        "back": 99,
+        "status": "This is stop 1 of 3."
+      },
+      "weather": "snow",
+      "time": "morning",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 2,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-steps",
+      "index": 0,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 17,
+      "extraMoving": 0,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnessclutter": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 89,
+        "back": 99,
+        "status": "This is stop 2 of 3."
+      },
+      "weather": "rain",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 3,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-steps",
+      "index": 1,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 11,
+      "extraMoving": 12,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnessentry": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 89,
+        "back": 99,
+        "status": "This is stop 3 of 3."
+      },
+      "weather": "clear",
+      "time": "dusk",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 4,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-steps",
+      "index": 2,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 7,
+      "extraMoving": 0,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnesscharge": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 89,
+        "back": 99,
+        "status": "This is stop 2 of 3."
+      },
+      "weather": "clear",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 5,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-dog",
+      "index": 1,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 2,
+      "extraMoving": 13,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnessfear": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 89,
+        "back": 99,
+        "status": "This is stop 3 of 3."
+      },
+      "weather": "clear",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 6,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-dog",
+      "index": 2,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 2,
+      "extraMoving": 13,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnessshade": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 110,
+        "back": 120,
+        "status": "This is stop 1 of 3.\nYour hydration is 62%. Your body heat indicator is 48 out of 100."
+      },
+      "weather": "heat",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 7,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-heat",
+      "index": 0,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 10,
+      "extraMoving": 0,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnesscarry": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": true,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 110,
+        "back": 120,
+        "status": "This is stop 2 of 3.\nYour hydration is 62%. Your body heat indicator is 48 out of 100."
+      },
+      "weather": "heat",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 8,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-heat",
+      "index": 1,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 7,
+      "extraMoving": 0,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnessclinic": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": true,
+      "gateOpen": false,
+      "gateGap": 4.049999999999997,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 110,
+        "back": 120,
+        "status": "This is stop 3 of 3.\nYour hydration is 62%. Your body heat indicator is 48 out of 100."
+      },
+      "weather": "heat",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 9,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-heat",
+      "index": 2,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 8,
+      "extraMoving": 0,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": true,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnesscab": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 110,
+        "back": 120,
+        "status": "This is stop 1 of 3.\nYour hydration is 62%. Your body heat indicator is 48 out of 100."
+      },
+      "weather": "heat",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 10,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-heat",
+      "index": 0,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 0,
+      "extraMoving": 0,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnessreverse": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 110,
+        "back": 120,
+        "status": "This is stop 1 of 3.\nYour hydration is 62%. Your body heat indicator is 48 out of 100."
+      },
+      "weather": "heat",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": true,
+      "fixtureSerial": 11,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-heat",
+      "index": 0,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 0,
+      "extraMoving": 0,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnesshandheld": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": false,
+        "goalVisible": false,
+        "clock": 71,
+        "back": 90,
+        "status": null
+      },
+      "weather": "heat",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": true,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 12,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-heat",
+      "index": 0,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 10,
+      "extraMoving": 0,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnesscontrols": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": false,
+        "goalVisible": false,
+        "clock": 71,
+        "back": 90,
+        "status": null
+      },
+      "weather": "heat",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": true,
+      "reverse": false,
+      "fixtureSerial": 13,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-heat",
+      "index": 0,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 10,
+      "extraMoving": 0,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnessreply": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": false,
+        "goalVisible": false,
+        "clock": 71,
+        "back": 90,
+        "status": null
+      },
+      "weather": "clear",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": true,
+      "reverse": false,
+      "fixtureSerial": 14,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-dog",
+      "index": 1,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 2,
+      "extraMoving": 13,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnessdrink": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": false,
+      "personVisible": false,
+      "gateOpen": false,
+      "gateGap": 3.299999999999997,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 110,
+        "back": 120,
+        "status": "Wait for the current activity to finish.\nYour hydration is 62%. Your body heat indicator is 48 out of 100."
+      },
+      "weather": "heat",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 15,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-heat",
+      "index": 0,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 8,
+      "extraMoving": 3,
+      "wellnessLettering": {
+        "count": 0,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "wellnessowner": {
+      "source": "wellness-playable-render-fixture",
+      "physical": true,
+      "ownerAtGate": true,
+      "personVisible": true,
+      "gateOpen": false,
+      "gateGap": 0.6000000000000014,
+      "hud": {
+        "visible": true,
+        "goalVisible": true,
+        "clock": 89,
+        "back": 99,
+        "status": "This is stop 1 of 3."
+      },
+      "weather": "clear",
+      "time": "midday",
+      "adapter": "wellness-stops",
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "fixtureSerial": 16,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "id": "m8-dog",
+      "index": 0,
+      "canonical": true,
+      "phase": "active",
+      "building": 0,
+      "person": false,
+      "extraFixed": 26,
+      "extraMoving": 6,
+      "wellnessLettering": {
+        "count": 118,
+        "font": false,
+        "capacity": 128
+      },
+      "interiorBuilt": false,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "wellnessComponentFixture": false,
+  "wellnessPlayableFixture": true,
+  "phaserTextures": {
+    "count": 88,
+    "baseLevelRGBABytes": 1376992,
+    "withMipmapsUpperBytes": 1835990
+  },
+  "phaserTexturesPeak": {
+    "count": 88,
+    "baseLevelRGBABytes": 1430668,
+    "withMipmapsUpperBytes": 1907558
+  },
+  "missingViews": [],
+  "errors": []
+}

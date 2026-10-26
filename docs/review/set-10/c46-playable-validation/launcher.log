@@ -3,3 +3,16 @@
 {"phase": "high-resources", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "preflight", "server": 83081}
 {"phase": "high-en-normal-dog", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "preflight", "server": 83081}
 {"phase": "low-en-large-heat", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "preflight", "server": 83081}
+{"phase": "accessible-fallback-resources", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "preflight", "server": 83081}
+{"phase": "scanner-regression", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "preflight", "server": 83081}
+{"phase": "incident-regression", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "preflight", "server": 83081}
+{"phase": "academy", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "preflight", "server": 83081}
+{"phase": "enterprise", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "preflight", "server": 83081}
+{"phase": "routeday", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "preflight", "server": 83081}
+{"phase": "driving", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "preflight", "server": 83081}
+{"phase": "matrix-low-en-normal-dog", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "matrix", "server": 83081}
+{"phase": "matrix-low-en-normal-heat", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "matrix", "server": 83081}
+{"phase": "matrix-low-en-large-steps", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "matrix", "server": 83081}
+{"phase": "matrix-low-en-large-dog", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "matrix", "server": 83081}
+{"phase": "matrix-low-ta-normal-steps", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "matrix", "server": 83081}
+{"phase": "matrix-low-ta-normal-dog", "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5", "pid": 83080, "state": "running", "group": "matrix", "server": 83081}

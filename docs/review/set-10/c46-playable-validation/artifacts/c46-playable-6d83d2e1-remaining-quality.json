@@ -1,0 +1,50 @@
+{
+  "sourceRevision": "364fe8cd9b096cab4650cbf586e10ab34ac7d870",
+  "requestedViews": [
+    "wellnessgate",
+    "wellnessice",
+    "wellnessclutter",
+    "wellnessentry",
+    "wellnesscharge",
+    "wellnessfear",
+    "wellnessshade",
+    "wellnesscarry",
+    "wellnessclinic",
+    "wellnesscab",
+    "wellnessreverse",
+    "wellnesshandheld",
+    "wellnesscontrols",
+    "wellnessreply",
+    "wellnessdrink",
+    "wellnessowner"
+  ],
+  "scope": "Arranged resource poses of the actual loaded safety adapter with four original fpbench profiles and limits. Native gameplay, scoring/layout/default/current-pilot and Intel FPS acceptance remain separate.",
+  "profiles": [
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c46-playable-6d83d2e1-remaining-accessible-low-low.json",
+      "log": "c46-playable-6d83d2e1-remaining-accessible-low.log",
+      "peak": {
+        "calls": 35,
+        "triangles": 1908,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2220102
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c46-playable-6d83d2e1-remaining-fallback-low-low.json",
+      "log": "c46-playable-6d83d2e1-remaining-fallback-low.log",
+      "peak": {
+        "calls": 39,
+        "triangles": 1578,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1907558
+      }
+    }
+  ]
+}

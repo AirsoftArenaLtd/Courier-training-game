@@ -10,13 +10,17 @@ Two prior passes are retained for their stated unaffected scope in `plan.json`: 
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Loaded Low | 15 retained plus 1 fresh | 35 | 1908 | 2 | 3557376 | 1907558 |
 | Loaded High | 16 fresh | 36 | 30164 | 4 | 11239424 | 5419494 |
-| Accessible Low | Pending | | | | | |
-| Fallback Low | Pending | | | | | |
+| Accessible Low | 16 fresh | 35 | 1908 | 2 | 3557376 | 2220102 |
+| Fallback Low | 16 fresh | 39 | 1578 | 2 | 3557376 | 1907558 |
 
 All accepted resource samples keep the original ceilings, real HUD, original-content/generation/isolation proof, physical mirrors/reverse screen and source climate. The High resident view verifies a visible actor behind the closed gate, a 0.6m root gap and the original High shadow policy. Exact raw reports are under `artifacts/`; the gallery/hash index is refreshed with `python3 docs/review/set-10/c46-playable-validation/collect.py`. Visual inspection records name the captures actually reviewed.
 
 Seven additional High English native captures have been inspected at original resolution, covering the gate resident, calm-retreat reply, signer controls and fearful-dog entrance/reply and settled result. Exact observations and image hashes are in `visual-review-high-native-progress.json`; native completion is tracked separately in `results.json`.
 
-The complete **High English normal-text dog journey passes 1676 checks / 26 captures**, with all three stops, original **6700 points / nine stars**, no criticals and one saved play preserved by full-page reload. Independent original callback replay is verified again from the collected observations in `high-dog-completion.json`. Production 2D scene, absent scene3d registration, default3d=false and the suspended workday remain unchanged. **3/36 fresh jobs** are complete; larger-text Low heat is active.
+The complete **High English normal-text dog journey passes 1676 checks / 26 captures**, with all three stops, original **6700 points / nine stars**, no criticals and one saved play preserved by full-page reload. Independent original callback replay is verified again from the collected observations in `high-dog-completion.json`. Production 2D scene, absent scene3d registration, default3d=false and the suspended workday remain unchanged. The completed result retains its original source scope.
 
-This remains work in progress. Resource profiles are not completed native journeys or assessment verdicts. The full matrix, harmful/abandoned records and remaining repository regressions must pass before owned task acceptance. Shared Tamil glyph/translation/A30/A31/default/current-pilot and owner Intel FPS acceptance remain separate; cloud frame rates do not certify Intel performance. Optional ice/fatigue policy and the next-batch request remain with Claude. The hourly automation remains enabled without an end date.
+**Current completed scope:** all **64 resource views**, all **six repository browser regressions**, and **8 good native journeys / 9629 checks / 197 captures** pass. Every Low English id passes at both sizes; three larger-English assessments pass once and survive reload. The first Low normal-Tamil footsteps journey also preserves original 7500 points and nine stars. The High normal-English dog result remains included. **16/36 fresh jobs** are complete; Low normal-Tamil dog is running. `native-snapshot.json` independently verifies collected original callbacks and retains older unaffected evidence explicitly; `resource-snapshot.json` records all profile hashes/peaks. No passed browser or prerequisite suite was repeated for documentation.
+
+Eight new larger-English/accessible/fallback Low captures were inspected in `visual-review-low-en-large.json`. Two Tamil captures in `visual-review-tamil-normal-steps.json` still show shared result glyph boxes and untranslated new controls; they are behavior/bounds evidence, not readable-Tamil acceptance.
+
+This remains work in progress. Remaining language/size journeys and harmful/abandoned records must pass before owned task acceptance. Shared Tamil glyph/translation/A30/A31/default/current-pilot and owner Intel FPS acceptance remain separate; cloud frame rates do not certify Intel performance. Optional ice/fatigue policy and the next-batch request remain with Claude. The hourly automation remains enabled without an end date.
