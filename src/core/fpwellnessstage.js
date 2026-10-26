@@ -113,7 +113,7 @@ OTR.fpWellnessStage={
   pose(model,seconds=0){
     const s=model.wellnessStage,d=s.stop,w=d.wellness,r=w.ref,dog=s.dog;
     if(r.gate){s.gate.open=!!r.gate.open;const b=s.gate.solid;b.x=s.gate.open?s.gate.x-s.gate.w/2:s.gate.x;b.z=s.gate.open?s.gate.z-s.gate.w/2:s.gate.z;b.w=s.gate.open?s.gate.d:s.gate.w;b.d=s.gate.open?s.gate.w:s.gate.d;}
-    const dt=Math.max(0,Math.min(.05,seconds)),reduced=!!OTR.fpAccess?.reduced(),ownerX=d.def.lot.interior?13.4:12.8,ownerZ=w.ownerAtGate?s.gate.z-.22:s.wall+(d.def.lot.interior?.35:1.1);
+    const dt=Math.max(0,Math.min(.05,seconds)),reduced=!!OTR.fpAccess?.reduced(),ownerX=d.def.lot.interior?13.4:12.8,ownerZ=w.ownerAtGate?s.gate.z-.6:s.wall+(d.def.lot.interior?.35:1.1);
     s.owner.moving=false;
     if(s.residentTask){const dx=ownerX-s.owner.x,dz=ownerZ-s.owner.z,length=Math.hypot(dx,dz),step=dt>0?(reduced?length:dt*1.2):0;s.owner.moving=length>.01;if(length<=step){s.owner.x=ownerX;s.owner.z=ownerZ;s.owner.moving=false;}else if(step){s.owner.x+=dx/length*step;s.owner.z+=dz/length*step;}s.owner.floor=OTR.fpScannerStopWorld.ground(model,s.owner.x,s.owner.z);}
     else{s.owner.x=ownerX;s.owner.z=ownerZ;s.owner.floor=w.ownerAtGate?0:s.floor;}

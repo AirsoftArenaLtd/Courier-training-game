@@ -32,7 +32,7 @@ test('a gate and its opened panel share collision geometry, while the owner rema
  const scene=fixture('m8-dog'),{m,d,world}=scene;try{
   assert.equal(scene.pick('wellness-gate',12,-38.8),'wellness-gate');assert.equal(m.blocked(12,-40.6),true);
   d.wellness.ref.gate.open=true;d.wellness.ownerAtGate=true;d.state.answered=true;scene.sync();assert.equal(world.wellness.gate.visible,false);assert.equal(m.blocked(12,-40.6),false);
-  assert.equal(m.blocked(11.25,-41.35),true,'the opened gate panel still blocks walking');assert.equal(world.person.position.y,1.55);assert.equal(world.person.position.z,-40.82);
+  assert.equal(m.blocked(11.25,-41.35),true,'the opened gate panel still blocks walking');assert.equal(world.person.position.y,1.55);
   assert.equal(scene.pick('customer-stop-person',12.8,-38.9),'customer-stop-person');
  }finally{world.dispose();}
 });
@@ -56,4 +56,19 @@ test('a fearful dog has pinned ears, a low body and tucked tail while all feet r
   w.moving.getMatrixAt(11,matrix);matrix.decompose(p,q,scale);assert.ok(scale.y<.07&&scale.z>.23,'tail lies low beneath the hindquarters');
   d.wellness.ref.dog.setMood('alert');scene.sync();w.moving.getMatrixAt(3,matrix);matrix.decompose(p,q,scale);assert.ok(scale.y>.19);
  }finally{scene.world.dispose();}
+});
+test('the live resident keeps animated feet behind the closed gate while remaining reachable from the street',async()=>{
+ const previousAccess=O.fpAccess;O.fpAccess={...previousAccess,reduced:()=>false};let poses=0;
+ try{for(const high of [false,true]){
+  O.gfx={high:()=>high};const bank=await assets.preload({high,fetch:local}),scene=fixture('m8-dog',0,{bank}),{m,d,world}=scene;
+  try{S.bind(m);m.mode='walk';Object.assign(m.player,{x:12,z:-38.8});d.wellness.ownerAtGate=true;d.wellness.ref.dogGone=true;d.state.answered=true;scene.sync();
+   const human=world.human,point=new THREE.Vector3();assert.ok(human);assert.equal(scene.pick('customer-stop-person',12.8,-38.9),'customer-stop-person');
+   for(const clip of ['Idle_Neutral','Interact'])for(const reduced of [false,true])for(let frame=0;frame<40;frame++){
+    human.pose(clip,frame/10,reduced,high);human.mesh.updateMatrixWorld(true);const position=human.geometry.attributes.position;let front=-Infinity;
+    for(let i=0;i<position.count;i++){point.fromBufferAttribute(position,i).applyMatrix4(human.mesh.matrixWorld);if(point.y<.25)front=Math.max(front,point.z);}
+    assert.ok(front<=m.wellnessStage.gate.z-.06,JSON.stringify({high,clip,reduced,frame,front,gate:m.wellnessStage.gate.z}));poses++;
+   }
+  }finally{world.dispose();bank.dispose();}
+ }}finally{O.fpAccess=previousAccess;}
+ assert.equal(poses,320);
 });

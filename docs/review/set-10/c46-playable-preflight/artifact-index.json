@@ -8,6 +8,81 @@
       "sha256": "2c47cde636161086cbabb5a2bc26c36f4a009198d0368901d1cbe11cc76aabd8"
     },
     {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-brief.png",
+      "bytes": 91654,
+      "sha256": "2b1896efb00dd412a67f0a6b08b19bbee12198abc37b7097f087a998bd6939f4"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-controls-0.png",
+      "bytes": 78422,
+      "sha256": "26a81e28ffb7f231c9a3c78f76f23d9bfb2a9e4e834c64da8b6e814f60975265"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-controls-1.png",
+      "bytes": 84851,
+      "sha256": "cc0ad113e76eeae8d48973b74dbe2dae4a62e75105ad3eaef0b0b8a0ea84ae5f"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-controls-2.png",
+      "bytes": 69968,
+      "sha256": "d5dec6420aab37d6ee5d080ad0f41360dff42e16d75a4c05671d289ea5fcb137"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-controls-3.png",
+      "bytes": 84509,
+      "sha256": "e1b7ac1262f16503649057934012e7e3c7e552ad8a6d7ae86c1c72bc0fc16a5b"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-controls-4.png",
+      "bytes": 86993,
+      "sha256": "9fe692736459583f913674df8ab160743a3ce613a9c446c06b4c23f4e30df9f5"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-controls-5.png",
+      "bytes": 85872,
+      "sha256": "8dbff01d1aa63d6bf2806bbb54a0409f3315d551cbe1cce0c90834e6539055a5"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-handheld.png",
+      "bytes": 112112,
+      "sha256": "df79079a539ad13fa01ab785a0ce73ae938455e2a6f06695ace86e3211e63f1e"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop0-arrival.png",
+      "bytes": 231714,
+      "sha256": "ee3c85d7a9f8e4d5d56e4bb6fefa351534056ee504aa0794973511058168eb79"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop0-cargo.png",
+      "bytes": 122336,
+      "sha256": "eaec8714a769e05f82b4da51fe86e25f9470b4940e59f9a6438da0935ffd1eeb"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop0-printed-name.png",
+      "bytes": 92674,
+      "sha256": "2e0dacc289e864f906d33aed11f7c19ce736b39d1562df887b4afcdf5f525916"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop0-reply-g1.png",
+      "bytes": 97714,
+      "sha256": "291e68d77c1994535cc39dec904276f7d853d491c4372a2072e81bb9089f2d3e"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop0-report.png",
+      "bytes": 56331,
+      "sha256": "38875a3b2d2ca84885127a3f601fbac6124bd77d9e9bd73174992e31d3a9b724"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop1-cargo.png",
+      "bytes": 124113,
+      "sha256": "6f66c61cfaa6c9b6b8087d43234618a5f2782e5b6b0f21ecaa8db47e8ae26a0a"
+    },
+    {
+      "file": "c46-playable-563c7b2e-high-en-normal-dog.json",
+      "bytes": 3864,
+      "sha256": "891236025835efbff6568fd4928a2fea730025c46cb8d87aaa2cc9e5c10420f9"
+    },
+    {
       "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-brief.png",
       "bytes": 81141,
       "sha256": "833897c69a743b190fc64eafad4b584ef01ca0dbcebebfc5b5b261dc69af6811"
@@ -48,6 +123,11 @@
       "sha256": "e17ae7b00b239cc7dd048550cf4884be31469af8a6a1aa98fb8968b68da64066"
     },
     {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-result.png",
+      "bytes": 140814,
+      "sha256": "59a237ed130a0fb498c20781164ef2c7d8141d8e7b149500d3f506426201e28b"
+    },
+    {
       "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop0-arrival.png",
       "bytes": 96005,
       "sha256": "a909dd9f455dc4b7c03f91b0a5f057b7852f6a29121b4e131c958a9a7c9e8606"
@@ -68,9 +148,59 @@
       "sha256": "e9ea68830a2eae93d9b34bac91ecfe34c670ff36a045020ca439623623265065"
     },
     {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop0-report.png",
+      "bytes": 52222,
+      "sha256": "8dca7dab702c642dd7681ea839f766afb4a9929233b2144431fe979e9c1e0d1f"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop1-arrival.png",
+      "bytes": 95646,
+      "sha256": "e4961d242a80475ba1344ca1b88bf68c4e5623243036f9a13d0c9fa1060af6a2"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop1-cargo.png",
+      "bytes": 105390,
+      "sha256": "6187cdee9f8491af0f47a5e51372622f8880370bf001f33ab59908b8003ee353"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop1-printed-name.png",
+      "bytes": 43538,
+      "sha256": "d907430d9949e82bf1e2163c26b800c05d002b0226c6f1d1d7997df6fafaa4d1"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop1-reply-s1.png",
+      "bytes": 53523,
+      "sha256": "d26e7b5d6b7543d81821e2873d14f8ca8e617141ef03512f050cf2e6712bf29d"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop1-report.png",
+      "bytes": 41342,
+      "sha256": "2cca595af7618e8edf0c09ba9eb1a1869f055a9dff98ef3559b8267f1a5ca502"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop2-arrival.png",
+      "bytes": 65361,
+      "sha256": "c086f408298d123dc65ac09ce0d29ffc58acd1616af6004bb3739b7d4e59dc04"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop2-cargo.png",
+      "bytes": 105318,
+      "sha256": "ab97efe064c8f107e965494e5ee99896b3e774de839e0c05ff5aca73beaf03ef"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop2-printed-name.png",
+      "bytes": 40961,
+      "sha256": "a7349c6415ce592209d13c6a33bf2588441bf3474d0a51b15f9188d233bcc4d7"
+    },
+    {
+      "file": "c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-stop2-report.png",
+      "bytes": 34303,
+      "sha256": "68ab6271fb01ff06922d9b22d9c39660f073d696a8fd996763983f88564cf0af"
+    },
+    {
       "file": "c46-playable-563c7b2e-low-en-normal-steps.json",
-      "bytes": 2196,
-      "sha256": "cd21f43a85e2ecbab90dd9c726e208a2301219d46c5501f2cc0aa416bc2a82c5"
+      "bytes": 83608,
+      "sha256": "6545f68740ec1e51d762ae2e32d9057f0c3ef6e37d94bd03c16aea383b9f5a80"
     },
     {
       "file": "c46-playable-563c7b2e-low-first-loaded-low-low-wellnesscab.png",

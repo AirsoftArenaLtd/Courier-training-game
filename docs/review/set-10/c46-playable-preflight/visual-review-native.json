@@ -1,0 +1,15 @@
+{
+  "runtime": "563c7b2e",
+  "images": [
+    {
+      "file": "artifacts/c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop0-arrival.png",
+      "sha256": "ee3c85d7a9f8e4d5d56e4bb6fefa351534056ee504aa0794973511058168eb79",
+      "observation": "Uploaded resident, house and physical warning are visible. The shoe intersects the closed fence; this is rejected visual evidence for the corrected gate spacing, not approval of the new pose."
+    },
+    {
+      "file": "artifacts/c46-playable-563c7b2e-low-en-normal-steps-low-en-normal-steps-result.png",
+      "sha256": "59a237ed130a0fb498c20781164ef2c7d8141d8e7b149500d3f506426201e28b",
+      "observation": "Original nine-star result and three whole-sentence takeaways fit the result panel; category pills and station/retry controls remain separate. Native report proves 7500 points, one play and durable reload."
+    }
+  ]
+}

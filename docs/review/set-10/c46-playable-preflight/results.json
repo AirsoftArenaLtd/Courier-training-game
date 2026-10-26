@@ -9,6 +9,22 @@
         "QA_TAG": "c46-playable-563c7b2e-low-first",
         "QA_PROFILES": "loaded-low"
       }
+    },
+    {
+      "name": "low-en-normal-steps",
+      "exit": 0,
+      "env": {
+        "QA_CASE": "low-en-normal-steps",
+        "QA_TAG": "c46-playable-563c7b2e-low-en-normal-steps"
+      }
+    },
+    {
+      "name": "high-en-normal-dog",
+      "exit": 124,
+      "env": {
+        "QA_CASE": "high-en-normal-dog",
+        "QA_TAG": "c46-playable-563c7b2e-high-en-normal-dog"
+      }
     }
   ],
   "complete": false
