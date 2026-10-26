@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-26T04:20:50.403906+00:00",
+  "date": "2026-10-26T05:15:47.673507+00:00",
   "applicationRuntime": "eb40876c88b101e8d33d3e277fa061634bee067f",
   "completed": [
     {
@@ -379,6 +379,159 @@
       "assessmentAttempts": null,
       "abandoned": false,
       "completedPlays": 1
+    },
+    {
+      "case": "high-ta-large-business",
+      "variant": "good",
+      "checks": 885,
+      "captures": 26,
+      "score": 2300,
+      "stars": {
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 44.77933999999799,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": true,
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
+    },
+    {
+      "case": "high-ta-large-intl",
+      "variant": "good",
+      "checks": 977,
+      "captures": 29,
+      "score": 1800,
+      "stars": {
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 34.65810999999677,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": true,
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
+    },
+    {
+      "case": "high-ta-large-dg",
+      "variant": "good",
+      "checks": 742,
+      "captures": 21,
+      "score": 1700,
+      "stars": {
+        "safety": 3,
+        "service": 3
+      },
+      "seconds": 41.72386666667166,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": true,
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
+    },
+    {
+      "case": "low-en-large-business",
+      "variant": "bad-business",
+      "checks": 1100,
+      "captures": 29,
+      "score": 1400,
+      "stars": {
+        "service": 1,
+        "efficiency": 2
+      },
+      "seconds": 51.26663999999922,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": false,
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
+    },
+    {
+      "case": "low-en-large-intl",
+      "variant": "bad-docs",
+      "checks": 693,
+      "captures": 27,
+      "score": 500,
+      "stars": {
+        "service": 1,
+        "efficiency": 0
+      },
+      "seconds": 36.966666666666704,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": false,
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
+    },
+    {
+      "case": "low-en-large-dg",
+      "variant": "bad-call",
+      "checks": 631,
+      "captures": 19,
+      "score": 400,
+      "stars": {
+        "safety": 0,
+        "service": 1
+      },
+      "seconds": 43.694939999999654,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": false,
+      "assessmentAttempts": 1,
+      "abandoned": false,
+      "completedPlays": 1
+    },
+    {
+      "case": "low-en-large-business",
+      "variant": "abandon",
+      "checks": 155,
+      "captures": 6,
+      "score": null,
+      "stars": null,
+      "seconds": null,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": false,
+      "assessmentAttempts": 1,
+      "abandoned": true,
+      "completedPlays": 0
+    },
+    {
+      "case": "low-en-large-intl",
+      "variant": "abandon",
+      "checks": 155,
+      "captures": 6,
+      "score": null,
+      "stars": null,
+      "seconds": null,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": false,
+      "assessmentAttempts": 1,
+      "abandoned": true,
+      "completedPlays": 0
+    },
+    {
+      "case": "low-en-large-dg",
+      "variant": "abandon",
+      "checks": 155,
+      "captures": 6,
+      "score": null,
+      "stars": null,
+      "seconds": null,
+      "durable": true,
+      "assessed": true,
+      "assessmentPassed": false,
+      "assessmentAttempts": 1,
+      "abandoned": true,
+      "completedPlays": 0
     }
   ]
 }

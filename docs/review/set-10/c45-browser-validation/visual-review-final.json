@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-26T05:15:46.279822+00:00",
+  "applicationRuntime": "eb40876c88b101e8d33d3e277fa061634bee067f",
+  "protocolRevision": "eb40876c88b101e8d33d3e277fa061634bee067f",
+  "snapshot": {
+    "passedJobs": 40,
+    "expectedJobs": 40,
+    "nativeGoodJourneys": 24,
+    "nativeChecks": 23905,
+    "nativeCaptures": 701,
+    "resourceViews": 60,
+    "complete": true
+  },
+  "images": {
+    "completed/native-good-high-ta-large-business/c45-eb40876c-native-good-high-ta-large-business-high-ta-large-business-result.png": "ef1b341b223c81a701e5249abd0d31434479c88d2fc935d70f7045251c55f3eb",
+    "completed/native-good-high-ta-large-intl/c45-eb40876c-native-good-high-ta-large-intl-high-ta-large-intl-result.png": "e8bf9d24e0eec68310c3251ebd8fd8d6ea6481d07caaa4a730222ee0bb952b54",
+    "completed/native-good-high-ta-large-dg/c45-eb40876c-native-good-high-ta-large-dg-high-ta-large-dg-result.png": "09ce9cabe97c7ad0559e2d26f95ee1bb51b3e509dfb9aa55d0ec92d6adc7d74d",
+    "completed/native-bad-business-low-en-large-business/c45-eb40876c-native-bad-business-low-en-large-business-low-en-large-business-result.png": "4a0a457ec2890ae5a5412d381c7446379ba58fe0ba59ce51a708b4a07d84951d",
+    "completed/native-bad-docs-low-en-large-intl/c45-eb40876c-native-bad-docs-low-en-large-intl-low-en-large-intl-result.png": "6bc8241aabec339b43d622087e6216eb9d252bed0cc4379b357f778a737c55e7",
+    "completed/native-bad-call-low-en-large-dg/c45-eb40876c-native-bad-call-low-en-large-dg-low-en-large-dg-result.png": "925ad8699bc2bbad94b671c8387eb9f8669ed9c53e8c65778b29ea08c3230b4d",
+    "completed/native-good-high-ta-large-intl/c45-eb40876c-native-good-high-ta-large-intl-high-ta-large-intl-invoice-10.png": "cfce2917b12dbc95ac720920a2d7747ecb4d5b4b93fd130a65c7a9b92daf0759",
+    "completed/native-good-high-ta-large-business/c45-eb40876c-native-good-high-ta-large-business-high-ta-large-business-controls-3.png": "b904f0cecb3004f27b7382bb5bd2a177a4455fbecd64dee4db1e1658e298de7f"
+  },
+  "observations": [
+    "All three final High larger-Tamil result screens fit and visibly show passed assessments/six stars. Shared missing glyphs remain in results/takeaways/career; new invoice/control pages remain partly or wholly English. No readable-Tamil/translation acceptance is claimed.",
+    "The three harmful larger-English Low result screens visibly fail their assessments. Wrong business refusals retain 1400 points and service 1/efficiency 2 stars; incomplete customs accepted retains 500 and service 1/efficiency 0; unsafe DG accepted retains 400 and safety 0/service 1. Original critical lessons are displayed for customs and DG.",
+    "The final invoice line and receipt/control page fit at larger text, retaining all three invoice choices and both controls choices. No overlap or unreadable font-size reduction was seen in these captures.",
+    "Eight final images were inspected, supplementing the previous 26 current-source images. Native abandonment is proven by durable report state, not by an invented result screenshot. Each consumes one attempt, remains unpassed and records zero completed plays."
+  ],
+  "scope": "Own source-scoped resource/native/repository/representative visual gate complete. 34 representative current-source images inspected across three records. Shared font/translation/A30/A31/current-pilot/default rollout and owner Intel O1 remain separate."
+}

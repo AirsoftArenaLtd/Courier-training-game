@@ -1,6 +1,6 @@
 # C45 review gallery — current frozen application eb40876c
 
-This is progress evidence, not a deployed build or a default-module rollout. The 40-job gate is still running. All 60 resource views and the first 20 native journeys pass; exact scopes are in [completed-summary.json](completed-summary.json). No cloud frame rate certifies the owner’s Intel laptop.
+The owned C45 implementation is ready for Claude review: all 40 jobs, 24 good native journeys, three harmful assessments, three abandonments, 60 resource views and six repository regressions pass. This is source-scoped evidence, not a deployed build or default-module rollout. The [completed summary](completed-summary.json) and [final visual record](visual-review-final.json) preserve exact scopes. Shared font/translations/default rollout and owner Intel laptop measurement remain separate.
 
 | View | Review focus |
 | --- | --- |
@@ -15,3 +15,5 @@ This is progress evidence, not a deployed build or a default-module rollout. The
 The [first thirteen](visual-review-20261026-0233.json) and [next thirteen](visual-review-20261026-0420.json) inspected captures preserve individual hashes and observations. Other saved screenshots are raw evidence, without an implied visual-review claim.
 
 Low and missing-model resource views use the procedural shipper by policy; High uses the bundled character. Shared font/translations, A30/A31, combined-pilot review, 3D default approval and owner Intel measurement remain separate. The registry proposal is unapplied.
+
+Eight final captures bring the representative inspected total to **34**. The three harmful English result screens visibly fail; final High larger-Tamil results fit but retain missing glyphs. Durable abandonment outcomes are in [native-snapshot.json](native-snapshot.json), with zero completed plays.
