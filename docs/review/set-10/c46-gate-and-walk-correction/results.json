@@ -1,0 +1,85 @@
+{
+  "scope": "107-suite Node prerequisite: 102 unaffected passes retained; five affected suites refreshed. No current-source native/rendered acceptance yet.",
+  "retainedNodeSuites": 102,
+  "suites": [
+    {
+      "file": "test/fpwellnessscenario.js",
+      "exit": 0,
+      "cases": 11
+    },
+    {
+      "file": "test/fpwellnessstopworld.js",
+      "exit": 0,
+      "cases": 7,
+      "actualCharacterPoses": 320
+    },
+    {
+      "file": "test/fpwellnessstage.js",
+      "exit": 0,
+      "cases": 9
+    },
+    {
+      "file": "test/fpwellnessgeometry.js",
+      "exit": 0,
+      "cases": 1,
+      "worldPoses": 32292
+    },
+    {
+      "file": "test/fpqualitygate.js",
+      "exit": 0,
+      "cases": 16
+    }
+  ],
+  "syntax": [
+    {
+      "file": "src/core/fpwellnessstage.js",
+      "exit": 0,
+      "sha256": "a65f791eb4251fbe918ceafa7ced376543798e3060e3ceba684d2f3bcf6ae280"
+    },
+    {
+      "file": "test/fpwellnessscenario.js",
+      "exit": 0,
+      "sha256": "a5d1df831f37847ac6164b57e3b1d884bc657f746c86369a529db63224c1a011"
+    },
+    {
+      "file": "test/fpwellnessstopworld.js",
+      "exit": 0,
+      "sha256": "1f24f69b2528444d3472f48f08e5f3c4d4f0c4fced985c2e4bf421b8d37ceedf"
+    },
+    {
+      "file": "test/fpwellnessgeometry.js",
+      "exit": 0,
+      "sha256": "7894a96e5dbdb63b29355013157f5a9804deb9453193a9a67af09ed00ded7bef"
+    },
+    {
+      "file": "test/fpwellnessbrowser.js",
+      "exit": 0,
+      "sha256": "bae2f54e2d9ba994ec97b769bfde52e7fed8e1d54c7e9a4e71ab83361733e03b"
+    },
+    {
+      "file": "test/fpbench.js",
+      "exit": 0,
+      "sha256": "9180ac762a10a0c6c2c7b150c6df4e16b6bb810bb73710bcd3b9a8b36539e5a9"
+    },
+    {
+      "file": "test/tools/fp-loading-walk.js",
+      "exit": 0,
+      "sha256": "ab578fee6ccd8fdbb85de87ee49b3a187f1a8ad865280ee3c1bdaa048685de22"
+    },
+    {
+      "file": "test/tools/fp-wellness-playable-fixture.js",
+      "exit": 0,
+      "sha256": "65f06fd2a2f0c5a2e3c05a0655d86d299fc4bd1350dbe06b9d5ae360a419dcf3"
+    },
+    {
+      "file": "test/tools/fp-wellness-playable-pose.js",
+      "exit": 0,
+      "sha256": "b2f98ed0ed4b917017aed0b493a4c9539743fb2756508558a26f02abf02aed21"
+    },
+    {
+      "file": "test/tools/fp-wellness-playable-quality.js",
+      "exit": 0,
+      "sha256": "756ea2a88f8c19928384a1ed5264228e755863489b817ca190ac2b257f23eaed"
+    }
+  ]
+}

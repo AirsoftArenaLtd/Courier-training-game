@@ -12,6 +12,7 @@ module.exports=view=>{
   Object.assign(m.player,{x:11.3,z:view==='wellnessgate'?-38.1:-39.4,yaw:.25,pitch:.25});const dog=d.wellness.ref.dog;dog.setAlpha(1);dog.x=d.wellness.ref.me.x+180;if(view==='wellnesscharge')dog.setMood('aggressive');if(view==='wellnessfear')dog.setMood('fearful');
   const pose=m.wellnessStage.dog;pose.sourceX=dog.x;pose.x=pose.goalX=12.2;pose.z=pose.goalZ=view==='wellnessgate'?-42.2:-41.6;
  }
+ if(view==='wellnessowner'){Object.assign(m.player,{x:12,z:-39,yaw:.3,pitch:.12});d.state.answered=true;d.wellness.ownerAtGate=true;d.wellness.ref.dogGone=true;}
  if(['wellnesscarry','wellnessclinic'].includes(view)){B.take(d,'p1');B.scan(d,'p1',true);d.state.answered=true;}
  if(view==='wellnessshade')Object.assign(m.player,{x:6,z:-37.5,yaw:.65,pitch:.05});
  if(view==='wellnesscarry')Object.assign(m.player,{x:9.5,z:-39,yaw:.5,pitch:.1});

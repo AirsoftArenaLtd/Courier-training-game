@@ -109,3 +109,16 @@ test('all authored safety climates build the real weather surfaces and valid lig
   }finally{scene.art.dispose();}
  }
 });
+test('the native walking helper releases its real keys when a dog conversation pauses motion, and its hurried hose route really trips',async()=>{
+ const vm=require('node:vm'),previousGame=O.game,held=new Set();let scene;
+ O.game={scene:{getScene:()=>scene}};
+ const move=require('./tools/fp-loading-walk')({page:{evaluate:fn=>vm.runInContext('('+fn.toString()+')()',c),keyboard:{async down(code){held.add(code);},async up(code){held.delete(code);}}},frames:async(n=2)=>{for(let i=0;i<n+1;i++)tick(scene,.05,{forward:held.has('KeyW'),back:held.has('KeyS'),left:held.has('KeyA'),right:held.has('KeyD'),careful:held.has('ShiftLeft')||held.has('ShiftRight')});},ok:(value,message)=>assert.ok(value,message)});
+ try{
+  scene=fixture('m8-dog',{index:1});A.climbDown(scene,true);Object.assign(scene.model.player,{x:12,z:-38.8,yaw:0});scene.sync();
+  const stopped=await move(12,-41.7,{stopOnPanel:true});assert.equal(stopped.interrupted,true);assert.ok(scene.panel);assert.equal(scene.model.customerStop.talkKey,'charge');assert.ok(Math.hypot(scene.model.player.x-12,scene.model.player.z+41.7)>.12,'the source conversation opens before the waypoint centre');assert.equal(held.size,0);
+  decision(scene,'c2');const d=scene.model.customerStop;O.fpCustomerScenario.present(scene,d.talk.choices.findIndex(ch=>ch.grade==='good'));scene.panel.choices[0].action();scene.panel.choices[0].action();tick(scene);const goal=scene.model.wellnessStage.walkGoal,dog=scene.model.wellnessStage.dog,p=scene.model.player;p.yaw=Math.atan2(dog.x-p.x,-(dog.z-p.z));scene.sync();
+  const retreat=await move(goal.x,goal.z,{stopOnPanel:true});assert.equal(retreat.interrupted,true);assert.equal(d.wellness.walkTask,null);assert.equal(d.talk.nodeId,'c3');assert.ok(Math.hypot(p.x-goal.x,p.z-goal.z)>.12);assert.equal(held.size,0);
+  scene.art.dispose();scene=fixture('m8-steps',{index:1});A.climbDown(scene,true);B.take(scene.model.customerStop,'p1');const h=scene.model.wellnessStage.hazards.find(h=>h.id==='hose');Object.assign(scene.model.player,{x:h.x,z:h.z+.55,yaw:0});scene.sync();
+  const arrived=await move(h.x,h.z-1.5);assert.equal(arrived.interrupted,false);assert.equal(scene.model.customerStop.state.hazards.hose.incident,true);assert.equal(scene.model.customerStop.state.hazards.hose.withLoad,true);assert.equal(scene.model.customerStop.state.hazards.toys.incident,false);assert.equal(held.size,0);
+ }finally{scene?.art.dispose();O.game=previousGame;}
+});

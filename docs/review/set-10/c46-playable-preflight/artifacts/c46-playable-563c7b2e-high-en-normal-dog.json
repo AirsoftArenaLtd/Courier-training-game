@@ -1,0 +1,76 @@
+{
+  "checks": 643,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "kind": "dog",
+      "shots": [
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-brief.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-controls-0.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-controls-1.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-controls-2.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-controls-3.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-controls-4.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-controls-5.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-handheld.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop0-cargo.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop0-reply-g1.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop0-arrival.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop0-printed-name.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop0-report.png",
+        "c46-playable-563c7b2e-high-en-normal-dog-high-en-normal-dog-stop1-cargo.png"
+      ],
+      "stops": [
+        {
+          "index": 0,
+          "phase": "report",
+          "state": {
+            "inVan": true,
+            "carrying": [],
+            "scanned": {
+              "p1": true
+            },
+            "scannedInVan": true,
+            "pulls": 1,
+            "wrongPulls": 0,
+            "addressChecked": false,
+            "knocks": 0,
+            "answered": true,
+            "talked": false,
+            "vanTrips": 0,
+            "outcome": "delivered",
+            "type": "recipient",
+            "signer": "May Chen",
+            "code": null,
+            "tagPrinted": false,
+            "tagAttached": false,
+            "spot": null,
+            "photo": null,
+            "idResult": null,
+            "exitSafe": true,
+            "enterSafe": true,
+            "hazards": {},
+            "delivered": [
+              "p1"
+            ],
+            "elapsed": 27.68875333333245,
+            "done": true
+          },
+          "criticals": []
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "7892f85733f3283e02cc8b51448f8190f5da226f",
+  "uncommittedRuntime": false,
+  "protocolSha256": "9a495a086c89f5aa9f2a0caf59fe43249d02e63fa4c203e63cc6b578df09b89d",
+  "scope": "Existing-id registration, accessibility and a suspended workday are setup fixtures. Observational wrappers record completed original conversations and pre-evaluation stop facts without changing arguments or return values. Real keys control all walking, aiming, parcels, safety actions, replies, photos, signing and results. No position, timer, node, hazard, signature-completion, score or verdict fixture. Independent original 2D callbacks replay observed choices and evaluate observed stop facts. Bounds checks do not certify Tamil glyph coverage or Intel FPS.",
+  "failure": {
+    "message": "Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.",
+    "stack": "TargetCloseError: Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.\n    at CdpCDPSession.send (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:72:35)\n    at CdpKeyboard.up (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Input.js:113:28)\n    at walk (/workspace/c46-safety-wellness/test/fpwellnessbrowser.js:16:150)\n    at async /workspace/c46-safety-wellness/test/fpwellnessbrowser.js:52:27"
+  }
+}
