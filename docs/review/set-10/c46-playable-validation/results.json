@@ -32,6 +32,15 @@
         "QA_TAG": "c46-playable-6d83d2e1-high",
         "QA_PROFILES": "loaded-high"
       }
+    },
+    {
+      "name": "high-en-normal-dog",
+      "group": "preflight",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-playable-6d83d2e1-high-en-normal-dog",
+        "QA_CASE": "high-en-normal-dog"
+      }
     }
   ],
   "preflightComplete": false,
