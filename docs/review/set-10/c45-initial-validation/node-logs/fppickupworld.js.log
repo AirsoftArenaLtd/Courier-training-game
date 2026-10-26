@@ -1,0 +1,13 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ every original package has actual supported geometry and an unobscured selectable front label face (62.243221ms)
+✔ Low ink follows only the actual focus; missing-label pieces never gain an address or verdict (32.279596ms)
+✔ the shipper and physical papers are selectable above the counter, while tables and room walls occlude (4.864415ms)
+✔ buffers, object counts and owned disposal remain bounded through focus and count changes (15.889792ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 166.241027

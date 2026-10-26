@@ -1,0 +1,87 @@
+[
+  {
+    "file": "src/core/fpaccess.js",
+    "exit": 0,
+    "sha256": "b8072e8bcbd161959b069b5049325ec636d496d3ac3b2a251bfbed6da968de99"
+  },
+  {
+    "file": "src/core/fppickup.js",
+    "exit": 0,
+    "sha256": "31964f81d55867e7d8cb48f5f945963738cd76d03a28e77162fb0a21dc85b4f2"
+  },
+  {
+    "file": "src/core/fppickupscenario.js",
+    "exit": 0,
+    "sha256": "71f9cfe71cc405ab887e182ee6c00db43832918c0d38a394dad92b6c5cc491ba"
+  },
+  {
+    "file": "src/core/fppickupworld.js",
+    "exit": 0,
+    "sha256": "bdaab60750a670f5d49f11eb4e96c555d12531ecc739f1de178f34b98ca5761c"
+  },
+  {
+    "file": "src/core/fpworld.js",
+    "exit": 0,
+    "sha256": "1ec35c5c439a5b9d1d4abe1012ef1b6193f292f3af3e0667fe6f35149230e0f6"
+  },
+  {
+    "file": "test/fpbench.js",
+    "exit": 0,
+    "sha256": "94108e2867d8fd1592bdc2ce8bb00eac8bd8d4ea105f9199e98a411a2993c171"
+  },
+  {
+    "file": "test/fppickup.js",
+    "exit": 0,
+    "sha256": "90f26f290235c51ee7a3053d0045cd61a871e54022e8cec57c26d89c204856b3"
+  },
+  {
+    "file": "test/fppickupbrowser.js",
+    "exit": 0,
+    "sha256": "66fc2daf8694e67ec1486eb64115fa694357271047f8a457cacf9ca2fcd94dad"
+  },
+  {
+    "file": "test/fppickupgeometry.js",
+    "exit": 0,
+    "sha256": "a6aeffef05c60b90efffadfc53e64007c2bae14ac42673e6a67e86e3fe2346ad"
+  },
+  {
+    "file": "test/fppickupreference.js",
+    "exit": 0,
+    "sha256": "cec888142a96b2f1a8a2492882e5b83b35f243431f23a61bb0bece7d84d4e5b3"
+  },
+  {
+    "file": "test/fppickupscenario.js",
+    "exit": 0,
+    "sha256": "52dd1553db4191747b31a1ea7a2bdf71fcece1e256a10bff3b82fecf8d3588b6"
+  },
+  {
+    "file": "test/fppickupworld.js",
+    "exit": 0,
+    "sha256": "a19e20802958a0542e790bfc36f4a141403a11ad79789ae138b3db9120afe45d"
+  },
+  {
+    "file": "test/tools/fp-pickup-context.js",
+    "exit": 0,
+    "sha256": "4d9cdcf3237dcead17d8daae0037e4347ea75feda3f65ea5d844fbdc3b0c8177"
+  },
+  {
+    "file": "test/tools/fp-pickup-fixture.js",
+    "exit": 0,
+    "sha256": "e07569dfd0d645bda00a028fd62c739d7af354b03bc2b5e8a92b5fa9c5347a02"
+  },
+  {
+    "file": "test/tools/fp-pickup-original.js",
+    "exit": 0,
+    "sha256": "558aba91db98bbc8aefb000cb7cf1c5857e19ce1da279e9b86a0aca9fe3be0e7"
+  },
+  {
+    "file": "test/tools/fp-pickup-pose.js",
+    "exit": 0,
+    "sha256": "ec73939ef687a75551134f5316b59affa9d96020c8587629d0bd580e6b81ade0"
+  },
+  {
+    "file": "test/tools/fp-pickup-quality.js",
+    "exit": 0,
+    "sha256": "ed7cff0b3c03a40ae4328617da88ec32d659b2cfc66b2e073cca554080fa2aa7"
+  }
+]

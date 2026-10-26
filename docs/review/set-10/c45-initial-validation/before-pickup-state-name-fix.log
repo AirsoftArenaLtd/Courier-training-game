@@ -1,0 +1,31 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ each existing id keeps categories, source data/par, unchanged defaults and bounded counter collision (41.408792ms)
+✔ real walking around the outgoing table reaches the shipper and all counter papers (25.42619ms)
+✔ all three complete counter workflows use real parcel/paper rays, source outcomes and the receipt gate (160.420844ms)
+✔ repeated panel callbacks and actions after looking away cannot grade a second parcel or count (40.053599ms)
+✔ normal/larger panels expose remapped keys and assessment conversation never shows answer feedback (9.446421ms)
+✖ the ordinary workday pickup method never constructs module-only counter state (5.435073ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 288.352608
+
+✖ failing tests:
+
+test at test/fppickupscenario.js:26:1
+✖ the ordinary workday pickup method never constructs module-only counter state (5.435073ms)
+  TypeError: Cannot read properties of undefined (reading 'place')
+      at Object.build (evalmachine.<anonymous>:18:68)
+      at Object.build (evalmachine.<anonymous>:379:67)
+      at TestContext.<anonymous> (/workspace/c45-pickups-paperwork/test/fppickupscenario.js:27:164)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

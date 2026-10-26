@@ -1,0 +1,25 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ safe backing needs no walk-around and reports once when the manoeuvre ends (2.77802ms)
+✔ contact and more than 5 mph fail immediately and cannot become a later pass (1.808628ms)
+✔ a collision from rest while attempting reverse is still a backing failure (0.372602ms)
+✔ setting the parking brake while still rolling finishes one manoeuvre after stopping (6.592865ms)
+✔ camera time counts only when visible, in reverse and unpaused, and survives an unfinished reload (2.373931ms)
+✔ only trainer-required tight scenarios report the optional walk-around type (0.595909ms)
+✔ trainer rules are cached outside the frame loop and never enter the mission checkpoint (0.493655ms)
+✔ invalid camera counters and malformed practice checkpoints are rejected without breaking old saves (2.208732ms)
+✔ three sensor rays find rotated world obstacles, cars and a crossing pedestrian (0.771393ms)
+✔ sensor bands and text distinguish distance without relying on colour or sound (0.535618ms)
+✔ sensor sectors cover the van width without gaps between three thin rays (0.232921ms)
+✔ guidelines follow reverse rear-axle arcs and bend in opposite directions (0.769741ms)
+✔ alley, dock and tight-drive practice have real collision walls, isolated saves and no workday reports (1.533813ms)
+✔ the screen powers automatically, is keyboard reachable, and does not feed its own reflection (41.346165ms)
+✔ all practice spaces and reflection cameras fit the unchanged complete-frame Low budget (38.169523ms)
+✔ reverse scheduling keeps all mirrors live and updates only one atlas cell per frame (3.131644ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 118.244615

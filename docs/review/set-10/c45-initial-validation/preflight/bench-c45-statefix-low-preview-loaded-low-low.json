@@ -1,0 +1,300 @@
+{
+  "tag": "c45-statefix-low-preview-loaded-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 14,
+    "failed": 0,
+    "fallbacks": 0,
+    "bytes": 824208,
+    "decodedBytes": 354468,
+    "errors": []
+  },
+  "prototype": {
+    "pickupbusiness": {
+      "frames": 129,
+      "avgFPS": 12.86,
+      "low1FPS": 5.46,
+      "p99ms": 181.4,
+      "maxMs": 185.2,
+      "peak": {
+        "calls": 23,
+        "triangles": 968,
+        "textures": 2,
+        "geometries": 13,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1165596,
+        "withMipmapsUpperBytes": 1554128
+      },
+      "worldProfile": {
+        "meshes": 102,
+        "instances": 176,
+        "geometries": 25,
+        "materials": 42,
+        "geometryBytes": 42376,
+        "instanceBytes": 534372,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          41,
+          41,
+          41,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 12,
+          "y": 1.65,
+          "z": -45.2,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "pickupcart": {
+      "frames": 111,
+      "avgFPS": 11.04,
+      "low1FPS": 5.33,
+      "p99ms": 182.7,
+      "maxMs": 192.2,
+      "peak": {
+        "calls": 25,
+        "triangles": 1514,
+        "textures": 2,
+        "geometries": 14,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1165596,
+        "withMipmapsUpperBytes": 1554128
+      },
+      "worldProfile": {
+        "meshes": 102,
+        "instances": 364,
+        "geometries": 25,
+        "materials": 42,
+        "geometryBytes": 42376,
+        "instanceBytes": 534372,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          41,
+          40,
+          40,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 12,
+          "y": 1.65,
+          "z": -41.7,
+          "yaw": 0.7471923494290412,
+          "pitch": -0.2392787767565754,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "pickupreceipt": {
+      "frames": 101,
+      "avgFPS": 10.07,
+      "low1FPS": 3.52,
+      "p99ms": 283.4,
+      "maxMs": 284.6,
+      "peak": {
+        "calls": 23,
+        "triangles": 912,
+        "textures": 2,
+        "geometries": 13,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 93,
+        "baseLevelRGBABytes": 1083032,
+        "withMipmapsUpperBytes": 1444043
+      },
+      "worldProfile": {
+        "meshes": 102,
+        "instances": 138,
+        "geometries": 25,
+        "materials": 42,
+        "geometryBytes": 42376,
+        "instanceBytes": 534372,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          32,
+          31,
+          31,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 13.7,
+          "y": 1.65,
+          "z": -45.2,
+          "yaw": 0,
+          "pitch": -0.43163884069709635,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "pickupProof": {
+    "pickupbusiness": {
+      "source": "pickup-static-render-fixture",
+      "id": "m7-business",
+      "canonical": true,
+      "par": 200,
+      "piece": "street",
+      "phase": "active",
+      "taskPhase": "active",
+      "stage": "talk",
+      "parcels": 6,
+      "modelParcels": 6,
+      "bounded": true,
+      "supported": true,
+      "inkTextures": 0,
+      "gaze": "pickup-shipper",
+      "viewedLabelPrinted": true,
+      "highShipper": false,
+      "handheld": false,
+      "panel": false,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "pickupcart": {
+      "source": "pickup-static-render-fixture",
+      "id": "m7-business",
+      "canonical": true,
+      "par": 200,
+      "piece": "street",
+      "phase": "active",
+      "taskPhase": "active",
+      "stage": "count",
+      "parcels": 6,
+      "modelParcels": 6,
+      "bounded": true,
+      "supported": true,
+      "inkTextures": 0,
+      "gaze": "pickup-parcel-b3",
+      "viewedLabelPrinted": true,
+      "highShipper": false,
+      "handheld": false,
+      "panel": false,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "pickupreceipt": {
+      "source": "pickup-static-render-fixture",
+      "id": "m7-business",
+      "canonical": true,
+      "par": 200,
+      "piece": "street",
+      "phase": "active",
+      "taskPhase": "receipt",
+      "stage": "inspect",
+      "parcels": 6,
+      "modelParcels": 6,
+      "bounded": true,
+      "supported": true,
+      "inkTextures": 0,
+      "gaze": "pickup-receipt",
+      "viewedLabelPrinted": true,
+      "highShipper": false,
+      "handheld": true,
+      "panel": false,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "pickupFixture": true,
+  "phaserTextures": {
+    "count": 93,
+    "baseLevelRGBABytes": 1083032,
+    "withMipmapsUpperBytes": 1444043
+  },
+  "phaserTexturesPeak": {
+    "count": 86,
+    "baseLevelRGBABytes": 1165596,
+    "withMipmapsUpperBytes": 1554128
+  },
+  "missingViews": [],
+  "errors": []
+}

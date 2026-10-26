@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-26T01:09:35Z",
+  "sourcePilot": "90844ac5ab146bbc1be29bcd387926007a0a591b",
+  "scriptSha256": "da44210b913c706d2ff50c3e79be02f6589d2e17b35b132ead6bb2a15317396d",
+  "passed": true,
+  "tests": 1,
+  "failures": 0,
+  "command": "Compile the unchanged pilot:test/englishtext.js in a Node Module with test/englishtext.js filename; test source paths stay current."
+}

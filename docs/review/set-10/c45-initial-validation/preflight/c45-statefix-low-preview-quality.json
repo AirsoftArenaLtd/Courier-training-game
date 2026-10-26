@@ -1,0 +1,19 @@
+{
+  "sourceRevision": "ebb71407243644d3af842ecbcb5fde12630fe284",
+  "scope": "Fifteen static counter poses under the original four fpbench resource profiles; not native gameplay or laptop FPS acceptance.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c45-statefix-low-preview-loaded-low-low.json",
+      "log": "c45-statefix-low-preview-loaded-low.log",
+      "peak": {
+        "calls": 25,
+        "triangles": 1514,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1554128
+      }
+    }
+  ]
+}

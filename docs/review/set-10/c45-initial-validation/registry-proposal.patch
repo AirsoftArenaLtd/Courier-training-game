@@ -1,0 +1,26 @@
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -293,6 +293,7 @@
+         title: 'Business Pickup',
+         icon: 'ic_clipboard',
+         scene: 'PickupScene',
++        scene3d: 'pickup-counter',
+         dataKey: 'pickups.m7_business',
+         categories: ['service', 'efficiency'],
+         blurb: 'A scheduled pickup with a manifest that does not quite match the counter. Count, inspect, and refuse what cannot ship.',
+@@ -304,6 +305,7 @@
+         title: 'International Docs',
+         icon: 'ic_book',
+         scene: 'PickupScene',
++        scene3d: 'pickup-counter',
+         dataKey: 'pickups.m7_intl',
+         categories: ['service', 'efficiency'],
+         blurb: 'A shipment heading across the border with a commercial invoice full of the classic mistakes. Find them before customs does.',
+@@ -315,6 +317,7 @@
+         title: 'Declare It or Refuse It',
+         icon: 'ic_diamond',
+         scene: 'PickupScene',
++        scene3d: 'pickup-counter',
+         dataKey: 'pickups.m7_dg',
+         categories: ['safety', 'service'],
+         blurb: 'A shipper wants "just a liter of solvent" on your truck, and a box of lithium batteries with nothing on the outside to say so.',

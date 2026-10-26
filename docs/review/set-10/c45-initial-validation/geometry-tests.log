@@ -1,0 +1,25 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+[{"loaded":true,"poses":3024,"peak":{"calls":31,"triangles":1746},"overBudget":0,"worst":{"id":"m7-business","stage":1,"x":14.3,"z":-41.7,"heading":11,"pitch":0,"calls":28,"triangles":1746}},{"loaded":false,"poses":3024,"peak":{"calls":37,"triangles":1592},"overBudget":0,"worst":{"id":"m7-business","stage":1,"x":14.3,"z":-41.7,"heading":11,"pitch":0,"calls":33,"triangles":1592}}]
+✔ all source pickup counter stages and headings keep the original Low main-plus-mirror geometry ceilings (5498.278693ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5514.34747

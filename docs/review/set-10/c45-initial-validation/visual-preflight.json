@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-26T01:09:35Z",
+  "scope": "Four English normal Low native preflight images inspected. Dirty-runtime preflight is diagnostic, not final clean-source acceptance.",
+  "images": {
+    "preflight/c45-native-preview-low-en-business-low-en-normal-business-reply.png": "8a1c34fb38ff34da61a3021502bb730f099bc00507f7d6e72dec5ca5b27da25f",
+    "preflight/c45-native-preview-low-en-business-low-en-normal-business-refusal-b2.png": "65d86f1230f1871b823874956bd710d85dd00e2f423de1ebaacfa82a5ea57b14",
+    "preflight/c45-native-preview-low-en-business-low-en-normal-business-receipt.png": "01fe025af18094c8297043cfb5b18c18743e4572195022b68c56e475df4b373d",
+    "preflight/c45-native-preview-low-en-business-low-en-normal-business-result.png": "d95993d5ddf176ea93f5bec17a256048696e2fc1015f6e4dfb332e1946dbd5a6"
+  },
+  "observations": [
+    "Conversation and refusal pages fit their readable text and three choices.",
+    "Receipt page and keyboard completion fit the handheld; the procedural Low shipper stands behind the counter.",
+    "The business result shows six stars, original 2300 points, and fitting takeaways/buttons.",
+    "No High, larger-text, international, dangerous-goods or Tamil visual acceptance is established by this preflight."
+  ]
+}

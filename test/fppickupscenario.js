@@ -1,0 +1,28 @@
+/* Counter native-action guards with actual motor, occlusion rays and isolated original results. */
+const test=require('node:test'),assert=require('node:assert/strict'),{c,O,F,K,A,fixture,aim,use,walk}=require('./tools/fp-pickup-context')();
+function counter(scene,x=12){walk(scene,15,-40.4);walk(scene,15,-45.2);walk(scene,x,-45.2);}
+function table(scene,x=12){walk(scene,15,-45.2);walk(scene,15,-41.7);walk(scene,x,-41.7);}
+function speak(scene){use(scene,'pickup-shipper');const s=scene.model.pickupTask;let guard=0;while(s.stage==='talk'){
+ assert.ok(++guard<30);if(s.talk.phase==='choices'){const wanted=s.talk.choices.findIndex(c=>c.grade==='good');while(!scene.panel.body.includes(s.talk.choices[wanted].text))scene.panel.choices[1].action();}scene.panel.choices[0].action();
+}scene.closePanel();}
+function count(scene){table(scene);for(const p of scene.model.pickupTask.pieces){const b=scene.art.pickup.parcels.find(b=>b.data.id===p.id);walk(scene,b.x,-41.7);use(scene,'pickup-parcel-'+p.id);scene.closePanel();}counter(scene,10.15);use(scene,'pickup-manifest');scene.panel.choices[0].action();scene.closePanel();}
+function paperwork(scene){const s=scene.model.pickupTask;if(!s.content.docs)return;walk(scene,11,-45.2);use(scene,'pickup-invoice');for(let i=0;i<s.content.docs.fields.length;i++){if(s.content.docs.fields[i].bad)scene.panel.choices[0].action();scene.panel.choices[1].action();}scene.panel.choices[2].action();scene.panel.choices[0].action();scene.closePanel();}
+function decisions(scene){table(scene);for(const p of scene.model.pickupTask.pieces){const b=scene.art.pickup.parcels.find(b=>b.data.id===p.id);walk(scene,b.x,-41.7);use(scene,'pickup-parcel-'+p.id);scene.panel.choices[0].action();if(p.accept)scene.panel.choices[0].action();else{scene.panel.choices[1].action();const index=c.OTR_DATA.pickups.reasons.findIndex(r=>r.id===p.reason);for(let n=0;n<index;n++)scene.panel.choices[1].action();scene.panel.choices[0].action();}scene.closePanel();}}
+test('each existing id keeps categories, source data/par, unchanged defaults and bounded counter collision',()=>{
+ const before=JSON.stringify(c.OTR_DATA.modules);for(const id of ['m7-business','m7-intl','m7-dg']){const scene=fixture(id);try{const s=scene.model.pickupTask;assert.equal(s.content,c.OTR_DATA.pickups[id.replace('-','_')]);assert.equal(s.content.par,id==='m7-business'?200:id==='m7-intl'?210:220);assert.ok(scene.model.blocked(12,-43.5));assert.ok(scene.model.blocked(12,-46.6));assert.equal(scene.model.blocked(15,-44),false);assert.equal(K.result(s),null);}finally{scene.art.dispose();}}assert.equal(JSON.stringify(c.OTR_DATA.modules),before);
+});
+test('real walking around the outgoing table reaches the shipper and all counter papers',()=>{
+ const scene=fixture('m7-intl');try{counter(scene);for(const [id,x]of [['pickup-shipper',12],['pickup-manifest',10.15],['pickup-invoice',11],['pickup-receipt',13.7]]){walk(scene,x,-45.2);aim(scene,id);assert.equal(scene.art.pick(),id);}}finally{scene.art.dispose();}
+});
+test('all three complete counter workflows use real parcel/paper rays, source outcomes and the receipt gate',()=>{
+ for(const id of ['m7-business','m7-intl','m7-dg']){const scene=fixture(id);try{counter(scene);speak(scene);count(scene);paperwork(scene);decisions(scene);counter(scene,13.7);use(scene,'pickup-receipt');const s=scene.model.pickupTask;assert.equal(s.phase,'receipt');if(K.accepted(s).length){assert.equal(scene.completed,undefined);scene.handheld.page.options[0].onPick();}scene.handheld.page.options[0].onPick();assert.equal(scene.completed.id,id);assert.equal(s.phase,'done');for(const ratio of Object.values(scene.completed.result.ratios))assert.equal(ratio,1);assert.equal(scene.completed.result.log.items.some(i=>i.critical),false);}finally{scene.art.dispose();}}
+});
+test('repeated panel callbacks and actions after looking away cannot grade a second parcel or count',()=>{
+ const scene=fixture();try{counter(scene);speak(scene);count(scene);table(scene,10.6);use(scene,'pickup-parcel-b1');scene.panel.choices[0].action();const accept=scene.panel.choices[0].action;aim(scene,'pickup-parcel-b2');accept();assert.equal(Object.keys(scene.model.pickupTask.decided).length,0);aim(scene,'pickup-parcel-b1');accept();assert.equal(Object.keys(scene.model.pickupTask.decided).length,1);const n=scene.model.pickupTask.log.items.length;accept();assert.equal(scene.model.pickupTask.log.items.length,n);}finally{scene.art.dispose();}
+});
+test('normal/larger panels expose remapped keys and assessment conversation never shows answer feedback',()=>{
+ const scene=fixture('m7-dg',{assessment:true});try{const s=scene.model.pickupTask;assert.equal(s.coaching,false);counter(scene);use(scene,'pickup-shipper');while(s.talk.phase!=='choices')scene.panel.choices[0].action();scene.panel.choices[0].action();assert.notEqual(s.talk.phase,'feedback');scene.closePanel();A.controls(scene);assert.match(scene.panel.body,/KeyP/);assert.match(scene.panel.body,/KeyE/);const elapsed=s.elapsed,run=scene.scenarioSession.elapsed;scene.scenarioSession.definition.tick(scene.scenarioSession,scene,10,false);F.advance(scene.scenarioSession,10,false);assert.equal(s.elapsed,elapsed);assert.equal(scene.scenarioSession.elapsed,run);}finally{scene.art.dispose();}
+});
+test('the ordinary workday pickup method never constructs module-only counter state',()=>{
+ const scene=fixture();scene.art.dispose();scene.model=O.fpMission.create('campaign',1);assert.equal(typeof scene.model.pickup,'function');try{scene.art=O.fpWorld.build(scene,scene.model);scene.sync();assert.equal(scene.art.pickup,null);}finally{scene.art?.dispose();}
+});
