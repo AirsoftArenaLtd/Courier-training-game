@@ -1,0 +1,130 @@
+{
+  "checks": 802,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "steps",
+      "shots": [
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-brief.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-controls-0.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-controls-1.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-controls-2.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-controls-3.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-controls-4.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-controls-5.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-handheld.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-stop0-cargo.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-stop0-arrival.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-stop0-photo-framing.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-stop0-photo-review.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-stop0-report.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-stop1-cargo.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-stop1-reply-s1.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-stop1-arrival.png",
+        "c46-horizontal-35bd5bb1-matrix-high-ta-large-steps-high-ta-large-steps-stop1-printed-name.png"
+      ],
+      "stops": [
+        {
+          "index": 0,
+          "phase": "report",
+          "state": {
+            "inVan": true,
+            "carrying": [],
+            "scanned": {
+              "p1": true
+            },
+            "scannedInVan": true,
+            "pulls": 1,
+            "wrongPulls": 0,
+            "addressChecked": false,
+            "knocks": 1,
+            "answered": false,
+            "talked": false,
+            "vanTrips": 0,
+            "outcome": "delivered",
+            "type": "left",
+            "signer": null,
+            "code": null,
+            "tagPrinted": false,
+            "tagAttached": false,
+            "spot": "mat",
+            "photo": {
+              "grade": "good",
+              "pkgIn": true,
+              "doorIn": true,
+              "numIn": false,
+              "personIn": false
+            },
+            "idResult": null,
+            "exitSafe": true,
+            "enterSafe": true,
+            "hazards": {
+              "ice_walk": {
+                "id": "ice_walk",
+                "type": "ice",
+                "label": "the icy sidewalk",
+                "img": {
+                  "displayWidth": 180,
+                  "x": 0,
+                  "y": 0,
+                  "setVisible": {}
+                },
+                "state": "careful",
+                "x": 1060,
+                "incident": false,
+                "fastT": 0
+              },
+              "ice_path": {
+                "id": "ice_path",
+                "type": "ice",
+                "label": "the frozen path",
+                "img": {
+                  "displayWidth": 150,
+                  "x": 0,
+                  "y": 0,
+                  "setVisible": {}
+                },
+                "state": "careful",
+                "x": 1290,
+                "incident": false,
+                "fastT": 0
+              },
+              "steps": {
+                "id": "steps",
+                "type": "ice",
+                "label": "the steps",
+                "img": null,
+                "state": "careful",
+                "x": 1369,
+                "incident": false,
+                "fastT": 0
+              }
+            },
+            "delivered": [
+              "p1"
+            ],
+            "elapsed": 47.25255999999409,
+            "done": true
+          },
+          "criticals": []
+        }
+      ],
+      "photoProofs": [
+        {
+          "index": 0,
+          "width": 640,
+          "height": 360,
+          "colours": 434
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "0877b2394a850d4a17af87f1c21c59a7c1c9cf7a",
+  "uncommittedRuntime": false,
+  "protocolSha256": "02e1041cfa9f7746459827fdacc33d9186ac25b58a15b6593ce354c70b818ca6",
+  "scope": "Existing-id registration, accessibility and a suspended workday are setup fixtures. Observational wrappers record completed original conversations and pre-evaluation stop facts without changing arguments or return values. Real keys control all walking, aiming, parcels, safety actions, replies, photos, signing and results. No position, timer, node, hazard, signature-completion, score or verdict fixture. Independent original 2D callbacks replay observed choices and evaluate observed stop facts. Bounds checks do not certify Tamil glyph coverage or Intel FPS."
+}
