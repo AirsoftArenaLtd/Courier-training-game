@@ -1,0 +1,119 @@
+{
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "All 64 original-ceiling resource views pass. Fifteen unaffected loaded-Low poses retain their documented earlier source scope; 49 are fresh. This is resource acceptance, not Intel FPS or native journey/rollout acceptance.",
+  "views": 64,
+  "profiles": {
+    "loaded-low": {
+      "views": 16,
+      "peak": {
+        "calls": 35,
+        "triangles": 1908,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1907558
+      }
+    },
+    "loaded-high": {
+      "views": 16,
+      "peak": {
+        "calls": 36,
+        "triangles": 30164,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5419494
+      }
+    },
+    "accessible-low": {
+      "views": 16,
+      "peak": {
+        "calls": 35,
+        "triangles": 1908,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2220102
+      }
+    },
+    "fallback-low": {
+      "views": 16,
+      "peak": {
+        "calls": 39,
+        "triangles": 1578,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1907558
+      }
+    }
+  },
+  "rows": [
+    {
+      "profile": "loaded-low",
+      "views": 15,
+      "retained": true,
+      "peak": {
+        "calls": 35,
+        "triangles": 1908,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1907558
+      },
+      "report": "../c46-playable-preflight/artifacts/c46-playable-563c7b2e-low-first-quality.json",
+      "sha256": "a0a88298c49c90f9f41687e1c7cee1d0881fba83dda922321fcf84add43f35c7"
+    },
+    {
+      "profile": "loaded-low",
+      "views": 1,
+      "retained": false,
+      "peak": {
+        "calls": 31,
+        "triangles": 1600,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1491072
+      },
+      "report": "artifacts/c46-playable-6d83d2e1-low-owner-quality.json",
+      "sha256": "8d45eb2835792ba9a1d24d074be23132dbbe533ee33f8f1294130fdedc0a5f7c"
+    },
+    {
+      "profile": "loaded-high",
+      "views": 16,
+      "retained": false,
+      "peak": {
+        "calls": 36,
+        "triangles": 30164,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5419494
+      },
+      "report": "artifacts/c46-playable-6d83d2e1-high-quality.json",
+      "sha256": "e5dd3fa8429dcb913e39c3e218104e3b8b048739fad87b1e2fe19ee81cdbfab4"
+    },
+    {
+      "profile": "accessible-low",
+      "views": 16,
+      "retained": false,
+      "peak": {
+        "calls": 35,
+        "triangles": 1908,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2220102
+      },
+      "report": "artifacts/c46-playable-6d83d2e1-remaining-quality.json",
+      "sha256": "c96f0b6a3b2057db732aef04ad77632f8f14a33df2a5f67f7d7ea15fb64215f9"
+    },
+    {
+      "profile": "fallback-low",
+      "views": 16,
+      "retained": false,
+      "peak": {
+        "calls": 39,
+        "triangles": 1578,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1907558
+      },
+      "report": "artifacts/c46-playable-6d83d2e1-remaining-quality.json",
+      "sha256": "c96f0b6a3b2057db732aef04ad77632f8f14a33df2a5f67f7d7ea15fb64215f9"
+    }
+  ]
+}

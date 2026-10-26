@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-26T16:32:38.909Z",
+  "child": 93927,
+  "state": {
+    "frame": 780,
+    "index": 0,
+    "phase": "active",
+    "player": {
+      "x": 11.898448253070937,
+      "z": -43.232264320285324,
+      "yaw": 0.051499862144254026
+    },
+    "clock": 25.288236666665547,
+    "elapsed": 28.288236666665547,
+    "panel": null,
+    "handheld": true,
+    "paused": true,
+    "acting": false,
+    "locked": 0,
+    "walkGoal": null,
+    "outcome": null
+  }
+}

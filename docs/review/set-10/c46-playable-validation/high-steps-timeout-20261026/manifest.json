@@ -1,0 +1,189 @@
+{
+  "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "sourceFilesVerified": 909,
+  "supervisorReleased": {
+    "pid": 83080,
+    "released": true
+  },
+  "exit": 124,
+  "checks": 802,
+  "completedStops": 2,
+  "captures": 19,
+  "lastCapture": {
+    "file": "c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop2-cargo.png",
+    "at": "2026-10-26T15:40:20.785493+00:00"
+  },
+  "failure": {
+    "message": "Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.",
+    "stack": "TargetCloseError: Protocol error (Input.dispatchKeyEvent): Session closed. Most likely the page has been closed.\n    at CdpCDPSession.send (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:72:35)\n    at CdpKeyboard.up (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Input.js:113:28)\n    at walk (/workspace/c46-safety-wellness/test/fpwellnessbrowser.js:16:176)\n    at async /workspace/c46-safety-wellness/test/fpwellnessbrowser.js:53:53"
+  },
+  "scope": "Incomplete High English normal footsteps journey. The supervisor killed only its owned child after its 1800-second wall deadline; the TargetCloseError follows that termination. Last capture reaches third-stop cargo, about one minute before the deadline. This does not establish the remaining path is clear or a completed result. Retain 21 completed passing jobs; retry only this and the 14 never-started jobs with a longer wall deadline, keeping all 909 source hashes/game clocks/par/controls/scoring unchanged.",
+  "preflightFlag": "The original controller recomputes preflightComplete using all job exits, so this later matrix failure makes it false. All eleven preflight exits remain zero; the continuation computes this flag from preflight jobs only.",
+  "files": [
+    {
+      "file": "artifact-index.json",
+      "sha256": "452453de142404555d08f405224ef1c1d1983b47d854c3b7702c071a9f0ab07a",
+      "bytes": 93357
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-brief.png",
+      "sha256": "178ea2095465af22b563c29236d079fbd24876c9904e2b7175314330dba41414",
+      "bytes": 83169
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-controls-0.png",
+      "sha256": "b323df625ae4c441aafa269a00446b22d0ed26bf092457f7b8fbde327d31d0c7",
+      "bytes": 70490
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-controls-1.png",
+      "sha256": "532417529fed73d9627e5fb126eef31aa9a9b69cba65cfdb6a7a5271ebf8a9e8",
+      "bytes": 76650
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-controls-2.png",
+      "sha256": "d67451dfd76927a6cbe0b14e6071c294b97b7c4a238372250e7cd822e6b50716",
+      "bytes": 62130
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-controls-3.png",
+      "sha256": "9920086407cad4d1f64fb5e0ca62e718aa4e5e4f982dca488758d48f589a012a",
+      "bytes": 76318
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-controls-4.png",
+      "sha256": "c5e9c54833db88f8f6ddc8ff79ca220e092fd2affa109351a3bf31332f04b793",
+      "bytes": 78596
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-controls-5.png",
+      "sha256": "9343b56ead7f6f46420a845c0984e1dc625974b49200574ef54195df8b913648",
+      "bytes": 77570
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-handheld.png",
+      "sha256": "248e7181b388ac4e61c9aacec56af784cfdba0275be923477fd29c3bf7d0590d",
+      "bytes": 110909
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop0-arrival.png",
+      "sha256": "ec05053d8767d9c1aef1e31960299e4bc8173cfa04a955ff2ff2cac4f91246b0",
+      "bytes": 141204
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop0-cargo.png",
+      "sha256": "3a53c750cffb7952d3f04bcf67e632bf57554749ee8050d59ba9cf8b1dd2abe7",
+      "bytes": 146901
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop0-photo-framing.png",
+      "sha256": "ddaae41a062839d0d1bd3c725d4299b79d8309da514ca849a7073254adc773f1",
+      "bytes": 170210
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop0-photo-review.png",
+      "sha256": "dae5609a92bc68de80f01b402c593d027db837415ad539d11ec4f8deeee3c82c",
+      "bytes": 211329
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop0-report.png",
+      "sha256": "499605350d0158bd2a663daf69ecee88003bf08fdd04f420d6c8bcced245af32",
+      "bytes": 49479
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop1-arrival.png",
+      "sha256": "2227d473d6df11d4fbbe1fd649564b95d19639afead73c9040a2cd125e7fb0cd",
+      "bytes": 125772
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop1-cargo.png",
+      "sha256": "d88ad0d75457d9b971c61c3e3cf9d482e8458f7bfadc4d4cf0b649cb0b5b6e46",
+      "bytes": 102610
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop1-printed-name.png",
+      "sha256": "4ffd77df4132eafead365569b3849c84fb7ee6b18d794b6b27c4e682d726324d",
+      "bytes": 56336
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop1-reply-s1.png",
+      "sha256": "b3e1273a93d71d320e9d8deadea3c1aabed92f4cff5c296d13a6ab844ad93c60",
+      "bytes": 66380
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop1-report.png",
+      "sha256": "dcad13d7c216f4e3ce1cb0197d7120acc3e263da601c8911ca29ab160871ddd4",
+      "bytes": 48318
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps-high-en-normal-steps-stop2-cargo.png",
+      "sha256": "587f7c35304f6324cc466faafdc19cd132223b2a3a62dbd6c77b133a65da138c",
+      "bytes": 104328
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-matrix-high-en-normal-steps.json",
+      "sha256": "bdeb36c9d1c10c4d31b674311749b647ef4bdc7e98a6ef94039392b3f8543079",
+      "bytes": 8706
+    },
+    {
+      "file": "gallery.md",
+      "sha256": "eb795ed1889d749f5a7b05cd3651b9160dd72166012c222382bb84db942de12c",
+      "bytes": 71426
+    },
+    {
+      "file": "http.log",
+      "sha256": "47104316608055858d464996768316ed116acd2c4300e5e3e55955b6115f2ea7",
+      "bytes": 358343
+    },
+    {
+      "file": "launcher.log",
+      "sha256": "868b91f20b179eec269e6c7dec256a156e962a92067a9b35466115ab8c4039b9",
+      "bytes": 3777
+    },
+    {
+      "file": "matrix-high-en-normal-steps.log",
+      "sha256": "77e42f479adc5e77cc4644679cabe2b7a261654fdd462373fb8e9fab3956601a",
+      "bytes": 592
+    },
+    {
+      "file": "owned-processes.json",
+      "sha256": "cbbab75afb931b26d192807d3a4e354e8e0e148c3d747fe233216443068d9d27",
+      "bytes": 103
+    },
+    {
+      "file": "plan.json",
+      "sha256": "38561ad5b79b60f5a4641ec1b1b187953c1a1f9331b62a1922f8b8b6cad8fb8a",
+      "bytes": 104600
+    },
+    {
+      "file": "released.json",
+      "sha256": "47dde85c580d0aa43c1ec12d406d64818cfdb455417e9901e0248c14fec4658a",
+      "bytes": 39
+    },
+    {
+      "file": "results.json",
+      "sha256": "ea34983a60ebf4571a045bbbdf70f54a8f41dad1aa0086f777443bddf09cc11d",
+      "bytes": 5689
+    },
+    {
+      "file": "retained-native-snapshot.json",
+      "sha256": "0054178bdf19e9353897cbff633d7ae006f6ccc6eb26e4e0580ab9c6e4b93d30",
+      "bytes": 14934
+    },
+    {
+      "file": "retained-resource-snapshot.json",
+      "sha256": "4c9c24696f6b43924cb0491e3a369875d118fd9ce2f3a2dd24ec9e316aa58234",
+      "bytes": 3256
+    },
+    {
+      "file": "status.json",
+      "sha256": "0cf6d8d2feb3efdc67e0f86ad964002187b9d8b85032f6f8681086dfc9903cd3",
+      "bytes": 154
+    },
+    {
+      "file": "supervisor.py",
+      "sha256": "d9e0a95289c8a462ee91fb55052161398a30a763e73d0aaf3e1210fdb6664a16",
+      "bytes": 3797
+    }
+  ]
+}
