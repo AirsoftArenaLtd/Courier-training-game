@@ -1,0 +1,2 @@
+loaded-low PASS {"calls":30,"triangles":1908,"textures":2,"attachmentBytes":3557376,"phaserBytes":1482000}
+loaded-high FAIL fpbench failed

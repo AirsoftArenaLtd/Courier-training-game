@@ -5,7 +5,7 @@ test('all nine loaded/fallback Low/High safety components have stable bounded su
  for(const high of [false,true]){O.gfx={high:()=>high};const bank=await assets.preload({high,fetch:local});try{for(const loaded of [true,false])for(const id of ['m8-steps','m8-dog','m8-heat'])for(let index=0;index<3;index++){
   const scene=fixture(id,index,{bank:loaded?bank:null}),{world,m,d}=scene,w=world.wellness,arrays=[w.fixed.instanceMatrix.array,w.moving.instanceMatrix.array],children=world.root.children.length;
   try{
-   assert.equal(world.imports.length,loaded?1:0);assert.equal(!!world.human,loaded&&!!d.def.answer);assert.equal(w.words.mesh.material.map,null);
+   assert.equal(world.imports.length,loaded?1:0);assert.equal(!!world.human,loaded&&!!d.def.answer);assert.equal(w.words.mesh.material.map,null);assert.ok(w.words.mesh.instanceMatrix.array.byteLength<=(high?131072:8192));
    for(const plaque of world.plates)assert.ok(Math.abs(plaque.z-.024-plaque.wall)<1e-8);
    for(let n=0;n<100;n++){
     m.customerStage.time=m.wellnessStage.time=n/20;d.state.answered=!!d.def.answer&&n%2===0;if(d.wellness.ref.gate)d.wellness.ref.gate.open=n%2===0;

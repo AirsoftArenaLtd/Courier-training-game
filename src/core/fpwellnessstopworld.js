@@ -36,7 +36,7 @@ OTR.fpWellnessStopWorld={
       return {surface,target,hose};
     });
     const gate=model.customerStop.def.fence?proxy('wellness-gate',12,1,-40.53,1.5,.6,.15):null,gateBarrier=gate?proxy(null,12,.6,-40.6,1.5,1.2,.12):null;
-    const words=OTR.fpMountedWords.build(root,{high,capacity:128});
+    const words=OTR.fpMountedWords.build(root,{high,capacity:high?2048:128});
     if(gate){
       for(const centre of [8.8,15.2]){solid(centre,.48,-40.6,4.9,.09,.1,0xDFDFD5);solid(centre,.93,-40.6,4.9,.09,.1,0xDFDFD5);for(let i=0;i<12;i++)solid(centre-2.2+i*.4,.63,-40.6,.1,1.22,.12,0xEEEDE2);proxy(null,centre,.63,-40.6,4.9,1.22,.12);}
       solid(11.1,1.01,-40.48,.62,.42,.04,0xEEE5C9);words.write('BEWARE OF DOG',11.1,1.01,-40.45,.56,.35);

@@ -1,0 +1,37 @@
+{
+  "sourceRevision": "0565efb32cd611185a5950bebda7e0fd1b2abc57",
+  "requestedViews": [
+    "wellnessice",
+    "wellnessclutter",
+    "wellnessentry",
+    "wellnessgate",
+    "wellnesscharge",
+    "wellnessfear",
+    "wellnessshade",
+    "wellnesscarry",
+    "wellnessclinic"
+  ],
+  "scope": "Static injected safety art component only, using four original fpbench profiles and limits. No loaded application adapter, native gameplay, scoring/layout/default/current-pilot or Intel FPS acceptance.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c46-wellness-0565efb3-loaded-low-low.json",
+      "log": "c46-wellness-0565efb3-loaded-low.log",
+      "peak": {
+        "calls": 30,
+        "triangles": 1908,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1482000
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 1,
+      "report": "bench-c46-wellness-0565efb3-loaded-high-high.json",
+      "log": "c46-wellness-0565efb3-loaded-high.log",
+      "error": "fpbench failed"
+    }
+  ]
+}

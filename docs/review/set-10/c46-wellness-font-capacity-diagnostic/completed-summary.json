@@ -1,0 +1,25 @@
+{
+  "runtime": "0565efb32cd611185a5950bebda7e0fd1b2abc57",
+  "scope": "Unloaded corrected static safety art component; no native/app-adapter/full C46 acceptance.",
+  "supervisorState": "running",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "views": 9,
+      "peak": {
+        "calls": 30,
+        "triangles": 1908,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1482000
+      },
+      "report": "bench-c46-wellness-0565efb3-loaded-low-low.json"
+    }
+  ],
+  "completedProfiles": 1,
+  "completedViews": 9,
+  "allResourceProfilesPass": false,
+  "nativeGameplay": false,
+  "applicationAdapterLoaded": false,
+  "fullC46Acceptance": false
+}
