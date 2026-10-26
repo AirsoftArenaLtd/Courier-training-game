@@ -1,0 +1,20 @@
+{
+  "status": "interrupted before the first completed job; no acceptance",
+  "files": {
+    "README.md": "baab1e8b10d91c563fd514e2ac6ce8fc3f8a742a2e781668989375d329b01b5e",
+    "c46-e7ad10f9-incident-native-good-high-en-normal-high-en-normal-brief.png": "6a7a6b64b7aefd838a4c23826be4cb6097322dee5f1b516b0aca4fbb1338c647",
+    "c46-e7ad10f9-incident-native-good-high-en-normal-high-en-normal-controls-0.png": "bc7b286d951945c6b4df8c3c939aeb05fab37f4f62276d6049b64d31c163ceca",
+    "c46-e7ad10f9-incident-native-good-high-en-normal-high-en-normal-controls-1.png": "4197e5c4cbce92edc9e35a0e6d4b0f7714bc69e6ba1a30ca73b01876dcbc72a3",
+    "c46-e7ad10f9-incident-native-good-high-en-normal-high-en-normal-controls-2.png": "b4bb1dd4890f78d47391441aaffe7243521619c46b83d08209f999003d267018",
+    "c46-e7ad10f9-incident-native-good-high-en-normal-high-en-normal-handheld.png": "8ff43014ba612c705cd8f1eeef6729175177ce761204b30d388e95a8d409f096",
+    "c46-e7ad10f9-incident-native-good-high-en-normal-high-en-normal-reply-n1.png": "bc6a1cd6e62aa90fb0c1aee8785a0b632a3a988d2e9431be914a064ec24dcef2",
+    "c46-e7ad10f9-incident-native-good-high-en-normal.json": "f4eba9dac562505cde60b0dedf28b15b9ee1e22c05500f648ce310bd7f2e4f2c",
+    "collect-results.py": "95455b03235cd06e2f404aa4d767bdc89478c88f845346f056e1468b16514733",
+    "completed-summary.json": "b4505faa48c6982fa60aa934609986f45e9f1f27c610a2e47db97123226a313c",
+    "final-results.json": "636e9cf59563ce33c4e18f0acd8004aada0386722181420a0004b0bc98eca821",
+    "final-status.json": "d883350b899e1ba204b96fbca3d64860053ad5f1699ee5557e841687acb5ede5",
+    "final-supervisor.log": "71ecc2bee4835dfb6d486def38754f936c1e567f3fb744a72443ed322a41c776",
+    "launcher.json": "633c0fd951861a958c001aa97932c4b7cae9bf8f61da3253606e900003c093d1",
+    "plan.json": "419e43393661267a38c5b801418a6686d876f3ebde91a8a1acc41d2e118eb162"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-26T05:33:59.411244+00:00",
+  "applicationRuntime": "e7ad10f9e68cdaddc65a022459a0511039f20380",
+  "protocolRevision": "e7ad10f9e68cdaddc65a022459a0511039f20380",
+  "passedJobs": 0,
+  "expectedJobs": 8,
+  "complete": false,
+  "nativeChecks": 0,
+  "nativeCaptures": 0,
+  "resourceViews": 0,
+  "native": [],
+  "resources": [],
+  "pending": [
+    {
+      "id": "native-good-high-en-normal",
+      "state": "running",
+      "exit": null
+    },
+    {
+      "id": "resource-loaded-low",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "resource-loaded-high",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "resource-accessible-low",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "resource-fallback-low",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-good-low-en-large",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-critical-low-en-large",
+      "state": "not started",
+      "exit": null
+    },
+    {
+      "id": "native-abandon-low-en-large",
+      "state": "not started",
+      "exit": null
+    }
+  ],
+  "scope": "Incident component only. No whole-C46/steps/dogs/heat/optional-new-id/shared-rollout/Tamil-glyph/Intel acceptance."
+}
