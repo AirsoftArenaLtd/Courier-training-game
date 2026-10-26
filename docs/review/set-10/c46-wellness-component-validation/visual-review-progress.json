@@ -1,0 +1,35 @@
+{
+  "runtime": "1ef898131fdd34f6ab5ad6f9b0274ecc1e8a8dc0",
+  "images": [
+    {
+      "file": "completed/c46-wellness-1ef89813-loaded-high-high-wellnessgate.png",
+      "sha256": "ff337f06f656fe17bbc488f38db4b02c99569b7b980faf463b79b65c0caeba47",
+      "observation": "Actual browser-font warning is readable on its physical fence plaque, with the dog behind the closed gate and the local bundled house visible.",
+      "scope": "Inspected static component pose, not playable/native/layout/full-C46 acceptance."
+    },
+    {
+      "file": "completed/c46-wellness-1ef89813-loaded-high-high-wellnessfear.png",
+      "sha256": "feb208d0edb6f12c9ace939e2140df8a7b39cc4a5683cb303223bbbb43a70dde",
+      "observation": "Pinned ears and lowered posture are visible on the supported procedural dog; this remains provisional module art.",
+      "scope": "Inspected static component pose, not playable/native/layout/full-C46 acceptance."
+    },
+    {
+      "file": "completed/c46-wellness-1ef89813-loaded-high-high-wellnessshade.png",
+      "sha256": "71b2439c4a1eef0711f6156d275f960301643dcbe1b5073653bff598ab7ae530",
+      "observation": "Tree, umbrella and porch geometry visibly define cooling areas; these are bounded procedural components.",
+      "scope": "Inspected static component pose, not playable/native/layout/full-C46 acceptance."
+    },
+    {
+      "file": "completed/c46-wellness-1ef89813-loaded-high-high-wellnessclinic.png",
+      "sha256": "90fef2d43f7308be775b566428a50ef724548b488d3486d703c7abbf0f0f8c8d",
+      "observation": "A roof and front/side walls enclose the clinic vestibule, with an open walking entrance. This outside resource pose does not certify the inside customer interaction.",
+      "scope": "Inspected static component pose, not playable/native/layout/full-C46 acceptance."
+    },
+    {
+      "file": "completed/c46-wellness-1ef89813-loaded-low-low-wellnessclutter.png",
+      "sha256": "8a15b933374b2a3e5f82cf9edb3196d090ac096c9c875054f0c8c5eaf0cf9caa",
+      "observation": "Connected hose loop/tail, toy blocks, wet stair surfaces and continuous paving are visible on the Low component.",
+      "scope": "Inspected static component pose, not playable/native/layout/full-C46 acceptance."
+    }
+  ]
+}

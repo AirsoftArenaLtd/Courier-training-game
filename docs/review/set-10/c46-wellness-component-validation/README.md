@@ -1,0 +1,13 @@
+# C46 safety component resource gate
+
+Runtime/protocol **1ef89813**, **879 frozen source files**, owned supervisor **PID74621** / HTTP8392 / shared browser lock. Fresh nine-view × four-profile resource sequence runs **High/dog-gate first** and requires actual warning font/count/capacity, distinct scene generations, original content, bounded geometry and unchanged suspended workday/checkpoint/events. Fallback errors surface immediately. Original resource ceilings stay unchanged. Cloud SwiftShader FPS cannot establish owner Intel acceptance.
+
+Prerequisites: one affected six-case world suite freshly passes after the High-only sign pool fix; twelve earlier scoped suite passes remain (**13 scoped CPU/audit passes**), with **19 syntax checks**. An isolated locked browser canvas probe proves 128 fails and 2048 fits **698 font-row quads**. Low pool128 and all Low geometry paths are unchanged; its 18,684-pose **38/2338 loaded, 41/2184 fallback** CPU evidence remains in that scope. Exact evidence: `../c46-wellness-lettering-correction/`. Previous first-art/restart and High font-capacity failures remain separate diagnostics and are not promoted.
+
+**C46 stays doing.** Steps/dogs/heat components remain unloaded by application index/registry/defaults. The bench injects a static adapter that cannot finish a scenario. Actual controls, conversations, native keys/walking, layouts/languages, assessment/reload/shared rollout and Intel FPS acceptance remain pending. See `integration-notes.md`. Earlier incident native/resource evidence remains scoped to 0777a5f0. Queue and optional-policy questions stay in Claude inbox; hourly automation remains enabled without an end date.
+
+`collect-results.py` verifies the frozen source and copies only completed passing profile files; it launches no browser. Generated summary/manifest/gallery and visual observations retain exact source scope.
+
+## Completed component profiles
+
+At this evidence update, **3/4 profiles / 27/36 static views** pass on `1ef89813`. High peaks at **31 calls / 30164 triangles / 4 Three textures / 11239424 attachment bytes / 4460048 Phaser estimate bytes**. Low peaks at **30 / 1908 / 2 / 3557376 / 1482000**. High dog-warning proof uses **698 actual font-row quads / 2048 capacity**, matching the isolated root-cause probe; distinct-generation, original-content, 20m/512px High shadow and workday/checkpoint/event isolation checks pass. Five current-source images have hashes and observations in `visual-review-progress.json`; direct links are in `gallery.md`. Accessibility and missing-model profiles continue under the same source freeze and owned supervisor. No native or full task acceptance follows.
