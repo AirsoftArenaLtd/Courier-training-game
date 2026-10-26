@@ -1,7 +1,7 @@
 /* Cosmetic weather follows mission time and the existing saved wiper switch. It never grades or saves. */
 window.OTR=window.OTR||{};
 OTR.fpWeather={
-  condition(m){return m.routeDay?m.routeDay.weather:m.routePlan?m.routePlan.weather:'clear';},
+  condition(m){const stop=m.customerStop;if(stop?.wellness)return stop.def?.weather||stop.content?.weather||'clear';return m.routeDay?m.routeDay.weather:m.routePlan?m.routePlan.weather:'clear';},
   create(){return {model:null,elapsed:0,time:0,clear:0,angle:-1.35};},
   advance(state,m,reduced){
     if(state.model!==m){state.model=m;state.elapsed=m.elapsed;state.time=state.clear=0;state.angle=-1.35;}

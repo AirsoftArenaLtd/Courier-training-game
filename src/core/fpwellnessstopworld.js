@@ -16,6 +16,8 @@ OTR.fpWellnessStopWorld={
       entry.matrix.copy(scratch.matrix);entry.color.copy(colour);entry.sphere.center.copy(scratch.position);entry.sphere.radius=Math.hypot(w,h,d)/2;batches[slot].entries[index]=entry;
     };
     const solid=(x,y,z,w,h,d,hex,angle=0)=>box(0,x,y,z,w,h,d,hex,angle),part=(x,y,z,w,h,d,hex,angle=0)=>box(1,x,y,z,w,h,d,hex,angle);
+    let dogX=0,dogZ=0,dogYaw=0,dogSin=0,dogCos=1;
+    const dogPart=(x,y,z,w,h,d,hex)=>part(dogX+x*dogCos+z*dogSin,y,dogZ-x*dogSin+z*dogCos,w,h,d,hex,dogYaw);
     const targets=[],proxy=(id,x,y,z,w,h,d)=>{const mesh=new T.Mesh(cube,proxyPaint);mesh.layers.set(1);mesh.userData.interaction=id;mesh.position.set(x,y,z);mesh.scale.set(w,h,d);root.add(mesh);if(id){options.interactions?.push(mesh);targets.push(mesh);}options.occluders?.push(mesh);return mesh;};
     // Join the public sidewalk to the existing entrance path beneath every source hazard.
     solid(8.5,-.015,-40.2,7.4,.03,2,0xC8C3B7);solid(12,-.015,-40.05,2.4,.03,1.7,0xC8C3B7);
@@ -43,10 +45,11 @@ OTR.fpWellnessStopWorld={
       solid(14.6,.4,-43.1,1.1,.8,.9,0x9C7350);solid(14.6,.9,-43.1,1.3,.2,1.1,0x665349);solid(14.6,.26,-42.64,.5,.52,.015,0x292C2A);solid(14,.07,-42.6,.38,.14,.32,0x7095A7);
     }
     for(const shade of stage.shades){
-      if(shade.kind==='porch')solid(shade.x,2.5+stage.floor,shade.z,shade.w,.14,shade.d,0x9B9888);
+      if(shade.kind==='porch'){solid(shade.x,2.5+stage.floor,shade.z,shade.w,.14,shade.d,0x9B9888);proxy(null,shade.x,2.5+stage.floor,shade.z,shade.w,.14,shade.d);}
       else{
         const umbrella=shade.kind==='umbrella',x=shade.x+(umbrella?0:-.9);solid(x,1.22,shade.z,umbrella?.1:.3,2.44,umbrella?.1:.3,umbrella?0x837B6C:0x766148);
         solid(shade.x,umbrella?2.45:2.8,shade.z,shade.w,umbrella?.15:1.25,shade.d,umbrella?0xBD915F:0x63754B);
+        proxy(null,x,1.22,shade.z,umbrella?.1:.3,2.44,umbrella?.1:.3);proxy(null,shade.x,umbrella?2.45:2.8,shade.z,shade.w,umbrella?.15:1.25,shade.d);
       }
       solid(shade.x,.006+(shade.kind==='porch'?stage.floor:0),shade.z,shade.w,.009,shade.d,0xA09F8D);
     }
@@ -57,11 +60,11 @@ OTR.fpWellnessStopWorld={
       // No screen-space tint or hidden cooling volume: the walls and roof enclose the source reception stop.
       stage.interiorBuilt=true;
     }
-    const bottle=model.customerStop.content.heat?proxy('wellness-water',stage.bottle.x,stage.bottle.y,stage.bottle.z,.18,.34,.18):null;
+    const dogTarget=model.customerStop.def.dog?proxy('wellness-dog',14,.55,-43.2,.65,.9,.95):null,bottle=model.customerStop.content.heat?proxy('wellness-water',stage.bottle.x,stage.bottle.y,stage.bottle.z,.18,.34,.18):null;
     if(bottle){solid(stage.bottle.x-.02,.89,stage.bottle.z,.24,.08,.26,0x555E61);solid(stage.bottle.x,stage.bottle.y,stage.bottle.z,.13,.27,.13,0xA6C5CF);solid(stage.bottle.x,stage.bottle.y+.15,stage.bottle.z,.09,.05,.09,0x3D6071);}
     words.finish();batches.push({mesh:words.mesh,entries:words.entries});fixed.count=stat;fixed.instanceMatrix.needsUpdate=true;fixed.instanceColor.needsUpdate=true;
     base.batches.push(...batches);const baseSync=base.sync,baseDispose=base.dispose;
-    return Object.assign(base,{wellness:{root,fixed,moving,batches,targets,hazards,gate,gateBarrier,bottle,words},
+    return Object.assign(base,{wellness:{root,fixed,moving,batches,targets,hazards,gate,gateBarrier,dogTarget,bottle,words},
       sync(m,reduced=false){
         if(disposed)throw Error('Wellness world was disposed');S.pose(m);const d=m.customerStop,w=d.wellness;
         const actor=m.customerStage.actors[0];if(actor){actor.visible=!!d.state.answered;actor.x=stage.owner.x;actor.z=stage.owner.z;OTR.fpCustomerStage.target(m.customerStage);}
@@ -81,11 +84,17 @@ OTR.fpWellnessStopWorld={
           for(let i=0;i<4;i++)part(open?x:x-.6+i*.4,.64,open?g.z-.15-i*.4:z,.1,1.2,.12,0xEEEDE2);
         }
         const dog=stage.dog;
+        if(dogTarget){dogTarget.visible=dog.visible;dogTarget.position.set(dog.x,dog.floor+.55,dog.z);dogTarget.rotation.y=dog.yaw;}
         if(dog.visible){
-          const fur=d.def.dog.spec.fur||0x876C54,patch=d.def.dog.spec.patch||fur,fear=dog.mood==='fearful',bounce=!reduced&&dog.moving?Math.sin(stage.time*12)*.025:0,x=dog.x,z=dog.z,y=bounce+(fear?-.1:0);
-          part(x,.51+y,z,.42,.38,.68,fur);part(x,.79+y,z+.25,.29,.3,.3,fur);part(x,.69+y,z+.43,.22,.13,.24,patch);
-          for(const side of sides){part(x+side*(fear?.15:.11),(fear?.87:.96)+y,z+(fear?.12:.24),fear?.13:.09,fear?.06:.2,fear?.25:.14,fur);part(x+side*.17,fear?.15:.22+y,z-.21,.11,fear?.3:.45,.13,fur);part(x+side*.17,fear?.15:.22+y,z+.2,.11,fear?.3:.45,.13,fur);part(x+side*.085,.83+y,z+.407,.035,.035,.018,0x252A2B);}
-          part(x,(fear?.4:.55)+y,z-(fear?.32:.46),.08,fear?.06:.36,fear?.24:.12,fur);part(x,.67+y,z+.21,.43,.07,.12,d.def.dog.spec.collar||0x6B8790);
+          const fur=d.def.dog.spec.fur||0x876C54,patch=d.def.dog.spec.patch||fur,fear=dog.mood==='fearful',bounce=!reduced&&dog.moving?Math.sin(stage.time*12)*.025:0,y=dog.floor+bounce+(fear?-.1:0);
+          dogX=dog.x;dogZ=dog.z;dogYaw=dog.yaw;dogSin=Math.sin(dogYaw);dogCos=Math.cos(dogYaw);
+          dogPart(0,.51+y,0,.42,.38,.68,fur);dogPart(0,.79+y,.25,.29,.3,.3,fur);dogPart(0,.69+y,.43,.22,.13,.24,patch);
+          for(const side of sides){dogPart(side*(fear?.15:.11),(fear?.87:.96)+y,fear?.12:.24,fear?.13:.09,fear?.06:.2,fear?.25:.14,fur);dogPart(side*.17,fear?dog.floor+.15:.22+y,-.21,.11,fear?.3:.45,.13,fur);dogPart(side*.17,fear?dog.floor+.15:.22+y,.2,.11,fear?.3:.45,.13,fur);dogPart(side*.085,.83+y,.407,.035,.035,.018,0x252A2B);}
+          dogPart(0,(fear?.4:.55)+y,-(fear?.32:.46),.08,fear?.06:.36,fear?.24:.12,fur);dogPart(0,.67+y,.21,.43,.07,.12,d.def.dog.spec.collar||0x6B8790);
+        }
+        if(m.mode==='walk'&&w.ref.me.animation==='drink'){
+          const p=m.player,sy=Math.sin(p.yaw),cy=Math.cos(p.yaw),x=p.x+.42*cy+.4*sy,z=p.z+.42*sy-.4*cy,y=1.25+OTR.fpScannerStopWorld.ground(m);
+          part(x,y,z,.13,.27,.13,0xA6C5CF);part(x,y+.15,z,.09,.05,.09,0x3D6071);part(x,y-.13,z,.17,.1,.16,0xBC956F);
         }
         moving.count=dynamic;batches[1].entries.length=dynamic;moving.instanceMatrix.needsUpdate=true;moving.instanceColor.needsUpdate=true;root.updateMatrixWorld(true);
       },

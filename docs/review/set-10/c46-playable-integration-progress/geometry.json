@@ -1,0 +1,21 @@
+{
+  "scope": "CPU whole-world geometry with the playable safety adapter, all nine authored climates, seven walking states (including drinking and NPC moods), forward/reverse cab poses and original mirrors; excludes rendered resource, native gameplay, GPU and Intel FPS acceptance.",
+  "reports": [
+    {
+      "loaded": true,
+      "poses": 16146,
+      "peak": {
+        "calls": 41,
+        "triangles": 2342
+      }
+    },
+    {
+      "loaded": false,
+      "poses": 16146,
+      "peak": {
+        "calls": 45,
+        "triangles": 2188
+      }
+    }
+  ]
+}

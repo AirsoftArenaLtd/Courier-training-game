@@ -1,0 +1,12 @@
+{"endings":6561,"comparisons":90214,"timeouts":0,"counts":{"m8-incident":6561}}
+✔ all incident endings preserve actual original dialogue results, flags, criticals and score scale (9419.22595ms)
+✔ physical destinations follow actual calls, injury checks, photographs, witness and report without altering decisions (0.750913ms)
+✔ assessment decisions hide feedback and retain each original critical, including a shaded final report (0.540185ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9432.418881

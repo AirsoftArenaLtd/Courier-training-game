@@ -6,14 +6,32 @@ OTR.fpWellnessStage={
     const stop=model.customerStop;
     if(!stop?.wellness)throw Error('A prepared wellness stop is required');
     const stage={stop,wall:-45,floor:0,time:0,hazards:[],triggers:[],shades:[],solids:[],fitted:false,interiorBuilt:false,
-      owner:{x:12.8,z:-43.9,floor:0},bottle:{x:.43,y:1.12,z:-41.9},walkGoal:null,walkTask:null,
+      owner:{x:12.8,z:-43.9,floor:0},bottle:{x:.43,y:1.12,z:-41.9},walkGoal:null,walkTask:null,physical:false,dogTask:null,residentTask:null,coolTask:null,
       facts:{moving:false,shade:false,interior:false,atWalkGoal:false},
-      dog:{x:14,z:-43.2,goalX:14,goalZ:-43.2,sourceX:NaN,visible:false,mood:'alert',moving:false,solid:{x:10000,z:10000,w:.7,d:.45}},
+      dog:{x:14,z:-43.2,goalX:14,goalZ:-43.2,sourceX:NaN,visible:false,mood:'alert',moving:false,floor:0,yaw:0,solid:{x:10000,z:10000,w:.7,d:.45}},
       gate:{x:12,z:-40.6,w:1.5,d:.12,open:false,solid:{x:12,z:-40.6,w:1.5,d:.12}},
       oldX:model.player.x,oldZ:model.player.z};
     model.wellnessStage=stage;
     this.fit(model,stage.wall,(stop.def.lot.spec.steps||0)*.17);
     return stage;
+  },
+  bind(model){
+    const s=model.wellnessStage,d=s.stop,w=d.wellness,r=w.ref;if(s.physical)return;s.physical=true;
+    const live=()=>model.customerStop===d&&model.wellnessStage===s&&d.wellness===w&&OTR.fpWellnessStop.active(d)&&(!model.wellnessRun||model.wellnessRun.phase==='active');
+    const completion=done=>()=>{if(live())done?.();};
+    if(r.dog){
+      s.dog.sourceX=r.dog.x;if(d.index===2){s.dog.x=s.dog.goalX=12;s.dog.z=s.dog.goalZ=s.wall+.65;}
+      r.dog.walkTo=function(to,done){if(!live())return;this.x=to;s.dog.sourceX=NaN;s.dogTask={state:w,done:completion(done)};};
+    }
+    if(r.resident)r.resident.walkTo=function(to,done){if(!live())return;this.x=to;s.residentTask={state:w,done:completion(done)};};
+    const originalRest=w.acts.rest;
+    w.acts.rest=(ms,done)=>{
+      if(!live())return;
+      if(d.state.inVan||s.facts.shade||s.facts.interior){originalRest(ms,done);return;}
+      let nearest=null,distance=Infinity;for(const shade of s.shades){const n=Math.hypot(model.player.x-shade.x,model.player.z-shade.z);if(n<distance){nearest=shade;distance=n;}}
+      if(!nearest)throw Error('The heat stop has no reachable cooling area');
+      s.coolTask={state:w,ms,done,originalRest,x:nearest.x,z:nearest.z};
+    };
   },
   fit(model,wall,floor){
     const s=model.wellnessStage,d=s.stop;
@@ -79,30 +97,40 @@ OTR.fpWellnessStage={
       s.walkTask=w.walkTask;s.walkGoal=null;
       if(w.walkTask){
         const task=w.walkTask,van=task.sourceX<=r.van.doorX+150;
-        if(van)s.walkGoal={x:.05,z:-43.7};
+        if(van)s.walkGoal=s.physical?{x:4.1,z:-38.4}:{x:.05,z:-43.7};
         else if(task.act==='approach')s.walkGoal={x:12,z:s.wall+1.9};
         else{const dx=12-p.x,dz=s.wall+1.5-p.z,length=Math.max(.001,Math.hypot(dx,dz)),distance=Math.min(2.2,Math.max(.65,Math.abs(task.sourceX-r.me.x)/120));s.walkGoal={x:p.x-dx/length*distance,z:p.z-dz/length*distance};}
       }
     }
-    if(s.walkGoal)facts.atWalkGoal=model.mode==='walk'&&Math.hypot(p.x-s.walkGoal.x,p.z-s.walkGoal.z)<.65;
-    const ready=K.step(d,dt,true,facts);this.pose(model,dt);return ready;
+    if(s.walkGoal){const dx=s.dog.x-p.x,dz=s.dog.z-p.z,facing=!s.physical||!w.walkTask?.keepFacing||!s.dog.visible||Math.sin(p.yaw)*dx-Math.cos(p.yaw)*dz>Math.hypot(dx,dz)*.15;facts.atWalkGoal=model.mode==='walk'&&Math.hypot(p.x-s.walkGoal.x,p.z-s.walkGoal.z)<.65&&facing;}
+    const cooling=s.coolTask;
+    if(cooling&&(facts.shade||facts.interior||d.state.inVan)){s.coolTask=null;if(cooling.state===w)cooling.originalRest(cooling.ms,cooling.done);}
+    const ready=K.step(d,dt,true,facts);this.pose(model,dt);
+    this.completeMotion(s,'dogTask','dog');this.completeMotion(s,'residentTask','owner');
+    return ready;
   },
+  completeMotion(s,key,actor){const task=s[key];if(task&&task.state===s.stop.wellness&&!s[actor].moving){s[key]=null;if(OTR.fpWellnessStop.active(s.stop))task.done?.();}},
   pose(model,seconds=0){
     const s=model.wellnessStage,d=s.stop,w=d.wellness,r=w.ref,dog=s.dog;
     if(r.gate){s.gate.open=!!r.gate.open;const b=s.gate.solid;b.x=s.gate.open?s.gate.x-s.gate.w/2:s.gate.x;b.z=s.gate.open?s.gate.z-s.gate.w/2:s.gate.z;b.w=s.gate.open?s.gate.d:s.gate.w;b.d=s.gate.open?s.gate.w:s.gate.d;}
-    s.owner.x=d.def.lot.interior?13.4:12.8;s.owner.z=w.ownerAtGate?s.gate.z-.22:s.wall+(d.def.lot.interior?.35:1.1);s.owner.floor=w.ownerAtGate?0:s.floor;
+    const dt=Math.max(0,Math.min(.05,seconds)),reduced=!!OTR.fpAccess?.reduced(),ownerX=d.def.lot.interior?13.4:12.8,ownerZ=w.ownerAtGate?s.gate.z-.22:s.wall+(d.def.lot.interior?.35:1.1);
+    s.owner.moving=false;
+    if(s.residentTask){const dx=ownerX-s.owner.x,dz=ownerZ-s.owner.z,length=Math.hypot(dx,dz),step=dt>0?(reduced?length:dt*1.2):0;s.owner.moving=length>.01;if(length<=step){s.owner.x=ownerX;s.owner.z=ownerZ;s.owner.moving=false;}else if(step){s.owner.x+=dx/length*step;s.owner.z+=dz/length*step;}s.owner.floor=OTR.fpScannerStopWorld.ground(model,s.owner.x,s.owner.z);}
+    else{s.owner.x=ownerX;s.owner.z=ownerZ;s.owner.floor=w.ownerAtGate?0:s.floor;}
     if(r.dog){
       dog.visible=!r.dogGone&&r.dog.c.alpha>.5;dog.mood=r.dog.mood||'alert';
       if(dog.sourceX!==r.dog.x){
         dog.sourceX=r.dog.x;
         const p=model.player,dx=12-p.x,dz=s.wall+1-p.z,length=Math.max(.001,Math.hypot(dx,dz));
         const gap=Math.min(2.4,Math.max(.55,Math.abs(r.dog.x-r.me.x)/120));dog.goalX=p.x+dx/length*gap;dog.goalZ=p.z+dz/length*gap;
+        if(s.physical&&w.command?.name==='ownerTakesDog'){dog.goalX=s.owner.x-.45;dog.goalZ=s.owner.z+(w.ownerAtGate?-.35:.35);}
         if(r.gate&&!r.gate.open)dog.goalZ=Math.min(s.gate.z-.6,dog.goalZ);
         dog.goalX=OTR.fp.clamp(dog.goalX,7,15.8);dog.goalZ=OTR.fp.clamp(dog.goalZ,s.wall+.8,-39.5);
       }
-      const dx=dog.goalX-dog.x,dz=dog.goalZ-dog.z,length=Math.hypot(dx,dz),step=Math.max(0,Math.min(.05,seconds))* (dog.mood==='aggressive'?3.4:1.5);
+      const dx=dog.goalX-dog.x,dz=dog.goalZ-dog.z,length=Math.hypot(dx,dz),step=dt>0?(reduced?length:dt*(dog.mood==='aggressive'?3.4:1.5)):0;
       dog.moving=dog.visible&&length>.015;if(length<=step){dog.x=dog.goalX;dog.z=dog.goalZ;dog.moving=false;}else if(step){dog.x+=dx/length*step;dog.z+=dz/length*step;}
       dog.solid.x=dog.visible?dog.x:10000;dog.solid.z=dog.visible?dog.z:10000;
+      dog.floor=s.physical?OTR.fpScannerStopWorld.ground(model,dog.x,dog.z):0;dog.yaw=s.physical?Math.atan2(model.player.x-dog.x,model.player.z-dog.z):0;
     }
   },
   clear(model,id){
