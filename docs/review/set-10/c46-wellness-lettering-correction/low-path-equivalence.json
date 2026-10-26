@@ -1,0 +1,9 @@
+{
+  "oldRuntime": "0565efb3",
+  "file": "src/core/fpwellnessstopworld.js",
+  "before": "993c17f9840383704b1c3acb59316a8ac379edb76be9036123719e578ea9bcad",
+  "after": "9ccff200043e4ea19cd1d8883ff0deb8f11f298ee771fa44d6eb25d2e602a682",
+  "soleApplicationDelta": "The High lettering bound is 2048; the Low bound remains 128. No other application source differs from 0565efb3.",
+  "newHighInstanceBytes": 131072,
+  "unchangedLowInstanceBytes": 8192
+}

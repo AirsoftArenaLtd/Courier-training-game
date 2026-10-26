@@ -12,6 +12,11 @@ module.exports=({view='wellnessice',start=true}={})=>{
   });
  }
  const id=['wellnessgate','wellnesscharge','wellnessfear'].includes(view)?'m8-dog':['wellnessshade','wellnesscarry','wellnessclinic'].includes(view)?'m8-heat':'m8-steps';
- if(start){window.otrWellnessFixtureSerial=(window.otrWellnessFixtureSerial||0)+1;OTR.registry.get(id).scene3d='wellness-component-fixture';OTR.game.scene.start('FirstPersonScenarioScene',{scenarioId:id});OTR.game.scene.stop('FirstPersonScene');}
+ if(start){
+  window.otrWellnessFixtureSerial=(window.otrWellnessFixtureSerial||0)+1;window.otrWellnessFixtureError=null;
+  const scene=OTR.game.scene.getScene('FirstPersonScenarioScene');
+  if(!scene.wellnessUnavailableOriginal){scene.wellnessUnavailableOriginal=scene.scenarioUnavailable;scene.scenarioUnavailable=function(error){window.otrWellnessFixtureError={serial:window.otrWellnessFixtureSerial,message:error.message,stack:error.stack};return this.wellnessUnavailableOriginal(error);};}
+  OTR.registry.get(id).scene3d='wellness-component-fixture';OTR.game.scene.start('FirstPersonScenarioScene',{scenarioId:id});OTR.game.scene.stop('FirstPersonScene');
+ }
  return id;
 };

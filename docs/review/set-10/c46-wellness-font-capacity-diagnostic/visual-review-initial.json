@@ -1,0 +1,41 @@
+{
+  "runtime": "0565efb32cd611185a5950bebda7e0fd1b2abc57",
+  "images": [
+    {
+      "file": "test/out/fp-review/c46-wellness-0565efb3-loaded-low-low-wellnessice.png",
+      "sha256": "95bc8fc50e5976eee1e919f5d7b3bfc36b059d96a678b496fad4d31e83480862",
+      "observation": "Continuous paving supports the ice and entry path. Thin fracture lines replace crossing-like bars. Low remains intentionally simple.",
+      "scope": "Inspected static component image. Not native gameplay, all layouts or full C46 visual acceptance."
+    },
+    {
+      "file": "test/out/fp-review/c46-wellness-0565efb3-loaded-low-low-wellnessclutter.png",
+      "sha256": "8a15b933374b2a3e5f82cf9edb3196d090ac096c9c875054f0c8c5eaf0cf9caa",
+      "observation": "A connected hose loop and tail rest on continuous paving, with separate visible toy blocks and wet stair overlays.",
+      "scope": "Inspected static component image. Not native gameplay, all layouts or full C46 visual acceptance."
+    },
+    {
+      "file": "test/out/fp-review/c46-wellness-0565efb3-loaded-low-low-wellnessentry.png",
+      "sha256": "e3671fc0476bd5d29205209a8d7a007abc8845668b4de37aa81c326ee211e783",
+      "observation": "The wet patch lies on the top porch, clear of the stair edge; continuous paving connects the approach.",
+      "scope": "Inspected static component image. Not native gameplay, all layouts or full C46 visual acceptance."
+    },
+    {
+      "file": "test/out/fp-review/c46-wellness-0565efb3-loaded-low-low-wellnessfear.png",
+      "sha256": "3015d6d9e2d0b707d2c9bb703e8798c675b1a39b80a06f7b647dbbb4234a5201",
+      "observation": "Pinned ears and a lowered posture are visible; the feet remain supported. The procedural Low dog remains a bounded fallback.",
+      "scope": "Inspected static component image. Not native gameplay, all layouts or full C46 visual acceptance."
+    },
+    {
+      "file": "test/out/fp-review/c46-wellness-0565efb3-loaded-high-high-wellnessice.png",
+      "sha256": "7d40be0b288283539b83b325328fbbda5ca29f4ca147a002751d3ff3e084d017",
+      "observation": "The bundled house and surface textures load; the same thin ice details sit on connected paving. The local shadow projection avoids the earlier broad bands on the patch.",
+      "scope": "Inspected static component image. Not native gameplay, all layouts or full C46 visual acceptance."
+    },
+    {
+      "file": "test/out/fp-review/c46-wellness-0565efb3-loaded-high-high-wellnessclutter.png",
+      "sha256": "f4519d496e11ea1c47f760837ddbfffbedf67bd1b273a23e4ac354009d6d6cca",
+      "observation": "The bundled facade, continuous hose and supported wet steps are visible with High lighting. No new image map was added.",
+      "scope": "Inspected static component image. Not native gameplay, all layouts or full C46 visual acceptance."
+    }
+  ]
+}
