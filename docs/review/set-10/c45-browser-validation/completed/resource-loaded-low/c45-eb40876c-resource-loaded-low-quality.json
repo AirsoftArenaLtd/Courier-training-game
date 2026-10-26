@@ -1,0 +1,36 @@
+{
+  "sourceRevision": "eb40876c88b101e8d33d3e277fa061634bee067f",
+  "requestedViews": [
+    "pickupbusiness",
+    "pickupcart",
+    "pickupcount",
+    "pickupinspection",
+    "pickupreceipt",
+    "pickupcontrols",
+    "pickupinternational",
+    "pickupinvoice",
+    "pickupinvoicelast",
+    "pickupfindings",
+    "pickupexception",
+    "pickupdangerous",
+    "pickupdeclared",
+    "pickuprefusal",
+    "pickupsigned"
+  ],
+  "scope": "Selected static counter poses under the original fpbench resource profiles; not native gameplay or laptop FPS acceptance.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c45-eb40876c-resource-loaded-low-loaded-low-low.json",
+      "log": "c45-eb40876c-resource-loaded-low-loaded-low.log",
+      "peak": {
+        "calls": 26,
+        "triangles": 1754,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1955056
+      }
+    }
+  ]
+}
