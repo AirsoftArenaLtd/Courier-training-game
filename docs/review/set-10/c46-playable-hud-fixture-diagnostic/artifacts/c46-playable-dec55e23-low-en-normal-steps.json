@@ -1,0 +1,121 @@
+{
+  "checks": 324,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "steps",
+      "shots": [
+        "c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-brief.png",
+        "c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-controls-0.png",
+        "c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-controls-1.png",
+        "c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-controls-2.png",
+        "c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-controls-3.png",
+        "c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-controls-4.png",
+        "c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-controls-5.png",
+        "c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-handheld.png",
+        "c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-stop0-cargo.png",
+        "c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-stop0-arrival.png",
+        "c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-stop0-photo-framing.png",
+        "c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-stop0-photo-review.png"
+      ],
+      "stops": [
+        {
+          "index": 0,
+          "phase": "report",
+          "state": {
+            "inVan": true,
+            "carrying": [],
+            "scanned": {
+              "p1": true
+            },
+            "scannedInVan": true,
+            "pulls": 1,
+            "wrongPulls": 0,
+            "addressChecked": false,
+            "knocks": 1,
+            "answered": false,
+            "talked": false,
+            "vanTrips": 0,
+            "outcome": "delivered",
+            "type": "left",
+            "signer": null,
+            "code": null,
+            "tagPrinted": false,
+            "tagAttached": false,
+            "spot": "mat",
+            "photo": {
+              "grade": "good",
+              "pkgIn": true,
+              "doorIn": true,
+              "numIn": false,
+              "personIn": false
+            },
+            "idResult": null,
+            "exitSafe": true,
+            "enterSafe": true,
+            "hazards": {
+              "ice_walk": {
+                "id": "ice_walk",
+                "type": "ice",
+                "label": "the icy sidewalk",
+                "img": {
+                  "displayWidth": 180,
+                  "x": 0,
+                  "y": 0,
+                  "setVisible": {}
+                },
+                "state": "careful",
+                "x": 1060,
+                "incident": false,
+                "fastT": 0
+              },
+              "ice_path": {
+                "id": "ice_path",
+                "type": "ice",
+                "label": "the frozen path",
+                "img": {
+                  "displayWidth": 150,
+                  "x": 0,
+                  "y": 0,
+                  "setVisible": {}
+                },
+                "state": "careful",
+                "x": 1290,
+                "incident": false,
+                "fastT": 0
+              },
+              "steps": {
+                "id": "steps",
+                "type": "ice",
+                "label": "the steps",
+                "img": null,
+                "state": "careful",
+                "x": 1369,
+                "incident": false,
+                "fastT": 0
+              }
+            },
+            "delivered": [
+              "p1"
+            ],
+            "elapsed": 48.778273333332656,
+            "done": true
+          },
+          "criticals": []
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "dec55e23e6620ccc13b4c2be8ab05e60a202a603",
+  "uncommittedRuntime": false,
+  "protocolSha256": "55f4137ffbd6fbcc9ae6ceb2b12a0758695e0499aec0c7fca328daf8c591e22b",
+  "scope": "Existing-id registration, accessibility and a suspended workday are setup fixtures. Observational wrappers record completed original conversations and pre-evaluation stop facts without changing arguments or return values. Real keys control all walking, aiming, parcels, safety actions, replies, photos, signing and results. No position, timer, node, hazard, signature-completion, score or verdict fixture. Independent original 2D callbacks replay observed choices and evaluate observed stop facts. Bounds checks do not certify Tamil glyph coverage or Intel FPS.",
+  "failure": {
+    "message": "Protocol error (Page.captureScreenshot): Target closed",
+    "stack": "TargetCloseError: Protocol error (Page.captureScreenshot): Target closed\n    at CallbackRegistry.clear (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:82:36)\n    at CdpCDPSession.onClosed (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:115:25)\n    at #onClose (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Connection.js:190:21)\n    at WebSocket.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/node/NodeWebSocketTransport.js:48:30)\n    at callListener (/workspace/Courier-training-game/test/node_modules/ws/lib/event-target.js:290:14)\n    at WebSocket.onClose (/workspace/Courier-training-game/test/node_modules/ws/lib/event-target.js:220:9)\n    at WebSocket.emit (node:events:509:28)\n    at WebSocket.emitClose (/workspace/Courier-training-game/test/node_modules/ws/lib/websocket.js:279:10)\n    at Socket.socketOnClose (/workspace/Courier-training-game/test/node_modules/ws/lib/websocket.js:1360:15)\n    at Socket.emit (node:events:509:28)"
+  }
+}

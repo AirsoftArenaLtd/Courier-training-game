@@ -652,5 +652,23 @@
       "test/fpwellnessscenario.js"
     ],
     "allPriorSyntaxRetained": true
+  },
+  "resourceProtocolFollowup": {
+    "scope": "No runtime change. Ordinary arranged resource views retain the actual visible module goal/status/clock; only reply panels need the external freeze. Explicit HUD visibility/bounds proof added. Native photos additionally prove real framebuffer preview dimensions and sampled pixel variation.",
+    "rerun": [
+      {
+        "file": "test/fpqualitygate.js",
+        "exit": 0,
+        "cases": 16,
+        "log": "fpqualitygate-hud.log"
+      }
+    ],
+    "syntaxRefreshed": [
+      "test/fpbench.js",
+      "test/tools/fp-wellness-playable-pose.js",
+      "test/tools/fp-wellness-playable-quality.js",
+      "test/fpwellnessbrowser.js"
+    ],
+    "allOtherPassesRetained": true
   }
 }

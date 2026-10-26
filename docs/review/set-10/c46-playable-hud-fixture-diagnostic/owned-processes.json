@@ -1,0 +1,6 @@
+{
+  "supervisor": 80066,
+  "server": 80067,
+  "job": "low-en-normal-steps",
+  "child": 80069
+}

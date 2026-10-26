@@ -1,0 +1,10 @@
+{
+  "runtime": "dec55e23",
+  "images": [
+    {
+      "file": "docs/review/set-10/c46-playable-hud-fixture-diagnostic/artifacts/c46-playable-dec55e23-low-en-normal-steps-low-en-normal-steps-stop0-photo-review.png",
+      "sha256": "ef00e50c4d5c6ef64ace3db977b27db2c31c90772e8e380d3a23a3d3e1fd802b",
+      "observation": "Actual Low preview shows the placed package, door and steps without private house-number/person details. English review title/caption and three handheld actions remain separate above Back; no visible text clipping."
+    }
+  ]
+}

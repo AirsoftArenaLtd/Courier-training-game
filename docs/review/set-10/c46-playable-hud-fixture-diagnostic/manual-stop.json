@@ -1,0 +1,4 @@
+{
+  "reason": "The arranged resource fixture froze every view with scene.external, which also hides the actual module HUD. Stop before those views run; include the real HUD in non-panel resource samples. The current native photo now grades good, but this interrupted journey is partial only.",
+  "child": 80069
+}

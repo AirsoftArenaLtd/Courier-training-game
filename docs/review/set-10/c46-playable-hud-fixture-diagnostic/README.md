@@ -1,0 +1,5 @@
+# Resource HUD fixture correction
+
+The corrected photo viewpoint reaches an actual good photo and a completed first Low English safety stop with no critical (324 native checks). This is a partial journey, not an accepted scenario or assessment. The run was deliberately stopped before the planned resource jobs: review found that the arranged-pose fixture set `scene.external` on every sample, hiding the module HUD and undercounting its text resources. Only reply panels need this external clock freeze; ordinary resource poses must include the actual goal/status/clock. No resource sample from this candidate is accepted.
+
+`manual-stop.json` records the reason and owned child. Its SIGTERM closed Chromium during a screenshot, so the raw report contains TargetCloseError; that is the intentional stop, not a separate application failure. Supervisor80066 exited and released its server/browser lease. The subsequent fixture adds an explicit visible-HUD/bounds proof and arranges source water animation through its actual callback. Runtime code is unchanged.
