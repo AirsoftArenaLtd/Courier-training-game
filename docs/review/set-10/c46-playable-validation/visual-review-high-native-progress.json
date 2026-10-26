@@ -1,6 +1,6 @@
 {
   "runtime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
-  "scope": "Six current High English normal-text native captures inspected at original resolution. This is visual review of these captures, not full native/result/assessment/Tamil acceptance.",
+  "scope": "Seven current High English normal-text native captures inspected at original resolution. This journey is complete; broader size/language/assessment acceptance remains pending.",
   "images": [
     {
       "file": "artifacts/c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop0-arrival.png",
@@ -31,6 +31,11 @@
       "file": "artifacts/c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-stop2-reply-p1.png",
       "sha256": "6d96e010bd775b3864a437a0b490b38d42bf7c04aa619b50b4ed338f0e4891c6",
       "observation": "The original fearful-dog safety instruction wraps to two full-size lines inside its button. The three remaining controls stay separate, with no overlap or clipped sentence at normal English size."
+    },
+    {
+      "file": "artifacts/c46-playable-6d83d2e1-high-en-normal-dog-high-en-normal-dog-result.png",
+      "sha256": "f8cd01ac6a7c7dc61c4f61982321e53fcbd6b7437a966f4799d8267b834d229f",
+      "observation": "The settled English result presents all nine stars, three complete safety takeaways, career progress and two keyboard-focusable controls within the screen, without overlap or clipping. The raw report separately proves original 6700 points, original callback parity, one saved play and durable reload."
     }
   ]
 }

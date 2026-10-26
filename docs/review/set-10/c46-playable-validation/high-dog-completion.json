@@ -1,0 +1,29 @@
+{
+  "runtime": "6d83d2e1",
+  "scope": "Post-processing of the completed native report; no browser, action, application clock or original score is changed. Independently replayed actual original callbacks from observed conversation choices and final stop facts.",
+  "report": "c46-playable-6d83d2e1-high-en-normal-dog.json",
+  "reportSha256": "fd010c83168b915d06f9823cea2027a80e51d769071a77af550a3c3676616742",
+  "complete": true,
+  "checks": 1676,
+  "captures": 26,
+  "stops": 3,
+  "score": 6700,
+  "stars": {
+    "safety": 3,
+    "service": 3,
+    "efficiency": 3
+  },
+  "ratios": {
+    "safety": 1,
+    "service": 1,
+    "efficiency": 1
+  },
+  "seconds": 102,
+  "criticals": [],
+  "durable": true,
+  "plays": 1,
+  "originalCallbackEquality": true,
+  "scene": "StopScene",
+  "scene3d": null,
+  "default3d": false
+}
