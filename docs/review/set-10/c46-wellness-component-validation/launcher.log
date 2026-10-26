@@ -1,2 +1,3 @@
 {"phase": "waiting-for-shared-browser-lock", "runtime": "1ef898131fdd34f6ab5ad6f9b0274ecc1e8a8dc0", "pid": 74621, "state": "waiting"}
 {"phase": "four-resource-profiles", "runtime": "1ef898131fdd34f6ab5ad6f9b0274ecc1e8a8dc0", "pid": 74621, "state": "running", "serverPid": 74622}
+{"phase": "component-resources", "runtime": "1ef898131fdd34f6ab5ad6f9b0274ecc1e8a8dc0", "pid": 74621, "state": "passed", "exit": 0}

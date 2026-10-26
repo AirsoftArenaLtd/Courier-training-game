@@ -1,7 +1,7 @@
 {
   "runtime": "1ef898131fdd34f6ab5ad6f9b0274ecc1e8a8dc0",
   "scope": "Unloaded static safety art with corrected High font pool; no native/app-adapter/full C46 acceptance.",
-  "supervisorState": "running",
+  "supervisorState": "passed",
   "profiles": [
     {
       "id": "loaded-high",
@@ -38,11 +38,23 @@
         "phaserBytes": 1681910
       },
       "report": "bench-c46-wellness-1ef89813-accessible-low-low.json"
+    },
+    {
+      "id": "fallback-low",
+      "views": 9,
+      "peak": {
+        "calls": 29,
+        "triangles": 1578,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1482000
+      },
+      "report": "bench-c46-wellness-1ef89813-fallback-low-low.json"
     }
   ],
-  "completedProfiles": 3,
-  "completedViews": 27,
-  "allResourceProfilesPass": false,
+  "completedProfiles": 4,
+  "completedViews": 36,
+  "allResourceProfilesPass": true,
   "nativeGameplay": false,
   "applicationAdapterLoaded": false,
   "fullC46Acceptance": false

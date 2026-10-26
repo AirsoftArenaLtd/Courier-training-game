@@ -1,0 +1,13 @@
+{
+  "owned": {
+    "supervisor": 74621,
+    "server": 74622,
+    "resources": 74624
+  },
+  "browserLockAvailable": true,
+  "processes": {
+    "supervisor": "Z [python3] <defunct>",
+    "server": "exited",
+    "resources": "exited"
+  }
+}
