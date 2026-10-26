@@ -18,7 +18,7 @@ module.exports=view=>{
  if(view==='wellnessclinic')Object.assign(m.player,{x:11.2,z:m.scannerStage.wall+3.8,yaw:.18,pitch:.05});
  m.customerStage.time=m.wellnessStage.time=100;
  run.wellnessFixtureSerial=window.otrWellnessFixtureSerial;
- if(view==='wellnessdrink'){Object.assign(m.player,{x:.1,z:-41.9,yaw:.6,pitch:.35});d.wellness.ref.me.animation='drink';}
+ if(view==='wellnessdrink'){Object.assign(m.player,{x:.1,z:-41.9,yaw:.6,pitch:.35});OTR.fpWellnessStage.water(m);}
  if(['wellnesscab','wellnessreverse'].includes(view)){m.mode='cab';d.state.inVan=true;m.van.gear=view==='wellnessreverse'?-1:0;m.van.look=0;m.player.pitch=0;}
  if(view==='wellnesshandheld')A.safety(scene);
  if(view==='wellnesscontrols')A.controls(scene,4);
@@ -27,5 +27,6 @@ module.exports=view=>{
    OTR.fpWellnessStop.presentation(d);if(d.wellness.acting){OTR.fpWellnessStage.observe(m,{},.05,true);continue;}if(d.talk.phase==='line')OTR.fpCustomerTalk.advance(d.talk);
   }if(d.talk.phase!=='choices')throw Error('No arranged safety reply');A.present(scene);
  }
- m.paused=true;scene.external=true;scene.sync();scene.refresh();
+ const stage=m.wellnessStage;stage.facts.shade=m.mode==='walk'&&stage.shades.some(box=>OTR.fpWellnessStage.inside(m.player,box));stage.facts.interior=!!(m.mode==='walk'&&stage.interiorBuilt&&stage.interior&&OTR.fpWellnessStage.inside(m.player,stage.interior));
+ m.paused=true;scene.external=view==='wellnessreply';scene.sync();scene.refresh();
 };
