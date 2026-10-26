@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-26T23:25:32.005116+00:00",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Named captures inspected at original resolution. Native result/reload and resource acceptance are verified separately; shared glyph/translation/readability/Intel readiness remains open. Uninspected and partial captures are not visual acceptance.",
+  "images": [
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-critical-trip-low-en-large-steps-stop1-report.png",
+      "sha256": "f92af174f02dc574740e300dec4251bc6ed4dc7c2f6362c10324647b27964455",
+      "observation": "The larger-English second-stop assessment report fits its heading, end-of-stop sentence and continue control. It intentionally does not disclose practice coaching here; the recorded critical and final verdict are verified separately."
+    },
+    {
+      "file": "artifacts/c46-horizontal-35bd5bb1-critical-trip-low-en-large-steps-result.png",
+      "sha256": "66f0554efd97ea07c1f3cf9531b1ed5b73dbeeba78d504b7226ff809aeeb8328",
+      "observation": "The settled larger-English result clearly says Assessment not passed, shows7/9 with safety capped at one star, and displays the critical careful-walking lesson. One further takeaway and a three-more indicator fit above the career verdict and controls. The source 7200-point failure and durable one-attempt result are independently verified; this capture does not show every takeaway body."
+    }
+  ]
+}

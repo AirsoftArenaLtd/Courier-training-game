@@ -1,0 +1,213 @@
+{
+  "at": "2026-10-26T23:24:28.319Z",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Completed current incident good layouts only, with retained Low English normal regression counted once. Partial/negative/static resource jobs and old component-native evidence are excluded. Original callbacks/scales/records/defaults preserved; glyph/translation/readability acceptance excluded.",
+  "complete": false,
+  "expectedGoodJourneys": 8,
+  "goodJourneys": 6,
+  "nativeChecks": 6975,
+  "captures": 114,
+  "passedAssessments": 3,
+  "completedJobs": 9,
+  "rows": [
+    {
+      "report": "docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-incident-regression.json",
+      "sha256": "2d4271a0593e9fa31a748594fe6281aff51a87f29656f6660313d0166999f696",
+      "retained": true,
+      "id": "m8-incident",
+      "quality": "low",
+      "language": "en",
+      "large": false,
+      "checks": 1210,
+      "captures": 19,
+      "score": 4100,
+      "stars": {
+        "safety": 3,
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 61,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "originalCallbackEquality": "independently replayed actual original TalkController and DialogueScene callbacks",
+      "protocolSha256": "c73897d8052f219504696df6cc83f3ef9d176c5a883eff9b517e7314e4ee131e",
+      "sourceFilesVerified": 14
+    },
+    {
+      "report": "docs/review/set-10/c46-incident-current-validation/artifacts/c46-incident-current-6d83d2e1-good-low-en-large.json",
+      "sha256": "88f1a974484dbe3137ccd3301855adb7c9241bf99e799d29076992f96b581c93",
+      "retained": false,
+      "id": "m8-incident",
+      "quality": "low",
+      "language": "en",
+      "large": true,
+      "checks": 1115,
+      "captures": 19,
+      "score": 4100,
+      "stars": {
+        "safety": 3,
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 61,
+      "durable": true,
+      "plays": 1,
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793054149831,
+        "pending": false,
+        "at": 1793054341976,
+        "stars": {
+          "safety": 3,
+          "service": 3,
+          "efficiency": 3
+        },
+        "score": 4100,
+        "criticals": [],
+        "lessons": [
+          "Stop, secure the scene and check for injuries before anything else — people first, packages never.",
+          "Report every collision to dispatch immediately, however small. A cash settlement on the curb becomes your problem later.",
+          "Never admit fault at the scene. Exchange information, photograph everything and write down exactly what happened."
+        ]
+      },
+      "originalCallbackEquality": "independently replayed actual original TalkController and DialogueScene callbacks",
+      "protocolSha256": "c73897d8052f219504696df6cc83f3ef9d176c5a883eff9b517e7314e4ee131e",
+      "sourceFilesVerified": 14
+    },
+    {
+      "report": "docs/review/set-10/c46-incident-current-validation/artifacts/c46-incident-current-6d83d2e1-good-low-ta-normal.json",
+      "sha256": "52eb58904d153f95b9c8e84b8d7d839273b1028f54631847c00932bfea686391",
+      "retained": false,
+      "id": "m8-incident",
+      "quality": "low",
+      "language": "ta",
+      "large": false,
+      "checks": 1210,
+      "captures": 19,
+      "score": 4100,
+      "stars": {
+        "safety": 3,
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 61,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "originalCallbackEquality": "independently replayed actual original TalkController and DialogueScene callbacks",
+      "protocolSha256": "c73897d8052f219504696df6cc83f3ef9d176c5a883eff9b517e7314e4ee131e",
+      "sourceFilesVerified": 14
+    },
+    {
+      "report": "docs/review/set-10/c46-incident-current-validation/artifacts/c46-incident-current-6d83d2e1-good-low-ta-large.json",
+      "sha256": "5910629988ba07592c7e6ffdd60ac59f8fe3a1c1c3508c7aa3d363eb398ec826",
+      "retained": false,
+      "id": "m8-incident",
+      "quality": "low",
+      "language": "ta",
+      "large": true,
+      "checks": 1115,
+      "captures": 19,
+      "score": 4100,
+      "stars": {
+        "safety": 3,
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 61,
+      "durable": true,
+      "plays": 1,
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793054529265,
+        "pending": false,
+        "at": 1793054727928,
+        "stars": {
+          "safety": 3,
+          "service": 3,
+          "efficiency": 3
+        },
+        "score": 4100,
+        "criticals": [],
+        "lessons": [
+          "Stop, secure the scene and check for injuries before anything else — people first, packages never.",
+          "Report every collision to dispatch immediately, however small. A cash settlement on the curb becomes your problem later.",
+          "Never admit fault at the scene. Exchange information, photograph everything and write down exactly what happened."
+        ]
+      },
+      "originalCallbackEquality": "independently replayed actual original TalkController and DialogueScene callbacks",
+      "protocolSha256": "c73897d8052f219504696df6cc83f3ef9d176c5a883eff9b517e7314e4ee131e",
+      "sourceFilesVerified": 14
+    },
+    {
+      "report": "docs/review/set-10/c46-incident-current-validation/artifacts/c46-incident-current-6d83d2e1-good-high-en-normal.json",
+      "sha256": "b5bfc6568dc3ec432c140d3ee5b1dc419db8fa8e3ae4ff14ba837c3cbde3ce9b",
+      "retained": false,
+      "id": "m8-incident",
+      "quality": "high",
+      "language": "en",
+      "large": false,
+      "checks": 1210,
+      "captures": 19,
+      "score": 4100,
+      "stars": {
+        "safety": 3,
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 54,
+      "durable": true,
+      "plays": 1,
+      "assessment": null,
+      "originalCallbackEquality": "independently replayed actual original TalkController and DialogueScene callbacks",
+      "protocolSha256": "c73897d8052f219504696df6cc83f3ef9d176c5a883eff9b517e7314e4ee131e",
+      "sourceFilesVerified": 14
+    },
+    {
+      "report": "docs/review/set-10/c46-incident-current-validation/artifacts/c46-incident-current-6d83d2e1-good-high-en-large.json",
+      "sha256": "1990cc3803c2b1f9920b3c2a71d8cfaaec1b26ee7281b86beb1d9c37bb9ddac2",
+      "retained": false,
+      "id": "m8-incident",
+      "quality": "high",
+      "language": "en",
+      "large": true,
+      "checks": 1115,
+      "captures": 19,
+      "score": 4100,
+      "stars": {
+        "safety": 3,
+        "service": 3,
+        "efficiency": 3
+      },
+      "seconds": 54,
+      "durable": true,
+      "plays": 1,
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793055788224,
+        "pending": false,
+        "at": 1793056679844,
+        "stars": {
+          "safety": 3,
+          "service": 3,
+          "efficiency": 3
+        },
+        "score": 4100,
+        "criticals": [],
+        "lessons": [
+          "Stop, secure the scene and check for injuries before anything else — people first, packages never.",
+          "Report every collision to dispatch immediately, however small. A cash settlement on the curb becomes your problem later.",
+          "Never admit fault at the scene. Exchange information, photograph everything and write down exactly what happened."
+        ]
+      },
+      "originalCallbackEquality": "independently replayed actual original TalkController and DialogueScene callbacks",
+      "protocolSha256": "c73897d8052f219504696df6cc83f3ef9d176c5a883eff9b517e7314e4ee131e",
+      "sourceFilesVerified": 14
+    }
+  ]
+}

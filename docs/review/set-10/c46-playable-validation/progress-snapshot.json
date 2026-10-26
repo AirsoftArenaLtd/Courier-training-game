@@ -1,16 +1,13 @@
 {
-  "at": "2026-10-26T22:18:05.708Z",
+  "at": "2026-10-26T23:24:28.319Z",
   "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
   "sourceFilesVerified": 911,
   "retainedProofsVerified": 12,
   "status": {
-    "phase": "critical-trip",
+    "phase": "complete",
     "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
     "pid": 100058,
-    "state": "running",
-    "group": "matrix",
-    "server": 100060,
-    "timeout": 3600
+    "state": "passed"
   },
   "completedJobs": [
     {
@@ -289,6 +286,46 @@
         "QA_TAG": "c46-horizontal-35bd5bb1-matrix-high-ta-large-heat",
         "QA_CASE": "high-ta-large-heat"
       }
+    },
+    {
+      "name": "critical-trip",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-critical-trip",
+        "QA_CASE": "low-en-large-steps",
+        "QA_VARIANT": "trip"
+      }
+    },
+    {
+      "name": "abandon-steps",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-abandon-steps",
+        "QA_CASE": "low-en-large-steps",
+        "QA_VARIANT": "abandon"
+      }
+    },
+    {
+      "name": "abandon-dog",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-abandon-dog",
+        "QA_CASE": "low-en-large-dog",
+        "QA_VARIANT": "abandon"
+      }
+    },
+    {
+      "name": "abandon-heat",
+      "group": "matrix",
+      "exit": 0,
+      "env": {
+        "QA_TAG": "c46-horizontal-35bd5bb1-abandon-heat",
+        "QA_CASE": "low-en-large-heat",
+        "QA_VARIANT": "abandon"
+      }
     }
   ],
   "preflightComplete": true,
@@ -302,17 +339,24 @@
   "passedAssessments": 12,
   "incidentFollowup": {
     "status": {
-      "phase": "waiting-for-core-validation",
+      "phase": "good-high-ta-normal",
       "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
       "pid": 100059,
-      "state": "waiting"
+      "state": "running",
+      "server": 104112
     },
     "jobs": 13,
     "remainingGoodLayouts": 7,
     "resourceViews": 32,
-    "retainedCurrentCase": "low-en-normal"
+    "retainedCurrentCase": "low-en-normal",
+    "completedJobs": 9,
+    "goodJourneys": 6,
+    "nativeChecks": 6975,
+    "captures": 114,
+    "passedAssessments": 3,
+    "resourceViewsAccepted": 32
   },
-  "scope": "All24 core good journeys complete with12 durable passed assessments;32 completed jobs. The loaded-trip critical assessment runs; three abandonments follow. Static-panel and partial/negative/regression checks stay excluded from good-native counts. Current incident follower waits serially. Shared glyph/translation/readability/A31/default/current-pilot/Intel acceptance remains open.",
+  "scope": "Core36/36 jobs complete and released:24 good, one correctly failed trip assessment and three abandoned assessments. Current incident integration advances separately; old component evidence is not relabelled. Shared A31/optional/default/current-pilot/Intel acceptance remains open.",
   "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
   "staticPanelAudit": {
     "panels": 1896,
@@ -321,5 +365,18 @@
     "complete": true,
     "scope": "Static original M8 conversation text only; excluded from native check/journey counts. Current default font; glyph/translation readiness remains open."
   },
-  "goodMatrixComplete": true
+  "goodMatrixComplete": true,
+  "complete": true,
+  "negativeJourneys": 4,
+  "negativeNativeChecks": 1890,
+  "negativeCaptures": 47,
+  "overallOriginalIds": {
+    "goodJourneys": 30,
+    "expectedGoodJourneys": 32,
+    "goodNativeChecks": 36337,
+    "goodCaptures": 706,
+    "passedAssessments": 15,
+    "resourceViews": 96,
+    "scope": "Completed good-native/resource counts only; retained current incident regression counted once. Negative/regression/static-panel/partial native checks excluded."
+  }
 }

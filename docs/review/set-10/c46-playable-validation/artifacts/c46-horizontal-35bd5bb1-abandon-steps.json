@@ -1,0 +1,53 @@
+{
+  "checks": 215,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "kind": "steps",
+      "shots": [
+        "c46-horizontal-35bd5bb1-abandon-steps-low-en-large-steps-brief.png",
+        "c46-horizontal-35bd5bb1-abandon-steps-low-en-large-steps-controls-0.png",
+        "c46-horizontal-35bd5bb1-abandon-steps-low-en-large-steps-controls-1.png",
+        "c46-horizontal-35bd5bb1-abandon-steps-low-en-large-steps-controls-2.png",
+        "c46-horizontal-35bd5bb1-abandon-steps-low-en-large-steps-controls-3.png",
+        "c46-horizontal-35bd5bb1-abandon-steps-low-en-large-steps-controls-4.png",
+        "c46-horizontal-35bd5bb1-abandon-steps-low-en-large-steps-controls-5.png",
+        "c46-horizontal-35bd5bb1-abandon-steps-low-en-large-steps-handheld.png"
+      ],
+      "stops": [],
+      "abandoned": {
+        "assessment": {
+          "attempts": 1,
+          "passed": false,
+          "startedAt": 1793053489454,
+          "pending": false,
+          "abandoned": true,
+          "at": 1793053507991
+        }
+      },
+      "durable": true,
+      "reload": {
+        "assessment": {
+          "attempts": 1,
+          "passed": false,
+          "startedAt": 1793053489454,
+          "pending": false,
+          "abandoned": true,
+          "at": 1793053507991
+        },
+        "scene": "StopScene",
+        "scene3d": null,
+        "default3d": false
+      }
+    }
+  ],
+  "errors": [],
+  "variant": "abandon",
+  "sourceRevision": "4790744f9081f50e55091e8f91fd600448df179d",
+  "uncommittedRuntime": false,
+  "protocolSha256": "02e1041cfa9f7746459827fdacc33d9186ac25b58a15b6593ce354c70b818ca6",
+  "scope": "Existing-id registration, accessibility and a suspended workday are setup fixtures. Observational wrappers record completed original conversations and pre-evaluation stop facts without changing arguments or return values. Real keys control all walking, aiming, parcels, safety actions, replies, photos, signing and results. No position, timer, node, hazard, signature-completion, score or verdict fixture. Independent original 2D callbacks replay observed choices and evaluate observed stop facts. Bounds checks do not certify Tamil glyph coverage or Intel FPS.",
+  "complete": true
+}

@@ -1,0 +1,70 @@
+{
+  "at": "2026-10-26T23:24:28.319Z",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "complete": true,
+  "views": 32,
+  "scope": "32 current incident arranged resource views, independent original fpquality ceilings rechecked from copied reports. Not native gameplay or Intel FPS acceptance. Earlier0777a5f0 component figures keep their older source scope.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "views": 8,
+      "peak": {
+        "calls": 31,
+        "triangles": 920,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1818854
+      },
+      "report": "docs/review/set-10/c46-incident-current-validation/artifacts/bench-c46-incident-current-6d83d2e1-resource-loaded-low-loaded-low-low.json",
+      "sha256": "81fe06647d20eb51bb16d103c1027b01a6422ef618a2808c94ac0a1c12f2da80",
+      "summary": "docs/review/set-10/c46-incident-current-validation/artifacts/c46-incident-current-6d83d2e1-resource-loaded-low-quality.json",
+      "summarySha256": "4c2e4ec8937ad1dfb20d097e24e24bdd9dc1768a1fde56e3fe036608947e558a"
+    },
+    {
+      "id": "loaded-high",
+      "views": 8,
+      "peak": {
+        "calls": 46,
+        "triangles": 56102,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5807910
+      },
+      "report": "docs/review/set-10/c46-incident-current-validation/artifacts/bench-c46-incident-current-6d83d2e1-resource-loaded-high-loaded-high-high.json",
+      "sha256": "010e9dc4804dbe2d4b02c265c2d637b1d18b86d0a4dd0b19b8e9f8fc622ace23",
+      "summary": "docs/review/set-10/c46-incident-current-validation/artifacts/c46-incident-current-6d83d2e1-resource-loaded-high-quality.json",
+      "summarySha256": "7fc310e5c7432cb4a64ad8876a42254762d6ea352f4ba5ebef04dc560b05f5a8"
+    },
+    {
+      "id": "accessible-low",
+      "views": 8,
+      "peak": {
+        "calls": 31,
+        "triangles": 920,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2163958
+      },
+      "report": "docs/review/set-10/c46-incident-current-validation/artifacts/bench-c46-incident-current-6d83d2e1-resource-accessible-low-accessible-low-low.json",
+      "sha256": "6fb92c48706ebb545bb05705bfed21b1e19601c606e752bab4780b3693b7f0ac",
+      "summary": "docs/review/set-10/c46-incident-current-validation/artifacts/c46-incident-current-6d83d2e1-resource-accessible-low-quality.json",
+      "summarySha256": "5bcef0558f4da52654232cd905b04b73b76ff4feb68d04b456f3d0ffaabd2e00"
+    },
+    {
+      "id": "fallback-low",
+      "views": 8,
+      "peak": {
+        "calls": 33,
+        "triangles": 808,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1818854
+      },
+      "report": "docs/review/set-10/c46-incident-current-validation/artifacts/bench-c46-incident-current-6d83d2e1-resource-fallback-low-fallback-low-low.json",
+      "sha256": "00bd7a26e43d129dd88655b5815dfb85d14463c60393edec91d4dae33cb3f2f5",
+      "summary": "docs/review/set-10/c46-incident-current-validation/artifacts/c46-incident-current-6d83d2e1-resource-fallback-low-quality.json",
+      "summarySha256": "00c9a177afb0d3571cd1a30324aa669f04e94d8f5d9741c574472f14b6f4e4bf"
+    }
+  ]
+}

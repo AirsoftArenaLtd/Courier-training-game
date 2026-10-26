@@ -1,6 +1,7 @@
 {
-  "phase": "waiting-for-core-validation",
+  "phase": "good-high-ta-normal",
   "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
   "pid": 100059,
-  "state": "waiting"
+  "state": "running",
+  "server": 104112
 }
