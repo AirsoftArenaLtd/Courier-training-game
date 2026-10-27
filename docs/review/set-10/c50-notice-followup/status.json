@@ -1,0 +1,183 @@
+{
+  "phase": "complete",
+  "jobs": [
+    {
+      "tag": "notice-all-larger",
+      "script": "test/fplangsbrowser.js",
+      "env": {
+        "QA_LARGE": "1",
+        "QA_STRICT": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "a22-reverse-en-large.png": "eca7821ebbeb966573b8c3874e380fa501b26acc890b6acd9c00b058bf63651c",
+        "b51-signal-red-ta-large.png": "1caed668657fc29aa4afbea4bebecb31706d59510da1a58d609adb7ffa5004b1",
+        "b51-give-way-ta-large.png": "4982edd28ea1acfd6f2eec1360d726494cfac9ecc76d0e14bb79fba23b26b308",
+        "a22-reverse-ta-large.png": "2a372874cb46068b85d32f504b9531fa98d1945458ea02185ef5dc3e63f0251a",
+        "a22-reverse-ml-large.png": "8f39b39e8c821de738b73ade7769898c7f5a896ed596f40d7dc76b1a6c1f4b5f"
+      }
+    },
+    {
+      "tag": "notice-all-normal",
+      "script": "test/fplangsbrowser.js",
+      "env": {
+        "QA_LARGE": "0",
+        "QA_STRICT": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b51-signal-red-ta-normal.png": "21725eb17905ef4aa26824164a2b3eaf5a05470f014f51d968193997b4104d34",
+        "a22-reverse-ta-normal.png": "a9e7aef8abafff6d7f11ba813eadb5dd9f981008e5fa439cf7fc1cf8b30e1358",
+        "b51-give-way-ta-normal.png": "a5adf3dd775450fd731bd6eeb63eceafa8f17cdbec383497af670d806e2c0ca3",
+        "a22-reverse-ml-normal.png": "93ae02ca2ef637a9a6b8b13f845210c09156966a7c00fc10cc5acedc4b0436b5",
+        "a22-reverse-en-normal.png": "e8da17bdcb7a76bb1363b5879cd220a6ae3d4ba6474a9602e63a0e1cbd62c5a3"
+      }
+    },
+    {
+      "tag": "notice-loaded-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "trafficsignal,trafficgreen,signsjunction,signspeak",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_NAV": "1",
+        "QA_SIGNS": "1",
+        "QA_TRAFFIC": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "notice-loaded-low-low-signspeak.png": "ce12dbe4a4bd204aeff14c4fb4f18ae10093a9de61fe97a653ad9151dcc16851",
+        "notice-loaded-low-low-trafficsignal.png": "d247cc26902790b2844cb79ad0d670199f2928d00a79202fd0eefe0927719850",
+        "notice-loaded-low-low-trafficgreen.png": "13fb549138df4421611cd06c6862988b129e9fe91723f0cc6fd7d6e095d6b6a7",
+        "bench-notice-loaded-low-low.json": "64e5631911081b6aa4b94608330aca25dee88eb9b8d91c9d3615f824c6de96a1",
+        "notice-loaded-low-low-signsjunction.png": "4e3b59d44a75c9d097039d8b4d1e1063ee986dda2db13a8f1d73d85a94b38ac5"
+      },
+      "peak": {
+        "calls": 56,
+        "triangles": 2400,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1815003
+      }
+    },
+    {
+      "tag": "notice-loaded-high",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "trafficsignal,trafficgreen,signsjunction,signspeak",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_NAV": "1",
+        "QA_SIGNS": "1",
+        "QA_TRAFFIC": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "notice-loaded-high-high-signsjunction.png": "02a1a392b3a6713737642a3965133b0c1fcb9330704436e54b357e501ce3c8ef",
+        "notice-loaded-high-high-trafficsignal.png": "1735c38eccf2cd392de4123a1721547f63556a822122fd8375163a7f49e2a68c",
+        "notice-loaded-high-high-trafficgreen.png": "6410241bc878d6a51fff378cae3a198f1886294f9da4c8789e155b5e48395f8a",
+        "notice-loaded-high-high-signspeak.png": "52e7cedb43ade667e7da063ca3d6b7a8efd8ef772653c2f388901d9577cbc969",
+        "bench-notice-loaded-high-high.json": "c31eedd48fc087f83731c1272adf6fd9bcefccfd3209a5575740a8657e1eb0c3"
+      },
+      "peak": {
+        "calls": 79,
+        "triangles": 121672,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5792731
+      }
+    },
+    {
+      "tag": "notice-accessible-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "trafficsignal,trafficgreen,signsjunction,signspeak",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_NAV": "1",
+        "QA_SIGNS": "1",
+        "QA_TRAFFIC": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "bench-notice-accessible-low-low.json": "ea41f6872a60e9272986e398ffec821ebd6ae51ca7919621507636ccb0d98100",
+        "notice-accessible-low-low-signspeak.png": "f3d497415014b6b181092552af8f7d78a443e4040fa958dbf01fd0499c7f4ac1",
+        "notice-accessible-low-low-signsjunction.png": "3c98a4aeac36024730564fdaa81422c1654b159895b7999f28e653954c28ad5b",
+        "notice-accessible-low-low-trafficgreen.png": "f4e05f9db25024995f3d4708012a2a62f2d97ad6a7a176f7c62a13a45485b769",
+        "notice-accessible-low-low-trafficsignal.png": "00f8ec3bf783f657e39db6e8355d4dccfd295c093c1ad600d525267173b4e1b6"
+      },
+      "peak": {
+        "calls": 56,
+        "triangles": 2400,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1923072
+      }
+    },
+    {
+      "tag": "notice-fallback-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1",
+        "QA_VIEWS": "trafficsignal,trafficgreen,signsjunction,signspeak",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_NAV": "1",
+        "QA_SIGNS": "1",
+        "QA_TRAFFIC": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "notice-fallback-low-low-trafficgreen.png": "3f99c4997ca2922ea4dea39d27cd147858c040a8216ee0df7f505bec66fbf88e",
+        "notice-fallback-low-low-signspeak.png": "f49ace628dfbe3f76ae6cb83ea1b179efa2198d218c300e070cf89fc89e7ff87",
+        "notice-fallback-low-low-signsjunction.png": "3b5ca9e141fbc9fd6d5965e3d2732dfb720c48fb8bd889e5d83469a33c05fb85",
+        "bench-notice-fallback-low-low.json": "ede7d0c5fad3074ad6792399b772af7e9bcee2cf00fa6e536f8d66c05bc37b95",
+        "notice-fallback-low-low-trafficsignal.png": "a79a0fe608ec883c671a0ec6741ab65d2871865e9384fbd3a39a6d57326ff69c"
+      },
+      "peak": {
+        "calls": 53,
+        "triangles": 2066,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1815003
+      }
+    }
+  ],
+  "pid": 163105,
+  "startedAt": 1793111142.9820366,
+  "serverPid": 163110,
+  "tag": "notice-fallback-low",
+  "childPid": 166942,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793112044.960937
+}

@@ -1,0 +1,45 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ all actual town names, address numbers and rule legends keep their complete face text (7.11148ms)
+✔ every Low letter and digit has a complete seven-row procedural glyph, with no canvas allocation (2.660408ms)
+✔ High uses only the three spare cells and never closes or disposes the material atlas (1.939709ms)
+✔ High without material images owns one small fallback atlas and releases it once (3.696143ms)
+✔ letter buffers retain the live shape attribute and prior shader hooks without adding triangles (3.22409ms)
+✔ physical signs hide automatic floating paragraphs while J still reads the complete source sentence (1.308977ms)
+✖ physical face lettering retains translated signal and give-way notices without restoring face paragraphs (3.167283ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32.063835
+
+✖ failing tests:
+
+test at test/fpsignlettering.js:30:1
+✖ physical face lettering retains translated signal and give-way notices without restoring face paragraphs (3.167283ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   'translated signal',
+  -   'translated junction-yield'
+  - ]
+  
+      at TestContext.<anonymous> (/workspace/c50-physical-signs/test/fpsignlettering.js:35:38)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

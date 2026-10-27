@@ -31,9 +31,9 @@ only manage Low, so it must stay clear there too.
 | 5 | C-49, merged | Drive the first street at High | Roads, pavements, grass and walls look like real surfaces, not flat colour; nothing shimmers or repeats obviously |
 | 6 | C-49, merged | The same at Low | Plain colours as before, readable and quick; no missing surfaces |
 | 7 | C-49, merged | Snow or ice day, if one comes up | The surfaces dim under snow and stay readable |
-| 8 | C-50 | Stop at a stop sign and a speed limit | The lettering and the number are on the sign itself, as on a real sign; no floating text box |
-| 9 | C-50 | Press J at a sign, in Tamil with larger text | The sign is still read aloud and shown in your language, though the sign face is the real one |
-| 10 | C-50 | A school-zone sign at Low | The lettering is still clear at Low |
+| 8 | C-50, merged | Stop at a stop sign and a speed limit | The lettering and the number are on the sign itself, as on a real sign; no floating text box |
+| 9 | C-50, merged | Press J at a sign, in Tamil with larger text | The sign is still read aloud and shown in your language, though the sign face is the real one |
+| 10 | C-50, merged | A school-zone sign at Low | The lettering is still clear at Low |
 | 11 | C-51 | Walk to a doorstep and a business reception | The person you deal with is clearly there and faces you; it does not feel like an empty street |
 | 12 | C-51 | Look along the street while driving | People and street detail make it feel lived in, without getting in the way of driving |
 | 13 | C-52 | Look at the dashboard | The instruments look like a real van's, not a prototype panel; speed and warnings are easy to read |

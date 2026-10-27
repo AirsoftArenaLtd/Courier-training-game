@@ -1,0 +1,425 @@
+{
+  "checks": 157,
+  "runs": [
+    {
+      "mode": "low",
+      "atlas": false,
+      "borrowed": false,
+      "images": 0,
+      "atlasSize": null,
+      "signs": [
+        {
+          "kind": "stop",
+          "lines": [
+            "STOP",
+            ""
+          ],
+          "shape": 2,
+          "player": {
+            "x": 5.95,
+            "z": 43,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1928,
+          "textures": 2
+        },
+        {
+          "kind": "street",
+          "lines": [
+            "HARBOR ST",
+            ""
+          ],
+          "shape": 1,
+          "player": {
+            "x": 9.95,
+            "z": 38.7,
+            "yaw": -1.5707963267948966,
+            "pitch": -0.35019544688659965
+          },
+          "changed": 3049,
+          "textures": 2
+        },
+        {
+          "kind": "number",
+          "lines": [
+            "204",
+            ""
+          ],
+          "shape": 9,
+          "player": {
+            "x": 7.244999999999999,
+            "z": -25.583333333333336,
+            "yaw": 1.5707963267948966,
+            "pitch": -0.25670833043338576
+          },
+          "changed": 1115,
+          "textures": 2
+        },
+        {
+          "kind": "giveway",
+          "lines": [
+            "YIELD",
+            ""
+          ],
+          "shape": 3,
+          "player": {
+            "x": 8,
+            "z": 6,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1224,
+          "textures": 2
+        },
+        {
+          "kind": "speed",
+          "lines": [
+            "25",
+            "MPH"
+          ],
+          "shape": 4,
+          "player": {
+            "x": 5.95,
+            "z": 3,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 2558,
+          "textures": 2
+        },
+        {
+          "kind": "school",
+          "lines": [
+            "SCHOOL",
+            "15 MPH"
+          ],
+          "shape": 5,
+          "player": {
+            "x": 95.95,
+            "z": 50.75,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1401,
+          "textures": 2
+        },
+        {
+          "kind": "roadworks",
+          "lines": [
+            "ROAD",
+            "CLOSED"
+          ],
+          "shape": 6,
+          "player": {
+            "x": 52.45,
+            "z": 30.5,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1720,
+          "textures": 2
+        },
+        {
+          "kind": "oneway",
+          "lines": [
+            "ONE WAY",
+            ""
+          ],
+          "shape": 7,
+          "player": {
+            "x": 51.25,
+            "z": 30.8,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1059,
+          "textures": 2
+        }
+      ]
+    },
+    {
+      "mode": "high",
+      "atlas": true,
+      "borrowed": true,
+      "images": 5,
+      "atlasSize": [
+        2048,
+        1024
+      ],
+      "signs": [
+        {
+          "kind": "stop",
+          "lines": [
+            "STOP",
+            ""
+          ],
+          "shape": 2,
+          "player": {
+            "x": 5.95,
+            "z": 43,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 2209,
+          "textures": 4
+        },
+        {
+          "kind": "street",
+          "lines": [
+            "HARBOR ST",
+            ""
+          ],
+          "shape": 1,
+          "player": {
+            "x": 9.95,
+            "z": 38.7,
+            "yaw": -1.5707963267948966,
+            "pitch": -0.35019544688659965
+          },
+          "changed": 3482,
+          "textures": 4
+        },
+        {
+          "kind": "number",
+          "lines": [
+            "204",
+            ""
+          ],
+          "shape": 9,
+          "player": {
+            "x": 7.244999999999999,
+            "z": -25.583333333333336,
+            "yaw": 1.5707963267948966,
+            "pitch": -0.25670833043338576
+          },
+          "changed": 552,
+          "textures": 4
+        },
+        {
+          "kind": "giveway",
+          "lines": [
+            "YIELD",
+            ""
+          ],
+          "shape": 3,
+          "player": {
+            "x": 8,
+            "z": 6,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1450,
+          "textures": 4
+        },
+        {
+          "kind": "speed",
+          "lines": [
+            "25",
+            "MPH"
+          ],
+          "shape": 4,
+          "player": {
+            "x": 5.95,
+            "z": 3,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1969,
+          "textures": 4
+        },
+        {
+          "kind": "school",
+          "lines": [
+            "SCHOOL",
+            "15 MPH"
+          ],
+          "shape": 5,
+          "player": {
+            "x": 95.95,
+            "z": 50.75,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1482,
+          "textures": 4
+        },
+        {
+          "kind": "roadworks",
+          "lines": [
+            "ROAD",
+            "CLOSED"
+          ],
+          "shape": 6,
+          "player": {
+            "x": 52.45,
+            "z": 30.5,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1857,
+          "textures": 4
+        },
+        {
+          "kind": "oneway",
+          "lines": [
+            "ONE WAY",
+            ""
+          ],
+          "shape": 7,
+          "player": {
+            "x": 51.25,
+            "z": 30.8,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1230,
+          "textures": 4
+        }
+      ]
+    },
+    {
+      "mode": "missing-images",
+      "atlas": true,
+      "borrowed": false,
+      "images": 0,
+      "atlasSize": [
+        2048,
+        512
+      ],
+      "signs": [
+        {
+          "kind": "stop",
+          "lines": [
+            "STOP",
+            ""
+          ],
+          "shape": 2,
+          "player": {
+            "x": 5.95,
+            "z": 43,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 2077,
+          "textures": 4
+        },
+        {
+          "kind": "street",
+          "lines": [
+            "HARBOR ST",
+            ""
+          ],
+          "shape": 1,
+          "player": {
+            "x": 9.95,
+            "z": 38.7,
+            "yaw": -1.5707963267948966,
+            "pitch": -0.35019544688659965
+          },
+          "changed": 3593,
+          "textures": 4
+        },
+        {
+          "kind": "number",
+          "lines": [
+            "204",
+            ""
+          ],
+          "shape": 9,
+          "player": {
+            "x": 7.244999999999999,
+            "z": -25.583333333333336,
+            "yaw": 1.5707963267948966,
+            "pitch": -0.25670833043338576
+          },
+          "changed": 524,
+          "textures": 4
+        },
+        {
+          "kind": "giveway",
+          "lines": [
+            "YIELD",
+            ""
+          ],
+          "shape": 3,
+          "player": {
+            "x": 8,
+            "z": 6,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1409,
+          "textures": 4
+        },
+        {
+          "kind": "speed",
+          "lines": [
+            "25",
+            "MPH"
+          ],
+          "shape": 4,
+          "player": {
+            "x": 5.95,
+            "z": 3,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1969,
+          "textures": 4
+        },
+        {
+          "kind": "school",
+          "lines": [
+            "SCHOOL",
+            "15 MPH"
+          ],
+          "shape": 5,
+          "player": {
+            "x": 95.95,
+            "z": 50.75,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1429,
+          "textures": 4
+        },
+        {
+          "kind": "roadworks",
+          "lines": [
+            "ROAD",
+            "CLOSED"
+          ],
+          "shape": 6,
+          "player": {
+            "x": 52.45,
+            "z": 30.5,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1848,
+          "textures": 4
+        },
+        {
+          "kind": "oneway",
+          "lines": [
+            "ONE WAY",
+            ""
+          ],
+          "shape": 7,
+          "player": {
+            "x": 51.25,
+            "z": 30.8,
+            "yaw": 0,
+            "pitch": -0.13345207893078936
+          },
+          "changed": 1123,
+          "textures": 4
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "fixture": "Stationary route. Camera approaches are fixtures; on/off changes only the lettering uniform. Actual sign geometry and centre-ray shape are required.",
+  "complete": true
+}

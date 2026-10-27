@@ -1,0 +1,54 @@
+{
+  "candidateBase": "f2e439ef",
+  "ownedCorrection": "e82091aa",
+  "scopes": [
+    {
+      "phase": "final",
+      "inputs": 536,
+      "artifacts": 30,
+      "cleanup": true
+    },
+    {
+      "phase": "layout",
+      "inputs": 537,
+      "artifacts": 58,
+      "cleanup": true
+    }
+  ],
+  "resourceProfiles": {
+    "notice-loaded-low": {
+      "calls": 56,
+      "triangles": 2400,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1815003
+    },
+    "notice-loaded-high": {
+      "calls": 79,
+      "triangles": 121672,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 5792731
+    },
+    "notice-accessible-low": {
+      "calls": 56,
+      "triangles": 2400,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1923072
+    },
+    "notice-fallback-low": {
+      "calls": 53,
+      "triangles": 2066,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1815003
+    }
+  },
+  "strictLanguageViews": 1176,
+  "occlusionViews": 144,
+  "resourceViews": 16,
+  "intel60fpsCertified": false,
+  "partialCandidate": "The root phase omitted the existing address-label guard; it is retained only as a partial source scope. final/ and layout/ repeat on the complete candidate.",
+  "legacyAudit": "Unmodified pilot sign-layout test required automatic STOP face paragraphs in eight views. Retained as a failed pre-C50 expectation; the owned audit now requires translated signal/yield notices, hidden face paragraphs and native J readings, preserving all clipping and occlusion checks."
+}

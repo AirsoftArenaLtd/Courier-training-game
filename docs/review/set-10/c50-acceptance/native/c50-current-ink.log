@@ -1,0 +1,25 @@
+low stop: 1928 actual ink pixels
+low street: 3049 actual ink pixels
+low number: 1115 actual ink pixels
+low giveway: 1224 actual ink pixels
+low speed: 2558 actual ink pixels
+low school: 1401 actual ink pixels
+low roadworks: 1720 actual ink pixels
+low oneway: 1059 actual ink pixels
+high stop: 2209 actual ink pixels
+high street: 3482 actual ink pixels
+high number: 552 actual ink pixels
+high giveway: 1450 actual ink pixels
+high speed: 1969 actual ink pixels
+high school: 1482 actual ink pixels
+high roadworks: 1857 actual ink pixels
+high oneway: 1230 actual ink pixels
+missing-images stop: 2077 actual ink pixels
+missing-images street: 3593 actual ink pixels
+missing-images number: 524 actual ink pixels
+missing-images giveway: 1409 actual ink pixels
+missing-images speed: 1969 actual ink pixels
+missing-images school: 1429 actual ink pixels
+missing-images roadworks: 1848 actual ink pixels
+missing-images oneway: 1123 actual ink pixels
+157 physical lettering checks passed

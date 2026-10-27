@@ -1,0 +1,5329 @@
+{
+  "sourceRevision": "573b0f4dc7bc6ce68c133bf01a6f04cd4c8adb40",
+  "fixture": "Native day-four approaches and first-day guidance, live fonts and Phaser labels. Camera poses are fixtures. Reports, saves and scores are not altered.",
+  "runs": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "red",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "quality": "high",
+      "phaserBytes": 6265467,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 454.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 604.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "The traffic light is red. Stop before the junction line.",
+        "font": 18,
+        "bounds": {
+          "x": 408,
+          "y": 669,
+          "right": 872,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "red",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "quality": "high",
+      "phaserBytes": 6265467,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 454.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 604.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "The traffic light is red. Stop before the junction line.",
+        "font": 18,
+        "bounds": {
+          "x": 408,
+          "y": 669,
+          "right": 872,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "amber",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "quality": "high",
+      "phaserBytes": 6265467,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 454.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 604.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "The traffic light is amber. Stop if you can do so safely.",
+        "font": 18,
+        "bounds": {
+          "x": 401.5,
+          "y": 669,
+          "right": 878.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "amber",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "quality": "high",
+      "phaserBytes": 6265467,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 454.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 604.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "The traffic light is amber. Stop if you can do so safely.",
+        "font": 18,
+        "bounds": {
+          "x": 401.5,
+          "y": 669,
+          "right": 878.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "green",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "quality": "high",
+      "phaserBytes": 6265467,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 454.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 604.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "The traffic light is green. Continue only when the junction is clear.",
+        "font": 18,
+        "bounds": {
+          "x": 344.5,
+          "y": 669,
+          "right": 935.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "green",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "quality": "high",
+      "phaserBytes": 6265467,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 454.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 604.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "The traffic light is green. Continue only when the junction is clear.",
+        "font": 18,
+        "bounds": {
+          "x": 344.5,
+          "y": 669,
+          "right": 935.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "giveway",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.2692470156007,
+        "right": 751.7201953668296,
+        "y": 346.1017938778106,
+        "bottom": 368.03957769529717
+      },
+      "quality": "high",
+      "phaserBytes": 6272635,
+      "projected": {
+        "x": 740.6114397988705,
+        "y": 352.93579252476013
+      },
+      "occupied": [
+        {
+          "x": 586.9606920760295,
+          "y": 472.70852933843975
+        },
+        {
+          "x": 693.0393079239728,
+          "y": 515.8029670266667
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 454.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 604.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "Give way to traffic before entering the junction.",
+        "font": 18,
+        "bounds": {
+          "x": 425,
+          "y": 669,
+          "right": 855,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "giveway",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058842,
+        "right": 892.1015926864059,
+        "y": 328.63807937872457,
+        "bottom": 378.1416648516916
+      },
+      "quality": "high",
+      "phaserBytes": 6272635,
+      "projected": {
+        "x": 867.366009624219,
+        "y": 344.03600357957606
+      },
+      "occupied": [
+        {
+          "x": 586.9606920760295,
+          "y": 472.70852933843975
+        },
+        {
+          "x": 693.0393079239728,
+          "y": 515.8029670266667
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 454.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 604.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "Give way to traffic before entering the junction.",
+        "font": 18,
+        "bounds": {
+          "x": 425,
+          "y": 669,
+          "right": 855,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "stop",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.2692470156009,
+        "right": 751.7201953668298,
+        "y": 346.1017938778106,
+        "bottom": 368.03957769529717
+      },
+      "quality": "high",
+      "phaserBytes": 6265467,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 352.93579252476013
+      },
+      "occupied": [
+        {
+          "x": 586.960692076028,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.039307923972,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 454.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 604.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "Stop before the junction line.",
+        "font": 18,
+        "bounds": {
+          "x": 509,
+          "y": 669,
+          "right": 771,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "stop",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058845,
+        "right": 892.1015926864065,
+        "y": 328.6380793787245,
+        "bottom": 378.1416648516916
+      },
+      "quality": "high",
+      "phaserBytes": 6265467,
+      "projected": {
+        "x": 867.3660096242193,
+        "y": 344.03600357957606
+      },
+      "occupied": [
+        {
+          "x": 586.960692076028,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.039307923972,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 21,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 454.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 604.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "Stop before the junction line.",
+        "font": 18,
+        "bounds": {
+          "x": 509,
+          "y": 669,
+          "right": 771,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "red",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "quality": "high",
+      "phaserBytes": 7832059,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 450.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 608.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "The traffic light is red. Stop before the junction line.",
+        "font": 22,
+        "bounds": {
+          "x": 356,
+          "y": 665,
+          "right": 924,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "red",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "quality": "high",
+      "phaserBytes": 7832059,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 450.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 608.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "The traffic light is red. Stop before the junction line.",
+        "font": 22,
+        "bounds": {
+          "x": 356,
+          "y": 665,
+          "right": 924,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "amber",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "quality": "high",
+      "phaserBytes": 7832059,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 450.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 608.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "The traffic light is amber. Stop if you can do so safely.",
+        "font": 22,
+        "bounds": {
+          "x": 349,
+          "y": 665,
+          "right": 931,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "amber",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "quality": "high",
+      "phaserBytes": 7832059,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 450.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 608.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "The traffic light is amber. Stop if you can do so safely.",
+        "font": 22,
+        "bounds": {
+          "x": 349,
+          "y": 665,
+          "right": 931,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "green",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "quality": "high",
+      "phaserBytes": 7832059,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 450.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 608.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "The traffic light is green. Continue only when the junction is clear.",
+        "font": 22,
+        "bounds": {
+          "x": 278.5,
+          "y": 665,
+          "right": 1001.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "green",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "quality": "high",
+      "phaserBytes": 7832059,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 450.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 608.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "The traffic light is green. Continue only when the junction is clear.",
+        "font": 22,
+        "bounds": {
+          "x": 278.5,
+          "y": 665,
+          "right": 1001.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "giveway",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.2692470156007,
+        "right": 751.7201953668296,
+        "y": 346.1017938778106,
+        "bottom": 368.03957769529717
+      },
+      "quality": "high",
+      "phaserBytes": 7870459,
+      "projected": {
+        "x": 740.6114397988705,
+        "y": 352.93579252476013
+      },
+      "occupied": [
+        {
+          "x": 586.9606920760295,
+          "y": 472.70852933843975
+        },
+        {
+          "x": 693.0393079239728,
+          "y": 515.8029670266667
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 450.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 608.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "Give way to traffic before entering the junction.",
+        "font": 22,
+        "bounds": {
+          "x": 377.5,
+          "y": 665,
+          "right": 902.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "giveway",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058842,
+        "right": 892.1015926864059,
+        "y": 328.63807937872457,
+        "bottom": 378.1416648516916
+      },
+      "quality": "high",
+      "phaserBytes": 7870459,
+      "projected": {
+        "x": 867.366009624219,
+        "y": 344.03600357957606
+      },
+      "occupied": [
+        {
+          "x": 586.9606920760295,
+          "y": 472.70852933843975
+        },
+        {
+          "x": 693.0393079239728,
+          "y": 515.8029670266667
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 450.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 608.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "Give way to traffic before entering the junction.",
+        "font": 22,
+        "bounds": {
+          "x": 377.5,
+          "y": 665,
+          "right": 902.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "stop",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.2692470156009,
+        "right": 751.7201953668298,
+        "y": 346.1017938778106,
+        "bottom": 368.03957769529717
+      },
+      "quality": "high",
+      "phaserBytes": 7868326,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 352.93579252476013
+      },
+      "occupied": [
+        {
+          "x": 586.960692076028,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.039307923972,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 450.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 608.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "Stop before the junction line.",
+        "font": 22,
+        "bounds": {
+          "x": 480,
+          "y": 665,
+          "right": 800,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "stop",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058845,
+        "right": 892.1015926864065,
+        "y": 328.6380793787245,
+        "bottom": 378.1416648516916
+      },
+      "quality": "high",
+      "phaserBytes": 7758992,
+      "projected": {
+        "x": 867.3660096242193,
+        "y": 344.03600357957606
+      },
+      "occupied": [
+        {
+          "x": 586.960692076028,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.039307923972,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 25,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 450.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 608.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "Stop before the junction line.",
+        "font": 22,
+        "bounds": {
+          "x": 480,
+          "y": 665,
+          "right": 800,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "red",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "quality": "high",
+      "phaserBytes": 8969243,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 431.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 627.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சிக்னல் சிவப்பாக உள்ளது. சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள்.",
+        "font": 18,
+        "bounds": {
+          "x": 362,
+          "y": 646,
+          "right": 918,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "red",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "quality": "high",
+      "phaserBytes": 8969243,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 431.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 627.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சிக்னல் சிவப்பாக உள்ளது. சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள்.",
+        "font": 18,
+        "bounds": {
+          "x": 362,
+          "y": 646,
+          "right": 918,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "amber",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "quality": "high",
+      "phaserBytes": 9003035,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 431.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 627.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சிக்னல் மஞ்சளாக உள்ளது. பாதுகாப்பாக நிற்க முடிந்தால் நில்லுங்கள்.",
+        "font": 18,
+        "bounds": {
+          "x": 342.5,
+          "y": 646,
+          "right": 937.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "amber",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "quality": "high",
+      "phaserBytes": 8969243,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 431.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 627.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சிக்னல் மஞ்சளாக உள்ளது. பாதுகாப்பாக நிற்க முடிந்தால் நில்லுங்கள்.",
+        "font": 18,
+        "bounds": {
+          "x": 342.5,
+          "y": 646,
+          "right": 937.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "green",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "quality": "high",
+      "phaserBytes": 9039643,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 431.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 627.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சிக்னல் பச்சையாக உள்ளது. சந்திப்பு காலியாக இருக்கும்போது மட்டும் தொடருங்கள்.",
+        "font": 18,
+        "bounds": {
+          "x": 395.5,
+          "y": 646,
+          "right": 884.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "green",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "quality": "high",
+      "phaserBytes": 8969243,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 431.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 627.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சிக்னல் பச்சையாக உள்ளது. சந்திப்பு காலியாக இருக்கும்போது மட்டும் தொடருங்கள்.",
+        "font": 18,
+        "bounds": {
+          "x": 395.5,
+          "y": 646,
+          "right": 884.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "giveway",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.2692470156007,
+        "right": 751.7201953668296,
+        "y": 346.1017938778106,
+        "bottom": 368.03957769529717
+      },
+      "quality": "high",
+      "phaserBytes": 8774939,
+      "projected": {
+        "x": 740.6114397988705,
+        "y": 352.93579252476013
+      },
+      "occupied": [
+        {
+          "x": 586.9606920760295,
+          "y": 472.70852933843975
+        },
+        {
+          "x": 693.0393079239728,
+          "y": 515.8029670266667
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 453.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 605.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சந்திப்பில் நுழையும் முன் வாகனங்களுக்கு வழி விடுங்கள்.",
+        "font": 18,
+        "bounds": {
+          "x": 336,
+          "y": 668,
+          "right": 944,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "giveway",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058842,
+        "right": 892.1015926864059,
+        "y": 328.63807937872457,
+        "bottom": 378.1416648516916
+      },
+      "quality": "high",
+      "phaserBytes": 8804038,
+      "projected": {
+        "x": 867.366009624219,
+        "y": 344.03600357957606
+      },
+      "occupied": [
+        {
+          "x": 586.9606920760295,
+          "y": 472.70852933843975
+        },
+        {
+          "x": 693.0393079239728,
+          "y": 515.8029670266667
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 453.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 605.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சந்திப்பில் நுழையும் முன் வாகனங்களுக்கு வழி விடுங்கள்.",
+        "font": 18,
+        "bounds": {
+          "x": 336,
+          "y": 668,
+          "right": 944,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "stop",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.2692470156009,
+        "right": 751.7201953668298,
+        "y": 346.1017938778106,
+        "bottom": 368.03957769529717
+      },
+      "quality": "high",
+      "phaserBytes": 8766491,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 352.93579252476013
+      },
+      "occupied": [
+        {
+          "x": 586.960692076028,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.039307923972,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 431.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 627.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சந்திப்புக் கோட்டுக்கு முன் நிறுத்துங்கள்.",
+        "font": 18,
+        "bounds": {
+          "x": 429,
+          "y": 668,
+          "right": 851,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "stop",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058845,
+        "right": 892.1015926864065,
+        "y": 328.6380793787245,
+        "bottom": 378.1416648516916
+      },
+      "quality": "high",
+      "phaserBytes": 8679195,
+      "projected": {
+        "x": 867.3660096242193,
+        "y": 344.03600357957606
+      },
+      "occupied": [
+        {
+          "x": 586.960692076028,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.039307923972,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 22,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 431.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 627.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சந்திப்புக் கோட்டுக்கு முன் நிறுத்துங்கள்.",
+        "font": 18,
+        "bounds": {
+          "x": 429,
+          "y": 668,
+          "right": 851,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "red",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "quality": "high",
+      "phaserBytes": 10230320,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 423.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 635.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சிக்னல் சிவப்பாக உள்ளது. சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள்.",
+        "font": 22,
+        "bounds": {
+          "x": 300.5,
+          "y": 638,
+          "right": 979.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "red",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "quality": "high",
+      "phaserBytes": 10230320,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 423.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 635.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சிக்னல் சிவப்பாக உள்ளது. சந்திப்புக் கோட்டுக்கு முன் நில்லுங்கள்.",
+        "font": 22,
+        "bounds": {
+          "x": 300.5,
+          "y": 638,
+          "right": 979.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "amber",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "quality": "high",
+      "phaserBytes": 10279131,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 423.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 635.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சிக்னல் மஞ்சளாக உள்ளது. பாதுகாப்பாக நிற்க முடிந்தால் நில்லுங்கள்.",
+        "font": 22,
+        "bounds": {
+          "x": 276.5,
+          "y": 638,
+          "right": 1003.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "amber",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "quality": "high",
+      "phaserBytes": 10230320,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 423.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 635.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சிக்னல் மஞ்சளாக உள்ளது. பாதுகாப்பாக நிற்க முடிந்தால் நில்லுங்கள்.",
+        "font": 22,
+        "bounds": {
+          "x": 276.5,
+          "y": 638,
+          "right": 1003.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "green",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.269247015601,
+        "right": 751.7201953668298,
+        "y": 303.33808273261263,
+        "bottom": 341.5260767852744
+      },
+      "quality": "high",
+      "phaserBytes": 10332379,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 310.1224138869429
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.0393079239709,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 423.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 635.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சிக்னல் பச்சையாக உள்ளது. சந்திப்பு காலியாக இருக்கும்போது மட்டும் தொடருங்கள்.",
+        "font": 22,
+        "bounds": {
+          "x": 341,
+          "y": 638,
+          "right": 939,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "green",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058847,
+        "right": 892.1015926864063,
+        "y": 232.13986208249244,
+        "bottom": 318.3127701280277
+      },
+      "quality": "high",
+      "phaserBytes": 10230320,
+      "projected": {
+        "x": 867.3660096242196,
+        "y": 247.28451012246146
+      },
+      "occupied": [
+        {
+          "x": 586.960692076029,
+          "y": 472.70852933844094
+        },
+        {
+          "x": 693.0393079239711,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 423.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 635.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சிக்னல் பச்சையாக உள்ளது. சந்திப்பு காலியாக இருக்கும்போது மட்டும் தொடருங்கள்.",
+        "font": 22,
+        "bounds": {
+          "x": 341,
+          "y": 638,
+          "right": 939,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "giveway",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.2692470156007,
+        "right": 751.7201953668296,
+        "y": 346.1017938778106,
+        "bottom": 368.03957769529717
+      },
+      "quality": "high",
+      "phaserBytes": 10120496,
+      "projected": {
+        "x": 740.6114397988705,
+        "y": 352.93579252476013
+      },
+      "occupied": [
+        {
+          "x": 586.9606920760295,
+          "y": 472.70852933843975
+        },
+        {
+          "x": 693.0393079239728,
+          "y": 515.8029670266667
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 436.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 622.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சந்திப்பில் நுழையும் முன் வாகனங்களுக்கு வழி விடுங்கள்.",
+        "font": 22,
+        "bounds": {
+          "x": 268.5,
+          "y": 664,
+          "right": 1011.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "giveway",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058842,
+        "right": 892.1015926864059,
+        "y": 328.63807937872457,
+        "bottom": 378.1416648516916
+      },
+      "quality": "high",
+      "phaserBytes": 10161542,
+      "projected": {
+        "x": 867.366009624219,
+        "y": 344.03600357957606
+      },
+      "occupied": [
+        {
+          "x": 586.9606920760295,
+          "y": 472.70852933843975
+        },
+        {
+          "x": 693.0393079239728,
+          "y": 515.8029670266667
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 436.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 622.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சந்திப்பில் நுழையும் முன் வாகனங்களுக்கு வழி விடுங்கள்.",
+        "font": 22,
+        "bounds": {
+          "x": 268.5,
+          "y": 664,
+          "right": 1011.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "stop",
+      "back": 24,
+      "text": [],
+      "head": {
+        "x": 729.2692470156009,
+        "right": 751.7201953668298,
+        "y": 346.1017938778106,
+        "bottom": 368.03957769529717
+      },
+      "quality": "high",
+      "phaserBytes": 9938011,
+      "projected": {
+        "x": 740.6114397988706,
+        "y": 352.93579252476013
+      },
+      "occupied": [
+        {
+          "x": 586.960692076028,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.039307923972,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 423.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 635.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சந்திப்புக் கோட்டுக்கு முன் நிறுத்துங்கள்.",
+        "font": 22,
+        "bounds": {
+          "x": 382.5,
+          "y": 664,
+          "right": 897.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "entry": true,
+      "faceLettering": true,
+      "kind": "stop",
+      "back": 12,
+      "text": [],
+      "head": {
+        "x": 841.4400286058845,
+        "right": 892.1015926864065,
+        "y": 328.6380793787245,
+        "bottom": 378.1416648516916
+      },
+      "quality": "high",
+      "phaserBytes": 9811547,
+      "projected": {
+        "x": 867.3660096242193,
+        "y": 344.03600357957606
+      },
+      "occupied": [
+        {
+          "x": 586.960692076028,
+          "y": 472.7085293384408
+        },
+        {
+          "x": 693.039307923972,
+          "y": 515.8029670266683
+        }
+      ],
+      "pool": [
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        },
+        {
+          "kind": null,
+          "width": 0,
+          "height": 26,
+          "wrap": 220,
+          "text": "",
+          "visible": false
+        }
+      ],
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 423.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 635.0965576171875
+      },
+      "covered": false,
+      "labelCoversHead": false,
+      "hiddenGears": [],
+      "hiddenControls": [],
+      "hiddenMirrors": [],
+      "look": 0,
+      "reading": {
+        "translated": true,
+        "text": "சந்திப்புக் கோட்டுக்கு முன் நிறுத்துங்கள்.",
+        "font": 22,
+        "bounds": {
+          "x": 382.5,
+          "y": 664,
+          "right": 897.5,
+          "bottom": 690
+        },
+        "found": true,
+        "unchanged": true
+      }
+    }
+  ],
+  "firstDay": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "look": 0,
+      "gear": 1,
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 454.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 604.0965576171875
+      },
+      "lines": [
+        {
+          "text": "Check mirrors and signals before moving.",
+          "font": 18,
+          "bounds": {
+            "x": 257,
+            "y": 615,
+            "right": 631,
+            "bottom": 636
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 18,
+          "bounds": {
+            "x": 84.5,
+            "y": 650,
+            "right": 803.5,
+            "bottom": 675
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 18,
+          "bounds": {
+            "x": 178.5,
+            "y": 683,
+            "right": 709.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "look": -0.35,
+      "gear": 1,
+      "nav": null,
+      "lines": [
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 18,
+          "bounds": {
+            "x": 280.5,
+            "y": 650,
+            "right": 999.5,
+            "bottom": 675
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 18,
+          "bounds": {
+            "x": 374.5,
+            "y": 683,
+            "right": 905.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "look": 0.35,
+      "gear": 1,
+      "nav": {
+        "x": 679.2342529296875,
+        "y": 423.03314208984375,
+        "right": 909.2342529296875,
+        "bottom": 573.0331420898438
+      },
+      "lines": [
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 18,
+          "bounds": {
+            "x": 11,
+            "y": 625,
+            "right": 661,
+            "bottom": 675
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 18,
+          "bounds": {
+            "x": 70.5,
+            "y": 683,
+            "right": 601.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "look": 0.7,
+      "gear": 1,
+      "nav": {
+        "x": 512.55712890625,
+        "y": 415.5317687988281,
+        "right": 742.55712890625,
+        "bottom": 565.5317687988281
+      },
+      "lines": [
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 18,
+          "bounds": {
+            "x": 758.5,
+            "y": 600,
+            "right": 1265.5,
+            "bottom": 650
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 18,
+          "bounds": {
+            "x": 790,
+            "y": 658,
+            "right": 1234,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "look": 0,
+      "gear": -1,
+      "nav": {
+        "x": 913.5366428093196,
+        "y": 501.6529043119691,
+        "right": 1095.8944046821994,
+        "bottom": 570.037065014299
+      },
+      "lines": [
+        {
+          "text": "The rear camera is live. The rear sensors detect no obstacle within six meters.",
+          "font": 18,
+          "bounds": {
+            "x": 145,
+            "y": 594,
+            "right": 743,
+            "bottom": 636
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 18,
+          "bounds": {
+            "x": 84.5,
+            "y": 650,
+            "right": 803.5,
+            "bottom": 675
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 18,
+          "bounds": {
+            "x": 178.5,
+            "y": 683,
+            "right": 709.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "look": -0.35,
+      "gear": -1,
+      "nav": null,
+      "lines": [
+        {
+          "text": "The rear camera is live. The rear sensors detect no obstacle within six meters.",
+          "font": 18,
+          "bounds": {
+            "x": 341,
+            "y": 594,
+            "right": 939,
+            "bottom": 636
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 18,
+          "bounds": {
+            "x": 280.5,
+            "y": 650,
+            "right": 999.5,
+            "bottom": 675
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 18,
+          "bounds": {
+            "x": 374.5,
+            "y": 683,
+            "right": 905.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "look": 0.35,
+      "gear": -1,
+      "nav": {
+        "x": 726.5781081330744,
+        "y": 470.784424122825,
+        "right": 851.3617572749582,
+        "bottom": 543.770648672754
+      },
+      "lines": [
+        {
+          "text": "The rear camera is live. The rear sensors detect no obstacle within six meters.",
+          "font": 18,
+          "bounds": {
+            "x": 37,
+            "y": 569,
+            "right": 635,
+            "bottom": 611
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 18,
+          "bounds": {
+            "x": 11,
+            "y": 625,
+            "right": 661,
+            "bottom": 675
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 18,
+          "bounds": {
+            "x": 70.5,
+            "y": 683,
+            "right": 601.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "normal",
+      "look": 0.7,
+      "gear": -1,
+      "nav": {
+        "x": 563.6193707182128,
+        "y": 461.0196846524496,
+        "right": 676.973444883534,
+        "bottom": 543.0746854339894
+      },
+      "lines": [
+        {
+          "text": "The rear camera is live. The rear sensors detect no obstacle within six meters.",
+          "font": 18,
+          "bounds": {
+            "x": 784,
+            "y": 544,
+            "right": 1240,
+            "bottom": 586
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 18,
+          "bounds": {
+            "x": 758.5,
+            "y": 600,
+            "right": 1265.5,
+            "bottom": 650
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 18,
+          "bounds": {
+            "x": 790,
+            "y": 658,
+            "right": 1234,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "look": 0,
+      "gear": 1,
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 450.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 608.0965576171875
+      },
+      "lines": [
+        {
+          "text": "Check mirrors and signals before moving.",
+          "font": 22,
+          "bounds": {
+            "x": 211.5,
+            "y": 574,
+            "right": 668.5,
+            "bottom": 599
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 22,
+          "bounds": {
+            "x": 43.5,
+            "y": 613,
+            "right": 836.5,
+            "bottom": 671
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 22,
+          "bounds": {
+            "x": 116,
+            "y": 679,
+            "right": 764,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "look": -0.35,
+      "gear": 1,
+      "nav": null,
+      "lines": [
+        {
+          "text": "Check mirrors and signals before moving.",
+          "font": 22,
+          "bounds": {
+            "x": 411.5,
+            "y": 603,
+            "right": 868.5,
+            "bottom": 628
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 22,
+          "bounds": {
+            "x": 201,
+            "y": 642,
+            "right": 1079,
+            "bottom": 671
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 22,
+          "bounds": {
+            "x": 316,
+            "y": 679,
+            "right": 964,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "look": 0.35,
+      "gear": 1,
+      "nav": {
+        "x": 674.2342529296875,
+        "y": 419.03314208984375,
+        "right": 914.2342529296875,
+        "bottom": 577.0331420898438
+      },
+      "lines": [
+        {
+          "text": "Check mirrors and signals before moving.",
+          "font": 22,
+          "bounds": {
+            "x": 107.5,
+            "y": 574,
+            "right": 564.5,
+            "bottom": 599
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 22,
+          "bounds": {
+            "x": 12.5,
+            "y": 613,
+            "right": 659.5,
+            "bottom": 671
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 22,
+          "bounds": {
+            "x": 12,
+            "y": 679,
+            "right": 660,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "look": 0.7,
+      "gear": 1,
+      "nav": {
+        "x": 507.55712890625,
+        "y": 411.5317687988281,
+        "right": 747.55712890625,
+        "bottom": 569.5317687988281
+      },
+      "lines": [
+        {
+          "text": "Check mirrors and signals before moving.",
+          "font": 22,
+          "bounds": {
+            "x": 787.5,
+            "y": 545,
+            "right": 1244.5,
+            "bottom": 570
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 22,
+          "bounds": {
+            "x": 781.5,
+            "y": 584,
+            "right": 1250.5,
+            "bottom": 642
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 22,
+          "bounds": {
+            "x": 769,
+            "y": 650,
+            "right": 1263,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "look": 0,
+      "gear": -1,
+      "nav": {
+        "x": 913.5366428093196,
+        "y": 501.6529043119691,
+        "right": 1095.8944046821994,
+        "bottom": 570.037065014299
+      },
+      "lines": [
+        {
+          "text": "The rear camera is live. The rear sensors detect no obstacle within six meters.",
+          "font": 22,
+          "bounds": {
+            "x": 74.5,
+            "y": 549,
+            "right": 805.5,
+            "bottom": 599
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 22,
+          "bounds": {
+            "x": 43.5,
+            "y": 613,
+            "right": 836.5,
+            "bottom": 671
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 22,
+          "bounds": {
+            "x": 116,
+            "y": 679,
+            "right": 764,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "look": -0.35,
+      "gear": -1,
+      "nav": null,
+      "lines": [
+        {
+          "text": "The rear camera is live. The rear sensors detect no obstacle within six meters.",
+          "font": 22,
+          "bounds": {
+            "x": 274.5,
+            "y": 578,
+            "right": 1005.5,
+            "bottom": 628
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 22,
+          "bounds": {
+            "x": 201,
+            "y": 642,
+            "right": 1079,
+            "bottom": 671
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 22,
+          "bounds": {
+            "x": 316,
+            "y": 679,
+            "right": 964,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "look": 0.35,
+      "gear": -1,
+      "nav": {
+        "x": 726.5781081330744,
+        "y": 470.784424122825,
+        "right": 851.3617572749582,
+        "bottom": 543.770648672754
+      },
+      "lines": [
+        {
+          "text": "The rear camera is live. The rear sensors detect no obstacle within six meters.",
+          "font": 22,
+          "bounds": {
+            "x": 57.5,
+            "y": 549,
+            "right": 614.5,
+            "bottom": 599
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 22,
+          "bounds": {
+            "x": 12.5,
+            "y": 613,
+            "right": 659.5,
+            "bottom": 671
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 22,
+          "bounds": {
+            "x": 12,
+            "y": 679,
+            "right": 660,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "size": "large",
+      "look": 0.7,
+      "gear": -1,
+      "nav": {
+        "x": 563.6193707182128,
+        "y": 461.0196846524496,
+        "right": 676.973444883534,
+        "bottom": 543.0746854339894
+      },
+      "lines": [
+        {
+          "text": "The rear camera is live. The rear sensors detect no obstacle within six meters.",
+          "font": 22,
+          "bounds": {
+            "x": 792.5,
+            "y": 520,
+            "right": 1239.5,
+            "bottom": 570
+          },
+          "covered": false
+        },
+        {
+          "text": "Use W/S to accelerate or brake and A/D to steer. Press P to choose a cab control.",
+          "font": 22,
+          "bounds": {
+            "x": 781.5,
+            "y": 584,
+            "right": 1250.5,
+            "bottom": 642
+          },
+          "covered": false
+        },
+        {
+          "text": "Press TAB for the handheld or H for Controls and guidance.",
+          "font": 22,
+          "bounds": {
+            "x": 769,
+            "y": 650,
+            "right": 1263,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "look": 0,
+      "gear": 1,
+      "nav": {
+        "x": 892.3113403320312,
+        "y": 431.0965576171875,
+        "right": 1122.3113403320312,
+        "bottom": 627.0965576171875
+      },
+      "lines": [
+        {
+          "text": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 184,
+            "y": 538,
+            "right": 704,
+            "bottom": 582
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 29.5,
+            "y": 596,
+            "right": 858.5,
+            "bottom": 648
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 43.5,
+            "y": 656,
+            "right": 844.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "look": -0.35,
+      "gear": 1,
+      "nav": null,
+      "lines": [
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 143.5,
+            "y": 622,
+            "right": 1136.5,
+            "bottom": 674
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 166.5,
+            "y": 682,
+            "right": 1113.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "look": 0.35,
+      "gear": 1,
+      "nav": {
+        "x": 679.2342529296875,
+        "y": 400.03314208984375,
+        "right": 909.2342529296875,
+        "bottom": 596.0331420898438
+      },
+      "lines": [
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 28,
+            "y": 570,
+            "right": 644,
+            "bottom": 648
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 67.5,
+            "y": 656,
+            "right": 604.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "look": 0.7,
+      "gear": 1,
+      "nav": {
+        "x": 512.55712890625,
+        "y": 392.5317687988281,
+        "right": 742.55712890625,
+        "bottom": 588.5317687988281
+      },
+      "lines": [
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 756.5,
+            "y": 544,
+            "right": 1267.5,
+            "bottom": 622
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 787,
+            "y": 630,
+            "right": 1237,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "look": 0,
+      "gear": -1,
+      "nav": {
+        "x": 913.5366428093196,
+        "y": 501.6529043119691,
+        "right": 1095.8944046821994,
+        "bottom": 570.037065014299
+      },
+      "lines": [
+        {
+          "text": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை.",
+          "font": 18,
+          "bounds": {
+            "x": 164.5,
+            "y": 538,
+            "right": 723.5,
+            "bottom": 582
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 29.5,
+            "y": 596,
+            "right": 858.5,
+            "bottom": 648
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 43.5,
+            "y": 656,
+            "right": 844.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "look": -0.35,
+      "gear": -1,
+      "nav": null,
+      "lines": [
+        {
+          "text": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை.",
+          "font": 18,
+          "bounds": {
+            "x": 360.5,
+            "y": 564,
+            "right": 919.5,
+            "bottom": 608
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 143.5,
+            "y": 622,
+            "right": 1136.5,
+            "bottom": 674
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 166.5,
+            "y": 682,
+            "right": 1113.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "look": 0.35,
+      "gear": -1,
+      "nav": {
+        "x": 726.5781081330744,
+        "y": 470.784424122825,
+        "right": 851.3617572749582,
+        "bottom": 543.770648672754
+      },
+      "lines": [
+        {
+          "text": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை.",
+          "font": 18,
+          "bounds": {
+            "x": 56.5,
+            "y": 512,
+            "right": 615.5,
+            "bottom": 556
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 28,
+            "y": 570,
+            "right": 644,
+            "bottom": 648
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 67.5,
+            "y": 656,
+            "right": 604.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "normal",
+      "look": 0.7,
+      "gear": -1,
+      "nav": {
+        "x": 563.6193707182128,
+        "y": 461.0196846524496,
+        "right": 676.973444883534,
+        "bottom": 543.0746854339894
+      },
+      "lines": [
+        {
+          "text": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை.",
+          "font": 18,
+          "bounds": {
+            "x": 768,
+            "y": 486,
+            "right": 1256,
+            "bottom": 530
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 756.5,
+            "y": 544,
+            "right": 1267.5,
+            "bottom": 622
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 18,
+          "bounds": {
+            "x": 787,
+            "y": 630,
+            "right": 1237,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "look": 0,
+      "gear": 1,
+      "nav": {
+        "x": 887.3113403320312,
+        "y": 423.0965576171875,
+        "right": 1127.3113403320312,
+        "bottom": 635.0965576171875
+      },
+      "lines": [
+        {
+          "text": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 122.5,
+            "y": 484,
+            "right": 757.5,
+            "bottom": 536
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 64,
+            "y": 550,
+            "right": 816,
+            "bottom": 640
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 23.5,
+            "y": 648,
+            "right": 856.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "look": -0.35,
+      "gear": 1,
+      "nav": null,
+      "lines": [
+        {
+          "text": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 322.5,
+            "y": 514,
+            "right": 957.5,
+            "bottom": 566
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 182.5,
+            "y": 580,
+            "right": 1097.5,
+            "bottom": 640
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 151,
+            "y": 648,
+            "right": 1129,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "look": 0.35,
+      "gear": 1,
+      "nav": {
+        "x": 674.2342529296875,
+        "y": 392.03314208984375,
+        "right": 914.2342529296875,
+        "bottom": 604.0331420898438
+      },
+      "lines": [
+        {
+          "text": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 129.5,
+            "y": 454,
+            "right": 542.5,
+            "bottom": 506
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 24.5,
+            "y": 520,
+            "right": 647.5,
+            "bottom": 610
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 61.5,
+            "y": 618,
+            "right": 610.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "look": 0.7,
+      "gear": 1,
+      "nav": {
+        "x": 507.55712890625,
+        "y": 384.5317687988281,
+        "right": 747.55712890625,
+        "bottom": 596.5317687988281
+      },
+      "lines": [
+        {
+          "text": "நகரும் முன் கண்ணாடிகளையும் சிக்னல்களையும் சரிபாருங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 809.5,
+            "y": 424,
+            "right": 1222.5,
+            "bottom": 476
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 762.5,
+            "y": 490,
+            "right": 1269.5,
+            "bottom": 610
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 799,
+            "y": 618,
+            "right": 1233,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "look": 0,
+      "gear": -1,
+      "nav": {
+        "x": 913.5366428093196,
+        "y": 501.6529043119691,
+        "right": 1095.8944046821994,
+        "bottom": 570.037065014299
+      },
+      "lines": [
+        {
+          "text": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை.",
+          "font": 22,
+          "bounds": {
+            "x": 98,
+            "y": 484,
+            "right": 782,
+            "bottom": 536
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 64,
+            "y": 550,
+            "right": 816,
+            "bottom": 640
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 23.5,
+            "y": 648,
+            "right": 856.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "look": -0.35,
+      "gear": -1,
+      "nav": null,
+      "lines": [
+        {
+          "text": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை.",
+          "font": 22,
+          "bounds": {
+            "x": 298,
+            "y": 514,
+            "right": 982,
+            "bottom": 566
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 182.5,
+            "y": 580,
+            "right": 1097.5,
+            "bottom": 640
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 151,
+            "y": 648,
+            "right": 1129,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "look": 0.35,
+      "gear": -1,
+      "nav": {
+        "x": 726.5781081330744,
+        "y": 470.784424122825,
+        "right": 851.3617572749582,
+        "bottom": 543.770648672754
+      },
+      "lines": [
+        {
+          "text": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை.",
+          "font": 22,
+          "bounds": {
+            "x": 37.5,
+            "y": 454,
+            "right": 634.5,
+            "bottom": 506
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 24.5,
+            "y": 520,
+            "right": 647.5,
+            "bottom": 610
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 61.5,
+            "y": 618,
+            "right": 610.5,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "size": "large",
+      "look": 0.7,
+      "gear": -1,
+      "nav": {
+        "x": 563.6193707182128,
+        "y": 461.0196846524496,
+        "right": 676.973444883534,
+        "bottom": 543.0746854339894
+      },
+      "lines": [
+        {
+          "text": "ரியர் கேமரா ஆன். பின் சென்சார்கள் ஆறு மீட்டருக்குள் எந்தத் தடையையும் காணவில்லை.",
+          "font": 22,
+          "bounds": {
+            "x": 779.5,
+            "y": 398,
+            "right": 1252.5,
+            "bottom": 476
+          },
+          "covered": false
+        },
+        {
+          "text": "வேகப்படுத்த அல்லது நிறுத்த W/S மற்றும் திருப்ப A/D பயன்படுத்துங்கள். கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 762.5,
+            "y": 490,
+            "right": 1269.5,
+            "bottom": 610
+          },
+          "covered": false
+        },
+        {
+          "text": "ஹேண்ட்ஹெல்டுக்கு TAB அல்லது கட்டுப்பாடுகளும் வழிகாட்டலும் பகுதிக்கு H அழுத்துங்கள்.",
+          "font": 22,
+          "bounds": {
+            "x": 799,
+            "y": 618,
+            "right": 1233,
+            "bottom": 708
+          },
+          "covered": false
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "completed": true
+}

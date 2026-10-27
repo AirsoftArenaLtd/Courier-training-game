@@ -1,0 +1,179 @@
+{
+  "base": "573b0f4d",
+  "ownedRuntime": "6ff88c94",
+  "dependency": "C49 eb3794a1 and B164 f264fa2e",
+  "kind": "Detached latest-pilot plus only owned patches; no Git merge, all current shared save/scoring/Settings/i18n source retained.",
+  "complete": true,
+  "jobs": [
+    {
+      "name": "repository",
+      "command": [
+        "node",
+        "test/run-all.js"
+      ],
+      "environment": {},
+      "started": 1792667753.5661356,
+      "exit": 0,
+      "ended": 1792669052.6647258,
+      "initialExit": 1,
+      "originalSummary": "77 of 78 suites passed; the route-day weather-clothing checks failed during the batch.",
+      "resolution": "Only failed suite rerun alone, unchanged source and fixture, on fresh quiet HTTP server. All route-day checks pass. Original failure remains in c50-current-repository.log.",
+      "isolatedRerunLog": "c50-current-routeday-alone.log"
+    },
+    {
+      "name": "ink",
+      "command": [
+        "node",
+        "test/fpsignletteringbrowser.js"
+      ],
+      "environment": {
+        "QA_TAG": "c50-current-ink",
+        "QA_BASE": "http://127.0.0.1:8365"
+      },
+      "started": 1792671723.2655168,
+      "exit": 0,
+      "ended": 1792672097.5663798
+    },
+    {
+      "name": "reading",
+      "command": [
+        "node",
+        "test/fpsignsbrowser.js"
+      ],
+      "environment": {
+        "QA_TAG": "c50-current-reading",
+        "QA_BASE": "http://127.0.0.1:8365"
+      },
+      "started": 1792672097.5680923,
+      "exit": 0,
+      "ended": 1792672230.273209
+    },
+    {
+      "name": "layout-low",
+      "command": [
+        "node",
+        "test/fpsignlayoutbrowser.js"
+      ],
+      "environment": {
+        "QA_TAG": "c50-current-layout",
+        "QA_BASE": "http://127.0.0.1:8365"
+      },
+      "started": 1792672230.275314,
+      "exit": 0,
+      "ended": 1792673205.0748432
+    },
+    {
+      "name": "layout-high",
+      "command": [
+        "node",
+        "test/fpsignlayoutbrowser.js"
+      ],
+      "environment": {
+        "QA_GFX": "high",
+        "QA_LANGS": "en,ta",
+        "QA_TAG": "c50-current-layout-high",
+        "QA_BASE": "http://127.0.0.1:8365"
+      },
+      "started": 1792673205.0771062,
+      "exit": 0,
+      "ended": 1792673706.2129748
+    },
+    {
+      "name": "town",
+      "command": [
+        "node",
+        "test/fptownbrowser.js"
+      ],
+      "environment": {
+        "QA_GFX": "high",
+        "QA_TAG": "c50-current-town",
+        "QA_BASE": "http://127.0.0.1:8365"
+      },
+      "started": 1792673706.2151642,
+      "exit": 0,
+      "ended": 1792673780.5129879
+    },
+    {
+      "name": "quality",
+      "command": [
+        "node",
+        "test/fpquality.js"
+      ],
+      "environment": {
+        "QA_TAG": "c50-current",
+        "QA_BASE": "http://127.0.0.1:8365"
+      },
+      "started": 1792673780.515739,
+      "exit": 0,
+      "ended": 1792677158.4173667
+    }
+  ],
+  "sourceSHA256": {
+    "index.html": "ae44b5a6d7af13a9d7297b17174289fa1159ef7effb7f994eb2caa0899923660",
+    "assets/3d/manifest.json": "c2a0180ed04b2d3ca645eac9f6fd765a5feabae4d110dface21d5f2737bc3c31",
+    "data/credits.js": "dc698c21537928e772e75f6382cf04176e94b1f06e4fceb452e44af1d3038f18",
+    "src/core/fpaccess.js": "f7f7a52315adadb843af278edefe141897e232d9d700f3df7b415abddad74ccd",
+    "src/core/fpactors.js": "a149a6ed00412535597aa6f0140b3e9a4163787130527cdae47c58f46796084b",
+    "src/core/fpassets.js": "7062c0f5eb4e8aa56e8b0e1dca9216ef2ccd4d8afa401ed8aa86ca77139e3535",
+    "src/core/fpbranding.js": "f91e893fac0666c7b342f4a44704c8993da54511c48afbeb24b1fc1ec7958a3b",
+    "src/core/fpcab.js": "b9e9f3190cd8f39f3b501de7aa30f26a6530a8002d52db967be61732789d8854",
+    "src/core/fpcamera.js": "7ef43f0a1121d3af5805e58fd72ba51fe98191dbd633fba8b4beddfdce2a4823",
+    "src/core/fpdamage.js": "3c6eb8930ef6f328265d5c6dbb7aa623a48e7b66f062f3f0cab65d44d7b8e1cd",
+    "src/core/fpdamageflow.js": "40de1a5ee9bc49f5d830fcfb80acf0bd07e8fa3a3c5b281717640c75a5d170e7",
+    "src/core/fpdamageworld.js": "908225248af525e7d599fcefdfefd73d12c3bba005a9310c8c4ff85a400f4b6c",
+    "src/core/fpday.js": "0fa7f741899702cf550b6a858a1695a82648c6788243e7f3ed54a6ae134d9481",
+    "src/core/fpdoors.js": "191db5f1656e3d37925d66135ef8f4050f67bc74461edbd06fba63947e0e067a",
+    "src/core/fpdriving.js": "833999c6623a34ee6c13ca2b9b8b2d3137f9a7f28f3bd8882cadc14864dc8c1c",
+    "src/core/fpguide.js": "32a34528f5f7492cf205b141317cb06ff3539210c14b0671816cf9efd590cc60",
+    "src/core/fphandheld.js": "aecbfc95d658cc4e5a2f77d160f9303a88b2f6e18d493507791937b361a5f948",
+    "src/core/fphud.js": "011edefd04a267954b4b6cf97a98e522e20f3af4e91c3918c658c363d69f75e7",
+    "src/core/fplater.js": "fc246807759622c5a22c22385a1ec82851e514ce314c6498259d810f08d0bbf8",
+    "src/core/fplighting.js": "b625119f5cfc731345033344b2241c109c1cfd4c7e118c9a7144ce84bb900af4",
+    "src/core/fploadout.js": "d3962fcb821ba020d5b7b53ffe4252b4338ed61946c717e041b2be34203c9ddf",
+    "src/core/fpmaterials.js": "3a24ee77b43e3645ee3f16691b4ed64836a9cea1b9e6ee9efb1532ae127b1263",
+    "src/core/fpmirrors.js": "f04d9747ea5cc8c81f14a4d2e20a29e50998b0445a2b565fa93d2d988febfc83",
+    "src/core/fpmission.js": "25bcd0edab780818de60fc0b497655c5f882812cbd15ec0bb0e64c177ae04fa4",
+    "src/core/fpnav.js": "bdc009bd21e595831702e375f8f13df52337692ac7a3bb9806cc5a8f012f3cf0",
+    "src/core/fpnight.js": "2ba586229126278617d7e08623f8996a0bf0110445e8ba8e581390b750f42cf6",
+    "src/core/fpradio.js": "73bbd723df58c9ff5491cd7753ea638900825e003b1f644c2d42408176180fa5",
+    "src/core/fpradioui.js": "bf7f94abeabf8734a23702470f76e8317372bae0e3bf52962ea924da8836ec10",
+    "src/core/fprear.js": "dc739efa0a6d17cb78dd448c40cba69e0c93040a5f0487b26a7f62238ea6b6b4",
+    "src/core/fpreplay.js": "7618676d231d868f0db0a32063e26ad8219bbc15a8f19689476e256686066bef",
+    "src/core/fpreplayui.js": "5bf47a61f2885eb9b56ffdbed886c667954d96986faf149315765d5c7c732e67",
+    "src/core/fproute.js": "4afa203ed068f90257510dd8e58a5b34aa280ea617953205068086172d7aafa6",
+    "src/core/fpsignal.js": "7a5771990943a0cc1928cea111a296d93dadfbe53c2b29667aa841e2fd48083a",
+    "src/core/fpsignlettering.js": "ae96d2d284f70719b4ebd806d8b5f2dce1f06f171057896cc3a121959e5b94e8",
+    "src/core/fpsigns.js": "5262cc982af5dffd02cc1dceed8f35eb816d300c42e039de6e94e565697cd767",
+    "src/core/fpsound.js": "a0ee97b42db9ec3daf68e936f45866f4358480901ffbcba49e02347ba99d47a1",
+    "src/core/fpstopflow.js": "ff9357d136a0b692794184e1e70f973770c55a319d4a72f4f1debaac23ba751c",
+    "src/core/fpstops.js": "00f87064a066195e411c2fe159e33179155c5106504d7dcc5df9a41e2200134f",
+    "src/core/fpstopscene.js": "ff4acc7be3f9adcee933e64a78ec5c48e0d1dd5130bfac806e2617836aa38ae1",
+    "src/core/fptown.js": "6848b79d3b053f071891d595bce2ba0a8ff52b82d4cc13612a7fc0dc1601e4b9",
+    "src/core/fptraffic.js": "576d555389ad52f4cde2291dcc9f2b76878d3ec27f52bdf520db52e35f2888dc",
+    "src/core/fpwalkaround.js": "2a8eb147afa6538e9985f2af62cc8cafde03b4dfcf0eacb70d93e08eef93bb1d",
+    "src/core/fpwalkaroundflow.js": "bbca2124ba323f56f4d8af2bc4089d150b17bbb14961b4a716127af4f987c1ab",
+    "src/core/fpwalkaroundui.js": "3f1536123e06cccda82378f813d6d4155c7934411cbcfe59f8a088cf3421b0de",
+    "src/core/fpweather.js": "095e9ad404ab386a3103dc142b0d914efe9f4a14354ed588f80325f511470a55",
+    "src/core/fpworld.js": "c726cf97f5ea724f73923dd505626c5874c4e9e1d56fdfdf91e90c8aa82a26d3",
+    "src/scenes/FirstPersonScene.js": "04c6c250d1b170c87c11ff01eca8cd3c552bf51e0eda13ebb92069d95fb5b6d4",
+    "test/fpactors.js": "8c2ded2b65b6fae1a63983996572acb39f5fe49a927902e9aa9c44ae66fbf888",
+    "test/fpassets.js": "4e518a64293b9d7b8acd772b32171e86c1fd42554fbab8f76377c11c6199c56b",
+    "test/fpassetsbrowser.js": "ac1147a4f1418f07198ea942166ad625a4a3542187b7f17e50858a15241eb397",
+    "test/fpmaterials.js": "35b9a2b5bffc8155022e08d337a25d3dbb1318ab369399e0182e41f1befd8ba3",
+    "test/fpmaterialsbrowser.js": "b9211237a388e011d158e28dc12e4bdd18826ca11008a9b32dcf366be024cf92",
+    "test/fprear.js": "9f05aed732f47c64a7529d31507bb5bda86e84dbee3ffa8e094c57295085b4cf",
+    "test/fpsignlayoutbrowser.js": "c115cec5b409d80ac8eba8f7e70028d86f22eedb43903d55a60ffbb43af413a0",
+    "test/fpsignlettering.js": "dedb6fb52cf07be34817ca6314b2dca2e545c44a8d35cf808597d19c6625b755",
+    "test/fpsignletteringbrowser.js": "8c8d9d152f7a6eefe1f34aa2651508f4d57b01511fc4b521f942ba85f694fb8e",
+    "test/fpsignsbrowser.js": "978d6ab46fff344afbfea7f763d6f2c80c3e60a33a71868615b9a5701fe08708",
+    "test/fptown.js": "d5f46b70319de05ead5105e3d87b808c8441874dd4a16ff11e62bb69d56a5edf",
+    "test/fptownbrowser.js": "ed27abd30f2ce61f45f8a1707997985dd06e9b27b07e0f3cf479dd194fea9fe9",
+    "test/fpweatherbrowser.js": "82f9c9fddc1881d04df2f54f438adc17a382311fd130b0965c70b1bca2d249b2",
+    "test/tools/fpassets-context.js": "ad5ebb4b35986539b799eee9a8db38ea16aebfc421db12bdb3a69319910c7476"
+  },
+  "patchSHA256": "53fb50b57e0d38dc992b8d8b530d38a7e800e2d3a7c808f27b6d5cc12494b0a0",
+  "fixtureSource": "4cd7a344",
+  "resumedAt": 1792671723.2631657,
+  "resumeBase": "http://127.0.0.1:8365",
+  "resumeController": "/tmp/c50-current-resume.py"
+}
