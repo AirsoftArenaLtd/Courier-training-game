@@ -21,7 +21,9 @@ let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok
   const ready=()=>until(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading);
   const press=async key=>{await p.keyboard.press(key);await wait(180);};
   const shot=async name=>{
-   await wait(400);const issues=await ev(`(${audit})()`);layout.push(...issues.map(i=>({shot:name,...i})));
+   // B-180: audit once the interface has stopped moving (a handheld still sliding in reads as off the screen at low fps)
+   let issues=null;for(let n=0;n<6;n++){await wait(400);const next=await ev(`(${audit})()`);if(issues&&JSON.stringify(next)===JSON.stringify(issues))break;issues=next;}
+   layout.push(...issues.map(i=>({shot:name,...i})));
    // Check text inside the device screen, and visible prototype text even when it is not scroll-factor pinned.
    const extra=await ev(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),hh=s.handheld.device,items=[];
     const visit=o=>{if(!o.visible||o.alpha<=0.05)return;if(o.type==='Text'){const b=o.getBounds();if(b.x< -2||b.y< -2||b.right>1282||b.bottom>722)items.push({kind:'prototype-text-bounds',text:OTR.i18n.src(o),box:{x:b.x,y:b.y,right:b.right,bottom:b.bottom}});}if(o.list)o.list.forEach(visit);};
@@ -68,15 +70,16 @@ let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok
   await press('Space');await p.keyboard.down('KeyW');await wait(1000);await press('Tab');check(!(await state()).device,'handheld refuses use while driving');await p.keyboard.up('KeyW');await p.keyboard.down('KeyS');await wait(1000);await p.keyboard.up('KeyS');
   // Drive the first leg with actual throttle/brake inputs, including the stop line.
   async function driveTo(z){
-   const end=Date.now()+45000;let forward=false,brake=false;
-   while(Date.now()<end){const v=(await state()).m.van,d=v.z-z;
+   // B-180: 45 s of game time, not of wall time: at 1 to 3 fps the capped frame step makes the game run slower than the clock
+   const t0=(await state()).m.elapsed,hard=Date.now()+600000;let forward=false,brake=false;
+   for(;;){const m=(await state()).m,v=m.van,d=v.z-z;if(m.elapsed-t0>45||Date.now()>hard)break;
     const stop=d<=v.speed*v.speed/10+0.6;
     const gas=!stop&&v.speed<5.5;
     if(gas!==forward){await p.keyboard[gas?'down':'up']('KeyW');forward=gas;}
     if(stop!==brake){await p.keyboard[stop?'down':'up']('KeyS');brake=stop;}
     if(stop&&Math.abs(v.speed)<0.12){await p.keyboard.up('KeyW');await p.keyboard.up('KeyS');return;}
     await wait(120);
-   }throw Error('drive leg did not arrive');
+   }const m=(await state()).m,v=m.van;throw Error('drive leg did not arrive: z '+v.z.toFixed(1)+' of '+z+', speed '+v.speed.toFixed(2)+', gear '+v.gear+', '+(m.elapsed-t0).toFixed(1)+' s of game time');
   }
   await driveTo(-20);await wait(500);check((await state()).m.stopSign.stopped,'full stop before the junction line');await shot('c3-junction');
   await driveTo(-42);await press('Space');
