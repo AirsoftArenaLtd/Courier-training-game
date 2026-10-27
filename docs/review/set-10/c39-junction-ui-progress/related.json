@@ -1,0 +1,37 @@
+[
+  {
+    "suite": "fpworld",
+    "exit": 0,
+    "checks": 23
+  },
+  {
+    "suite": "fpscenario",
+    "exit": 0,
+    "checks": 13
+  },
+  {
+    "suite": "fpdrivinglesson",
+    "exit": 0,
+    "checks": 13
+  },
+  {
+    "suite": "fplighting",
+    "exit": 0,
+    "checks": 12
+  },
+  {
+    "suite": "fpschoollesson",
+    "exit": 0,
+    "checks": 7
+  },
+  {
+    "suite": "workday",
+    "exit": 0,
+    "checks": 25
+  },
+  {
+    "suite": "savesize",
+    "exit": 0,
+    "checks": 21
+  }
+]
