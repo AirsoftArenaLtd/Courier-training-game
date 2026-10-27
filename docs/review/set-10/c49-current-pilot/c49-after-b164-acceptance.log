@@ -1,0 +1,14 @@
+START pixels
+END pixels 0
+START assets
+END assets 0
+START town
+END town 0
+START bench-low
+END bench-low 0
+START bench-high
+END bench-high 0
+START bench-accessible
+END bench-accessible 0
+START bench-fallback
+END bench-fallback 0

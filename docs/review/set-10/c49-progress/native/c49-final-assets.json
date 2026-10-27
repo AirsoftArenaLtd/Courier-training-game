@@ -1,0 +1,140 @@
+{
+  "scenarios": [
+    {
+      "mode": "high",
+      "stats": {
+        "quality": "high",
+        "loaded": 19,
+        "failed": 0,
+        "fallbacks": 0,
+        "bytes": 8155474,
+        "decodedBytes": 24478070,
+        "errors": []
+      },
+      "groups": 8,
+      "instances": [
+        [
+          17
+        ],
+        [
+          12
+        ],
+        [
+          15
+        ],
+        [
+          7
+        ],
+        [
+          7
+        ],
+        [
+          16
+        ],
+        [
+          1
+        ],
+        [
+          16
+        ]
+      ],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-high.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-a-high.glb",
+        "/lib/GLTFLoader.min.js",
+        "/assets/3d/kenney-city-suburban/models/building-type-c-high.glb",
+        "/assets/3d/kenney-city-suburban/models/tree-small-high.glb",
+        "/assets/3d/kenney-city-suburban/models/fence-high.glb",
+        "/assets/3d/kenney-city-commercial/models/building-a-high.glb",
+        "/assets/3d/kenney-city-roads/models/road-straight-high.glb",
+        "/assets/3d/kenney-city-roads/models/light-curved-high.glb",
+        "/assets/3d/kenney-car-kit/models/sedan-high.glb",
+        "/assets/3d/kenney-car-kit/models/delivery-high.glb",
+        "/assets/3d/quaternius-modular-men/models/worker-high.glb",
+        "/assets/3d/quaternius-modular-women/models/worker-high.glb",
+        "/assets/3d/quaternius-modular-men/models/resident-high.glb",
+        "/assets/3d/quaternius-modular-women/models/resident-high.glb",
+        "/assets/3d/polyhaven-asphalt-pit-lane/textures/asphalt_pit_lane_diff_1k.jpg",
+        "/assets/3d/polyhaven-concrete-pavement/textures/concrete_pavement_diff_1k.jpg",
+        "/assets/3d/polyhaven-grass-ground/textures/grass_ground_diff_1k.jpg",
+        "/assets/3d/polyhaven-plastered-wall/textures/plastered_wall_diff_1k.jpg",
+        "/assets/3d/polyhaven-red-brick-03/textures/red_brick_03_diff_1k.jpg"
+      ]
+    },
+    {
+      "mode": "high-fallback",
+      "stats": {
+        "quality": "high",
+        "loaded": 19,
+        "failed": 0,
+        "fallbacks": 1,
+        "bytes": 7978882,
+        "decodedBytes": 24301868,
+        "errors": [
+          {
+            "path": "kenney-car-kit/models/delivery-high.glb",
+            "reason": "Asset could not load"
+          }
+        ]
+      },
+      "groups": 8,
+      "instances": [
+        [
+          17
+        ],
+        [
+          12
+        ],
+        [
+          15
+        ],
+        [
+          7
+        ],
+        [
+          7
+        ],
+        [
+          16
+        ],
+        [
+          1
+        ],
+        [
+          16
+        ]
+      ],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-high.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-a-high.glb",
+        "/lib/GLTFLoader.min.js",
+        "/assets/3d/kenney-city-suburban/models/building-type-c-high.glb",
+        "/assets/3d/kenney-city-suburban/models/tree-small-high.glb",
+        "/assets/3d/kenney-city-suburban/models/fence-high.glb",
+        "/assets/3d/kenney-city-commercial/models/building-a-high.glb",
+        "/assets/3d/kenney-city-roads/models/road-straight-high.glb",
+        "/assets/3d/kenney-city-roads/models/light-curved-high.glb",
+        "/assets/3d/kenney-car-kit/models/sedan-high.glb",
+        "/assets/3d/kenney-car-kit/models/delivery-high.glb",
+        "/assets/3d/kenney-car-kit/models/delivery-low.glb",
+        "/assets/3d/quaternius-modular-men/models/worker-high.glb",
+        "/assets/3d/quaternius-modular-women/models/worker-high.glb",
+        "/assets/3d/quaternius-modular-men/models/resident-high.glb",
+        "/assets/3d/quaternius-modular-women/models/resident-high.glb",
+        "/assets/3d/polyhaven-asphalt-pit-lane/textures/asphalt_pit_lane_diff_1k.jpg",
+        "/assets/3d/polyhaven-concrete-pavement/textures/concrete_pavement_diff_1k.jpg",
+        "/assets/3d/polyhaven-grass-ground/textures/grass_ground_diff_1k.jpg",
+        "/assets/3d/polyhaven-plastered-wall/textures/plastered_wall_diff_1k.jpg",
+        "/assets/3d/polyhaven-red-brick-03/textures/red_brick_03_diff_1k.jpg"
+      ]
+    }
+  ],
+  "layouts": [],
+  "checks": 18,
+  "errors": [],
+  "outside": []
+}

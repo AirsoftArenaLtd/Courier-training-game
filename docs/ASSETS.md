@@ -84,5 +84,10 @@ The packs the game ships, with thanks (the game lists them on the title screen u
 | Car Kit 3.1 (`kenney-car-kit`) | Kenney | CC0 | https://kenney.nl/assets/car-kit |
 | Ultimate Modular Men (`quaternius-modular-men`) | Quaternius | CC0 | https://quaternius.com/ |
 | Ultimate Modular Women (`quaternius-modular-women`) | Quaternius | CC0 | https://quaternius.com/ |
+| Asphalt Pit Lane (`polyhaven-asphalt-pit-lane`) | Poly Haven contributors | CC0 | https://polyhaven.com/a/asphalt_pit_lane |
+| Concrete Pavement (`polyhaven-concrete-pavement`) | Poly Haven contributors | CC0 | https://polyhaven.com/a/concrete_pavement |
+| Grass Ground (`polyhaven-grass-ground`) | Poly Haven contributors | CC0 | https://polyhaven.com/a/grass_ground |
+| Plastered Wall (`polyhaven-plastered-wall`) | Poly Haven contributors | CC0 | https://polyhaven.com/a/plastered_wall |
+| Red Brick 03 (`polyhaven-red-brick-03`) | Poly Haven contributors | CC0 | https://polyhaven.com/a/red_brick_03 |
 
 <!-- /credits -->

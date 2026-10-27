@@ -1,0 +1,56 @@
+--- a/data/credits.js
++++ b/data/credits.js
+@@ -49,5 +49,40 @@
+ "author": "Quaternius",
+ "licence": "CC0",
+ "url": "https://quaternius.com/"
++},
++{
++"pack": "polyhaven-asphalt-pit-lane",
++"name": "Asphalt Pit Lane",
++"author": "Poly Haven contributors",
++"licence": "CC0",
++"url": "https://polyhaven.com/a/asphalt_pit_lane"
++},
++{
++"pack": "polyhaven-concrete-pavement",
++"name": "Concrete Pavement",
++"author": "Poly Haven contributors",
++"licence": "CC0",
++"url": "https://polyhaven.com/a/concrete_pavement"
++},
++{
++"pack": "polyhaven-grass-ground",
++"name": "Grass Ground",
++"author": "Poly Haven contributors",
++"licence": "CC0",
++"url": "https://polyhaven.com/a/grass_ground"
++},
++{
++"pack": "polyhaven-plastered-wall",
++"name": "Plastered Wall",
++"author": "Poly Haven contributors",
++"licence": "CC0",
++"url": "https://polyhaven.com/a/plastered_wall"
++},
++{
++"pack": "polyhaven-red-brick-03",
++"name": "Red Brick 03",
++"author": "Poly Haven contributors",
++"licence": "CC0",
++"url": "https://polyhaven.com/a/red_brick_03"
+ }
+ ];
+--- a/docs/ASSETS.md
++++ b/docs/ASSETS.md
+@@ -84,5 +84,10 @@
+ | Car Kit 3.1 (`kenney-car-kit`) | Kenney | CC0 | https://kenney.nl/assets/car-kit |
+ | Ultimate Modular Men (`quaternius-modular-men`) | Quaternius | CC0 | https://quaternius.com/ |
+ | Ultimate Modular Women (`quaternius-modular-women`) | Quaternius | CC0 | https://quaternius.com/ |
++| Asphalt Pit Lane (`polyhaven-asphalt-pit-lane`) | Poly Haven contributors | CC0 | https://polyhaven.com/a/asphalt_pit_lane |
++| Concrete Pavement (`polyhaven-concrete-pavement`) | Poly Haven contributors | CC0 | https://polyhaven.com/a/concrete_pavement |
++| Grass Ground (`polyhaven-grass-ground`) | Poly Haven contributors | CC0 | https://polyhaven.com/a/grass_ground |
++| Plastered Wall (`polyhaven-plastered-wall`) | Poly Haven contributors | CC0 | https://polyhaven.com/a/plastered_wall |
++| Red Brick 03 (`polyhaven-red-brick-03`) | Poly Haven contributors | CC0 | https://polyhaven.com/a/red_brick_03 |
+ 
+ <!-- /credits -->

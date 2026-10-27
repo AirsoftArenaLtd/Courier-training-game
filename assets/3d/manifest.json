@@ -196,6 +196,41 @@
       "pack": "quaternius-modular-women",
       "quality": "high",
       "use": "resident-women"
+    },
+    {
+      "path": "polyhaven-asphalt-pit-lane/textures/asphalt_pit_lane_diff_1k.jpg",
+      "bytes": 1015369,
+      "pack": "polyhaven-asphalt-pit-lane",
+      "quality": "high",
+      "use": "surface-asphalt"
+    },
+    {
+      "path": "polyhaven-concrete-pavement/textures/concrete_pavement_diff_1k.jpg",
+      "bytes": 926197,
+      "pack": "polyhaven-concrete-pavement",
+      "quality": "high",
+      "use": "surface-pavement"
+    },
+    {
+      "path": "polyhaven-grass-ground/textures/grass_ground_diff_1k.jpg",
+      "bytes": 876584,
+      "pack": "polyhaven-grass-ground",
+      "quality": "high",
+      "use": "surface-grass"
+    },
+    {
+      "path": "polyhaven-plastered-wall/textures/plastered_wall_diff_1k.jpg",
+      "bytes": 617080,
+      "pack": "polyhaven-plastered-wall",
+      "quality": "high",
+      "use": "surface-plaster"
+    },
+    {
+      "path": "polyhaven-red-brick-03/textures/red_brick_03_diff_1k.jpg",
+      "bytes": 694500,
+      "pack": "polyhaven-red-brick-03",
+      "quality": "high",
+      "use": "surface-brick"
     }
   ]
 }

@@ -1,0 +1,56 @@
+{
+  "quality": "high",
+  "fixture": "Day one, seed seven, stationary walking viewpoints. Positions and weather/time are fixtures; no score or mission state is manufactured by rendering. Culling comparisons retain normal sign selection and exclude fading Phaser overlays; screenshots retain UI.",
+  "views": [
+    {
+      "use": "town-house",
+      "changedPixels": 69580,
+      "selected": true,
+      "culling": null
+    },
+    {
+      "use": "town-house-wide",
+      "changedPixels": 39628,
+      "selected": true,
+      "culling": null
+    },
+    {
+      "use": "town-shop",
+      "changedPixels": 153921,
+      "selected": true,
+      "culling": null
+    },
+    {
+      "use": "town-tree",
+      "changedPixels": 4075,
+      "selected": true,
+      "culling": null
+    },
+    {
+      "use": "town-fence",
+      "changedPixels": 2377,
+      "selected": true,
+      "culling": null
+    },
+    {
+      "use": "town-streetlight",
+      "changedPixels": 1391,
+      "selected": true,
+      "culling": null
+    },
+    {
+      "use": "town-parked-car",
+      "changedPixels": 6360,
+      "selected": true,
+      "culling": null
+    },
+    {
+      "use": "town-road",
+      "changedPixels": 623133,
+      "selected": true,
+      "culling": null
+    }
+  ],
+  "checks": 50,
+  "errors": []
+}

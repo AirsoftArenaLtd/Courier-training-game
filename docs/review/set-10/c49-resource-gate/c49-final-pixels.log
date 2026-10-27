@@ -1,0 +1,14 @@
+materials high
+high surface 1 4052 changed pixels
+high surface 2 4064 changed pixels
+high surface 3 4052 changed pixels
+high surface 4 4052 changed pixels
+high surface 5 4052 changed pixels
+materials missing-asphalt
+missing-asphalt surface 1 0 changed pixels
+missing-asphalt surface 2 4064 changed pixels
+missing-asphalt surface 3 4052 changed pixels
+missing-asphalt surface 4 4052 changed pixels
+missing-asphalt surface 5 4052 changed pixels
+materials low
+52 material browser checks passed

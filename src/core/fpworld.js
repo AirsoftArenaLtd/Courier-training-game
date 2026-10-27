@@ -10,7 +10,7 @@ OTR.fpWorld = {
       if (!mats.has(color)) mats.set(color, new T.MeshLambertMaterial({ color }));
       return mats.get(color);
     };
-    function box(parent, x, y, z, w, h, d, color, id, solid) {
+    function box(parent, x, y, z, w, h, d, color, id, solid, surface=0) {
       const flat=h<=0.15&&(w>1||d>1);
       const mesh = new T.Mesh(flat?plane:cube, material(color)); mesh.position.set(x,y,z); mesh.scale.set(w,h,d);
       mesh.updateMatrix(); mesh.matrixAutoUpdate = false;
@@ -18,7 +18,7 @@ OTR.fpWorld = {
         let pool = batches.get(parent); if (!pool) { pool = new Map(); batches.set(parent,pool); }
         // Keep flat surfaces and solid proxies in separate batches; colours are per instance.
         const key=(flat?'plane:':'box:')+(parent===route?'all':flat?color:'all')+(parent===route&&solid?':solid':'');
-        const entry={matrix:mesh.matrix.clone(),color:new T.Color(color),hex:color,flat,bounded:!!solid};
+        const entry={matrix:mesh.matrix.clone(),color:new T.Color(color),hex:color,flat,bounded:!!solid,surface};
         if (!pool.has(key)) pool.set(key,[]); pool.get(key).push(entry);mesh.userData.fpBatchEntry=entry;
       }
       if(id||solid){
@@ -57,12 +57,12 @@ OTR.fpWorld = {
     const sceneryRadius=OTR.gfx.high()?95:55;let sceneryX=Infinity,sceneryZ=Infinity,solidX=Infinity,solidZ=Infinity;
     if(world.fog){world.fog.near=base.town?sceneryRadius-20:65;world.fog.far=base.town?sceneryRadius:165;if(weather==='fog'){world.fog.near=6;world.fog.far=28;}else if(weather==='storm'){world.fog.near=12;world.fog.far=40;}else if(weather==='heat'){world.fog.near=25;world.fog.far=50;}}
     if (!base.town) {
-    box(route,0,-0.12,-56,40,0.2,158,grassColour);
-    box(route,0,-0.015,-57,11,0.06,155,roadColour);
-    [-6.3,6.3].forEach(x=>box(route,x,0.05,-63,1.6,0.13,128,0xC2C0B6));
-    [-27,-89].forEach(z=>box(route,0,0,z,40,0.08,8,roadColour));
-    box(route,0,0,-124,27,0.1,17,roadColour);
-    box(route,-9,0,5,15,0.1,24,0xC4C1B6);
+    box(route,0,-0.12,-56,40,0.2,158,grassColour,null,false,3);
+    box(route,0,-0.015,-57,11,0.06,155,roadColour,null,false,1);
+    [-6.3,6.3].forEach(x=>box(route,x,0.05,-63,1.6,0.13,128,0xC2C0B6,null,false,2));
+    [-27,-89].forEach(z=>box(route,0,0,z,40,0.08,8,roadColour,null,false,1));
+    box(route,0,0,-124,27,0.1,17,roadColour,null,false,1);
+    box(route,-9,0,5,15,0.1,24,0xC4C1B6,null,false,2);
     for (let z=14; z>-119; z-=6) {
       if (Math.abs(z+27)<7||Math.abs(z+89)<7) continue;
       box(route,0,0.04,z,0.09,0.018,2.7,0xEDD385);
@@ -72,10 +72,10 @@ OTR.fpWorld = {
     }
     if (base.town) {
       const b=base.bounds,town=base.town,cx=(b.x0+b.x1)/2,cz=(b.z0+b.z1)/2;
-      box(route,cx,-0.12,cz,b.x1-b.x0,0.2,b.z1-b.z0,grassColour);
-      town.xs.forEach(x=>box(route,x,-0.015,cz,town.road,0.06,b.z1-b.z0,roadColour));
-      town.zs.forEach(z=>box(route,cx,-0.015,z,b.x1-b.x0,0.06,town.road,roadColour));
-      box(route,9,0,5,15,0.1,24,0xC4C1B6);
+      box(route,cx,-0.12,cz,b.x1-b.x0,0.2,b.z1-b.z0,grassColour,null,false,3);
+      town.xs.forEach(x=>box(route,x,-0.015,cz,town.road,0.06,b.z1-b.z0,roadColour,null,false,1));
+      town.zs.forEach(z=>box(route,cx,-0.015,z,b.x1-b.x0,0.06,town.road,roadColour,null,false,1));
+      box(route,9,0,5,15,0.1,24,0xC4C1B6,null,false,2);
       const half=town.road/2;
       // Every junction is stop-controlled in the pilot's 3D grid. Shared batches stay bounded.
       for(const x of town.xs) for(const z of town.zs) {
@@ -140,9 +140,9 @@ OTR.fpWorld = {
     base.stops.forEach((s,i)=>{
       const l=base.town?base.town.lots.find(l=>l.id===s.lotId):{x:13,z:s.z,w:6,d:9,h:4.2};
       const side=s.side||1;
-      box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,colors[i%colors.length],null,true);
+      box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,colors[i%colors.length],null,true,i%2?4:5);
       box(route,l.x,l.h+0.15,l.z,l.w+0.5,0.3,l.d+0.5,roofColour);
-      box(route,s.x-side*1.7,0.08,s.z,3.4,0.15,2,0xC9C4B8);
+      box(route,s.x-side*1.7,0.08,s.z,3.4,0.15,2,0xC9C4B8,null,false,2);
       stopDoors.push(box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i));
       const delivery=base._deliverySpecs&&base._deliverySpecs[i].protocol;
       if(!delivery||!['locker','reception'].includes(delivery.kind))box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,base.routeDay&&base.routeDay.dispatch&&base.routeDay.dispatch.stop===i&&base.routeDay.dispatch.kind==='planter'?grassColour:0x927557);
@@ -319,6 +319,8 @@ OTR.fpWorld = {
     };
     const signs=base.town&&OTR.fpSigns?OTR.fpSigns.build(scene,base,route,addRoutePlane):null;
     const trafficArt=OTR.fpTraffic?OTR.fpTraffic.art(base,addRoutePlane):null;
+    const surfaces=OTR.fpMaterials?OTR.fpMaterials.build(scene,weather):null;
+    if(surfaces&&townArt)for(const batch of townArt.batches)batch.surfaceKinds=surfaces.attach(batch.mesh,batch.entries);
     // Batch static details by material and parent to keep draw calls small on integrated GPUs.
     batches.forEach((pool,parent)=>pool.forEach(entries=>{
       if(!entries.length)return;
@@ -326,8 +328,9 @@ OTR.fpWorld = {
       const mesh=new T.InstancedMesh(flat?plane:cube,material(coloured?entries[0].hex:0xFFFFFF),entries.length);
       entries.forEach((entry,i)=>{mesh.setMatrixAt(i,entry.matrix);if(!coloured)mesh.setColorAt(i,entry.color);});mesh.instanceMatrix.needsUpdate=true;
       const signShapes=signs&&OTR.fpSigns.decorate(mesh,entries);if(signShapes)mats.set('sign-shapes',mesh.material);
+      const surfaceKinds=surfaces&&parent===route?surfaces.attach(mesh,entries):null;
       mesh.computeBoundingSphere();parent.add(mesh);
-      if(base.town&&parent===route)staticBatches.push({mesh,entries,bounded:entries[0].bounded,signShapes});
+      if(base.town&&parent===route)staticBatches.push({mesh,entries,bounded:entries[0].bounded,signShapes,surfaceKinds});
     }));
     const mirrors=OTR.fpMirrors?OTR.fpMirrors.build(scene,interactions):null;
     const rear=OTR.fpRear&&cab?OTR.fpRear.build(scene,cab.root,interactions,cab.navigation.local):null;
@@ -362,11 +365,11 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,damage,walkaroundTargets,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
+    const api={hub,route,surfaces,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,innerVan,damage,walkaroundTargets,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
       dispose() {
         const geometries=new Set();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
-        for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
-        geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());
+        for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset&&!o.geometry.userData.otrSurfaceOwned)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
+        geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());if(surfaces)surfaces.dispose();
       },
       sync(model,hubPlayer,area) {
         const inHub=area==='hub',reduced=OTR.fpAccess&&OTR.fpAccess.reduced();hub.visible=inHub;route.visible=!inHub;
@@ -517,12 +520,12 @@ OTR.fpWorld = {
         reflectSphere.center.set(e[12],e[13],e[14]);reflectSphere.radius=Math.hypot(e[0],e[5],e[10])*.5;if(entry.sphere)reflectSphere.copy(entry.sphere);
         // High keeps offscreen shadow casters in the main batch. Reflections and Low have no
         // shadow pass that needs those instances, so their individual frusta can discard them.
-        if((!main||cullMain)&&!frustum.intersectsSphere(reflectSphere))continue;mesh.setMatrixAt(count,entry.matrix);if(mesh.instanceColor)mesh.setColorAt(count,entry.color);if(batch.signShapes)batch.signShapes.setX(count,entry.shape||0);if(main&&entry.sign)entry.mainVisible=true;count++;
+        if((!main||cullMain)&&!frustum.intersectsSphere(reflectSphere))continue;mesh.setMatrixAt(count,entry.matrix);if(mesh.instanceColor)mesh.setColorAt(count,entry.color);if(batch.signShapes)batch.signShapes.setX(count,entry.shape||0);if(batch.surfaceKinds)batch.surfaceKinds.setX(count,entry.materialSurface||0);if(main&&entry.sign)entry.mainVisible=true;count++;
       }
       mesh.count=count;mesh.visible=count>0;mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;
-      if(batch.signShapes)batch.signShapes.needsUpdate=true;
+      if(batch.signShapes)batch.signShapes.needsUpdate=true;if(batch.surfaceKinds)batch.surfaceKinds.needsUpdate=true;
     };
-    for(const batch of reflectBatches){batch.mainMatrices=new Float32Array(batch.mesh.instanceMatrix.array.length);batch.mainColours=batch.mesh.instanceColor?new Float32Array(batch.mesh.instanceColor.array.length):null;batch.mainShapes=batch.signShapes?new Float32Array(batch.signShapes.array.length):null;}
+    for(const batch of reflectBatches){batch.mainMatrices=new Float32Array(batch.mesh.instanceMatrix.array.length);batch.mainColours=batch.mesh.instanceColor?new Float32Array(batch.mesh.instanceColor.array.length):null;batch.mainShapes=batch.signShapes?new Float32Array(batch.signShapes.array.length):null;batch.mainSurfaces=batch.surfaceKinds?new Float32Array(batch.surfaceKinds.array.length):null;}
     let vanWas=false,dashWas=false,screenWas=false,vehicleWas=false;
     view.mirror.before=(index=0)=>{
       if(view.mirror.cameras)view.mirror.camera=index===3?view.mirror.rearCamera:view.mirror.cameras[index];
@@ -530,13 +533,13 @@ OTR.fpWorld = {
       if(rear){screenWas=rear.screen.visible;rear.screen.visible=false;}
       const cam=view.mirror.camera;cam.updateMatrixWorld(true);reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse));
       if(signs)signs.choose(cam,reflectFrustum,false);
-      for(const batch of reflectBatches){const mesh=batch.mesh;batch.mainCount=mesh.count;batch.mainVisible=mesh.visible;batch.mainMatrices.set(mesh.instanceMatrix.array);if(batch.mainColours)batch.mainColours.set(mesh.instanceColor.array);if(batch.mainShapes)batch.mainShapes.set(batch.signShapes.array);compact(batch,reflectFrustum);}
+      for(const batch of reflectBatches){const mesh=batch.mesh;batch.mainCount=mesh.count;batch.mainVisible=mesh.visible;batch.mainMatrices.set(mesh.instanceMatrix.array);if(batch.mainColours)batch.mainColours.set(mesh.instanceColor.array);if(batch.mainShapes)batch.mainShapes.set(batch.signShapes.array);if(batch.mainSurfaces)batch.mainSurfaces.set(batch.surfaceKinds.array);compact(batch,reflectFrustum);}
       world.updateMatrixWorld(true);
     };
     view.mirror.after=()=>{
       van.visible=vanWas;if(innerVan){actors.vehicle.mesh.visible=vehicleWas;innerVan.visible=false;}if(actors&&model)actors.reflect(false,model);dash.visible=dashWas;if(mirrors)mirrors.hide(false);
       if(rear)rear.screen.visible=screenWas;
-      for(const batch of reflectBatches){const mesh=batch.mesh;mesh.count=batch.mainCount;mesh.visible=batch.mainVisible;mesh.instanceMatrix.array.set(batch.mainMatrices);if(batch.mainColours)mesh.instanceColor.array.set(batch.mainColours);if(batch.mainShapes){batch.signShapes.array.set(batch.mainShapes);batch.signShapes.needsUpdate=true;}mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;}
+      for(const batch of reflectBatches){const mesh=batch.mesh;mesh.count=batch.mainCount;mesh.visible=batch.mainVisible;mesh.instanceMatrix.array.set(batch.mainMatrices);if(batch.mainColours)mesh.instanceColor.array.set(batch.mainColours);if(batch.mainShapes){batch.signShapes.array.set(batch.mainShapes);batch.signShapes.needsUpdate=true;}if(batch.mainSurfaces){batch.surfaceKinds.array.set(batch.mainSurfaces);batch.surfaceKinds.needsUpdate=true;}mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;}
       world.updateMatrixWorld(true);
     };
     return api;
