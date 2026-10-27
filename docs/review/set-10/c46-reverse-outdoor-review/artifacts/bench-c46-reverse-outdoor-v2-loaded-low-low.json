@@ -1,0 +1,241 @@
+{
+  "tag": "c46-reverse-outdoor-v2-loaded-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 14,
+    "failed": 0,
+    "fallbacks": 0,
+    "bytes": 824208,
+    "decodedBytes": 354468,
+    "errors": []
+  },
+  "prototype": {
+    "reverseyard": {
+      "frames": 129,
+      "avgFPS": 12.82,
+      "low1FPS": 5.75,
+      "p99ms": 172.2,
+      "maxMs": 175.9,
+      "peak": {
+        "calls": 28,
+        "triangles": 762,
+        "textures": 2,
+        "geometries": 12,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1071684,
+        "withMipmapsUpperBytes": 1428912
+      },
+      "worldProfile": {
+        "meshes": 91,
+        "instances": 104,
+        "geometries": 17,
+        "materials": 36,
+        "geometryBytes": 41256,
+        "instanceBytes": 8108,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          40,
+          40,
+          39,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": -5,
+          "y": 1.65,
+          "z": -63,
+          "yaw": 2.356194490192345,
+          "pitch": -0.12,
+          "roll": 0,
+          "fov": 68,
+          "baseX": -0.45,
+          "baseZ": -66.45,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "reversebay": {
+      "frames": 142,
+      "avgFPS": 14.18,
+      "low1FPS": 5.63,
+      "p99ms": 177.2,
+      "maxMs": 178,
+      "peak": {
+        "calls": 24,
+        "triangles": 736,
+        "textures": 2,
+        "geometries": 12,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 86,
+        "baseLevelRGBABytes": 1071684,
+        "withMipmapsUpperBytes": 1428912
+      },
+      "worldProfile": {
+        "meshes": 91,
+        "instances": 104,
+        "geometries": 17,
+        "materials": 36,
+        "geometryBytes": 41256,
+        "instanceBytes": 8108,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          49,
+          49,
+          48,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": -4.5,
+          "y": 1.65,
+          "z": -60,
+          "yaw": 2.5702551737561663,
+          "pitch": -0.12,
+          "roll": 0,
+          "fov": 68,
+          "baseX": -0.45,
+          "baseZ": -66.45,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "reverseProof": {
+    "reverseyard": {
+      "source": "reverse-static-render-fixture",
+      "bayRay": {
+        "clear": true,
+        "eye": {
+          "x": -5,
+          "y": 1.65,
+          "z": -63
+        },
+        "target": {
+          "x": 0,
+          "y": 0.1,
+          "z": -53
+        }
+      },
+      "id": "m8-reverse",
+      "phase": "active",
+      "carCount": 1,
+      "walls": 3,
+      "gaze": null,
+      "rearVisible": false,
+      "handheld": false,
+      "panel": false,
+      "paused": true,
+      "bounded": true,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "reversebay": {
+      "source": "reverse-static-render-fixture",
+      "bayRay": {
+        "clear": true,
+        "eye": {
+          "x": -4.5,
+          "y": 1.65,
+          "z": -60
+        },
+        "target": {
+          "x": 0,
+          "y": 0.1,
+          "z": -53
+        }
+      },
+      "id": "m8-reverse",
+      "phase": "active",
+      "carCount": 1,
+      "walls": 3,
+      "gaze": null,
+      "rearVisible": false,
+      "handheld": false,
+      "panel": false,
+      "paused": true,
+      "bounded": true,
+      "shadow": {
+        "on": false,
+        "span": 10,
+        "size": [
+          512,
+          512
+        ]
+      },
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "reverseFixture": true,
+  "phaserTextures": {
+    "count": 86,
+    "baseLevelRGBABytes": 1071684,
+    "withMipmapsUpperBytes": 1428912
+  },
+  "phaserTexturesPeak": {
+    "count": 86,
+    "baseLevelRGBABytes": 1071684,
+    "withMipmapsUpperBytes": 1428912
+  },
+  "missingViews": [],
+  "errors": []
+}

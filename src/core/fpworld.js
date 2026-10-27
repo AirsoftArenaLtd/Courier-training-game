@@ -272,8 +272,19 @@ OTR.fpWorld = {
     }
     const cars=base.traffic.map((c,i)=>{
       const g=new T.Group();route.add(g);
-      box(g,0,0.55,0,1.7,0.8,3.5,i?0x74909D:0xBD8975,null,true);
-      box(g,0,1.2,-0.2,1.5,0.55,1.65,0x506673);
+      // The optional lesson fits the bundled sedan to the existing traffic/sensor footprint.
+      // Its source nose is +Z; the mission's forward direction is -Z.
+      const sedan=base.reverseLesson&&scene.assetBank?.add(g,'town-parked-car',[{x:0,z:0,w:1.8,h:1.4,d:3.6,yaw:Math.PI}]);
+      g.userData.reverseSedan=!!sedan;
+      if(sedan){
+        for(const {mesh} of sedan.userData.batches)mesh.castShadow=mesh.receiveShadow=OTR.gfx.high();
+        // Keep a matching ray occluder. Moving asset instances use their parent transform and
+        // Three's normal frustum test, rather than the fixed world-position instance compactor.
+        const proxy=new T.Mesh(cube,material(0x506673));proxy.name='reverse-car-occluder';proxy.position.y=.7;proxy.scale.set(1.8,1.4,3.6);proxy.layers.set(1);g.add(proxy);occluders.push(proxy);
+      }else{
+        box(g,0,0.55,0,1.7,0.8,3.5,i?0x74909D:0xBD8975,null,true);
+        box(g,0,1.2,-0.2,1.5,0.55,1.65,0x506673);
+      }
       return g;
     });
     const trafficBike=base.trafficControl&&base.routePlan.day>=4&&OTR.gfx.high()?new T.Group():null;
@@ -418,7 +429,7 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,pretripArt,hazardLessonArt,drivingLessonArt,lessonBayArt,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,packageLabels,packageSort,packageLift,customer,customerStop,blockedProblem,loading,pickup,
+    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,pretripArt,hazardLessonArt,drivingLessonArt,lessonBayArt,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,packageLabels,packageSort,packageLift,customer,customerStop,blockedProblem,loading,pickup,cars,
       dispose() {
         if(customer)customer.dispose();if(customerStop)customerStop.dispose();if(loading)loading.dispose();if(pickup)pickup.dispose();if(packageLabels)packageLabels.dispose();if(packageSort)packageSort.dispose();if(packageLift)packageLift.dispose();
         const geometries=new Set();if(pretripArt)pretripArt.dispose();if(hazardLessonArt)hazardLessonArt.dispose();if(drivingLessonArt)drivingLessonArt.dispose();if(lessonBayArt)lessonBayArt.dispose();if(ambient)ambient.dispose();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;

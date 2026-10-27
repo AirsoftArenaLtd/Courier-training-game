@@ -1,0 +1,42 @@
+{
+  "scope": "Static optional-reversing resource poses, original ceilings; no native gameplay or laptop FPS acceptance.",
+  "revision": "33d4ea6c19f4cb55a675c2f6786fbc0eda0a0f51",
+  "profiles": [
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c46-reverse-remaining-loaded-high-high.json",
+      "peak": {
+        "calls": 32,
+        "triangles": 10594,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5430427
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c46-reverse-remaining-accessible-low-low.json",
+      "peak": {
+        "calls": 31,
+        "triangles": 810,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2048619
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c46-reverse-remaining-fallback-low-low.json",
+      "peak": {
+        "calls": 37,
+        "triangles": 668,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1724539
+      }
+    }
+  ]
+}

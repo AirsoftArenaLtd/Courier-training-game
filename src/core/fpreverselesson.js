@@ -24,8 +24,9 @@ OTR.fpReverseLesson={
       if(s.crossing==='waiting'&&m.mode==='cab'&&m.van.gear===-1&&m.van.speed<-.1)s.crossing='crossing';
       if(s.crossing==='crossing'){
         const distance=Math.min(16-s.carDistance,1.5*dt),box=s.carBox;box.x=-8+s.carDistance+distance;box.z=s.car.z;
-        // Do not manufacture a collision by driving an NPC into a van the trainee has already stopped.
-        if(Math.abs(m.van.speed)<.05&&OTR.fp.vanBox(m.van,box)){s.car.speed=0;return;}
+        // Never advance the NPC into the van's occupied footprint. The trainee can still
+        // back into traffic, but a reported contact must leave room for a real recovery.
+        if(OTR.fp.vanBox(m.van,box)){s.car.speed=0;return;}
         s.car.speed=1.5;s.carDistance+=distance;s.car.x=box.x;
         if(s.carDistance>=16){s.crossing='clear';s.car.speed=0;}
       }

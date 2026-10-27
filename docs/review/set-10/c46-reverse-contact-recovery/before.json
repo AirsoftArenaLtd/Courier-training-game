@@ -1,0 +1,27 @@
+{
+  "scope": "CPU reproduction using actual motor/cab actions; no van/car position fixture",
+  "steps": 278,
+  "hit": {
+    "z": -59.72570195488299,
+    "hand": true,
+    "car": {
+      "x": -2.8625000000000265,
+      "z": -58,
+      "yaw": 1.5707963267948966,
+      "speed": 1.5
+    },
+    "critical": 1
+  },
+  "after": {
+    "z": -59.72570195488299,
+    "hand": true,
+    "car": {
+      "x": -2.8625000000000265,
+      "z": -58,
+      "yaw": 1.5707963267948966,
+      "speed": 0
+    },
+    "critical": 1
+  },
+  "movedForward": 0
+}

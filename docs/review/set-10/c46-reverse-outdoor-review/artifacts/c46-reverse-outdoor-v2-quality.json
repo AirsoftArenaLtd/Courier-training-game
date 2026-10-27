@@ -1,0 +1,54 @@
+{
+  "scope": "Static optional-reversing resource poses, original ceilings; no native gameplay or laptop FPS acceptance.",
+  "revision": "c4ce4c6ab468733eda029dd69148053da29f35b5",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c46-reverse-outdoor-v2-loaded-low-low.json",
+      "peak": {
+        "calls": 28,
+        "triangles": 762,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1428912
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c46-reverse-outdoor-v2-loaded-high-high.json",
+      "peak": {
+        "calls": 30,
+        "triangles": 10570,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 4247696
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c46-reverse-outdoor-v2-accessible-low-low.json",
+      "peak": {
+        "calls": 28,
+        "triangles": 762,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1632576
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c46-reverse-outdoor-v2-fallback-low-low.json",
+      "peak": {
+        "calls": 33,
+        "triangles": 620,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1428912
+      }
+    }
+  ]
+}

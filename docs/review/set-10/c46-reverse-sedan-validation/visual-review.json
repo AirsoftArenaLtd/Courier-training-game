@@ -1,0 +1,21 @@
+{
+  "scope": "Original-resolution inspection of the current imported Low/High model and real automatic rear camera; no glyph/laptop acceptance.",
+  "images": [
+    {
+      "file": "artifacts/c46-reverse-sedan-loaded-low-low-reverseyard.png",
+      "sha256": "be9562d245887133e12e87531dc6ef0a0230b66fb1fe3cd7dcea74b3587924bf"
+    },
+    {
+      "file": "artifacts/c46-reverse-sedan-loaded-low-low-reversecamera.png",
+      "sha256": "55c0db77814b43eb878852b7a4f4f5d5d69b81ab972d58dbb7effb0525b8c185"
+    },
+    {
+      "file": "artifacts/c46-reverse-sedan-loaded-high-high-reverseyard.png",
+      "sha256": "98efb5b8a204fe4b8dfe19b968d472784f5c0fccd6c55951dd577fbd8a901ef2"
+    },
+    {
+      "file": "artifacts/c46-reverse-sedan-loaded-high-high-reversecamera.png",
+      "sha256": "606f412efe96541fc128f739d19ea55976d3da978ce8a099393ca1e01c7d4a1c"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "scope": "Static optional-reversing resource poses, original ceilings; no native gameplay or laptop FPS acceptance.",
+  "revision": "33d4ea6c19f4cb55a675c2f6786fbc0eda0a0f51",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c46-reverse-cab-retry-loaded-low-low.json",
+      "peak": {
+        "calls": 26,
+        "triangles": 570,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1555318
+      }
+    }
+  ]
+}

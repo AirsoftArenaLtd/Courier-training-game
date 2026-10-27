@@ -1,0 +1,389 @@
+{
+  "phase": "running",
+  "pid": 120066,
+  "startedAt": 1793069766.4084232,
+  "jobs": [
+    {
+      "tag": "c46-reverse-recovery-native-critical-low-en-large",
+      "variant": "critical",
+      "quality": "low",
+      "language": "en",
+      "large": true,
+      "wallSeconds": 2400,
+      "exit": 0,
+      "accepted": true,
+      "checks": 122,
+      "captures": 5,
+      "durable": true,
+      "score": 0,
+      "stars": {
+        "safety": 0
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793069773935,
+        "pending": false,
+        "at": 1793070053102,
+        "stars": {
+          "safety": 0
+        },
+        "score": 0,
+        "criticals": [
+          "The van hit something"
+        ],
+        "lessons": [
+          "Any contact is an incident: stop, check, and report it. Slow down near obstacles and use your mirrors.",
+          "Reverse slowly. Watch the rear camera and both mirrors, and stop at once if anything is close. Get out and look when you cannot see."
+        ]
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "c46-reverse-recovery-native-critical-low-en-large-brief.png",
+          "sha256": "744a05300a231f78ee198e3ead611b896cfba9053cce8670f8c1b7568e4721f2"
+        },
+        {
+          "file": "c46-reverse-recovery-native-critical-low-en-large-critical.png",
+          "sha256": "be5d9f14c96433bdb45822c1789ced6cb149ada0b9ff8811b33fab66e6788c28"
+        },
+        {
+          "file": "c46-reverse-recovery-native-critical-low-en-large-path-1.png",
+          "sha256": "573a332730e26c285a83097f602994f87512149b5a345f12225aa7c367f5a072"
+        },
+        {
+          "file": "c46-reverse-recovery-native-critical-low-en-large-path-3.png",
+          "sha256": "edf6bbcede7a30a1d61cb75d63f0bce25d8e821ffbdd6501e38525b876b78549"
+        },
+        {
+          "file": "c46-reverse-recovery-native-critical-low-en-large-result.png",
+          "sha256": "a63218e5c1a57d0ebfd0f20e89434b6c0982fcbf787f70d4595224f5dae1bad5"
+        },
+        {
+          "file": "c46-reverse-recovery-native-critical-low-en-large.json",
+          "sha256": "032b436521430bd628e6eabb49f504e7bb991b3dbbd557b6ce98e43e40095a9b"
+        }
+      ]
+    },
+    {
+      "tag": "c46-reverse-recovery-native-good-low-en-large",
+      "variant": "good",
+      "quality": "low",
+      "language": "en",
+      "large": true,
+      "wallSeconds": 2400,
+      "exit": 0,
+      "accepted": true,
+      "checks": 188,
+      "captures": 10,
+      "durable": true,
+      "score": 600,
+      "stars": {
+        "safety": 3
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793070072627,
+        "pending": false,
+        "at": 1793070297917,
+        "stars": {
+          "safety": 3
+        },
+        "score": 600,
+        "criticals": [],
+        "lessons": []
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "c46-reverse-recovery-native-good-low-en-large-brief.png",
+          "sha256": "744a05300a231f78ee198e3ead611b896cfba9053cce8670f8c1b7568e4721f2"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-low-en-large-controls-0.png",
+          "sha256": "6d9f5dde80b736c4a9ca430f533884d2760606c4bcb8ab2441636576e04e03b1"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-low-en-large-controls-1.png",
+          "sha256": "09d23d72a09252f9c136e4479c2659a6022fdc0c7412f1490bbb89afbe0853e0"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-low-en-large-controls-2.png",
+          "sha256": "8fcd6ef1bdd8345225556f37eafdc7c8bd19a29960b929a7f4cb83ce6cb64286"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-low-en-large-controls-3.png",
+          "sha256": "fa19617b5fda5526b24a22657e85cad6b48c5841060890bfe5c02ab2f83a7b9c"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-low-en-large-handheld.png",
+          "sha256": "17591ea5d8dea2c8475c96e99568daf608467242d878857e4427982e6dc84fcf"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-low-en-large-path-6.png",
+          "sha256": "3652f45ae45d9b39115e107985904fa941ed7d68ec5e72413c03b95b21632dda"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-low-en-large-path-8.png",
+          "sha256": "1bcbdc54e1b369ea1736843196090aa51d2f969f8c5c1ed9d2634b773c314c77"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-low-en-large-result.png",
+          "sha256": "693d5fb2f592d4414ce63f040b2698d000cd95e6edcbd4addf570e44bc82ea0a"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-low-en-large-yield.png",
+          "sha256": "27695755abc3352e94590547f8cbaa36efe54195ec11a018fd3bfbc0c2b4e210"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-low-en-large.json",
+          "sha256": "f8233e8dad2b295c44c14984da63770919536ddb54f3d9d978677bf3c411126b"
+        }
+      ]
+    },
+    {
+      "tag": "c46-reverse-recovery-native-omitted-low-ta-large",
+      "variant": "omitted",
+      "quality": "low",
+      "language": "ta",
+      "large": true,
+      "wallSeconds": 2400,
+      "exit": 0,
+      "accepted": true,
+      "checks": 49,
+      "captures": 3,
+      "durable": true,
+      "score": 200,
+      "stars": {
+        "safety": 0
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793070316058,
+        "pending": false,
+        "at": 1793070381884,
+        "stars": {
+          "safety": 0
+        },
+        "score": 200,
+        "criticals": [],
+        "lessons": [
+          "G.O.A.L.: get out and look when the space is tight. The camera has blind spots too.",
+          "Look at the mirror for the side you are moving to, then signal, then go. Vans have blind spots a car does not."
+        ]
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "c46-reverse-recovery-native-omitted-low-ta-large-brief.png",
+          "sha256": "1333b1b54b7cc6a75dd6717c0ca23f69bb7e7dedd7503c56721a76eabc142ec5"
+        },
+        {
+          "file": "c46-reverse-recovery-native-omitted-low-ta-large-result.png",
+          "sha256": "8a3d9ee54a8aa918f742a52f46f47d451460d6d8814531c6d6757ec7d87da49f"
+        },
+        {
+          "file": "c46-reverse-recovery-native-omitted-low-ta-large-yield.png",
+          "sha256": "2f62e7d527632946fadcafa4eebaa7c155fc4d39cde437248e855e4f2d2bd6a2"
+        },
+        {
+          "file": "c46-reverse-recovery-native-omitted-low-ta-large.json",
+          "sha256": "530ed377add94292607b4077b21d3dbe5aa33c330626fb76cad12b85b936bcae"
+        }
+      ]
+    },
+    {
+      "tag": "c46-reverse-recovery-native-abandon-low-ta-large",
+      "variant": "abandon",
+      "quality": "low",
+      "language": "ta",
+      "large": true,
+      "wallSeconds": 2400,
+      "exit": 0,
+      "accepted": true,
+      "checks": 34,
+      "captures": 1,
+      "durable": true,
+      "score": null,
+      "stars": null,
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793070400324,
+        "pending": false,
+        "abandoned": true,
+        "at": 1793070403839
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "c46-reverse-recovery-native-abandon-low-ta-large-brief.png",
+          "sha256": "1333b1b54b7cc6a75dd6717c0ca23f69bb7e7dedd7503c56721a76eabc142ec5"
+        },
+        {
+          "file": "c46-reverse-recovery-native-abandon-low-ta-large.json",
+          "sha256": "306315f75180df481a7e2ade3b72935ac6b49a55ca9337b0ce7a496cf1b4cc78"
+        }
+      ]
+    },
+    {
+      "tag": "c46-reverse-recovery-native-good-high-ta-large",
+      "variant": "good",
+      "quality": "high",
+      "language": "ta",
+      "large": true,
+      "wallSeconds": 2400,
+      "exit": 0,
+      "accepted": true,
+      "checks": 188,
+      "captures": 10,
+      "durable": true,
+      "score": 600,
+      "stars": {
+        "safety": 3
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793070422009,
+        "pending": false,
+        "at": 1793070962783,
+        "stars": {
+          "safety": 3
+        },
+        "score": 600,
+        "criticals": [],
+        "lessons": []
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "c46-reverse-recovery-native-good-high-ta-large-brief.png",
+          "sha256": "8ec177ae67e04a3099346e3cdd44671e10d77c4bea305566ed327fc81b9baf7b"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-ta-large-controls-0.png",
+          "sha256": "bfa6a6cade64161a3a43f4b6d9f7b8b95eaeb4eefa2052062010aa28b8127ded"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-ta-large-controls-1.png",
+          "sha256": "8464330a25e0787283d2610394010aeea5202e560f5ebec8dfe5bfb7c9415788"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-ta-large-controls-2.png",
+          "sha256": "50b0effd6db533a54fcb02505a3f4d4a231108453bc4e06941d51f676ff0058c"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-ta-large-controls-3.png",
+          "sha256": "3ca06bd3f92c20bdb841536e8300c3d1715225d9a62e1c5fa9ba7dee555bfd79"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-ta-large-handheld.png",
+          "sha256": "94cd0c39ec67397a6d4a68dea52966ec44a4cab4097ccb1ad702c283faff3a91"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-ta-large-path-6.png",
+          "sha256": "f91ac7e4e319b0242ea640feeb1dea6301f15dcd4eb26d10c7c89fb76ffe3bc0"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-ta-large-path-8.png",
+          "sha256": "940c9dfd5a36928dcbb2f11f30535861ff6e951599242f6eddf1ba14df4b9fe4"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-ta-large-result.png",
+          "sha256": "4602deb5214b3ecc634310755cf188a2efff8df65e7036ead150220dee866f10"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-ta-large-yield.png",
+          "sha256": "5f13f3c9cfdeac0026fda2bf3efcb374f971d96ccd5243f3ad11a89696e2822a"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-ta-large.json",
+          "sha256": "b1f13078be21a0dbb7168c6297a21d3105f7731a547455530ab3672e0f056d72"
+        }
+      ]
+    },
+    {
+      "tag": "c46-reverse-recovery-native-good-high-en-normal",
+      "variant": "good",
+      "quality": "high",
+      "language": "en",
+      "large": false,
+      "wallSeconds": 2400,
+      "exit": 0,
+      "accepted": true,
+      "checks": 188,
+      "captures": 10,
+      "durable": true,
+      "score": 600,
+      "stars": {
+        "safety": 3
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793070997311,
+        "pending": false,
+        "at": 1793071514396,
+        "stars": {
+          "safety": 3
+        },
+        "score": 600,
+        "criticals": [],
+        "lessons": []
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "c46-reverse-recovery-native-good-high-en-normal-brief.png",
+          "sha256": "78e27b8d5985266beec74398ac8bb9eaeb39d56103e782de104947357158a50e"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-en-normal-controls-0.png",
+          "sha256": "2fc308f2047fb0b57f9f7f9b7f6bbfbe5909f794a184c4742fb3458267329fc8"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-en-normal-controls-1.png",
+          "sha256": "0f0055c30d632b09c9ab5b33fcf3a0ec643c6dfaceae895851dde419b8beaeb6"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-en-normal-controls-2.png",
+          "sha256": "a3bf0cfd2cb6bef171da478916a49f27d2caa7d7b0c8ef2703e8f30f41f1d471"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-en-normal-controls-3.png",
+          "sha256": "5ec6eff8083b2a561a87bca3659cf245e2aaadfe908b240d0ae02b294c69315a"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-en-normal-handheld.png",
+          "sha256": "e06214bf35e63d53559c8f1d3dff39af7edc38f034576aa212bfe49210a22e46"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-en-normal-path-6.png",
+          "sha256": "decfe4a94ee77b02cf3a9b74980f2702d029c14a307429c8be554b24a2f953c2"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-en-normal-path-8.png",
+          "sha256": "a1d9af68811488183a766b5a34909a74863466ba3e8808c77d22c1d7479cca0b"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-en-normal-result.png",
+          "sha256": "8e5b34099720cdca28e868eabe5cb5e632954980e9a0638d86e9a1662496d979"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-en-normal-yield.png",
+          "sha256": "727133de028237b09c201873fb717d1c0b00f2999691bc539203f05d493383a1"
+        },
+        {
+          "file": "c46-reverse-recovery-native-good-high-en-normal.json",
+          "sha256": "63b77d35327dd3d6169b4fe38e3b1e609e0165567cfe8f861972f5951047f017"
+        }
+      ]
+    }
+  ],
+  "index": 6,
+  "tag": "c46-reverse-recovery-native-good-high-en-large",
+  "childPid": 122717
+}

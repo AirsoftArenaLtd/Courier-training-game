@@ -1,0 +1,129 @@
+{
+  "phase": "failed",
+  "pid": 117836,
+  "startedAt": 1793068034.4181106,
+  "jobs": [
+    {
+      "tag": "c46-reverse-sedan-native-good-low-en-large",
+      "variant": "good",
+      "quality": "low",
+      "language": "en",
+      "large": true,
+      "wallSeconds": 2400,
+      "exit": 0,
+      "accepted": true,
+      "checks": 186,
+      "captures": 10,
+      "durable": true,
+      "score": 600,
+      "stars": {
+        "safety": 3
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793068523843,
+        "pending": false,
+        "at": 1793068757413,
+        "stars": {
+          "safety": 3
+        },
+        "score": 600,
+        "criticals": [],
+        "lessons": []
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "c46-reverse-sedan-native-good-low-en-large-brief.png",
+          "sha256": "744a05300a231f78ee198e3ead611b896cfba9053cce8670f8c1b7568e4721f2"
+        },
+        {
+          "file": "c46-reverse-sedan-native-good-low-en-large-controls-0.png",
+          "sha256": "6d9f5dde80b736c4a9ca430f533884d2760606c4bcb8ab2441636576e04e03b1"
+        },
+        {
+          "file": "c46-reverse-sedan-native-good-low-en-large-controls-1.png",
+          "sha256": "09d23d72a09252f9c136e4479c2659a6022fdc0c7412f1490bbb89afbe0853e0"
+        },
+        {
+          "file": "c46-reverse-sedan-native-good-low-en-large-controls-2.png",
+          "sha256": "8fcd6ef1bdd8345225556f37eafdc7c8bd19a29960b929a7f4cb83ce6cb64286"
+        },
+        {
+          "file": "c46-reverse-sedan-native-good-low-en-large-controls-3.png",
+          "sha256": "fa19617b5fda5526b24a22657e85cad6b48c5841060890bfe5c02ab2f83a7b9c"
+        },
+        {
+          "file": "c46-reverse-sedan-native-good-low-en-large-handheld.png",
+          "sha256": "17591ea5d8dea2c8475c96e99568daf608467242d878857e4427982e6dc84fcf"
+        },
+        {
+          "file": "c46-reverse-sedan-native-good-low-en-large-path-6.png",
+          "sha256": "9cb602c7022d1e0b498b854c9e03bb84ce9edf5576561d07074167733fb05e8d"
+        },
+        {
+          "file": "c46-reverse-sedan-native-good-low-en-large-path-8.png",
+          "sha256": "f1696484e0670a2ba07b0a182a67eb8bc876bf1079ca57aa4399aed3fc3e62ea"
+        },
+        {
+          "file": "c46-reverse-sedan-native-good-low-en-large-result.png",
+          "sha256": "cc9653f121673cfbf39065536b0b20790e20eea89f5706bbc94e3740f589b614"
+        },
+        {
+          "file": "c46-reverse-sedan-native-good-low-en-large-yield.png",
+          "sha256": "f293108f73b1b792acca7472fc12584e89a62fa72d188f1bd8eb0ba9408133e5"
+        },
+        {
+          "file": "c46-reverse-sedan-native-good-low-en-large.json",
+          "sha256": "c20e24ef484155c7c418e7be114b7587a9a5ca1512c389e29c79866504591851"
+        }
+      ]
+    },
+    {
+      "tag": "c46-reverse-sedan-native-critical-low-en-large",
+      "variant": "critical",
+      "quality": "low",
+      "language": "en",
+      "large": true,
+      "wallSeconds": 2400,
+      "exit": 1,
+      "accepted": false,
+      "checks": 68,
+      "captures": 3,
+      "durable": false,
+      "score": null,
+      "stars": null,
+      "assessment": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "c46-reverse-sedan-native-critical-low-en-large-brief.png",
+          "sha256": "744a05300a231f78ee198e3ead611b896cfba9053cce8670f8c1b7568e4721f2"
+        },
+        {
+          "file": "c46-reverse-sedan-native-critical-low-en-large-critical.png",
+          "sha256": "18285d6c8fcee946921aa36d5426e25d39716200457b218fbc7443c8e131e43e"
+        },
+        {
+          "file": "c46-reverse-sedan-native-critical-low-en-large-failure.png",
+          "sha256": "b417a86e1a23c127ff041e1e0f41c1e48ddb5e98e3885fb2cd219af940c40e3f"
+        },
+        {
+          "file": "c46-reverse-sedan-native-critical-low-en-large-path-1.png",
+          "sha256": "127a2d9f167db1d479d41919bc1e4fd261990630820f14f28bd386fa6c0c9896"
+        },
+        {
+          "file": "c46-reverse-sedan-native-critical-low-en-large.json",
+          "sha256": "675f455ad590c2a1f9f164ee2c7b3fb0b0c0cb019ffeb806f96355ac2377b1ac"
+        }
+      ]
+    }
+  ],
+  "index": 1,
+  "tag": "c46-reverse-sedan-native-critical-low-en-large",
+  "childPid": 119398,
+  "failure": "Native case failed: c46-reverse-sedan-native-critical-low-en-large",
+  "leaseReleased": true,
+  "endedAt": 1793069190.9170718
+}

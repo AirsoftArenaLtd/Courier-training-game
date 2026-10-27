@@ -1,0 +1,61 @@
+{
+  "complete": true,
+  "views": 32,
+  "scope": "All32 original-ceiling resource views freshly on the bundled-sedan renderer. Prior procedural-car/outdoor results remain historical and are not promoted. Bay ray and actual imported-model/fallback proofs required.",
+  "frozenInputs": 601,
+  "sourceHashesVerifiedAtCompletion": true,
+  "completedAt": 1793068626.9866354,
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c46-reverse-sedan-loaded-low-low.json",
+      "peak": {
+        "calls": 28,
+        "triangles": 778,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1724539
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c46-reverse-sedan-loaded-high-high.json",
+      "peak": {
+        "calls": 30,
+        "triangles": 14574,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5430427
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c46-reverse-sedan-accessible-low-low.json",
+      "peak": {
+        "calls": 28,
+        "triangles": 778,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2048619
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c46-reverse-sedan-fallback-low-low.json",
+      "peak": {
+        "calls": 33,
+        "triangles": 620,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1724539
+      }
+    }
+  ],
+  "nativeAcceptance": "Separate12-job plan; no native pass promoted from the prior renderer.",
+  "warmHubCacheAccepted": false,
+  "IntelFPSAccepted": false
+}

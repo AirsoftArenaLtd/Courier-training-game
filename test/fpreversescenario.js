@@ -32,3 +32,28 @@ test('the real Low yard renders one car and three matching walls, with no floati
   for(const w of m.parkingWalls)assert.ok(scene.art.occluders.some(o=>Math.abs(o.position.x-w.x)<1e-8&&Math.abs(o.position.z-w.z)<1e-8));
  }finally{scene.art.dispose();}
 });
+const {install,local}=require('./tools/fpassets-context'),assetLoader=install(c);
+test('the loaded Low/High sedan follows its one source actor, fits the exact collision box and keeps private instance buffers stable',async()=>{
+ for(const high of [false,true]){O.gfx={high:()=>high};const bank=await assetLoader.preload({high,fetch:local}),scene=fixture({bank});try{
+  const car=scene.art.cars[0],imported=car.children.find(o=>o.name==='asset:town-parked-car'),source=bank.models.get('town-parked-car');assert.ok(imported);assert.equal(car.userData.reverseSedan,true);assert.equal(scene.art.cars.length,1);const arrays=imported.userData.batches.map(b=>b.mesh.instanceMatrix.array),sourcePositions=source.parts[0].geometry.attributes.position.array,sourceCopy=sourcePositions.slice(),children=car.children.length;
+  let disposed=false;source.parts[0].geometry.addEventListener('dispose',()=>{disposed=true;});
+  for(const yaw of [0,Math.PI/2,Math.PI,-Math.PI/2])for(const x of [-8,-2,0,4,8]){Object.assign(scene.model.traffic[0],{x,yaw});scene.sync();const b=new c.THREE.Box3().setFromObject(imported),size=b.getSize(new c.THREE.Vector3());assert.ok(Math.abs((b.min.x+b.max.x)/2-x)<1e-6);assert.ok(Math.abs((b.min.z+b.max.z)/2+58)<1e-6);assert.ok(Math.abs(b.min.y)<1e-6);assert.ok(Math.abs(size.y-1.4)<1e-6);assert.ok(Math.abs(size.x-(Math.abs(Math.cos(yaw))>.7?1.8:3.6))<1e-6);assert.ok(Math.abs(size.z-(Math.abs(Math.cos(yaw))>.7?3.6:1.8))<1e-6);assert.equal(car.children.length,children);for(let n=0;n<arrays.length;n++)assert.equal(imported.userData.batches[n].mesh.instanceMatrix.array,arrays[n]);}
+  assert.deepEqual(sourcePositions,sourceCopy);scene.view.mirror.before();scene.view.mirror.after();assert.deepEqual(sourcePositions,sourceCopy);scene.art.dispose();assert.equal(disposed,false,'Private world disposal does not destroy the shared source geometry');
+ }finally{if(scene.art.route.parent)scene.art.dispose();bank.dispose();}}
+ O.gfx={high:()=>false};
+});
+test('the imported sedan headlights face the direction the real crossing car travels',async()=>{
+ O.gfx={high:()=>true};const bank=await assetLoader.preload({high:true,fetch:local}),scene=fixture({bank});try{const mesh=scene.art.cars[0].children.find(o=>o.name==='asset:town-parked-car').children[0],a=mesh.geometry.attributes.position,col=mesh.geometry.attributes.color,matrix=new c.THREE.Matrix4(),point=new c.THREE.Vector3();mesh.getMatrixAt(0,matrix);let lamps=0;for(let n=0;n<a.count;n++)if(col.getX(n)>.7&&col.getY(n)>.6&&col.getZ(n)<.2){point.fromBufferAttribute(a,n).applyMatrix4(matrix).applyMatrix4(mesh.matrixWorld);assert.ok(point.x>scene.model.traffic[0].x);lamps++;}assert.ok(lamps>0,'Actual yellow front-lamp vertices were checked');}finally{scene.art.dispose();bank.dispose();O.gfx={high:()=>false};}
+});
+test('a missing sedan keeps the bounded procedural fallback and never changes the motor actor',async()=>{
+ const bank=await assetLoader.preload({high:false,fetch:local}),source=bank.models.get('town-parked-car');bank.models.delete('town-parked-car');const scene=fixture({bank});try{assert.equal(scene.art.cars[0].userData.reverseSedan,false);assert.equal(scene.art.cars.length,1);assert.equal(scene.model.traffic.length,1);assert.equal(scene.art.cars[0].children.some(o=>o.name==='asset:town-parked-car'),false);}finally{scene.art.dispose();bank.models.set('town-parked-car',source);bank.dispose();}
+});
+test('real reversing contact never lets the NPC enter the occupied van, and actual cab actions can recover forward',()=>{
+ const scene=fixture(),m=scene.model,r=scene.scenarioSession,box={x:0,z:0,w:3.6,d:1.8},traffic=m.tickTraffic;let moves=0;
+ try{
+  m.tickTraffic=dt=>{const old=m.traffic[0].x;traffic(dt);const car=m.traffic[0];if(old!==car.x){box.x=car.x;box.z=car.z;assert.equal(O.fp.vanBox(m.van,box),false,'The NPC never steps into the current van footprint');moves++;}};
+  O.fpCab.act(m,'cab-reverse');O.fpCab.act(m,'cab-handbrake');let n=0;for(;n<2000&&!r.log.criticals().length;n++)m.step({forward:true},.0125);assert.ok(n<2000);assert.equal(r.log.items.filter(i=>i.type==='drive.contact'&&i.critical).length,1);assert.ok(moves>0);
+  const hitZ=m.van.z;if(!m.van.hand)O.fpCab.act(m,'cab-handbrake');for(n=0;n<1200&&m.reverseLesson.crossing!=='clear';n++)m.step({},.025);assert.ok(n<1200);O.fpCab.act(m,'cab-drive');if(m.van.hand)O.fpCab.act(m,'cab-handbrake');
+  for(n=0;n<2400&&m.van.z>-65;n++)m.step({forward:m.van.speed<.8,back:m.van.speed>=.8},.0125);assert.ok(n<2400,'Recovery reaches the original safe start using the real motor');assert.ok(hitZ-m.van.z>5);assert.equal(r.log.items.filter(i=>i.type==='drive.contact').length,1);assert.equal(m.reverseLesson.crossing,'clear');
+ }finally{scene.art.dispose();}
+});

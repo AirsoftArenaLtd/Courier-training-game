@@ -1,0 +1,204 @@
+{
+  "checks": 122,
+  "quality": "low",
+  "lang": "en",
+  "large": true,
+  "variant": "critical",
+  "errors": [],
+  "shots": [
+    "c46-reverse-recovery-native-critical-low-en-large-brief.png",
+    "c46-reverse-recovery-native-critical-low-en-large-path-1.png",
+    "c46-reverse-recovery-native-critical-low-en-large-critical.png",
+    "c46-reverse-recovery-native-critical-low-en-large-path-3.png",
+    "c46-reverse-recovery-native-critical-low-en-large-result.png"
+  ],
+  "resources": [
+    {
+      "name": "cab-start",
+      "peak": {
+        "calls": 26,
+        "triangles": 578,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1964806
+      }
+    },
+    {
+      "name": "reverse-ready",
+      "peak": {
+        "calls": 26,
+        "triangles": 578,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1854283
+      }
+    }
+  ],
+  "revision": "c4ce4c6ab468733eda029dd69148053da29f35b5",
+  "sources": {
+    "index.html": "36e3bda80e57d44913de9b5e59f811be5563264813628819b29c52f65e0c75a6",
+    "src/core/fpreverselesson.js": "7895a73805597aa23638a779f50068bde4287590525915397b8aeedc9c8854b1",
+    "src/core/fpreversescenario.js": "130ad45daf33b50d3be5b39eb09f17dad9d70ab354324fe91beab9c1f980f8af",
+    "src/core/fpworld.js": "1e65d6e871095d072f9b1ffe37b70dad1673aad74c0b125a91ac0ac1b1e5b768",
+    "src/scenes/FirstPersonScenarioScene.js": "eaf7a2729f09aa0054ac2c04380969bf25faf7f9eaf51d38930352ac90f846f4",
+    "test/fpreversebrowser.js": "4b86f31dc34779a8643bca8fdc5c791ac5be2b08d66244c9c095904d887872d0"
+  },
+  "registryFixture": "\nOTR_DATA.reverseLessons={nearMiss:{}};OTR_DATA.modules.find(m=>m.id===\"m8\").scenarios.push({\"id\":\"m8-reverse\",\"title\":\"Reversing Near-Miss\",\"categories\":[\"safety\"],\"scene3d\":\"wellness-reverse\",\"optional\":true,\"default3d\":false,\"blurb\":\"Inspect the tight space on foot, use the mirrors and rear camera, yield to crossing traffic, then reverse slowly into the bay and park.\",\"dataKey\":\"reverseLessons.nearMiss\"});\n",
+  "scope": "Initial optional registry/accessibility/profile/suspended-workday fixtures only. Good, real-contact, omitted-check, abandonment and real-clock timeout paths use their actual module outcomes. No position/event/timer/result/verdict is forged. Physical movement, gaze, cab controls, walk-around confirmation, yield, parking and completion use actual remapped keyboard input. The real suspended workday is followed by a full-page reload before the module to isolate its resource sample from shared Hub texture caches. Warm Hub cache retention is a separately retained failing probe. Resource samples are observed native views, not the full fpbench matrix or laptop FPS acceptance.",
+  "last": {
+    "phase": "finished",
+    "mode": "cab",
+    "van": {
+      "x": 0,
+      "z": -53.07711639150217,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": -1,
+      "hand": true,
+      "belt": true,
+      "look": -0.5053987893153012,
+      "mirrors": [
+        124.69638333335313,
+        102.64638333334811,
+        -100,
+        0,
+        0.4
+      ],
+      "shifts": 4
+    },
+    "player": {
+      "x": -1.9164539792308588,
+      "z": -66.70357796536072,
+      "yaw": 1.4329408010631146,
+      "pitch": -0.04663184807332267
+    },
+    "crossing": "clear",
+    "elapsed": 124.69638333335313,
+    "remaining": 175.30361666667162,
+    "checked": false,
+    "criticals": 1,
+    "gear": -1,
+    "target": "mirror-left",
+    "car": {
+      "x": 8,
+      "z": -58
+    }
+  },
+  "result": {
+    "id": "m8-reverse",
+    "score": 0,
+    "stars": {
+      "safety": 0
+    },
+    "verdict": {
+      "untested": [],
+      "criticals": [
+        {
+          "cat": "safety",
+          "label": "The van hit something"
+        }
+      ],
+      "takeaways": [
+        {
+          "text": "Any contact is an incident: stop, check, and report it. Slow down near obstacles and use your mirrors.",
+          "critical": true,
+          "lost": 4,
+          "n": 1,
+          "order": 1
+        },
+        {
+          "text": "Reverse slowly. Watch the rear camera and both mirrors, and stop at once if anything is close. Get out and look when you cannot see.",
+          "critical": false,
+          "lost": 2,
+          "n": 1,
+          "order": 0
+        }
+      ],
+      "mistakes": 2
+    },
+    "record": {
+      "plays": 1,
+      "bestScore": 0,
+      "bestStars": {
+        "safety": 0,
+        "efficiency": 0,
+        "service": 0
+      },
+      "lastPlayed": 1793070053102
+    },
+    "assessment": {
+      "attempts": 1,
+      "passed": false,
+      "startedAt": 1793069773935,
+      "pending": false,
+      "at": 1793070053102,
+      "stars": {
+        "safety": 0
+      },
+      "score": 0,
+      "criticals": [
+        "The van hit something"
+      ],
+      "lessons": [
+        "Any contact is an incident: stop, check, and report it. Slow down near obstacles and use your mirrors.",
+        "Reverse slowly. Watch the rear camera and both mirrors, and stop at once if anything is close. Get out and look when you cannot see."
+      ]
+    },
+    "checks": [
+      {
+        "type": "drive.backing-walkaround",
+        "good": true,
+        "critical": false,
+        "got": 2,
+        "max": 2,
+        "label": "Got out and looked before reversing into a tight space",
+        "lesson": "G.O.A.L.: get out and look when the space is tight. The camera has blind spots too."
+      },
+      {
+        "type": "drive.mirrors",
+        "good": true,
+        "critical": false,
+        "got": 2,
+        "max": 2,
+        "label": "Looked in the mirrors before moving",
+        "lesson": "Look at the mirror for the side you are moving to, then signal, then go. Vans have blind spots a car does not."
+      },
+      {
+        "type": "drive.backing",
+        "good": false,
+        "critical": false,
+        "got": 0,
+        "max": 2,
+        "label": "Reversed too fast or hit something while reversing",
+        "lesson": "Reverse slowly. Watch the rear camera and both mirrors, and stop at once if anything is close. Get out and look when you cannot see."
+      },
+      {
+        "type": "drive.contact",
+        "good": false,
+        "critical": true,
+        "got": -4,
+        "max": 0,
+        "label": "The van hit something",
+        "lesson": "Any contact is an incident: stop, check, and report it. Slow down near obstacles and use your mirrors."
+      }
+    ]
+  },
+  "resultPresentation": {
+    "active": true,
+    "counter": "0 / 3",
+    "expected": "0 / 3",
+    "modals": 0,
+    "scale": 1,
+    "bounds": {
+      "left": 206,
+      "top": 6,
+      "right": 1074,
+      "bottom": 722
+    },
+    "transition": false,
+    "rankUpDismissed": false
+  },
+  "durable": true,
+  "complete": true
+}
