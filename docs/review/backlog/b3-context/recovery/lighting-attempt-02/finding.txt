@@ -1,0 +1,1 @@
+Discarded test-only observer attempt: it also did not meet the existing brightness threshold. The lighting test is restored byte-for-byte to its original committed source. The exact full-High failure remains a verified pre-existing pilot failure and is disclosed in the B-3 handoff; no product light, camera, geometry, threshold or check is changed.

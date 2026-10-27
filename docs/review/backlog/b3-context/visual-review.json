@@ -1,0 +1,13 @@
+{
+  "reviewedAt": "2026-10-27T05:56:47.029615-04:00",
+  "detail": "original",
+  "images": {
+    "current-pilot/keyboard/artifacts/keyboard-high-ta/keyboard-high-ta-lost-remap.png": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac",
+    "current-pilot/keyboard/artifacts/final-recovery-high-ta/final-recovery-high-ta-driving-restored.png": "9287d416d7f56890719a57f59b451a927e8e04b6bf16d39848655b515f2605c3"
+  },
+  "observations": [
+    "Tamil Paused/Reload labels are visible with a focused native Reload button.",
+    "Restored larger-text Pause options fit their panel, keep Tamil glyphs, and preserve the existing English body fallback."
+  ],
+  "scope": "Visual inspection supplements, rather than replaces, native assertions and resource protocol."
+}

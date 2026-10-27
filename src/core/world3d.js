@@ -15,7 +15,7 @@ OTR.world3d = {
     renderer.autoClear = false;
     // Count the whole frame: reflection update, world and final composite.
     renderer.info.autoReset = false;
-    const diagnostics = { calls:0, triangles:0, textures:0, geometries:0, targetWidth:0, targetHeight:0, attachmentBytes:0 };
+    const diagnostics = { calls:0, triangles:0, textures:0, geometries:0, targetWidth:0, targetHeight:0, attachmentBytes:0, restores:0 };
     const world = new THREE.Scene();
     world.background = new THREE.Color(0xA7C7DE);
     world.fog = new THREE.Fog(0xA7C7DE, 65, 165);
@@ -48,7 +48,7 @@ OTR.world3d = {
     const extern = scene.add.extern().setDepth(-100);
     let width = 0, height = 0, disposed = false;
     extern.render = function () {
-      if (disposed) return;
+      if (disposed||scene.glRecovery?.lost) return;
       colour.value=OTR.a11y&&OTR.a11y.settings().colour?1:0;
       const scale = OTR.gfx.high() ? 1 : 0.65;
       const w = Math.max(1, Math.round(gl.drawingBufferWidth * scale));
@@ -87,6 +87,11 @@ OTR.world3d = {
         for(const light of shadowLights){const shadow=light.shadow;if(shadow.map)diagnostics.attachmentBytes+=shadow.map.width*shadow.map.height*8;if(shadow.mapPass)diagnostics.attachmentBytes+=shadow.mapPass.width*shadow.mapPass.height*8;}
       } finally { renderer.resetState(); phaser.pipelines.rebind(); }
     };
+    const restore=()=>{
+      if(disposed)return;
+      width=height=0;mirror.filled=0;mirror.next=0;mirror.last=-1;mirror.nextAt=0;mirror.updated.fill(-100);
+      renderer.info.autoReset=false;diagnostics.restores++;
+    };
     const dispose = () => {
       if (disposed) return;
       disposed = true;
@@ -103,6 +108,6 @@ OTR.world3d = {
       target.dispose(); mirrorTarget.dispose(); renderer.dispose(); // Never call forceContextLoss on the shared context.
     };
     scene.events.once('shutdown', dispose);
-    return { world, camera, mirror, extern, dispose, diagnostics, colour,lights:{sky:hemisphere,sun},renderSunShadow };
+    return { world, camera, mirror, extern, dispose, restore, diagnostics, colour,lights:{sky:hemisphere,sun},renderSunShadow };
   }
 };

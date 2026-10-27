@@ -30,6 +30,7 @@ test('render diagnostics count world, mirror and composite once per frame withou
     view.extern.render();assert.equal(d.calls,4);assert.equal(d.triangles,38);
     view.mirror.on=true;view.extern.render();assert.equal(d.calls,7);assert.equal(d.triangles,74);
     view.extern.render();assert.equal(view.diagnostics,d);assert.equal(d.calls,7);
+    view.restore();assert.equal(view.mirror.filled,0);assert.equal(d.restores,1);assert.equal(view.mirror.nextAt,0);assert.deepEqual(Array.from(view.mirror.updated),[-100,-100,-100]);view.extern.render();assert.equal(d.calls,7);
     assert.equal(d.targetWidth,832);assert.equal(d.targetHeight,468);assert.equal(d.attachmentBytes,3557376);
   }finally{THREE.WebGLRenderer=original;}
 });

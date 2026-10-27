@@ -1,0 +1,45 @@
+{
+  "phase": "complete",
+  "pid": 151226,
+  "jobs": [
+    {
+      "tag": "high-lighting-layouts",
+      "script": "test/fplightingbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LAYOUT_ONLY": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 28,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "high-lighting-layouts/c25-high-layouts.json",
+          "sha256": "e494b61233e04fb41ed487184550859e5335141f6703883f6c406aea9823ffde"
+        },
+        {
+          "file": "high-lighting-layouts/c25-high-ta-large-reduced.png",
+          "sha256": "bd2fe4720715c9c4b8e9409314b01929c2d40fc8c1a5e32183189c871d09225d"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793092501.1393778,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 151229,
+  "index": 0,
+  "tag": "high-lighting-layouts",
+  "childPid": 151230,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793092527.8651252
+}

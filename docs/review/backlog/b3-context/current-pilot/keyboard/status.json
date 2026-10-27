@@ -1,0 +1,140 @@
+{
+  "phase": "complete",
+  "pid": 156275,
+  "jobs": [
+    {
+      "tag": "keyboard-low-en",
+      "script": "test/fpcontextkeyboardbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 10,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "keyboard-low-en/keyboard-low-en-lost-remap.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "keyboard-low-en/keyboard-low-en.json",
+          "sha256": "a05899bfd5c41041ecb455f67c7b6327eae49afeb266dc62d5623bcdcd9176ea"
+        }
+      ]
+    },
+    {
+      "tag": "keyboard-high-ta",
+      "script": "test/fpcontextkeyboardbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 10,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "keyboard-high-ta/keyboard-high-ta-lost-remap.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "keyboard-high-ta/keyboard-high-ta.json",
+          "sha256": "943e49d8d2231f7d85dcb6ba7b7d058f689c633ad309b7f5df17ca8af37443d3"
+        }
+      ]
+    },
+    {
+      "tag": "final-recovery-low-en",
+      "script": "test/fpcontextrecoverybrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 88,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "final-recovery-low-en/final-recovery-low-en-driving-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "final-recovery-low-en/final-recovery-low-en-driving-restored.png",
+          "sha256": "59408a21c132a41662c8c787ca986da37c6e8545a96b86360cc0d0a8f0e0851b"
+        },
+        {
+          "file": "final-recovery-low-en/final-recovery-low-en-loading-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "final-recovery-low-en/final-recovery-low-en-menu-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "final-recovery-low-en/final-recovery-low-en.json",
+          "sha256": "353f99ac4ee25ad648e0ed9dd57a1a88a2753f3ead3012f14f94e2d968d8e031"
+        }
+      ]
+    },
+    {
+      "tag": "final-recovery-high-ta",
+      "script": "test/fpcontextrecoverybrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 88,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "final-recovery-high-ta/final-recovery-high-ta-driving-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "final-recovery-high-ta/final-recovery-high-ta-driving-restored.png",
+          "sha256": "9287d416d7f56890719a57f59b451a927e8e04b6bf16d39848655b515f2605c3"
+        },
+        {
+          "file": "final-recovery-high-ta/final-recovery-high-ta-loading-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "final-recovery-high-ta/final-recovery-high-ta-menu-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "final-recovery-high-ta/final-recovery-high-ta.json",
+          "sha256": "91481ae3869f6d8039c0ab8326b89b082251b263deb1a40caee62ceb6d67983e"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793093916.8403912,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 156278,
+  "index": 3,
+  "tag": "final-recovery-high-ta",
+  "childPid": 157260,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793094040.4068513
+}

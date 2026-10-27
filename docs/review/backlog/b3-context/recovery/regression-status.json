@@ -1,0 +1,203 @@
+{
+  "phase": "failed",
+  "pid": 146634,
+  "jobs": [
+    {
+      "tag": "regression-cab",
+      "script": "test/fpcabbrowser.js",
+      "env": {},
+      "exit": 0,
+      "accepted": true,
+      "checks": 200,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "regression-cab/c22-cab-en-large.png",
+          "sha256": "892155471bbaea8bea9f849d07ad0d339de0663b903c2184339089574850faa5"
+        },
+        {
+          "file": "regression-cab/c22-cab-en-normal.png",
+          "sha256": "3ed4f0d1547a6d7fd3538369a409250aa81f954874cfca97bc1237e3b51cd683"
+        },
+        {
+          "file": "regression-cab/c22-cab-ta-large.png",
+          "sha256": "b5fd373031881ff3c527ab7381b7330293ffcc1c691f9a3ce98cffbd25b6c1b4"
+        },
+        {
+          "file": "regression-cab/c22-cab-ta-normal.png",
+          "sha256": "4514314f3d96524be1541fb85d11971d1aaf6f0856f9987aa359b586eb86239b"
+        },
+        {
+          "file": "regression-cab/c22-cab.json",
+          "sha256": "b90a486d806af8b0d9640d8993ce9411a264c4e42e27ed18ef8f1cf5480e3e74"
+        }
+      ]
+    },
+    {
+      "tag": "regression-mirrors",
+      "script": "test/fpmirrorsbrowser.js",
+      "env": {},
+      "exit": 0,
+      "accepted": true,
+      "checks": 180,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "regression-mirrors/c23-guide-en-large.png",
+          "sha256": "b7ec6f5886518d73654d401b38334ad8e843a564b5f3d2f8ae71af8d3f35c4a1"
+        },
+        {
+          "file": "regression-mirrors/c23-guide-en-normal.png",
+          "sha256": "44d049cd3ebe3b211d2caa748529f4e7a376f7209214d1a6ff772adee31758fd"
+        },
+        {
+          "file": "regression-mirrors/c23-guide-ta-large.png",
+          "sha256": "78e31a51898cbe393f6319a9d36317de705f79a0462217712ff07739fc0a02b9"
+        },
+        {
+          "file": "regression-mirrors/c23-guide-ta-normal.png",
+          "sha256": "8efebcdd78f912d7e7c3a474b0c384425e547bff79bd3af0da31ddcd7764b448"
+        },
+        {
+          "file": "regression-mirrors/c23-mirror-interior-en-normal.png",
+          "sha256": "1c4b0df0e5033f06bae277b77185a26196afa80d924a3a5e80e3560ae03a477d"
+        },
+        {
+          "file": "regression-mirrors/c23-mirror-interior-ta-large.png",
+          "sha256": "f56688d7e3de8ddd723e73ba3e9e0d58564f1c2f7daf8e9dbfd0e6d75c3e3280"
+        },
+        {
+          "file": "regression-mirrors/c23-mirror-left-en-normal.png",
+          "sha256": "f163737cb9a0e9776a9059afaf9c8ef7b131474c8cdeb4b98ee1f2281ec97426"
+        },
+        {
+          "file": "regression-mirrors/c23-mirror-left-ta-large.png",
+          "sha256": "067fc60fb36d707eee2718fd393a82a7ec4d144950c817035c0a461816a05611"
+        },
+        {
+          "file": "regression-mirrors/c23-mirror-right-en-normal.png",
+          "sha256": "99e0a95dabb74d7a989356ba9c8505d03e19f021430c1e671c53d9006ac4a4a2"
+        },
+        {
+          "file": "regression-mirrors/c23-mirror-right-ta-large.png",
+          "sha256": "7bbb76a6306ad5a7a3f65de073c9b31866741b0b684bd135d86647d222bfd84d"
+        },
+        {
+          "file": "regression-mirrors/c48-forward-low-en-large.png",
+          "sha256": "0a8a103c64be0b1cfe6cf969c5f68888fa7bd06ee3b1c9532dedebf6d399017a"
+        },
+        {
+          "file": "regression-mirrors/c48-forward-low-en-normal.png",
+          "sha256": "813f3260299da1fb8878e580c24771cab8e75571a381a010eef0b3d0ee42126e"
+        },
+        {
+          "file": "regression-mirrors/c48-forward-low-ta-large.png",
+          "sha256": "7a3c2024a4efa98779e5de672d7274421f9b6538989f075a8bcfa68c58e5c40d"
+        },
+        {
+          "file": "regression-mirrors/c48-forward-low-ta-normal.png",
+          "sha256": "e82fd0ffe85c526189a079d97ed5597fc0b248b60182c7594c8b3144e5fe0aa1"
+        },
+        {
+          "file": "regression-mirrors/regression-mirrors-mirrors.json",
+          "sha256": "f04c3148e29891e1667c849f8158349c18fe8190c9f9af89ebdf991c3bc85938"
+        }
+      ]
+    },
+    {
+      "tag": "regression-light-low",
+      "script": "test/fplightingbrowser.js",
+      "env": {
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 51,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "regression-light-low/c25-low-dusk.png",
+          "sha256": "1bc8c6adf836d86d19b4c240b0601b068db3b976b5e45e592cb582fb0ce1c1c0"
+        },
+        {
+          "file": "regression-light-low/c25-low-lighting.json",
+          "sha256": "3419fe7a9ede0c355fc4ed888cc753b3044db4005635539dd83c56ed80c71687"
+        },
+        {
+          "file": "regression-light-low/c25-low-midday.png",
+          "sha256": "7f042c88b7f7c85c2a68d41265f34a1b13730723467a5ca14feb3e9526a1094c"
+        },
+        {
+          "file": "regression-light-low/c25-low-morning.png",
+          "sha256": "23d61f2065281583dd9f5ad123758b61601d98149a59f1fbdb94eb5b2c639f51"
+        },
+        {
+          "file": "regression-light-low/c25-low-night-headlights.png",
+          "sha256": "6a12867aa39684e8d0cd4b8be7fe7e8aecc0153e3928dec5b26b83a1499e3caf"
+        },
+        {
+          "file": "regression-light-low/c25-low-night.png",
+          "sha256": "5ee38f280c66ba572ef72f8aaae43d8785e23f93298792cc23e9d0c2e3a7d7f4"
+        },
+        {
+          "file": "regression-light-low/c25-low-ta-large-reduced.png",
+          "sha256": "d3733c59747df48eea1faead26461ad82def8f463721ea8cb94022f8d9d0d217"
+        }
+      ]
+    },
+    {
+      "tag": "regression-light-high",
+      "script": "test/fplightingbrowser.js",
+      "env": {
+        "QA_GFX": "high"
+      },
+      "exit": 1,
+      "accepted": false,
+      "checks": 0,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "regression-light-high/c25-high-dusk.png",
+          "sha256": "30ae11eecca38374589654573df39426383deee9cc8b5918a62c2653547877da"
+        },
+        {
+          "file": "regression-light-high/c25-high-failure.png",
+          "sha256": "dac46f0b56c36640288e9b6179c7c755f25419877c868feb97ceeed4dfdc4180"
+        },
+        {
+          "file": "regression-light-high/c25-high-midday.png",
+          "sha256": "3b1ed177266b926dde9319adfa269918ea7febe1d4072271352ac20b72000884"
+        },
+        {
+          "file": "regression-light-high/c25-high-morning.png",
+          "sha256": "5bd7b3caa4495d91c3dfda24ef57c9af1f36a0ac388b120e56fdfd410f3af24d"
+        },
+        {
+          "file": "regression-light-high/c25-high-night.png",
+          "sha256": "c932b8b47f5fbb973b6628746b016da574a0f84bd9a79868cf29597aae7872f6"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793091082.5862844,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 146637,
+  "index": 3,
+  "tag": "regression-light-high",
+  "childPid": 147661,
+  "failure": "Browser job failed: regression-light-high",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793091326.812493
+}

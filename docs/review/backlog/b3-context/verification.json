@@ -1,0 +1,224 @@
+{
+  "base": "b27954c42a789a00d80d87076b4c45c2840c73d6",
+  "product": "1d0b4234",
+  "verifiedPhases": [
+    {
+      "plan": "before-plan.json",
+      "scope": "old pilot baseline, expected failure",
+      "inputs": 517,
+      "artifacts": 2,
+      "archivedInputs": {
+        "index.html": "docs/review/backlog/b3-context/lighting-baseline/source/index.html",
+        "src/core/fpaccess.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/core/fpaccess.js",
+        "src/core/fpcab.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpcab.js",
+        "src/core/fphud.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fphud.js",
+        "src/core/fplighting.js": "docs/review/backlog/b3-context/lighting-baseline/current-pilot/source/src/core/fplighting.js",
+        "src/core/fprear.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fprear.js",
+        "src/core/fpworld.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpworld.js",
+        "src/core/theme.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/theme.js",
+        "src/core/world3d.js": "docs/review/backlog/b3-context/lighting-baseline/current-pilot/source/src/core/world3d.js",
+        "src/scenes/FirstPersonScene.js": "docs/review/backlog/b3-context/lighting-baseline/current-pilot/source/src/scenes/FirstPersonScene.js"
+      },
+      "phase": "complete"
+    },
+    {
+      "plan": "first-recovery/after-plan.json",
+      "scope": "historical first implementation",
+      "inputs": 518,
+      "artifacts": 4,
+      "archivedInputs": {
+        "src/core/fpaccess.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/core/fpaccess.js",
+        "src/core/fpcab.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpcab.js",
+        "src/core/fphud.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fphud.js",
+        "src/core/fprear.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fprear.js",
+        "src/core/fpworld.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpworld.js",
+        "src/core/theme.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/theme.js",
+        "src/scenes/FirstPersonScene.js": "docs/review/backlog/b3-context/first-recovery/source/src/scenes/FirstPersonScene.js",
+        "src/core/fpcontext.js": "docs/review/backlog/b3-context/first-recovery/source/src/core/fpcontext.js"
+      },
+      "phase": "complete"
+    },
+    {
+      "plan": "recovery/recovery-plan.json",
+      "scope": "old pilot complete recovery",
+      "inputs": 519,
+      "artifacts": 20,
+      "archivedInputs": {
+        "src/core/fpaccess.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/core/fpaccess.js",
+        "src/core/fpcab.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpcab.js",
+        "src/core/fphud.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fphud.js",
+        "src/core/fprear.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fprear.js",
+        "src/core/fpworld.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpworld.js",
+        "src/core/theme.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/theme.js",
+        "src/scenes/FirstPersonScene.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/scenes/FirstPersonScene.js"
+      },
+      "phase": "complete"
+    },
+    {
+      "plan": "recovery/regression-plan.json",
+      "scope": "old pilot regressions, High exception",
+      "inputs": 524,
+      "artifacts": 32,
+      "archivedInputs": {
+        "src/core/fpaccess.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/core/fpaccess.js",
+        "src/core/fpcab.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpcab.js",
+        "src/core/fphud.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fphud.js",
+        "src/core/fprear.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fprear.js",
+        "src/core/fpworld.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpworld.js",
+        "src/core/theme.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/theme.js",
+        "src/scenes/FirstPersonScene.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/scenes/FirstPersonScene.js"
+      },
+      "phase": "failed"
+    },
+    {
+      "plan": "recovery/budget-plan.json",
+      "scope": "old pilot resource protocol",
+      "inputs": 523,
+      "artifacts": 16,
+      "archivedInputs": {
+        "src/core/fpaccess.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/core/fpaccess.js",
+        "src/core/fpcab.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpcab.js",
+        "src/core/fphud.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fphud.js",
+        "src/core/fprear.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fprear.js",
+        "src/core/fpworld.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpworld.js",
+        "src/core/theme.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/theme.js",
+        "src/scenes/FirstPersonScene.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/scenes/FirstPersonScene.js"
+      },
+      "phase": "complete"
+    },
+    {
+      "plan": "recovery/layout-plan.json",
+      "scope": "old pilot High layout only",
+      "inputs": 520,
+      "artifacts": 2,
+      "archivedInputs": {
+        "src/core/fpaccess.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/core/fpaccess.js",
+        "src/core/fpcab.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpcab.js",
+        "src/core/fphud.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fphud.js",
+        "src/core/fprear.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fprear.js",
+        "src/core/fpworld.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpworld.js",
+        "src/core/theme.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/theme.js",
+        "src/scenes/FirstPersonScene.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/scenes/FirstPersonScene.js"
+      },
+      "phase": "complete"
+    },
+    {
+      "plan": "current-pilot/plan.json",
+      "scope": "b27954c4 before two input guards, High exception",
+      "inputs": 524,
+      "artifacts": 26,
+      "archivedInputs": {
+        "src/core/fpaccess.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/core/fpaccess.js",
+        "src/scenes/FirstPersonScene.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/scenes/FirstPersonScene.js"
+      },
+      "phase": "failed"
+    },
+    {
+      "plan": "current-pilot/budget-plan.json",
+      "scope": "b27954c4 before two input guards, resources",
+      "inputs": 524,
+      "artifacts": 16,
+      "archivedInputs": {
+        "src/core/fpaccess.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/core/fpaccess.js",
+        "src/scenes/FirstPersonScene.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/scenes/FirstPersonScene.js"
+      },
+      "phase": "complete"
+    },
+    {
+      "plan": "current-pilot/keyboard/plan.json",
+      "scope": "final 1d0b4234 input guards and full recovery",
+      "inputs": 526,
+      "artifacts": 14,
+      "archivedInputs": {},
+      "phase": "complete"
+    },
+    {
+      "plan": "lighting-baseline/plan.json",
+      "scope": "unchanged 90844ac5 High failure",
+      "inputs": 540,
+      "artifacts": 5,
+      "archivedInputs": {
+        "src/scenes/FirstPersonScene.js": "docs/review/backlog/b3-context/lighting-baseline/current-pilot/source/src/scenes/FirstPersonScene.js",
+        "src/core/fpaccess.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/core/fpaccess.js",
+        "src/core/fpcab.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpcab.js",
+        "src/core/fplighting.js": "docs/review/backlog/b3-context/lighting-baseline/current-pilot/source/src/core/fplighting.js",
+        "src/core/fprear.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fprear.js",
+        "src/core/world3d.js": "docs/review/backlog/b3-context/lighting-baseline/current-pilot/source/src/core/world3d.js",
+        "src/core/theme.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/theme.js",
+        "src/core/fpworld.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fpworld.js",
+        "src/core/fphud.js": "docs/review/backlog/b3-context/lighting-baseline/source/src/core/fphud.js",
+        "index.html": "docs/review/backlog/b3-context/lighting-baseline/source/index.html"
+      },
+      "phase": "complete"
+    },
+    {
+      "plan": "lighting-baseline/current-pilot/plan.json",
+      "scope": "unchanged b27954c4 High failure",
+      "inputs": 540,
+      "artifacts": 5,
+      "archivedInputs": {
+        "src/scenes/FirstPersonScene.js": "docs/review/backlog/b3-context/lighting-baseline/current-pilot/source/src/scenes/FirstPersonScene.js",
+        "src/core/fpaccess.js": "docs/review/backlog/b3-context/current-pilot/before-keyboard-fix/src/core/fpaccess.js",
+        "src/core/fplighting.js": "docs/review/backlog/b3-context/lighting-baseline/current-pilot/source/src/core/fplighting.js",
+        "src/core/world3d.js": "docs/review/backlog/b3-context/lighting-baseline/current-pilot/source/src/core/world3d.js",
+        "index.html": "docs/review/backlog/b3-context/lighting-baseline/source/index.html"
+      },
+      "phase": "complete"
+    }
+  ],
+  "cpu": {
+    "firstperson": 18,
+    "fpaccess": 12,
+    "fpcab": 11,
+    "keyboard-after": 8,
+    "fpdriving": 24,
+    "fplighting": 13,
+    "fpmirrors": 14,
+    "fpmission": 39,
+    "fprear": 16,
+    "fpsignal": 11,
+    "fpsound": 10,
+    "fpworld": 23,
+    "workday": 26,
+    "savesize": 26
+  },
+  "cpuChecks": 251,
+  "currentPilotFocusedChecks": 548,
+  "finalInputGuardChecks": 196,
+  "standardResourceViews": 12,
+  "resourceProfiles": {
+    "pilot-budget-low-loaded": {
+      "calls": 41,
+      "triangles": 1330,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1925291
+    },
+    "pilot-budget-high-loaded": {
+      "calls": 74,
+      "triangles": 92730,
+      "textures": 3,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 5652699
+    },
+    "pilot-budget-low-accessible": {
+      "calls": 41,
+      "triangles": 1330,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2058683
+    },
+    "pilot-budget-low-fallback": {
+      "calls": 34,
+      "triangles": 956,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1925291
+    }
+  },
+  "sourceScope": "Current-pilot pre-keyboard phases differ only in the two archived input-guard files; the final 526-input phase matches current files. Raw plans retain a stale source label; scope and exact source hashes establish provenance.",
+  "exception": "Unchanged full High lighting test samples black at (650,403) both off/on; reproduced on unchanged old and new pilot. No passing full High lighting gate is claimed.",
+  "cleanup": true,
+  "intel60fpsCertified": false,
+  "catalogueDeltaEmpty": true
+}

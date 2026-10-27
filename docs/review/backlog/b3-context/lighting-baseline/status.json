@@ -1,0 +1,56 @@
+{
+  "phase": "complete",
+  "pid": 148361,
+  "jobs": [
+    {
+      "tag": "baseline-light-high",
+      "script": "test/fplightingbrowser.js",
+      "env": {
+        "QA_GFX": "high"
+      },
+      "exit": 1,
+      "accepted": true,
+      "checks": 0,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "baseline-light-high/c25-high-dusk.png",
+          "sha256": "30ae11eecca38374589654573df39426383deee9cc8b5918a62c2653547877da"
+        },
+        {
+          "file": "baseline-light-high/c25-high-failure.png",
+          "sha256": "c14e2da85603f7366e4e9ac788e8e21c1168617882997c099ee9bb463f07b695"
+        },
+        {
+          "file": "baseline-light-high/c25-high-midday.png",
+          "sha256": "3b1ed177266b926dde9319adfa269918ea7febe1d4072271352ac20b72000884"
+        },
+        {
+          "file": "baseline-light-high/c25-high-morning.png",
+          "sha256": "5bd7b3caa4495d91c3dfda24ef57c9af1f36a0ac388b120e56fdfd410f3af24d"
+        },
+        {
+          "file": "baseline-light-high/c25-high-night.png",
+          "sha256": "c932b8b47f5fbb973b6628746b016da574a0f84bd9a79868cf29597aae7872f6"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793091457.2477136,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8401",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 148375,
+  "index": 0,
+  "tag": "baseline-light-high",
+  "childPid": 148376,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793091539.0644684
+}

@@ -1,0 +1,35 @@
+{
+  "status": "B-3 doing: actual product defect reproduced; recovery implementation next",
+  "baseline": "pilot 90844ac5 with only the regression fixture; no production fix",
+  "sourceInputs": 517,
+  "allSourceAndArtifactHashesVerified": true,
+  "regressionChecks": 5,
+  "expectedFailures": [
+    "Simulation, cargo and observations freeze at the loss moment",
+    "No cab actions or scoring observations are accepted while the display is lost",
+    "Restoration keeps the same in-memory workday moment"
+  ],
+  "pageErrors": [],
+  "loss": {
+    "realWaitAtLeastSeconds": 1.2,
+    "simulationSecondsAdvanced": 1.2314066666666588,
+    "vanDistanceMeters": 2.9760360446838163,
+    "speedAtLoss": 1.062952865765282,
+    "speedWhileLost": 3.675103299878255,
+    "observationsAtLoss": 2,
+    "observationsAtRestoration": 3
+  },
+  "planSHA256": "a9e198b72727ffe8f609da0841133e59ac9593ea0ad313ce55c0c36b9db4b83a",
+  "statusSHA256": "ffb3ed4b7456c1b1ecb599fcf503d9aa9aead33c994ce6a5a463f1e00aa50037",
+  "restoredCaptureInspectedAtOriginalResolution": true,
+  "cleanup": {
+    "serverExited": true,
+    "leaseReleased": true
+  },
+  "next": [
+    "Freeze scene input/simulation and preserve the in-memory workday while the shared GL context is unavailable.",
+    "Rearm held keyboard/gamepad/scan inputs and recover without changing scores, cargo or saved checkpoints.",
+    "Refill reflection targets and static shadows after both Phaser and Three restoration handlers finish.",
+    "Cover repeated loss, menus, loading, shutdown and Low/High resource ceilings before review."
+  ]
+}

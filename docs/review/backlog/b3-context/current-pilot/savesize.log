@@ -1,0 +1,40 @@
+      B-93: 761 characters to spare with C-33, C-34 and C-35 together
+      B-98: 3520 of 4000 characters, 480 to spare
+      B-114: 3516 of 4000 characters, 484 to spare
+      B-160: 3980 of 4000 characters with 30 missed signals (59 pins)
+      B-168: 3970 of 4000, 2 of 20 runs kept, 29 pins
+      B-147: 26701 characters under SCORM 2004 (limit 64,000)
+✔ a small save goes to the LMS as it is (4.269562ms)
+✔ step 1 and 2: old route history and the last workday's lines go first (7.818148ms)
+✔ step 3: a long day is packed, and comes back whole, places and all (84.181953ms)
+✔ A-27: a full day of the cab, sign, route, night and damage events keeps every report and every pin on a normal save (115.097743ms)
+✔ B-52: the worst milestone 8 day stays within SCORM 1.2, keeps its score, and names each critical type for the LMS (180.133784ms)
+✔ B-68: C-34's damage and load on the worst milestone 8 day still pack with room to spare (128.106728ms)
+✔ B-75: C-33's richer stops on the C-34 damage day still pack with room to spare (106.758383ms)
+✔ B-93: C-35's walkaround and post-trip report on the richer-stop damage day still pack with room to spare (132.292805ms)
+✔ B-98: C-35's heaviest day (21 damage reports on the richer-stop day; C-36's radio call and night lights, B-103) still packs, and reloads the same (355.674961ms)
+✔ B-114: a packed day writes known types as numbers from a list that only grows; names still unpack (0.681239ms)
+✔ B-114: C-36's heaviest day with successful lights on every leg packs with at least 300 characters to spare (B-120) (170.064494ms)
+✔ B-160: the heaviest day with 30 missed signals still packs, keeps every pin and reloads the same (260.465446ms)
+✔ B-168: an established trainee keeps the heaviest day's pins; the record loses its oldest runs, not the day (368.839243ms)
+✔ B-168: an established trainee's heaviest day with 30 missed signals keeps its score whole (340.922996ms)
+✔ B-160: a v2 day (placed rows in e, no n or p) still unpacks as before (25.865903ms)
+✔ B-147: C-36's heaviest day under SCORM 2004 is saved in full and reloads the same (23.241562ms)
+✔ B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads (1.524981ms)
+✔ B-16: a day with a mirror check on every turn (C-23 keys) stays packed, keeps its score and its pins (183.416228ms)
+✔ B-16: runs of numbered keys pack once and come back exactly, in order (0.519153ms)
+✔ A-27: on a heavy save the same day keeps its score; a whole course of stars and assessments is never lost (206.701314ms)
+✔ step 4 and 5: a very long day on a heavy save keeps its score only, and says so (220.103084ms)
+✔ step 7: a day too long even for the summary keeps its total, flagged truncated (86.36255ms)
+✔ step 8: a save too big for anything else still reaches the LMS within the limit (42.573704ms)
+✔ every write of a long day stays within the limit, from the first report to the last (24492.333769ms)
+✔ SCORM 2004 and local saves are not cut (58.226868ms)
+✔ B-36: a month of workdays (aids, criticals, pins and the town) stays within the limit and keeps the course (4995.491817ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32599.535049
