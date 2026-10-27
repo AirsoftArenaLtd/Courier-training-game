@@ -1,0 +1,627 @@
+{
+  "task": "C49",
+  "date": "2026-10-22T12:51:18.330618+00:00",
+  "status": "All recorded acceptance jobs passed",
+  "source": null,
+  "pilotBase": "573b0f4d",
+  "ownedRuntime": "eb3794a1",
+  "sourceSHA256": {
+    "index.html": "10ce92cee26987e2ad13462f09ca059ff47c47d2281e6adf93bde3f0d560da98",
+    "assets/3d/manifest.json": "c2a0180ed04b2d3ca645eac9f6fd765a5feabae4d110dface21d5f2737bc3c31",
+    "data/credits.js": "dc698c21537928e772e75f6382cf04176e94b1f06e4fceb452e44af1d3038f18",
+    "src/core/fpaccess.js": "f7f7a52315adadb843af278edefe141897e232d9d700f3df7b415abddad74ccd",
+    "src/core/fpactors.js": "a149a6ed00412535597aa6f0140b3e9a4163787130527cdae47c58f46796084b",
+    "src/core/fpassets.js": "7062c0f5eb4e8aa56e8b0e1dca9216ef2ccd4d8afa401ed8aa86ca77139e3535",
+    "src/core/fpbranding.js": "f91e893fac0666c7b342f4a44704c8993da54511c48afbeb24b1fc1ec7958a3b",
+    "src/core/fpcab.js": "b9e9f3190cd8f39f3b501de7aa30f26a6530a8002d52db967be61732789d8854",
+    "src/core/fpcamera.js": "7ef43f0a1121d3af5805e58fd72ba51fe98191dbd633fba8b4beddfdce2a4823",
+    "src/core/fpdamage.js": "3c6eb8930ef6f328265d5c6dbb7aa623a48e7b66f062f3f0cab65d44d7b8e1cd",
+    "src/core/fpdamageflow.js": "40de1a5ee9bc49f5d830fcfb80acf0bd07e8fa3a3c5b281717640c75a5d170e7",
+    "src/core/fpdamageworld.js": "908225248af525e7d599fcefdfefd73d12c3bba005a9310c8c4ff85a400f4b6c",
+    "src/core/fpday.js": "0fa7f741899702cf550b6a858a1695a82648c6788243e7f3ed54a6ae134d9481",
+    "src/core/fpdoors.js": "191db5f1656e3d37925d66135ef8f4050f67bc74461edbd06fba63947e0e067a",
+    "src/core/fpdriving.js": "833999c6623a34ee6c13ca2b9b8b2d3137f9a7f28f3bd8882cadc14864dc8c1c",
+    "src/core/fpguide.js": "32a34528f5f7492cf205b141317cb06ff3539210c14b0671816cf9efd590cc60",
+    "src/core/fphandheld.js": "aecbfc95d658cc4e5a2f77d160f9303a88b2f6e18d493507791937b361a5f948",
+    "src/core/fphud.js": "011edefd04a267954b4b6cf97a98e522e20f3af4e91c3918c658c363d69f75e7",
+    "src/core/fplater.js": "fc246807759622c5a22c22385a1ec82851e514ce314c6498259d810f08d0bbf8",
+    "src/core/fplighting.js": "b625119f5cfc731345033344b2241c109c1cfd4c7e118c9a7144ce84bb900af4",
+    "src/core/fploadout.js": "d3962fcb821ba020d5b7b53ffe4252b4338ed61946c717e041b2be34203c9ddf",
+    "src/core/fpmaterials.js": "3a24ee77b43e3645ee3f16691b4ed64836a9cea1b9e6ee9efb1532ae127b1263",
+    "src/core/fpmirrors.js": "f04d9747ea5cc8c81f14a4d2e20a29e50998b0445a2b565fa93d2d988febfc83",
+    "src/core/fpmission.js": "25bcd0edab780818de60fc0b497655c5f882812cbd15ec0bb0e64c177ae04fa4",
+    "src/core/fpnav.js": "bdc009bd21e595831702e375f8f13df52337692ac7a3bb9806cc5a8f012f3cf0",
+    "src/core/fpnight.js": "2ba586229126278617d7e08623f8996a0bf0110445e8ba8e581390b750f42cf6",
+    "src/core/fpradio.js": "73bbd723df58c9ff5491cd7753ea638900825e003b1f644c2d42408176180fa5",
+    "src/core/fpradioui.js": "bf7f94abeabf8734a23702470f76e8317372bae0e3bf52962ea924da8836ec10",
+    "src/core/fprear.js": "dc739efa0a6d17cb78dd448c40cba69e0c93040a5f0487b26a7f62238ea6b6b4",
+    "src/core/fpreplay.js": "7618676d231d868f0db0a32063e26ad8219bbc15a8f19689476e256686066bef",
+    "src/core/fpreplayui.js": "5bf47a61f2885eb9b56ffdbed886c667954d96986faf149315765d5c7c732e67",
+    "src/core/fproute.js": "4afa203ed068f90257510dd8e58a5b34aa280ea617953205068086172d7aafa6",
+    "src/core/fpsignal.js": "7a5771990943a0cc1928cea111a296d93dadfbe53c2b29667aa841e2fd48083a",
+    "src/core/fpsigns.js": "ac6108d13efb30e0e8ab09b3ab168378b27b15a6460d2fe64fd5523940069e97",
+    "src/core/fpsound.js": "a0ee97b42db9ec3daf68e936f45866f4358480901ffbcba49e02347ba99d47a1",
+    "src/core/fpstopflow.js": "ff9357d136a0b692794184e1e70f973770c55a319d4a72f4f1debaac23ba751c",
+    "src/core/fpstops.js": "00f87064a066195e411c2fe159e33179155c5106504d7dcc5df9a41e2200134f",
+    "src/core/fpstopscene.js": "ff4acc7be3f9adcee933e64a78ec5c48e0d1dd5130bfac806e2617836aa38ae1",
+    "src/core/fptown.js": "6848b79d3b053f071891d595bce2ba0a8ff52b82d4cc13612a7fc0dc1601e4b9",
+    "src/core/fptraffic.js": "576d555389ad52f4cde2291dcc9f2b76878d3ec27f52bdf520db52e35f2888dc",
+    "src/core/fpwalkaround.js": "2a8eb147afa6538e9985f2af62cc8cafde03b4dfcf0eacb70d93e08eef93bb1d",
+    "src/core/fpwalkaroundflow.js": "bbca2124ba323f56f4d8af2bc4089d150b17bbb14961b4a716127af4f987c1ab",
+    "src/core/fpwalkaroundui.js": "3f1536123e06cccda82378f813d6d4155c7934411cbcfe59f8a088cf3421b0de",
+    "src/core/fpweather.js": "095e9ad404ab386a3103dc142b0d914efe9f4a14354ed588f80325f511470a55",
+    "src/core/fpworld.js": "0a411ba97266c6642b812e014dc55ba0f79afc3aafc9c035b6f583911d90278d",
+    "src/scenes/FirstPersonScene.js": "2a3bf24fbf8bb69529ddfec8c03c7c7e023301cd1f8fa7ff51345d61a9e261b0",
+    "test/fpactors.js": "8c2ded2b65b6fae1a63983996572acb39f5fe49a927902e9aa9c44ae66fbf888",
+    "test/fpassets.js": "4e518a64293b9d7b8acd772b32171e86c1fd42554fbab8f76377c11c6199c56b",
+    "test/fpassetsbrowser.js": "ac1147a4f1418f07198ea942166ad625a4a3542187b7f17e50858a15241eb397",
+    "test/fpmaterials.js": "35b9a2b5bffc8155022e08d337a25d3dbb1318ab369399e0182e41f1befd8ba3",
+    "test/fpmaterialsbrowser.js": "b9211237a388e011d158e28dc12e4bdd18826ca11008a9b32dcf366be024cf92",
+    "test/fprear.js": "9f05aed732f47c64a7529d31507bb5bda86e84dbee3ffa8e094c57295085b4cf",
+    "test/fpsignlayoutbrowser.js": "4fee1cb5d8d6d065b4e3b1f6b43141b0d5e3691a567c4e4281994ca0db1372f0",
+    "test/fptown.js": "562ff1e436ed53683f3edd42e14b63d5dcd46ddc0df94ab5deb69c52416a3175",
+    "test/fptownbrowser.js": "ed27abd30f2ce61f45f8a1707997985dd06e9b27b07e0f3cf479dd194fea9fe9",
+    "test/fpweatherbrowser.js": "82f9c9fddc1881d04df2f54f438adc17a382311fd130b0965c70b1bca2d249b2",
+    "test/tools/fpassets-context.js": "ad5ebb4b35986539b799eee9a8db38ea16aebfc421db12bdb3a69319910c7476"
+  },
+  "jobs": [
+    {
+      "name": "repository",
+      "command": [
+        "node",
+        "test/run-all.js"
+      ],
+      "log": "/tmp/c49-after-b164-repository.log",
+      "passed": 77,
+      "total": 77,
+      "exit": 0
+    },
+    {
+      "name": "pixels",
+      "command": [
+        "node",
+        "test/fpmaterialsbrowser.js"
+      ],
+      "environment": {
+        "QA_TAG": "c49-current-materials"
+      },
+      "started": 1792667461.0147936,
+      "exit": 0,
+      "ended": 1792667838.4150853
+    },
+    {
+      "name": "assets",
+      "command": [
+        "node",
+        "test/fpassetsbrowser.js"
+      ],
+      "environment": {
+        "QA_MODES": "high,high-fallback",
+        "QA_TAG": "c49-current-assets"
+      },
+      "started": 1792667838.417362,
+      "exit": 0,
+      "ended": 1792667952.6599894
+    },
+    {
+      "name": "town",
+      "command": [
+        "node",
+        "test/fptownbrowser.js"
+      ],
+      "environment": {
+        "QA_GFX": "high",
+        "QA_TAG": "c49-current-town"
+      },
+      "started": 1792667952.6623578,
+      "exit": 0,
+      "ended": 1792668161.3596478
+    },
+    {
+      "name": "bench-low",
+      "command": [
+        "node",
+        "test/fpbench.js"
+      ],
+      "environment": {
+        "QA_TAG": "c49-current-low",
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,signspeak,navfull,navdouble,lightingnightreverse",
+        "QA_SIGNS": "1",
+        "QA_NAV": "1",
+        "QA_TRAFFIC": "1",
+        "QA_STOPS": "1",
+        "QA_DAMAGE": "1",
+        "QA_WALKAROUND": "1",
+        "QA_RADIO": "1",
+        "QA_ACTORS": "1",
+        "QA_TOWN": "1",
+        "QA_LIGHTING": "1",
+        "QA_WEATHER": "1",
+        "QA_SOUND": "1",
+        "QA_SHOTS": "1"
+      },
+      "started": 1792668161.3651285,
+      "exit": 0,
+      "ended": 1792668328.3679378,
+      "peak": {
+        "calls": 53,
+        "triangles": 2384,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2489328
+      }
+    },
+    {
+      "name": "bench-high",
+      "command": [
+        "node",
+        "test/fpbench.js"
+      ],
+      "environment": {
+        "QA_TAG": "c49-current-high",
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,signspeak,navfull,navdouble,lightingnightreverse",
+        "QA_SIGNS": "1",
+        "QA_NAV": "1",
+        "QA_TRAFFIC": "1",
+        "QA_STOPS": "1",
+        "QA_DAMAGE": "1",
+        "QA_WALKAROUND": "1",
+        "QA_RADIO": "1",
+        "QA_ACTORS": "1",
+        "QA_TOWN": "1",
+        "QA_LIGHTING": "1",
+        "QA_WEATHER": "1",
+        "QA_SOUND": "1",
+        "QA_SHOTS": "1"
+      },
+      "started": 1792668328.3705297,
+      "exit": 0,
+      "ended": 1792668804.5603476,
+      "peak": {
+        "calls": 96,
+        "triangles": 181071,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 8734192
+      }
+    },
+    {
+      "name": "bench-accessible",
+      "command": [
+        "node",
+        "test/fpbench.js"
+      ],
+      "environment": {
+        "QA_TAG": "c49-current-accessible",
+        "QA_GFX": "low",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,signspeak,navfull,navdouble,lightingnightreverse",
+        "QA_SIGNS": "1",
+        "QA_NAV": "1",
+        "QA_TRAFFIC": "1",
+        "QA_STOPS": "1",
+        "QA_DAMAGE": "1",
+        "QA_WALKAROUND": "1",
+        "QA_RADIO": "1",
+        "QA_ACTORS": "1",
+        "QA_TOWN": "1",
+        "QA_LIGHTING": "1",
+        "QA_WEATHER": "1",
+        "QA_SOUND": "1",
+        "QA_SHOTS": "1"
+      },
+      "started": 1792668804.5663133,
+      "exit": 0,
+      "ended": 1792668996.8200688,
+      "peak": {
+        "calls": 53,
+        "triangles": 2384,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 3014144
+      }
+    },
+    {
+      "name": "bench-fallback",
+      "command": [
+        "node",
+        "test/fpbench.js"
+      ],
+      "environment": {
+        "QA_TAG": "c49-current-fallback",
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,signspeak,navfull,navdouble,lightingnightreverse",
+        "QA_SIGNS": "1",
+        "QA_NAV": "1",
+        "QA_TRAFFIC": "1",
+        "QA_STOPS": "1",
+        "QA_DAMAGE": "1",
+        "QA_WALKAROUND": "1",
+        "QA_RADIO": "1",
+        "QA_ACTORS": "1",
+        "QA_TOWN": "1",
+        "QA_LIGHTING": "1",
+        "QA_WEATHER": "1",
+        "QA_SOUND": "1",
+        "QA_SHOTS": "1"
+      },
+      "started": 1792668996.8234668,
+      "exit": 0,
+      "ended": 1792669113.027291,
+      "peak": {
+        "calls": 53,
+        "triangles": 2126,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2373408
+      }
+    }
+  ],
+  "interruptedAttempts": [],
+  "scope": "See README.md. Current pilot fb39c89a is runtime-identical to the candidate base. Twenty focused resource views; original 207 gates, where present, keep their earlier source scope.",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1335,
+      "sha256": "fe46b3b50df5f7fdb4e943bd1e9cf5aec81baeaabf3eb60cae60ba8eff540365"
+    },
+    {
+      "file": "c49-after-b164-acceptance.log",
+      "bytes": 228,
+      "sha256": "641d0febdc6c82739b3f6a70c800b726a5d008e73793a3828beb90e67e65de57"
+    },
+    {
+      "file": "c49-after-b164-acceptance.py",
+      "bytes": 3023,
+      "sha256": "f1880fdd143dce21e2602bd16710c0e3382aed3bbaddd7c7634ed76d22b5b621"
+    },
+    {
+      "file": "native/bench-c49-current-accessible-low.json",
+      "bytes": 10387,
+      "sha256": "8eb4c58db2d265622490769fee820d46791b5db1bb792ea9c7153fc1f6ebf939"
+    },
+    {
+      "file": "native/bench-c49-current-fallback-low.json",
+      "bytes": 12073,
+      "sha256": "cc8d56303b3c4d3f51f4c394543c373123c40c11562ba9878cf76087f7899bbb"
+    },
+    {
+      "file": "native/bench-c49-current-high-high.json",
+      "bytes": 10370,
+      "sha256": "e12ed91edda29e21c3b728101417d135663824e1d78762b1fe1064c5ccecce8a"
+    },
+    {
+      "file": "native/bench-c49-current-low-low.json",
+      "bytes": 10341,
+      "sha256": "ef4c1054cf8fd547d3202d633f1434fbbdaf73881e3f331c4ea92dee047af305"
+    },
+    {
+      "file": "native/c27-high-town-fence.png",
+      "bytes": 365450,
+      "sha256": "7c9e95eb7f0c2998956d609d7e5bb9a125f1a43de76294089c2ab2ccf738e640"
+    },
+    {
+      "file": "native/c27-high-town-house-wide.png",
+      "bytes": 341656,
+      "sha256": "6b91e4a228d9a953364e3b6fe65d882027adf40d6f215b1fb2d1be333fadbd38"
+    },
+    {
+      "file": "native/c27-high-town-house.png",
+      "bytes": 350999,
+      "sha256": "3a208f683265b6bf3f75f95007d68314c26e825b825a80f9001b8333b537b74d"
+    },
+    {
+      "file": "native/c27-high-town-parked-car.png",
+      "bytes": 374706,
+      "sha256": "7d7668733249ea8c76531589492a3eeda3c8aba9bcabda09c1649a01761ed0a1"
+    },
+    {
+      "file": "native/c27-high-town-road.png",
+      "bytes": 466777,
+      "sha256": "60df119176a444940635dd9642aff2626d36fd1a32a9693d6714d28983729ff9"
+    },
+    {
+      "file": "native/c27-high-town-shop.png",
+      "bytes": 322795,
+      "sha256": "95e5d1d76ba334cec004354c00b2c60bb5260bfb4a4bc1acd577f360d95e87d6"
+    },
+    {
+      "file": "native/c27-high-town-streetlight.png",
+      "bytes": 339964,
+      "sha256": "98842b9894f50954df616bf2140880f82cf878eb78ba77d1f63c8e49cfdfc04f"
+    },
+    {
+      "file": "native/c27-high-town-tree.png",
+      "bytes": 402441,
+      "sha256": "618973960cbf3a98ab7761eb2d1611d27ff4a8d8d5ff9850680949c7febf7c0d"
+    },
+    {
+      "file": "native/c27-high-town.json",
+      "bytes": 1284,
+      "sha256": "03895f91290e1622256ef53342e9ac6a0ae9cd0833bc10ac0693fdfc53afb878"
+    },
+    {
+      "file": "native/c49-current-acceptance.json",
+      "bytes": 10823,
+      "sha256": "5cc44ad4877c93d7381f8c3c3c6e508c01c78c9f27bb27ec8b3e8499200039c5"
+    },
+    {
+      "file": "native/c49-current-accessible-low-cab.png",
+      "bytes": 200587,
+      "sha256": "bc6c6f8850a135ecbef75a52bb517cc24aebf63769120a9cf51e92471acc8832"
+    },
+    {
+      "file": "native/c49-current-accessible-low-lightingnightreverse.png",
+      "bytes": 217331,
+      "sha256": "8769e4466254ef67da20dbc2c53257b39812665d7943d8c340fe7e3e612d6729"
+    },
+    {
+      "file": "native/c49-current-accessible-low-navdouble.png",
+      "bytes": 242909,
+      "sha256": "41cfbf431502e00cffcf5010d9e0eb0bdefa7636c760168d76d81d38cdcecd66"
+    },
+    {
+      "file": "native/c49-current-accessible-low-navfull.png",
+      "bytes": 182789,
+      "sha256": "1fd3682e30526581d4ea83d987b3668e07ab72b8edc2aec6bd4ccf40234990eb"
+    },
+    {
+      "file": "native/c49-current-accessible-low-signspeak.png",
+      "bytes": 112643,
+      "sha256": "ea60a69cef834c80e08813c770e2db0df8c55b244d8fc02318440ae1b34e005c"
+    },
+    {
+      "file": "native/c49-current-assets-high-fallback.png",
+      "bytes": 270636,
+      "sha256": "d0807a1a42802306b0234fb76272858254eea333ddf0546f950119b7d53f60b2"
+    },
+    {
+      "file": "native/c49-current-assets-high.png",
+      "bytes": 270636,
+      "sha256": "d0807a1a42802306b0234fb76272858254eea333ddf0546f950119b7d53f60b2"
+    },
+    {
+      "file": "native/c49-current-assets.json",
+      "bytes": 4418,
+      "sha256": "7c2d00b854d1ef3c778d48ce24554d6e12f7fdd6d1c8722d640c59140267aec4"
+    },
+    {
+      "file": "native/c49-current-assets.log",
+      "bytes": 94,
+      "sha256": "d1adcb0f1314bca19abd341902d02e3ff684f7fda266be15075aa62beae1cca8"
+    },
+    {
+      "file": "native/c49-current-bench-accessible.log",
+      "bytes": 4039,
+      "sha256": "f92373e92c86a68381638cbc5e68aac2c6b0d71edcc494bd7a4c03afbb624a47"
+    },
+    {
+      "file": "native/c49-current-bench-fallback.log",
+      "bytes": 4008,
+      "sha256": "a6aaececbeaf8c2eebf10907576c6cafca338233e3fa465380b6fc7627a74d28"
+    },
+    {
+      "file": "native/c49-current-bench-high.log",
+      "bytes": 4041,
+      "sha256": "e2c9feca1950a6654c68e1affa874f55c69b4b24f40eaad66d73b548ccb92339"
+    },
+    {
+      "file": "native/c49-current-bench-low.log",
+      "bytes": 4009,
+      "sha256": "8cc16aa87791ef727f16a8316dc7aa6de0e46bee9d99a188fd58664142259e92"
+    },
+    {
+      "file": "native/c49-current-fallback-low-cab.png",
+      "bytes": 181891,
+      "sha256": "0f0d3578681df69f2e65c646334518296f81d48b3319e06605284a86fe77152d"
+    },
+    {
+      "file": "native/c49-current-fallback-low-lightingnightreverse.png",
+      "bytes": 203316,
+      "sha256": "b6c9524e5e21f79e7ec67ba95a36189afbe2f6fba349810569837a417d147340"
+    },
+    {
+      "file": "native/c49-current-fallback-low-navdouble.png",
+      "bytes": 228601,
+      "sha256": "41f135320c83c4f3618a2d144edc836aefd20ef712ad449fec2f2a6097a6d4f5"
+    },
+    {
+      "file": "native/c49-current-fallback-low-navfull.png",
+      "bytes": 171202,
+      "sha256": "d4b7e21b85b911da865f91d18ffc36cd5f19dee086835f8445abcc02104ad3e1"
+    },
+    {
+      "file": "native/c49-current-fallback-low-signspeak.png",
+      "bytes": 93571,
+      "sha256": "d8da2f8686aa20ddf29ac0a0f4b6ae191db1f8226356c0df636690d0e1060049"
+    },
+    {
+      "file": "native/c49-current-high-high-cab.png",
+      "bytes": 199865,
+      "sha256": "5d86422125a2eedd0c60e6ed8b9a750deb1ad66e578640ba4909f7aa014cb424"
+    },
+    {
+      "file": "native/c49-current-high-high-lightingnightreverse.png",
+      "bytes": 234889,
+      "sha256": "f5f584ade379049a20a407705659d267be914a777f303eebcd9f65b6dec458d0"
+    },
+    {
+      "file": "native/c49-current-high-high-navdouble.png",
+      "bytes": 361880,
+      "sha256": "f6a8ee9a99ef7c340b3fa0f0e1f869bf0bcf37eb8181cc644775aaadf8b44159"
+    },
+    {
+      "file": "native/c49-current-high-high-navfull.png",
+      "bytes": 188149,
+      "sha256": "4ef7080fb5b74938ae4a92dc45d24fad5ce7d12793f60e15f3f7dafaf935873a"
+    },
+    {
+      "file": "native/c49-current-high-high-signspeak.png",
+      "bytes": 116926,
+      "sha256": "ef1b764307848e21813e032ff86de57783f4ca81cf79d53b9cf659116f91bf85"
+    },
+    {
+      "file": "native/c49-current-low-low-cab.png",
+      "bytes": 179461,
+      "sha256": "0e683758abf3f8d848f0443c9eaf9865d7d232678712be7905ce1ebd54688e4d"
+    },
+    {
+      "file": "native/c49-current-low-low-lightingnightreverse.png",
+      "bytes": 205486,
+      "sha256": "f6b506ee8cb95a51d5a8bd70b8dd7a420fbf1bc24db46c92f8b0e20ae94334f9"
+    },
+    {
+      "file": "native/c49-current-low-low-navdouble.png",
+      "bytes": 229815,
+      "sha256": "edffcd10fc1d1e172b5cf28dd6708a26038b2fc168145b349c90c198edba7c4a"
+    },
+    {
+      "file": "native/c49-current-low-low-navfull.png",
+      "bytes": 171799,
+      "sha256": "b85a1329e555c4e45ed107b107760d8eb1fd0d42ac56e38fb193e39fced612b6"
+    },
+    {
+      "file": "native/c49-current-low-low-signspeak.png",
+      "bytes": 95616,
+      "sha256": "8b0ff3c4099b3a76c160f557417629bffed8ac331d241321bc5a1630e56f25c0"
+    },
+    {
+      "file": "native/c49-current-materials-high-1-off.png",
+      "bytes": 238792,
+      "sha256": "b7289a39bd0ac4a96c6b62c77aeeb4db01e5f91124be38c2e8ca60ba4ac08b5d"
+    },
+    {
+      "file": "native/c49-current-materials-high-1-on.png",
+      "bytes": 501967,
+      "sha256": "4803e74488e1088da2ce9ecd65e048a8cb6cb41a7c2fb151d42000985859a79e"
+    },
+    {
+      "file": "native/c49-current-materials-high-2-off.png",
+      "bytes": 205850,
+      "sha256": "28bfcc6bfcca8c8f09eccc5ea8b9e4b31f7b4fe573733c47872b5094c3c980a4"
+    },
+    {
+      "file": "native/c49-current-materials-high-2-on.png",
+      "bytes": 793052,
+      "sha256": "705f42655d4939ef7169e2f8cd95ad19a99ef234e351d334a3b0a8fb3a6ddaf6"
+    },
+    {
+      "file": "native/c49-current-materials-high-3-off.png",
+      "bytes": 197237,
+      "sha256": "8b0d0bd70f043d5ac1a8980b9c5497c9bbacf2f29015d577c1ad00de30dc5ab9"
+    },
+    {
+      "file": "native/c49-current-materials-high-3-on.png",
+      "bytes": 705202,
+      "sha256": "a839a06cf11b297e29d1a4749c1e8f77751caf539cdb981f98970efaac7b294e"
+    },
+    {
+      "file": "native/c49-current-materials-high-4-off.png",
+      "bytes": 64766,
+      "sha256": "3414e4ab61e0da9c8f24cfd982e4b4552929ff4f70cdd096367e307930c4e814"
+    },
+    {
+      "file": "native/c49-current-materials-high-4-on.png",
+      "bytes": 609872,
+      "sha256": "1bf84d56326ac443df661c8f4a66f0576e9f3463570ae00acf29356382987e17"
+    },
+    {
+      "file": "native/c49-current-materials-high-5-off.png",
+      "bytes": 38364,
+      "sha256": "3b47f0ca23047e0641a55a47ac9745431abbb48fcc8914c5d2124a2654f82b39"
+    },
+    {
+      "file": "native/c49-current-materials-high-5-on.png",
+      "bytes": 635134,
+      "sha256": "49b0965a583349b76621dd2dca2e711ac1da1909a2fe8e842bff9ecd4eee20f1"
+    },
+    {
+      "file": "native/c49-current-materials-missing-asphalt-1-off.png",
+      "bytes": 238792,
+      "sha256": "b7289a39bd0ac4a96c6b62c77aeeb4db01e5f91124be38c2e8ca60ba4ac08b5d"
+    },
+    {
+      "file": "native/c49-current-materials-missing-asphalt-1-on.png",
+      "bytes": 278078,
+      "sha256": "3d2cca02a722ad3bb17ad46a8b8e265d9c8171a53b3416b1023a9cd42d090cce"
+    },
+    {
+      "file": "native/c49-current-materials-missing-asphalt-2-off.png",
+      "bytes": 205850,
+      "sha256": "28bfcc6bfcca8c8f09eccc5ea8b9e4b31f7b4fe573733c47872b5094c3c980a4"
+    },
+    {
+      "file": "native/c49-current-materials-missing-asphalt-2-on.png",
+      "bytes": 803719,
+      "sha256": "505494149a9824266d4121a8011277cfcf498499f968e3747be588b3db9404ae"
+    },
+    {
+      "file": "native/c49-current-materials-missing-asphalt-3-off.png",
+      "bytes": 197237,
+      "sha256": "8b0d0bd70f043d5ac1a8980b9c5497c9bbacf2f29015d577c1ad00de30dc5ab9"
+    },
+    {
+      "file": "native/c49-current-materials-missing-asphalt-3-on.png",
+      "bytes": 712553,
+      "sha256": "cfd4d11af9eecc30b80a16e3531671c17022a936b6efce4b471fb6e3eb43e38e"
+    },
+    {
+      "file": "native/c49-current-materials-missing-asphalt-4-off.png",
+      "bytes": 64766,
+      "sha256": "3414e4ab61e0da9c8f24cfd982e4b4552929ff4f70cdd096367e307930c4e814"
+    },
+    {
+      "file": "native/c49-current-materials-missing-asphalt-4-on.png",
+      "bytes": 609872,
+      "sha256": "1bf84d56326ac443df661c8f4a66f0576e9f3463570ae00acf29356382987e17"
+    },
+    {
+      "file": "native/c49-current-materials-missing-asphalt-5-off.png",
+      "bytes": 38364,
+      "sha256": "3b47f0ca23047e0641a55a47ac9745431abbb48fcc8914c5d2124a2654f82b39"
+    },
+    {
+      "file": "native/c49-current-materials-missing-asphalt-5-on.png",
+      "bytes": 634988,
+      "sha256": "1a4e4d4f93c7aa5dabbd0a5b06cc2f246f32644a9c4de17d198d225f55786ea7"
+    },
+    {
+      "file": "native/c49-current-materials.json",
+      "bytes": 44501,
+      "sha256": "d55a77d3b2d5b464e77090b5b1cf6d71c3ca0a4eae7c480f6dc851626dd7a03b"
+    },
+    {
+      "file": "native/c49-current-pixels.log",
+      "bytes": 491,
+      "sha256": "44852237971405cf49711aee99cf0c68b84adc5c5666870ee90caa83999d27fd"
+    },
+    {
+      "file": "native/c49-current-repository.log",
+      "bytes": 3245,
+      "sha256": "acc7c78eccca9d8173971a42ae11cab58887948594fc409366e4724a93244d8b"
+    },
+    {
+      "file": "native/c49-current-town.log",
+      "bytes": 35,
+      "sha256": "76342e9041cc25b8f429a036d02adc9dd36b25d03c99c0139a54d17d71af4cd7"
+    },
+    {
+      "file": "source-freeze.json",
+      "bytes": 5849,
+      "sha256": "a58b2ec6ebb97081f0ec44a3a95cea6804576820d05b500895576b913bc3df75"
+    }
+  ]
+}

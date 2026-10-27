@@ -1,10 +1,10 @@
 /* Town asset placement, fallback, physical access and reflection ownership without WebGL. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const THREE=require('../lib/three.min.js'),{install,local}=require('./tools/fpassets-context');
-const c={THREE};c.window=c;vm.createContext(c);
+const c={THREE,document:{createElement:()=>({width:0,height:0,getContext:()=>({drawImage(){}})})}};c.window=c;vm.createContext(c);
 for(const f of ['data/theme.js','data/config.js','data/m3_doorsteps.js','data/m8_stops.js','data/town.js','data/workday_events.js',
 'src/core/theme.js','src/core/rig.js','src/core/scenery.js','src/core/townart.js','src/core/town.js','src/core/shift.js','src/core/scorelog.js','src/core/workday.js',
-'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fplighting.js','src/core/fpweather.js','src/core/fptown.js','src/core/fpsigns.js','src/core/fpnav.js','src/core/fpactors.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
+'src/core/firstperson.js','src/core/fpmission.js','src/core/fpcamera.js','src/core/fproute.js','src/core/fplater.js','src/core/fpdriving.js','src/core/fploadout.js','src/core/fpday.js','src/core/fpdoors.js','src/core/world3d.js','src/core/fpbranding.js','src/core/fpcab.js','src/core/fpmirrors.js','src/core/fprear.js','src/core/fplighting.js','src/core/fpweather.js','src/core/fptown.js','src/core/fpmaterials.js','src/core/fpsigns.js','src/core/fpnav.js','src/core/fpactors.js','src/core/fpworld.js'])vm.runInContext(fs.readFileSync(__dirname+'/../'+f,'utf8'),c);
 c.OTR.save={data:{townSeed:1}};const F=install(c),banks={};
 test.before(async()=>{for(const high of [false,true])banks[high]=await F.preload({high,fetch:local});});
 test.after(()=>Object.values(banks).forEach(b=>b.dispose()));
@@ -12,8 +12,16 @@ function world(high=false,bank=banks[high],day=1,variant=7,nav=false){
  c.OTR.gfx={high:()=>high};const m=c.OTR.fpMission.create('campaign',variant,(nav?c.OTR.fpNav.prepare(c.OTR.fpSigns.prepare(c.OTR.fpLater.prepare(c.OTR.fpRoute.plan(day,variant)))):c.OTR.fpLater.prepare(c.OTR.fpRoute.plan(day,variant)))),camera=new THREE.PerspectiveCamera(68,16/9,.08,180),root=new THREE.Scene();root.add(camera);
  const scene={assetBank:bank,view:{world:root,camera,mirror:{camera:new THREE.PerspectiveCamera(55,16/9,.08,100),on:false}}},art=c.OTR.fpWorld.build(scene,m);return {m,scene,art,camera};
 }
+test('High surface identities follow real reflection compaction without changing reports or bank geometry',()=>{
+ const w=world(true,banks[true],4,7,true);w.art.sync(w.m,null,'route');const snapshot=JSON.stringify(w.m.snapshot()),reports=JSON.stringify(c.OTR.workday.events),meshes=[];
+ w.scene.view.world.traverse(o=>{if(o.isInstancedMesh&&o.geometry.hasAttribute('otrSurfaceKind'))meshes.push(o);});assert.ok(meshes.length>=3);
+ const before=meshes.map(o=>({count:o.count,matrix:Array.from(o.instanceMatrix.array),surface:Array.from(o.geometry.getAttribute('otrSurfaceKind').array),sign:o.geometry.hasAttribute('otrSignShape')?Array.from(o.geometry.getAttribute('otrSignShape').array):null}));
+ for(const index of [0,1,2]){w.scene.view.mirror.before(index);w.scene.view.mirror.after();for(let n=0;n<meshes.length;n++){const o=meshes[n],a=before[n];assert.equal(o.count,a.count);assert.deepEqual(Array.from(o.instanceMatrix.array),a.matrix);assert.deepEqual(Array.from(o.geometry.getAttribute('otrSurfaceKind').array),a.surface);if(a.sign)assert.deepEqual(Array.from(o.geometry.getAttribute('otrSignShape').array),a.sign);}}
+ assert.equal(JSON.stringify(w.m.snapshot()),snapshot);assert.equal(JSON.stringify(c.OTR.workday.events),reports);w.art.dispose();
+ for(const model of banks[true].models.values())for(const part of model.parts)assert.ok(!part.geometry.hasAttribute('otrSurfaceKind'));assert.ok([...banks[true].textures.values()].every(t=>!t.image.closed));
+});
 test('both qualities load all fourteen local templates and use one texture-free primitive per town model',()=>{
- for(const high of [false,true]){const bank=banks[high];assert.equal(bank.stats.loaded,14,JSON.stringify(bank.stats));assert.equal(bank.stats.failed,0);
+ for(const high of [false,true]){const bank=banks[high];assert.equal(bank.models.size,14);assert.equal(bank.stats.loaded,high?19:14,JSON.stringify(bank.stats));assert.equal(bank.stats.failed,0);
   for(const [use,model] of bank.models){if(!use.startsWith('town-'))continue;assert.equal(model.parts.length,1);assert.ok(!model.parts[0].material.map);if(!high&&use!=='town-garage')assert.ok(model.parts[0].geometry.index.count/3<=44);}
  }
 });

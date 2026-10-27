@@ -46,7 +46,7 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8302',wait=ms=>new Promise(r=>
      assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').assetBank.stats.loaded),14);checks++;
     }
    }else{
-    const result=await view(p),healthy=mode==='low'||mode.startsWith('high'),highVariant=mode.startsWith('high');assert.equal(result.groups,healthy?8:0);assert.equal(result.stats.loaded,healthy?14:0);assert.equal(result.unchangedSolid,true);checks+=3;
+    const result=await view(p),healthy=mode==='low'||mode.startsWith('high'),highVariant=mode.startsWith('high');assert.equal(result.groups,healthy?8:0);assert.equal(result.stats.loaded,healthy?(highVariant?19:14):0);assert.equal(result.unchangedSolid,true);checks+=3;
     assert.equal(result.stats.fallbacks,mode==='high-fallback'?1:0);checks++;
     if(healthy){assert.equal(result.stats.failed,0);checks++;assert.ok(result.instances.length===8&&result.instances.every(a=>a.length===1)&&result.instances.some(a=>a[0]>0));assert.ok(requests.some(r=>r.endsWith(highVariant?'garage-high.glb':'garage-low.glb')));assert.ok(!requests.some(r=>r.endsWith(highVariant?'garage-low.glb':'garage-high.glb')));checks+=3;}
     else{assert.ok(result.stats.failed>0);checks++;}
