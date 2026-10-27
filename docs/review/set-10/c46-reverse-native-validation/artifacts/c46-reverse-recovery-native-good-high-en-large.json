@@ -1,0 +1,185 @@
+{
+  "checks": 188,
+  "quality": "high",
+  "lang": "en",
+  "large": true,
+  "variant": "good",
+  "errors": [],
+  "shots": [
+    "c46-reverse-recovery-native-good-high-en-large-brief.png",
+    "c46-reverse-recovery-native-good-high-en-large-controls-0.png",
+    "c46-reverse-recovery-native-good-high-en-large-controls-1.png",
+    "c46-reverse-recovery-native-good-high-en-large-controls-2.png",
+    "c46-reverse-recovery-native-good-high-en-large-controls-3.png",
+    "c46-reverse-recovery-native-good-high-en-large-handheld.png",
+    "c46-reverse-recovery-native-good-high-en-large-path-6.png",
+    "c46-reverse-recovery-native-good-high-en-large-yield.png",
+    "c46-reverse-recovery-native-good-high-en-large-path-8.png",
+    "c46-reverse-recovery-native-good-high-en-large-result.png"
+  ],
+  "resources": [
+    {
+      "name": "cab-start",
+      "peak": {
+        "calls": 33,
+        "triangles": 9896,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 6357424
+      }
+    },
+    {
+      "name": "handheld",
+      "peak": {
+        "calls": 28,
+        "triangles": 5243,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5464294
+      }
+    },
+    {
+      "name": "reverse-ready",
+      "peak": {
+        "calls": 38,
+        "triangles": 9872,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5864667
+      }
+    }
+  ],
+  "revision": "c4ce4c6ab468733eda029dd69148053da29f35b5",
+  "sources": {
+    "index.html": "36e3bda80e57d44913de9b5e59f811be5563264813628819b29c52f65e0c75a6",
+    "src/core/fpreverselesson.js": "7895a73805597aa23638a779f50068bde4287590525915397b8aeedc9c8854b1",
+    "src/core/fpreversescenario.js": "130ad45daf33b50d3be5b39eb09f17dad9d70ab354324fe91beab9c1f980f8af",
+    "src/core/fpworld.js": "1e65d6e871095d072f9b1ffe37b70dad1673aad74c0b125a91ac0ac1b1e5b768",
+    "src/scenes/FirstPersonScenarioScene.js": "eaf7a2729f09aa0054ac2c04380969bf25faf7f9eaf51d38930352ac90f846f4",
+    "test/fpreversebrowser.js": "4b86f31dc34779a8643bca8fdc5c791ac5be2b08d66244c9c095904d887872d0"
+  },
+  "registryFixture": "\nOTR_DATA.reverseLessons={nearMiss:{}};OTR_DATA.modules.find(m=>m.id===\"m8\").scenarios.push({\"id\":\"m8-reverse\",\"title\":\"Reversing Near-Miss\",\"categories\":[\"safety\"],\"scene3d\":\"wellness-reverse\",\"optional\":true,\"default3d\":false,\"blurb\":\"Inspect the tight space on foot, use the mirrors and rear camera, yield to crossing traffic, then reverse slowly into the bay and park.\",\"dataKey\":\"reverseLessons.nearMiss\"});\n",
+  "scope": "Initial optional registry/accessibility/profile/suspended-workday fixtures only. Good, real-contact, omitted-check, abandonment and real-clock timeout paths use their actual module outcomes. No position/event/timer/result/verdict is forged. Physical movement, gaze, cab controls, walk-around confirmation, yield, parking and completion use actual remapped keyboard input. The real suspended workday is followed by a full-page reload before the module to isolate its resource sample from shared Hub texture caches. Warm Hub cache retention is a separately retained failing probe. Resource samples are observed native views, not the full fpbench matrix or laptop FPS acceptance.",
+  "last": {
+    "phase": "finished",
+    "mode": "cab",
+    "van": {
+      "x": 0,
+      "z": -53.09203033622061,
+      "yaw": 0,
+      "speed": -0.018207458870547977,
+      "steer": 0,
+      "gear": -1,
+      "hand": true,
+      "belt": true,
+      "look": -0.5053987893153012,
+      "mirrors": [
+        66.35970333333869,
+        46.34527333333518,
+        -100,
+        0,
+        0.4
+      ],
+      "shifts": 3
+    },
+    "player": {
+      "x": -1.8514919658009479,
+      "z": -65.99574696185056,
+      "yaw": 1.4441142677296241,
+      "pitch": -0.04663184807332267
+    },
+    "crossing": "clear",
+    "elapsed": 66.35970333333869,
+    "remaining": 233.6402966666665,
+    "checked": false,
+    "criticals": 0,
+    "gear": -1,
+    "target": "mirror-left",
+    "car": {
+      "x": 8,
+      "z": -58
+    }
+  },
+  "result": {
+    "id": "m8-reverse",
+    "score": 600,
+    "stars": {
+      "safety": 3
+    },
+    "verdict": {
+      "untested": [],
+      "criticals": [],
+      "takeaways": [],
+      "mistakes": 0
+    },
+    "record": {
+      "plays": 1,
+      "bestScore": 600,
+      "bestStars": {
+        "safety": 3,
+        "efficiency": 0,
+        "service": 0
+      },
+      "lastPlayed": 1793072087545
+    },
+    "assessment": {
+      "attempts": 1,
+      "passed": true,
+      "startedAt": 1793071549442,
+      "pending": false,
+      "at": 1793072087546,
+      "stars": {
+        "safety": 3
+      },
+      "score": 600,
+      "criticals": [],
+      "lessons": []
+    },
+    "checks": [
+      {
+        "type": "drive.backing-walkaround",
+        "good": true,
+        "critical": false,
+        "got": 2,
+        "max": 2,
+        "label": "Got out and looked before reversing into a tight space",
+        "lesson": "G.O.A.L.: get out and look when the space is tight. The camera has blind spots too."
+      },
+      {
+        "type": "drive.mirrors",
+        "good": true,
+        "critical": false,
+        "got": 2,
+        "max": 2,
+        "label": "Looked in the mirrors before moving",
+        "lesson": "Look at the mirror for the side you are moving to, then signal, then go. Vans have blind spots a car does not."
+      },
+      {
+        "type": "drive.backing",
+        "good": true,
+        "critical": false,
+        "got": 2,
+        "max": 2,
+        "label": "Reversed slowly and safely, using the rear camera and mirrors",
+        "lesson": "Reverse slowly. Watch the rear camera and both mirrors, and stop at once if anything is close. Get out and look when you cannot see."
+      }
+    ]
+  },
+  "resultPresentation": {
+    "active": true,
+    "counter": "3 / 3",
+    "expected": "3 / 3",
+    "modals": 0,
+    "scale": 1,
+    "bounds": {
+      "left": 206,
+      "top": 6,
+      "right": 1074,
+      "bottom": 722
+    },
+    "transition": false,
+    "rankUpDismissed": false
+  },
+  "durable": true,
+  "complete": true
+}
