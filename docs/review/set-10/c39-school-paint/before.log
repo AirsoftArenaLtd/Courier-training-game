@@ -1,0 +1,83 @@
+✔ only the four agreed school types score, with their exact catalogue wording, weights and critical flags (29.080931ms)
+✔ the school drive has a real school-street entry and a real bay beyond the zone, without changing the workday schema (7.775623ms)
+✔ completion requires the actual whole stopped van in the finish bay after both live road encounters (5.460747ms)
+✔ unseen obligations and an unfinished route cannot earn a successful result, and finishing is idempotent (42.50199ms)
+✔ the actual motor and live bus produce their agreed local check while pause freezes observation (812.536994ms)
+✔ a continuous physical school approach clears the live bus and children without injecting verdicts (3402.983533ms)
+✔ driving into the actual live crossing produces the catalogue critical instead of a successful school result (1346.330944ms)
+✖ the school bay rejects a body beyond either painted side while preserving a van just inside (1.541238ms)
+✖ the school bay rejects the former end tolerance and a rotated body crossing a side (2.056957ms)
+✖ a reversed whole van cannot finish, and invalid paint parking retains observations with a zero result (1.417782ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 7
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5700.084813
+
+✖ failing tests:
+
+test at docs/review/set-10/c39-school-paint/before.js:47:1
+✖ the school bay rejects a body beyond either painted side while preserving a van just inside (1.541238ms)
+  AssertionError [ERR_ASSERTION]: lateral body overhang -1
+  
+  true !== false
+  
+      at TestContext.<anonymous> (/workspace/c39-route-driving/docs/review/set-10/c39-school-paint/before.js:48:83)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at docs/review/set-10/c39-school-paint/before.js:51:1
+✖ the school bay rejects the former end tolerance and a rotated body crossing a side (2.056957ms)
+  AssertionError [ERR_ASSERTION]: ten-centimetre end overhang z0
+  
+  true !== false
+  
+      at TestContext.<anonymous> (/workspace/c39-route-driving/docs/review/set-10/c39-school-paint/before.js:52:120)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at docs/review/set-10/c39-school-paint/before.js:55:1
+✖ a reversed whole van cannot finish, and invalid paint parking retains observations with a zero result (1.417782ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (/workspace/c39-route-driving/docs/review/set-10/c39-school-paint/before.js:56:67)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
