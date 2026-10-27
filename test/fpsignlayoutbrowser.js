@@ -62,9 +62,9 @@ assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='lar
       const w=image&&(image.naturalWidth||image.videoWidth||image.width)||source.width,h=image&&(image.naturalHeight||image.videoHeight||image.height)||source.height;
       textureBytes+=w*h*4;
      }
-     return {entry:!!entry,faceLettering:!!s.art.signLettering,kind,back,text,head,quality:OTR.gfx.level(),phaserBytes:Math.ceil(textureBytes*4/3),projected:entry&&s.art.labelPosition(entry.label),occupied:s.signUI.occupied,pool:s.signUI.pool.map(q=>({kind:q.entry&&q.entry.sign.kind,width:q.text.width,height:q.text.height,wrap:q.text.style.wordWrapWidth,text:q.text.text,visible:q.text.visible})),nav:nav&&{x:nav.x,y:nav.y,right:nav.right,bottom:nav.bottom},covered:!!covers(head,nav),labelCoversHead:text.some(t=>covers(head,t.bounds)),hiddenGears,hiddenControls,hiddenMirrors,look:m.van.look};};
+     return {entry:!!entry,faceLettering:!!s.art.signLettering,readingSource:entry&&entry.label.text,readingTranslation:entry&&OTR.i18n.t(entry.label.text),kind,back,text,head,quality:OTR.gfx.level(),phaserBytes:Math.ceil(textureBytes*4/3),projected:entry&&s.art.labelPosition(entry.label),occupied:s.signUI.occupied,pool:s.signUI.pool.map(q=>({kind:q.entry&&q.entry.sign.kind,width:q.text.width,height:q.text.height,wrap:q.text.style.wordWrapWidth,text:q.text.text,visible:q.text.visible})),nav:nav&&{x:nav.x,y:nav.y,right:nav.right,bottom:nav.bottom},covered:!!covers(head,nav),labelCoversHead:text.some(t=>covers(head,t.bounds)),hiddenGears,hiddenControls,hiddenMirrors,look:m.van.look};};
     },{kind,back});
-    await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return (s.art.signLettering?s.game.loop.frame>window.otrSignPoseFrame+2:s.signUI.lastAt>window.otrSignPoseAt)&&s.hud.navAt>window.otrSignPoseAt;},{timeout:60000});
+    await p.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.signUI.lastAt>window.otrSignPoseAt&&s.hud.navAt>window.otrSignPoseAt;},{timeout:60000});
     const proof=await p.evaluate(()=>window.otrSignProbe());
     if(proof.faceLettering&&proof.entry){
      const before=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {snapshot:JSON.stringify(s.model.snapshot()),events:JSON.stringify(OTR.workday.events)};});let found=false;
@@ -79,8 +79,10 @@ assert.match(TAG,/^[a-z0-9-]+$/);assert.ok(SIZES.every(s=>s==='normal'||s==='lar
     if(proof.quality!==GFX)report.failures.push(`${lang}/${size}/${kind}/${back}: incorrect graphics quality`);
     if(!proof.nav)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav is hidden in the forward driving view`);
     if(!proof.entry)report.failures.push(`${lang}/${size}/${kind}/${back}: physical sign is absent`);
-    if(proof.entry&&!proof.faceLettering&&!proof.text.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sign line is absent`);
-    if(proof.faceLettering&&proof.text.length)report.failures.push(`${lang}/${size}/${kind}/${back}: an automatic floating paragraph remains`);
+    const requiresNotice=kind!=='stop'||!proof.faceLettering;
+    if(proof.entry&&requiresNotice&&!proof.text.length)report.failures.push(`${lang}/${size}/${kind}/${back}: required junction notice is absent`);
+    if(proof.faceLettering&&kind==='stop'&&proof.text.length)report.failures.push(`${lang}/${size}/${kind}/${back}: an automatic sign-face paragraph remains`);
+    if(proof.entry&&requiresNotice&&proof.text.some(t=>t.source!==proof.readingSource||t.text!==proof.readingTranslation))report.failures.push(`${lang}/${size}/${kind}/${back}: junction notice is not the current translated reading`);
     if(proof.hiddenControls.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers physical selector positions ${proof.hiddenControls.join(',')}`);
     if(proof.hiddenGears.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers gear labels ${proof.hiddenGears.join(',')}`);
     if(proof.hiddenMirrors.length)report.failures.push(`${lang}/${size}/${kind}/${back}: sat nav covers a physical mirror`);
