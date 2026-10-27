@@ -289,7 +289,7 @@ Written by `node test/run-all.js --readme`.
 | `routeday.js` | opens a page | Route-day features around the stops (src/core/shift.js, driveAids, TownDriveScene, PostTripScene): - the bad-weather gear question after the briefing, and wh… |
 | `routekeysbrowser.js` | browser (--browser) | The route planner (module 1) and Find It Fast (module 6) with the keyboard alone, as B-79 does for the pre-trip. |
 | `savesize.js` | Node | SCORM 1.2's 4096 characters of suspend data (src/core/save.js, fit): a long workday on top of a heavy save must always be stored within the limit, reload to … |
-| `scorm-launch-2004.js` | Node | The SCORM 2004 package, the pilot's default, launched in its own LMS frame on every run: test/scorm-launch.js with --2004 (the 1.2 package is test/scorm-laun… |
+| `scorm-launch-2004.js` | opens a page | The SCORM 2004 package, the pilot's default, launched in its own LMS frame on every run: test/scorm-launch.js with --2004 (the 1.2 package is test/scorm-laun… |
 | `scorm-launch.js` | opens a page | The LMS package launched as an LMS launches it (board task B-40): the SCORM 1.2 zip from test/tools/package-scorm.js, unpacked and opened inside a player pag… |
 | `signin.js` | opens a page | The sign-in screen (src/core/signin.js) on a training server with employee accounts, in a real browser. |
 | `town3d.js` | opens a page | Phase 2 graphics in the town drive (index.html?lab=town), checked by script: - the fake-3D town (src/core/b3d.js): walls are drawn, roofs lean away from the … |

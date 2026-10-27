@@ -6,7 +6,17 @@ OTR.H = 720;
 
 OTR.theme = {
   // Nirmala UI: Windows' font for the Indian scripts (Segoe UI has none of them)
-  font: '"Segoe UI", "Nirmala UI", "Trebuchet MS", system-ui, -apple-system, sans-serif',
+  BASE_FONT: '"Segoe UI", "Nirmala UI", "Trebuchet MS", system-ui, -apple-system, sans-serif',
+  // B-178 (Codex, C-41): where the first font found has no Indian glyphs (Linux's Noto Sans), canvas text draws boxes
+  // instead of falling back; the language's own Noto font goes first, and is skipped where it is not installed
+  SCRIPT_FONT: { ta: 'Noto Sans Tamil', hi: 'Noto Sans Devanagari', mr: 'Noto Sans Devanagari', bn: 'Noto Sans Bengali',
+    gu: 'Noto Sans Gujarati', kn: 'Noto Sans Kannada', ml: 'Noto Sans Malayalam', pa: 'Noto Sans Gurmukhi', te: 'Noto Sans Telugu' },
+  get font() {
+    if (this.fontOverride) return this.fontOverride;
+    const s = this.SCRIPT_FONT[OTR.i18n && OTR.i18n.lang];
+    return s ? `"${s}", ${this.BASE_FONT}` : this.BASE_FONT;
+  },
+  set font(v) { this.fontOverride = v; },                 // the layout tests pin a font family
   get pal() { return OTR_DATA.config.palette; }
 };
 

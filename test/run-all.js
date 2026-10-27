@@ -40,6 +40,14 @@ const NOT_HERE = new Set(['run-all.js', 'qa.js', 'fpquality.js', 'fpbench.js', '
 // browser suites: the *browser.js ones, plus the others that open pages
 const BROWSER = new Set(['a11y-screens.js', 'fpaccesslayout.js']);
 const isBrowser = (f) => /browser\.js$/.test(f) || BROWSER.has(f);
+// a suite that drives Chromium itself, or through a sibling it requires (scorm-launch-2004.js wraps scorm-launch.js)
+const opensPage = (f) => drivesChromium(f, new Set());
+const drivesChromium = (f, seen) => {
+  if (seen.has(f) || !fs.existsSync(path.join(__dirname, f))) return false;
+  seen.add(f);
+  const src = fs.readFileSync(path.join(__dirname, f), 'utf8');
+  return /puppeteer/.test(src) || [...src.matchAll(/require\(['"]\.\/([\w.-]+?)(?:\.js)?['"]\)/g)].some(m => drivesChromium(m[1] + '.js', seen));
+};
 const JOBS = Math.max(1, Number(process.env.QA_JOBS) || 4);
 
 /** What a suite covers: the first sentence of its header comment, or its first test's name when it has none. */
@@ -58,7 +66,7 @@ const describe = (f) => {
 };
 const listSuites = () => {
   const all = fs.readdirSync(__dirname).filter(f => f.endsWith('.js') && f !== 'run-all.js').sort();
-  const how = (f) => NOT_HERE.has(f) ? 'own command' : isBrowser(f) ? 'browser (--browser)' : /puppeteer/.test(fs.readFileSync(path.join(__dirname, f), 'utf8')) ? 'opens a page' : 'Node';
+  const how = (f) => NOT_HERE.has(f) ? 'own command' : isBrowser(f) ? 'browser (--browser)' : opensPage(f) ? 'opens a page' : 'Node';
   const rows = all.map(f => { const d = describe(f); return { f, how: how(f), d }; });
   const table = ['| Suite | How `run-all` runs it | What it covers |', '| --- | --- | --- |',
     ...rows.map(r => `| \`${r.f}\` | ${r.how} | ${r.d.text.replace(/\|/g, '\\|')} |`)].join('\n');
@@ -175,7 +183,6 @@ const releaseCandidate = async (results) => {
     .filter(f => !only.length || only.some(w => f.includes(w)));
   const nodeFiles = all.filter(f => !isBrowser(f)), browserFiles = all.filter(isBrowser);
   // a suite that opens a page times what it sees, so it runs alone (driving.js failed four at a time)
-  const opensPage = (f) => /puppeteer/.test(fs.readFileSync(path.join(__dirname, f), 'utf8'));
   const results = [], env = Object.assign({}, process.env);
   const exe = findBrowser();
   if (exe) env.QA_BROWSER = exe;
