@@ -1,0 +1,115 @@
+{
+  "checks": 181,
+  "quality": "low",
+  "lang": "en",
+  "large": true,
+  "errors": [],
+  "shots": [
+    "c46-reverse-stop-fix-low-en-large-brief.png",
+    "c46-reverse-stop-fix-low-en-large-controls-0.png",
+    "c46-reverse-stop-fix-low-en-large-controls-1.png",
+    "c46-reverse-stop-fix-low-en-large-controls-2.png",
+    "c46-reverse-stop-fix-low-en-large-controls-3.png",
+    "c46-reverse-stop-fix-low-en-large-handheld.png",
+    "c46-reverse-stop-fix-low-en-large-path-6.png",
+    "c46-reverse-stop-fix-low-en-large-yield.png",
+    "c46-reverse-stop-fix-low-en-large-path-8.png",
+    "c46-reverse-stop-fix-low-en-large-result.png"
+  ],
+  "resources": [
+    {
+      "name": "cab-start",
+      "peak": {
+        "calls": 26,
+        "triangles": 570,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1964806
+      }
+    },
+    {
+      "name": "handheld",
+      "peak": {
+        "calls": 26,
+        "triangles": 570,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2000395
+      }
+    },
+    {
+      "name": "reverse-ready",
+      "peak": {
+        "calls": 26,
+        "triangles": 570,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1854283
+      }
+    }
+  ],
+  "revision": "33d4ea6c19f4cb55a675c2f6786fbc0eda0a0f51",
+  "sources": {
+    "index.html": "36e3bda80e57d44913de9b5e59f811be5563264813628819b29c52f65e0c75a6",
+    "src/core/fpreverselesson.js": "3badc230b1bbda04ec7e19ffec32092686a52e2632def8c68b041ee0a72e9a53",
+    "src/core/fpreversescenario.js": "130ad45daf33b50d3be5b39eb09f17dad9d70ab354324fe91beab9c1f980f8af",
+    "src/core/fpworld.js": "982220f63dcf102b629277c34e0f8c8c17cdcd9a2221a5c506cad97b44ee49d2",
+    "src/scenes/FirstPersonScenarioScene.js": "eaf7a2729f09aa0054ac2c04380969bf25faf7f9eaf51d38930352ac90f846f4",
+    "test/fpreversebrowser.js": "7c3616505fdee4c58a294c2eb1674bde7dae6305446423270ef0974561828e8e"
+  },
+  "registryFixture": "\nOTR_DATA.reverseLessons={nearMiss:{}};OTR_DATA.modules.find(m=>m.id===\"m8\").scenarios.push({\"id\":\"m8-reverse\",\"title\":\"Reversing Near-Miss\",\"categories\":[\"safety\"],\"scene3d\":\"wellness-reverse\",\"optional\":true,\"default3d\":false,\"blurb\":\"Inspect the tight space on foot, use the mirrors and rear camera, yield to crossing traffic, then reverse slowly into the bay and park.\",\"dataKey\":\"reverseLessons.nearMiss\"});\n",
+  "scope": "Initial optional registry/accessibility/profile/suspended-workday fixtures only. Physical movement, gaze, cab controls, walk-around confirmation, yield, parking and completion use actual remapped keyboard input. The real suspended workday is followed by a full-page reload before the module to isolate its resource sample from shared Hub texture caches. Warm Hub cache retention is a separately retained failing probe. Resource samples are observed native views, not the full fpbench matrix or laptop FPS acceptance.",
+  "last": null,
+  "result": {
+    "id": "m8-reverse",
+    "score": 600,
+    "stars": {
+      "safety": 3
+    },
+    "verdict": {
+      "untested": [],
+      "criticals": [],
+      "takeaways": [],
+      "mistakes": 0
+    },
+    "record": {
+      "plays": 1,
+      "bestScore": 600,
+      "bestStars": {
+        "safety": 3,
+        "efficiency": 0,
+        "service": 0
+      },
+      "lastPlayed": 1793065153938
+    },
+    "assessment": {
+      "attempts": 1,
+      "passed": true,
+      "startedAt": 1793064986722,
+      "pending": false,
+      "at": 1793065153938,
+      "stars": {
+        "safety": 3
+      },
+      "score": 600,
+      "criticals": [],
+      "lessons": []
+    }
+  },
+  "resultPresentation": {
+    "active": true,
+    "counter": "3 / 3",
+    "expected": "3 / 3",
+    "modals": 0,
+    "scale": 1,
+    "bounds": {
+      "left": 206,
+      "top": 6,
+      "right": 1074,
+      "bottom": 722
+    },
+    "transition": false,
+    "rankUpDismissed": false
+  },
+  "failure": "TypeError: Cannot read properties of undefined (reading 'm8-reverse')\n    at evaluate (evaluate at /workspace/c46-safety-wellness/test/fpreversebrowser.js:34:142, <anonymous>:0:83)\n    at #evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/ExecutionContext.js:391:56)\n    at async ExecutionContext.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/ExecutionContext.js:277:16)\n    at async IsolatedWorld.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/IsolatedWorld.js:105:16)\n    at async CdpFrame.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:362:20)\n    at async CdpPage.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:830:20)\n    at async /workspace/c46-safety-wellness/test/fpreversebrowser.js:34:131"
+}

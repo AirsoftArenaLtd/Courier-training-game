@@ -1,0 +1,11 @@
+{
+  "phase": "failed",
+  "pid": 112808,
+  "startedAt": 1793065188.599793,
+  "sourceRevision": "33d4ea6c19f4cb55a675c2f6786fbc0eda0a0f51",
+  "childPid": 112809,
+  "exit": 1,
+  "changedSources": [],
+  "completedAt": 1793065318.273828,
+  "leaseReleased": true
+}

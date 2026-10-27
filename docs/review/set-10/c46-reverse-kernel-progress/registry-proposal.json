@@ -7,5 +7,6 @@
   "scene3d": "wellness-reverse",
   "optional": true,
   "default3d": false,
-  "blurb": "Inspect the tight space on foot, use the mirrors and rear camera, yield to crossing traffic, then reverse slowly into the bay and park."
+  "blurb": "Inspect the tight space on foot, use the mirrors and rear camera, yield to crossing traffic, then reverse slowly into the bay and park.",
+  "dataKey": "reverseLessons.nearMiss"
 }

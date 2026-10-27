@@ -64,11 +64,18 @@ OTR.fpWorld = {
     if(world.fog){world.fog.near=base.town?sceneryRadius-20:65;world.fog.far=base.town?sceneryRadius:165;if(weather==='fog'){world.fog.near=6;world.fog.far=28;}else if(weather==='storm'){world.fog.near=12;world.fog.far=40;}else if(weather==='heat'){world.fog.near=25;world.fog.far=50;}}
     if(base.trainingArea){
       const b=base.bounds,cx=(b.x0+b.x1)/2,cz=(b.z0+b.z1)/2;
+      if(base.reverseLesson){
+        // One paved yard and a visible cross lane; the single real traffic actor uses this lane.
+        box(route,cx,-.015,cz,b.x1-b.x0,.06,b.z1-b.z0,0x59666A,null,false,1);
+        box(route,cx,.025,-58,b.x1-b.x0,.02,4,roadColour,null,false,1);
+        for(const x of [-8,-4,4,8])box(route,x,.05,-58,1.8,.02,.08,0xEFEEE5);
+      }else{
       box(route,cx,-.12,cz,b.x1-b.x0,.2,b.z1-b.z0,grassColour,null,false,3);
       const left=Math.max(b.x0,-5.5),right=Math.min(b.x1,5.5);
       if(right>left)box(route,(left+right)/2,-.015,cz,right-left,.06,b.z1-b.z0,roadColour,null,false,1);
       for(const x of [-6.3,6.3])if(x>b.x0&&x<b.x1)box(route,x,.05,cz,1.6,.13,b.z1-b.z0,0xC2C0B6,null,false,2);
       for(let z=Math.ceil(b.z0/6)*6;z<b.z1-2;z+=6)if(b.x0<0&&b.x1>0)box(route,0,.04,z,.09,.018,2.7,0xEDD385);
+      }
     }else if (!base.town) {
     box(route,0,-0.12,-56,40,0.2,158,grassColour,null,false,3);
     box(route,0,-0.015,-57,11,0.06,155,roadColour,null,false,1);
@@ -120,10 +127,10 @@ OTR.fpWorld = {
     if(!base.trainingArea||base.trainingArea.depot)base.solids.slice(0,4).forEach((s,i)=>box(route,s.x,s.h/2,s.z,s.w,s.h,s.d,i===3?0x9C8061:0xD7DDDB,null,true));
     if(base.parking){
       const b=base.parkingBay;for(const wall of base.parkingWalls)box(route,wall.x,wall.h/2,wall.z,wall.w,wall.h,wall.d,0xBBC7BE,null,true);
-      box(route,0,.05,-57,b.width,.02,18,0x59666A);
+      box(route,0,.05,base.reverseLesson?b.z:-57,b.width,.02,base.reverseLesson?6:18,0x59666A);
       for(const side of [-1,1])box(route,b.x+side*1.3,.065,b.z,.07,.02,6,0xEFEEE5);
       for(const end of [-1,1])box(route,b.x,.065,b.z+end*3,2.6,.02,.07,0xEFEEE5);
-      labels.push({parent:route,point:new T.Vector3(b.x,2.4,b.z+4),text:'Reverse into the marked bay and set the parking brake.',wrap:320,max:18});
+      if(!base.reverseLesson)labels.push({parent:route,point:new T.Vector3(b.x,2.4,b.z+4),text:'Reverse into the marked bay and set the parking brake.',wrap:320,max:18});
     }
     const depotSide=base.town?-1:1;
     if(!base.trainingArea||base.trainingArea.depot){
@@ -363,7 +370,7 @@ OTR.fpWorld = {
     }));
     const mirrors=OTR.fpMirrors?OTR.fpMirrors.build(scene,interactions):null;
     const rear=OTR.fpRear&&cab?OTR.fpRear.build(scene,cab.root,interactions,cab.navigation.local):null;
-    const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood,shadowSpan:base.pickupTask||base.incidentStage||base.customerStop?.wellness?20:90}):null;
+    const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood,shadowSpan:base.pickupTask||base.incidentStage||base.customerStop?.wellness||base.reverseLesson?20:90}):null;
     const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab,lighting,weather):null;
     const damage=OTR.fpDamageWorld?OTR.fpDamageWorld.build(scene,base,route,chassis,labels,actors):null;
     const walkVehicle=actors&&actors.vehicle,walkWheel=walkVehicle&&walkVehicle.parts.find(p=>p.name==='wheel-back-left'),walkDoor=walkVehicle&&walkVehicle.parts.find(p=>p.name==='door');

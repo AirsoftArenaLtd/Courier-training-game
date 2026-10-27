@@ -1,0 +1,19 @@
+{
+  "scope": "Static optional-reversing resource poses, original ceilings; no native gameplay or laptop FPS acceptance.",
+  "revision": "33d4ea6c19f4cb55a675c2f6786fbc0eda0a0f51",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 1,
+      "report": "bench-c46-reverse-scene-loaded-low-low.json",
+      "peak": {
+        "calls": 31,
+        "triangles": 810,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1724539
+      },
+      "error": "Invalid reverse fixture proof reversecab"
+    }
+  ]
+}

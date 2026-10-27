@@ -1,0 +1,53 @@
+{
+  "images": [
+    {
+      "file": "initial-preflight/c46-reverse-first-low-en-large-failure.png",
+      "sha256": "05b6b4b6dc4cc66346fb41e2ff6b0b5b6ea872008ec04c0cdd708bce385eae0e",
+      "inspection": "original resolution",
+      "observation": "Warm Hub cache failure, before driving; visible cab mirrors and readable larger goal."
+    },
+    {
+      "file": "stop-wait-diagnostic/c46-reverse-reload-low-en-large-controls-1.png",
+      "sha256": "dd31235d1f344ebfda8baadb52e9e0eb788b4efccb342890c9b7b1ccd71b7a87",
+      "inspection": "original resolution",
+      "observation": "Full-size larger control paragraph and both buttons fit."
+    },
+    {
+      "file": "stop-wait-diagnostic/c46-reverse-reload-low-en-large-handheld.png",
+      "sha256": "0b21cbd3208c2b59269fdc8ed49666b4a891db76bd2b6df488a78eb5dc5f07ac",
+      "inspection": "original resolution",
+      "observation": "Full-size goal, clock, options and Back fit on the real handheld."
+    },
+    {
+      "file": "stop-wait-diagnostic/c46-reverse-reload-low-en-large-path-6.png",
+      "sha256": "de5a5eed92d839f2809168bc1b483ff0b52e50732f9c7608b48ddab0fe41fea6",
+      "inspection": "original resolution",
+      "observation": "Assessment path confirmation omits practice coaching."
+    },
+    {
+      "file": "stop-wait-diagnostic/c46-reverse-reload-low-en-large-yield.png",
+      "sha256": "9da9db1fdbf12e42fb5556f7cb22dda13026bcccda296ea277daeb31dcd5d06d",
+      "inspection": "original resolution",
+      "observation": "Stopped van with the actual crossing sedan visible in the left mirror."
+    },
+    {
+      "file": "persistence-fixture-diagnostic/c46-reverse-stop-fix-low-en-large-result.png",
+      "sha256": "807cb46c61621d136481ec42a31aaaa50e1a54f170fdd66a05f51641949803a7",
+      "inspection": "original resolution",
+      "observation": "Settled 3/3 passed in-memory result. This failed fixture did not persist; not a durable pass. Career verdict remains smaller than body text, a previously raised shared readability issue."
+    },
+    {
+      "file": "initial-resource-proof/artifacts/c46-reverse-scene-loaded-low-low-reverseyard.png",
+      "sha256": "4fc7a3588c2efa6cb64be45ea58fb9167c191cc986ff64a913e9b7542e75c97e",
+      "inspection": "original resolution",
+      "observation": "Static close external van view with paved lane; not an overview of the whole yard."
+    },
+    {
+      "file": "initial-resource-proof/artifacts/c46-reverse-scene-loaded-low-low-reversecamera.png",
+      "sha256": "7b2f735f3248a01d06cf2197867915618fda9d9a869adde0ba8fbec4acfed314",
+      "inspection": "original resolution",
+      "observation": "Actual car and path guidelines visible in automatic rear screen; source sensor distance shown. No coloured-marker pixel probe claimed."
+    }
+  ],
+  "scope": "Visual observations only; no Tamil translation/glyph or High/laptop acceptance."
+}

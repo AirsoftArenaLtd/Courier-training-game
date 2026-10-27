@@ -1,0 +1,104 @@
+{
+  "status": "first-native-assessment-passed-resource-follow-up-active",
+  "cpuChecks": 70,
+  "cpuSuites": {
+    "kernel": {
+      "test": "test/fpreverselesson.js",
+      "passed": 10,
+      "log": "kernel.log"
+    },
+    "scene": {
+      "test": "test/fpreversescenario.js",
+      "passed": 5,
+      "log": "scene.log"
+    },
+    "runner": {
+      "test": "test/fpscenario.js",
+      "passed": 14,
+      "log": "runner.log"
+    },
+    "world": {
+      "test": "test/fpworld.js",
+      "passed": 23,
+      "log": "world.log"
+    },
+    "motor": {
+      "test": "test/firstperson.js",
+      "passed": 18,
+      "log": "motor.log"
+    }
+  },
+  "sources": {
+    "index.html": "36e3bda80e57d44913de9b5e59f811be5563264813628819b29c52f65e0c75a6",
+    "src/core/fpreverselesson.js": "3badc230b1bbda04ec7e19ffec32092686a52e2632def8c68b041ee0a72e9a53",
+    "src/core/fpreversescenario.js": "130ad45daf33b50d3be5b39eb09f17dad9d70ab354324fe91beab9c1f980f8af",
+    "src/core/fpworld.js": "982220f63dcf102b629277c34e0f8c8c17cdcd9a2221a5c506cad97b44ee49d2",
+    "src/scenes/FirstPersonScenarioScene.js": "eaf7a2729f09aa0054ac2c04380969bf25faf7f9eaf51d38930352ac90f846f4",
+    "test/tools/fp-reverse-context.js": "aff43db62d6fb041e60c9b6d8cbf797b499e9d850231d946412d9a7f82435f81",
+    "test/fpreversescenario.js": "deef6928064e02181ec51204acbb5dd45662f78114eef90d6f46fa4a99817c85",
+    "test/fpreversebrowser.js": "3f63619a796329cce0102d5e386a0bee9cb5b7a51a8e98b5a9f0cd1013b2a9ad",
+    "test/fpbench.js": "ef5bf40880fddbded3bcd0249d657fb692b1ecf8ac15448ac87078caeecbe6a3",
+    "test/tools/fp-reverse-fixture.js": "235427f00b1160ba03d85a70cdecbd7cfd1c97e3d4b3da0b0988f49ad64b1287",
+    "test/tools/fp-reverse-pose.js": "bcf8074e16fe949c5d994d51528669b2c6202c96377d870af428d18b621821e1",
+    "test/tools/fp-reverse-quality.js": "ab59f6cd40b1754b10bf25f82db42a29554940758f2a821b963eafe29f5059d1"
+  },
+  "syntaxChecks": [
+    "src/core/fpreverselesson.js",
+    "src/core/fpreversescenario.js",
+    "src/core/fpworld.js",
+    "src/scenes/FirstPersonScenarioScene.js",
+    "test/tools/fp-reverse-context.js",
+    "test/fpreversescenario.js",
+    "test/fpreversebrowser.js",
+    "test/fpbench.js",
+    "test/tools/fp-reverse-fixture.js",
+    "test/tools/fp-reverse-pose.js",
+    "test/tools/fp-reverse-quality.js"
+  ],
+  "originalAcceptedBaseline": {
+    "scope": "6d83d2e1 application /35bd5bb1 horizontal protocol, original 32 good layouts /96 resource views",
+    "files": 911,
+    "changedLoadedFiles": [
+      "index.html",
+      "src/core/fpworld.js",
+      "src/scenes/FirstPersonScenarioScene.js"
+    ],
+    "promotion": "No prior browser result is relabelled as this new loaded source.",
+    "changedBaselineTestFiles": [
+      "test/fpbench.js"
+    ]
+  },
+  "remaining": [
+    "Full reverse native good/negative/abandonment matrix",
+    "High/Low/fallback resource matrix",
+    "Shared warm Hub texture-cache failure",
+    "Translations and shared A30/A31 registration/default/completion",
+    "Current-pilot and owner Intel validation"
+  ],
+  "native": {
+    "report": "native-low-en-large/c46-reverse-persist-low-en-large.json",
+    "checks": 185,
+    "quality": "low",
+    "language": "en",
+    "largerText": true,
+    "score": 600,
+    "stars": 3,
+    "assessmentAttempts": 1,
+    "passed": true,
+    "pending": false,
+    "durable": true,
+    "workdayIsolation": true,
+    "captures": 10,
+    "scope": "One optional-id assessment. Initial test-only registry/profile/remapping fixtures, real keys thereafter. Full-page reload clears shared Hub caches before the lesson; warm-cache failure is retained separately."
+  },
+  "resourceFollowUp": {
+    "plan": "resource-plan.json",
+    "sources": 920,
+    "targetViews": 32,
+    "retainedPassedViews": 7,
+    "freshQueuedOrRunningViews": 25,
+    "status": "resource-status.json",
+    "observedPassedViews": 8,
+    "freshRemainingViews": 24
+  }
+}

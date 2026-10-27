@@ -1,0 +1,56 @@
+{
+  "files": [
+    {
+      "file": "native-low-en-large/c46-reverse-persist-low-en-large-brief.png",
+      "sha256": "e5657d58f7c4ee1c9f34a682ec0e10a163ff07296d58e877c446b3178735c60e"
+    },
+    {
+      "file": "native-low-en-large/c46-reverse-persist-low-en-large-controls-0.png",
+      "sha256": "40a1cb0cf76baac4eac5c4e7a969119d9074030c4ef5bf986eaad4a75fb14ad3"
+    },
+    {
+      "file": "native-low-en-large/c46-reverse-persist-low-en-large-controls-1.png",
+      "sha256": "dd31235d1f344ebfda8baadb52e9e0eb788b4efccb342890c9b7b1ccd71b7a87"
+    },
+    {
+      "file": "native-low-en-large/c46-reverse-persist-low-en-large-controls-2.png",
+      "sha256": "393fbc0610d9ac21ee02486773c688023e87df1fc35924adf36ae15d5c5b270b"
+    },
+    {
+      "file": "native-low-en-large/c46-reverse-persist-low-en-large-controls-3.png",
+      "sha256": "8c85ebf28e08be996933dd212a3112183d49a963a90749a398ba14cfbb260cbb"
+    },
+    {
+      "file": "native-low-en-large/c46-reverse-persist-low-en-large-handheld.png",
+      "sha256": "0b21cbd3208c2b59269fdc8ed49666b4a891db76bd2b6df488a78eb5dc5f07ac"
+    },
+    {
+      "file": "native-low-en-large/c46-reverse-persist-low-en-large-path-6.png",
+      "sha256": "3652f45ae45d9b39115e107985904fa941ed7d68ec5e72413c03b95b21632dda"
+    },
+    {
+      "file": "native-low-en-large/c46-reverse-persist-low-en-large-path-8.png",
+      "sha256": "3822f6183d292c20c79f3dcf85572e9b776896a6835e7ed3ae09c1281b5a3330"
+    },
+    {
+      "file": "native-low-en-large/c46-reverse-persist-low-en-large-result.png",
+      "sha256": "7544646f06db4f9c3da569ade04ee34bd72f74569725b1a08d54f13a9b169f70"
+    },
+    {
+      "file": "native-low-en-large/c46-reverse-persist-low-en-large-yield.png",
+      "sha256": "1efbed5d154071e5adc324afeb937fed6c3583aceb56025490a659d66c4c7deb"
+    },
+    {
+      "file": "native-low-en-large/c46-reverse-persist-low-en-large.json",
+      "sha256": "2788c6807695f1312b24bdb053ba5b71b0f66eb485295106731ce02d9475967b"
+    },
+    {
+      "file": "native-low-en-large/native.log",
+      "sha256": "09eb76598aba7fbb6b86877d539abcea5c97eee173c30d65b4037a9889c48f90"
+    },
+    {
+      "file": "native-low-en-large/protocol.js",
+      "sha256": "3f63619a796329cce0102d5e386a0bee9cb5b7a51a8e98b5a9f0cd1013b2a9ad"
+    }
+  ]
+}

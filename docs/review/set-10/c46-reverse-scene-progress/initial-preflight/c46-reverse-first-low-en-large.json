@@ -1,0 +1,58 @@
+{
+  "checks": 21,
+  "quality": "low",
+  "lang": "en",
+  "large": true,
+  "errors": [],
+  "shots": [
+    "c46-reverse-first-low-en-large-brief.png"
+  ],
+  "resources": [],
+  "revision": "33d4ea6c19f4cb55a675c2f6786fbc0eda0a0f51",
+  "sources": {
+    "index.html": "36e3bda80e57d44913de9b5e59f811be5563264813628819b29c52f65e0c75a6",
+    "src/core/fpreverselesson.js": "3badc230b1bbda04ec7e19ffec32092686a52e2632def8c68b041ee0a72e9a53",
+    "src/core/fpreversescenario.js": "130ad45daf33b50d3be5b39eb09f17dad9d70ab354324fe91beab9c1f980f8af",
+    "src/core/fpworld.js": "982220f63dcf102b629277c34e0f8c8c17cdcd9a2221a5c506cad97b44ee49d2",
+    "src/scenes/FirstPersonScenarioScene.js": "eaf7a2729f09aa0054ac2c04380969bf25faf7f9eaf51d38930352ac90f846f4",
+    "test/fpreversebrowser.js": "2e6bfaf1593e60e012519a8741e6aafef0b2f0262eb0328c170a191d79ba842e"
+  },
+  "registryFixture": "\nOTR_DATA.reverseLessons={nearMiss:{}};OTR_DATA.modules.find(m=>m.id===\"m8\").scenarios.push({\"id\":\"m8-reverse\",\"title\":\"Reversing Near-Miss\",\"categories\":[\"safety\"],\"scene3d\":\"wellness-reverse\",\"optional\":true,\"default3d\":false,\"blurb\":\"Inspect the tight space on foot, use the mirrors and rear camera, yield to crossing traffic, then reverse slowly into the bay and park.\",\"dataKey\":\"reverseLessons.nearMiss\"});\n",
+  "scope": "Initial optional registry/accessibility/profile/suspended-workday fixtures only. Physical movement, gaze, cab controls, walk-around confirmation, yield, parking and completion use actual remapped keyboard input. Resource samples are observed native views, not the full fpbench matrix or laptop FPS acceptance.",
+  "last": {
+    "phase": "active",
+    "mode": "cab",
+    "van": {
+      "x": 0,
+      "z": -65,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 2,
+      "hand": true,
+      "belt": true,
+      "look": 0,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ]
+    },
+    "player": {
+      "x": -1,
+      "z": -20,
+      "yaw": 0,
+      "pitch": 0
+    },
+    "crossing": "waiting",
+    "elapsed": 0.24991333333333332,
+    "remaining": 299.7500866666667,
+    "checked": false,
+    "criticals": 0,
+    "gear": 2,
+    "target": null
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: cab-start phaserBytes 11201936\n    at ok (/workspace/c46-safety-wellness/test/fpreversebrowser.js:10:179)\n    at sample (/workspace/c46-safety-wellness/test/fpreversebrowser.js:18:827)\n    at async /workspace/c46-safety-wellness/test/fpreversebrowser.js:30:447"
+}

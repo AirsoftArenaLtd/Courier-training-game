@@ -1,0 +1,98 @@
+{
+  "checks": 171,
+  "quality": "low",
+  "lang": "en",
+  "large": true,
+  "errors": [],
+  "shots": [
+    "c46-reverse-reload-low-en-large-brief.png",
+    "c46-reverse-reload-low-en-large-controls-0.png",
+    "c46-reverse-reload-low-en-large-controls-1.png",
+    "c46-reverse-reload-low-en-large-controls-2.png",
+    "c46-reverse-reload-low-en-large-controls-3.png",
+    "c46-reverse-reload-low-en-large-handheld.png",
+    "c46-reverse-reload-low-en-large-path-6.png",
+    "c46-reverse-reload-low-en-large-yield.png",
+    "c46-reverse-reload-low-en-large-path-8.png"
+  ],
+  "resources": [
+    {
+      "name": "cab-start",
+      "peak": {
+        "calls": 26,
+        "triangles": 570,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1964806
+      }
+    },
+    {
+      "name": "handheld",
+      "peak": {
+        "calls": 26,
+        "triangles": 570,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2000395
+      }
+    },
+    {
+      "name": "reverse-ready",
+      "peak": {
+        "calls": 26,
+        "triangles": 570,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1854283
+      }
+    }
+  ],
+  "revision": "33d4ea6c19f4cb55a675c2f6786fbc0eda0a0f51",
+  "sources": {
+    "index.html": "36e3bda80e57d44913de9b5e59f811be5563264813628819b29c52f65e0c75a6",
+    "src/core/fpreverselesson.js": "3badc230b1bbda04ec7e19ffec32092686a52e2632def8c68b041ee0a72e9a53",
+    "src/core/fpreversescenario.js": "130ad45daf33b50d3be5b39eb09f17dad9d70ab354324fe91beab9c1f980f8af",
+    "src/core/fpworld.js": "982220f63dcf102b629277c34e0f8c8c17cdcd9a2221a5c506cad97b44ee49d2",
+    "src/scenes/FirstPersonScenarioScene.js": "eaf7a2729f09aa0054ac2c04380969bf25faf7f9eaf51d38930352ac90f846f4",
+    "test/fpreversebrowser.js": "ff05cdfc87ae7ae6a9018a84801627cde77c3cc7909b6c3a1315c7c8eb09cb8f"
+  },
+  "registryFixture": "\nOTR_DATA.reverseLessons={nearMiss:{}};OTR_DATA.modules.find(m=>m.id===\"m8\").scenarios.push({\"id\":\"m8-reverse\",\"title\":\"Reversing Near-Miss\",\"categories\":[\"safety\"],\"scene3d\":\"wellness-reverse\",\"optional\":true,\"default3d\":false,\"blurb\":\"Inspect the tight space on foot, use the mirrors and rear camera, yield to crossing traffic, then reverse slowly into the bay and park.\",\"dataKey\":\"reverseLessons.nearMiss\"});\n",
+  "scope": "Initial optional registry/accessibility/profile/suspended-workday fixtures only. Physical movement, gaze, cab controls, walk-around confirmation, yield, parking and completion use actual remapped keyboard input. The real suspended workday is followed by a full-page reload before the module to isolate its resource sample from shared Hub texture caches. Warm Hub cache retention is a separately retained failing probe. Resource samples are observed native views, not the full fpbench matrix or laptop FPS acceptance.",
+  "last": {
+    "phase": "finished",
+    "mode": "cab",
+    "van": {
+      "x": 0,
+      "z": -53.120825990197666,
+      "yaw": 0,
+      "speed": -0.035152112078575076,
+      "steer": 0,
+      "gear": -1,
+      "hand": true,
+      "belt": true,
+      "look": -0.5053987893153012,
+      "mirrors": [
+        84.92996666667742,
+        63.97996666667265,
+        -100,
+        0,
+        0.4
+      ],
+      "shifts": 3
+    },
+    "player": {
+      "x": -1.915914204837705,
+      "z": -66.042353174368,
+      "yaw": 1.4328597482480891,
+      "pitch": -0.04663184807332267
+    },
+    "crossing": "clear",
+    "elapsed": 84.92996666667742,
+    "remaining": 215.07003333333603,
+    "checked": false,
+    "criticals": 0,
+    "gear": -1,
+    "target": "mirror-left"
+  },
+  "failure": "TimeoutError: Waiting failed: 180000ms exceeded\n    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:49:34)\n    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)\n    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)\n    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)\n    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)\n    at drive (/workspace/c46-safety-wellness/test/fpreversebrowser.js:25:473)\n    at async /workspace/c46-safety-wellness/test/fpreversebrowser.js:32:485"
+}
