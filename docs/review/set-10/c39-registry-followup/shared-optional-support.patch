@@ -1,0 +1,28 @@
+--- a/src/core/flow.js
++++ b/src/core/flow.js
+@@ -18,7 +18,7 @@
+     return OTR_DATA.modules.find(m => m.scenarios.some(s => s.id === id)) || null;
+   },
+   content(sc) {
+-    return OTR.util.getPath(OTR_DATA, sc.dataKey);
++    return sc && typeof sc.dataKey === 'string' ? OTR.util.getPath(OTR_DATA, sc.dataKey) : undefined;
+   },
+   maxStars() {
+     // every scenario's categories, plus the best route day's three
+--- a/src/core/validate.js
++++ b/src/core/validate.js
+@@ -12,9 +12,11 @@
+       (m.scenarios || []).forEach(sc => {
+         if (ids[sc.id]) errors.push(`Duplicate scenario id "${sc.id}"`);
+         ids[sc.id] = true;
+-        if (sceneKeys && sceneKeys.indexOf(sc.scene) < 0) errors.push(`${sc.id}: scene "${sc.scene}" is not registered`);
+-        const content = sc.dataKey.split('.').reduce((o, k) => (o == null ? undefined : o[k]), DATA);
+-        if (!content) errors.push(`${sc.id}: dataKey "${sc.dataKey}" not found`);
++        const only3d = sc.optional === true && !sc.scene && typeof sc.scene3d === 'string';
++        if (sceneKeys && sceneKeys.indexOf(only3d ? 'FirstPersonScenarioScene' : sc.scene) < 0) errors.push(`${sc.id}: scene "${sc.scene}" is not registered`);
++        if (only3d && sceneKeys && !OTR.fpScenario?.definitions.has(sc.scene3d)) errors.push(`${sc.id}: 3D adapter "${sc.scene3d}" is not registered`);
++        const content = typeof sc.dataKey === 'string' ? sc.dataKey.split('.').reduce((o, k) => (o == null ? undefined : o[k]), DATA) : undefined;
++        if ((!only3d || sc.dataKey !== undefined) && !content) errors.push(`${sc.id}: dataKey "${sc.dataKey}" not found`);
+         (sc.categories || []).forEach(c => {
+           if (!DATA.config.categories[c]) errors.push(`${sc.id}: unknown category "${c}"`);
+         });

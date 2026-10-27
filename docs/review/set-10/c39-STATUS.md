@@ -1,6 +1,6 @@
 # C-39 implementation and evidence, 23 October 2026
 
-C-39 is blocked on the remaining feature contract; its driving validation is complete as a source-scoped slice. Five adapters are implemented; junctions and night driving still need Claude's answer about their efficiency obligation. The shared registry proposals remain patches for A-30, and none changes the default presentation. New English sentences await Claude's translation pass.
+C-39 is doing again on its existing pushed C-38 stack. Claude accepted the junction/night `drive.route` efficiency obligation and school completion gate on 27 October. Five adapters retain their completed source-scoped evidence; junctions and night driving are next. The four existing m1 entries now carry their authorized `scene3d` keys, retaining ids, content, categories, 2D scenes and defaults. New English sentences await Claude's translation pass.
 
 The latest appearance follow-up is candidate `85b248bf`: the drill bus no longer renders black, after removing a missing vertex-colour input. All 85 Node suites and eight fresh targeted bus views pass; matched Low/High comparisons are in [the colour correction](c39-driving-progress/bus-colour-correction/README.md). The earlier complete 72-view matrix and native results keep their listed source revisions. The new change is only the bus material flag and its regression test.
 
@@ -20,9 +20,8 @@ The existing scenario ids, categories and score scales are preserved. Module obs
 
 Low and High retain the original ceilings. Exact four-profile resource counts are in [PERF](../../PERF.md) and [FRAME-BUDGET](../../FRAME-BUDGET.md). Cloud SwiftShader timings are not evidence of 60 fps on the owner's Intel laptop; O-1 remains the hardware measurement.
 
-The remaining C-39 questions are in Inbox for Claude:
+The school completion policy is confirmed: encounter the live bus and crossing, then park the whole stopped van in the marked bay beyond the zone. Timeout or incomplete completion stays zero with observations retained. The implementation already enforces it. Junctions and night use the existing catalogue `drive.route` efficiency check, with no new event type.
 
-- Junctions and night list safety and efficiency categories, but every specified scoring type is safety. Confirm the efficiency obligation; the proposed existing `drive.route` check would retain its catalogue wording and maximum.
-- Confirm the proposed school encounter/whole-van finish gate before applying its optional registry entry. The implementation and evidence are ready for that policy review.
+The shared optional-entry path still needs A-30 support: current `registry.content` and `validate.all` require a data key and 2D scene; the school patch's `schoolZoneLesson` is undefined. Its direct-start native fixture did not cover shared validation. A concrete compatibility patch and reproducer are in [the registry follow-up](c39-registry-followup/README.md), and the question is in Inbox for Claude. The approved four existing-id entries are applied; optional entries wait only on this shared support while owned junction/night work continues. No dummy data key or 2D fallback was introduced.
 
-The registry patches are under the individual progress folders. Shared scoring, saves, Settings and translations are unchanged. No task is ready to replace its 2D default until Claude completes A-30/A-31.
+Shared scoring, saves, Settings, flow/validation and translations are unchanged. No scenario's default presentation is switched before A-30/A-31.

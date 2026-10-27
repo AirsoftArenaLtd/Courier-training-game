@@ -1,0 +1,18 @@
+✔ all 21 original items have a physical target and run state is fresh without modifying content (5.506082ms)
+✔ remote, moving, wrong-side and carrying inspections cannot be recorded (0.460185ms)
+✔ inner and outer tread readings follow the actual defect and do not disclose a verdict (0.503069ms)
+✔ lamps require the actual headlights or right stalk, with no remote switch shortcut in the record (0.363208ms)
+✔ mechanical tests gate verdicts, a sinking brake needs its full hold and revisiting retests it (2.55046ms)
+✔ the actual 2D scorer and 3D adapter agree across defects, false flags and time boundaries (21.568691ms)
+✔ unfinished inspections cannot sign off and timeout keeps unrecorded defects critical (0.386173ms)
+✔ inspection proxies and cab equipment fit the bounded Low world and clean up without new textures (27.64274ms)
+✔ neutral remapped interaction prompts identify parts without disclosing their condition (0.382828ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 67.886493
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

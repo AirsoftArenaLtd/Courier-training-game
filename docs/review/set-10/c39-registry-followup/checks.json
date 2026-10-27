@@ -1,0 +1,51 @@
+{
+  "scope": "Node checks for existing registry-adapter behavior and confirmed school gate; no new native/render claim.",
+  "suites": [
+    {
+      "suite": "fpscenario",
+      "exit": 0,
+      "checks": 13
+    },
+    {
+      "suite": "fppretrip",
+      "exit": 0,
+      "checks": 9
+    },
+    {
+      "suite": "fproutelesson",
+      "exit": 0,
+      "checks": 7
+    },
+    {
+      "suite": "fpdrivinglesson",
+      "exit": 0,
+      "checks": 13
+    },
+    {
+      "suite": "fphazardlesson",
+      "exit": 0,
+      "checks": 9
+    },
+    {
+      "suite": "fpschoollesson",
+      "exit": 0,
+      "checks": 7
+    },
+    {
+      "suite": "fpschoollessonui",
+      "exit": 0,
+      "checks": 4
+    }
+  ],
+  "sources": {
+    "data/modules.js": "40ed4c80e87314f7182c89353d11e33de4d050ae9b02e5c3f235cf535ae1589c",
+    "test/fpscenario.js": "63a22e359eb73d3b1aa744f2ea444408a487a4009d1d0ba96a032def5d879e72",
+    "test/fppretrip.js": "eb6af1241a5623eb78458eb84ed42401bfe3fd224d3bfd1776486849bbb3bce8",
+    "test/fproutelesson.js": "6b1419a429d35c9530311c5310b849da3adddef261eadd17c4a9027c4ef672fe",
+    "test/fpdrivinglesson.js": "058edb110c228878a0572b3616ce133b4eba92d48dd450162c7623230d1c1e15",
+    "test/fphazardlesson.js": "284fa9bf1648022f12a2d9fcabcabba3ec5d861bf04c87ec7a2015638849d914",
+    "test/fpschoollesson.js": "5edc3ba0194c03c282657ca2c4da6fc3aac5b9cd05a1d8cffa9c93b07a872c19",
+    "test/fpschoollessonui.js": "90730df63d0e4c3b72fb46f6fd91ea80c1181c8686149f0f50b79d2f27b644da"
+  },
+  "checks": 62
+}
