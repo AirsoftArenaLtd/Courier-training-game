@@ -40,3 +40,11 @@ test('owned raw key actions reject lost-context events and repeats cannot rearm 
  const f=fixture(),s=f.s,w=new Target(),doc=new Target();c.addEventListener=w.addEventListener.bind(w);c.removeEventListener=w.removeEventListener.bind(w);Object.assign(c.document,{addEventListener:doc.addEventListener.bind(doc),removeEventListener:doc.removeEventListener.bind(doc)});c.OTR.fpAccess={syncKeys(){}};s.time={now:0};s.loading=false;s.area='route';s.capture=()=>{};c.Scene.prototype.installInput.call(s);
  const key=(code,repeat=false)=>({code,repeat,preventDefault(){}});f.lose();const gear=f.model.van.gear;w.emit('keydown',key('KeyR'));w.emit('keydown',key('KeyW'));assert.equal(f.model.van.gear,gear);assert.equal(Object.keys(s.held).length,0);s.glRecovery.lost=false;w.emit('keydown',key('KeyW',true));assert.equal(s.held.KeyW,undefined);w.emit('keydown',key('KeyW'));assert.equal(s.held.KeyW,true);w.emit('keyup',key('KeyW'));assert.equal(s.held.KeyW,undefined);s.events.emit('shutdown');assert.ok([...w.handlers.values()].every(h=>h.size===0));
 });
+test('a remapping prompt cannot consume or save a keyboard choice while the display is lost',()=>{
+ const handlers=new Map(),ctx={};ctx.window=ctx;ctx.addEventListener=(n,f)=>handlers.set(n,f);ctx.removeEventListener=n=>handlers.delete(n);vm.createContext(ctx);vm.runInContext(fs.readFileSync(__dirname+'/../src/core/fpaccess.js','utf8'),ctx);
+ let writes=0,prevented=0;const settings={keys:{}};ctx.OTR.a11y={settings:()=>settings,physical:k=>k,label:k=>k,ACTIONS:[],save(){writes++;}};
+ const scene={glRecovery:{lost:true},events:{once(){}},showPanel(){}};ctx.OTR.fpAccess.rebind(scene,'KeyW','Move forward',0);
+ handlers.get('keydown')({code:'KeyX',preventDefault(){prevented++;},stopImmediatePropagation(){}});
+ assert.equal(writes,0);assert.deepEqual(settings.keys,{});assert.equal(prevented,0);assert.equal(ctx.OTR.a11y.capturing,true);
+ scene.glRecovery.lost=false;handlers.get('keydown')({code:'Escape',preventDefault(){},stopImmediatePropagation(){}});assert.equal(ctx.OTR.a11y.capturing,false);assert.equal(handlers.size,0);
+});
