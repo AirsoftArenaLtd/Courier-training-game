@@ -34,8 +34,8 @@ only manage Low, so it must stay clear there too.
 | 8 | C-50, merged | Stop at a stop sign and a speed limit | The lettering and the number are on the sign itself, as on a real sign; no floating text box |
 | 9 | C-50, merged | Press J at a sign, in Tamil with larger text | The sign is still read aloud and shown in your language, though the sign face is the real one |
 | 10 | C-50, merged | A school-zone sign at Low | The lettering is still clear at Low |
-| 11 | C-51 | Walk to a doorstep and a business reception | The person you deal with is clearly there and faces you; it does not feel like an empty street |
-| 12 | C-51 | Look along the street while driving | People and street detail make it feel lived in, without getting in the way of driving |
+| 11 | C-51, merged | Walk to a doorstep and a business reception | The person you deal with is clearly there and faces you; it does not feel like an empty street |
+| 12 | C-51, merged | Look along the street while driving | People and street detail make it feel lived in, without getting in the way of driving |
 | 13 | C-52 | Look at the dashboard | The instruments look like a real van's, not a prototype panel; speed and warnings are easy to read |
 | 14 | C-52 | Open the handheld (Tab) at a stop | It looks like a real device; Tamil with larger text still fits |
 | 15 | C-52 | The same with colour-blind cues on (Settings → Accessibility) | Every state still reads without relying on colour |
