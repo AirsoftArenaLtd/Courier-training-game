@@ -1,0 +1,8 @@
+{
+  "sourceInputs": 536,
+  "allSourcesAndArtifactsVerified": true,
+  "strictViews": 1176,
+  "resourceViews": 16,
+  "cleanup": true,
+  "scope": "Earlier candidate omitted the pre-existing address-label guard in FirstPersonScene. These are partial-scope checks only; complete candidate is repeated under final/."
+}

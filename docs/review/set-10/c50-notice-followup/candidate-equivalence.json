@@ -1,0 +1,20 @@
+{
+  "base": "f2e439ef",
+  "ownedFix": "e82091aa",
+  "runtime": {
+    "src/core/fpsigns.js": {
+      "owned": "e4a087362a81d2da08d4d404a6ac796f32703274b5328e6e942e8d707cc81e56",
+      "candidate": "e4a087362a81d2da08d4d404a6ac796f32703274b5328e6e942e8d707cc81e56"
+    },
+    "src/core/fpsignlettering.js": {
+      "owned": "ae96d2d284f70719b4ebd806d8b5f2dce1f06f171057896cc3a121959e5b94e8",
+      "candidate": "ae96d2d284f70719b4ebd806d8b5f2dce1f06f171057896cc3a121959e5b94e8"
+    },
+    "src/core/fpworld.js": {
+      "owned": "c726cf97f5ea724f73923dd505626c5874c4e9e1d56fdfdf91e90c8aa82a26d3",
+      "candidate": "c726cf97f5ea724f73923dd505626c5874c4e9e1d56fdfdf91e90c8aa82a26d3"
+    }
+  },
+  "currentPilotScriptListPreserved": true,
+  "oneAddedScript": "src/core/fpsignlettering.js"
+}

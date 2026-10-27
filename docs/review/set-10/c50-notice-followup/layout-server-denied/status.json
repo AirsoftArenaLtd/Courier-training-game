@@ -1,0 +1,11 @@
+{
+  "phase": "failed",
+  "jobs": [],
+  "pid": 171177,
+  "startedAt": 1793113109.3388417,
+  "serverPid": 172149,
+  "failure": "",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793113762.5960805
+}

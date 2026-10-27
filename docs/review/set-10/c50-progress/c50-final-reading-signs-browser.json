@@ -1,0 +1,282 @@
+{
+  "checks": 83,
+  "samples": [
+    {
+      "lang": "en",
+      "large": false,
+      "quality": "low",
+      "geometry": 190,
+      "drawn": 2,
+      "pool": 5,
+      "fontAtlas": false,
+      "fontBorrowed": false,
+      "wordFaces": 2,
+      "textures": 2,
+      "visible": [],
+      "calls": 43,
+      "triangles": 964,
+      "context": false,
+      "reading": {
+        "text": "Stop before the junction line.",
+        "source": "Stop before the junction line.",
+        "font": 18,
+        "x": 509,
+        "y": 669,
+        "right": 771,
+        "bottom": 690
+      },
+      "scoring": {
+        "version": 1,
+        "reports": [
+          {
+            "type": "drive.sign-stop",
+            "key": "stop:0:0:n",
+            "ok": false
+          }
+        ]
+      }
+    },
+    {
+      "kind": "stop",
+      "red": [
+        141,
+        23,
+        64,
+        255
+      ],
+      "blue": [
+        0,
+        13,
+        143,
+        255
+      ]
+    },
+    {
+      "kind": "street",
+      "red": [
+        96,
+        16,
+        44,
+        255
+      ],
+      "blue": [
+        0,
+        9,
+        101,
+        255
+      ]
+    },
+    {
+      "kind": "number",
+      "red": [
+        155,
+        25,
+        70,
+        255
+      ],
+      "blue": [
+        0,
+        15,
+        156,
+        255
+      ]
+    },
+    {
+      "kind": "giveway",
+      "red": [
+        141,
+        23,
+        64,
+        255
+      ],
+      "blue": [
+        0,
+        13,
+        143,
+        255
+      ]
+    },
+    {
+      "kind": "speed",
+      "red": [
+        141,
+        23,
+        64,
+        255
+      ],
+      "blue": [
+        0,
+        13,
+        143,
+        255
+      ]
+    },
+    {
+      "kind": "school",
+      "red": [
+        141,
+        23,
+        64,
+        255
+      ],
+      "blue": [
+        0,
+        13,
+        143,
+        255
+      ]
+    },
+    {
+      "kind": "roadworks",
+      "red": [
+        141,
+        23,
+        64,
+        255
+      ],
+      "blue": [
+        0,
+        13,
+        143,
+        255
+      ]
+    },
+    {
+      "kind": "oneway",
+      "red": [
+        141,
+        23,
+        64,
+        255
+      ],
+      "blue": [
+        0,
+        13,
+        143,
+        255
+      ]
+    },
+    {
+      "kind": "noentry",
+      "red": [
+        96,
+        16,
+        44,
+        255
+      ],
+      "blue": [
+        0,
+        9,
+        101,
+        255
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "quality": "low",
+      "geometry": 190,
+      "drawn": 2,
+      "pool": 5,
+      "fontAtlas": false,
+      "fontBorrowed": false,
+      "wordFaces": 2,
+      "textures": 2,
+      "visible": [],
+      "calls": 39,
+      "triangles": 942,
+      "context": false,
+      "reading": {
+        "text": "Stop before the junction line.",
+        "source": "Stop before the junction line.",
+        "font": 22,
+        "x": 480,
+        "y": 665,
+        "right": 800,
+        "bottom": 690
+      },
+      "scoring": {
+        "version": 1,
+        "reports": [
+          {
+            "type": "drive.sign-stop",
+            "key": "stop:0:0:n",
+            "ok": false
+          }
+        ]
+      }
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "quality": "low",
+      "geometry": 190,
+      "drawn": 2,
+      "pool": 5,
+      "fontAtlas": false,
+      "fontBorrowed": false,
+      "wordFaces": 2,
+      "textures": 2,
+      "visible": [],
+      "calls": 39,
+      "triangles": 942,
+      "context": false,
+      "reading": {
+        "text": "சந்திப்புக் கோட்டுக்கு முன் நிறுத்துங்கள்.",
+        "source": "Stop before the junction line.",
+        "font": 22,
+        "x": 382.5,
+        "y": 664,
+        "right": 897.5,
+        "bottom": 690
+      },
+      "scoring": {
+        "version": 1,
+        "reports": [
+          {
+            "type": "drive.sign-stop",
+            "key": "stop:0:0:n",
+            "ok": false
+          }
+        ]
+      }
+    },
+    {
+      "lang": "en",
+      "large": false,
+      "quality": "high",
+      "geometry": 190,
+      "drawn": 7,
+      "pool": 5,
+      "fontAtlas": true,
+      "fontBorrowed": true,
+      "wordFaces": 7,
+      "textures": 4,
+      "visible": [],
+      "calls": 45,
+      "triangles": 24203,
+      "context": false,
+      "reading": {
+        "text": "Stop before the junction line.",
+        "source": "Stop before the junction line.",
+        "font": 18,
+        "x": 509,
+        "y": 669,
+        "right": 771,
+        "bottom": 690
+      },
+      "scoring": {
+        "version": 1,
+        "reports": [
+          {
+            "type": "drive.sign-stop",
+            "key": "stop:0:0:n",
+            "ok": false
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Rendering, remapped reading and single-report signed junction grading. Per-kind colour probes temporarily hide UI and particles; screenshots restore both."
+}
