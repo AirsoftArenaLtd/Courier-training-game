@@ -38,3 +38,5 @@ These are five hub samples, not a new full route gate. The High difference is ex
 Seven serial browser jobs verify all **535 frozen inputs**, with exact report/capture hashes in `browser-status.json` and `high-fallback-result.json`. Both owned servers and the browser lease are released. `verification.json` contains the accepted totals and budgets; `visual-review.json` hashes five images inspected at original resolution. The first restricted credits runner's child-spawn error is retained separately; the allowed-context retry passes both checks. No application change was made for it.
 
 [High desks](artifacts/b1-desk-loaded-high-high-hub.png) · [Original counters / High fallback](artifacts/b1-desk-fallback-high-high-hub.png) · [Larger Tamil station](artifacts/b1-desk-native-ta-large-hub-practice.png) · [Larger Tamil original debrief](artifacts/b1-desk-native-ta-large-debrief.png).
+
+Authored-text whitespace checks pass. The imported author licence keeps its original CRLF/tab whitespace and is deliberately excluded from that check; its exact archive-byte match remains verified.

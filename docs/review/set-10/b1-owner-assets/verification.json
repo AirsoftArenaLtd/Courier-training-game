@@ -104,5 +104,9 @@
   ],
   "browserLeaseReleased": true,
   "ownedServersExited": true,
-  "scope": "Five hub-only resource views. Existing C49 route evidence retains its source scope, with the new High-only hub group hidden on routes. No full207-view rerun, shared default/current-pilot acceptance or Intel60fps claim."
+  "scope": "Five hub-only resource views. Existing C49 route evidence retains its source scope, with the new High-only hub group hidden on routes. No full207-view rerun, shared default/current-pilot acceptance or Intel60fps claim.",
+  "whitespaceCheck": {
+    "authoredFiles": "passed",
+    "exception": "The original Furniture Kit licence retains its exact CRLF/tab whitespace, as required by the asset policy. It is excluded from the authored-text whitespace check; its byte-for-byte source hash is verified in inventory.json."
+  }
 }
