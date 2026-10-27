@@ -177,7 +177,6 @@ OTR.fpSigns = {
   },
   updateUI(scene,occupied){
     const ui=scene.signUI;if(!ui)return;
-    if(scene.art.signLettering){for(const slot of ui.pool){slot.text.setVisible(false);slot.back.setVisible(false);slot.entry=null;}return;}
     const blocked=!scene.art.signs||scene.panel||scene.external||scene.transitioning||scene.handheld&&scene.handheld.isOpen;
     const top=Math.max(92,scene.soundCue.visible?scene.soundCue.y+scene.soundCue.displayHeight+10:92),large=OTR.fpAccess.settings().large;
     if(!blocked&&scene.time.now-ui.lastAt<90&&ui.top===top&&ui.navX===scene.navRoot.x&&ui.navY===scene.navRoot.y&&ui.navVisible===scene.navRoot.visible&&ui.large===large)return;
@@ -202,7 +201,10 @@ OTR.fpSigns = {
       for(const x of [-halfWidth,halfWidth])for(const z of [-.5,lower]){point.set(x,0,z).applyMatrix4(e.matrix).applyMatrix4(e.label.parent.matrixWorld).project(scene.view.camera);if(point.z<-1||point.z>1)continue;const px=(point.x+1)*640,py=(1-point.y)*360;left=Math.min(left,px);right=Math.max(right,px);up=Math.min(up,py);down=Math.max(down,py);}
       if(Number.isFinite(left))bounds.push({x:(left+right)/2,y:(up+down)/2,w:right-left+12,h:down-up+12});
     }
-    for(const e of scene.art.signs.entries){if(!e.mainVisible)continue;const p=scene.art.labelPosition(e.label);if(!p||p.y<top||p.y>490&&scene.model.mode==='cab'||p.y>615)continue;
+    for(const e of scene.art.signs.entries){
+      // Face lettering replaces sign paragraphs. Signal status and junction priority remain translated notices.
+      if(!e.mainVisible||scene.art.signLettering&&e.sign.kind!=='signal'&&e.sign.kind!=='junction-yield')continue;
+      const p=scene.art.labelPosition(e.label);if(!p||p.y<top||p.y>490&&scene.model.mode==='cab'||p.y>615)continue;
       const slot=ui.pool[count],wrap=large?320:260;if(slot.wrap!==wrap){slot.wrap=wrap;slot.text.setWordWrapWidth(wrap);}
       const text=OTR.i18n?OTR.i18n.t(e.label.text):e.label.text;if(slot.text.text!==text)slot.text.setText(e.label.text);
       const w=slot.text.width+16,h=slot.text.height+10;

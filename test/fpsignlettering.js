@@ -23,6 +23,15 @@ test('letter buffers retain the live shape attribute and prior shader hooks with
  const shader={vertexShader:THREE.ShaderLib.lambert.vertexShader,fragmentShader:THREE.ShaderLib.lambert.fragmentShader,uniforms:{}};mesh.material.onBeforeCompile(shader);assert.equal(called,1);assert.equal(shader.uniforms.otrGlyphBits,undefined);assert.match(shader.fragmentShader,/code<32\./);assert.equal(shader.uniforms.otrSignFont,undefined);assert.equal(mesh.material.customProgramCacheKey(),'prior-road-sign-surface|otr-sign-letters-procedural-1');art.dispose();source.dispose();geometry.dispose();
 });
 test('physical signs hide automatic floating paragraphs while J still reads the complete source sentence',()=>{
- const {c}=context(),make=()=>({entry:{},text:{visible:true,setVisible(v){this.visible=v;}},back:{visible:true,setVisible(v){this.visible=v;}}}),pool=Array.from({length:5},make),entry={mainVisible:true,label:{text:'This is number 104 on Harbor St.'}},scene={art:{signLettering:{},signs:{entries:[entry]},labelPosition:()=>({x:640,y:200})},signUI:{pool,readIndex:-1},message(text){this.notice=text;}};
- c.OTR.fpSigns.updateUI(scene,[]);assert.ok(pool.every(s=>!s.entry&&!s.text.visible&&!s.back.visible));c.OTR.fpSigns.read(scene);assert.equal(scene.notice,entry.label.text);
+ const {c}=context(),make=()=>({entry:{},text:{visible:true,setVisible(v){this.visible=v;}},back:{visible:true,setVisible(v){this.visible=v;}}}),pool=Array.from({length:5},make),entry={mainVisible:true,sign:{kind:'number'},label:{text:'This is number 104 on Harbor St.'}},scene={art:{signLettering:{},signs:{entries:[entry]},labelPosition:()=>({x:640,y:200})},signUI:{pool,readIndex:-1,lastAt:-1000},time:{now:1000},soundCue:{visible:false},navRoot:{visible:false,x:0,y:0},model:{mode:'cab'},message(text){this.notice=text;}};
+ c.OTR.fpAccess={settings:()=>({large:false})};c.OTR.fpSigns.updateUI(scene,[]);assert.ok(pool.every(s=>!s.entry&&!s.text.visible&&!s.back.visible));c.OTR.fpSigns.read(scene);assert.equal(scene.notice,entry.label.text);
+});
+
+test('physical face lettering retains translated signal and give-way notices without restoring face paragraphs',()=>{
+ const {c}=context(),O=c.OTR;O.fpAccess={settings:()=>({large:false})};O.i18n={t:s=>'translated '+s};
+ const item=()=>({visible:true,text:'',width:160,height:20,setVisible(v){this.visible=v;return this;},setPosition(){return this;},setDisplaySize(){return this;},setWordWrapWidth(){return this;},setText(v){this.text=O.i18n.t(v);return this;}}),pool=Array.from({length:5},()=>({text:item(),back:item()})),entries=['number','stop','signal','junction-yield'].map((kind,i)=>({mainVisible:true,sign:{kind},matrix:new THREE.Matrix4(),label:{text:kind,parent:{matrixWorld:new THREE.Matrix4()}},at:{x:i===2?240:980,y:200}}));
+ const camera=new THREE.PerspectiveCamera(68,1280/720,.1,100);camera.position.z=10;camera.lookAt(0,0,0);camera.updateMatrixWorld(true);
+ const scene={art:{signLettering:{},signs:{entries},labelPosition:l=>entries.find(e=>e.label===l).at},signUI:{pool,lastAt:-1000},time:{now:1000},soundCue:{visible:false},navRoot:{visible:false,x:0,y:0},model:{mode:'cab'},view:{camera}};
+ O.fpSigns.updateUI(scene,[]);assert.deepEqual(pool.filter(s=>s.text.visible).map(s=>s.text.text),['translated signal','translated junction-yield']);assert.ok(pool.filter(s=>s.text.visible).every(s=>s.back.visible));
+ scene.panel={};scene.time.now+=100;O.fpSigns.updateUI(scene,[]);assert.ok(pool.every(s=>!s.text.visible&&!s.back.visible));
 });
