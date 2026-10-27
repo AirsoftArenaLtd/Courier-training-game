@@ -1,0 +1,15 @@
+{
+  "verifiedAt": "2026-10-27T04:18:14.245925+00:00",
+  "originalResolution": true,
+  "files": {
+    "c46-reverse-recovery-native-good-high-en-large-controls-3.png": "c9bbf25d509f88883ac1687faad611668152b05f183ebdac19d97bbc92112cf3",
+    "c46-reverse-recovery-native-good-low-ta-normal-result.png": "204cf4d329dd6d9e7e2890571d345125a154ba08400b2f93f50d989d87cdfba1",
+    "c46-reverse-recovery-native-timeout-low-en-large-result.png": "50dcf71c412e3dafb41fc01c5480063a2abaf95b9b457733e7a1896fae6d54b5"
+  },
+  "observations": [
+    "The full controls paragraph fits at larger text.",
+    "Tamil result retains missing-glyph boxes and a small career verdict; new lesson title remains English.",
+    "The true timeout displays a failed zero-star assessment and its four lesson lines fit."
+  ],
+  "scope": "Behavior passes are not shared translation/readability acceptance."
+}

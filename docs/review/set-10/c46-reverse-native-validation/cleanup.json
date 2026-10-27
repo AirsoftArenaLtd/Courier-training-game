@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-27T04:17:20.098427+00:00",
+  "all12JobsAccepted": true,
+  "supervisorExited": true,
+  "browserChildExited": true,
+  "leaseReleased": true,
+  "server": {
+    "pid": 110849,
+    "cmd": [
+      "python3",
+      "-m",
+      "http.server",
+      "8397"
+    ],
+    "servedKernelSha256": "7895a73805597aa23638a779f50068bde4287590525915397b8aeedc9c8854b1",
+    "cwdInspection": "Restricted by environment; ownership also established by retained launch PID, exact command and matching served kernel",
+    "terminatedOwnedPidOnly": true,
+    "exited": true
+  }
+}
