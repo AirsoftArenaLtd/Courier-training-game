@@ -3,7 +3,7 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const c={THREE};c.window=c;vm.createContext(c);const F=install(c);vm.runInContext(fs.readFileSync(__dirname+'/../src/core/fpactors.js','utf8'),c);const A=c.OTR.fpActors,banks={};
 test.before(async()=>{for(const high of [false,true])banks[high]=await F.preload({high,fetch:local});});test.after(()=>Object.values(banks).forEach(b=>b.dispose()));
 test('High loads the two uploaded seven-joint rigs and unchanged bench without palette textures',()=>{
- const bank=banks[true];assert.equal(bank.stats.failed,0,JSON.stringify(bank.stats));assert.equal(bank.models.size,17);assert.equal(bank.stats.loaded,22);assert.equal(bank.textures.size,5);
+ const bank=banks[true];assert.equal(bank.stats.failed,0,JSON.stringify(bank.stats));assert.equal(bank.models.size,18);assert.equal(bank.stats.loaded,23);assert.equal(bank.textures.size,5);
  for(const use of ['ambient-adult-a','ambient-adult-b']){const model=bank.models.get(use);assert.ok(model.animated&&model.ambient);assert.equal(model.parts.length,2);assert.deepEqual(Array.from(model.gltf.animations,a=>a.name).sort(),['Idle_Neutral','Walk']);model.gltf.scene.traverse(o=>{if(o.isSkinnedMesh)assert.equal(o.skeleton.bones.length,7);});for(const p of model.parts){assert.ok(!p.material.map);assert.ok(p.geometry.hasAttribute('color'));assert.ok(!p.geometry.hasAttribute('uv'));}assert.equal(bank.add(new THREE.Group(),use,[{}]),null);}
  const bench=bank.models.get('town-bench');assert.ok(!bench.animated);assert.equal(bench.parts.length,1);assert.equal(bench.parts[0].geometry.index.count/3,170);assert.ok(!bench.parts[0].material.map);
 });
@@ -21,7 +21,7 @@ test('two copies pose independently and never mutate the bank template',()=>{
 });
 function corrupt(f,change){const raw=fs.readFileSync(__dirname+'/../assets/3d/'+f.path),size=raw.readUInt32LE(12),doc=JSON.parse(raw.subarray(20,20+size));change(doc);let json=Buffer.from(JSON.stringify(doc));json=Buffer.concat([json,Buffer.alloc(-json.length&3,32)]);const binary=raw.subarray(20+size),header=Buffer.from(raw.subarray(0,20));header.writeUInt32LE(20+json.length+binary.length,8);header.writeUInt32LE(json.length,12);return Buffer.concat([header,json,binary]);}
 test('missing ambient files leave all existing workday rigs and source town models available',async()=>{
- const bank=await F.preload({high:true,fetch:url=>url.includes('/kenney-mini-characters/')?Promise.resolve(new Response('',{status:404})):local(url)});assert.equal(bank.stats.failed,2);assert.equal(bank.models.size,15);for(const use of ['worker-men','resident-women','town-house','town-bench','van-exterior'])assert.ok(bank.models.has(use));bank.dispose();
+ const bank=await F.preload({high:true,fetch:url=>url.includes('/kenney-mini-characters/')?Promise.resolve(new Response('',{status:404})):local(url)});assert.equal(bank.stats.failed,2);assert.equal(bank.models.size,16);for(const use of ['worker-men','resident-women','town-house','town-bench','van-exterior'])assert.ok(bank.models.has(use));bank.dispose();
 });
 test('missing clips, excessive joints and unapproved skinned roles are rejected before actor construction',async()=>{
  const base=JSON.parse(fs.readFileSync(__dirname+'/../assets/3d/manifest.json')).files.find(f=>f.use==='ambient-adult-a');
