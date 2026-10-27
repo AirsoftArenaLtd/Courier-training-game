@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-26T23:24:28.319Z",
+  "at": "2026-10-27T00:22:29.380Z",
   "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
   "sourceFilesVerified": 911,
   "retainedProofsVerified": 12,
@@ -339,24 +339,27 @@
   "passedAssessments": 12,
   "incidentFollowup": {
     "status": {
-      "phase": "good-high-ta-normal",
+      "phase": "complete",
       "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
       "pid": 100059,
-      "state": "running",
-      "server": 104112
+      "state": "passed"
     },
     "jobs": 13,
     "remainingGoodLayouts": 7,
     "resourceViews": 32,
     "retainedCurrentCase": "low-en-normal",
-    "completedJobs": 9,
-    "goodJourneys": 6,
-    "nativeChecks": 6975,
-    "captures": 114,
-    "passedAssessments": 3,
-    "resourceViewsAccepted": 32
+    "completedJobs": 13,
+    "goodJourneys": 8,
+    "nativeChecks": 9300,
+    "captures": 152,
+    "passedAssessments": 4,
+    "resourceViewsAccepted": 32,
+    "complete": true,
+    "negativeJourneys": 2,
+    "negativeNativeChecks": 1225,
+    "negativeCaptures": 24
   },
-  "scope": "Core36/36 jobs complete and released:24 good, one correctly failed trip assessment and three abandoned assessments. Current incident integration advances separately; old component evidence is not relabelled. Shared A31/optional/default/current-pilot/Intel acceptance remains open.",
+  "scope": "Both current original-id validation plans complete and released:32 good layouts,16 durable passed assessments,96 resource views and6 unsafe/abandoned assessments. New optional ice/reverse/fatigue implementation and shared A30/A31/glyph/translation/readability/default/current-pilot/Intel acceptance remain separate; C46 is not complete.",
   "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
   "staticPanelAudit": {
     "panels": 1896,
@@ -371,12 +374,27 @@
   "negativeNativeChecks": 1890,
   "negativeCaptures": 47,
   "overallOriginalIds": {
-    "goodJourneys": 30,
+    "goodJourneys": 32,
     "expectedGoodJourneys": 32,
-    "goodNativeChecks": 36337,
-    "goodCaptures": 706,
-    "passedAssessments": 15,
+    "goodNativeChecks": 38662,
+    "goodCaptures": 744,
+    "passedAssessments": 16,
     "resourceViews": 96,
-    "scope": "Completed good-native/resource counts only; retained current incident regression counted once. Negative/regression/static-panel/partial native checks excluded."
+    "scope": "Completed good-native/resource counts only; retained current incident regression counted once. Negative/regression/static-panel/partial native checks excluded.",
+    "complete": true,
+    "negativeJourneys": 6,
+    "negativeNativeChecks": 3115,
+    "negativeCaptures": 71,
+    "allNativeChecks": 41777,
+    "allNativeCaptures": 815
+  },
+  "originalIdsComplete": true,
+  "extensionProgress": {
+    "at": "2026-10-27T00:36:03.686301+00:00",
+    "id": "m8-reverse",
+    "scope": "Unloaded and unregistered optional kernel only; no index/registry/default or existing accepted source change. Scene/browser/resource/native acceptance unfinished.",
+    "cpuTestsPassed": 10,
+    "verification": "../c46-reverse-kernel-progress/verification.json",
+    "next": "Integrate the opt-in scene adapter and physical controls, then rendered/native acceptance."
   }
 }

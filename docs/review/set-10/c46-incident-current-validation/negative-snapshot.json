@@ -1,0 +1,69 @@
+{
+  "at": "2026-10-27T00:22:29.380Z",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "complete": true,
+  "scope": "Current larger-Tamil dishonest-report and abandonment assessments. Correctly failed/abandoned outcomes are test passes; their counts stay separate from good-native counts.",
+  "journeys": 2,
+  "nativeChecks": 1225,
+  "captures": 24,
+  "rows": [
+    {
+      "case": "critical-low-ta-large",
+      "report": "docs/review/set-10/c46-incident-current-validation/artifacts/c46-incident-current-6d83d2e1-critical-low-ta-large.json",
+      "sha256": "e2592a55161d333a898471341b90b1d397a56dffd5634db7380cdd021d972fea",
+      "checks": 1113,
+      "captures": 19,
+      "durable": true,
+      "score": 2900,
+      "stars": {
+        "safety": 1,
+        "service": 1,
+        "efficiency": 3
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793058950956,
+        "pending": false,
+        "at": 1793059156019,
+        "stars": {
+          "safety": 1,
+          "service": 1,
+          "efficiency": 3
+        },
+        "score": 2900,
+        "criticals": [
+          "Conversation choice",
+          "Conversation choice"
+        ],
+        "lessons": [
+          "Write the incident report honestly, including your own part in it. Inconsistent reports cost far more than the damage.",
+          "Stop, secure the scene and check for injuries before anything else — people first, packages never.",
+          "Report every collision to dispatch immediately, however small. A cash settlement on the curb becomes your problem later.",
+          "Never admit fault at the scene. Exchange information, photograph everything and write down exactly what happened."
+        ]
+      },
+      "plays": 1,
+      "independentOriginalResultEquality": true,
+      "independentOriginalStarEquality": true
+    },
+    {
+      "case": "abandon-low-ta-large",
+      "report": "docs/review/set-10/c46-incident-current-validation/artifacts/c46-incident-current-6d83d2e1-abandon-low-ta-large.json",
+      "sha256": "63f1d791a82cbf872cde6adf605c760cdde0341da15215862a866f48d586adf1",
+      "checks": 112,
+      "captures": 5,
+      "durable": true,
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793059174379,
+        "pending": false,
+        "abandoned": true,
+        "at": 1793059190312
+      },
+      "plays": 0
+    }
+  ]
+}

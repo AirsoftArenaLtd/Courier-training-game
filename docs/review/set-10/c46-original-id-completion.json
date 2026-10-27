@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-27T00:30:48.751188+00:00",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Completed four existing-id baseline only: good and negative counts are separate; repository regressions/static audit/earlier component evidence are excluded from native totals. Retained scopes remain explicit in the per-plan snapshots. Optional reverse kernel and other optional extensions/shared rollout checks are excluded.",
+  "jobPlans": [
+    {
+      "path": "docs/review/set-10/c46-playable-validation/completed-summary.json",
+      "jobs": 36
+    },
+    {
+      "path": "docs/review/set-10/c46-incident-current-validation/completed-summary.json",
+      "jobs": 13
+    }
+  ],
+  "goodJourneys": 32,
+  "expectedGoodJourneys": 32,
+  "goodNativeChecks": 38662,
+  "goodCaptures": 744,
+  "passedAssessments": 16,
+  "resourceViews": 96,
+  "complete": true,
+  "negativeJourneys": 6,
+  "negativeNativeChecks": 3115,
+  "negativeCaptures": 71,
+  "allNativeChecks": 41777,
+  "allNativeCaptures": 815,
+  "sourceFilesVerified": 911,
+  "retainedProofsVerified": 12,
+  "released": true
+}
