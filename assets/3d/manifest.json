@@ -231,6 +231,13 @@
       "pack": "polyhaven-red-brick-03",
       "quality": "high",
       "use": "surface-brick"
+    },
+    {
+      "path": "kenney-furniture-kit/models/desk-high.glb",
+      "bytes": 15048,
+      "pack": "kenney-furniture-kit",
+      "quality": "high",
+      "use": "hub-desk"
     }
   ]
 }

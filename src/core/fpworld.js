@@ -38,8 +38,14 @@ OTR.fpWorld = {
     box(hub,0,2,-6,16,4,0.2,0xDBE0DF,null,true);
     [-8,8].forEach(x=>box(hub,x,2,0,0.2,4,12,0xC5D0D4,null,true));
     box(hub,0,3.5,-5.84,16,0.25,0.1,brand.primary);
+    const hubDesks=OTR.gfx.high()&&scene.assetBank?.add(hub,'hub-desk',[
+      {x:-4,z:-2.4,w:1.8,h:1.1,d:.8},{x:0,z:-3.3,w:1.8,h:1.1,d:.8},{x:4,z:-2.4,w:1.8,h:1.1,d:.8}
+    ]);
     const station = (id,x,z,color,text) => {
-      box(hub,x,0.55,z,1.8,1.1,0.8,0x4C515F,null,true);
+      if(hubDesks){
+        // Preserve the original full counter occluder; only its visible pixels change.
+        const proxy=new T.Mesh(cube,material(0x4C515F));proxy.position.set(x,.55,z);proxy.scale.set(1.8,1.1,.8);proxy.layers.set(1);hub.add(proxy);occluders.push(proxy);
+      }else box(hub,x,0.55,z,1.8,1.1,0.8,0x4C515F,null,true);
       box(hub,x,1.55,z,1.9,0.9,0.2,color,id);
       labels.push({ parent:hub,point:new T.Vector3(x,2.2,z),text,max:18 });
     };

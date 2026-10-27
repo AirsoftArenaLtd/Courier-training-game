@@ -1,0 +1,202 @@
+{
+  "tag": "b1-desk-fallback-high",
+  "quality": "high",
+  "textureDimensions": "intrinsic image/canvas",
+  "assetFailure": "missing-model-files",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "high",
+  "assets": {
+    "quality": "high",
+    "loaded": 5,
+    "failed": 15,
+    "fallbacks": 0,
+    "bytes": 4129730,
+    "decodedBytes": 20971520,
+    "errors": [
+      {
+        "path": "kenney-city-starter/models/garage-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-a-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-starter/models/garage-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-c-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/tree-small-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-c-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/tree-small-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/fence-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-commercial/models/building-a-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/fence-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-commercial/models/building-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/road-straight-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/light-curved-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/road-straight-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/light-curved-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/sedan-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/delivery-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/sedan-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/delivery-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/worker-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/worker-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/resident-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/resident-high.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/resident-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/resident-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-furniture-kit/models/desk-high.glb",
+        "reason": "Asset could not load"
+      }
+    ]
+  },
+  "prototype": {
+    "hub": {
+      "frames": 92,
+      "avgFPS": 9.16,
+      "low1FPS": 3.21,
+      "p99ms": 311.2,
+      "maxMs": 311.2,
+      "peak": {
+        "calls": 6,
+        "triangles": 136,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 7815168
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 93,
+        "baseLevelRGBABytes": 3291772,
+        "withMipmapsUpperBytes": 4389030
+      },
+      "worldProfile": {
+        "meshes": 102,
+        "instances": 171,
+        "geometries": 16,
+        "materials": 39,
+        "geometryBytes": 23616,
+        "instanceBytes": 13452,
+        "shadowCasters": 68
+      },
+      "mirrorViews": {
+        "updates": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": null
+      }
+    }
+  },
+  "phaserTextures": {
+    "count": 93,
+    "baseLevelRGBABytes": 3291772,
+    "withMipmapsUpperBytes": 4389030
+  },
+  "phaserTexturesPeak": {
+    "count": 93,
+    "baseLevelRGBABytes": 3291772,
+    "withMipmapsUpperBytes": 4389030
+  },
+  "missingViews": [],
+  "errors": []
+}

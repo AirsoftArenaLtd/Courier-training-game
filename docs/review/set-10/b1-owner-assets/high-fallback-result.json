@@ -1,0 +1,22 @@
+{
+  "tag": "b1-desk-fallback-high",
+  "scope": "All models404 at High; original procedural station bodies are the before/fallback comparison. Other source inputs match the completed six-job map.",
+  "priorPlanSha256": "6221f0087bcf2eec5c4803fc45da1b722696c65cfa4db0ccc49f08b32f5ff195",
+  "sourceInputsVerified": 535,
+  "serverPid": 128848,
+  "exit": 0,
+  "changedSources": [],
+  "accepted": true,
+  "artifacts": [
+    {
+      "file": "b1-desk-fallback-high-high-hub.png",
+      "sha256": "bd5ff68776d0abdc71f3f1c28fe1bb638c0e52b7d200334378d5b72ef74520d0"
+    },
+    {
+      "file": "bench-b1-desk-fallback-high-high.json",
+      "sha256": "ea3dfa98b843b10a85fb36f2084a8b74aba629d6057cff680fedc06abe45a9d4"
+    }
+  ],
+  "serverExited": true,
+  "leaseReleased": true
+}

@@ -1,0 +1,172 @@
+{
+  "scope": "Static camera fixtures; actual model pixels, raycasts, keyboard station actions and original panel bounds. No trainee journey or Intel FPS acceptance.",
+  "cases": [
+    {
+      "lang": "en",
+      "large": false,
+      "stations": [
+        {
+          "id": "hub-day",
+          "changedPixels": 119941
+        },
+        {
+          "id": "hub-practice",
+          "changedPixels": 88737
+        },
+        {
+          "id": "hub-record",
+          "changedPixels": 119829
+        }
+      ],
+      "panel": [
+        {
+          "x": 559.5,
+          "y": 111.5,
+          "right": 720.5,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "x": 152,
+          "y": 170,
+          "right": 648,
+          "bottom": 194,
+          "size": 19
+        },
+        {
+          "x": 608,
+          "y": 566.5,
+          "right": 672,
+          "bottom": 587.5,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "stations": [
+        {
+          "id": "hub-day",
+          "changedPixels": 119941
+        },
+        {
+          "id": "hub-practice",
+          "changedPixels": 88737
+        },
+        {
+          "id": "hub-record",
+          "changedPixels": 119829
+        }
+      ],
+      "panel": [
+        {
+          "x": 559.5,
+          "y": 111.5,
+          "right": 720.5,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "x": 152,
+          "y": 170,
+          "right": 648,
+          "bottom": 194,
+          "size": 19
+        },
+        {
+          "x": 606,
+          "y": 565,
+          "right": 674,
+          "bottom": 589,
+          "size": 19
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "stations": [
+        {
+          "id": "hub-day",
+          "changedPixels": 118492
+        },
+        {
+          "id": "hub-practice",
+          "changedPixels": 87056
+        },
+        {
+          "id": "hub-record",
+          "changedPixels": 118488
+        }
+      ],
+      "panel": [
+        {
+          "x": 502.5,
+          "y": 111,
+          "right": 777.5,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "x": 152,
+          "y": 170,
+          "right": 857,
+          "bottom": 194,
+          "size": 19
+        },
+        {
+          "x": 581,
+          "y": 566,
+          "right": 699,
+          "bottom": 588,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "stations": [
+        {
+          "id": "hub-day",
+          "changedPixels": 118492
+        },
+        {
+          "id": "hub-practice",
+          "changedPixels": 87056
+        },
+        {
+          "id": "hub-record",
+          "changedPixels": 118488
+        }
+      ],
+      "panel": [
+        {
+          "x": 502.5,
+          "y": 111,
+          "right": 777.5,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "x": 152,
+          "y": 170,
+          "right": 857,
+          "bottom": 194,
+          "size": 19
+        },
+        {
+          "x": 578,
+          "y": 565,
+          "right": 702,
+          "bottom": 589,
+          "size": 19
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "complete": true,
+  "checks": 85
+}

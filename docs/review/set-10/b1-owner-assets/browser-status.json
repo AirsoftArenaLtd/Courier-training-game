@@ -1,0 +1,252 @@
+{
+  "phase": "complete",
+  "pid": 126170,
+  "jobs": [
+    {
+      "tag": "b1-desk-native",
+      "script": "test/fpfurniturebrowser.js",
+      "env": {},
+      "exit": 0,
+      "accepted": true,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "b1-desk-native-en-large-debrief.png",
+          "sha256": "8a58d84f1f60f185e9cdd43b741bc695ea1959e02f8a03117332e6a58bd034d7"
+        },
+        {
+          "file": "b1-desk-native-en-large-hub-day.png",
+          "sha256": "6046d1a3e1eca79da51462032a347d8c95ed85e834e7434600c72be18eca9de8"
+        },
+        {
+          "file": "b1-desk-native-en-large-hub-practice.png",
+          "sha256": "1eb31ac40ccfa7d1bbe5aa7fedfdc24b3a351b08cc9fca1c479df8bd21022b71"
+        },
+        {
+          "file": "b1-desk-native-en-large-hub-record.png",
+          "sha256": "ef696d3af8485740fab322712ea146cdf31484f7fb34973f3e1b1cfd35e055a6"
+        },
+        {
+          "file": "b1-desk-native-en-normal-debrief.png",
+          "sha256": "9db500ac2a139a550302c32f0ee4cff29fbaa22789fb40ad9e27021fdc770219"
+        },
+        {
+          "file": "b1-desk-native-en-normal-hub-day.png",
+          "sha256": "6046d1a3e1eca79da51462032a347d8c95ed85e834e7434600c72be18eca9de8"
+        },
+        {
+          "file": "b1-desk-native-en-normal-hub-practice.png",
+          "sha256": "1eb31ac40ccfa7d1bbe5aa7fedfdc24b3a351b08cc9fca1c479df8bd21022b71"
+        },
+        {
+          "file": "b1-desk-native-en-normal-hub-record.png",
+          "sha256": "ef696d3af8485740fab322712ea146cdf31484f7fb34973f3e1b1cfd35e055a6"
+        },
+        {
+          "file": "b1-desk-native-ta-large-debrief.png",
+          "sha256": "44f19827aabbc701afb17d4d72e2cdbbd6fbf06033834f61e5268a7357e664f3"
+        },
+        {
+          "file": "b1-desk-native-ta-large-hub-day.png",
+          "sha256": "64e71d994aded66d7e3a118660874f5bd9e378d852002c094482af9c52c8b5e9"
+        },
+        {
+          "file": "b1-desk-native-ta-large-hub-practice.png",
+          "sha256": "fa2d55a6fd4edfb9a74a7a2eab0748b6c5f9c07d4e04e2d0ae81d8bafe538587"
+        },
+        {
+          "file": "b1-desk-native-ta-large-hub-record.png",
+          "sha256": "d14e909f4b34b01d40d58df15e0192cfc012fe2c7c5557815475e79eaa0be071"
+        },
+        {
+          "file": "b1-desk-native-ta-normal-debrief.png",
+          "sha256": "e4b42a0dd946a78f0e3b7de9b3981dd71ceec0e09ef2c3cdf5e9ffe9164fc8ee"
+        },
+        {
+          "file": "b1-desk-native-ta-normal-hub-day.png",
+          "sha256": "64e71d994aded66d7e3a118660874f5bd9e378d852002c094482af9c52c8b5e9"
+        },
+        {
+          "file": "b1-desk-native-ta-normal-hub-practice.png",
+          "sha256": "fa2d55a6fd4edfb9a74a7a2eab0748b6c5f9c07d4e04e2d0ae81d8bafe538587"
+        },
+        {
+          "file": "b1-desk-native-ta-normal-hub-record.png",
+          "sha256": "d14e909f4b34b01d40d58df15e0192cfc012fe2c7c5557815475e79eaa0be071"
+        },
+        {
+          "file": "b1-desk-native.json",
+          "sha256": "f32ab0b235bb37e3ad50b712306eaf4c603fa160db572bd3e70a81356ee7b3f3"
+        }
+      ]
+    },
+    {
+      "tag": "b1-desk-assets",
+      "script": "test/fpassetsbrowser.js",
+      "env": {
+        "QA_MODES": "low,high,high-fallback,missing,layouts"
+      },
+      "exit": 0,
+      "accepted": true,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "b1-desk-assets-high-fallback.png",
+          "sha256": "09f6c0da00ad364d220691ab000e2d0e8893cc9d430e25f84e0362de11c71592"
+        },
+        {
+          "file": "b1-desk-assets-high.png",
+          "sha256": "09f6c0da00ad364d220691ab000e2d0e8893cc9d430e25f84e0362de11c71592"
+        },
+        {
+          "file": "b1-desk-assets-loading-en-large.png",
+          "sha256": "6bcac89a450c03190c110a9e77b85b4491e0344bd25a4a915c9f8518fbf40b72"
+        },
+        {
+          "file": "b1-desk-assets-loading-en-normal.png",
+          "sha256": "2701f98fec05dcd1770c5ab337af8c43c2531c70ccf3a1069d64bd5d39a80521"
+        },
+        {
+          "file": "b1-desk-assets-loading-ta-large.png",
+          "sha256": "ec550066f2c815a3abf85f4aba4de0628b82c8a37612fe29efe81e7a1e933714"
+        },
+        {
+          "file": "b1-desk-assets-loading-ta-normal.png",
+          "sha256": "de69dab91e65a69f55c9c0763446dea88fb8d84c9db4b4a6847b80b9ae1224cf"
+        },
+        {
+          "file": "b1-desk-assets-low.png",
+          "sha256": "d8d918f602c29dbf0b3bcbbe705f5dc10930a18a089856328d28573ca99900c9"
+        },
+        {
+          "file": "b1-desk-assets-missing.png",
+          "sha256": "9162505713a7d1d89b4e08183c0b06a5b0c356454adb80294055606ad7729675"
+        },
+        {
+          "file": "b1-desk-assets-procedural.png",
+          "sha256": "9162505713a7d1d89b4e08183c0b06a5b0c356454adb80294055606ad7729675"
+        },
+        {
+          "file": "b1-desk-assets.json",
+          "sha256": "5708db81792773dc356adada6a448debdeb8bf9cd6a21a1db9ba29d7605f2ea9"
+        }
+      ]
+    },
+    {
+      "tag": "b1-desk-loaded-high",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_HUB_ONLY": "1",
+        "QA_VIEWS": "hub",
+        "QA_GFX": "high",
+        "QA_FPS_FLOOR": "0",
+        "QA_SHOTS": "1",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "b1-desk-loaded-high-high-hub.png",
+          "sha256": "66f2c2aaa7b4f914d07800a3ce29ad84df0dcb931c9744b56eaba1f3f7b813d0"
+        },
+        {
+          "file": "bench-b1-desk-loaded-high-high.json",
+          "sha256": "dd386e72a9d1261d37417f09adc641909fb76ef4da692c5c7d4bd2e011d7d26c"
+        }
+      ]
+    },
+    {
+      "tag": "b1-desk-loaded-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_HUB_ONLY": "1",
+        "QA_VIEWS": "hub",
+        "QA_GFX": "low",
+        "QA_FPS_FLOOR": "0",
+        "QA_SHOTS": "1",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "b1-desk-loaded-low-low-hub.png",
+          "sha256": "ee77e29594d181c82fa348ebf9023cb53d46e39c992e0b9d7bb4e027bd248618"
+        },
+        {
+          "file": "bench-b1-desk-loaded-low-low.json",
+          "sha256": "1bc6985ff90ce481eb5c826b1a8fa991b012e0775c2617200d5cf9952a8faed5"
+        }
+      ]
+    },
+    {
+      "tag": "b1-desk-accessible-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_HUB_ONLY": "1",
+        "QA_VIEWS": "hub",
+        "QA_GFX": "low",
+        "QA_FPS_FLOOR": "0",
+        "QA_SHOTS": "1",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "b1-desk-accessible-low-low-hub.png",
+          "sha256": "893a063382981039fd9c06fdec56b9aeba1b06834605a9c8aa64bdb53426cc79"
+        },
+        {
+          "file": "bench-b1-desk-accessible-low-low.json",
+          "sha256": "6b1412fc5440c449608268b5dd055dfde7e81eaeeb42c7cf7e8626b7ffe8d7e2"
+        }
+      ]
+    },
+    {
+      "tag": "b1-desk-fallback-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_HUB_ONLY": "1",
+        "QA_VIEWS": "hub",
+        "QA_GFX": "low",
+        "QA_FPS_FLOOR": "0",
+        "QA_SHOTS": "1",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "b1-desk-fallback-low-low-hub.png",
+          "sha256": "ee77e29594d181c82fa348ebf9023cb53d46e39c992e0b9d7bb4e027bd248618"
+        },
+        {
+          "file": "bench-b1-desk-fallback-low-low.json",
+          "sha256": "5d5c6d485add8480147dfbe0b6580f02b75d621390088875c625ebdc50c80bec"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793075409.4127614,
+  "serverPid": 126171,
+  "index": 5,
+  "tag": "b1-desk-fallback-low",
+  "childPid": 128510,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793075544.5088408
+}
