@@ -1,0 +1,1449 @@
+{
+  "quality": "high",
+  "language": "ta",
+  "large": true,
+  "checks": 100,
+  "shots": [
+    "driving-guide",
+    "bindings",
+    "capture",
+    "remapped",
+    "conflict",
+    "deadzone",
+    "reset"
+  ],
+  "layouts": [
+    {
+      "name": "existing keyboard controls",
+      "rows": [
+        {
+          "source": "3D controls",
+          "text": "3D controls",
+          "x": 563.5,
+          "y": 111,
+          "right": 716.5,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "The controls use the same saved key map as Settings and Accessibility. Press P to select a visible nearby target without the mouse.",
+          "text": "இந்த விசைகள் அமைப்புகள் மற்றும் அணுகல்தன்மையில் சேமித்த அதே விசை வரைபடத்தைப் பயன்படுத்துகின்றன. மவுஸ் இல்லாமல் தெரியும் அருகிலுள்ள இலக்கைத் தேர்ந்தெடுக்க P அழுத்துங்கள்.",
+          "x": 152,
+          "y": 170,
+          "right": 1088,
+          "bottom": 250,
+          "size": 19
+        },
+        {
+          "source": "1. W: முன்னே செல்லுங்கள் அல்லது வேகத்தை கூட்டுங்கள்",
+          "text": "1. W: முன்னே செல்லுங்கள் அல்லது வேகத்தை கூட்டுங்கள்",
+          "x": 204.5,
+          "y": 361,
+          "right": 587.5,
+          "bottom": 409,
+          "size": 19
+        },
+        {
+          "source": "2. S: பின்னே செல்லுங்கள் அல்லது பிரேக் போடுங்கள்",
+          "text": "2. S: பின்னே செல்லுங்கள் அல்லது பிரேக் போடுங்கள்",
+          "x": 697,
+          "y": 361,
+          "right": 1071,
+          "bottom": 409,
+          "size": 19
+        },
+        {
+          "source": "3. A: இடப்பக்கம் செல்லுங்கள் அல்லது திருப்புங்கள்",
+          "text": "3. A: இடப்பக்கம் செல்லுங்கள் அல்லது திருப்புங்கள்",
+          "x": 191,
+          "y": 431,
+          "right": 601,
+          "bottom": 479,
+          "size": 19
+        },
+        {
+          "source": "4. D: வலப்பக்கம் செல்லுங்கள் அல்லது திருப்புங்கள்",
+          "text": "4. D: வலப்பக்கம் செல்லுங்கள் அல்லது திருப்புங்கள்",
+          "x": 676,
+          "y": 431,
+          "right": 1092,
+          "bottom": 479,
+          "size": 19
+        },
+        {
+          "source": "5. அடுத்த பக்கம்",
+          "text": "5. அடுத்த பக்கம்",
+          "x": 308.5,
+          "y": 507,
+          "right": 483.5,
+          "bottom": 531,
+          "size": 19
+        },
+        {
+          "source": "6. Gamepad controls",
+          "text": "6. Gamepad controls",
+          "x": 786.5,
+          "y": 507,
+          "right": 981.5,
+          "bottom": 531,
+          "size": 19
+        },
+        {
+          "source": "7. பின்செல்",
+          "text": "7. பின்செல்",
+          "x": 334,
+          "y": 565,
+          "right": 458,
+          "bottom": 589,
+          "size": 19
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "guide 0",
+      "rows": [
+        {
+          "source": "Move and look with the gamepad.",
+          "text": "Move and look with the gamepad.",
+          "x": 411,
+          "y": 111,
+          "right": 869,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Use Axis 1 and Axis 2 to walk. Use Axis 3 and Axis 4 to look.",
+          "text": "Use Axis 1 and Axis 2 to walk. Use Axis 3 and Axis 4 to look.",
+          "x": 152,
+          "y": 170,
+          "right": 786,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. அடுத்த பக்கம்",
+          "text": "1. அடுத்த பக்கம்",
+          "x": 539,
+          "y": 448,
+          "right": 741,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "2. Change gamepad controls",
+          "text": "2. Change gamepad controls",
+          "x": 484,
+          "y": 506,
+          "right": 796,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "3. பின்செல்",
+          "text": "3. பின்செல்",
+          "x": 568,
+          "y": 564,
+          "right": 712,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "guide 1",
+      "rows": [
+        {
+          "source": "Drive with the gamepad.",
+          "text": "Drive with the gamepad.",
+          "x": 473,
+          "y": 111,
+          "right": 807,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Use Axis 1 to steer, Button 8 to accelerate and Button 7 to brake. Use Button 3 to change between drive and reverse while stopped.",
+          "text": "Use Axis 1 to steer, Button 8 to accelerate and Button 7 to brake. Use Button 3 to change between drive and reverse while stopped.",
+          "x": 152,
+          "y": 170,
+          "right": 1108,
+          "bottom": 232,
+          "size": 23
+        },
+        {
+          "source": "1. அடுத்த பக்கம்",
+          "text": "1. அடுத்த பக்கம்",
+          "x": 539,
+          "y": 448,
+          "right": 741,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "2. Change gamepad controls",
+          "text": "2. Change gamepad controls",
+          "x": 484,
+          "y": 506,
+          "right": 796,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "3. பின்செல்",
+          "text": "3. பின்செல்",
+          "x": 568,
+          "y": 564,
+          "right": 712,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "guide 2",
+      "rows": [
+        {
+          "source": "Use the cab controls.",
+          "text": "Use the cab controls.",
+          "x": 499,
+          "y": 111,
+          "right": 781,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Use Button 13 for the seatbelt and Button 14 for the parking brake. Use Button 5 and Button 6 for the signals.",
+          "text": "Use Button 13 for the seatbelt and Button 14 for the parking brake. Use Button 5 and Button 6 for the signals.",
+          "x": 152,
+          "y": 170,
+          "right": 1071,
+          "bottom": 232,
+          "size": 23
+        },
+        {
+          "source": "1. அடுத்த பக்கம்",
+          "text": "1. அடுத்த பக்கம்",
+          "x": 539,
+          "y": 448,
+          "right": 741,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "2. Change gamepad controls",
+          "text": "2. Change gamepad controls",
+          "x": 484,
+          "y": 506,
+          "right": 796,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "3. பின்செல்",
+          "text": "3. பின்செல்",
+          "x": 568,
+          "y": 564,
+          "right": 712,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "guide 3",
+      "rows": [
+        {
+          "source": "Use menus and the handheld.",
+          "text": "Use menus and the handheld.",
+          "x": 439,
+          "y": 111,
+          "right": 841,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Use Button 1 to choose or interact and Button 2 to go back. Use Button 9 for the handheld. Hold the interact button to scan while aiming.",
+          "text": "Use Button 1 to choose or interact and Button 2 to go back. Use Button 9 for the handheld. Hold the interact button to scan while aiming.",
+          "x": 152,
+          "y": 170,
+          "right": 1017,
+          "bottom": 232,
+          "size": 23
+        },
+        {
+          "source": "1. அடுத்த பக்கம்",
+          "text": "1. அடுத்த பக்கம்",
+          "x": 539,
+          "y": 448,
+          "right": 741,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "2. Change gamepad controls",
+          "text": "2. Change gamepad controls",
+          "x": 484,
+          "y": 506,
+          "right": 796,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "3. பின்செல்",
+          "text": "3. பின்செல்",
+          "x": 568,
+          "y": 564,
+          "right": 712,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "guide 4",
+      "rows": [
+        {
+          "source": "Connect a standard gamepad.",
+          "text": "Connect a standard gamepad.",
+          "x": 438,
+          "y": 111,
+          "right": 842,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Press a gamepad button to connect, then release all controls. Use Button 13 and Button 14 to choose menu options. Keyboard and mouse controls remain available.",
+          "text": "Press a gamepad button to connect, then release all controls. Use Button 13 and Button 14 to choose menu options. Keyboard and mouse controls remain available.",
+          "x": 152,
+          "y": 170,
+          "right": 1099,
+          "bottom": 232,
+          "size": 23
+        },
+        {
+          "source": "1. அடுத்த பக்கம்",
+          "text": "1. அடுத்த பக்கம்",
+          "x": 539,
+          "y": 448,
+          "right": 741,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "2. Change gamepad controls",
+          "text": "2. Change gamepad controls",
+          "x": 484,
+          "y": 506,
+          "right": 796,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "3. பின்செல்",
+          "text": "3. பின்செல்",
+          "x": 568,
+          "y": 564,
+          "right": 712,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 0",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111,
+          "right": 763,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. Axis 1: Walk or steer left and right",
+          "text": "1. Axis 1: Walk or steer left and right",
+          "x": 197,
+          "y": 390,
+          "right": 595,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "2. Axis 2: Walk forward and backward",
+          "text": "2. Axis 2: Walk forward and backward",
+          "x": 679,
+          "y": 390,
+          "right": 1089,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "3. Axis 3: Look left and right",
+          "text": "3. Axis 3: Look left and right",
+          "x": 243.5,
+          "y": 448,
+          "right": 548.5,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "4. அடுத்த பக்கம்",
+          "text": "4. அடுத்த பக்கம்",
+          "x": 783,
+          "y": 448,
+          "right": 985,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506,
+          "right": 495,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506,
+          "right": 1083.5,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "7. பின்செல்",
+          "text": "7. பின்செல்",
+          "x": 324,
+          "y": 564,
+          "right": 468,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 1",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111,
+          "right": 763,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. Axis 4: Look up and down",
+          "text": "1. Axis 4: Look up and down",
+          "x": 245,
+          "y": 390,
+          "right": 547,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "2. Button 8: Accelerate",
+          "text": "2. Button 8: Accelerate",
+          "x": 760,
+          "y": 390,
+          "right": 1008,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "3. Button 7: Brake",
+          "text": "3. Button 7: Brake",
+          "x": 298,
+          "y": 448,
+          "right": 494,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "4. அடுத்த பக்கம்",
+          "text": "4. அடுத்த பக்கம்",
+          "x": 783,
+          "y": 448,
+          "right": 985,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506,
+          "right": 495,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506,
+          "right": 1083.5,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "7. பின்செல்",
+          "text": "7. பின்செல்",
+          "x": 324,
+          "y": 564,
+          "right": 468,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 2",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111,
+          "right": 763,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. Button 1: Interact or scan",
+          "text": "1. Button 1: Interact or scan",
+          "x": 243,
+          "y": 390,
+          "right": 549,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "2. Button 2: பின்செல்",
+          "text": "2. Button 2: பின்செல்",
+          "x": 758.5,
+          "y": 390,
+          "right": 1009.5,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "3. Button 3: கியரை மாற்றுங்கள்",
+          "text": "3. Button 3: கியரை மாற்றுங்கள்",
+          "x": 202,
+          "y": 448,
+          "right": 590,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "4. அடுத்த பக்கம்",
+          "text": "4. அடுத்த பக்கம்",
+          "x": 783,
+          "y": 448,
+          "right": 985,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506,
+          "right": 495,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506,
+          "right": 1083.5,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "7. பின்செல்",
+          "text": "7. பின்செல்",
+          "x": 324,
+          "y": 564,
+          "right": 468,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 3",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111,
+          "right": 763,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. Button 4: அருகிலுள்ள அடுத்த இலக்கைத் தேர்ந்தெடுங்கள்",
+          "text": "1. Button 4: அருகிலுள்ள அடுத்த இலக்கைத் தேர்ந்தெடுங்கள்",
+          "x": 200,
+          "y": 369,
+          "right": 592,
+          "bottom": 421,
+          "size": 22
+        },
+        {
+          "source": "2. Button 5: இடது இண்டிகேட்டர்",
+          "text": "2. Button 5: இடது இண்டிகேட்டர்",
+          "x": 695,
+          "y": 382,
+          "right": 1073,
+          "bottom": 408,
+          "size": 22
+        },
+        {
+          "source": "3. Button 6: வலது இண்டிகேட்டர்",
+          "text": "3. Button 6: வலது இண்டிகேட்டர்",
+          "x": 204,
+          "y": 448,
+          "right": 588,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "4. அடுத்த பக்கம்",
+          "text": "4. அடுத்த பக்கம்",
+          "x": 783,
+          "y": 448,
+          "right": 985,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506,
+          "right": 495,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506,
+          "right": 1083.5,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "7. பின்செல்",
+          "text": "7. பின்செல்",
+          "x": 324,
+          "y": 564,
+          "right": 468,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 4",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111,
+          "right": 763,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. Button 9: ஹேண்ட்ஹெல்டைத் திறங்கள் அல்லது மூடுங்கள்",
+          "text": "1. Button 9: ஹேண்ட்ஹெல்டைத் திறங்கள் அல்லது மூடுங்கள்",
+          "x": 199,
+          "y": 369,
+          "right": 593,
+          "bottom": 421,
+          "size": 22
+        },
+        {
+          "source": "2. Button 10: மெனுவைத் திறங்கள்",
+          "text": "2. Button 10: மெனுவைத் திறங்கள்",
+          "x": 673.5,
+          "y": 382,
+          "right": 1094.5,
+          "bottom": 408,
+          "size": 22
+        },
+        {
+          "source": "3. Button 14: Set the பார்க்கிங் பிரேக்",
+          "text": "3. Button 14: Set the பார்க்கிங் பிரேக்",
+          "x": 180.5,
+          "y": 448,
+          "right": 611.5,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "4. அடுத்த பக்கம்",
+          "text": "4. அடுத்த பக்கம்",
+          "x": 783,
+          "y": 448,
+          "right": 985,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506,
+          "right": 495,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506,
+          "right": 1083.5,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "7. பின்செல்",
+          "text": "7. பின்செல்",
+          "x": 324,
+          "y": 564,
+          "right": 468,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 5",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111,
+          "right": 763,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. Button 13: சீட்பெல்ட் அணியுங்கள்",
+          "text": "1. Button 13: சீட்பெல்ட் அணியுங்கள்",
+          "x": 179.5,
+          "y": 390,
+          "right": 612.5,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "2. Button 12: முன்னே பாருங்கள்",
+          "text": "2. Button 12: முன்னே பாருங்கள்",
+          "x": 691.5,
+          "y": 390,
+          "right": 1076.5,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "3. Button 11: கவனமாக நடத்தல்",
+          "text": "3. Button 11: கவனமாக நடத்தல்",
+          "x": 205.5,
+          "y": 448,
+          "right": 586.5,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "4. அடுத்த பக்கம்",
+          "text": "4. அடுத்த பக்கம்",
+          "x": 783,
+          "y": 448,
+          "right": 985,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506,
+          "right": 495,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506,
+          "right": 1083.5,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "7. பின்செல்",
+          "text": "7. பின்செல்",
+          "x": 324,
+          "y": 564,
+          "right": 468,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 6",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111,
+          "right": 763,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. Button 13: Previous menu choice",
+          "text": "1. Button 13: Previous menu choice",
+          "x": 204,
+          "y": 390,
+          "right": 588,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "2. Button 14: Next menu choice",
+          "text": "2. Button 14: Next menu choice",
+          "x": 713,
+          "y": 390,
+          "right": 1055,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "3. Button 15: Previous menu choice",
+          "text": "3. Button 15: Previous menu choice",
+          "x": 204,
+          "y": 448,
+          "right": 588,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "4. அடுத்த பக்கம்",
+          "text": "4. அடுத்த பக்கம்",
+          "x": 783,
+          "y": 448,
+          "right": 985,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506,
+          "right": 495,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506,
+          "right": 1083.5,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "7. பின்செல்",
+          "text": "7. பின்செல்",
+          "x": 324,
+          "y": 564,
+          "right": 468,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 7",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111,
+          "right": 763,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. Button 16: Next menu choice",
+          "text": "1. Button 16: Next menu choice",
+          "x": 225,
+          "y": 448,
+          "right": 567,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "2. அடுத்த பக்கம்",
+          "text": "2. அடுத்த பக்கம்",
+          "x": 783,
+          "y": 448,
+          "right": 985,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "3. Stick sensitivity",
+          "text": "3. Stick sensitivity",
+          "x": 297,
+          "y": 506,
+          "right": 495,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "4. Restore default gamepad controls",
+          "text": "4. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506,
+          "right": 1083.5,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "5. பின்செல்",
+          "text": "5. பின்செல்",
+          "x": 324,
+          "y": 564,
+          "right": 468,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "edit",
+      "rows": [
+        {
+          "source": "Change a gamepad control",
+          "text": "Change a gamepad control",
+          "x": 458.5,
+          "y": 111,
+          "right": 821.5,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Change gear",
+          "text": "கியரை மாற்றுங்கள்",
+          "x": 152,
+          "y": 170,
+          "right": 395,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. Choose a new input",
+          "text": "1. Choose a new input",
+          "x": 520,
+          "y": 448,
+          "right": 760,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "2. Disable this input",
+          "text": "2. Disable this input",
+          "x": 531,
+          "y": 506,
+          "right": 749,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "3. பின்செல்",
+          "text": "3. பின்செல்",
+          "x": 568,
+          "y": 564,
+          "right": 712,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "capture",
+      "rows": [
+        {
+          "source": "Choose a gamepad input",
+          "text": "Choose a gamepad input",
+          "x": 473,
+          "y": 111,
+          "right": 807,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Release all controls, press one button, then release it. Escape cancels.",
+          "text": "Release all controls, press one button, then release it. Escape cancels.",
+          "x": 152,
+          "y": 170,
+          "right": 899,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. ரத்து",
+          "text": "1. ரத்து",
+          "x": 597,
+          "y": 564,
+          "right": 683,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "remapped",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111,
+          "right": 763,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. Button 1: Interact or scan",
+          "text": "1. Button 1: Interact or scan",
+          "x": 243,
+          "y": 390,
+          "right": 549,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "2. Button 2: பின்செல்",
+          "text": "2. Button 2: பின்செல்",
+          "x": 758.5,
+          "y": 390,
+          "right": 1009.5,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "3. Button 17: கியரை மாற்றுங்கள்",
+          "text": "3. Button 17: கியரை மாற்றுங்கள்",
+          "x": 196,
+          "y": 448,
+          "right": 596,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "4. அடுத்த பக்கம்",
+          "text": "4. அடுத்த பக்கம்",
+          "x": 783,
+          "y": 448,
+          "right": 985,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506,
+          "right": 495,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506,
+          "right": 1083.5,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "7. பின்செல்",
+          "text": "7. பின்செல்",
+          "x": 324,
+          "y": 564,
+          "right": 468,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "conflict",
+      "rows": [
+        {
+          "source": "Choose another gamepad input",
+          "text": "Choose another gamepad input",
+          "x": 426.5,
+          "y": 111,
+          "right": 853.5,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "That input is already assigned to an action used at the same time. Choose another input or disable its other action first.",
+          "text": "That input is already assigned to an action used at the same time. Choose another input or disable its other action first.",
+          "x": 152,
+          "y": 170,
+          "right": 1102,
+          "bottom": 232,
+          "size": 23
+        },
+        {
+          "source": "1. மீண்டும் முயலுங்கள்",
+          "text": "1. மீண்டும் முயலுங்கள்",
+          "x": 495,
+          "y": 506,
+          "right": 785,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "2. பின்செல்",
+          "text": "2. பின்செல்",
+          "x": 568,
+          "y": 564,
+          "right": 712,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "deadzone",
+      "rows": [
+        {
+          "source": "Stick sensitivity",
+          "text": "Stick sensitivity",
+          "x": 534,
+          "y": 111,
+          "right": 746,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Ignore stick movement below 18 percent. Choose a higher value if the view or steering moves while the stick is released.",
+          "text": "Ignore stick movement below 18 percent. Choose a higher value if the view or steering moves while the stick is released.",
+          "x": 152,
+          "y": 170,
+          "right": 1085,
+          "bottom": 232,
+          "size": 23
+        },
+        {
+          "source": "1. Ignore movement below 10 percent.",
+          "text": "1. Ignore movement below 10 percent.",
+          "x": 429,
+          "y": 390,
+          "right": 851,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "2. Ignore movement below 18 percent.",
+          "text": "2. Ignore movement below 18 percent.",
+          "x": 429,
+          "y": 448,
+          "right": 851,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "3. Ignore movement below 30 percent.",
+          "text": "3. Ignore movement below 30 percent.",
+          "x": 429,
+          "y": 506,
+          "right": 851,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "4. பின்செல்",
+          "text": "4. பின்செல்",
+          "x": 568,
+          "y": 564,
+          "right": 712,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "deadzone changed",
+      "rows": [
+        {
+          "source": "Stick sensitivity",
+          "text": "Stick sensitivity",
+          "x": 534,
+          "y": 111,
+          "right": 746,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Ignore stick movement below 30 percent. Choose a higher value if the view or steering moves while the stick is released.",
+          "text": "Ignore stick movement below 30 percent. Choose a higher value if the view or steering moves while the stick is released.",
+          "x": 152,
+          "y": 170,
+          "right": 1085,
+          "bottom": 232,
+          "size": 23
+        },
+        {
+          "source": "1. Ignore movement below 10 percent.",
+          "text": "1. Ignore movement below 10 percent.",
+          "x": 429,
+          "y": 390,
+          "right": 851,
+          "bottom": 416,
+          "size": 22
+        },
+        {
+          "source": "2. Ignore movement below 18 percent.",
+          "text": "2. Ignore movement below 18 percent.",
+          "x": 429,
+          "y": 448,
+          "right": 851,
+          "bottom": 474,
+          "size": 22
+        },
+        {
+          "source": "3. Ignore movement below 30 percent.",
+          "text": "3. Ignore movement below 30 percent.",
+          "x": 429,
+          "y": 506,
+          "right": 851,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "4. பின்செல்",
+          "text": "4. பின்செல்",
+          "x": 568,
+          "y": 564,
+          "right": 712,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "reset confirmation",
+      "rows": [
+        {
+          "source": "Restore default gamepad controls",
+          "text": "Restore default gamepad controls",
+          "x": 410.5,
+          "y": 111,
+          "right": 869.5,
+          "bottom": 143,
+          "size": 27
+        },
+        {
+          "source": "Reset gamepad controls for this 3D session?",
+          "text": "gamepad controls for this 3D session-ஐ மீட்டமைக்கவா?",
+          "x": 152,
+          "y": 170,
+          "right": 775,
+          "bottom": 199,
+          "size": 23
+        },
+        {
+          "source": "1. Restore defaults",
+          "text": "1. Restore defaults",
+          "x": 537.5,
+          "y": 506,
+          "right": 742.5,
+          "bottom": 532,
+          "size": 22
+        },
+        {
+          "source": "2. ரத்து",
+          "text": "2. ரத்து",
+          "x": 597,
+          "y": 564,
+          "right": 683,
+          "bottom": 590,
+          "size": 22
+        }
+      ],
+      "bad": []
+    }
+  ],
+  "errors": [],
+  "scope": "One initial parked-cab/profile fixture, then real keyboard/menu choices and fake Gamepad API values. No subsequent position, mission, score or timer writes. New UI text uses the translation pipeline; new translations and durable shared gamepad settings remain pending.",
+  "initial": {
+    "gear": 2,
+    "belt": true,
+    "hand": true,
+    "paused": false,
+    "elapsed": 0.07498666666666665,
+    "draft": null,
+    "held": {},
+    "stored": "{\"muted\":false,\"hints\":true,\"volume\":0.55,\"a11y\":{\"keys\":{\"KeyR\":\"KeyT\"},\"large\":true,\"colour\":false,\"narrate\":false,\"reducedMotion\":true}}",
+    "local": "[[\"otr_save_v1_firstperson_v2\",null]]",
+    "frame": {
+      "connected": true,
+      "active": true,
+      "device": 0,
+      "steer": 0,
+      "moveX": 0,
+      "moveY": 0,
+      "lookX": 0,
+      "lookY": 0,
+      "throttle": 0,
+      "brake": 0,
+      "careful": false,
+      "held": 0,
+      "pressed": 0,
+      "released": 0
+    },
+    "controls": {
+      "forward": 0,
+      "back": 0,
+      "left": 0,
+      "right": 0,
+      "careful": false
+    }
+  },
+  "complete": true
+}

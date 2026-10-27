@@ -1,0 +1,10 @@
+{
+  "inspectedAtOriginalResolution": true,
+  "scope": "Existing shared panel design; new guide/remap controls readable. New Tamil strings remain English pending Claude.",
+  "files": {
+    "ui-low-en-normal/ui-low-en-normal-bindings.png": "107a52a041ded2dd0f211209ea1e2f5d23b5b4bd605ae3e71f901f8fe0677edf",
+    "ui-high-en-large/ui-high-en-large-remapped.png": "6dabc05db1bfdae5ee66f61d8e39e391a913c3ba7bbf3c6ecaeb12aaee36deeb",
+    "ui-low-ta-normal/ui-low-ta-normal-bindings.png": "d79689805c4c593c7577a61a724282f0d4f436d7276ad0fe38fd4cce6b2a2daf",
+    "ui-high-ta-large/ui-high-ta-large-deadzone.png": "7f204108fb994d4ed2477ce5b92199a28b8b1c36636a792d066d47bb3e405c28"
+  }
+}
