@@ -330,7 +330,7 @@ OTR.fpWorld = {
       if(base.town&&parent===route)staticBatches.push({mesh,entries,bounded:entries[0].bounded,signShapes});
     }));
     const mirrors=OTR.fpMirrors?OTR.fpMirrors.build(scene,interactions):null;
-    const rear=OTR.fpRear&&cab?OTR.fpRear.build(scene,cab.root,interactions):null;
+    const rear=OTR.fpRear&&cab?OTR.fpRear.build(scene,cab.root,interactions,cab.navigation.local):null;
     const lighting=OTR.fpLighting?OTR.fpLighting.build(scene,{van,chassis,cab,cube,plane,weatherDrops,lampGood}):null;
     const weatherEffects=OTR.fpWeather&&cab?OTR.fpWeather.build(scene,cab,lighting,weather):null;
     const damage=OTR.fpDamageWorld?OTR.fpDamageWorld.build(scene,base,route,chassis,labels,actors):null;

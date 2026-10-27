@@ -25,8 +25,8 @@ only manage Low, so it must stay clear there too.
 | # | Task | Try this | It should feel like |
 | --- | --- | --- | --- |
 | 1 | C-48, merged | Sit in the cab and look ahead, then at each mirror | Both mirrors are visible from the normal seat; the cab looks complete (roof, floor, passenger side), not a floating dashboard |
-| 2 | B-164 | Look at the gear selector and the sat nav together | The sat nav does not cover the P, R, N and D positions; you can see which gear is set |
-| 3 | B-164 | Drive towards a road sign | The sat nav never hides the sign you are approaching |
+| 2 | B-164, merged | Look at the gear selector and the sat nav together | The sat nav does not cover the P, R, N and D positions; you can see which gear is set |
+| 3 | B-164, merged | Drive towards a road sign | The sat nav never hides the sign you are approaching |
 | 4 | B-138, merged | Pull away once without the indicator, once after Q and three seconds | The first is a plus-shaped pin on the drive map (B-166), the second is not |
 | 5 | C-49 | Drive the first street at High | Roads, pavements, grass and walls look like real surfaces, not flat colour; nothing shimmers or repeats obviously |
 | 6 | C-49 | The same at Low | Plain colours as before, readable and quick; no missing surfaces |

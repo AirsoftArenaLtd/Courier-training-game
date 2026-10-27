@@ -76,7 +76,7 @@ OTR.fpRear={
     const k=Math.tan(steer)/3.3,a=-k*distance,c=Math.cos(a),s=Math.sin(a);
     out.x=Math.abs(k)<1e-6?side:(1-c)/k+c*side-s*2.7;out.y=.045;out.z=Math.abs(k)<1e-6?2.7+distance:Math.sin(k*distance)/k+s*side+c*2.7;return out;
   },
-  build(scene,root,interactions){
+  build(scene,root,interactions,mount){
     const T=THREE,v=scene.view,atlas=v.mirror,plane=new T.PlaneGeometry(1,1),point=new T.Vector3(),pathPoint=new T.Vector3();
     const camera=new T.PerspectiveCamera(60,8/3,.08,OTR.gfx.high()?60:35);atlas.rearCamera=camera;atlas.updated=atlas.updated||[-100,-100,-100];atlas.updates=atlas.updates||[0,0,0];atlas.updated[3]=-100;atlas.updates[3]=0;atlas.last=-1;
     const uniform={atlas:{value:atlas.texture||null},active:{value:0},distances:{value:new T.Vector3(6,6,6)},guides:{value:Array.from({length:18},()=>new T.Vector2(-10,-10))},texel:{value:new T.Vector2(1/(OTR.gfx.high()?768:384),1/(OTR.gfx.high()?288:144))}};
@@ -90,7 +90,7 @@ OTR.fpRear={
         if(p.y<.12){float sector=floor(p.x*3.);float d=sector<1.?distances.x:sector<2.?distances.y:distances.z;float level=d<.5?3.:d<1.5?2.:d<3.?1.:0.;
           float edge=step(.07,fract(p.x*3.))*step(fract(p.x*3.),.93);float bars=step(fract(p.y*32.),.65)*step(p.y,.025+level*.027);vec3 ink=level>2.?vec3(1.,.25,.2):level>1.?vec3(1.,.8,.2):vec3(.3,1.,.6);colour=mix(colour,ink,bars*edge*.85);}
       }gl_FragColor=vec4(colour,1.);\n#include <colorspace_fragment>\n}`});
-    const screen=new T.Mesh(plane,material);screen.name='rear-camera-screen';screen.position.set(.928,-.285,-1.015);screen.scale.set(.56,.21,1);root.add(screen);
+    const screen=new T.Mesh(plane,material);screen.name='rear-camera-screen';screen.position.copy(mount);screen.position.z-=.01;screen.scale.set(.56,.21,1);root.add(screen);
     const target=new T.Mesh(plane,material);target.position.copy(screen.position);target.scale.copy(screen.scale);target.position.z+=.004;target.layers.set(1);target.userData.interaction='cab-camera';root.add(target);interactions.push(target);
     const rotation=new T.Quaternion().setFromEuler(new T.Euler(-.35,Math.PI,0,'YXZ'));
     const api={screen,camera,inView:false,
