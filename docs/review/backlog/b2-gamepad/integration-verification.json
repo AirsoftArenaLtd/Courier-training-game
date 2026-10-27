@@ -103,5 +103,9 @@
     "test/fpgamepadaffinity.js": "3158ebd88e1eb217e60e4d4a73f4cd5cf529240bbdca6d1f62ea6ce2ea8aaebe",
     "test/fpgamepadbrowser.js": "892c68ca284ed741d0060edbb4969080a644b99c32fefcabc47ff5de975cf8e0",
     "test/fpgamepadaffinitybrowser.js": "89cf33d48581d2da44d6cd3079bf4aef6b0aed2c5f133c5fdd622e1fb11b348b"
+  },
+  "whitespaceCheck": {
+    "authoredCodeAndDocs": "passed",
+    "rawProducerException": "affinity-before.log retains the original Node failing-regression output, including its whitespace-only indentation lines. It is excluded from the authored-text whitespace check."
   }
 }
