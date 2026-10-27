@@ -1,0 +1,13 @@
+{
+  "scope": "Read-only CDP observation of the owned in-progress browser; no inputs, timers, positions, results or viewport changed.",
+  "browserPid": 111773,
+  "nodePid": 111761,
+  "activeResults": true,
+  "phase": "finished",
+  "vanZ": -53.120825990197666,
+  "speed": -0.035152112078575076,
+  "parkingBrake": true,
+  "parkingDone": true,
+  "score": 600,
+  "finding": "Protocol waits for speed <0.015 after the source parked threshold (<0.12) has already frozen the completed module. Fix the test predicate to accept a finished phase; do not change motor, clocks or source parking limits."
+}

@@ -1,0 +1,8 @@
+TypeError: Cannot read properties of undefined (reading 'm8-reverse')
+    at evaluate (evaluate at /workspace/c46-safety-wellness/test/fpreversebrowser.js:34:142, <anonymous>:0:83)
+    at #evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/IsolatedWorld.js:105:16)
+    at async CdpFrame.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:362:20)
+    at async CdpPage.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:830:20)
+    at async /workspace/c46-safety-wellness/test/fpreversebrowser.js:34:131
