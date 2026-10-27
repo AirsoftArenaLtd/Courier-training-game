@@ -1,0 +1,84 @@
+{
+  "tag": "b1-desk-loaded-high",
+  "quality": "high",
+  "textureDimensions": "intrinsic image/canvas",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "high",
+  "assets": {
+    "quality": "high",
+    "loaded": 20,
+    "failed": 0,
+    "fallbacks": 0,
+    "bytes": 8170522,
+    "decodedBytes": 24490302,
+    "errors": []
+  },
+  "prototype": {
+    "hub": {
+      "frames": 105,
+      "avgFPS": 10.42,
+      "low1FPS": 4.39,
+      "p99ms": 204.8,
+      "maxMs": 250.7,
+      "peak": {
+        "calls": 9,
+        "triangles": 694,
+        "textures": 1,
+        "geometries": 6,
+        "attachmentBytes": 7815168
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 93,
+        "baseLevelRGBABytes": 3291772,
+        "withMipmapsUpperBytes": 4389030
+      },
+      "worldProfile": {
+        "meshes": 114,
+        "instances": 179,
+        "geometries": 26,
+        "materials": 43,
+        "geometryBytes": 2607690,
+        "instanceBytes": 13928,
+        "shadowCasters": 78
+      },
+      "mirrorViews": {
+        "updates": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": null
+      }
+    }
+  },
+  "phaserTextures": {
+    "count": 93,
+    "baseLevelRGBABytes": 3291772,
+    "withMipmapsUpperBytes": 4389030
+  },
+  "phaserTexturesPeak": {
+    "count": 93,
+    "baseLevelRGBABytes": 3291772,
+    "withMipmapsUpperBytes": 4389030
+  },
+  "missingViews": [],
+  "errors": []
+}

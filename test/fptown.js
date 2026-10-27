@@ -21,7 +21,7 @@ test('High surface identities follow real reflection compaction without changing
  for(const model of banks[true].models.values())for(const part of model.parts)assert.ok(!part.geometry.hasAttribute('otrSurfaceKind'));assert.ok([...banks[true].textures.values()].every(t=>!t.image.closed));
 });
 test('both qualities load all fourteen local templates and use one texture-free primitive per town model',()=>{
- for(const high of [false,true]){const bank=banks[high];assert.equal(bank.models.size,14);assert.equal(bank.stats.loaded,high?19:14,JSON.stringify(bank.stats));assert.equal(bank.stats.failed,0);
+ for(const high of [false,true]){const bank=banks[high];assert.equal(bank.models.size,high?15:14);assert.equal(bank.stats.loaded,high?20:14,JSON.stringify(bank.stats));assert.equal(bank.stats.failed,0);
   for(const [use,model] of bank.models){if(!use.startsWith('town-'))continue;assert.equal(model.parts.length,1);assert.ok(!model.parts[0].material.map);if(!high&&use!=='town-garage')assert.ok(model.parts[0].geometry.index.count/3<=44);}
  }
 });

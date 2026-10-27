@@ -1,0 +1,1368 @@
+{
+  "verifiedAt": "2026-10-27T04:33:23.009162+00:00",
+  "incomingRef": "origin/owner/o3-assets",
+  "incomingCommit": "6061a244faafe821da11feb3b041129f60f72b12",
+  "baseBranch": "origin/codex/c49-materials",
+  "baseCommit": "8d2b096a",
+  "archiveCount": 13,
+  "usedOwnerPacks": 12,
+  "deferredOwnerPacks": 1,
+  "additionalPreviouslyBundledPack": "kenney-city-starter from its official GitHub source, outside the13 owner archives",
+  "manifestSha256": "238784e99bba6d2bee6c6dc7a8c354eb3c85dd27ff31304238b8328591565730",
+  "manifestFiles": 34,
+  "manifestPacks": 13,
+  "totalShippedBytes": 8994730,
+  "lowSelectedBytes": 824208,
+  "ceilingsBytes": {
+    "total": 41943040,
+    "low": 15728640,
+    "oneModel": 3145728,
+    "oneTexture": 2097152
+  },
+  "archives": [
+    {
+      "archive": "Ultimate Modular Men- Feb 2022-20261017T132104Z-1-001.zip",
+      "bytes": 54497775,
+      "sha256": "2ace747e6fc9e3d4e8b2e8ad32c3ea434c8d0d57170023bc20fbd9a0f8ef230b",
+      "pack": "quaternius-modular-men",
+      "members": 111,
+      "archiveLicences": [
+        {
+          "path": "Ultimate Modular Men- Feb 2022/License.txt",
+          "sha256": "e8dbf915a2b82229913e301a0787696611241bdefec4832bc084f54161db1efe"
+        }
+      ],
+      "status": "used",
+      "sourceNote": "assets/3d/quaternius-modular-men/SOURCE.md",
+      "sourceNoteSha256": "7a81e39105492a592a80a802eb92ebcc7d9dd8bb8588409493cddff9618e98f4",
+      "licenceSha256": "e8dbf915a2b82229913e301a0787696611241bdefec4832bc084f54161db1efe",
+      "licenceMatchesArchive": true,
+      "manifestUses": [
+        "resident-men",
+        "worker-men"
+      ],
+      "shippedFiles": [
+        "quaternius-modular-men/models/worker-low.glb",
+        "quaternius-modular-men/models/worker-high.glb",
+        "quaternius-modular-men/models/resident-low.glb",
+        "quaternius-modular-men/models/resident-high.glb"
+      ],
+      "consumers": [
+        "src/core/fpactors.js"
+      ],
+      "archiveHashInSourceNote": false,
+      "sourceModelMatches": [
+        {
+          "path": "Ultimate Modular Men- Feb 2022/Individual Characters/glTF/Worker.gltf",
+          "sha256": "e49f8ec0f8a7de72dd26b1c01e6413c9a87a9116eeee21f9364ccd36bc286335"
+        },
+        {
+          "path": "Ultimate Modular Men- Feb 2022/Individual Characters/glTF/Casual_2.gltf",
+          "sha256": "55c654d09a2a5ff6e3bd6158d4a1b462f181cd6f1e12a0f5e9d959f9c3abc438"
+        }
+      ]
+    },
+    {
+      "archive": "Ultimate Modular Women - April 2022-20261017T132144Z-1-001.zip",
+      "bytes": 45658678,
+      "sha256": "f89fa37062b36fd09366ee40ac8d7436599120367f1415e4cfac75b0ca272ea0",
+      "pack": "quaternius-modular-women",
+      "members": 101,
+      "archiveLicences": [
+        {
+          "path": "Ultimate Modular Women - April 2022/License.txt",
+          "sha256": "e8dbf915a2b82229913e301a0787696611241bdefec4832bc084f54161db1efe"
+        }
+      ],
+      "status": "used",
+      "sourceNote": "assets/3d/quaternius-modular-women/SOURCE.md",
+      "sourceNoteSha256": "44254fdac6cd6048ddc8ed2721f96641bfd854f67a7b23891b26cee8160373fe",
+      "licenceSha256": "e8dbf915a2b82229913e301a0787696611241bdefec4832bc084f54161db1efe",
+      "licenceMatchesArchive": true,
+      "manifestUses": [
+        "resident-women",
+        "worker-women"
+      ],
+      "shippedFiles": [
+        "quaternius-modular-women/models/worker-low.glb",
+        "quaternius-modular-women/models/worker-high.glb",
+        "quaternius-modular-women/models/resident-low.glb",
+        "quaternius-modular-women/models/resident-high.glb"
+      ],
+      "consumers": [
+        "src/core/fpactors.js"
+      ],
+      "archiveHashInSourceNote": false,
+      "sourceModelMatches": [
+        {
+          "path": "Ultimate Modular Women - April 2022/Individual Characters/glTF/Casual.gltf",
+          "sha256": "b0fe6e92219cd71808844a20a1a8b960fd1cf640a6546dc6362b5add6604e87c"
+        },
+        {
+          "path": "Ultimate Modular Women - April 2022/Individual Characters/glTF/Worker.gltf",
+          "sha256": "e2bfc1039f429e870a0119e274c2dd45f6304f00c39f4570dfeb9ed4d97a063d"
+        }
+      ]
+    },
+    {
+      "archive": "asphalt_pit_lane_1k.zip",
+      "bytes": 9344392,
+      "sha256": "ba73d31dbdfc8515692baa0ac3718168119583d6cc67fc89727422a197b48bb8",
+      "pack": "polyhaven-asphalt-pit-lane",
+      "members": 9,
+      "archiveLicences": [],
+      "status": "used",
+      "sourceNote": "assets/3d/polyhaven-asphalt-pit-lane/SOURCE.md",
+      "sourceNoteSha256": "4ab77927ceb7b7c8d95586652e072244fc0b37d57c77473a7375ed8f057864bd",
+      "licenceSha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "licenceMatchesArchive": false,
+      "manifestUses": [
+        "surface-asphalt"
+      ],
+      "shippedFiles": [
+        "polyhaven-asphalt-pit-lane/textures/asphalt_pit_lane_diff_1k.jpg"
+      ],
+      "consumers": [
+        "src/core/fpmaterials.js"
+      ],
+      "archiveHashInSourceNote": true
+    },
+    {
+      "archive": "concrete_pavement_1k.zip",
+      "bytes": 10022143,
+      "sha256": "1e2fd1387959aa2f8700229c9db9bdc6ba98ff50341b580227d49bf009bfaaa2",
+      "pack": "polyhaven-concrete-pavement",
+      "members": 9,
+      "archiveLicences": [],
+      "status": "used",
+      "sourceNote": "assets/3d/polyhaven-concrete-pavement/SOURCE.md",
+      "sourceNoteSha256": "9fae3cf6dde89933bec36c46f5a8118eda1a253c4a7afb4d86df7925b9ae6d7d",
+      "licenceSha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "licenceMatchesArchive": false,
+      "manifestUses": [
+        "surface-pavement"
+      ],
+      "shippedFiles": [
+        "polyhaven-concrete-pavement/textures/concrete_pavement_diff_1k.jpg"
+      ],
+      "consumers": [
+        "src/core/fpmaterials.js"
+      ],
+      "archiveHashInSourceNote": true
+    },
+    {
+      "archive": "grass_ground_1k.zip",
+      "bytes": 10071750,
+      "sha256": "6aa8cfa8f864a08cbf10a895fa39badb0609f0408ec599db74334a769f1b9328",
+      "pack": "polyhaven-grass-ground",
+      "members": 9,
+      "archiveLicences": [],
+      "status": "used",
+      "sourceNote": "assets/3d/polyhaven-grass-ground/SOURCE.md",
+      "sourceNoteSha256": "39b2c5f14bc75527e05104b6191262749ae2f85124ccb37b1dd1223fc2f45700",
+      "licenceSha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "licenceMatchesArchive": false,
+      "manifestUses": [
+        "surface-grass"
+      ],
+      "shippedFiles": [
+        "polyhaven-grass-ground/textures/grass_ground_diff_1k.jpg"
+      ],
+      "consumers": [
+        "src/core/fpmaterials.js"
+      ],
+      "archiveHashInSourceNote": true
+    },
+    {
+      "archive": "kenney_car-kit.zip",
+      "bytes": 4814237,
+      "sha256": "fac7dacac5c7874348cf19729af3ef205f3d366493edaf0a827d93f4fdf3d0c4",
+      "pack": "kenney-car-kit",
+      "members": 268,
+      "archiveLicences": [
+        {
+          "path": "License.txt",
+          "sha256": "c33b7f6453d134deae7b1b8493717d9ccfa754c25ab97f6de89b88f8fda19b00"
+        }
+      ],
+      "status": "used",
+      "sourceNote": "assets/3d/kenney-car-kit/SOURCE.md",
+      "sourceNoteSha256": "eede5b96e2efc5bcff394f300eb391e83280af42a9183d64d9983e14e254a38a",
+      "licenceSha256": "c33b7f6453d134deae7b1b8493717d9ccfa754c25ab97f6de89b88f8fda19b00",
+      "licenceMatchesArchive": true,
+      "manifestUses": [
+        "town-parked-car",
+        "van-exterior"
+      ],
+      "shippedFiles": [
+        "kenney-car-kit/models/sedan-low.glb",
+        "kenney-car-kit/models/sedan-high.glb",
+        "kenney-car-kit/models/delivery-low.glb",
+        "kenney-car-kit/models/delivery-high.glb"
+      ],
+      "consumers": [
+        "src/core/fptown.js",
+        "src/core/fpactors.js"
+      ],
+      "archiveHashInSourceNote": true
+    },
+    {
+      "archive": "kenney_city-kit-commercial_2.1.zip",
+      "bytes": 4096974,
+      "sha256": "f8b09b081c2bb88bcc126e2dec1cb40fd0dad7e7e591b6c26aaefe96fb35276b",
+      "pack": "kenney-city-commercial",
+      "members": 228,
+      "archiveLicences": [
+        {
+          "path": "License.txt",
+          "sha256": "c38cee408d022e57e44e49f1cd655c2fe0dc881a07b881276b795215cdc0de69"
+        }
+      ],
+      "status": "used",
+      "sourceNote": "assets/3d/kenney-city-commercial/SOURCE.md",
+      "sourceNoteSha256": "ea49e9bb50781ec8c42893822acf5aa15b265a96f60975282b30bcb5376a7d15",
+      "licenceSha256": "c38cee408d022e57e44e49f1cd655c2fe0dc881a07b881276b795215cdc0de69",
+      "licenceMatchesArchive": true,
+      "manifestUses": [
+        "town-shop"
+      ],
+      "shippedFiles": [
+        "kenney-city-commercial/models/building-a-low.glb",
+        "kenney-city-commercial/models/building-a-high.glb"
+      ],
+      "consumers": [
+        "src/core/fptown.js"
+      ],
+      "archiveHashInSourceNote": true
+    },
+    {
+      "archive": "kenney_city-kit-roads.zip",
+      "bytes": 2852289,
+      "sha256": "374a4552115cbd11b4ec5c930ee31a533562dc78a09af249a655d03f7ea3b959",
+      "pack": "kenney-city-roads",
+      "members": 496,
+      "archiveLicences": [
+        {
+          "path": "License.txt",
+          "sha256": "d23f51360ca2cd81711bc5b09ddfb28ac94da96d7ca2dbdef12c50f33f35c353"
+        }
+      ],
+      "status": "used",
+      "sourceNote": "assets/3d/kenney-city-roads/SOURCE.md",
+      "sourceNoteSha256": "77bdd38c309ee5d1b12246f3c2a2e55c4e3ae4878626476e6ee7d492ebf6fdd0",
+      "licenceSha256": "d23f51360ca2cd81711bc5b09ddfb28ac94da96d7ca2dbdef12c50f33f35c353",
+      "licenceMatchesArchive": true,
+      "manifestUses": [
+        "town-road",
+        "town-streetlight"
+      ],
+      "shippedFiles": [
+        "kenney-city-roads/models/road-straight-low.glb",
+        "kenney-city-roads/models/road-straight-high.glb",
+        "kenney-city-roads/models/light-curved-low.glb",
+        "kenney-city-roads/models/light-curved-high.glb"
+      ],
+      "consumers": [
+        "src/core/fptown.js"
+      ],
+      "archiveHashInSourceNote": true
+    },
+    {
+      "archive": "kenney_city-kit-suburban_20.zip",
+      "bytes": 3038740,
+      "sha256": "5869c35cf30b1c87bdb2d197b6d325eebadd2ef08ea27f04797e8e08d77a9a39",
+      "pack": "kenney-city-suburban",
+      "members": 225,
+      "archiveLicences": [
+        {
+          "path": "License.txt",
+          "sha256": "d778fa769a89a7d9f167bc337fdf8fc2144e47d9abb0c35eb6ad897c0ee24d0a"
+        }
+      ],
+      "status": "used",
+      "sourceNote": "assets/3d/kenney-city-suburban/SOURCE.md",
+      "sourceNoteSha256": "bfb19c087d1f231a25b9be0404ccd7c0c15064811d69486e0001bd4a8bdf9ef7",
+      "licenceSha256": "d778fa769a89a7d9f167bc337fdf8fc2144e47d9abb0c35eb6ad897c0ee24d0a",
+      "licenceMatchesArchive": true,
+      "manifestUses": [
+        "town-fence",
+        "town-house",
+        "town-house-wide",
+        "town-tree"
+      ],
+      "shippedFiles": [
+        "kenney-city-suburban/models/building-type-a-low.glb",
+        "kenney-city-suburban/models/building-type-a-high.glb",
+        "kenney-city-suburban/models/building-type-c-low.glb",
+        "kenney-city-suburban/models/building-type-c-high.glb",
+        "kenney-city-suburban/models/tree-small-low.glb",
+        "kenney-city-suburban/models/tree-small-high.glb",
+        "kenney-city-suburban/models/fence-low.glb",
+        "kenney-city-suburban/models/fence-high.glb"
+      ],
+      "consumers": [
+        "src/core/fptown.js"
+      ],
+      "archiveHashInSourceNote": true
+    },
+    {
+      "archive": "kenney_furniture-kit.zip",
+      "bytes": 5130729,
+      "sha256": "e67652d0932cee41683f74711c03d3e192a2af9979ef8e6b237711f5482d46b0",
+      "pack": "kenney-furniture-kit",
+      "members": 1557,
+      "archiveLicences": [
+        {
+          "path": "License.txt",
+          "sha256": "bc0de1a0742cb490f9ed4bae0bd284286ebb27e23149b9917c7d8c0d590b8b29"
+        }
+      ],
+      "status": "used",
+      "sourceNote": "assets/3d/kenney-furniture-kit/SOURCE.md",
+      "sourceNoteSha256": "3fc428e5012086f4860c798f3cbea0a260fab584bed85d46cd3b571313999f37",
+      "licenceSha256": "bc0de1a0742cb490f9ed4bae0bd284286ebb27e23149b9917c7d8c0d590b8b29",
+      "licenceMatchesArchive": true,
+      "manifestUses": [
+        "hub-desk"
+      ],
+      "shippedFiles": [
+        "kenney-furniture-kit/models/desk-high.glb"
+      ],
+      "consumers": [
+        "src/core/fpworld.js"
+      ],
+      "archiveHashInSourceNote": true
+    },
+    {
+      "archive": "kenney_mini-characters.zip",
+      "bytes": 2403059,
+      "sha256": "9e1d48e6d7b8479ebbe84df71eb5bd8e1b3f0da546dea641890dccc8a02d0999",
+      "pack": null,
+      "members": 148,
+      "archiveLicences": [
+        {
+          "path": "License.txt",
+          "sha256": "28358ae5accc85b572eb42507956afc8beae05acb4648bb9026a5714d421b785"
+        }
+      ],
+      "status": "deferred",
+      "reason": "The current workday roles use the uploaded Quaternius workers/residents and their four validated interaction clips. Mini Characters contains12 animated bodies with two skins and32 clips each, plus14 separate aids/accessories. A new body/clip adapter and a concrete interaction consumer need their own performance/visibility proof; no duplicate body or unused accessory is shipped by this import.",
+      "models": [
+        {
+          "path": "Models/GLB format/aid-cane-blind.glb",
+          "bytes": 6168,
+          "sha256": "b4cea9fee317e70ebbdb2c2396ff08ec1b1f532db526a81111302b40c813dea6",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/aid-cane-low-vision.glb",
+          "bytes": 6568,
+          "sha256": "5e0e9547669e92df8560e8532017379f0f48f29b06dce20e35d5796f23e9a1df",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/aid-cane.glb",
+          "bytes": 8524,
+          "sha256": "cf7da205d71bfa531cc5839430392efc8f5c58887e65fe0d3c1e226776c7352a",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/aid-crutch.glb",
+          "bytes": 16008,
+          "sha256": "322cd65cea0acb5eefa8a7a085a33bc6215bcbf962f8f691d41c64980223ccf2",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/aid-defibrillator-green.glb",
+          "bytes": 10296,
+          "sha256": "f8513662ae769afd7e277a28176bda2aff8c0f3cb096ee7bfa0e8d6cd92793a6",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/aid-defibrillator-red.glb",
+          "bytes": 10288,
+          "sha256": "5f4e6496a934030bafce051fa741e4d84d013edd05f423662e8307643e1454e5",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/aid-glasses.glb",
+          "bytes": 6764,
+          "sha256": "adb8bb84ba24413068e28a800ccb8cc50060c77dc28df4cdddaee6c4d30b6289",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/aid-mask.glb",
+          "bytes": 15820,
+          "sha256": "92a77b92df28883f363e0b79ee0d6f0510fcd9bca7f5efa1b540e0fce4a67987",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/aid-sunglasses.glb",
+          "bytes": 6324,
+          "sha256": "5532a56de76274c80941b44fd5c96ba2636ab211d17987e3944ecb5051e88020",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/aid_hearing.glb",
+          "bytes": 7212,
+          "sha256": "4e7579b5ec8d8b3f2c3d88f448e54a79683f4f824755247ddc27f6c6d7ea7c01",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/character-female-a.glb",
+          "bytes": 273448,
+          "sha256": "8cfcff43460da8b421f2a7fdfb43ec177321cad2746db9497cbf128d5806e2a8",
+          "skins": 2,
+          "animations": [
+            "static",
+            "idle",
+            "walk",
+            "sprint",
+            "jump",
+            "fall",
+            "crouch",
+            "sit",
+            "drive",
+            "die",
+            "pick-up",
+            "emote-yes",
+            "emote-no",
+            "holding-right",
+            "holding-left",
+            "holding-both",
+            "holding-right-shoot",
+            "holding-left-shoot",
+            "holding-both-shoot",
+            "attack-melee-right",
+            "attack-melee-left",
+            "attack-kick-right",
+            "attack-kick-left",
+            "interact-right",
+            "interact-left",
+            "wheelchair-sit",
+            "wheelchair-look-left",
+            "wheelchair-look-right",
+            "wheelchair-move-forward",
+            "wheelchair-move-back",
+            "wheelchair-move-left",
+            "wheelchair-move-right"
+          ]
+        },
+        {
+          "path": "Models/GLB format/character-female-b.glb",
+          "bytes": 252140,
+          "sha256": "2288438e7baf9acc91a870c82dc00d66710bb486592cfc3474ef8ed93a03863a",
+          "skins": 2,
+          "animations": [
+            "static",
+            "idle",
+            "walk",
+            "sprint",
+            "jump",
+            "fall",
+            "crouch",
+            "sit",
+            "drive",
+            "die",
+            "pick-up",
+            "emote-yes",
+            "emote-no",
+            "holding-right",
+            "holding-left",
+            "holding-both",
+            "holding-right-shoot",
+            "holding-left-shoot",
+            "holding-both-shoot",
+            "attack-melee-right",
+            "attack-melee-left",
+            "attack-kick-right",
+            "attack-kick-left",
+            "interact-right",
+            "interact-left",
+            "wheelchair-sit",
+            "wheelchair-look-left",
+            "wheelchair-look-right",
+            "wheelchair-move-forward",
+            "wheelchair-move-back",
+            "wheelchair-move-left",
+            "wheelchair-move-right"
+          ]
+        },
+        {
+          "path": "Models/GLB format/character-female-c.glb",
+          "bytes": 252040,
+          "sha256": "3cd9e1b5d6409fce0ba1af617d9e008c3069493185a4c100f49fb99a2626a055",
+          "skins": 2,
+          "animations": [
+            "static",
+            "idle",
+            "walk",
+            "sprint",
+            "jump",
+            "fall",
+            "crouch",
+            "sit",
+            "drive",
+            "die",
+            "pick-up",
+            "emote-yes",
+            "emote-no",
+            "holding-right",
+            "holding-left",
+            "holding-both",
+            "holding-right-shoot",
+            "holding-left-shoot",
+            "holding-both-shoot",
+            "attack-melee-right",
+            "attack-melee-left",
+            "attack-kick-right",
+            "attack-kick-left",
+            "interact-right",
+            "interact-left",
+            "wheelchair-sit",
+            "wheelchair-look-left",
+            "wheelchair-look-right",
+            "wheelchair-move-forward",
+            "wheelchair-move-back",
+            "wheelchair-move-left",
+            "wheelchair-move-right"
+          ]
+        },
+        {
+          "path": "Models/GLB format/character-female-d.glb",
+          "bytes": 258760,
+          "sha256": "67f61708743bd34f91a4c2ba8160b61bf2e7d4ec2ca6647dfe99873422561410",
+          "skins": 2,
+          "animations": [
+            "static",
+            "idle",
+            "walk",
+            "sprint",
+            "jump",
+            "fall",
+            "crouch",
+            "sit",
+            "drive",
+            "die",
+            "pick-up",
+            "emote-yes",
+            "emote-no",
+            "holding-right",
+            "holding-left",
+            "holding-both",
+            "holding-right-shoot",
+            "holding-left-shoot",
+            "holding-both-shoot",
+            "attack-melee-right",
+            "attack-melee-left",
+            "attack-kick-right",
+            "attack-kick-left",
+            "interact-right",
+            "interact-left",
+            "wheelchair-sit",
+            "wheelchair-look-left",
+            "wheelchair-look-right",
+            "wheelchair-move-forward",
+            "wheelchair-move-back",
+            "wheelchair-move-left",
+            "wheelchair-move-right"
+          ]
+        },
+        {
+          "path": "Models/GLB format/character-female-e.glb",
+          "bytes": 248012,
+          "sha256": "3ee3939f80d718945fcb9199f909a92c39669e38aeec7f544536b5dce6e79f98",
+          "skins": 2,
+          "animations": [
+            "static",
+            "idle",
+            "walk",
+            "sprint",
+            "jump",
+            "fall",
+            "crouch",
+            "sit",
+            "drive",
+            "die",
+            "pick-up",
+            "emote-yes",
+            "emote-no",
+            "holding-right",
+            "holding-left",
+            "holding-both",
+            "holding-right-shoot",
+            "holding-left-shoot",
+            "holding-both-shoot",
+            "attack-melee-right",
+            "attack-melee-left",
+            "attack-kick-right",
+            "attack-kick-left",
+            "interact-right",
+            "interact-left",
+            "wheelchair-sit",
+            "wheelchair-look-left",
+            "wheelchair-look-right",
+            "wheelchair-move-forward",
+            "wheelchair-move-back",
+            "wheelchair-move-left",
+            "wheelchair-move-right"
+          ]
+        },
+        {
+          "path": "Models/GLB format/character-female-f.glb",
+          "bytes": 259488,
+          "sha256": "2ff4311897bfaf99be80d2fa13918db30f506607da0291640b2609d82b70e0ca",
+          "skins": 2,
+          "animations": [
+            "static",
+            "idle",
+            "walk",
+            "sprint",
+            "jump",
+            "fall",
+            "crouch",
+            "sit",
+            "drive",
+            "die",
+            "pick-up",
+            "emote-yes",
+            "emote-no",
+            "holding-right",
+            "holding-left",
+            "holding-both",
+            "holding-right-shoot",
+            "holding-left-shoot",
+            "holding-both-shoot",
+            "attack-melee-right",
+            "attack-melee-left",
+            "attack-kick-right",
+            "attack-kick-left",
+            "interact-right",
+            "interact-left",
+            "wheelchair-sit",
+            "wheelchair-look-left",
+            "wheelchair-look-right",
+            "wheelchair-move-forward",
+            "wheelchair-move-back",
+            "wheelchair-move-left",
+            "wheelchair-move-right"
+          ]
+        },
+        {
+          "path": "Models/GLB format/character-male-a.glb",
+          "bytes": 246916,
+          "sha256": "77572792bfe2773b715b8cd8e18644b52b3e1f155fe10450254b50f9c364382a",
+          "skins": 2,
+          "animations": [
+            "static",
+            "idle",
+            "walk",
+            "sprint",
+            "jump",
+            "fall",
+            "crouch",
+            "sit",
+            "drive",
+            "die",
+            "pick-up",
+            "emote-yes",
+            "emote-no",
+            "holding-right",
+            "holding-left",
+            "holding-both",
+            "holding-right-shoot",
+            "holding-left-shoot",
+            "holding-both-shoot",
+            "attack-melee-right",
+            "attack-melee-left",
+            "attack-kick-right",
+            "attack-kick-left",
+            "interact-right",
+            "interact-left",
+            "wheelchair-sit",
+            "wheelchair-look-left",
+            "wheelchair-look-right",
+            "wheelchair-move-forward",
+            "wheelchair-move-back",
+            "wheelchair-move-left",
+            "wheelchair-move-right"
+          ]
+        },
+        {
+          "path": "Models/GLB format/character-male-b.glb",
+          "bytes": 247332,
+          "sha256": "791fc0c203924c175c0a3d5b60d030daf36797b039506689cf7cd01ef5253b3c",
+          "skins": 2,
+          "animations": [
+            "static",
+            "idle",
+            "walk",
+            "sprint",
+            "jump",
+            "fall",
+            "crouch",
+            "sit",
+            "drive",
+            "die",
+            "pick-up",
+            "emote-yes",
+            "emote-no",
+            "holding-right",
+            "holding-left",
+            "holding-both",
+            "holding-right-shoot",
+            "holding-left-shoot",
+            "holding-both-shoot",
+            "attack-melee-right",
+            "attack-melee-left",
+            "attack-kick-right",
+            "attack-kick-left",
+            "interact-right",
+            "interact-left",
+            "wheelchair-sit",
+            "wheelchair-look-left",
+            "wheelchair-look-right",
+            "wheelchair-move-forward",
+            "wheelchair-move-back",
+            "wheelchair-move-left",
+            "wheelchair-move-right"
+          ]
+        },
+        {
+          "path": "Models/GLB format/character-male-c.glb",
+          "bytes": 263104,
+          "sha256": "672a6506f7475bbd655da1d7ff712c1729a430f134c62385a4e5d3c1378acb40",
+          "skins": 2,
+          "animations": [
+            "static",
+            "idle",
+            "walk",
+            "sprint",
+            "jump",
+            "fall",
+            "crouch",
+            "sit",
+            "drive",
+            "die",
+            "pick-up",
+            "emote-yes",
+            "emote-no",
+            "holding-right",
+            "holding-left",
+            "holding-both",
+            "holding-right-shoot",
+            "holding-left-shoot",
+            "holding-both-shoot",
+            "attack-melee-right",
+            "attack-melee-left",
+            "attack-kick-right",
+            "attack-kick-left",
+            "interact-right",
+            "interact-left",
+            "wheelchair-sit",
+            "wheelchair-look-left",
+            "wheelchair-look-right",
+            "wheelchair-move-forward",
+            "wheelchair-move-back",
+            "wheelchair-move-left",
+            "wheelchair-move-right"
+          ]
+        },
+        {
+          "path": "Models/GLB format/character-male-d.glb",
+          "bytes": 245184,
+          "sha256": "dd12b2e75ffb1cdb45aaec3916c3d6e732929ccb4a8b89b946f69baaabfa64da",
+          "skins": 2,
+          "animations": [
+            "static",
+            "idle",
+            "walk",
+            "sprint",
+            "jump",
+            "fall",
+            "crouch",
+            "sit",
+            "drive",
+            "die",
+            "pick-up",
+            "emote-yes",
+            "emote-no",
+            "holding-right",
+            "holding-left",
+            "holding-both",
+            "holding-right-shoot",
+            "holding-left-shoot",
+            "holding-both-shoot",
+            "attack-melee-right",
+            "attack-melee-left",
+            "attack-kick-right",
+            "attack-kick-left",
+            "interact-right",
+            "interact-left",
+            "wheelchair-sit",
+            "wheelchair-look-left",
+            "wheelchair-look-right",
+            "wheelchair-move-forward",
+            "wheelchair-move-back",
+            "wheelchair-move-left",
+            "wheelchair-move-right"
+          ]
+        },
+        {
+          "path": "Models/GLB format/character-male-e.glb",
+          "bytes": 242704,
+          "sha256": "cd76681090ce29861b055b0f8b2bdcf84bfccc4ca816f428df42a9bb76d6e1b6",
+          "skins": 2,
+          "animations": [
+            "static",
+            "idle",
+            "walk",
+            "sprint",
+            "jump",
+            "fall",
+            "crouch",
+            "sit",
+            "drive",
+            "die",
+            "pick-up",
+            "emote-yes",
+            "emote-no",
+            "holding-right",
+            "holding-left",
+            "holding-both",
+            "holding-right-shoot",
+            "holding-left-shoot",
+            "holding-both-shoot",
+            "attack-melee-right",
+            "attack-melee-left",
+            "attack-kick-right",
+            "attack-kick-left",
+            "interact-right",
+            "interact-left",
+            "wheelchair-sit",
+            "wheelchair-look-left",
+            "wheelchair-look-right",
+            "wheelchair-move-forward",
+            "wheelchair-move-back",
+            "wheelchair-move-left",
+            "wheelchair-move-right"
+          ]
+        },
+        {
+          "path": "Models/GLB format/character-male-f.glb",
+          "bytes": 249388,
+          "sha256": "ed151fc47c5cd6be9693c524e92f045170c965819f4f81b28ed66dcc3c1085bf",
+          "skins": 2,
+          "animations": [
+            "static",
+            "idle",
+            "walk",
+            "sprint",
+            "jump",
+            "fall",
+            "crouch",
+            "sit",
+            "drive",
+            "die",
+            "pick-up",
+            "emote-yes",
+            "emote-no",
+            "holding-right",
+            "holding-left",
+            "holding-both",
+            "holding-right-shoot",
+            "holding-left-shoot",
+            "holding-both-shoot",
+            "attack-melee-right",
+            "attack-melee-left",
+            "attack-kick-right",
+            "attack-kick-left",
+            "interact-right",
+            "interact-left",
+            "wheelchair-sit",
+            "wheelchair-look-left",
+            "wheelchair-look-right",
+            "wheelchair-move-forward",
+            "wheelchair-move-back",
+            "wheelchair-move-left",
+            "wheelchair-move-right"
+          ]
+        },
+        {
+          "path": "Models/GLB format/wheelchair-deluxe.glb",
+          "bytes": 60588,
+          "sha256": "b72046e5ce52770fc7d7cf36623d7599e7247d6071659a39df915a9fc62e942f",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/wheelchair-power-deluxe.glb",
+          "bytes": 90512,
+          "sha256": "de6016ef540ce2849420e73264303cd9eaea37d335037990037fd33296c9caf4",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/wheelchair-power.glb",
+          "bytes": 76664,
+          "sha256": "b930df2def526f066295e24a441d4406df4ef9183997e5bb6a6740608346929c",
+          "skins": 0,
+          "animations": []
+        },
+        {
+          "path": "Models/GLB format/wheelchair.glb",
+          "bytes": 56680,
+          "sha256": "cb7b6cbebc7bbe238ae926b26305661eb66e17659fafa8fa0c098f5e7955fabe",
+          "skins": 0,
+          "animations": []
+        }
+      ]
+    },
+    {
+      "archive": "plastered_wall_1k.zip",
+      "bytes": 9595593,
+      "sha256": "6baf0090244adadd05ab4b0d28b74bab4b32b2eeb7527ad50c301a68e44ec764",
+      "pack": "polyhaven-plastered-wall",
+      "members": 9,
+      "archiveLicences": [],
+      "status": "used",
+      "sourceNote": "assets/3d/polyhaven-plastered-wall/SOURCE.md",
+      "sourceNoteSha256": "1287ee4e87d21aa3cb5cc8bc6cfc7aa384a975b9bc8886aeb97968f9e530f0e0",
+      "licenceSha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "licenceMatchesArchive": false,
+      "manifestUses": [
+        "surface-plaster"
+      ],
+      "shippedFiles": [
+        "polyhaven-plastered-wall/textures/plastered_wall_diff_1k.jpg"
+      ],
+      "consumers": [
+        "src/core/fpmaterials.js"
+      ],
+      "archiveHashInSourceNote": true
+    },
+    {
+      "archive": "red_brick_03_1k.zip",
+      "bytes": 10441845,
+      "sha256": "2d35b6192f83d9c42d85cb2145c6bc26bba954d566018f8900c2c9399c052e5a",
+      "pack": "polyhaven-red-brick-03",
+      "members": 10,
+      "archiveLicences": [],
+      "status": "used",
+      "sourceNote": "assets/3d/polyhaven-red-brick-03/SOURCE.md",
+      "sourceNoteSha256": "e6a8a77d373b9a5a39b6030236b2ff44ea73c93bd0991fa282186dd76921dcbc",
+      "licenceSha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "licenceMatchesArchive": false,
+      "manifestUses": [
+        "surface-brick"
+      ],
+      "shippedFiles": [
+        "polyhaven-red-brick-03/textures/red_brick_03_diff_1k.jpg"
+      ],
+      "consumers": [
+        "src/core/fpmaterials.js"
+      ],
+      "archiveHashInSourceNote": true
+    }
+  ],
+  "assets": [
+    {
+      "path": "kenney-city-starter/models/garage-low.glb",
+      "bytes": 2716,
+      "pack": "kenney-city-starter",
+      "quality": "low",
+      "use": "town-garage",
+      "sha256": "2d6ad13547be273417853b76b388ccb0c043a3761bfa75596d4bb747a707d446",
+      "primitives": 1,
+      "triangles": 16,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-starter/models/garage-high.glb",
+      "bytes": 14336,
+      "pack": "kenney-city-starter",
+      "quality": "high",
+      "use": "town-garage",
+      "sha256": "42bca9fae4dd19e483215801ec96296b43cf562d2676e095e582ebc4bb105925",
+      "primitives": 1,
+      "triangles": 196,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-suburban/models/building-type-a-low.glb",
+      "bytes": 3848,
+      "pack": "kenney-city-suburban",
+      "quality": "low",
+      "use": "town-house",
+      "sha256": "4bd027206e912023b47ce523aacdc30bcf2f4e4796f990244d5bfd5929ef9863",
+      "primitives": 1,
+      "triangles": 36,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-suburban/models/building-type-a-high.glb",
+      "bytes": 83704,
+      "pack": "kenney-city-suburban",
+      "quality": "high",
+      "use": "town-house",
+      "sha256": "9eb259150050a74e5fb0420294ee0bd00637ff142ac634a06a79c4c65ab5fbef",
+      "primitives": 1,
+      "triangles": 1156,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-suburban/models/building-type-c-low.glb",
+      "bytes": 3848,
+      "pack": "kenney-city-suburban",
+      "quality": "low",
+      "use": "town-house-wide",
+      "sha256": "eda197edfabafb0d8545b60fc460294e651a97a6a0f1c17d4ceecec3ad3881ef",
+      "primitives": 1,
+      "triangles": 36,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-suburban/models/building-type-c-high.glb",
+      "bytes": 84312,
+      "pack": "kenney-city-suburban",
+      "quality": "high",
+      "use": "town-house-wide",
+      "sha256": "a294e1cc7b9cda3aff56fc9b73166b8e684816ddae560e0807bec8858236bb5f",
+      "primitives": 1,
+      "triangles": 1180,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-suburban/models/tree-small-low.glb",
+      "bytes": 5120,
+      "pack": "kenney-city-suburban",
+      "quality": "low",
+      "use": "town-tree",
+      "sha256": "038af752a76db95d0de967a71be243a737499d46944bffe5b8667d643307d862",
+      "primitives": 1,
+      "triangles": 42,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-suburban/models/tree-small-high.glb",
+      "bytes": 5120,
+      "pack": "kenney-city-suburban",
+      "quality": "high",
+      "use": "town-tree",
+      "sha256": "038af752a76db95d0de967a71be243a737499d46944bffe5b8667d643307d862",
+      "primitives": 1,
+      "triangles": 42,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-suburban/models/fence-low.glb",
+      "bytes": 1904,
+      "pack": "kenney-city-suburban",
+      "quality": "low",
+      "use": "town-fence",
+      "sha256": "c0ba6f11487e8f9ff15d0203e373a24e1d8340482b02ea70a55d140a04fac1b2",
+      "primitives": 1,
+      "triangles": 12,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-suburban/models/fence-high.glb",
+      "bytes": 7268,
+      "pack": "kenney-city-suburban",
+      "quality": "high",
+      "use": "town-fence",
+      "sha256": "3f6ec2eb487c5a3ca06b722945712ee10b351ce6b194b033533a677391f38d9a",
+      "primitives": 1,
+      "triangles": 88,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-commercial/models/building-a-low.glb",
+      "bytes": 2684,
+      "pack": "kenney-city-commercial",
+      "quality": "low",
+      "use": "town-shop",
+      "sha256": "6590ee8585279f6a117b1156c12ab6c3e3191fd8741a334f9838340a2b860536",
+      "primitives": 1,
+      "triangles": 22,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-commercial/models/building-a-high.glb",
+      "bytes": 83572,
+      "pack": "kenney-city-commercial",
+      "quality": "high",
+      "use": "town-shop",
+      "sha256": "42633cffd9b589968fee496cadab3f858f295de30a320478b207e6fcdfad222c",
+      "primitives": 1,
+      "triangles": 1248,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-roads/models/road-straight-low.glb",
+      "bytes": 3764,
+      "pack": "kenney-city-roads",
+      "quality": "low",
+      "use": "town-road",
+      "sha256": "49004c6d7de685000cf02ff9b54b5b6bdaed13a2003eaf2f8d9e466794935d82",
+      "primitives": 1,
+      "triangles": 44,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-roads/models/road-straight-high.glb",
+      "bytes": 3764,
+      "pack": "kenney-city-roads",
+      "quality": "high",
+      "use": "town-road",
+      "sha256": "49004c6d7de685000cf02ff9b54b5b6bdaed13a2003eaf2f8d9e466794935d82",
+      "primitives": 1,
+      "triangles": 44,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-roads/models/light-curved-low.glb",
+      "bytes": 2700,
+      "pack": "kenney-city-roads",
+      "quality": "low",
+      "use": "town-streetlight",
+      "sha256": "08383b6a338ce383ee2d1934af798b99d806f89578ff6a274e363eb80e4b61ab",
+      "primitives": 1,
+      "triangles": 24,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-city-roads/models/light-curved-high.glb",
+      "bytes": 7148,
+      "pack": "kenney-city-roads",
+      "quality": "high",
+      "use": "town-streetlight",
+      "sha256": "ec3b5e0f20ac30fe9dd363a6374e0a0018ca6abc731e7647005bdf7a2e246332",
+      "primitives": 1,
+      "triangles": 92,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-car-kit/models/sedan-low.glb",
+      "bytes": 3468,
+      "pack": "kenney-car-kit",
+      "quality": "low",
+      "use": "town-parked-car",
+      "sha256": "cc508ac3bfd3a5b015bea0c9107fc492f223baa0afacdc3cea934039ea82e7df",
+      "primitives": 1,
+      "triangles": 32,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-car-kit/models/sedan-high.glb",
+      "bytes": 155372,
+      "pack": "kenney-car-kit",
+      "quality": "high",
+      "use": "town-parked-car",
+      "sha256": "c6dcb3cf617030f60db42b553530040705a568f955a040879f9b95a25e6d6512",
+      "primitives": 1,
+      "triangles": 2026,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-car-kit/models/delivery-low.glb",
+      "bytes": 18448,
+      "pack": "kenney-car-kit",
+      "quality": "low",
+      "use": "van-exterior",
+      "sha256": "fe973e6d97c43f6784cf2bc202d25c6c938755a3cb580156e3da5ad53a5dcf11",
+      "primitives": 6,
+      "triangles": 190,
+      "externalUris": []
+    },
+    {
+      "path": "kenney-car-kit/models/delivery-high.glb",
+      "bytes": 195040,
+      "pack": "kenney-car-kit",
+      "quality": "high",
+      "use": "van-exterior",
+      "sha256": "8acc2bb4d084c286a45f01d08163d076cc6f89920fa6db35883210cf8544bcd3",
+      "primitives": 6,
+      "triangles": 2461,
+      "externalUris": []
+    },
+    {
+      "path": "quaternius-modular-men/models/worker-low.glb",
+      "bytes": 193880,
+      "pack": "quaternius-modular-men",
+      "quality": "low",
+      "use": "worker-men",
+      "sha256": "220d48a8ecef3fde7f92b433d9bb6c069cd4022cdb2d64047c21355a6979c51d",
+      "primitives": 1,
+      "triangles": 88,
+      "externalUris": []
+    },
+    {
+      "path": "quaternius-modular-men/models/worker-high.glb",
+      "bytes": 771740,
+      "pack": "quaternius-modular-men",
+      "quality": "high",
+      "use": "worker-men",
+      "sha256": "710afc7a066d40d8b9d5f2bb04c8a465b81cfb39cf86033e71d638af1b68a7c2",
+      "primitives": 13,
+      "triangles": 5240,
+      "externalUris": []
+    },
+    {
+      "path": "quaternius-modular-women/models/worker-low.glb",
+      "bytes": 193972,
+      "pack": "quaternius-modular-women",
+      "quality": "low",
+      "use": "worker-women",
+      "sha256": "ec031ec1c649e6521fa532332451a97c1135efeee314be1993eecc6e9b967005",
+      "primitives": 1,
+      "triangles": 88,
+      "externalUris": []
+    },
+    {
+      "path": "quaternius-modular-women/models/worker-high.glb",
+      "bytes": 871104,
+      "pack": "quaternius-modular-women",
+      "quality": "high",
+      "use": "worker-women",
+      "sha256": "f796ace28a70ac75462179268b40d093858d102fa8cb776b18b9e765cf4fd536",
+      "primitives": 12,
+      "triangles": 6112,
+      "externalUris": []
+    },
+    {
+      "path": "quaternius-modular-men/models/resident-low.glb",
+      "bytes": 193884,
+      "pack": "quaternius-modular-men",
+      "quality": "low",
+      "use": "resident-men",
+      "sha256": "b7b8ebc504a73e1c1c9980a1313403076e776b8141240cc60774b186fe56c777",
+      "primitives": 1,
+      "triangles": 88,
+      "externalUris": []
+    },
+    {
+      "path": "quaternius-modular-men/models/resident-high.glb",
+      "bytes": 842348,
+      "pack": "quaternius-modular-men",
+      "quality": "high",
+      "use": "resident-men",
+      "sha256": "c82e70322b93390effd279a12224ce7eaad74c8ac0197fb54505eeb23cce84d1",
+      "primitives": 10,
+      "triangles": 5776,
+      "externalUris": []
+    },
+    {
+      "path": "quaternius-modular-women/models/resident-low.glb",
+      "bytes": 193972,
+      "pack": "quaternius-modular-women",
+      "quality": "low",
+      "use": "resident-women",
+      "sha256": "bc3a62b33180faf8404bfa7dca964ceec3e441b742cb814ceca56ab34dcff017",
+      "primitives": 1,
+      "triangles": 88,
+      "externalUris": []
+    },
+    {
+      "path": "quaternius-modular-women/models/resident-high.glb",
+      "bytes": 900916,
+      "pack": "quaternius-modular-women",
+      "quality": "high",
+      "use": "resident-women",
+      "sha256": "a785346e3afc4544cdbbf977328921ca07529b96b136c28e31200322bc1b0689",
+      "primitives": 9,
+      "triangles": 6424,
+      "externalUris": []
+    },
+    {
+      "path": "polyhaven-asphalt-pit-lane/textures/asphalt_pit_lane_diff_1k.jpg",
+      "bytes": 1015369,
+      "pack": "polyhaven-asphalt-pit-lane",
+      "quality": "high",
+      "use": "surface-asphalt",
+      "sha256": "8aad5097f6de913aebc33f2b9b9271834b55c6942359955722db3196a9ce9bca",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "polyhaven-concrete-pavement/textures/concrete_pavement_diff_1k.jpg",
+      "bytes": 926197,
+      "pack": "polyhaven-concrete-pavement",
+      "quality": "high",
+      "use": "surface-pavement",
+      "sha256": "70d3ff969a7421c7ae057b5d16386d11f5e59c6740db643352e1039413f419c4",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "polyhaven-grass-ground/textures/grass_ground_diff_1k.jpg",
+      "bytes": 876584,
+      "pack": "polyhaven-grass-ground",
+      "quality": "high",
+      "use": "surface-grass",
+      "sha256": "a79cc5ed65af0f80261b39a383b64a8c5272c5144d724deb43dbc29f0e4cd19b",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "polyhaven-plastered-wall/textures/plastered_wall_diff_1k.jpg",
+      "bytes": 617080,
+      "pack": "polyhaven-plastered-wall",
+      "quality": "high",
+      "use": "surface-plaster",
+      "sha256": "73312ebb6eabc8e0a55addd8a82a8924bcd1e717b9488a887cc77f14b6ea554e",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "polyhaven-red-brick-03/textures/red_brick_03_diff_1k.jpg",
+      "bytes": 694500,
+      "pack": "polyhaven-red-brick-03",
+      "quality": "high",
+      "use": "surface-brick",
+      "sha256": "9c58254c099b2d211478f50a427fcdde622af24249ff2e94da41fb836f8c857f",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "kenney-furniture-kit/models/desk-high.glb",
+      "bytes": 15048,
+      "pack": "kenney-furniture-kit",
+      "quality": "high",
+      "use": "hub-desk",
+      "sha256": "0164fe828f028b321730fb8c74502e353583f751be74da1682d42fff7d3c5a42",
+      "primitives": 3,
+      "triangles": 198,
+      "externalUris": []
+    }
+  ],
+  "consumerSources": {
+    "src/core/fpactors.js": "a149a6ed00412535597aa6f0140b3e9a4163787130527cdae47c58f46796084b",
+    "src/core/fpmaterials.js": "3a24ee77b43e3645ee3f16691b4ed64836a9cea1b9e6ee9efb1532ae127b1263",
+    "src/core/fptown.js": "6848b79d3b053f071891d595bce2ba0a8ff52b82d4cc13612a7fc0dc1601e4b9",
+    "src/core/fpworld.js": "8d18d5005814795ec261644ce320183f6ec9cbeb6b10c50a2f0da4c967cabe40"
+  },
+  "deploymentScope": "This branch stacks on unmerged C49. It does not certify that pilot or the existing owner preview contains these materials/desks.",
+  "rawArchivesShipped": false,
+  "producerScriptSha256": "955a53e80e19f294370c71e8f1ad919103b86426f8a93db1f1d860a510dec057"
+}

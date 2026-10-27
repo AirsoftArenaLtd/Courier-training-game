@@ -1,0 +1,330 @@
+{
+  "scenarios": [
+    {
+      "mode": "low",
+      "stats": {
+        "quality": "low",
+        "loaded": 14,
+        "failed": 0,
+        "fallbacks": 0,
+        "bytes": 824208,
+        "decodedBytes": 354468,
+        "errors": []
+      },
+      "groups": 8,
+      "instances": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-low.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-a-low.glb",
+        "/lib/GLTFLoader.min.js",
+        "/assets/3d/kenney-city-suburban/models/building-type-c-low.glb",
+        "/assets/3d/kenney-city-suburban/models/tree-small-low.glb",
+        "/assets/3d/kenney-city-suburban/models/fence-low.glb",
+        "/assets/3d/kenney-city-commercial/models/building-a-low.glb",
+        "/assets/3d/kenney-city-roads/models/road-straight-low.glb",
+        "/assets/3d/kenney-city-roads/models/light-curved-low.glb",
+        "/assets/3d/kenney-car-kit/models/sedan-low.glb",
+        "/assets/3d/kenney-car-kit/models/delivery-low.glb",
+        "/assets/3d/quaternius-modular-men/models/worker-low.glb",
+        "/assets/3d/quaternius-modular-women/models/worker-low.glb",
+        "/assets/3d/quaternius-modular-men/models/resident-low.glb",
+        "/assets/3d/quaternius-modular-women/models/resident-low.glb"
+      ]
+    },
+    {
+      "mode": "high",
+      "stats": {
+        "quality": "high",
+        "loaded": 20,
+        "failed": 0,
+        "fallbacks": 0,
+        "bytes": 8170522,
+        "decodedBytes": 24490302,
+        "errors": []
+      },
+      "groups": 8,
+      "instances": [
+        [
+          17
+        ],
+        [
+          12
+        ],
+        [
+          15
+        ],
+        [
+          7
+        ],
+        [
+          7
+        ],
+        [
+          16
+        ],
+        [
+          1
+        ],
+        [
+          16
+        ]
+      ],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-high.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-a-high.glb",
+        "/lib/GLTFLoader.min.js",
+        "/assets/3d/kenney-city-suburban/models/building-type-c-high.glb",
+        "/assets/3d/kenney-city-suburban/models/tree-small-high.glb",
+        "/assets/3d/kenney-city-suburban/models/fence-high.glb",
+        "/assets/3d/kenney-city-commercial/models/building-a-high.glb",
+        "/assets/3d/kenney-city-roads/models/road-straight-high.glb",
+        "/assets/3d/kenney-city-roads/models/light-curved-high.glb",
+        "/assets/3d/kenney-car-kit/models/sedan-high.glb",
+        "/assets/3d/kenney-car-kit/models/delivery-high.glb",
+        "/assets/3d/quaternius-modular-men/models/worker-high.glb",
+        "/assets/3d/quaternius-modular-women/models/worker-high.glb",
+        "/assets/3d/quaternius-modular-men/models/resident-high.glb",
+        "/assets/3d/quaternius-modular-women/models/resident-high.glb",
+        "/assets/3d/polyhaven-asphalt-pit-lane/textures/asphalt_pit_lane_diff_1k.jpg",
+        "/assets/3d/polyhaven-concrete-pavement/textures/concrete_pavement_diff_1k.jpg",
+        "/assets/3d/polyhaven-grass-ground/textures/grass_ground_diff_1k.jpg",
+        "/assets/3d/polyhaven-plastered-wall/textures/plastered_wall_diff_1k.jpg",
+        "/assets/3d/polyhaven-red-brick-03/textures/red_brick_03_diff_1k.jpg",
+        "/assets/3d/kenney-furniture-kit/models/desk-high.glb"
+      ]
+    },
+    {
+      "mode": "high-fallback",
+      "stats": {
+        "quality": "high",
+        "loaded": 20,
+        "failed": 0,
+        "fallbacks": 1,
+        "bytes": 7993930,
+        "decodedBytes": 24314100,
+        "errors": [
+          {
+            "path": "kenney-car-kit/models/delivery-high.glb",
+            "reason": "Asset could not load"
+          }
+        ]
+      },
+      "groups": 8,
+      "instances": [
+        [
+          17
+        ],
+        [
+          12
+        ],
+        [
+          15
+        ],
+        [
+          7
+        ],
+        [
+          7
+        ],
+        [
+          16
+        ],
+        [
+          1
+        ],
+        [
+          16
+        ]
+      ],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-high.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-a-high.glb",
+        "/lib/GLTFLoader.min.js",
+        "/assets/3d/kenney-city-suburban/models/building-type-c-high.glb",
+        "/assets/3d/kenney-city-suburban/models/tree-small-high.glb",
+        "/assets/3d/kenney-city-suburban/models/fence-high.glb",
+        "/assets/3d/kenney-city-commercial/models/building-a-high.glb",
+        "/assets/3d/kenney-city-roads/models/road-straight-high.glb",
+        "/assets/3d/kenney-city-roads/models/light-curved-high.glb",
+        "/assets/3d/kenney-car-kit/models/sedan-high.glb",
+        "/assets/3d/kenney-car-kit/models/delivery-high.glb",
+        "/assets/3d/kenney-car-kit/models/delivery-low.glb",
+        "/assets/3d/quaternius-modular-men/models/worker-high.glb",
+        "/assets/3d/quaternius-modular-women/models/worker-high.glb",
+        "/assets/3d/quaternius-modular-men/models/resident-high.glb",
+        "/assets/3d/quaternius-modular-women/models/resident-high.glb",
+        "/assets/3d/polyhaven-asphalt-pit-lane/textures/asphalt_pit_lane_diff_1k.jpg",
+        "/assets/3d/polyhaven-concrete-pavement/textures/concrete_pavement_diff_1k.jpg",
+        "/assets/3d/polyhaven-grass-ground/textures/grass_ground_diff_1k.jpg",
+        "/assets/3d/polyhaven-plastered-wall/textures/plastered_wall_diff_1k.jpg",
+        "/assets/3d/polyhaven-red-brick-03/textures/red_brick_03_diff_1k.jpg",
+        "/assets/3d/kenney-furniture-kit/models/desk-high.glb"
+      ]
+    },
+    {
+      "mode": "missing",
+      "stats": {
+        "quality": "low",
+        "loaded": 0,
+        "failed": 14,
+        "fallbacks": 0,
+        "bytes": 0,
+        "decodedBytes": 0,
+        "errors": [
+          {
+            "path": "kenney-city-starter/models/garage-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-suburban/models/building-type-a-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-suburban/models/building-type-c-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-suburban/models/tree-small-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-suburban/models/fence-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-commercial/models/building-a-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-roads/models/road-straight-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-city-roads/models/light-curved-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-car-kit/models/sedan-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "kenney-car-kit/models/delivery-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "quaternius-modular-men/models/worker-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "quaternius-modular-women/models/worker-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "quaternius-modular-men/models/resident-low.glb",
+            "reason": "Asset could not load"
+          },
+          {
+            "path": "quaternius-modular-women/models/resident-low.glb",
+            "reason": "Asset could not load"
+          }
+        ]
+      },
+      "groups": 0,
+      "instances": [],
+      "unchangedSolid": true,
+      "requests": [
+        "/assets/3d/manifest.json",
+        "/assets/3d/kenney-city-starter/models/garage-low.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-a-low.glb",
+        "/assets/3d/kenney-city-suburban/models/building-type-c-low.glb",
+        "/assets/3d/kenney-city-suburban/models/tree-small-low.glb",
+        "/assets/3d/kenney-city-suburban/models/fence-low.glb",
+        "/assets/3d/kenney-city-commercial/models/building-a-low.glb",
+        "/assets/3d/kenney-city-roads/models/road-straight-low.glb",
+        "/assets/3d/kenney-city-roads/models/light-curved-low.glb",
+        "/assets/3d/kenney-car-kit/models/sedan-low.glb",
+        "/assets/3d/kenney-car-kit/models/delivery-low.glb",
+        "/assets/3d/quaternius-modular-men/models/worker-low.glb",
+        "/assets/3d/quaternius-modular-women/models/worker-low.glb",
+        "/assets/3d/quaternius-modular-men/models/resident-low.glb",
+        "/assets/3d/quaternius-modular-women/models/resident-low.glb"
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "text": "Your workday is loading.",
+      "x": 24,
+      "right": 258,
+      "bottom": 72,
+      "font": 19,
+      "oldModels": 0
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "text": "Your workday is loading.",
+      "x": 24,
+      "right": 307,
+      "bottom": 76,
+      "font": 23,
+      "oldModels": 0
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "text": "உங்கள் பணிநாள் ஏற்றப்படுகிறது.",
+      "x": 24,
+      "right": 402,
+      "bottom": 72,
+      "font": 19,
+      "oldModels": 0
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "text": "உங்கள் பணிநாள் ஏற்றப்படுகிறது.",
+      "x": 24,
+      "right": 481,
+      "bottom": 76,
+      "font": 23,
+      "oldModels": 0
+    }
+  ],
+  "checks": 50,
+  "errors": [],
+  "outside": []
+}
