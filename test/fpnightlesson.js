@@ -40,3 +40,7 @@ test('the lead vehicle waits through a real pretrip interval and starts only aft
 test('the optional module uses its own brief and permits real cab entry after inspection without a workday dispatch visit',()=>{
  const r=setup(),m=r.model;assert.equal(m.briefing,null);inspect(r);Object.assign(m.player,m.point('driver'));assert.equal(m.enter(),'');assert.equal(m.mode,'cab');assert.equal(m.checks.lights,true);
 });
+
+test('the stationary night spawn stays wholly inside its lane and within reach of the inspection point',()=>{
+ const r=setup(),m=r.model,x=m.van.x,z=m.van.z,center=O.fpDriving.roadCenter(m,m.van);assert.ok(Math.abs(x-center)+1.08<m.town.road/2,'the whole van must start inside the road');m.paused=false;for(let i=0;i<20;i++)m.step({},.05);assert.equal(m.van.x,x);assert.equal(m.van.z,z);assert.ok(m.near('lights'),'idling must preserve the front inspection position');
+});

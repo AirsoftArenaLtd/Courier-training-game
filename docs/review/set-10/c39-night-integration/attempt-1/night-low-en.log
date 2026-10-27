@@ -1,0 +1,12 @@
+night inspection low en false
+Error: waitForFunction failed: frame got detached.
+    at IsolatedWorld.dispose (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:68:39)
+    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:72:14)
+    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/IsolatedWorld.js:162:45)
+    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:335:87)
+    at #removeFramesRecursively (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:495:45)
+    at #onClientDisconnect (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:85:42)
+    at /workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:69:37
+    at onceHandler (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/EventEmitter.js:95:13)
+    at /workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/third_party/mitt/mitt.js:62:7
+    at Array.map (<anonymous>)
