@@ -10,3 +10,7 @@
 {"phase": "good-high-en-normal", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
 {"phase": "good-high-en-large", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
 {"phase": "good-high-ta-normal", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "good-high-ta-large", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "critical-low-ta-large", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "abandon-low-ta-large", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "running", "server": 104112}
+{"phase": "complete", "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0", "pid": 100059, "state": "passed"}

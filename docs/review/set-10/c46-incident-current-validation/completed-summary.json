@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-27T00:22:29.380Z",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "complete": true,
+  "jobs": 13,
+  "allJobExitsZero": true,
+  "goodJourneys": 8,
+  "goodNativeChecks": 9300,
+  "goodCaptures": 152,
+  "passedAssessments": 4,
+  "negativeJourneys": 2,
+  "negativeNativeChecks": 1225,
+  "negativeCaptures": 24,
+  "allIncidentNativeChecks": 10525,
+  "allIncidentNativeCaptures": 176,
+  "resourceViews": 32,
+  "sourceFilesVerified": 911,
+  "retained": {
+    "report": "/workspace/c46-safety-wellness/docs/review/set-10/c46-playable-validation/artifacts/c46-playable-6d83d2e1-incident-regression.json",
+    "sha256": "2d4271a0593e9fa31a748594fe6281aff51a87f29656f6660313d0166999f696",
+    "case": "low-en-normal",
+    "checks": 1210,
+    "captures": 19,
+    "scope": "Current frozen source/protocol: the completed Low English normal incident regression is retained; it is not rerun."
+  },
+  "released": {
+    "pid": 100059,
+    "released": true
+  },
+  "scope": "All current incident integration jobs pass. The retained current Low English normal report counts once. Older component evidence is not relabelled. Optional extensions and shared glyph/translation/readability/A30/A31/default/current-pilot/Intel acceptance remain separate."
+}

@@ -94,7 +94,43 @@
         "QA_VARIANT": "good",
         "QA_TAG": "c46-incident-current-6d83d2e1-good-high-en-large"
       }
+    },
+    {
+      "name": "good-high-ta-normal",
+      "exit": 0,
+      "env": {
+        "QA_CASE": "high-ta-normal",
+        "QA_VARIANT": "good",
+        "QA_TAG": "c46-incident-current-6d83d2e1-good-high-ta-normal"
+      }
+    },
+    {
+      "name": "good-high-ta-large",
+      "exit": 0,
+      "env": {
+        "QA_CASE": "high-ta-large",
+        "QA_VARIANT": "good",
+        "QA_TAG": "c46-incident-current-6d83d2e1-good-high-ta-large"
+      }
+    },
+    {
+      "name": "critical-low-ta-large",
+      "exit": 0,
+      "env": {
+        "QA_CASE": "low-ta-large",
+        "QA_VARIANT": "critical",
+        "QA_TAG": "c46-incident-current-6d83d2e1-critical-low-ta-large"
+      }
+    },
+    {
+      "name": "abandon-low-ta-large",
+      "exit": 0,
+      "env": {
+        "QA_CASE": "low-ta-large",
+        "QA_VARIANT": "abandon",
+        "QA_TAG": "c46-incident-current-6d83d2e1-abandon-low-ta-large"
+      }
     }
   ],
-  "complete": false
+  "complete": true
 }

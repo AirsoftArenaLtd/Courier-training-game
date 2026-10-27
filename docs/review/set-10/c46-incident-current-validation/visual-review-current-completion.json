@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-27T00:30:48.751188+00:00",
+  "runtime": "35bd5bb150279e0d5cc73bab980714745d0d10a0",
+  "applicationRuntime": "6d83d2e1c5eee4e3cc49154dbefe78daa00a18a5",
+  "scope": "Five final current incident captures inspected at original resolution. Native result/reload acceptance is independently verified. Shared glyph/translation/readability/default/current-pilot/Intel readiness remains separate.",
+  "images": [
+    {
+      "file": "artifacts/c46-incident-current-6d83d2e1-good-high-ta-normal-high-ta-normal-result.png",
+      "sha256": "d6b5f346e6d2752212a8c5ffba6c1a91441e94fe089567f1fe2f4fdca23ed111",
+      "observation": "The settled normal-Tamil practice result shows nine stars, three takeaway bodies and separated keyboard controls. Title/safety/takeaway/career glyph boxes remain shared A31 font issues."
+    },
+    {
+      "file": "artifacts/c46-incident-current-6d83d2e1-good-high-ta-large-high-ta-large-reply-n10.png",
+      "sha256": "24220888e844ddac7ecbd1aab2f0586c39e922a9ef59e183093263559fc60658",
+      "observation": "The complete honest-report choice wraps to two full-size larger Tamil lines within its button, with the remaining controls separate. The heading, instruction and navigation remain English."
+    },
+    {
+      "file": "artifacts/c46-incident-current-6d83d2e1-good-high-ta-large-high-ta-large-result.png",
+      "sha256": "81d5b1096275580a6eed2af871c81a56df89d3ab2387ba9862d7d0150bd51ebe",
+      "observation": "The passed larger-Tamil result shows nine stars, two takeaway bodies plus a one-more indicator, and both controls. Shared missing glyphs and the small career-row verdict remain; this capture does not show all three takeaway bodies."
+    },
+    {
+      "file": "artifacts/c46-incident-current-6d83d2e1-critical-low-ta-large-low-ta-large-reply-n10.png",
+      "sha256": "81ab294115bd97c38a510f6db663de0786eb98244b76b85b8099f4179b063aa6",
+      "observation": "The deliberately dishonest original report choice fits in two larger Tamil lines inside the button. All navigation remains visible and separate; this is an unsafe test choice, not recommended guidance."
+    },
+    {
+      "file": "artifacts/c46-incident-current-6d83d2e1-critical-low-ta-large-low-ta-large-result.png",
+      "sha256": "e6e3d5e2a354cb5cacdfc12b1325104292717f4aaeb9e1730e95f93517542a3f",
+      "observation": "The larger-Tamil failed assessment clearly shows five stars, safety/service capped at one, and the critical honest-report lesson repeated twice with an x2 indicator. Other takeaway bodies are behind the two-more indicator. Missing glyphs and the small career-row verdict remain shared issues. The original 2900-point result and failed one-attempt reload are independently verified."
+    }
+  ]
+}
