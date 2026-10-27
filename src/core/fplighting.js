@@ -65,6 +65,7 @@ OTR.fpLighting={
     }
     function place(light,x,y,z,tx,ty,tz){point.set(x,y,z).applyMatrix4(parts.chassis.matrixWorld);light.position.copy(point);point.set(tx,ty,tz).applyMatrix4(parts.chassis.matrixWorld);light.target.position.copy(point);}
     const api={sky,front,rear,interior,sun,ambient,ao,time:'morning',
+      restore(){shadowAt=-100;shadowWanted=high;},
       sync(m,area){
         current=m;visible=area!=='hub'&&!!m;sky.visible=rig.visible=visible;if(!visible){sun.castShadow=false;ambient.color.copy(original.skyColour);ambient.intensity=original.skyIntensity;sun.color.copy(original.sunColour);sun.intensity=original.sunIntensity;sun.position.copy(original.sunPosition);sun.target.position.copy(original.targetPosition);sun.updateMatrixWorld(true);sun.target.updateMatrixWorld(true);if(world.background&&original.background)world.background.copy(original.background);if(world.fog&&original.fog){world.fog.color.copy(original.fog);world.fog.near=original.fogNear;world.fog.far=original.fogFar;}ao.strength.value=0;return;}
         const next=OTR.fpLighting.time(m),index=OTR.fpLighting.times.indexOf(next),p=presets[index],condition=m.routeDay?m.routeDay.weather:m.routePlan?m.routePlan.weather:'clear';

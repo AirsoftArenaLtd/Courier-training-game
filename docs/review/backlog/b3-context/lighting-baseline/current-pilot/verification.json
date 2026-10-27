@@ -1,0 +1,22 @@
+{
+  "baseline": "b27954c4",
+  "status": "Unchanged pilot reproduces the exact full High lighting pixel failure",
+  "sourceInputs": 540,
+  "allSourcesAndArtifactsVerified": true,
+  "unchangedTest": true,
+  "point": [
+    650,
+    403
+  ],
+  "off": [
+    0,
+    0,
+    0
+  ],
+  "on": [
+    0,
+    0,
+    0
+  ],
+  "cleanup": true
+}

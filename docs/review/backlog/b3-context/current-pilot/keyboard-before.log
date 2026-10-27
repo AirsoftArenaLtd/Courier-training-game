@@ -1,0 +1,39 @@
+✔ loss pauses once, clears held/scan input, and does not alter mission, cargo or observations (2.87543ms)
+✔ restoration is deferred until later renderer listeners finish and resolves waiting loaders once (0.993055ms)
+✔ an already paused external scene is not resumed and its panel identity and selection survive (0.332481ms)
+✔ handheld and transition state are preserved instead of replaced by a new pause menu (0.521475ms)
+✔ shutdown while lost resolves waiting work false, removes listeners and ignores late restore (0.406262ms)
+✔ a second loss before the restoration microtask never resumes a still-lost context (0.984913ms)
+✔ owned raw key actions reject lost-context events and repeats cannot rearm a cleared accelerator (1.374619ms)
+✖ a remapping prompt cannot consume or save a keyboard choice while the display is lost (2.58375ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18.485062
+
+✖ failing tests:
+
+test at test/fpcontext.js:43:1
+✖ a remapping prompt cannot consume or save a keyboard choice while the display is lost (2.58375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/workspace/b3-context-recovery/test/fpcontext.js:48:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,205 @@
+{
+  "phase": "failed",
+  "pid": 152547,
+  "jobs": [
+    {
+      "tag": "pilot-recovery-low-en",
+      "script": "test/fpcontextrecoverybrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 88,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "pilot-recovery-low-en/c24-practice-geometry.json",
+          "sha256": "c0cdec151c877757921bc2f9dfec207322152facf14ab563a2681d6d037ef91b"
+        },
+        {
+          "file": "pilot-recovery-low-en/pilot-recovery-low-en-driving-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "pilot-recovery-low-en/pilot-recovery-low-en-driving-restored.png",
+          "sha256": "c467013da37628dcee569d341f3f7b2c3abb4074f9d96dee9d67a452bb4c37a6"
+        },
+        {
+          "file": "pilot-recovery-low-en/pilot-recovery-low-en-loading-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "pilot-recovery-low-en/pilot-recovery-low-en-menu-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "pilot-recovery-low-en/pilot-recovery-low-en.json",
+          "sha256": "d755d39d26d4c87d31f30656fafb6b459741c81a3ab334acc3d571e73f5110e7"
+        }
+      ]
+    },
+    {
+      "tag": "pilot-recovery-high-en",
+      "script": "test/fpcontextrecoverybrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "en",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 88,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "pilot-recovery-high-en/pilot-recovery-high-en-driving-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "pilot-recovery-high-en/pilot-recovery-high-en-driving-restored.png",
+          "sha256": "167ff330af4dbf64fbc84cd6d2936e91f1a01543682bf58965e9b3d13e633bca"
+        },
+        {
+          "file": "pilot-recovery-high-en/pilot-recovery-high-en-loading-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "pilot-recovery-high-en/pilot-recovery-high-en-menu-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "pilot-recovery-high-en/pilot-recovery-high-en.json",
+          "sha256": "71e8ba8b568a9af3a4e9821107e225928d7af412fb0ad44baff609fa492acddd"
+        }
+      ]
+    },
+    {
+      "tag": "pilot-recovery-low-ta",
+      "script": "test/fpcontextrecoverybrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "ta",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 88,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "pilot-recovery-low-ta/pilot-recovery-low-ta-driving-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "pilot-recovery-low-ta/pilot-recovery-low-ta-driving-restored.png",
+          "sha256": "70ae1db1b4fb3669a5657ac2a5e654beecea3021c11a1a71234214641dc88cc5"
+        },
+        {
+          "file": "pilot-recovery-low-ta/pilot-recovery-low-ta-loading-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "pilot-recovery-low-ta/pilot-recovery-low-ta-menu-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "pilot-recovery-low-ta/pilot-recovery-low-ta.json",
+          "sha256": "42130fb0864052229ee17d2d362b2b24a22d5ba4460863408245985d8e2860eb"
+        }
+      ]
+    },
+    {
+      "tag": "pilot-recovery-high-ta",
+      "script": "test/fpcontextrecoverybrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 88,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "pilot-recovery-high-ta/pilot-recovery-high-ta-driving-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "pilot-recovery-high-ta/pilot-recovery-high-ta-driving-restored.png",
+          "sha256": "555cdf4384a9426a4780074cb2ca82264bc3ac5221c394233eaae8425e064735"
+        },
+        {
+          "file": "pilot-recovery-high-ta/pilot-recovery-high-ta-loading-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "pilot-recovery-high-ta/pilot-recovery-high-ta-menu-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "pilot-recovery-high-ta/pilot-recovery-high-ta.json",
+          "sha256": "e989bd5901ec697ea3d0fc7f9d03a1747c5f27fda8bb25e63205e380b383171d"
+        }
+      ]
+    },
+    {
+      "tag": "pilot-light-high",
+      "script": "test/fplightingbrowser.js",
+      "env": {
+        "QA_GFX": "high"
+      },
+      "exit": 1,
+      "accepted": false,
+      "checks": 0,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "pilot-light-high/c25-high-dusk.png",
+          "sha256": "e9a3a5bf661565ef1cc8a4273e1d4fcbac119c9230d895df89a266fb53752501"
+        },
+        {
+          "file": "pilot-light-high/c25-high-failure.png",
+          "sha256": "26df0bd8a7593d1a8011fab37ab8b15de4d91c965033f1d5b01815878e7da401"
+        },
+        {
+          "file": "pilot-light-high/c25-high-midday.png",
+          "sha256": "0724ab6871c46b1ced077c275d23d7d3e6052ca676f8c37a78ed38d4c31d3d87"
+        },
+        {
+          "file": "pilot-light-high/c25-high-morning.png",
+          "sha256": "0f42024f26433b3e4c6c29efccae78ce2f250f5ebe33fba73ac063a73f165465"
+        },
+        {
+          "file": "pilot-light-high/c25-high-night.png",
+          "sha256": "a7676bac62234970497ca9154d5590bb09353361a64756ab4d3cd047d8f1360a"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793093048.8593085,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 152550,
+  "index": 4,
+  "tag": "pilot-light-high",
+  "childPid": 154140,
+  "failure": "Browser job failed: pilot-light-high",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793093308.7297685
+}

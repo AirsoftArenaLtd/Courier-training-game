@@ -1,0 +1,2 @@
+AssertionError [ERR_ASSERTION]: {"off":{"x":650,"y":403,"rgb":[0,0,0]},"on":{"x":650,"y":403,"rgb":[0,0,0]}}
+    at /workspace/b3-light-baseline/test/fplightingbrowser.js:22:223

@@ -1071,3 +1071,25 @@ Pilot `c9e02e87` is now combined at `6040d70d`, retaining C-36 and B-114. All 11
 required cases and the current catalogue pass. The native/shared repeat and
 expanded 207-view gate are running on `5627336f`; no result is claimed for that
 combined gate yet. No ceiling changed. Native Intel 60 fps remains O-1.
+
+
+## B-3 context restoration (27 October 2026)
+
+On pilot `b27954c4` plus B-3, all **12 standard resource views** pass with real
+sound, reflected pixels and unchanged `fpquality` limits. The final two input
+guards do not alter rendering; fresh final Low/High recovery checks also verify
+mirror refill and bounded resource counts.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 3 | 41 | 1,330 | 2 | 3,557,376 | 1,925,291 |
+| loaded-high | 3 | 74 | 92,730 | 3 | 11,239,424 | 5,652,699 |
+| accessible-low | 3 | 41 | 1,330 | 2 | 3,557,376 | 2,058,683 |
+| fallback-low | 3 | 34 | 956 | 2 | 3,557,376 | 1,925,291 |
+
+[Exact scopes, hashes, native results and retained failures](review/backlog/b3-context/README.md).
+251 CPU checks and 548 explicitly scoped current-pilot native assertions pass.
+The unchanged full High lighting pixel test fails identically on unchanged old
+and current pilot (black at 650,403 both off/on); that inherited exception is
+retained, not counted as a pass. No ceiling changed. Cloud SwiftShader cannot
+certify Intel 60 fps (O-1).

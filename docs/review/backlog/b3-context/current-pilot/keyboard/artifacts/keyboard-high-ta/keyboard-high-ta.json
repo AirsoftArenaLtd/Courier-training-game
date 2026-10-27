@@ -1,0 +1,8 @@
+{
+  "checks": 10,
+  "errors": [],
+  "language": "ta",
+  "quality": "high",
+  "scope": "Actual guide/key-remapping choices, real GL loss, real key X while lost and native Enter on the fallback Reload button. Profile is the only initial fixture; no game, timer, binding or verdict writes after setup.",
+  "complete": true
+}

@@ -1,0 +1,46 @@
+{
+  "phase": "failed",
+  "pid": 148024,
+  "jobs": [
+    {
+      "tag": "budget-low-loaded",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,mirror,handheld",
+        "QA_FPS_FLOOR": "0"
+      },
+      "exit": 0,
+      "accepted": false,
+      "checks": 0,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "budget-low-loaded/bench-budget-low-loaded-low.json",
+          "sha256": "871b146ce5d2ac258b34b074dbdb0cd7836f36727fcd669d7059721f0bf73c82"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793091452.1330662,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 148027,
+  "index": 0,
+  "tag": "budget-low-loaded",
+  "childPid": 148028,
+  "failure": "Browser job failed: budget-low-loaded",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793091501.3410115
+}

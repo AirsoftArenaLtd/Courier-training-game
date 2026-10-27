@@ -1,0 +1,82 @@
+{
+  "quality": "low",
+  "language": "en",
+  "large": false,
+  "checks": 59,
+  "cases": [
+    {
+      "name": "driving",
+      "modelHash": "cd2b2f344fcb6f0b8db51a4fb85da04892c8a5af7cf03832d67b093b42765095",
+      "eventHash": "0fdf42ee0c81a8b138963cb96ec62174fb34844d99846ddd8e0fab2020ab3219",
+      "timer": 733.2533333333341,
+      "tween": 6406
+    },
+    {
+      "name": "menu",
+      "modelHash": "62cc679a18fa91812682b4656518b018e77a5c4ae38cf09338cecfd715426745",
+      "eventHash": "0fdf42ee0c81a8b138963cb96ec62174fb34844d99846ddd8e0fab2020ab3219",
+      "timer": 3112.9666666666667,
+      "tween": 13624
+    },
+    {
+      "name": "handheld",
+      "modelHash": "f4c0d59643f2cba928dd4d0cb133947269547eb673ec5642504dd2a690a5fe3a",
+      "eventHash": "0fdf42ee0c81a8b138963cb96ec62174fb34844d99846ddd8e0fab2020ab3219",
+      "timer": 3911.4166666666692,
+      "tween": 15600
+    }
+  ],
+  "resources": [
+    {
+      "name": "before",
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1770475
+      },
+      "mirror": {
+        "filled": 7,
+        "updates": [
+          5,
+          5,
+          5,
+          0
+        ]
+      },
+      "restores": 0
+    },
+    {
+      "name": "driving-restored",
+      "peak": {
+        "calls": 41,
+        "triangles": 1164,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1778976
+      },
+      "mirror": {
+        "filled": 7,
+        "updates": [
+          19,
+          18,
+          17,
+          0
+        ]
+      },
+      "restores": 1
+    }
+  ],
+  "errors": [],
+  "scope": "Network-delay, initial campaign/cab/profile and observational tween/timer fixtures are declared up front. Later actions use real keys, actual GL loss or explicit Phaser scene lifecycle operations. No position, mission, event, timer, scoring or verdict edits after setup.",
+  "failure": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(v,message)\n\n    at ok (/workspace/b3-context-recovery/test/fpcontextrecoverybrowser.js:7:122)\n    at /workspace/b3-context-recovery/test/fpcontextrecoverybrowser.js:49:499",
+  "last": {
+    "loading": false,
+    "area": "route",
+    "active": true,
+    "lost": false,
+    "contextLost": false,
+    "handheld": true
+  }
+}

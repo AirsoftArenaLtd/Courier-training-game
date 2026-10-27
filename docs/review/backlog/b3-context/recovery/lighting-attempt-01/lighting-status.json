@@ -1,0 +1,99 @@
+{
+  "phase": "failed",
+  "pid": 149768,
+  "jobs": [
+    {
+      "tag": "visible-ground-low",
+      "script": "test/fplightingbrowser.js",
+      "env": {
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 51,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "visible-ground-low/c25-low-dusk.png",
+          "sha256": "1bc8c6adf836d86d19b4c240b0601b068db3b976b5e45e592cb582fb0ce1c1c0"
+        },
+        {
+          "file": "visible-ground-low/c25-low-lighting.json",
+          "sha256": "436121bddce62ae19011a23640e4a54aa8f2a532b6511ae4d96abd7a27db5066"
+        },
+        {
+          "file": "visible-ground-low/c25-low-midday.png",
+          "sha256": "7f042c88b7f7c85c2a68d41265f34a1b13730723467a5ca14feb3e9526a1094c"
+        },
+        {
+          "file": "visible-ground-low/c25-low-morning.png",
+          "sha256": "23d61f2065281583dd9f5ad123758b61601d98149a59f1fbdb94eb5b2c639f51"
+        },
+        {
+          "file": "visible-ground-low/c25-low-night-headlights.png",
+          "sha256": "6a12867aa39684e8d0cd4b8be7fe7e8aecc0153e3928dec5b26b83a1499e3caf"
+        },
+        {
+          "file": "visible-ground-low/c25-low-night.png",
+          "sha256": "5ee38f280c66ba572ef72f8aaae43d8785e23f93298792cc23e9d0c2e3a7d7f4"
+        },
+        {
+          "file": "visible-ground-low/c25-low-ta-large-reduced.png",
+          "sha256": "d3733c59747df48eea1faead26461ad82def8f463721ea8cb94022f8d9d0d217"
+        }
+      ]
+    },
+    {
+      "tag": "visible-ground-high",
+      "script": "test/fplightingbrowser.js",
+      "env": {
+        "QA_GFX": "high"
+      },
+      "exit": 1,
+      "accepted": false,
+      "checks": 0,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "visible-ground-high/c25-high-dusk.png",
+          "sha256": "30ae11eecca38374589654573df39426383deee9cc8b5918a62c2653547877da"
+        },
+        {
+          "file": "visible-ground-high/c25-high-failure.png",
+          "sha256": "dac46f0b56c36640288e9b6179c7c755f25419877c868feb97ceeed4dfdc4180"
+        },
+        {
+          "file": "visible-ground-high/c25-high-midday.png",
+          "sha256": "3b1ed177266b926dde9319adfa269918ea7febe1d4072271352ac20b72000884"
+        },
+        {
+          "file": "visible-ground-high/c25-high-morning.png",
+          "sha256": "5bd7b3caa4495d91c3dfda24ef57c9af1f36a0ac388b120e56fdfd410f3af24d"
+        },
+        {
+          "file": "visible-ground-high/c25-high-night.png",
+          "sha256": "c932b8b47f5fbb973b6628746b016da574a0f84bd9a79868cf29597aae7872f6"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793091877.9998412,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 150101,
+  "index": 1,
+  "tag": "visible-ground-high",
+  "childPid": 150429,
+  "failure": "Browser job failed: visible-ground-high",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793091981.9637456
+}

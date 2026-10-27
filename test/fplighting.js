@@ -35,6 +35,9 @@ test('High installs contact occlusion and soft-shadow casters; Low uses no shado
 test('shadow rendering happens with the van visible after the main view, then restores its original visibility',()=>{
  const s=scene(true),a=s.art.lighting;let calls=0;s.view.renderSunShadow=()=>{assert.equal(s.art.van.visible,true);calls++;};const visible=s.art.van.visible;s.view.world.onAfterRender({},s.view.world,s.view.camera);assert.equal(calls,1);assert.equal(s.art.van.visible,visible);s.view.world.onAfterRender({},s.view.world,s.view.camera);assert.equal(calls,1);s.model.elapsed+=.13;s.sync();s.view.world.onAfterRender({},s.view.world,s.view.camera);assert.equal(calls,2);s.art.dispose();
 });
+test('restoration refreshes the static shadow at an unchanged mission time without creating Low shadows',()=>{
+ for(const high of [false,true]){const s=scene(high);let calls=0;s.view.renderSunShadow=()=>calls++;const render=()=>s.view.world.onAfterRender({},s.view.world,s.view.camera);render();assert.equal(calls,high?1:0);render();assert.equal(calls,high?1:0);const before=JSON.stringify(s.model.snapshot());s.art.lighting.restore();s.sync();render();assert.equal(calls,high?2:0);assert.equal(JSON.stringify(s.model.snapshot()),before);s.art.dispose();}
+});
 test('the bounded shadow area follows the walking viewpoint while van light beams stay on the chassis',()=>{
  const s=scene(true),a=s.art.lighting,beam=a.front[0].position.clone();s.model.mode='walk';s.model.player.x=100;s.model.player.z=-80;s.sync();assert.ok(Math.abs(a.sun.target.position.x-100)<.18);assert.ok(Math.abs(a.sun.target.position.z+80)<.18);assert.ok(a.front[0].position.distanceTo(beam)<1e-10);s.art.dispose();
 });

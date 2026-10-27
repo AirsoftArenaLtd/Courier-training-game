@@ -134,7 +134,7 @@ OTR.fpAccess={
     scene.showPanel('Change a 3D control',`Press the new key for ${label}. Escape cancels.`,[{label:'Cancel',action:()=>{cleanup();this.keys(scene,page);}}]);
     OTR.a11y.capturing=true;
     const cleanup=()=>{window.removeEventListener('keydown',onKey,true);OTR.a11y.capturing=false;};
-    const onKey=e=>{e.preventDefault();e.stopImmediatePropagation();cleanup();if(e.code!=='Escape'&&e.code!=='Enter'){
+    const onKey=e=>{if(scene.glRecovery?.lost)return;e.preventDefault();e.stopImmediatePropagation();cleanup();if(e.code!=='Escape'&&e.code!=='Enter'){
       const keys=this.settings().keys,old=OTR.a11y.physical(code),codes=new Set([...OTR.a11y.ACTIONS.map(a=>a.code),...this.controls.map(a=>a[0])]);
       for(const other of codes)if(other!==code&&OTR.a11y.physical(other)===e.code)keys[other]=old;
       keys[code]=e.code;for(const key of Object.keys(keys))if(keys[key]===key)delete keys[key];OTR.a11y.save();scene.hints=null;
