@@ -1,0 +1,47 @@
+✔ dispatch brief completion is local, once-only and persists without replay (20.409331ms)
+✔ campaign briefing prevents cab entry until acknowledged; practice remains separate (0.811492ms)
+✔ first drive leg uses throttle and brakes, stops at the line and parks at the first address (42.486984ms)
+✔ drive guidance follows belt, departure, junction and destination without checkpoint state (0.822478ms)
+✔ seeds provide different service mixes while addresses remain fixed (0.457549ms)
+✔ parcel location, identity and rearrangement persist through a checkpoint (1.154258ms)
+✔ closed cargo, remote interaction and occupied shelves cannot transfer parcels (0.844071ms)
+✔ a wrong scan is recoverable and repeated scans do not duplicate evidence (0.364629ms)
+✔ wrong parcel and uncontacted address do not complete a job (0.50515ms)
+✔ delivery, authorised release and correct exception lead to return and debrief (0.711091ms)
+✔ unsupported outcomes cannot poison the recorded delivery decision (0.229185ms)
+✔ an absent recipient cannot receive a handover and the parcel remains recoverable (0.329607ms)
+✔ depot scanning cannot replace a fresh scan at the delivery stop (0.224168ms)
+✔ cargo scans do not verify a doorstep and an unsecured van blocks recording after a valid scan (0.247202ms)
+✔ scanning the wrong stop or scanning with an unsecured vehicle does not verify delivery (0.204198ms)
+✔ older checkpoints retain cargo and require fresh delivery verification (0.681877ms)
+✔ practice enforces scope and finishes only after physical retrieval and replacement (0.306071ms)
+✔ inspection decision is checked against the actual generated condition (0.575988ms)
+✔ parked cargo can be entered through the rear but walls and cab remain solid (0.420113ms)
+✔ hub suspension or pause does not advance actors and restored events do not duplicate (0.450138ms)
+✔ crossing development survives save/resume and an early response is recorded once (1.528672ms)
+✔ stopping before the line is recognised, crossing it without stopping is not (0.791552ms)
+✔ new motion remains stable across frame rates and caps an inactive-tab frame (13.509442ms)
+✔ corrupted checkpoint and impossible cargo locations are rejected (1.325326ms)
+✔ traffic contact stops the vehicle and records one collision rather than two (2.939856ms)
+✔ traffic is solid for walkers and yields when a walker is directly ahead (0.247723ms)
+✔ a corrupted debrief or swapped save slot cannot break a valid campaign checkpoint (0.671691ms)
+✔ local checkpoint reports storage failure and uses a separate profile key (0.417428ms)
+✔ load scans, shelf checks and restraints report successes and failures by parcel and leg (1.41483ms)
+✔ both inspection points report the first decision and penalize incomplete departure checks (0.402025ms)
+✔ practice retrieval reports whether the requested parcel was scanned (0.23261ms)
+✔ stop scans, absent handovers, delivery decisions and returns use parcel and numeric stop keys (0.55795ms)
+✔ wrong parcels and recovered mismatches are distinct for each target stop (0.292681ms)
+✔ legacy unverified completion maps to a failed stop scan (0.858072ms)
+✔ safe driving stays unpenalized, violations are once per leg and map to van coordinates in mph (0.755898ms)
+✔ stop-line and developing hazard checks report both right and wrong responses (0.429357ms)
+✔ traffic, obstacle and pedestrian contacts report critical incidents (0.888327ms)
+✔ handheld parking guard reports through the mission log once per leg (0.209345ms)
+✔ restoring HUD evidence does not replay reports, and missing workday support is safe (0.455926ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 112.618813

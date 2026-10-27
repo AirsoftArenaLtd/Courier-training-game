@@ -1,17 +1,74 @@
 # B-3: recover the shared WebGL context
 
-Branch: `codex/b3-context-recovery`, independently from pilot `90844ac5`. Status: doing; the actual forced-loss baseline is complete and retains three expected regression failures. No recovery implementation or passing acceptance is claimed yet.
+Ready for review on `codex/b3-context-recovery`, based on pilot `b27954c4`.
+Product source: `1d0b4234`. The current pilot's B-164 cab/nav clearance and
+B-178 script-font changes are retained.
 
-The browser fixture starts one declared, parked campaign cab, then holds the real accelerate key until the original motor moves the van. It forces the actual `WEBGL_lose_context` extension, snapshots the loss event, waits 1.2 real seconds, tries the real gear key while lost, and restores through the extension. The regression compares simulation time, van/player state, cargo and source observations at loss and restoration; it retains the restored frame and raw errors. It changes no position, mission state, events, scoring or timers after setup.
+A real WebGL context loss now freezes the scene, mission, timers and tweens,
+clears held input and shows an accessible DOM fallback with the existing
+translated Paused and Reload labels. Restoration waits for Phaser and Three,
+refills the mirror atlas, refreshes High shadows and restores the existing menu
+or handheld state. Driving resumes through the existing Pause/Continue panel.
+Late loaders cannot replace a restarted scene's asset bank. An already paused
+scene stays paused. Shutdown releases the overlay and listeners.
 
-`before-plan.json` freezes the exact 517 baseline/test inputs. `validate-before.py` expects a completed failing baseline, binds its private server to `127.0.0.1:8400`, and releases its browser, server and lease. An unexpected script error is not accepted as evidence of the product defect.
+The final input guards keep key capture from saving unseen bindings and allow
+native Tab/Enter to reach Reload while the graphics context is unavailable.
+No new score event, save field, translation, persistent texture or render pass
+was added. `index.html` loads one new classic helper, `fpcontext.js`; prototype
+entry remains opt-in.
 
-Initial source inspection: Phaser already restores its own GL resources and Three installs its renderer handlers. The owned scene has no context-loss simulation/input guard, and the physical mirror tile flags and static shadow-update state survive renderer restoration. These are hypotheses to check against the native evidence before changing production code. Recovery must retain the current in-memory workday, ScoreLog and cargo, clear stale held input, refill reflection tiles and rebuild static shadows without changing Low/High ceilings. Loading, menus, repeated loss and shutdown need explicit coverage in the implementation slice.
+## Validation and source scopes
 
-B-2 continues its independent owned UI/runtime validation; its durable settings writer and translation delta stay with Claude. No merge, protected-branch push, owner relay or automation change is needed.
+[verification.json](verification.json) is produced by running the adjacent `verify-evidence.py` from this worktree. It verifies all sources and
+artifacts in eleven retained phases against current or archived exact bytes.
+Some raw plans retain the original baseline's `source` label; their detailed
+`scope`, hashes and the verification summary identify the actual build.
 
-## Baseline finding
+- **251 CPU checks** pass across fourteen relevant suites. The eight final
+  context cases and twelve accessibility cases replace their pre-fix versions.
+  The catalogue delta is empty and all eleven translation checks pass.
+- On current pilot, the pre-keyboard recovery matrix passes **352 checks**:
+  Low/High, English/Tamil, normal/larger text. The final keyboard phase passes
+  **196 checks**, including fresh full Low English and larger High Tamil recovery
+  and real Enter-triggered navigation through Reload. These are **548 scoped
+  assertions**, not one all-source run. The two intervening input-guard changes
+  are archived; rendering inputs are unchanged.
+- Current-pilot standard `fpbench` / `fpquality` checks pass **12 views** across
+  loaded Low, loaded High, accessible Low and missing-model Low. Actual sound,
+  reflection pixels and original ceilings are enforced. Final recovery checks
+  separately retain 8 resource samples and prove all three mirror tiles refill
+  and their counters advance.
+- Forced loss covers delayed initial loading, moving cab, menu identity and
+  selection, handheld, held scanner/mouse rearming, repeated loss and scene
+  restart with an obsolete loader. Mission/event hashes, clock and tween values
+  remain fixed during each loss. Screenshots were inspected at original size;
+  translated Tamil labels render without missing glyphs. Existing untranslated
+  body text is visible in the restored Pause panel; no new text was introduced.
+- Every validator releases its browser, loopback-only server and browser lease.
+  Cloud SwiftShader cannot certify the owner's Intel 60 fps requirement (O-1).
 
-`baseline-verification.json` verifies all 517 frozen baseline/test inputs and artifacts. The actual extension and restored rendering complete with no page errors, but **three of five assertions fail on the unchanged product**: the mission keeps simulating, cab input still produces an observation, and restoration returns to a later workday moment. During the 1.2-real-second loss interval, mission time advances 1.2314 seconds and the van travels 2.9760 meters while accelerating from 1.0630 to 3.6751m/s. The gear key adds a third source observation while the screen is lost. The restored screenshot was inspected at original resolution.
+## Retained failure and historical evidence
 
-This is expected-failing evidence, not a passing product test. Both raw report and server log are retained; the browser, loopback server and lease are released. B-2's owned controls/runtime slice is pushed at `6054d59f`, blocked only on Claude's shared writer/translations; this independent B-3 task is doing, with the recovery implementation next.
+**The unchanged full High lighting test still fails.** It samples black both
+with headlights off and on at pixel `(650,403)`. This exact failure is reproduced
+on unchanged old pilot `90844ac5` and unchanged current pilot `b27954c4` under
+`lighting-baseline/`. It is an inherited test/visible-ground-probe issue requiring
+separate review; a passing full High lighting gate is not claimed. The original
+test and threshold are unchanged. Two exploratory test fixtures were discarded;
+their raw failures remain under `recovery/lighting-attempt-*`. The raw failing
+`current-pilot/keyboard-before.log` retains two producer-written whitespace-only
+lines; they are preserved as evidence, not authored source.
+
+The original baseline (`before-*`) records three expected failures: in a 1.2 s
+loss interval the old mission advances 1.2314 s, the van moves 2.976 m and a gear
+key adds an observation. `first-recovery/` records the early 10 passing checks.
+`recovery/` records the fuller old-pilot matrix (352), cab (200), mirrors (180),
+Low lighting (51), High **layout-only** (28) and 12 resource views. These historical
+results are not relabeled as current-pilot evidence. Failed scanner-fixture and
+missing-protocol-env attempts are also retained with their corrected successors.
+`pre-pilot/` and `current-pilot/before-keyboard-fix/` preserve exact changed inputs.
+
+Claude can review B-3 while C-39 continues on its existing C-38 stack. The newly
+confirmed junction/night `drive.route` efficiency and school completion policy
+are accepted; no owner decision or merge wait is needed.

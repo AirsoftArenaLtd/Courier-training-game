@@ -1,0 +1,224 @@
+{
+  "quality": "low",
+  "checks": 5,
+  "failures": [],
+  "errors": [],
+  "scope": "Declared initial parked-cab/profile fixture. Thereafter physical keyboard input and the real WEBGL_lose_context extension; no position, mission, event, scoring or timer edits.",
+  "loss": {
+    "before": {
+      "elapsed": 0.5163999999999993,
+      "van": {
+        "x": 2.84,
+        "z": -18.276871887937308,
+        "yaw": 0,
+        "speed": 1.1400024127874142,
+        "steer": 0,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ]
+      },
+      "player": {
+        "x": 9,
+        "z": 10,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "parcels": [
+        {
+          "id": "parcel0",
+          "location": "depot"
+        },
+        {
+          "id": "parcel1",
+          "location": "depot"
+        },
+        {
+          "id": "parcel2",
+          "location": "depot"
+        },
+        {
+          "id": "parcel3",
+          "location": "depot"
+        },
+        {
+          "id": "parcel4",
+          "location": "depot"
+        }
+      ],
+      "events": "[{\"type\":\"drive.mirrors\",\"key\":\"0:1\",\"ok\":false,\"stop\":1,\"where\":{\"x\":2.8,\"z\":-18,\"mph\":1}},{\"type\":\"drive.signal\",\"key\":\"0:1\",\"ok\":false,\"stop\":1,\"where\":{\"x\":2.8,\"z\":-18,\"mph\":1}}]"
+    },
+    "after": {
+      "elapsed": 0.5163999999999993,
+      "van": {
+        "x": 2.84,
+        "z": -18.276871887937308,
+        "yaw": 0,
+        "speed": 1.1400024127874142,
+        "steer": 0,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ]
+      },
+      "player": {
+        "x": 9,
+        "z": 10,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "parcels": [
+        {
+          "id": "parcel0",
+          "location": "depot"
+        },
+        {
+          "id": "parcel1",
+          "location": "depot"
+        },
+        {
+          "id": "parcel2",
+          "location": "depot"
+        },
+        {
+          "id": "parcel3",
+          "location": "depot"
+        },
+        {
+          "id": "parcel4",
+          "location": "depot"
+        }
+      ],
+      "events": "[{\"type\":\"drive.mirrors\",\"key\":\"0:1\",\"ok\":false,\"stop\":1,\"where\":{\"x\":2.8,\"z\":-18,\"mph\":1}},{\"type\":\"drive.signal\",\"key\":\"0:1\",\"ok\":false,\"stop\":1,\"where\":{\"x\":2.8,\"z\":-18,\"mph\":1}}]"
+    },
+    "held": {}
+  },
+  "restored": {
+    "atEvent": {
+      "elapsed": 0.5163999999999993,
+      "van": {
+        "x": 2.84,
+        "z": -18.276871887937308,
+        "yaw": 0,
+        "speed": 1.1400024127874142,
+        "steer": 0,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ]
+      },
+      "player": {
+        "x": 9,
+        "z": 10,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "parcels": [
+        {
+          "id": "parcel0",
+          "location": "depot"
+        },
+        {
+          "id": "parcel1",
+          "location": "depot"
+        },
+        {
+          "id": "parcel2",
+          "location": "depot"
+        },
+        {
+          "id": "parcel3",
+          "location": "depot"
+        },
+        {
+          "id": "parcel4",
+          "location": "depot"
+        }
+      ],
+      "events": "[{\"type\":\"drive.mirrors\",\"key\":\"0:1\",\"ok\":false,\"stop\":1,\"where\":{\"x\":2.8,\"z\":-18,\"mph\":1}},{\"type\":\"drive.signal\",\"key\":\"0:1\",\"ok\":false,\"stop\":1,\"where\":{\"x\":2.8,\"z\":-18,\"mph\":1}}]"
+    },
+    "now": {
+      "elapsed": 0.5163999999999993,
+      "van": {
+        "x": 2.84,
+        "z": -18.276871887937308,
+        "yaw": 0,
+        "speed": 1.1400024127874142,
+        "steer": 0,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ]
+      },
+      "player": {
+        "x": 9,
+        "z": 10,
+        "yaw": 0,
+        "pitch": 0
+      },
+      "parcels": [
+        {
+          "id": "parcel0",
+          "location": "depot"
+        },
+        {
+          "id": "parcel1",
+          "location": "depot"
+        },
+        {
+          "id": "parcel2",
+          "location": "depot"
+        },
+        {
+          "id": "parcel3",
+          "location": "depot"
+        },
+        {
+          "id": "parcel4",
+          "location": "depot"
+        }
+      ],
+      "events": "[{\"type\":\"drive.mirrors\",\"key\":\"0:1\",\"ok\":false,\"stop\":1,\"where\":{\"x\":2.8,\"z\":-18,\"mph\":1}},{\"type\":\"drive.signal\",\"key\":\"0:1\",\"ok\":false,\"stop\":1,\"where\":{\"x\":2.8,\"z\":-18,\"mph\":1}}]"
+    },
+    "held": {},
+    "diagnostics": {
+      "calls": 41,
+      "triangles": 1156,
+      "textures": 2,
+      "geometries": 22,
+      "targetWidth": 832,
+      "targetHeight": 468,
+      "attachmentBytes": 3557376,
+      "restores": 1
+    }
+  },
+  "complete": true
+}

@@ -1,0 +1,19 @@
+{
+  "oldHead": "546746c53dbaacaa336ed762d93636d7205aceb6",
+  "oldBase": "90844ac5",
+  "newBase": "b27954c42a789a00d80d87076b4c45c2840c73d6",
+  "archivedSources": {
+    "index.html": "docs/review/backlog/b3-context/pre-pilot/source/index.html",
+    "src/core/fpcab.js": "docs/review/backlog/b3-context/pre-pilot/source/src/core/fpcab.js",
+    "src/core/fphud.js": "docs/review/backlog/b3-context/pre-pilot/source/src/core/fphud.js",
+    "src/core/fplighting.js": "docs/review/backlog/b3-context/pre-pilot/source/src/core/fplighting.js",
+    "src/core/fprear.js": "docs/review/backlog/b3-context/pre-pilot/source/src/core/fprear.js",
+    "src/core/fpworld.js": "docs/review/backlog/b3-context/pre-pilot/source/src/core/fpworld.js",
+    "src/core/theme.js": "docs/review/backlog/b3-context/pre-pilot/source/src/core/theme.js",
+    "src/core/world3d.js": "docs/review/backlog/b3-context/pre-pilot/source/src/core/world3d.js",
+    "src/scenes/FirstPersonScene.js": "docs/review/backlog/b3-context/pre-pilot/source/src/scenes/FirstPersonScene.js",
+    "test/fpcontextbrowser.js": "docs/review/backlog/b3-context/pre-pilot/source/test/fpcontextbrowser.js",
+    "src/core/fpcontext.js": "docs/review/backlog/b3-context/pre-pilot/source/src/core/fpcontext.js",
+    "test/fpcontextrecoverybrowser.js": "docs/review/backlog/b3-context/pre-pilot/source/test/fpcontextrecoverybrowser.js"
+  }
+}

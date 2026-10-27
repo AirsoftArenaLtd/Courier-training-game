@@ -1,0 +1,98 @@
+
+es (Español)
+ok   data/i18n/es.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+ok   "2 delivered · 1 exception"
+ok   "2 delivered · 3 exceptions"
+ok   "Not passed (3 attempts, left part-way)"
+ok   "Assessment: not passed · 1 attempt left"
+ok   "Signaled the left turn too late"
+ok   "+ 1 more check, all passed"
+ok   "12 mph · 1:23 into the drive · CRITICAL"
+ok   "Whoa, the icy path is slippery! Hold SHIFT: short, careful steps."
+
+fr (Français)
+ok   data/i18n/fr.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+hi (हिन्दी)
+ok   data/i18n/hi.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+bn (বাংলা)
+ok   data/i18n/bn.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+mr (मराठी)
+ok   data/i18n/mr.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+te (తెలుగు)
+ok   data/i18n/te.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+ta (தமிழ்)
+ok   data/i18n/ta.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+gu (ગુજરાતી)
+ok   data/i18n/gu.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+kn (ಕನ್ನಡ)
+ok   data/i18n/kn.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+ml (മലയാളം)
+ok   data/i18n/ml.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+pa (ਪੰਜਾਬੀ)
+ok   data/i18n/pa.js loads
+ok   templates use only their own holes
+ok   every sentence in the catalogue is translated
+ok   quiz answers can't be told by their length
+ok   every quiz option is translated
+ok   conversation answers can't be told by their length
+
+all translation checks passed

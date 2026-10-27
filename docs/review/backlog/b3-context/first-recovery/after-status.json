@@ -1,0 +1,66 @@
+{
+  "phase": "complete",
+  "pid": 143791,
+  "jobs": [
+    {
+      "tag": "first-low",
+      "script": "test/fpcontextbrowser.js",
+      "env": {
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 5,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "first-low/first-low-restored.png",
+          "sha256": "7f9da7fdf37b4f20b8b147f52995ad766cd5034bfbcd5061439261e31cd992d0"
+        },
+        {
+          "file": "first-low/first-low.json",
+          "sha256": "96bd56af617a5e7b5ea8f97612f4fb94388226cabb840b90e44802f94691092e"
+        }
+      ]
+    },
+    {
+      "tag": "first-high",
+      "script": "test/fpcontextbrowser.js",
+      "env": {
+        "QA_GFX": "high"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 5,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "first-high/first-high-restored.png",
+          "sha256": "d4cd0729336f68e0c4342b46996082382e74b24c2912d46091c167a4bc218882"
+        },
+        {
+          "file": "first-high/first-high.json",
+          "sha256": "ca62a72862f2f5a7ea57c3d2f2ead4fcf2a803944342611e4582bf2f92f67269"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793089697.9868104,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 143794,
+  "index": 1,
+  "tag": "first-high",
+  "childPid": 144119,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793089736.8551013
+}

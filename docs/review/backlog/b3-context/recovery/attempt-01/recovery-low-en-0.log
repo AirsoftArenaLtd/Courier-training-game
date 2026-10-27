@@ -1,0 +1,6 @@
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert.ok(v,message)
+
+    at ok (/workspace/b3-context-recovery/test/fpcontextrecoverybrowser.js:7:122)
+    at /workspace/b3-context-recovery/test/fpcontextrecoverybrowser.js:49:499

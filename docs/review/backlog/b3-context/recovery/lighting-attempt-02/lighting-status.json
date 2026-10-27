@@ -1,0 +1,57 @@
+{
+  "phase": "failed",
+  "pid": 150812,
+  "jobs": [
+    {
+      "tag": "visible-ground-low",
+      "script": "test/fplightingbrowser.js",
+      "env": {
+        "QA_GFX": "low"
+      },
+      "exit": 1,
+      "accepted": false,
+      "checks": 0,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "visible-ground-low/c25-low-dusk.png",
+          "sha256": "1bc8c6adf836d86d19b4c240b0601b068db3b976b5e45e592cb582fb0ce1c1c0"
+        },
+        {
+          "file": "visible-ground-low/c25-low-failure.png",
+          "sha256": "1cf2902efa9e8b634f0e209f02949302badcc8cc31a876676d1d7a9bda56c12b"
+        },
+        {
+          "file": "visible-ground-low/c25-low-midday.png",
+          "sha256": "7f042c88b7f7c85c2a68d41265f34a1b13730723467a5ca14feb3e9526a1094c"
+        },
+        {
+          "file": "visible-ground-low/c25-low-morning.png",
+          "sha256": "23d61f2065281583dd9f5ad123758b61601d98149a59f1fbdb94eb5b2c639f51"
+        },
+        {
+          "file": "visible-ground-low/c25-low-night.png",
+          "sha256": "5ee38f280c66ba572ef72f8aaae43d8785e23f93298792cc23e9d0c2e3a7d7f4"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793092220.2423356,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 150815,
+  "index": 0,
+  "tag": "visible-ground-low",
+  "childPid": 150816,
+  "failure": "Browser job failed: visible-ground-low",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793092233.358225
+}

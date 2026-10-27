@@ -1,0 +1,1 @@
+Test-flow error after59 passing checks: SCAN correctly refused to aim while the trainee was still in the cab. The revised test closes the handheld and exits through the real action key before opening the scanner, then waits for the existing pointer debounce. No production patch is needed for that failure.

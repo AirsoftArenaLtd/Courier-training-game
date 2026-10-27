@@ -1,0 +1,198 @@
+{
+  "phase": "complete",
+  "pid": 154489,
+  "jobs": [
+    {
+      "tag": "pilot-budget-low-loaded",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,mirror,handheld",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 0,
+      "peak": {
+        "calls": 41,
+        "triangles": 1330,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1925291
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "pilot-budget-low-loaded/bench-pilot-budget-low-loaded-low.json",
+          "sha256": "78fe38b2c466c52e47d56d6de2a4a009f007e4addbf4aef5030457b69264a5de"
+        },
+        {
+          "file": "pilot-budget-low-loaded/pilot-budget-low-loaded-low-cab.png",
+          "sha256": "0e683758abf3f8d848f0443c9eaf9865d7d232678712be7905ce1ebd54688e4d"
+        },
+        {
+          "file": "pilot-budget-low-loaded/pilot-budget-low-loaded-low-handheld.png",
+          "sha256": "6f1cec6918ba0123240102cc5ba874d692858b39e0beeefbdfdac295d3202704"
+        },
+        {
+          "file": "pilot-budget-low-loaded/pilot-budget-low-loaded-low-mirror.png",
+          "sha256": "3da5c6e7a4cf473e9e4a9746cd503a11aa5278f27de8b0bc1353b59e79b58712"
+        }
+      ]
+    },
+    {
+      "tag": "pilot-budget-high-loaded",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,mirror,handheld",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 0,
+      "peak": {
+        "calls": 74,
+        "triangles": 92730,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5652699
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "pilot-budget-high-loaded/bench-pilot-budget-high-loaded-high.json",
+          "sha256": "158b5cab67651bdac0588e09301922c0641258f1535002931ded3129f9b45a0d"
+        },
+        {
+          "file": "pilot-budget-high-loaded/pilot-budget-high-loaded-high-cab.png",
+          "sha256": "df02d6d335f36ffbac1d6bac344c009a4d17a4b99fb4e0a42405227512f96770"
+        },
+        {
+          "file": "pilot-budget-high-loaded/pilot-budget-high-loaded-high-handheld.png",
+          "sha256": "abc0d20d4945343015b88caca0ae3640dd734613defd507f49b18ecae3f7416e"
+        },
+        {
+          "file": "pilot-budget-high-loaded/pilot-budget-high-loaded-high-mirror.png",
+          "sha256": "66a3f25f821da4012a433c8ba91c85043c2dd74f4c7d65011095b0f3d0325626"
+        }
+      ]
+    },
+    {
+      "tag": "pilot-budget-low-accessible",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,mirror,handheld",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 0,
+      "peak": {
+        "calls": 41,
+        "triangles": 1330,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2058683
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "pilot-budget-low-accessible/bench-pilot-budget-low-accessible-low.json",
+          "sha256": "f6bfb8de9ad882af50edfc1accbc94373ff690ff1888121709e139e8650f2f4f"
+        },
+        {
+          "file": "pilot-budget-low-accessible/pilot-budget-low-accessible-low-cab.png",
+          "sha256": "bc6c6f8850a135ecbef75a52bb517cc24aebf63769120a9cf51e92471acc8832"
+        },
+        {
+          "file": "pilot-budget-low-accessible/pilot-budget-low-accessible-low-handheld.png",
+          "sha256": "4de61f8af367264c449a5810268c7320d1782fa81092ec43ea43ac21950aa325"
+        },
+        {
+          "file": "pilot-budget-low-accessible/pilot-budget-low-accessible-low-mirror.png",
+          "sha256": "8237f3221a3ce4490a7f4761d8e95c4bb42ef9520a0bd5626532a472c05764dd"
+        }
+      ]
+    },
+    {
+      "tag": "pilot-budget-low-fallback",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,mirror,handheld",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 0,
+      "peak": {
+        "calls": 34,
+        "triangles": 956,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1925291
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "pilot-budget-low-fallback/bench-pilot-budget-low-fallback-low.json",
+          "sha256": "eb8b860c43e509a0ab5578b79e1aef2a9a3fcf3e889a124ac65d79d1df28a333"
+        },
+        {
+          "file": "pilot-budget-low-fallback/pilot-budget-low-fallback-low-cab.png",
+          "sha256": "0f0d3578681df69f2e65c646334518296f81d48b3319e06605284a86fe77152d"
+        },
+        {
+          "file": "pilot-budget-low-fallback/pilot-budget-low-fallback-low-handheld.png",
+          "sha256": "921eff4c8cce2cb209b5fc1c52d66a572d77f9904d8d7d44f7cef4cd714b1694"
+        },
+        {
+          "file": "pilot-budget-low-fallback/pilot-budget-low-fallback-low-mirror.png",
+          "sha256": "2642e07a08f460844f90f7ad1ffda7a4fc8b9fe2067ae7bf861600401983cc20"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793093473.2337122,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 154492,
+  "index": 3,
+  "tag": "pilot-budget-low-fallback",
+  "childPid": 155543,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793093712.1404643
+}

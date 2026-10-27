@@ -1,0 +1,32 @@
+✔ parking practice at Dispatch opens its own menu instead of a workday completion (0.973622ms)
+✔ render diagnostics count world, mirror and composite once per frame without accumulating (4.544412ms)
+✔ depot parcels and vehicle inspection/entry points can be reached with real raycasts (49.947409ms)
+✔ all six empty shelf positions and the restraint are selectable from the cargo aisle (19.587613ms)
+✔ loaded parcel raycasts follow the parked van rotation and obey the closed door (7.825343ms)
+✔ all customer doors are outside the house occluder and reachable from the path (7.535226ms)
+✔ hub stations are pickable and inactive route interactions are invisible (6.171302ms)
+✔ low graphics retains identical parcel, door and vehicle interaction targets (8.239967ms)
+✔ the sprung body dives and rolls without tilting the tyres, and reduced motion removes both (10.664036ms)
+✔ turning the head moves the view without carrying the dashboard or changing the saved mission (4.778495ms)
+✔ reduced motion clears even the last fractional degree of speed zoom (43.078453ms)
+✔ walkaround front and mirror marks leave the headlights directly reachable (21.45181ms)
+✔ three physical mirrors remain live without a button and reflection visibility restores exactly (8.993191ms)
+✔ inspection refreshes the raycast rather than opening a formerly aimed-at parcel (0.452782ms)
+✔ a carried package can still be put back on its empty depot table without another target (0.492081ms)
+✔ scanner reads the barcode face, not the back of a box or through a closed door (8.4277ms)
+✔ a carried parcel is raised for scanning and keeps its actual identity (3.874544ms)
+✔ low graphics keeps barcode scanning on cargo shelves (2.316007ms)
+✔ legacy parcel visibility keeps its original range when compacting render instances (1.932024ms)
+✔ saving practice preserves a separate suspended workday (0.439101ms)
+✔ scene transition saves before swapping models and ignores duplicate requests (0.262475ms)
+✔ both hub-workday exit choices checkpoint then pause without entering the prototype hub (0.198059ms)
+✔ successful hub workday dispatch hands the numbered summary to results and clears its checkpoint (0.506723ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 220.04037
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

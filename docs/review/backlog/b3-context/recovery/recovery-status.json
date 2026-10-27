@@ -1,0 +1,166 @@
+{
+  "phase": "complete",
+  "pid": 145200,
+  "jobs": [
+    {
+      "tag": "recovery-low-en-0",
+      "script": "test/fpcontextrecoverybrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 88,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "recovery-low-en-0/recovery-low-en-0-driving-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "recovery-low-en-0/recovery-low-en-0-driving-restored.png",
+          "sha256": "9fe34731f00a45498bd9bc8d538d74a6edd1cebef0592db83c4495f003a2e54c"
+        },
+        {
+          "file": "recovery-low-en-0/recovery-low-en-0-loading-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "recovery-low-en-0/recovery-low-en-0-menu-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "recovery-low-en-0/recovery-low-en-0.json",
+          "sha256": "0435056ec141e0700146af38bfd4dded505831099f4ce0ac615a135c59877516"
+        }
+      ]
+    },
+    {
+      "tag": "recovery-high-en-1",
+      "script": "test/fpcontextrecoverybrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "en",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 88,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "recovery-high-en-1/recovery-high-en-1-driving-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "recovery-high-en-1/recovery-high-en-1-driving-restored.png",
+          "sha256": "488ef61db7a4fcd90c195c59d2702396fd86d0d30ffa61e16e0042bb35a1e0ae"
+        },
+        {
+          "file": "recovery-high-en-1/recovery-high-en-1-loading-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "recovery-high-en-1/recovery-high-en-1-menu-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "recovery-high-en-1/recovery-high-en-1.json",
+          "sha256": "2104379a7cfd5e50e1d943a695e3d4277dc87cb08c99c35b799c3ad79a51a83a"
+        }
+      ]
+    },
+    {
+      "tag": "recovery-low-ta-0",
+      "script": "test/fpcontextrecoverybrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "ta",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 88,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "recovery-low-ta-0/recovery-low-ta-0-driving-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "recovery-low-ta-0/recovery-low-ta-0-driving-restored.png",
+          "sha256": "8c989ed5903f11d2698c93870ae5d72800f6f81b7abcfa0b43741000b01f5512"
+        },
+        {
+          "file": "recovery-low-ta-0/recovery-low-ta-0-loading-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "recovery-low-ta-0/recovery-low-ta-0-menu-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "recovery-low-ta-0/recovery-low-ta-0.json",
+          "sha256": "d5a771cde481e79dffa8052eca57600b6278b21d473db5f78258e747297ae811"
+        }
+      ]
+    },
+    {
+      "tag": "recovery-high-ta-1",
+      "script": "test/fpcontextrecoverybrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 88,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "recovery-high-ta-1/recovery-high-ta-1-driving-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "recovery-high-ta-1/recovery-high-ta-1-driving-restored.png",
+          "sha256": "79b8bb540716899d52147889c872cd7f8124bca0fdf8067d2cf061966c1d2598"
+        },
+        {
+          "file": "recovery-high-ta-1/recovery-high-ta-1-loading-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "recovery-high-ta-1/recovery-high-ta-1-menu-lost.png",
+          "sha256": "59eec5216a1f7f0ee75974e068e18da3feee60f596fc5e611a5b98ac425d40ac"
+        },
+        {
+          "file": "recovery-high-ta-1/recovery-high-ta-1.json",
+          "sha256": "7e8c56eeb1eeff3b1562efe96f690885cb953274160db5d6fe5bb1a09a8e949e"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793090761.5595098,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 145203,
+  "index": 3,
+  "tag": "recovery-high-ta-1",
+  "childPid": 146262,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793090982.4580948
+}

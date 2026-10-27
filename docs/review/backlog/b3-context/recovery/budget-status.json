@@ -1,0 +1,198 @@
+{
+  "phase": "complete",
+  "pid": 148736,
+  "jobs": [
+    {
+      "tag": "budget-low-loaded",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,mirror,handheld",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 0,
+      "peak": {
+        "calls": 41,
+        "triangles": 1330,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1959339
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "budget-low-loaded/bench-budget-low-loaded-low.json",
+          "sha256": "8f02ec459097017910a53ad38ea951dde1ee89f53d4d4bcf5b39ae00ff2e1fca"
+        },
+        {
+          "file": "budget-low-loaded/budget-low-loaded-low-cab.png",
+          "sha256": "b8e7668fc7ee4a049162a64334171ac6de69fe309eed34c6fcc0422834af43ad"
+        },
+        {
+          "file": "budget-low-loaded/budget-low-loaded-low-handheld.png",
+          "sha256": "6f1cec6918ba0123240102cc5ba874d692858b39e0beeefbdfdac295d3202704"
+        },
+        {
+          "file": "budget-low-loaded/budget-low-loaded-low-mirror.png",
+          "sha256": "28d8ec031caadc9b88f1ff257a7c30404e3ba91985f684b7cacc05266e261d57"
+        }
+      ]
+    },
+    {
+      "tag": "budget-high-loaded",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,mirror,handheld",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 0,
+      "peak": {
+        "calls": 74,
+        "triangles": 92716,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5530395
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "budget-high-loaded/bench-budget-high-loaded-high.json",
+          "sha256": "bc59c95d53b7f2bc00ddba3284a9a4a8af7f1dee938f4fa031accc8e055bbabf"
+        },
+        {
+          "file": "budget-high-loaded/budget-high-loaded-high-cab.png",
+          "sha256": "2bae6dd668ce1881eaa9f7d91f66ad48419c31c6001f90454b486c2e48a80fea"
+        },
+        {
+          "file": "budget-high-loaded/budget-high-loaded-high-handheld.png",
+          "sha256": "abc0d20d4945343015b88caca0ae3640dd734613defd507f49b18ecae3f7416e"
+        },
+        {
+          "file": "budget-high-loaded/budget-high-loaded-high-mirror.png",
+          "sha256": "7e776da7f8f2d054f002545753459502f654f216508f102ac03d70be417357e6"
+        }
+      ]
+    },
+    {
+      "tag": "budget-low-accessible",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,mirror,handheld",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 0,
+      "peak": {
+        "calls": 41,
+        "triangles": 1330,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1990971
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "budget-low-accessible/bench-budget-low-accessible-low.json",
+          "sha256": "e4f38f24e9ff2c1e2e75daf81aa249bb6c1a365d0290cc47300ccabecf9808c6"
+        },
+        {
+          "file": "budget-low-accessible/budget-low-accessible-low-cab.png",
+          "sha256": "1b5dc1df01e253fdfce65e6dcd656d5bf4c66a83960a6b257456bb4fb849cdb9"
+        },
+        {
+          "file": "budget-low-accessible/budget-low-accessible-low-handheld.png",
+          "sha256": "4de61f8af367264c449a5810268c7320d1782fa81092ec43ea43ac21950aa325"
+        },
+        {
+          "file": "budget-low-accessible/budget-low-accessible-low-mirror.png",
+          "sha256": "5db2952e758e5fb8819f6b9d4645f67290d636297425f79d951ddec33f746d72"
+        }
+      ]
+    },
+    {
+      "tag": "budget-low-fallback",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_VIEWS": "cab,mirror,handheld",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 0,
+      "peak": {
+        "calls": 34,
+        "triangles": 956,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1972891
+      },
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "budget-low-fallback/bench-budget-low-fallback-low.json",
+          "sha256": "928f07b3a2fdc1a02ee399daafb14140ca26be3303057916ee3540d6451a1f2c"
+        },
+        {
+          "file": "budget-low-fallback/budget-low-fallback-low-cab.png",
+          "sha256": "d114139be024dae8940c87a250cf4a72db2c9765790e923629744d46516a52d9"
+        },
+        {
+          "file": "budget-low-fallback/budget-low-fallback-low-handheld.png",
+          "sha256": "921eff4c8cce2cb209b5fc1c52d66a572d77f9904d8d7d44f7cef4cd714b1694"
+        },
+        {
+          "file": "budget-low-fallback/budget-low-fallback-low-mirror.png",
+          "sha256": "6bb5d0cd1f57e4695c9f262e3fb9a5d4970a3e9bb7e96f0120e6f2c760f00637"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793091691.1143289,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 148739,
+  "index": 3,
+  "tag": "budget-low-fallback",
+  "childPid": 149787,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793091926.2953937
+}

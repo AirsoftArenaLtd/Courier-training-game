@@ -1,0 +1,303 @@
+{
+  "tag": "pilot-budget-low-fallback",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "assetFailure": "missing-model-files",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 0,
+    "failed": 14,
+    "fallbacks": 0,
+    "bytes": 0,
+    "decodedBytes": 0,
+    "errors": [
+      {
+        "path": "kenney-city-starter/models/garage-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-c-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/tree-small-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/fence-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-commercial/models/building-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/road-straight-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/light-curved-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/sedan-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/delivery-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/resident-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/resident-low.glb",
+        "reason": "Asset could not load"
+      }
+    ]
+  },
+  "prototype": {
+    "cab": {
+      "frames": 102,
+      "avgFPS": 10.12,
+      "low1FPS": 4.09,
+      "p99ms": 203.9,
+      "maxMs": 285,
+      "peak": {
+        "calls": 32,
+        "triangles": 812,
+        "textures": 2,
+        "geometries": 12,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 94,
+        "baseLevelRGBABytes": 1334828,
+        "withMipmapsUpperBytes": 1779771
+      },
+      "worldProfile": {
+        "meshes": 119,
+        "instances": 146,
+        "geometries": 15,
+        "materials": 44,
+        "geometryBytes": 8780,
+        "instanceBytes": 57108,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          37,
+          36,
+          36,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 2.3899999999999997,
+          "y": 2.05,
+          "z": 6.55,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 2.3899999999999997,
+          "baseZ": 6.55,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "mirror": {
+      "frames": 105,
+      "avgFPS": 10.44,
+      "low1FPS": 4.82,
+      "p99ms": 200.6,
+      "maxMs": 214.4,
+      "peak": {
+        "calls": 33,
+        "triangles": 806,
+        "textures": 2,
+        "geometries": 12,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 94,
+        "baseLevelRGBABytes": 1318784,
+        "withMipmapsUpperBytes": 1758379
+      },
+      "worldProfile": {
+        "meshes": 119,
+        "instances": 141,
+        "geometries": 15,
+        "materials": 44,
+        "geometryBytes": 8780,
+        "instanceBytes": 57108,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          82,
+          81,
+          81,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 2.3899999999999997,
+          "y": 2.05,
+          "z": 6.55,
+          "yaw": -0.5053987893153011,
+          "pitch": 0.04663184807332267,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 2.3899999999999997,
+          "baseZ": 6.55,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "handheld": {
+      "frames": 93,
+      "avgFPS": 9.27,
+      "low1FPS": 3.62,
+      "p99ms": 276.5,
+      "maxMs": 276.5,
+      "peak": {
+        "calls": 34,
+        "triangles": 956,
+        "textures": 2,
+        "geometries": 12,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 106,
+        "baseLevelRGBABytes": 1443968,
+        "withMipmapsUpperBytes": 1925291
+      },
+      "worldProfile": {
+        "meshes": 119,
+        "instances": 154,
+        "geometries": 15,
+        "materials": 44,
+        "geometryBytes": 8780,
+        "instanceBytes": 57108,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          114,
+          114,
+          114,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 9,
+          "y": 1.65,
+          "z": 10,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 2.3899999999999997,
+          "baseZ": 6.55,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "mirrorProof": {
+    "mirror": {
+      "index": 0,
+      "red": [
+        255,
+        0,
+        0,
+        255
+      ],
+      "blue": [
+        0,
+        0,
+        255,
+        255
+      ]
+    }
+  },
+  "phaserTextures": {
+    "count": 94,
+    "baseLevelRGBABytes": 1536468,
+    "withMipmapsUpperBytes": 2048624
+  },
+  "phaserTexturesPeak": {
+    "count": 94,
+    "baseLevelRGBABytes": 1536468,
+    "withMipmapsUpperBytes": 2048624
+  },
+  "missingViews": [],
+  "errors": []
+}

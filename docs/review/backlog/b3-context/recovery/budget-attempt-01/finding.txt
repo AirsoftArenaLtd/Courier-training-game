@@ -1,0 +1,1 @@
+Fixture setup error: fpquality correctly rejected the report because QA_SOUND and QA_MIRROR_PROBE were omitted. Raw resource values stayed below the original caps. The rerun enables the unchanged sound and physical reflected-pixel fixtures, as the established protocol requires; no cap or product source changes.

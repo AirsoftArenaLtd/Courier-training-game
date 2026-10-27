@@ -1,0 +1,121 @@
+{
+  "quality": "high",
+  "language": "en",
+  "large": true,
+  "checks": 88,
+  "cases": [
+    {
+      "name": "driving",
+      "modelHash": "a3f35f1658e23ed09d307c9536efd4db3727241a1df4c92d50c74c994976eff7",
+      "eventHash": "0fdf42ee0c81a8b138963cb96ec62174fb34844d99846ddd8e0fab2020ab3219",
+      "timer": 716.4999999999985,
+      "tween": 6898
+    },
+    {
+      "name": "menu",
+      "modelHash": "5c4d3f8ef9b4fd9e352eb0fcef14dc627bb83b56ddf75182e94a7405676a4a1d",
+      "eventHash": "0fdf42ee0c81a8b138963cb96ec62174fb34844d99846ddd8e0fab2020ab3219",
+      "timer": 1612.9633333333406,
+      "tween": 10250
+    },
+    {
+      "name": "handheld",
+      "modelHash": "b0fe6dcf8e4425780b1efc1bd8e055a3537d5011ea8b96d277c11ca3de784422",
+      "eventHash": "0fdf42ee0c81a8b138963cb96ec62174fb34844d99846ddd8e0fab2020ab3219",
+      "timer": 1881.0599999999963,
+      "tween": 10998
+    },
+    {
+      "name": "scanner",
+      "modelHash": "e2e689a36d8afec0b62bfa63cf692c74771a83c4a9bf0d2c3f87a4bd0cfc8c4b",
+      "eventHash": "0fdf42ee0c81a8b138963cb96ec62174fb34844d99846ddd8e0fab2020ab3219",
+      "timer": 2256.0399999999863,
+      "tween": 11846
+    }
+  ],
+  "resources": [
+    {
+      "name": "before",
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5517307
+      },
+      "mirror": {
+        "filled": 7,
+        "updates": [
+          4,
+          4,
+          4,
+          0
+        ]
+      },
+      "restores": 0
+    },
+    {
+      "name": "driving-restored",
+      "peak": {
+        "calls": 49,
+        "triangles": 65389,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5655984
+      },
+      "mirror": {
+        "filled": 7,
+        "updates": [
+          18,
+          18,
+          16,
+          0
+        ]
+      },
+      "restores": 1
+    },
+    {
+      "name": "handheld-restored",
+      "peak": {
+        "calls": 47,
+        "triangles": 71850,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5245542
+      },
+      "mirror": {
+        "filled": 7,
+        "updates": [
+          46,
+          44,
+          43,
+          0
+        ]
+      },
+      "restores": 4
+    },
+    {
+      "name": "restarted-hub",
+      "peak": {
+        "calls": 6,
+        "triangles": 136,
+        "textures": 1,
+        "attachmentBytes": 7815168,
+        "phaserBytes": 6900966
+      },
+      "mirror": {
+        "filled": 0,
+        "updates": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "restores": 0
+    }
+  ],
+  "errors": [],
+  "scope": "Network-delay, initial campaign/cab/profile and observational tween/timer fixtures are declared up front. Later actions use real keys, actual GL loss or explicit Phaser scene lifecycle operations. No position, mission, event, timer, scoring or verdict edits after setup.",
+  "complete": true
+}

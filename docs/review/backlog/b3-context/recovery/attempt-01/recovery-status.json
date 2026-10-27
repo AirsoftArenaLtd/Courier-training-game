@@ -1,0 +1,67 @@
+{
+  "phase": "failed",
+  "pid": 144710,
+  "jobs": [
+    {
+      "tag": "recovery-low-en-0",
+      "script": "test/fpcontextrecoverybrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 1,
+      "accepted": false,
+      "checks": 59,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "recovery-low-en-0/c24-practice-geometry.json",
+          "sha256": "c0cdec151c877757921bc2f9dfec207322152facf14ab563a2681d6d037ef91b"
+        },
+        {
+          "file": "recovery-low-en-0/recovery-low-en-0-driving-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "recovery-low-en-0/recovery-low-en-0-driving-restored.png",
+          "sha256": "9fe34731f00a45498bd9bc8d538d74a6edd1cebef0592db83c4495f003a2e54c"
+        },
+        {
+          "file": "recovery-low-en-0/recovery-low-en-0-failure.png",
+          "sha256": "7b31739277ffd5cea70e40f84e73916e4a3bb550e26ea7432b34d543fcb8eff0"
+        },
+        {
+          "file": "recovery-low-en-0/recovery-low-en-0-loading-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "recovery-low-en-0/recovery-low-en-0-menu-lost.png",
+          "sha256": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1"
+        },
+        {
+          "file": "recovery-low-en-0/recovery-low-en-0.json",
+          "sha256": "c00082269fd6be8013fb726020561d128cbd9c4fa22a6e9c52ee4ecc185eeaf8"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793090598.302277,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 144713,
+  "index": 0,
+  "tag": "recovery-low-en-0",
+  "childPid": 144714,
+  "failure": "Browser job failed: recovery-low-en-0",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793090627.0192802
+}
