@@ -250,6 +250,9 @@ Written by `node test/run-all.js --readme`.
 | `fpnarrationbrowser.js` | browser (--browser) | Real P/actions/gaze and a four-second reverse, based on Claude's cab probe. |
 | `fpnav.js` | Node | Road paths use real generated towns, restrictions and checkpoint versions, without a renderer. |
 | `fpnavbrowser.js` | browser (--browser) | Physical dash navigation, trainer aids and real remapped camera/control keys. |
+| `fpnightlesson.js` | Node | Night catalogue, real controllers, pretrip timing, whole-bay gates and isolated results. |
+| `fpnightlessonbrowser.js` | browser (--browser) | Native light inspection, walking/cab entry, real following/headlight checks, parking and isolated results. |
+| `fpnightlessonui.js` | Node | Night catalogue, real controllers, pretrip timing, whole-bay gates and isolated results. |
 | `fpnightworld.js` | Node | Night visibility and glare use the existing fog and windscreen; reset and reduced-motion paths stay bounded. |
 | `fpperf.js` | Node | Rendering batches keep physical occlusion and update their static buffers only when needed. |
 | `fpperfbrowser.js` | own command | Compare frozen frames with an untouched pilot served at QA_BEFORE_BASE. |

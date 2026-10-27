@@ -1,0 +1,14 @@
+/* Live lighting/physical target, painted bay and record isolation for the registered night adapter. */
+module.exports=function nightLessonProof(name){
+ const sc=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=sc.scenarioSession,m=sc.model,s=m.nightLesson,a=sc.art,T=THREE,before=window.nightLessonBenchmarkBefore,device=['nightlessondevice','nightlessoncycle'].includes(name),inspect=name==='nightlessoninspect',finish=name==='nightlessonfinish',point=new T.Vector3(),cam=sc.view.camera;
+ if(finish)point.set(m.stops[0].park.x-1.3,.075,m.stops[0].bay.z1);else if(name==='nightlessonlead')point.set(s.lead.x,1.1,s.lead.z);else if(!inspect&&!device)point.copy(a.interactions.find(o=>o.userData.interaction==='cab-headlights').getWorldPosition(new T.Vector3()));
+ const visible=o=>{for(;o;o=o.parent)if(!o.visible)return false;return true;};let clear=inspect?!!sc.panel&&m.near('lights'):device?sc.handheld.isOpen:false,hit;
+ if(!device&&!inspect){const ray=new T.Raycaster(cam.position,point.clone().sub(cam.position).normalize(),0,cam.position.distanceTo(point)+3);hit=ray.intersectObjects(sc.view.world.children,true).find(h=>visible(h.object)&&h.object.layers.test(cam.layers));clear=!!hit&&(finish?hit.object===a.lessonBayArt.mesh:hit.point.distanceTo(point)<(name==='nightlessonlead'?3:.2));}
+ const ndc=device||inspect?new T.Vector3():point.clone().project(cam);
+ return {source:'registered-night-adapter',id:r.id,key:r.scenario.scene3d,name,optional:r.scenario.optional===true,night:OTR.fpLighting.time(m)==='night',headlights:!!m.van.headlights,lightCaption:a.lighting.caption(),fogFar:sc.view.world.fog.far,inspectionPanel:!!sc.panel,inspectionNear:m.near('lights'),mode:m.mode,leadVisible:name==='nightlessonlead'?clear:true,leadHeld:s.lead.speed===0&&s.lead.cruise===0,leadSame:s.lead===m.traffic[0],traffic:!!m.trafficControl,navigation:!!m.navigation,stops:m.stops.length,logItems:r.log.items.length,observations:Object.keys(s.observations).length,travel:s.travel,started:s.started,followingSeen:s.followingSeen,finished:s.finished,
+  reduced:OTR.fpAccess.reduced(),device,deviceVisits:s.resourceDeviceVisits||0,parking:OTR.fpNightLesson.parking(m).ok,
+  marking:{instances:a.lessonBayArt.mesh.count,visible:a.lessonBayArt.mesh.visible,stop:a.lessonBayArt.stop===m.stops[0],texture:!!a.lessonBayArt.mesh.material.map},
+  cue:{visible:device?sc.handheld.isOpen:inspect?!!sc.panel:finish?a.lessonBayArt.mesh.visible:!!hit,clear,x:ndc.x,y:ndc.y,z:ndc.z},
+  bounded:m.driveAllowed(m.van)&&m.van.x>=m.bounds.x0+2.7&&m.van.x<=m.bounds.x1-2.7&&m.van.z>=m.bounds.z0+2.7&&m.van.z<=m.bounds.z1-2.7,
+  checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};
+};

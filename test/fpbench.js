@@ -422,6 +422,13 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    await p.evaluate(require('./tools/fp-junction-lesson-view'),name);await sample(name);
    const proof=await p.evaluate(require('./tools/fp-junction-lesson-proof'),name);(report.junctionLessonProof||(report.junctionLessonProof={}))[name]=proof;report.junctionLessonFixture=true;
   }
+  if(process.env.QA_NIGHTLESSON==='1')for(const name of require('./fpquality').NIGHTLESSON_VIEWS.split(',')){
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-night-lesson-fixture'));
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   await p.evaluate(require('./tools/fp-night-lesson-view'),name);await sample(name);
+   const proof=await p.evaluate(require('./tools/fp-night-lesson-proof'),name);(report.nightLessonProof||(report.nightLessonProof={}))[name]=proof;report.nightLessonFixture=true;
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));
