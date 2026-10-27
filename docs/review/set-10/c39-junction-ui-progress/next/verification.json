@@ -1,0 +1,40 @@
+{
+  "status": "complete",
+  "sourceRevision": "cceb27a216e6aaace35c84e2cfa20bef26a6ed10",
+  "inputs": 687,
+  "artifacts": 41,
+  "resourceViews": 32,
+  "highNativeChecks": 169,
+  "profiles": {
+    "junction-budget-loaded-low": {
+      "calls": 44,
+      "triangles": 1256,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1944310
+    },
+    "junction-budget-loaded-high": {
+      "calls": 77,
+      "triangles": 145803,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 5274150
+    },
+    "junction-budget-accessible-low": {
+      "calls": 44,
+      "triangles": 1266,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2126283
+    },
+    "junction-budget-fallback-low": {
+      "calls": 41,
+      "triangles": 1012,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1944310
+    }
+  },
+  "cleanup": true,
+  "intel60fpsCertified": false
+}

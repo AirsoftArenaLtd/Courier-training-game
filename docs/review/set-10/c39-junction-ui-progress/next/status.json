@@ -1,5 +1,5 @@
 {
-  "phase": "running",
+  "phase": "complete",
   "jobs": [
     {
       "tag": "junction-budget-loaded-low",
@@ -36,11 +36,141 @@
         "attachmentBytes": 3557376,
         "phaserBytes": 1944310
       }
+    },
+    {
+      "tag": "junction-budget-loaded-high",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "junctionapproach0,junctionapproach1,junctionapproach2,junctionfinish0,junctionfinish1,junctionfinish2,junctiondevice,junctioncycle",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_JUNCTIONLESSON": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "junction-budget-loaded-high-high-junctionapproach1.png": "c09dca363eb6b9559a4645bed26bde975b10f83df858896e7f1ff7b1c87b493c",
+        "junction-budget-loaded-high-high-junctionfinish2.png": "23df8be2ce75784833f0002426aa1cb80fb0582584ef0ec20f5cac35bc82c2e2",
+        "junction-budget-loaded-high-high-junctionapproach2.png": "073a3b28204227bebf03e757c7bdfee47d67332b1f72417ceab9f241bdc5c80f",
+        "junction-budget-loaded-high-high-junctioncycle.png": "ffb8213c1dea3bdfbc13be160a5d7d0def39d4cd87b038aef45ebe4603f4baf8",
+        "junction-budget-loaded-high-high-junctiondevice.png": "ffb8213c1dea3bdfbc13be160a5d7d0def39d4cd87b038aef45ebe4603f4baf8",
+        "bench-junction-budget-loaded-high-high.json": "82c7d11d063d1f0eeecf2fc0b2b74cdd16adbb2893ab69e2c22487453a34df91",
+        "junction-budget-loaded-high-high-junctionapproach0.png": "d5fe1c5d46fb4b815d36b24e8d55294eaab59519b9c67e13e6a91c173893bb92",
+        "junction-budget-loaded-high-high-junctionfinish0.png": "f485b489f2480f5df082fedc34b0ba14f4d43933add96732d2f8f27709b845b4",
+        "junction-budget-loaded-high-high-junctionfinish1.png": "2494654b6a0117f57931ae6571bbc4794113119aefcff6e4df53851c0ac95575"
+      },
+      "peak": {
+        "calls": 77,
+        "triangles": 145803,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5274150
+      }
+    },
+    {
+      "tag": "junction-budget-accessible-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "junctionapproach0,junctionapproach1,junctionapproach2,junctionfinish0,junctionfinish1,junctionfinish2,junctiondevice,junctioncycle",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_JUNCTIONLESSON": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "junction-budget-accessible-low-low-junctionapproach2.png": "c06db87c597b46307c783ca104ee36763875542e9c91507bd0b3e1f5882135ec",
+        "junction-budget-accessible-low-low-junctionfinish1.png": "f2e40e6ccc7f182f9f4adebade0bf009a17350a41f928c5cca29a31410de5475",
+        "junction-budget-accessible-low-low-junctionapproach1.png": "8fefdac772e1fccebd36ee90ba5ca415540c3278a66cd4e2ed319b2f51e7f539",
+        "bench-junction-budget-accessible-low-low.json": "72c2080607075ab44e6de280c1e4da9034780ba24be20957f701e5b07c05c1db",
+        "junction-budget-accessible-low-low-junctiondevice.png": "c9968df452146c5abbfa95c6add53503afbb353c66a8d763090d429b1ff1a357",
+        "junction-budget-accessible-low-low-junctioncycle.png": "c9968df452146c5abbfa95c6add53503afbb353c66a8d763090d429b1ff1a357",
+        "junction-budget-accessible-low-low-junctionfinish0.png": "65508018e753ac52c1ab5d0eb05f00168bf04d3f8066fa62c7dd8c91b1161780",
+        "junction-budget-accessible-low-low-junctionfinish2.png": "36f9b86c3205d3dedf865e9f4b6bfb7ca7945c19ed63cae368e8733ddd2cdbb6",
+        "junction-budget-accessible-low-low-junctionapproach0.png": "17687c6f4ba1cdf12540b006c917e5183040d8d81c0760e03b8f71c6ef7b1af4"
+      },
+      "peak": {
+        "calls": 44,
+        "triangles": 1266,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2126283
+      }
+    },
+    {
+      "tag": "junction-budget-fallback-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1",
+        "QA_VIEWS": "junctionapproach0,junctionapproach1,junctionapproach2,junctionfinish0,junctionfinish1,junctionfinish2,junctiondevice,junctioncycle",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_JUNCTIONLESSON": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "junction-budget-fallback-low-low-junctionfinish0.png": "66df339b02b078cc23b8635702f8453aa26bb722322b02f36f9f4b48db86828a",
+        "junction-budget-fallback-low-low-junctionapproach0.png": "2b7beaa05e40a6c3879b641b0931da6b3700439b3b802f35b3dffb2c2d03736f",
+        "junction-budget-fallback-low-low-junctioncycle.png": "4fd1ad66298ca2089e8431b0345046bf1950b2cf21d67019236f60410752d678",
+        "junction-budget-fallback-low-low-junctionapproach1.png": "172a11096f8f0d9005a5b8a3d9ee035c59323c72723e6d7696fb2b5844bf8f6c",
+        "junction-budget-fallback-low-low-junctionfinish1.png": "987acc1ec64fd7d433f25c49dc5d888dab909bdb9e72c684d7e0732e6aba8b2d",
+        "bench-junction-budget-fallback-low-low.json": "c29121b3cd0f3ff4c064e097b5fdc6f491866518bfebfe163d5a1b9862ccdd3b",
+        "junction-budget-fallback-low-low-junctiondevice.png": "4fd1ad66298ca2089e8431b0345046bf1950b2cf21d67019236f60410752d678",
+        "junction-budget-fallback-low-low-junctionapproach2.png": "30278446a34d6f14fd6132c7df5e9028c2db96136c73d297ad3d5d85cfc5e835",
+        "junction-budget-fallback-low-low-junctionfinish2.png": "949043d911827b0ccc4fa2945c7eac74553f295ae62243b0108f349305997ce3"
+      },
+      "peak": {
+        "calls": 41,
+        "triangles": 1012,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1944310
+      }
+    },
+    {
+      "tag": "junction-final-high-ta",
+      "script": "test/fpjunctionlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_FONT": "noto"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "junction-final-high-ta-high-ta-large-bay-2.png": "29a5a094c5ba338afdfbfb65c7dd415803ea734c0e0bcf1aaedda905976d0a5e",
+        "junction-final-high-ta-high-ta-large-mounted-route.png": "8c623ddb5f2ec884cda9873904ecd1712f16cd2c6ef357d787fca6328f10f82a",
+        "junction-final-high-ta-high-ta-large-bay-0.png": "afbd1437cb9e39a34e26e52aefac3cb95766a17d7bdbf1161a27f774e1c3dac2",
+        "junction-final-high-ta-high-ta-large-bay-1.png": "7718612be5ccf4d9b5db46d8412540a35dbf4f1f74ad4678dfa2e932a212e34c",
+        "junction-final-high-ta.json": "e872e383934d3e4188e7fe339179e4fc1a48dba81d1d97a94002c2764954d588"
+      }
     }
   ],
   "pid": 173071,
   "startedAt": 1793114005.7300665,
   "serverPid": 173322,
-  "tag": "junction-budget-loaded-high",
-  "childPid": 173791
+  "tag": "junction-final-high-ta",
+  "childPid": 174972,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793116006.633274
 }
