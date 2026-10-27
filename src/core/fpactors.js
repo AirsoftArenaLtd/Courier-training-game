@@ -1,6 +1,7 @@
 /* Scene-private actors. Rigs drive ordinary CPU-deformed meshes: no bone texture or extra pass. */
 window.OTR=window.OTR||{};
 OTR.fpActors={
+  ambientScale(model){const height=1.7/model.size.y;return new THREE.Vector3(height*.4,height,height*.5);},
   character(model,paint,uniform,skin){
     if(!model||!model.animated)return null;
     const T=THREE,rig=model.gltf.scene.clone(true),original=[],cloned=[],boneMap=new Map(),skinMap=new Map();
@@ -20,7 +21,7 @@ OTR.fpActors={
       const c=part.colour,at=c?i*c.itemSize:0,divisor=c&&c.normalized?(c.array.BYTES_PER_ELEMENT===1?255:65535):1;
       const r=c?c.array[at]/divisor:1,g=c?c.array[at+1]/divisor:1,b=c?c.array[at+2]/divisor:1;
       const lowUniform=c&&c.itemSize===3&&Math.abs(r-.133)<.01&&Math.abs(g-.184)<.02,lowSkin=c&&c.itemSize===3&&r>.4&&g>.2;
-      const tint=lowUniform?uniformColour:lowSkin&&skinColour?skinColour:part.tint,override=part.clothes||lowUniform||lowSkin&&skinColour;
+      const tint=model.ambient?part.tint:lowUniform?uniformColour:lowSkin&&skinColour?skinColour:part.tint,override=!model.ambient&&(part.clothes||lowUniform||lowSkin&&skinColour);
       colours.setXYZ(part.base+i,override?tint.r:r*tint.r,override?tint.g:g*tint.g,override?tint.b:b*tint.b);
     }
     const mesh=new T.Mesh(geometry,paint);mesh.name='actor:character';mesh.frustumCulled=false;mesh.userData.fpActor=true;

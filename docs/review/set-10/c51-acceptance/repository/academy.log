@@ -1,0 +1,31 @@
+ok   assessment running: coaching off
+ok   pause menu in an assessment: no restart, says Assessment
+ok   full marks pass: {"passed":true,"short":[]}
+ok   half marks fail, no attempts left: {"a":{"passed":false,"short":["safety","efficiency"],"criticals":[],"need":{"safety":2,"efficiency":2,"service":2}},"left":0,"st":"failed"}
+ok   results say not passed, why, and offer practice (no retake)
+ok   a critical mistake fails an assessment
+ok   quitting counts as not passed: {"rec":{"attempts":1,"passed":false,"startedAt":1792684594352,"pending":false,"abandoned":true,"at":1792684596230},"st":"failed"}
+ok   practice run: coaching on
+ok   practice does not change the assessment
+ok   quiz passed and recorded: {"best":100,"runs":1,"last":100,"at":1792684607368,"passedAt":1792684607368}
+ok   answers are shuffled (right answers at 20132)
+ok   refresher due after the interval, only where something was passed
+ok   drill queue, weakest first: m2-sort, m2-lift
+ok   results offer the next drill
+ok   PIN checked by the server
+ok   trainer rules saved on the server
+ok   attempts rule applies at once (2 allowed, 1 used)
+ok   trainer allows retakes: {"ok":true,"allowed":2}
+ok   trainer tools list the trainee and the rules
+ok   the 3D workday aids dialog lists every aid
+ok   the dialog changes the draft: {"assists":"off","satnav":"auto","walkaround":"required","night":false,"damage":true}
+ok   the aids are saved with the rules on the server
+ok   the 3D world reads the trainer's aids at once
+ok   record from the server: {"passed":1,"runs":4}
+ok   printable record
+ok   the printed record lists each workday's aids
+ok   an aided day's critical mistake says the day was aided
+ok   a day saved before aids were kept shows a dash
+ok   no page errors
+
+all academy checks passed

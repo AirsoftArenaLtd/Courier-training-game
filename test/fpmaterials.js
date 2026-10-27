@@ -15,7 +15,7 @@ test('the real manifest keeps all five surface images exclusive to High',()=>{
 test('High preloads five bounded sources and releases their image handles once; Low requests none',async()=>{
  for(const high of [false,true]){
   const {F}=context(),requests=[],bank=await F.preload({high,fetch:url=>{requests.push(url);return local(url);}});
-  assert.equal(bank.models.size,high?15:14);assert.equal(bank.textures.size,high?5:0);assert.equal(bank.stats.loaded,high?20:14);assert.equal(bank.stats.failed,0);
+  assert.equal(bank.models.size,high?18:14);assert.equal(bank.textures.size,high?5:0);assert.equal(bank.stats.loaded,high?23:14);assert.equal(bank.stats.failed,0);
   assert.equal(requests.filter(u=>/\.jpg$/.test(u)).length,high?5:0);
   if(high)assert.ok(bank.stats.decodedBytes>=20*1024*1024&&bank.stats.decodedBytes<=64*1024*1024);
   const images=[...bank.textures.values()].map(t=>t.image);
@@ -25,7 +25,7 @@ test('High preloads five bounded sources and releases their image handles once; 
 });
 test('a missing surface leaves all models and the other material sources available',async()=>{
  const {F}=context(),bank=await F.preload({high:true,fetch:url=>url.includes('asphalt_pit_lane_diff')?Promise.resolve(new Response('',{status:404})):local(url)});
- assert.equal(bank.stats.loaded,19);assert.equal(bank.stats.failed,1);assert.equal(bank.models.size,15);assert.equal(bank.textures.size,4);assert.ok(!bank.textures.has('surface-asphalt'));bank.dispose();
+ assert.equal(bank.stats.loaded,22);assert.equal(bank.stats.failed,1);assert.equal(bank.models.size,18);assert.equal(bank.textures.size,4);assert.ok(!bank.textures.has('surface-asphalt'));bank.dispose();
 });
 test('the High atlas owns one bounded image and leaves UV-less bank geometry and source images unchanged',async()=>{
  const {c,F,draws}=materialContext(),bank=await F.preload({high:true,fetch:local});c.OTR.gfx={high:()=>true};

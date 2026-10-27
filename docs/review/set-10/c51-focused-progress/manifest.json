@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-22T16:50:04.621134+00:00",
+  "scope": "17 added ambient resource views only; full 224-view gate pending",
+  "candidate": "055415cf2753c8c7ba1243c8f8c1ee37868f2291",
+  "pilot": "90844ac5",
+  "ownedRuntime": "32623203",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "ambientwalk",
+        "ambientcab",
+        "ambientmirror",
+        "ambientnight"
+      ],
+      "report": "bench-c51-focused-loaded-low-low.json",
+      "exit": 0,
+      "peak": {
+        "calls": 40,
+        "triangles": 921,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2039611
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "ambientwalk",
+        "ambientcab",
+        "ambientmirror",
+        "ambientnight",
+        "ambientbench"
+      ],
+      "report": "bench-c51-focused-loaded-high-high.json",
+      "exit": 0,
+      "peak": {
+        "calls": 77,
+        "triangles": 122777,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 6690939
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "accessibility": "large,colour,reduced",
+      "views": [
+        "ambientwalk",
+        "ambientcab",
+        "ambientmirror",
+        "ambientnight"
+      ],
+      "report": "bench-c51-focused-accessible-low-low.json",
+      "exit": 0,
+      "peak": {
+        "calls": 40,
+        "triangles": 921,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2477595
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "fallback": true,
+      "views": [
+        "ambientwalk",
+        "ambientcab",
+        "ambientmirror",
+        "ambientnight"
+      ],
+      "report": "bench-c51-focused-fallback-low-low.json",
+      "exit": 0,
+      "peak": {
+        "calls": 36,
+        "triangles": 867,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2039611
+      }
+    }
+  ],
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1008,
+      "sha256": "dd5967b5b950b77e12fbcd50338a703c74cc990c5805e6900a0d8763f62732a5"
+    },
+    {
+      "file": "bench-c51-focused-accessible-low-low.json",
+      "bytes": 9895,
+      "sha256": "d59f79da80bfb978a6a87697dec9107292a1cec67ea3d415ed16de802b83a1c0"
+    },
+    {
+      "file": "bench-c51-focused-fallback-low-low.json",
+      "bytes": 11600,
+      "sha256": "7af3bdbc9e5b7e19b39012c718785572ecf5335c238b2aa5d86cd3fdf01c9b39"
+    },
+    {
+      "file": "bench-c51-focused-loaded-high-high.json",
+      "bytes": 11480,
+      "sha256": "17c2f13d1ba9f31d0c336bfd86c481ae45fce1e5d8dafb0141784358ae76d369"
+    },
+    {
+      "file": "bench-c51-focused-loaded-low-low.json",
+      "bytes": 9849,
+      "sha256": "41172c428fb0c2d5e94533b4b64ec65c31413a80bfca99f1bae774e405815cff"
+    },
+    {
+      "file": "c51-final-focused-quality.log",
+      "bytes": 483,
+      "sha256": "df0d8ea0f647850925dd8dfdd3f738abd9be3af71f1bcf4bf7cca540a6ae7f2f"
+    },
+    {
+      "file": "c51-focused-accessible-low.log",
+      "bytes": 3289,
+      "sha256": "f58a83fefe035e9cba87e9fe069020a0d8e7bf684327c4fadb6f0b372fd3cc73"
+    },
+    {
+      "file": "c51-focused-fallback-low.log",
+      "bytes": 3279,
+      "sha256": "b1d2cb4c3052a324297d0582438cc6168d4d42cf1d93802a306e7fa031883b87"
+    },
+    {
+      "file": "c51-focused-loaded-high.log",
+      "bytes": 4121,
+      "sha256": "8a74e4fd39b285d37e8ab5b193684f5bb07052717d37d8aea412f828a2ff9b0c"
+    },
+    {
+      "file": "c51-focused-loaded-low.log",
+      "bytes": 3275,
+      "sha256": "5b1adb9f0b460c643b9345105cd6a32b297b78b38ceac16f9d7463f73f4d457a"
+    },
+    {
+      "file": "c51-focused-quality.json",
+      "bytes": 2218,
+      "sha256": "7c9f406cb71d6087efe5987d2fef5d5bf49e0932c41e7ff26eb67832f4b0fbbc"
+    },
+    {
+      "file": "focused-quality.js",
+      "bytes": 1751,
+      "sha256": "a2a90b1b9dfb7169d7f21d30fe1234bcbad1b9c15c496a102f31f4dea1904fed"
+    }
+  ]
+}

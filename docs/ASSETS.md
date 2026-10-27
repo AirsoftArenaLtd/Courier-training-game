@@ -91,5 +91,7 @@ The packs the game ships, with thanks (the game lists them on the title screen u
 | Plastered Wall (`polyhaven-plastered-wall`) | Poly Haven contributors | CC0 | https://polyhaven.com/a/plastered_wall |
 | Red Brick 03 (`polyhaven-red-brick-03`) | Poly Haven contributors | CC0 | https://polyhaven.com/a/red_brick_03 |
 | Furniture Kit 2.0 (`kenney-furniture-kit`) | Kenney | CC0 | https://kenney.nl/assets/furniture-kit |
+| Mini Characters 1.0 (`kenney-mini-characters`) | Kenney | CC0 | https://kenney.nl/assets/mini-characters |
+| Furniture Kit 2.0 (`kenney-furniture`) | Kenney | CC0 | https://kenney.nl/assets/furniture-kit |
 
 <!-- /credits -->

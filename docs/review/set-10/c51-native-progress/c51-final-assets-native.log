@@ -1,0 +1,9 @@
+assets browser low passed
+assets browser high passed
+assets browser high-fallback passed
+assets browser missing passed
+assets browser corrupt passed
+assets browser loader passed
+assets browser manifest passed
+assets browser layouts passed
+72 asset browser checks passed

@@ -80,3 +80,10 @@ test('walkaround views require the opted-in model and seven non-rendered physica
   const saved=r.walkaroundProof.walkroof[key];r.walkaroundProof.walkroof[key]=value;assert.throws(()=>checkReport(r,p,'sample'),/physical walkaround fixture/);r.walkaroundProof.walkroof[key]=saved;
  }
 });
+test('ambient views require visible bounded people, the correct source variant and a restorable day',()=>{
+ const r=report(),p={...profile,views:'ambientwalk'};r.prototype.ambientwalk=r.prototype.cab;
+ assert.throws(()=>checkReport(r,p,'sample'),/ambient presentation proof/);
+ r.ambientFixture=true;const proof={sites:20,selected:1,limit:1,sourcePeople:0,reserved:36,solid:true,restoreValid:true};r.ambientProof={ambientwalk:proof};assert.ok(checkReport(r,p,'sample'));
+ for(const [key,value] of [['sites',0],['selected',0],['selected',2],['limit',2],['sourcePeople',1],['reserved',0],['solid',false],['restoreValid',false]]){const saved=proof[key];proof[key]=value;assert.throws(()=>checkReport(r,p,'sample'),/ambient presentation proof/);proof[key]=saved;}
+ const high={...p,quality:'high',views:'ambientbench'};r.actualQuality=r.quality='high';r.prototype.ambientbench=r.prototype.cab;r.ambientProof.ambientbench={...proof,selected:2,limit:2,sourcePeople:2,reserved:0,bench:true};assert.ok(checkReport(r,high,'sample'));r.ambientProof.ambientbench.bench=false;assert.throws(()=>checkReport(r,high,'sample'),/ambient presentation proof/);
+});

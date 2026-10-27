@@ -1,0 +1,7 @@
+ok   the pack tool packs both and removes the white background
+ok   the game draws the images in place of the drawn van and car ({"van":[0,255,1,255],"vanCorner":[0,255,1,255],"car":[0,0,255,255],"size":[74,140]})
+ok   the image fills the drawn art's box
+ok   the van texture keeps its size, so its sprite keeps its scale
+ok   ?art=drawn ignores the images
+
+all art pipeline checks passed

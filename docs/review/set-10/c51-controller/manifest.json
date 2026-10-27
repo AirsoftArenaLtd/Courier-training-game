@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-22T15:16:50.616623+00:00",
+  "status": "Controller foundation only; unloaded by the game. C-51 is doing.",
+  "pilot": "90844ac5",
+  "stack": "codex/c50-physical-signs at 4c5dc879",
+  "sourceSHA256": {
+    "src/core/fpambient.js": "8c53b2aa398cc2add8c38f52dce33833d1040e4dc8a67143fa56596cc85e2c91",
+    "test/fpambient.js": "ccf70413c1c2ca582ffb202db7a3e761d5fc666b974a7a17aa09eeea0abf4158"
+  },
+  "scope": "Six synthetic placement controller tests. Baseline stacked tests and a separate current-pilot translated-assertion guard. No rendered views or new frame figures.",
+  "files": {
+    "fpmission.log": "76bc4a7d1fcbe96aef4c004a6320a6f62ef5dfca2407ec904c7dd566d96c63d3",
+    "ambient-controller.log": "e3c0f1a3a7218496bb5d739fd7a38bdfc479168fd4205b82d01bab01d9345f20",
+    "i18n.log": "d045b9493a451542e265ab30a951b54dfb17534158c66444e245d6b9b99d73c6",
+    "workday.log": "41e92633a53f04b8fab25329ecbface8313b0fff01af4dccf0cee67360867b61",
+    "current-ambient-controller.log": "1f3bd273313b4093ba56359f8141470edabd7c625724bb10193091cc07d8a45c",
+    "fpworld.log": "ef60cf80295120f173d4e5f451809d02eeb79536f468c3ff49b9aee6421c1431",
+    "current-englishtext.log": "cd1b059b96612e6233e7551536569fb9d23826ff9141b460f1cb09e8043d5a6c"
+  }
+}

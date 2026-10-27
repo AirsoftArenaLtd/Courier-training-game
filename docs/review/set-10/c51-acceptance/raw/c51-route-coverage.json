@@ -1,0 +1,485 @@
+{
+  "scope": "Potential selection range along planned streets; native views separately prove pixels, not every route.",
+  "routes": [
+    {
+      "high": false,
+      "day": 1,
+      "seed": 1,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 1,
+      "seed": 2,
+      "sites": 46,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 1,
+      "seed": 3,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 1,
+      "seed": 4,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 1,
+      "seed": 5,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 1,
+      "seed": 6,
+      "sites": 46,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 1,
+      "seed": 7,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 1,
+      "seed": 8,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 1,
+      "seed": 9,
+      "sites": 46,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 1,
+      "seed": 10,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 4,
+      "seed": 1,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 4,
+      "seed": 2,
+      "sites": 46,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 4,
+      "seed": 3,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 4,
+      "seed": 4,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 4,
+      "seed": 5,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 4,
+      "seed": 6,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 4,
+      "seed": 7,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 4,
+      "seed": 8,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 4,
+      "seed": 9,
+      "sites": 46,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 4,
+      "seed": 10,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 6,
+      "seed": 1,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 6,
+      "seed": 2,
+      "sites": 46,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 6,
+      "seed": 3,
+      "sites": 46,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 6,
+      "seed": 4,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 6,
+      "seed": 5,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 6,
+      "seed": 6,
+      "sites": 46,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 6,
+      "seed": 7,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 6,
+      "seed": 8,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 6,
+      "seed": 9,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": false,
+      "day": 6,
+      "seed": 10,
+      "sites": 45,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 1,
+      "seed": 1,
+      "sites": 12,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 1,
+      "seed": 2,
+      "sites": 13,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 1,
+      "seed": 3,
+      "sites": 12,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 1,
+      "seed": 4,
+      "sites": 14,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 1,
+      "seed": 5,
+      "sites": 12,
+      "legs": 6,
+      "withinSelectionRange": 5
+    },
+    {
+      "high": true,
+      "day": 1,
+      "seed": 6,
+      "sites": 13,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 1,
+      "seed": 7,
+      "sites": 12,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 1,
+      "seed": 8,
+      "sites": 14,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 1,
+      "seed": 9,
+      "sites": 14,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 1,
+      "seed": 10,
+      "sites": 12,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 4,
+      "seed": 1,
+      "sites": 11,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 4,
+      "seed": 2,
+      "sites": 11,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 4,
+      "seed": 3,
+      "sites": 12,
+      "legs": 6,
+      "withinSelectionRange": 5
+    },
+    {
+      "high": true,
+      "day": 4,
+      "seed": 4,
+      "sites": 13,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 4,
+      "seed": 5,
+      "sites": 12,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 4,
+      "seed": 6,
+      "sites": 13,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 4,
+      "seed": 7,
+      "sites": 12,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 4,
+      "seed": 8,
+      "sites": 13,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 4,
+      "seed": 9,
+      "sites": 11,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 4,
+      "seed": 10,
+      "sites": 13,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 6,
+      "seed": 1,
+      "sites": 13,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 6,
+      "seed": 2,
+      "sites": 12,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 6,
+      "seed": 3,
+      "sites": 14,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 6,
+      "seed": 4,
+      "sites": 13,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 6,
+      "seed": 5,
+      "sites": 13,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 6,
+      "seed": 6,
+      "sites": 11,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 6,
+      "seed": 7,
+      "sites": 13,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 6,
+      "seed": 8,
+      "sites": 14,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 6,
+      "seed": 9,
+      "sites": 12,
+      "legs": 6,
+      "withinSelectionRange": 6
+    },
+    {
+      "high": true,
+      "day": 6,
+      "seed": 10,
+      "sites": 11,
+      "legs": 6,
+      "withinSelectionRange": 6
+    }
+  ]
+}

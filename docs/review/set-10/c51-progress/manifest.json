@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-22T15:56:21.675855+00:00",
+  "status": "C-51 doing; final acceptance running",
+  "ownedRuntime": "32623203",
+  "candidate": "b3dcb090",
+  "sourceSHA256": {
+    "src/core/fpambient.js": "8b5f2a09e812db0308d48eb5912e078df8e1dbc2538ae08c03529f86720a5eb6",
+    "src/core/fpassets.js": "3fd022bbe547c4c223633bd56df3f717cf62ff73405a7a13dc477f9cb836a9c4",
+    "src/core/fpactors.js": "0741e40b1a438f54448461af23db700a911a8f23e0248c7d0dbeb3b656f3277f",
+    "src/core/fptown.js": "0e17ac99e63f9fc6c6285674753fb14a5a93ea9912fdfd46cff0643850cffdb0",
+    "src/core/fpworld.js": "cb7adbe096986a5990243678654cd2a7eb2a3fb7e2e16e7e118aaabc4e270113",
+    "test/fpambient.js": "ccf70413c1c2ca582ffb202db7a3e761d5fc666b974a7a17aa09eeea0abf4158",
+    "test/fpambientassets.js": "6428da2ca264a916db228fe74b3ff22ea401b128102e08fc8e9a0cb8c2bc3d18",
+    "test/fpambientworld.js": "977619ef84f635e400ba90b413307922dbcf89df33ee9bc393663bae8bd74eb8",
+    "test/fpambientbrowser.js": "00e27fbf10b74e96272acd4ed94a6fad94032c6e438283c06a55382f4b4ecfab",
+    "test/fpbench.js": "e880daee87b14b6b1d7ade7b1297eb76d3661d6e231057476593dc34fa5bba7a",
+    "test/fpquality.js": "8ed1057ba33a51f22b3251dfaa165711f4ca82e10e56d029efbf16f14d96ebbd",
+    "test/fpqualitygate.js": "71ff699f07eb9e9c4b964359cd3e41396d89428d87007110110c1fae28c86c1c",
+    "test/tools/prepare-ambient.py": "04c086fd3802f3289bbb9bad06ba6a9b947d4898b168b3bca769a49a2bbfba1b",
+    "test/tools/check-ambient-source.py": "ee8acdebe04465d31b33e476eae66bb917c620b3504e21a4ebca44ad656afe83",
+    "assets/3d/manifest.json": "06b9b61d8cba389874f424fed88e9f9090e4a86283f706695ada8fe0ffe0c9e1"
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1157,
+      "sha256": "eaa4f9ae3aafeaa2703247fcc806736a2524fdabba10c943ece448be663b0e75"
+    },
+    {
+      "file": "acceptance.py",
+      "bytes": 14980,
+      "sha256": "4ee7a34759490161a38e7ec76c8d8f292ac9e86398240a893012f00e1e46deef"
+    },
+    {
+      "file": "controller.log",
+      "bytes": 670,
+      "sha256": "6b599196c5d6f4f07944adc23f9588b22e846bd6977852278ff6e75b758b391f"
+    },
+    {
+      "file": "current-world.log",
+      "bytes": 3132,
+      "sha256": "8d50dd3e37afb5af2da2a258863db24f88048ae4208d6fbda60eae9beb74326c"
+    },
+    {
+      "file": "prepared.json",
+      "bytes": 1487,
+      "sha256": "f41a864f3889428cab67ca7dd09e5eb2098c32644a9134d9f649124520ecffb4"
+    },
+    {
+      "file": "quality-guard.log",
+      "bytes": 1563,
+      "sha256": "e5c5823a09aafd73e005d1de5ac34683f1b1d43ce9f99ebbcb92046dbbc8d952"
+    },
+    {
+      "file": "route-coverage.json",
+      "bytes": 8215,
+      "sha256": "83fbfbb091b8f5ead1bd77ab7775ca0b29244096f78382c580fa4e41c0152a99"
+    },
+    {
+      "file": "source-equivalence.json",
+      "bytes": 426,
+      "sha256": "0287536747249899eea9e75722b7b543c8ceaa2fe102a0e36a3eeda11eecc2cb"
+    },
+    {
+      "file": "source-rigs.log",
+      "bytes": 4713,
+      "sha256": "e4d36040f77881d829173e465a3ad93f472db9513c8616989ff04c8a31a2c16a"
+    }
+  ]
+}

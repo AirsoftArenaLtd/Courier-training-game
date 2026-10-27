@@ -28,7 +28,7 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8302',wait=ms=>new Promise(r=>
    const lot=m.town.lots.filter(l=>!m.stops.some(st=>st.lotId===l.id)).sort((a,b)=>(a.x-4)**2+(a.z-8)**2-((b.x-4)**2+(b.z-8)**2))[0];
    const x=m.town.xs.reduce((a,b)=>Math.abs(a-lot.x)<Math.abs(b-lot.x)?a:b),z=lot.z+3,dx=lot.x-x,dz=lot.z-z;
    Object.assign(m.player,{x,z,yaw:Math.atan2(dx,-dz),pitch:Math.atan2(1.65-lot.h*.4,Math.hypot(dx,dz))});m.mode='walk';s.sync();s.refresh();
-   return {stats:s.assetBank.stats,groups:s.art.assetGroups.length,instances:s.art.assetGroups.map(g=>g.children.map(o=>o.count)),unchangedSolid:!!m.solids.find(b=>b.x===lot.x&&b.z===lot.z)};
+   return {stats:s.assetBank.stats,groups:s.art.assetGroups.length,benchGroups:s.art.assetGroups.filter(g=>g.name==='asset:town-bench').length,instances:s.art.assetGroups.map(g=>g.children.map(o=>o.count)),unchangedSolid:!!m.solids.find(b=>b.x===lot.x&&b.z===lot.z)};
   });
  };
  try{
@@ -46,9 +46,9 @@ const BASE=process.env.QA_BASE||'http://127.0.0.1:8302',wait=ms=>new Promise(r=>
      assert.equal(await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').assetBank.stats.loaded),14);checks++;
     }
    }else{
-    const result=await view(p),healthy=mode==='low'||mode.startsWith('high'),highVariant=mode.startsWith('high');assert.equal(result.groups,healthy?8:0);assert.equal(result.stats.loaded,healthy?(highVariant?20:14):0);assert.equal(result.unchangedSolid,true);checks+=3;
+    const result=await view(p),healthy=mode==='low'||mode.startsWith('high'),highVariant=mode.startsWith('high');assert.ok(result.benchGroups<=(highVariant?1:0));assert.equal(result.groups,healthy?8+result.benchGroups:0);assert.equal(result.stats.loaded,healthy?(highVariant?23:14):0);assert.equal(result.unchangedSolid,true);checks+=4;
     assert.equal(result.stats.fallbacks,mode==='high-fallback'?1:0);checks++;
-    if(healthy){assert.equal(result.stats.failed,0);checks++;assert.ok(result.instances.length===8&&result.instances.every(a=>a.length===1)&&result.instances.some(a=>a[0]>0));assert.ok(requests.some(r=>r.endsWith(highVariant?'garage-high.glb':'garage-low.glb')));assert.ok(!requests.some(r=>r.endsWith(highVariant?'garage-low.glb':'garage-high.glb')));checks+=3;}
+    if(healthy){assert.equal(result.stats.failed,0);checks++;assert.ok(result.instances.length===8+result.benchGroups&&result.instances.every(a=>a.length===1)&&result.instances.some(a=>a[0]>0));assert.ok(requests.some(r=>r.endsWith(highVariant?'garage-high.glb':'garage-low.glb')));assert.ok(!requests.some(r=>r.endsWith(highVariant?'garage-low.glb':'garage-high.glb')));checks+=3;}
     else{assert.ok(result.stats.failed>0);checks++;}
     await wait(250);await p.screenshot({path:path.join(OUT,TAG+'-'+mode+'.png')});report.scenarios.push({mode,...result,requests});
     if(mode==='low'){
