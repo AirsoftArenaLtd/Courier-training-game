@@ -5,7 +5,7 @@ import hashlib,json,re
 OUT=Path(__file__).resolve().parent;ROOT=Path('/workspace/c50-notice-pilot')
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 def read(p):return json.loads(p.read_text())
-summary={'candidateBase':'f2e439ef','ownedCorrection':'e82091aa','scopes':[],'resourceProfiles':{},'strictLanguageViews':0,'occlusionViews':0}
+summary={'candidateBase':'f2e439ef','ownedCorrection':'e82091aa','scopes':[],'resourceProfiles':{},'strictLanguageViews':0,'occlusionViews':0,'resourceViews':0}
 for phase in ['final','layout']:
  folder=OUT/phase;plan=read(folder/'plan.json');state=read(folder/'status.json');assert state['phase']=='complete',(phase,state['phase'],state.get('failure'));assert state['serverExited'] and state['leaseReleased']
  for f,h in plan['sources'].items():
@@ -23,9 +23,14 @@ for phase in ['final','layout']:
    report=read(folder/'artifacts'/job['tag']/(job['tag']+'.json'));assert report['completed'] and not report['failures'] and not report['errors'];summary['occlusionViews']+=len(report['runs'])+len(report['firstDay'])
   elif job['script']=='test/fpbench.js':
    assert 'peak' in job;summary['resourceProfiles'][job['tag']]=job['peak']
+   report=read(folder/'artifacts'/job['tag']/('bench-'+job['tag']+'-'+job['env']['QA_GFX']+'.json'))
+   assert set(report['prototype'])==set(job['env']['QA_VIEWS'].split(',')) and not report['missingViews'] and not report['errors']
+   assert all(view['frames']>0 and not view['contextLost'] for view in report['prototype'].values())
+   summary['resourceViews']+=len(report['prototype'])
  summary['scopes'].append({'phase':phase,'inputs':len(plan['sources']),'artifacts':artifacts,'cleanup':True})
 assert summary['strictLanguageViews']==1176
-summary['resourceViews']=16;summary['intel60fpsCertified']=False
+assert summary['resourceViews']==16
+summary['intel60fpsCertified']=False
 summary['partialCandidate']='The root phase omitted the existing address-label guard; it is retained only as a partial source scope. final/ and layout/ repeat on the complete candidate.'
 legacy=read(OUT/'layout-legacy-audit/artifacts/notice-layout-low/notice-layout-low.json')
 assert legacy['completed'] and len(legacy['failures'])==8 and not legacy['errors']

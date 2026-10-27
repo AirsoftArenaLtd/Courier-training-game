@@ -8,12 +8,17 @@
     {
       "path": "final/artifacts/notice-all-larger/b51-give-way-ta-large.png",
       "sha256": "4982edd28ea1acfd6f2eec1360d726494cfac9ecc76d0e14bb79fba23b26b308"
+    },
+    {
+      "path": "layout/artifacts/notice-layout-high/notice-layout-high-ta-large-red.png",
+      "sha256": "d54fbe6f9bfe567dc8db3d9b1ef7ef83707f042f75cdc3a8de360133e80cd7fa"
     }
   ],
   "observations": [
     "Tamil larger red-state and give-way notices are readable and fully inside their backing.",
     "The notices are clear of the visible physical signal/sign head, all three mirrors, selector and sat nav in these captured forward views.",
-    "House numbers remain attached to their faces; the previously seen floating address paragraph is absent."
+    "House numbers remain attached to their faces; the previously seen floating address paragraph is absent.",
+    "The final High Tamil larger capture also keeps the physical mirrors, selector, red signal and mounted route display clear of the translated notice."
   ],
-  "scope": "Manual review of these two captures; measured language and occlusion audits have separate reports."
+  "scope": "Manual review of these three exact captures; measured language and occlusion audits have separate passing reports."
 }

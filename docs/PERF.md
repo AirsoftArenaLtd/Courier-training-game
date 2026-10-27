@@ -1000,3 +1000,8 @@ All four new heavy-save variants retain every pin and exact score on reload:
 failed lights pack at 3,929/4,000 or 3,931/4,000; successful lights at 3,993/4,000
 or 3,995/4,000. The latter still have little headroom and are reported to Claude.
 No resource ceiling changed. Cloud SwiftShader cannot certify Intel 60 fps (O-1).
+
+
+## C-50 junction notice correction (27 October 2026)
+
+The complete C-50 candidate on pilot `f2e439ef` retains translated traffic-light and give-way instructions while hiding only sign-face paragraphs. All 1,176 strict language views and 16 focused resource views pass. Loaded Low peaks at 56 calls / 2,400 triangles / two Three textures / 3,557,376 attachment bytes / 1,815,003 Phaser bytes; loaded High at 79 / 121,672 / four / 11,239,424 / 5,792,731. Accessible Low peaks at 1,923,072 Phaser bytes; missing-model Low at 53 calls / 2,066 triangles. Sound, reflection proofs and original ceilings remain enabled. This is a focused correction scope, not a repeat of the historical full gate. [Exact scopes, captures and source comparisons](review/set-10/c50-notice-followup/README.md). Cloud SwiftShader does not certify Intel 60 fps (O-1).

@@ -436,3 +436,6 @@ All four new heavy-save variants retain every pin and exact score on reload:
 failed lights pack at 3,929/4,000 or 3,931/4,000; successful lights at 3,993/4,000
 or 3,995/4,000. The latter still have little headroom and are reported to Claude.
 No resource ceiling changed. Cloud SwiftShader cannot certify Intel 60 fps (O-1).
+
+
+C-50 notice correction, 27 October: the complete candidate on pilot `f2e439ef` passes 16 focused resource views at the original ceilings. No render pass, geometry, attachment or asset was added by the notice fix. Loaded Low peaks at 56 calls / 2,400 triangles; loaded High at 79 / 121,672. Exact texture/memory figures and separate historical scopes are in [the follow-up evidence](review/set-10/c50-notice-followup/README.md). This does not certify the Intel 60 fps floor.
