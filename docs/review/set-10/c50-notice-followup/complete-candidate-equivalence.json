@@ -1,0 +1,33 @@
+{
+  "base": "f2e439ef",
+  "ownedFix": "e82091aa",
+  "ownedRenderingSources": {
+    "src/core/fpsigns.js": {
+      "owned": "e4a087362a81d2da08d4d404a6ac796f32703274b5328e6e942e8d707cc81e56",
+      "candidate": "e4a087362a81d2da08d4d404a6ac796f32703274b5328e6e942e8d707cc81e56"
+    },
+    "src/core/fpsignlettering.js": {
+      "owned": "ae96d2d284f70719b4ebd806d8b5f2dce1f06f171057896cc3a121959e5b94e8",
+      "candidate": "ae96d2d284f70719b4ebd806d8b5f2dce1f06f171057896cc3a121959e5b94e8"
+    },
+    "src/core/fpworld.js": {
+      "owned": "c726cf97f5ea724f73923dd505626c5874c4e9e1d56fdfdf91e90c8aa82a26d3",
+      "candidate": "c726cf97f5ea724f73923dd505626c5874c4e9e1d56fdfdf91e90c8aa82a26d3"
+    },
+    "src/core/fphud.js": {
+      "owned": "011edefd04a267954b4b6cf97a98e522e20f3af4e91c3918c658c363d69f75e7",
+      "candidate": "011edefd04a267954b4b6cf97a98e522e20f3af4e91c3918c658c363d69f75e7"
+    },
+    "src/core/fprear.js": {
+      "owned": "dc739efa0a6d17cb78dd448c40cba69e0c93040a5f0487b26a7f62238ea6b6b4",
+      "candidate": "dc739efa0a6d17cb78dd448c40cba69e0c93040a5f0487b26a7f62238ea6b6b4"
+    },
+    "src/core/fpmaterials.js": {
+      "owned": "3a24ee77b43e3645ee3f16691b4ed64836a9cea1b9e6ee9efb1532ae127b1263",
+      "candidate": "3a24ee77b43e3645ee3f16691b4ed64836a9cea1b9e6ee9efb1532ae127b1263"
+    }
+  },
+  "currentPilotCabAndSignalTimingRetained": true,
+  "currentPilotSceneRetainedWithOnlyAddressGuard": true,
+  "currentPilotIndexRetainedWithOnlyLetteringScript": true
+}

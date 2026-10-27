@@ -1,0 +1,56 @@
+{
+  "phase": "failed",
+  "jobs": [
+    {
+      "tag": "notice-layout-low",
+      "script": "test/fpsignlayoutbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANGS": "en,ta",
+        "QA_SIZES": "normal,large"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "notice-layout-low-ta-large-first-day-reverse.png": "781d6f060dc9f80a2b641c427fb1c29c3257a2286c5b1508117019ce8636258a",
+        "notice-layout-low-en-normal-stop.png": "b8732adbf9b80174fc643057ecb7f98d6c3b2eac683996e9ad5a5dd212f91c90",
+        "notice-layout-low-en-large-red.png": "4f747db78f3b5e127469ca3d4e2cc6f95c23f52556d5e81f62b4281b885e5fa8",
+        "notice-layout-low-en-normal-amber.png": "90c178cfaf54da1fab679855671e734430072c66976f5a3a7e958240913d4f78",
+        "notice-layout-low-ta-normal-stop.png": "37a847d5af0c829c486b3c3230ace634de7916dadaeffc0fff5d6a78d842861c",
+        "notice-layout-low-en-normal-first-day-drive.png": "5b089e33f45729c5843b5bc5552a82caa248dae24eeac99ee935e3131e798e34",
+        "notice-layout-low-ta-normal-amber.png": "8b099af8781d1b30805d448c5bcbcfdf8062a307c35cf4973045a7c91ba77e11",
+        "notice-layout-low-en-normal-first-day-reverse.png": "5c3e01edd18c8fed5e60c6e255fbbfe1f4ebe18f8b1e7d2e595343c4ae6dcc5d",
+        "notice-layout-low-ta-normal-giveway.png": "ab4112e01e1916ad86734f3d1c53b2dae5e6f24131ef1621ceec40956c9426b1",
+        "notice-layout-low-ta-large-red.png": "9a9f454902fbb4e9908ea4d2bbd6f405afa6ef29344bb1c1fbe0171e1953177b",
+        "notice-layout-low-en-large-amber.png": "69c799bf05b8dd5bd7338781f4f67559b810b60fe0491633b5001c20869d2cba",
+        "notice-layout-low-ta-large-stop.png": "5530e9844e542f58beaf6a39e48e3265c579c497a12ca53e49f5bbc0d2cb649f",
+        "notice-layout-low-ta-normal-first-day-reverse.png": "5ebca6c1f8d3cf9074f5a452380af23af59bfb2fbf4e7c98cc8f103ce0d7efa7",
+        "notice-layout-low.json": "632d30d7092c4150d4af256f532edc174e9b1716ba0eccef04d5effe088df573",
+        "notice-layout-low-ta-normal-green.png": "af72fa766f9c099ec5e372c44d024b28be50a532f3e4eea587073e37e86f5fc8",
+        "notice-layout-low-ta-normal-first-day-drive.png": "1e4a9db41b8ecb955db499e195142eb96be2502958e66e98c34bd1f82bd8514b",
+        "notice-layout-low-ta-large-amber.png": "e846927b9573f74c0917acd3ddf24dcc57963af07c7262e10ea3ec23c51a4ba1",
+        "notice-layout-low-ta-large-first-day-drive.png": "50277a3066d7e74e6e42f7538a5b728be770bde618cd56f5d92c35c83a4b2f11",
+        "notice-layout-low-en-large-first-day-reverse.png": "e3414f8fc01988ad842857ce3c15d30f686241c9b0c56f4490e291573cacf2c5",
+        "notice-layout-low-ta-large-green.png": "961db3dd357a7839abe8481436e694a15582353f57f2f13ed13d33de06e440f5",
+        "notice-layout-low-en-large-stop.png": "5f41fcf86ec7a71988b2f2afb678e2fbc98454d9c9786ca1e8777da845a06734",
+        "notice-layout-low-en-normal-giveway.png": "c31e947c41cd729c29e69121eaf7419f6f26b289fd85635d030c3137729d1e8c",
+        "notice-layout-low-en-large-giveway.png": "97c0741be629125b68e0e1b8a508ec313fa9a9dcc794435c3d27191c8899e71b",
+        "notice-layout-low-en-normal-green.png": "663e02a2769155c962d2b92d3dc19a456642e538a676b2ad412f864047393691",
+        "notice-layout-low-en-large-first-day-drive.png": "2dd93c986c602905cf1b10e754226cdb3a9996e80d830ef9d0ee06db0614f521",
+        "notice-layout-low-ta-large-giveway.png": "85ec6bf48651cc51073b9c69c059418486f475d1ad469a491f363f32f1d8e5a5",
+        "notice-layout-low-ta-normal-red.png": "e003bd4f20e7e6f630eed28b0cf381f8df93660f93904f08d107f2a06fc7bf72",
+        "notice-layout-low-en-normal-red.png": "eb1d56bb613aaf363156460cb4565c16a3da5085f4b363fc4b93ec177cd73023",
+        "notice-layout-low-en-large-green.png": "e0d14231a7641eaece7de9ca173e9d60f341e6b82cf3b90823cde66881e309fa"
+      }
+    }
+  ],
+  "pid": 167953,
+  "startedAt": 1793112246.922862,
+  "serverPid": 170231,
+  "tag": "notice-layout-low",
+  "childPid": 170232,
+  "failure": "Browser job failed: notice-layout-low",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793113034.0794506
+}
