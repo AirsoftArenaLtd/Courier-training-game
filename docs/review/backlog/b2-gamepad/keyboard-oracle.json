@@ -1,0 +1,11 @@
+{
+  "baselineCommit": "90844ac5",
+  "baselineSourceSha256": "a61c98a07c1b69c269186791c56331120fabca5f4d2ecd21a95d4810cf43469e",
+  "currentSourceSha256": "c0b31bc858d2addd633246f3c785649a4718107ad01918b905891dd8df87b616",
+  "cases": 288,
+  "comparedSteps": 57600,
+  "exact": true,
+  "beforeHistorySha256": "e7b4f78e8ad44b805f3c98e46138a161c7997f1c4f36a7de7e16f91b525b6e91",
+  "afterHistorySha256": "e7b4f78e8ad44b805f3c98e46138a161c7997f1c4f36a7de7e16f91b525b6e91",
+  "scope": "Identical boolean-key motor histories across gears, assists, brakes, speeds, traction, payload and a collision wall; no analogue/default-route/Intel acceptance implied."
+}

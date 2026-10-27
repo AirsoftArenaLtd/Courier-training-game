@@ -24,3 +24,6 @@ test('nonstandard, disconnected and out-of-range devices never supply commands; 
 test('polling reuses one frame for long sessions and disposal stops reading the browser API',()=>{
  const p=pad();let reads=0;const g=G.create(()=>{reads++;return [p];}),frame=g.frame;g.poll();for(let n=0;n<10000;n++){p.axes[0]=(n%3-1)*.75;assert.equal(g.poll(),frame);assert.ok(Number.isFinite(frame.steer));}g.dispose();const last=reads;assert.equal(g.poll(),frame);assert.equal(reads,last);assert.equal(frame.connected,false);assert.equal(frame.throttle,0);assert.equal(frame.held,0);
 });
+test('unchanged settings do not interrupt a held control, while an in-place remap rearms',()=>{
+ const p=pad(),g=G.create(()=>[p]),settings={buttons:{throttle:7}};g.configure(settings);g.poll();press(p,7);assert.equal(g.poll().throttle,1);for(let n=0;n<100;n++){assert.equal(g.configure(settings),false);assert.equal(g.poll().throttle,1);}settings.buttons.throttle=4;press(p,4);assert.equal(g.configure(settings),true);assert.equal(g.poll().active,false);press(p,7,0);press(p,4,0);g.poll();press(p,4);assert.equal(g.poll().throttle,1);
+});

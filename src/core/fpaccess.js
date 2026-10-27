@@ -83,9 +83,9 @@ OTR.fpAccess={
       const free=codes.find(candidate=>!used.has(candidate));if(free){keys[code]=free;used.add(free);changed=true;}
     }if(changed)OTR.a11y.save();
   },
-  look(scene,held,seconds){
+  look(scene,held,seconds,analog){
     const m=scene.model,p=m?m.player:scene.hubMotion.player,dt=Math.max(0,Math.min(.05,seconds));
-    const turn=Number(!!held.ArrowRight)-Number(!!held.ArrowLeft),tilt=Number(!!held.ArrowDown)-Number(!!held.ArrowUp);
+    const turn=held.ArrowRight||held.ArrowLeft?Number(!!held.ArrowRight)-Number(!!held.ArrowLeft):analog?.lookX||0,tilt=held.ArrowDown||held.ArrowUp?Number(!!held.ArrowDown)-Number(!!held.ArrowUp):analog?.lookY||0;
     if(m&&m.mode==='cab')m.van.look=OTR.fp.clamp(m.van.look+turn*dt*1.6,-1.5,1.5);else p.yaw+=turn*dt*1.6;
     p.pitch=OTR.fp.clamp(p.pitch+tilt*dt*1.2,-1.05,1.05);
   },

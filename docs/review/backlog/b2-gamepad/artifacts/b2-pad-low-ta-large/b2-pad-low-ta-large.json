@@ -1,0 +1,132 @@
+{
+  "quality": "low",
+  "language": "ta",
+  "large": true,
+  "checks": 34,
+  "shots": [
+    "fractional-drive",
+    "stopped-reverse",
+    "pause",
+    "handheld"
+  ],
+  "errors": [],
+  "scope": "Initial profile/key-map/world/parked-cab preparation is a component fixture. Subsequent driving/actions use fake Gamepad API values or real keys; no position, event, timer, result or verdict edits after setup. Shared remapping UI/storage is not certified.",
+  "initial": {
+    "van": {
+      "x": 2.84,
+      "z": -18,
+      "speed": 0,
+      "gear": 2,
+      "hand": true,
+      "belt": false,
+      "look": 0,
+      "steer": 0
+    },
+    "elapsed": 0.06663333333333352,
+    "paused": false,
+    "held": {},
+    "controls": {
+      "forward": 0,
+      "back": 0,
+      "left": 0,
+      "right": 0,
+      "careful": false
+    },
+    "pad": {
+      "connected": true,
+      "active": true,
+      "device": 0,
+      "steer": 0,
+      "moveX": 0,
+      "moveY": 0,
+      "lookX": 0,
+      "lookY": 0,
+      "throttle": 0,
+      "brake": 0,
+      "careful": false,
+      "held": 0,
+      "pressed": 0,
+      "released": 0
+    },
+    "panel": null,
+    "handheld": {
+      "open": false,
+      "index": 0,
+      "aiming": false
+    },
+    "gears": [],
+    "keys": {
+      "KeyE": "KeyU",
+      "KeyP": "KeyO",
+      "KeyR": "KeyT"
+    }
+  },
+  "last": {
+    "van": {
+      "x": 2.8406154488388773,
+      "z": -18.627965888869596,
+      "speed": 0,
+      "gear": 1,
+      "hand": true,
+      "belt": true,
+      "look": 0,
+      "steer": 0
+    },
+    "elapsed": 3.891480000000015,
+    "paused": false,
+    "held": {},
+    "controls": {
+      "forward": 0,
+      "back": 0,
+      "left": 0,
+      "right": 0,
+      "careful": false
+    },
+    "pad": {
+      "connected": true,
+      "active": true,
+      "device": 0,
+      "steer": 0,
+      "moveX": 0,
+      "moveY": 0,
+      "lookX": 0,
+      "lookY": 0,
+      "throttle": 0,
+      "brake": 0,
+      "careful": false,
+      "held": 0,
+      "pressed": 0,
+      "released": 0
+    },
+    "panel": null,
+    "handheld": {
+      "open": false,
+      "index": 1,
+      "aiming": false
+    },
+    "gears": [
+      {
+        "key": "gear1",
+        "ok": true
+      },
+      {
+        "key": "gear2",
+        "ok": false
+      },
+      {
+        "key": "gear3",
+        "ok": true
+      },
+      {
+        "key": "gear4",
+        "ok": true
+      }
+    ],
+    "keys": {
+      "KeyE": "KeyU",
+      "KeyP": "KeyO",
+      "KeyR": "KeyT"
+    }
+  },
+  "complete": true
+}

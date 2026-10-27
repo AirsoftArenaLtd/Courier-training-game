@@ -336,7 +336,42 @@ class FirstPersonScene extends Phaser.Scene {
     this.message(result||OTR.fpCab.hint(id,this.model,OTR.fpAccess.key('KeyE')));
     this.checkpoint();this.sync();this.refresh();
   }
+  inputAction(code,shiftKey=false){
+    if(this.loading||this.external||this.transitioning)return;
+    if(this.handheld&&this.handheld.isOpen){
+      const hh=this.handheld;
+      if(code==='Tab')hh.close();
+      else if(code==='Escape'){if(hh.aiming)hh.home();else hh.close();}
+      else if(code==='KeyH'){hh.close(false);this.showPause();}
+      else if(code==='Backspace'){const back=hh.device.current&&hh.device.current.back;if(back)back();else hh.home();}
+      else if(/^Digit[1-9]$/.test(code))hh.choose(Number(code.slice(5))-1);
+      else if(!hh.aiming&&code==='Enter')hh.choose(hh.index||0);
+      else if(!hh.aiming&&/^Arrow/.test(code)){hh.index=(hh.index||0)+(code==='ArrowUp'||code==='ArrowLeft'?-1:1);OTR.fpAccess.deviceFocus(hh);}
+      else if(hh.aiming&&code==='KeyP')OTR.fpAccess.focus(this);
+      return;
+    }
+    if(this.panel){
+      if(code==='Escape'){if(this.panel.back)this.panel.back();else this.closePanel();return;}
+      if(this.panel.type==='inspect'&&code==='Space'){this.handheld.scan();return;}
+      if(/^Digit[1-9]$/.test(code)){this.choose(Number(code.slice(5))-1);return;}
+      if(this.panel.type==='inspect'&&(code==='ArrowLeft'||code==='ArrowRight'))return;
+      if(/^Arrow/.test(code)||code==='Tab'){this.panel.index=(this.panel.index+(code==='ArrowUp'||code==='ArrowLeft'||code==='Tab'&&shiftKey?-1:1)+this.panel.choices.length)%this.panel.choices.length;this.highlight(true);return;}
+      if(code==='Enter')this.choose(this.panel.index);return;
+    }
+    if(code==='Escape'||code==='KeyH'){this.showPause();return;}if(code==='KeyE'||code==='Enter'){this.interact();return;}
+    if(code==='Tab'){this.showScanner();return;}if(code==='KeyF'){this.showParcel();return;}
+    if(code==='KeyG'&&this.model&&this.model.mode==='walk'){this.showGoal();return;}
+    if(code==='KeyP'){OTR.fpAccess.focus(this);return;}
+    if(code==='KeyJ'&&OTR.fpSigns){OTR.fpSigns.read(this);return;}
+    const m=this.model;if(m&&m.mode==='cab'){
+      if(code==='Space')this.cabAction('cab-handbrake');if(code==='KeyB')this.cabAction('cab-belt');
+      if(code==='KeyL')this.cabAction('cab-headlights');if(code==='KeyK')this.cabAction('cab-wipers');
+      if(code==='KeyR')this.cabAction(m.van.gear===1?'cab-reverse':'cab-drive');
+      if(code==='KeyQ')this.cabAction('cab-signal-left');if(code==='KeyC')this.cabAction('cab-signal-right');if(code==='KeyV'){m.van.look=0;m.player.pitch=0;}m.touch();
+    }
+  }
   installInput(){
+    this.gamepad=OTR.fpGamepadScene?OTR.fpGamepadScene.create(this):null;
     OTR.fpAccess.syncKeys();
     const canvas=this.sys.game.canvas,handlers=[],listen=(o,name,fn)=>{o.addEventListener(name,fn);handlers.push(()=>o.removeEventListener(name,fn));};
     listen(canvas,'pointerdown',e=>{this.keyboardMode=false;if(e.button!==0||this.loading||this.panel||this.external||this.transitioning||this.time.now<(this.inputBlockedUntil||0))return;
@@ -352,43 +387,14 @@ class FirstPersonScene extends Phaser.Scene {
     const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyG','KeyP','KeyJ','KeyL','KeyK','KeyR','KeyB','KeyQ','KeyC','KeyH','KeyV','ShiftLeft','ShiftRight','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
     listen(window,'keydown',e=>{
       if(this.loading||this.external||!codes.has(e.code)||e.ctrlKey||e.metaKey||e.altKey)return;this.keyboardMode=true;e.preventDefault();const first=!this.held[e.code];this.held[e.code]=true;if(!first||e.repeat||this.transitioning)return;
-      if(this.handheld&&this.handheld.isOpen){
-        const hh=this.handheld;
-        if(e.code==='Tab')hh.close();
-        else if(e.code==='Escape'){if(hh.aiming)hh.home();else hh.close();}
-        else if(e.code==='KeyH'){hh.close(false);this.showPause();}
-        else if(e.code==='Backspace'){const back=hh.device.current&&hh.device.current.back;if(back)back();else hh.home();}
-        else if(/^Digit[1-9]$/.test(e.code))hh.choose(Number(e.code.slice(5))-1);
-        else if(!hh.aiming&&e.code==='Enter')hh.choose(hh.index||0);
-        else if(!hh.aiming&&/^Arrow/.test(e.code)){hh.index=(hh.index||0)+(e.code==='ArrowUp'||e.code==='ArrowLeft'?-1:1);OTR.fpAccess.deviceFocus(hh);}
-        else if(hh.aiming&&e.code==='KeyP')OTR.fpAccess.focus(this);
-        return;
-      }
-      if(this.panel){
-        if(e.code==='Escape'){if(this.panel.back)this.panel.back();else this.closePanel();return;}
-        if(this.panel.type==='inspect'&&e.code==='Space'){this.handheld.scan();return;}
-        if(/^Digit[1-9]$/.test(e.code)){this.choose(Number(e.code.slice(5))-1);return;}
-        if(this.panel.type==='inspect'&&(e.code==='ArrowLeft'||e.code==='ArrowRight'))return;
-        if(/^Arrow/.test(e.code)||e.code==='Tab'){this.panel.index=(this.panel.index+(e.code==='ArrowUp'||e.code==='ArrowLeft'||e.code==='Tab'&&e.shiftKey?-1:1)+this.panel.choices.length)%this.panel.choices.length;this.highlight(true);return;}
-        if(e.code==='Enter')this.choose(this.panel.index);return;
-      }
-      if(e.code==='Escape'||e.code==='KeyH'){this.showPause();return;}if(e.code==='KeyE'||e.code==='Enter'){this.interact();return;}
-      if(e.code==='Tab'){this.showScanner();return;}if(e.code==='KeyF'){this.showParcel();return;}
-      if(e.code==='KeyG'&&this.model&&this.model.mode==='walk'){this.showGoal();return;}
-      if(e.code==='KeyP'){OTR.fpAccess.focus(this);return;}
-      if(e.code==='KeyJ'&&OTR.fpSigns){OTR.fpSigns.read(this);return;}
-      const m=this.model;if(m&&m.mode==='cab'){
-        if(e.code==='Space')this.cabAction('cab-handbrake');if(e.code==='KeyB')this.cabAction('cab-belt');
-        if(e.code==='KeyL')this.cabAction('cab-headlights');if(e.code==='KeyK')this.cabAction('cab-wipers');
-        if(e.code==='KeyR')this.cabAction(m.van.gear===1?'cab-reverse':'cab-drive');
-        if(e.code==='KeyQ')this.cabAction('cab-signal-left');if(e.code==='KeyC')this.cabAction('cab-signal-right');if(e.code==='KeyV'){m.van.look=0;m.player.pitch=0;}m.touch();
-      }
+      this.inputAction(e.code,e.shiftKey);
     });
     listen(window,'keyup',e=>{delete this.held[e.code];});
-    const pause=()=>{this.held=Object.create(null);if(this.handheld)this.handheld.close(false);if(this.model)this.model.paused=true;this.hubMotion.paused=true;this.checkpoint();if(!this.panel&&!this.external&&!this.transitioning)this.showPause(true);};
-    listen(window,'blur',pause);listen(document,'visibilitychange',()=>{if(document.hidden)pause();});
+    const pause=()=>{if(this.gamepad)this.gamepad.reset();this.held=Object.create(null);if(this.handheld)this.handheld.close(false);if(this.model)this.model.paused=true;this.hubMotion.paused=true;this.checkpoint();if(!this.panel&&!this.external&&!this.transitioning)this.showPause(true);};
+    const loseFocus=()=>{if(this.gamepad)this.gamepad.suspend();pause();};listen(window,'blur',loseFocus);listen(window,'focus',()=>{if(this.gamepad)this.gamepad.resume();});listen(document,'visibilitychange',()=>{if(document.hidden)loseFocus();else if(this.gamepad)this.gamepad.resume();});
+    const device=e=>{if(this.gamepad&&e.gamepad?.index===this.gamepad.controller.frame.device)this.gamepad.reset();};listen(window,'gamepadconnected',device);listen(window,'gamepaddisconnected',device);
     listen(document,'pointerlockchange',()=>{if(document.pointerLockElement!==canvas&&!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen&&!this.handheld.aiming))pause();});
-    listen(window,'pagehide',()=>this.checkpoint());this.events.once('shutdown',()=>{handlers.forEach(remove=>remove());this.held=Object.create(null);this.releaseMouse();});
+    listen(window,'pagehide',()=>this.checkpoint());this.events.once('shutdown',()=>{handlers.forEach(remove=>remove());if(this.gamepad)this.gamepad.dispose();this.gamepad=null;this.held=Object.create(null);this.releaseMouse();});
   }
   objectiveText(){
     const m=this.model;if(!m)return 'Choose a workday or a focused cargo lesson.';
@@ -444,9 +450,9 @@ class FirstPersonScene extends Phaser.Scene {
   }
   sync(){if(this.art)this.art.sync(this.model,this.hubMotion.player,this.area);}
   update(time,delta){
-    if(this.loading||!this.view)return;const h=this.held,controls={forward:!!h.KeyW,back:!!h.KeyS,left:!!h.KeyA,right:!!h.KeyD,careful:!!(h.ShiftLeft||h.ShiftRight)};
-    if(!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen&&!this.handheld.aiming)&&OTR.fpAccess)OTR.fpAccess.look(this,h,delta/1000);
-    if(this.panel&&this.panel.type==='inspect')this.inspectAngle+=(Number(!!(h.KeyD||h.ArrowRight))-Number(!!(h.KeyA||h.ArrowLeft)))*Math.min(delta/1000,0.05)*1.8;
+    if(this.loading||!this.view)return;const keys=this.held,controls=this.gamepad?this.gamepad.tick():{forward:!!keys.KeyW,back:!!keys.KeyS,left:!!keys.KeyA,right:!!keys.KeyD,careful:!!(keys.ShiftLeft||keys.ShiftRight)},h=this.held;
+    if(!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen&&!this.handheld.aiming)&&OTR.fpAccess)OTR.fpAccess.look(this,h,delta/1000,this.gamepad&&this.gamepad.look);
+    if(this.panel&&this.panel.type==='inspect'){const turn=h.KeyD||h.ArrowRight||h.KeyA||h.ArrowLeft?Number(!!(h.KeyD||h.ArrowRight))-Number(!!(h.KeyA||h.ArrowLeft)):this.gamepad&&this.gamepad.inspectTurn||0;this.inspectAngle+=turn*Math.min(delta/1000,0.05)*1.8;}
     if(this.model){const visible=!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen);if(!visible&&!(this.panel&&this.panel.preserveGaze)&&OTR.fpMirrors)OTR.fpMirrors.reset(this.model);this.model.mirrorVisible=visible;this.model.rearVisible=visible&&!!(this.art.rear&&this.art.rear.inView);}
     if(!this.panel&&!this.external&&!this.transitioning){if(this.model)this.model.step(controls,delta/1000);else this.hubMotion.step(controls,delta/1000);}if(this.model&&this.model.loadout&&this.model.loadout.notice){this.model.loadout.notice=false;this.message('A previously missed package has turned up in cargo. Scan it and check the address.');}this.sync();if(OTR.fpReplayUI)OTR.fpReplayUI.capture(this);
     if(this.model&&this.model.dayNotice){this.message(this.model.dayNotice);this.model.dayNotice='';}
@@ -454,7 +460,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(OTR.fpStopScene)OTR.fpStopScene.tick(this);
     const sound=this.workdaySound.tick(time),light=this.art.lighting?this.art.lighting.caption():'';
     if(sound!==this.soundSource||light!==this.lightSource){this.soundSource=sound;this.lightSource=light;this.soundCaption=sound&&light?sound+' · '+light:sound||light;}
-    if(this.handheld&&this.handheld.aiming&&!this.panel&&!this.external&&!this.transitioning)this.handheld.tick(delta/1000,!!h.Space||this.handheld.trigger);
+    if(this.handheld&&this.handheld.aiming&&!this.panel&&!this.external&&!this.transitioning)this.handheld.tick(delta/1000,!!h.Space||this.handheld.trigger||!!(this.gamepad&&this.gamepad.scanHeld));
     if(time-this.lastAim>90){this.target=(!this.panel&&!this.external&&(!this.model||this.model.mode==='walk'||this.model.mode==='cab'))?this.art.pick():null;this.lastAim=time;const occupied=[];
       this.labels.forEach(({label,object})=>{
         if(label.clearance){const size=OTR.fpAccess.settings().large?22:17;if(parseFloat(object.style.fontSize)!==size)object.setFontSize(size);}

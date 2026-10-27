@@ -1,0 +1,118 @@
+{
+  "phase": "complete",
+  "pid": 136104,
+  "jobs": [
+    {
+      "tag": "b2-affinity-current",
+      "script": "test/fpgamepadaffinitybrowser.js",
+      "env": {},
+      "exit": 0,
+      "accepted": true,
+      "checks": 21,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "b2-affinity-current/b2-affinity-current-driver-retained.png",
+          "sha256": "f1de2a3c4d00581e62602585a5747eb2fed52c673ebbce388252e0b7f801df5a"
+        },
+        {
+          "file": "b2-affinity-current/b2-affinity-current-replacement-neutral.png",
+          "sha256": "b98c7d332df4fe71df61b2572643e395ecc3b05a8952716d3bf1372bace00308"
+        },
+        {
+          "file": "b2-affinity-current/b2-affinity-current.json",
+          "sha256": "9c5933e3672204894fd458bf03e068c09ae9a51cd726dc1fa221dfce7aade7e3"
+        }
+      ]
+    },
+    {
+      "tag": "b2-current-low-en-normal",
+      "script": "test/fpgamepadbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 34,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "b2-current-low-en-normal/b2-current-low-en-normal-fractional-drive.png",
+          "sha256": "711f0def61916a8e0e7abbc2b62b88631860c76a3c74d12cbe450e34518ffc1c"
+        },
+        {
+          "file": "b2-current-low-en-normal/b2-current-low-en-normal-handheld.png",
+          "sha256": "269f783f27f446b1119560573067089957356148fe152a1232dd054d07df33fa"
+        },
+        {
+          "file": "b2-current-low-en-normal/b2-current-low-en-normal-pause.png",
+          "sha256": "9c6c00e6bdfe181ad9f6ae9a8121ea30f2308b698f9e7ef75f451fa9b4d31b53"
+        },
+        {
+          "file": "b2-current-low-en-normal/b2-current-low-en-normal-stopped-reverse.png",
+          "sha256": "05b743bb1ea2a55fa062f75195e0e6d07ca1c0e5909d5f65235063072cbd15d9"
+        },
+        {
+          "file": "b2-current-low-en-normal/b2-current-low-en-normal.json",
+          "sha256": "467172f9f2c27300a86284e661fdadba41b60f74f9357d42bfc3af4c13661b36"
+        }
+      ]
+    },
+    {
+      "tag": "b2-current-high-ta-large",
+      "script": "test/fpgamepadbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 34,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "b2-current-high-ta-large/b2-current-high-ta-large-fractional-drive.png",
+          "sha256": "b1d3dc623f1294c0fa6fb7afc28447b3d110273d44a513608daff1d8824fb3cf"
+        },
+        {
+          "file": "b2-current-high-ta-large/b2-current-high-ta-large-handheld.png",
+          "sha256": "c520a3b651f61a4bc5e86f993630320e6a56e5800c96b17ac27f4a22ff88e800"
+        },
+        {
+          "file": "b2-current-high-ta-large/b2-current-high-ta-large-pause.png",
+          "sha256": "925574451841f0a54773afd384e55d954e5330d0500a28a20a8f07e3852da583"
+        },
+        {
+          "file": "b2-current-high-ta-large/b2-current-high-ta-large-stopped-reverse.png",
+          "sha256": "f4ef3887675675d212d0e5d5d896d67427a069c2adf7137264c21d41f88e9c00"
+        },
+        {
+          "file": "b2-current-high-ta-large/b2-current-high-ta-large.json",
+          "sha256": "25a6aaba803e6242b84db4447bf1452509de9113bc365d9d074d48296a928f33"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793080888.4960668,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8399",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 136105,
+  "index": 2,
+  "tag": "b2-current-high-ta-large",
+  "childPid": 136758,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793081037.7640526
+}
