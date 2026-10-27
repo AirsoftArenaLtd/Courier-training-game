@@ -1,7 +1,7 @@
 /* Scene-local fake-pad integration, original cab/action guards and real motor checks. */
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const c={Phaser:{Scene:class{}},URLSearchParams,location:{search:''},document:{hidden:false}};c.window=c;vm.createContext(c);
-for(const f of ['firstperson','fpmission','fpcab','fpaccess','fpgamepad','fpgamepadscene'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+f+'.js','utf8'),c);
+for(const f of ['firstperson','fpmission','fpcab','fpaccess','fpgamepad','fpgamepadcapture','fpgamepadscene','fpgamepadui'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+f+'.js','utf8'),c);
 const O=c.OTR;O.registerScene=C=>c.Scene=C;vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/FirstPersonScene.js','utf8'),c);
 let settings={};O.fpAccess.settings=()=>settings;
 const button=(p,n,value=1)=>{p.buttons[n].value=value;p.buttons[n].pressed=value>.5;};
@@ -43,4 +43,20 @@ test('losing pointer lock keeps gamepad menus usable; window blur suspends until
  const {s,p,g}=fixture();g.dispose();const windowEvents=new Map(),documentEvents=new Map(),canvasEvents=new Map(),canvas={addEventListener:(n,f)=>canvasEvents.set(n,f),removeEventListener:n=>canvasEvents.delete(n)};
  c.addEventListener=(n,f)=>windowEvents.set(n,f);c.removeEventListener=n=>windowEvents.delete(n);c.document.addEventListener=(n,f)=>documentEvents.set(n,f);c.document.removeEventListener=n=>documentEvents.delete(n);c.document.pointerLockElement=canvas;c.navigator={getGamepads:()=>[p]};const old=O.fpAccess.syncKeys;O.fpAccess.syncKeys=()=>{};let shutdown;
  try{s.sys={game:{canvas}};s.checkpoint=()=>{};s.releaseMouse=()=>{};s.events={once:(n,f)=>{if(n==='shutdown')shutdown=f;}};c.Scene.prototype.installInput.call(s);s.gamepad.tick();s.gamepad.tick();c.document.pointerLockElement=null;documentEvents.get('pointerlockchange')();assert.ok(s.panel);s.gamepad.tick();s.gamepad.tick();button(p,13);s.gamepad.tick();assert.equal(s.panel.index,1);button(p,13,0);s.gamepad.tick();windowEvents.get('blur')();assert.equal(s.gamepad.tick().forward,false);windowEvents.get('focus')();s.gamepad.tick();s.gamepad.tick();button(p,12);s.gamepad.tick();assert.equal(s.panel.index,0);shutdown();assert.equal(s.gamepad,null);assert.equal(windowEvents.size,0);assert.equal(documentEvents.size,0);assert.equal(canvasEvents.size,0);}finally{O.fpAccess.syncKeys=old;}
+});
+test('raw capture of an unbound button suppresses actions and held input cannot escape the resulting menu',()=>{
+ const {s,p,g}=fixture();s.panel={index:0,choices:[{}]};g.tick();g.tick();const actions=s.actions.length;let result;
+ g.startCapture('buttons',v=>{result=v;g.session={buttons:{gear:v}};s.panel={index:0,choices:[{}]};});
+ button(p,0);g.tick();button(p,0,0);g.tick();button(p,16);g.tick();assert.equal(result,undefined);g.tick();assert.equal(s.actions.length,actions);button(p,16,0);g.tick();assert.equal(result,16);assert.equal(s.actions.length,actions);
+ s.closePanel();button(p,16);g.tick();assert.equal(s.actions.length,actions);button(p,16,0);g.tick();button(p,16);g.tick();assert.equal(s.actions.at(-1),'cab-reverse');
+});
+test('capture cancels with its panel and focus resets a half-complete gesture',()=>{
+ const {s,p,g}=fixture();s.panel={};g.tick();let calls=0;g.startCapture('buttons',()=>calls++);g.tick();button(p,16);g.tick();g.suspend();button(p,16,0);g.tick();g.resume();g.tick();assert.equal(calls,0);button(p,16);g.tick();s.closePanel();g.tick();button(p,16,0);g.tick();assert.equal(calls,0);assert.equal(g.controller.frame.active,true);
+});
+test('draft remaps do not mutate shared settings or survive adapter disposal',()=>{
+ const {s,g}=fixture();settings.gamepad={deadzone:.2,buttons:{gear:16}};const before=JSON.stringify(settings);s.gamepad=g;O.fpGamepadUI.apply(s,'buttons','gear',3);assert.equal(g.bindings().buttons.gear,3);assert.equal(JSON.stringify(settings),before);O.fpGamepadUI.apply(s,'buttons','gear',2);assert.equal(g.bindings().buttons.gear,undefined);assert.equal(JSON.stringify(settings),before);g.dispose();assert.equal(g.session,null);
+});
+test('remap conflicts follow simultaneous contexts and retain the intentional menu/cab D-pad reuse',()=>{
+ const {s,g}=fixture();s.gamepad=g;const ui=O.fpGamepadUI;
+ assert.equal(ui.conflict(s,'buttons','gear',7),true);assert.equal(ui.conflict(s,'buttons','gear',13),true);assert.equal(ui.conflict(s,'buttons','gear',15),false);assert.equal(ui.conflict(s,'buttons','menuDown',13),false);assert.equal(ui.conflict(s,'buttons','interact',13),true);assert.equal(ui.conflict(s,'axes','steer',2),true);assert.equal(ui.conflict(s,'axes','steer',5),false);
 });

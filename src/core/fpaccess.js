@@ -127,6 +127,7 @@ OTR.fpAccess={
     scene.showPanel('3D controls',`The controls use the same saved key map as Settings and Accessibility. Press ${this.key('KeyP')} to select a visible nearby target without the mouse.`,[
       ...list.map(([code,label])=>({label:`${this.key(code)}: ${label}`,action:()=>this.rebind(scene,code,label,page)})),
       {label:'Next page',action:()=>this.keys(scene,(page+1)%Math.ceil(this.controls.length/4))},
+      ...(scene.gamepad&&OTR.fpGamepadUI?[{label:'Gamepad controls',action:()=>OTR.fpGamepadUI.open(scene,0,()=>this.keys(scene,page))}]:[]),
       {label:'Back',action:()=>this.menu(scene)}
     ]);
   },
