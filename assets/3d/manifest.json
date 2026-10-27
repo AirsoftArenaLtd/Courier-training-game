@@ -238,6 +238,27 @@
       "pack": "kenney-furniture-kit",
       "quality": "high",
       "use": "hub-desk"
+    },
+    {
+      "path": "kenney-mini-characters/models/character-male-a-high.glb",
+      "bytes": 95708,
+      "pack": "kenney-mini-characters",
+      "quality": "high",
+      "use": "ambient-adult-a"
+    },
+    {
+      "path": "kenney-mini-characters/models/character-female-a-high.glb",
+      "bytes": 115660,
+      "pack": "kenney-mini-characters",
+      "quality": "high",
+      "use": "ambient-adult-b"
+    },
+    {
+      "path": "kenney-furniture/models/bench-high.glb",
+      "bytes": 10756,
+      "pack": "kenney-furniture",
+      "quality": "high",
+      "use": "town-bench"
     }
   ]
 }

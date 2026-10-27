@@ -1,0 +1,18 @@
+[
+  {
+    "model": "models/character-male-a-high.glb",
+    "sourceGeometrySkinAndClipSamplesIdentical": true,
+    "noRuntimePaletteImage": true,
+    "reproducible": true
+  },
+  {
+    "model": "models/character-female-a-high.glb",
+    "sourceGeometrySkinAndClipSamplesIdentical": true,
+    "noRuntimePaletteImage": true,
+    "reproducible": true
+  },
+  {
+    "model": "models/bench-high.glb",
+    "sourceIdentical": true
+  }
+]

@@ -121,6 +121,7 @@
  "Invalid GLB buffer",
  "Invalid JPEG",
  "Invalid accessor",
+ "Invalid ambient rig",
  "Invalid asset entry",
  "Invalid asset manifest",
  "Invalid asset path",

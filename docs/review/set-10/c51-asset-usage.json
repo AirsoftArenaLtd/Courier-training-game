@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-22T16:45:55.154636+00:00",
+  "scope": "C-51 branch stack, not a new deployment",
+  "manifestSHA256": "06b9b61d8cba389874f424fed88e9f9090e4a86283f706695ada8fe0ffe0c9e1",
+  "packs": 14,
+  "ownerUploadedPacks": 13,
+  "low": {
+    "files": 14,
+    "bytes": 824208
+  },
+  "high": {
+    "files": 22,
+    "bytes": 8377598
+  },
+  "allBytes": 9201806,
+  "runtimeUses": {
+    "kenney-car-kit": [
+      "town-parked-car",
+      "van-exterior"
+    ],
+    "kenney-city-commercial": [
+      "town-shop"
+    ],
+    "kenney-city-roads": [
+      "town-road",
+      "town-streetlight"
+    ],
+    "kenney-city-starter": [
+      "town-garage"
+    ],
+    "kenney-city-suburban": [
+      "town-fence",
+      "town-house",
+      "town-house-wide",
+      "town-tree"
+    ],
+    "kenney-furniture": [
+      "town-bench"
+    ],
+    "kenney-mini-characters": [
+      "ambient-adult-a",
+      "ambient-adult-b"
+    ],
+    "polyhaven-asphalt-pit-lane": [
+      "surface-asphalt"
+    ],
+    "polyhaven-concrete-pavement": [
+      "surface-pavement"
+    ],
+    "polyhaven-grass-ground": [
+      "surface-grass"
+    ],
+    "polyhaven-plastered-wall": [
+      "surface-plaster"
+    ],
+    "polyhaven-red-brick-03": [
+      "surface-brick"
+    ],
+    "quaternius-modular-men": [
+      "resident-men",
+      "worker-men"
+    ],
+    "quaternius-modular-women": [
+      "resident-women",
+      "worker-women"
+    ]
+  }
+}

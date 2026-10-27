@@ -1,0 +1,15 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ all actual town names, address numbers and rule legends keep their complete face text (50.339295ms)
+✔ every Low letter and digit has a complete seven-row procedural glyph, with no canvas allocation (6.444461ms)
+✔ High uses only the three spare cells and never closes or disposes the material atlas (8.432679ms)
+✔ High without material images owns one small fallback atlas and releases it once (2.871193ms)
+✔ letter buffers retain the live shape attribute and prior shader hooks without adding triangles (7.26875ms)
+✔ physical signs hide automatic floating paragraphs while J still reads the complete source sentence (1.764807ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 94.190003

@@ -1,0 +1,12 @@
+✔ every key in the English quick start is handled by the 3D scene and does what the page says (5.322457ms)
+✔ each translation names the same keys in the same order (6.181312ms)
+✔ each translation says it is a machine translation and links back to the English page (14.37421ms)
+✔ each button a translation quotes is the game's own translation of it (B-155) (876.377482ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 918.021013
