@@ -1,0 +1,44 @@
+{
+  "phase": "complete",
+  "pid": 139469,
+  "jobs": [
+    {
+      "tag": "before-low",
+      "script": "test/fpcontextbrowser.js",
+      "env": {
+        "QA_GFX": "low"
+      },
+      "exit": 1,
+      "accepted": true,
+      "checks": 5,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "before-low/before-low-restored.png",
+          "sha256": "104d6eda2e9ee4baaf316f86c79c2008b6bef3315d4620de970ddb41768dca9d"
+        },
+        {
+          "file": "before-low/before-low.json",
+          "sha256": "a0eca724f52f34eec06c5e9d28d64e0a6f542e16eafc80d4db97f907bdfdb880"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793082954.8374045,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8400",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 142441,
+  "index": 0,
+  "tag": "before-low",
+  "childPid": 142442,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793083590.5074487
+}
