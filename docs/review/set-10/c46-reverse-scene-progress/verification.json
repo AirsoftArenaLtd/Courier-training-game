@@ -1,5 +1,5 @@
 {
-  "status": "first-native-assessment-passed-resource-follow-up-active",
+  "status": "historical-pre-sedan-component",
   "cpuChecks": 70,
   "cpuSuites": {
     "kernel": {
@@ -99,6 +99,9 @@
     "freshQueuedOrRunningViews": 25,
     "status": "resource-status.json",
     "observedPassedViews": 8,
-    "freshRemainingViews": 24
-  }
+    "freshRemainingViews": 24,
+    "completeInItsScope": true,
+    "acceptedAsCurrentRenderer": false
+  },
+  "successor": "../c46-reverse-sedan-validation/README.md"
 }

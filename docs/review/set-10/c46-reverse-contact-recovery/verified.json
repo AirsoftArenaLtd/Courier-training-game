@@ -1,0 +1,18 @@
+{
+  "freshPassed": 19,
+  "suites": {
+    "kernel": 10,
+    "scene": 9
+  },
+  "worldAndRunnerSourceIdenticalProofRetained": 37,
+  "files": {
+    "src/core/fpreverselesson.js": "7895a73805597aa23638a779f50068bde4287590525915397b8aeedc9c8854b1",
+    "src/core/fpworld.js": "1e65d6e871095d072f9b1ffe37b70dad1673aad74c0b125a91ac0ac1b1e5b768",
+    "test/fpreverselesson.js": "6ff66f3ccfbbca921d46a2ff1b6247b538232b15fce62dc6bd7bc2db61d623e3",
+    "test/fpreversescenario.js": "406c57a808b80a19be11911c5937aa8de2fbd590b6410145572f7ecf14a8d3b8",
+    "test/fpreversebrowser.js": "4b86f31dc34779a8643bca8fdc5c791ac5be2b08d66244c9c095904d887872d0"
+  },
+  "resourceScope": "The32-view sedan renderer is unchanged; its exact static-sample evidence is retained. Only the non-rendering NPC occupied-footprint guard changed after that matrix; no new geometry, draw call, texture, pass or per-frame pool. The prior601-input map is not relabelled fully unchanged.",
+  "nativeScope": "New12-job601-input plan; old accepted186 case and failed recovery retained separately.",
+  "at": 1793069766.3727283
+}

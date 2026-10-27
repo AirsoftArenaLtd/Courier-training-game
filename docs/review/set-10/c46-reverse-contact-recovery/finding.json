@@ -1,0 +1,8 @@
+{
+  "cause": "The NPC could step into the moving van before the original motor advanced; collision then reset the van and reapplied its parking brake every substep.",
+  "nativeOutcome": "Driving target not reached; exit1; no completed recovery claimed.",
+  "nativeSupervisorReleasedLease": true,
+  "stopAttempt": "The child had already exited when the controlled-stop check ran; no process was terminated.",
+  "beforeSourceSha256": "3badc230b1bbda04ec7e19ffec32092686a52e2632def8c68b041ee0a72e9a53",
+  "requiredFix": "NPC movement must not enter the current occupied van footprint at any speed. Keep actual reverse contact critical and allow real forward recovery. Native checks must honor the source automatic parking brake rather than toggle blindly."
+}

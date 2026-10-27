@@ -1,0 +1,54 @@
+{
+  "scope": "Static optional-reversing resource poses, original ceilings; no native gameplay or laptop FPS acceptance.",
+  "revision": "c4ce4c6ab468733eda029dd69148053da29f35b5",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c46-reverse-sedan-loaded-low-low.json",
+      "peak": {
+        "calls": 28,
+        "triangles": 778,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1724539
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c46-reverse-sedan-loaded-high-high.json",
+      "peak": {
+        "calls": 30,
+        "triangles": 14574,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5430427
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c46-reverse-sedan-accessible-low-low.json",
+      "peak": {
+        "calls": 28,
+        "triangles": 778,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2048619
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c46-reverse-sedan-fallback-low-low.json",
+      "peak": {
+        "calls": 33,
+        "triangles": 620,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1724539
+      }
+    }
+  ]
+}

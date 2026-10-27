@@ -1,0 +1,78 @@
+{
+  "checks": 34,
+  "quality": "low",
+  "lang": "ta",
+  "large": true,
+  "variant": "abandon",
+  "errors": [],
+  "shots": [
+    "c46-reverse-recovery-native-abandon-low-ta-large-brief.png"
+  ],
+  "resources": [
+    {
+      "name": "cab-start",
+      "peak": {
+        "calls": 26,
+        "triangles": 578,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2449856
+      }
+    }
+  ],
+  "revision": "c4ce4c6ab468733eda029dd69148053da29f35b5",
+  "sources": {
+    "index.html": "36e3bda80e57d44913de9b5e59f811be5563264813628819b29c52f65e0c75a6",
+    "src/core/fpreverselesson.js": "7895a73805597aa23638a779f50068bde4287590525915397b8aeedc9c8854b1",
+    "src/core/fpreversescenario.js": "130ad45daf33b50d3be5b39eb09f17dad9d70ab354324fe91beab9c1f980f8af",
+    "src/core/fpworld.js": "1e65d6e871095d072f9b1ffe37b70dad1673aad74c0b125a91ac0ac1b1e5b768",
+    "src/scenes/FirstPersonScenarioScene.js": "eaf7a2729f09aa0054ac2c04380969bf25faf7f9eaf51d38930352ac90f846f4",
+    "test/fpreversebrowser.js": "4b86f31dc34779a8643bca8fdc5c791ac5be2b08d66244c9c095904d887872d0"
+  },
+  "registryFixture": "\nOTR_DATA.reverseLessons={nearMiss:{}};OTR_DATA.modules.find(m=>m.id===\"m8\").scenarios.push({\"id\":\"m8-reverse\",\"title\":\"Reversing Near-Miss\",\"categories\":[\"safety\"],\"scene3d\":\"wellness-reverse\",\"optional\":true,\"default3d\":false,\"blurb\":\"Inspect the tight space on foot, use the mirrors and rear camera, yield to crossing traffic, then reverse slowly into the bay and park.\",\"dataKey\":\"reverseLessons.nearMiss\"});\n",
+  "scope": "Initial optional registry/accessibility/profile/suspended-workday fixtures only. Good, real-contact, omitted-check, abandonment and real-clock timeout paths use their actual module outcomes. No position/event/timer/result/verdict is forged. Physical movement, gaze, cab controls, walk-around confirmation, yield, parking and completion use actual remapped keyboard input. The real suspended workday is followed by a full-page reload before the module to isolate its resource sample from shared Hub texture caches. Warm Hub cache retention is a separately retained failing probe. Resource samples are observed native views, not the full fpbench matrix or laptop FPS acceptance.",
+  "last": {
+    "phase": "brief",
+    "mode": "cab",
+    "van": {
+      "x": 0,
+      "z": -65,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 2,
+      "hand": true,
+      "belt": true,
+      "look": 0
+    },
+    "player": {
+      "x": -1,
+      "z": -20,
+      "yaw": 0,
+      "pitch": 0
+    },
+    "crossing": "waiting",
+    "elapsed": 0,
+    "remaining": 300,
+    "checked": false,
+    "criticals": 0,
+    "gear": 2,
+    "target": null,
+    "car": {
+      "x": -8,
+      "z": -58
+    }
+  },
+  "abandoned": {
+    "assessment": {
+      "attempts": 1,
+      "passed": false,
+      "startedAt": 1793070400324,
+      "pending": false,
+      "abandoned": true,
+      "at": 1793070403839
+    }
+  },
+  "durable": true,
+  "complete": true
+}

@@ -1,0 +1,87 @@
+{
+  "checks": 68,
+  "quality": "low",
+  "lang": "en",
+  "large": true,
+  "variant": "critical",
+  "errors": [],
+  "shots": [
+    "c46-reverse-sedan-native-critical-low-en-large-brief.png",
+    "c46-reverse-sedan-native-critical-low-en-large-path-1.png",
+    "c46-reverse-sedan-native-critical-low-en-large-critical.png"
+  ],
+  "resources": [
+    {
+      "name": "cab-start",
+      "peak": {
+        "calls": 26,
+        "triangles": 578,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1964806
+      }
+    },
+    {
+      "name": "reverse-ready",
+      "peak": {
+        "calls": 26,
+        "triangles": 578,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1854283
+      }
+    }
+  ],
+  "revision": "c4ce4c6ab468733eda029dd69148053da29f35b5",
+  "sources": {
+    "index.html": "36e3bda80e57d44913de9b5e59f811be5563264813628819b29c52f65e0c75a6",
+    "src/core/fpreverselesson.js": "3badc230b1bbda04ec7e19ffec32092686a52e2632def8c68b041ee0a72e9a53",
+    "src/core/fpreversescenario.js": "130ad45daf33b50d3be5b39eb09f17dad9d70ab354324fe91beab9c1f980f8af",
+    "src/core/fpworld.js": "1e65d6e871095d072f9b1ffe37b70dad1673aad74c0b125a91ac0ac1b1e5b768",
+    "src/scenes/FirstPersonScenarioScene.js": "eaf7a2729f09aa0054ac2c04380969bf25faf7f9eaf51d38930352ac90f846f4",
+    "test/fpreversebrowser.js": "e2451c8d9b92c332975df2798596457f2a1aef5b82f1a0b7f4431d87bdef22e3"
+  },
+  "registryFixture": "\nOTR_DATA.reverseLessons={nearMiss:{}};OTR_DATA.modules.find(m=>m.id===\"m8\").scenarios.push({\"id\":\"m8-reverse\",\"title\":\"Reversing Near-Miss\",\"categories\":[\"safety\"],\"scene3d\":\"wellness-reverse\",\"optional\":true,\"default3d\":false,\"blurb\":\"Inspect the tight space on foot, use the mirrors and rear camera, yield to crossing traffic, then reverse slowly into the bay and park.\",\"dataKey\":\"reverseLessons.nearMiss\"});\n",
+  "scope": "Initial optional registry/accessibility/profile/suspended-workday fixtures only. Good, real-contact, omitted-check, abandonment and real-clock timeout paths use their actual module outcomes. No position/event/timer/result/verdict is forged. Physical movement, gaze, cab controls, walk-around confirmation, yield, parking and completion use actual remapped keyboard input. The real suspended workday is followed by a full-page reload before the module to isolate its resource sample from shared Hub texture caches. Warm Hub cache retention is a separately retained failing probe. Resource samples are observed native views, not the full fpbench matrix or laptop FPS acceptance.",
+  "last": {
+    "phase": "active",
+    "mode": "cab",
+    "van": {
+      "x": 0,
+      "z": -59.721836240540256,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 1,
+      "hand": true,
+      "belt": true,
+      "look": -0.5053987893153012,
+      "mirrors": [
+        209.04812333328016,
+        25.348123333332428,
+        -100,
+        0,
+        0.4
+      ],
+      "shifts": 2
+    },
+    "player": {
+      "x": -1.8560172596984188,
+      "z": -66.68426646044595,
+      "yaw": 1.422749671840765,
+      "pitch": -0.04663184807332267
+    },
+    "crossing": "crossing",
+    "elapsed": 209.04812333328016,
+    "remaining": 90.95187666665339,
+    "checked": false,
+    "criticals": 1,
+    "gear": 1,
+    "target": "mirror-left",
+    "car": {
+      "x": -2.8625000000000265,
+      "z": -58
+    }
+  },
+  "failure": "Error: Driving target not reached\n    at drive (/workspace/c46-safety-wellness/test/fpreversebrowser.js:25:427)\n    at async /workspace/c46-safety-wellness/test/fpreversebrowser.js:45:146"
+}

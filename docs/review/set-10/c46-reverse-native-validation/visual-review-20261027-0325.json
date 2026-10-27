@@ -1,0 +1,14 @@
+{
+  "scope": "Original-resolution native capture review after recovery fix",
+  "files": {
+    "c46-reverse-recovery-native-critical-low-en-large-critical.png": "be5d9f14c96433bdb45822c1789ced6cb149ada0b9ff8811b33fab66e6788c28",
+    "c46-reverse-recovery-native-good-high-ta-large-yield.png": "5f13f3c9cfdeac0026fda2bf3efcb374f971d96ccd5243f3ad11a89696e2822a",
+    "c46-reverse-recovery-native-good-high-ta-large-result.png": "4602deb5214b3ecc634310755cf188a2efff8df65e7036ead150220dee866f10"
+  },
+  "observations": [
+    "High crossing sedan is visible in both physical mirrors at the yield point.",
+    "Contact capture shows the stopped van; recovery/completion is established by the real-key report, not inferred from this still image.",
+    "The Tamil result still contains missing-glyph boxes and a small career verdict; the scenario title and new goal/control text remain English. Shared UI/catalogue issues remain open with Claude."
+  ],
+  "acceptanceLimit": "No full Tamil readability, shared A31, warm Hub cache, default rollout or Intel60fps claim."
+}
