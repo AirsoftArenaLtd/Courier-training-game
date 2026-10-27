@@ -30,7 +30,7 @@ test('later positive pull-outs cannot dilute a failed signal or mirror observati
   assert.equal(J.report(r,type,{key:0,ok:true}),true);assert.equal(J.report(r,type,{key:1,ok:false,where:{x:2,z:3,mph:4}}),true);
   for(let i=2;i<12;i++)J.report(r,type,{key:i,ok:true});assert.equal(r.model.junctionLesson.observations[type].ok,false);
  }
- control(r);parkFixture(r);assert.equal(J.record(r),true);assert.equal(r.log.items.length,4);
+ control(r);parkFixture(r);assert.equal(J.record(r),true);assert.equal(r.log.items.length,3);
  for(const type of ['drive.signal','drive.mirrors']){const d=c.OTR_DATA.workdayEvents[type],item=r.log.items.find(x=>x.label===d.fail);assert.equal(item.max,d.max);assert.equal(item.got,0);assert.equal(item.lesson,d.lesson);assert.deepEqual(clean(item.where),{x:2,z:3,mph:4});}
 });
 test('completion needs observed travel and the whole stopped van, facing traffic, inside the actual bay',()=>{
@@ -39,24 +39,33 @@ test('completion needs observed travel and the whole stopped van, facing traffic
  }
  const r=start(2);parkFixture(r);r.model.van.x=r.model.stops[0].bay.x0;assert.equal(J.parking(r.model).ok,false);
 });
-test('the three-round result retains exact catalogue wording and maxima, with a single route obligation per approach',()=>{
+test('the three-round result retains exact catalogue wording and a single one-point route obligation for the whole course',()=>{
  const r=start();for(let i=0;i<3;i++){
   control(r);for(const type of ['drive.signal','drive.mirrors'])J.report(r,type,{key:0,ok:true});parkFixture(r);assert.equal(J.record(r),true);assert.equal(J.record(r),false);
   if(i<2)next(r);
  }
- const result=J.result(r);assert.equal(result.stats.completed,true);assert.equal(result.stats.approaches,3);assert.equal(result.ratios.safety,1);assert.equal(result.ratios.efficiency,1);assert.equal(r.log.items.length,12);
+ const result=J.result(r);assert.equal(result.stats.completed,true);assert.equal(result.stats.approaches,3);assert.equal(result.ratios.safety,1);assert.equal(result.ratios.efficiency,1);assert.equal(r.log.items.length,10);assert.equal(r.log.items.filter(x=>x.cat==='efficiency').length,1);assert.equal(r.log.items.find(x=>x.cat==='efficiency').max,1);
  for(const item of r.log.items){const d=Object.values(c.OTR_DATA.workdayEvents).find(x=>x.label===item.label);assert.ok(d);assert.equal(item.max,d.max);assert.equal(item.got,d.max);assert.equal(item.lesson,d.lesson);assert.equal(item.critical,false,'a passed critical check is not a critical mistake');}
  assert.equal(J.result(r),result);assert.throws(()=>J.model(r),/finished/);
 });
 test('an actual wrong-route report stays failed at finish, and a red-light failure retains the catalogue critical',()=>{
  const r=start(1);control(r,false);J.report(r,'drive.route',{key:0,ok:false});parkFixture(r);assert.equal(J.record(r),true);
+ J.result(r,'timeout');
  const route=r.log.items.find(x=>x.cat==='efficiency');assert.equal(route.max,1);assert.equal(route.got,0);assert.equal(route.label,c.OTR_DATA.workdayEvents['drive.route'].fail);
  const red=r.log.items.find(x=>x.label===c.OTR_DATA.workdayEvents['drive.red-light'].fail);assert.equal(red.critical,true);assert.equal(red.got,0);
 });
 test('timeout retains current observations, supplies missing obligations and earns zero in both categories',()=>{
- const r=start();control(r);const result=J.result(r,'timeout');assert.equal(result.score,0);assert.equal(result.ratios.safety,0);assert.equal(result.ratios.efficiency,0);assert.equal(result.stats.completed,false);assert.equal(result.log.items.length,12);
+ const r=start();control(r);const result=J.result(r,'timeout');assert.equal(result.score,0);assert.equal(result.ratios.safety,0);assert.equal(result.ratios.efficiency,0);assert.equal(result.stats.completed,false);assert.equal(result.log.items.length,10);
  assert.equal(result.log.items.find(x=>x.label===c.OTR_DATA.workdayEvents['drive.sign-stop'].label).got,2);assert.equal(J.result(r),result);assert.equal(J.report(r,'drive.signal',{key:'late'}),false);
  const t=r.model.elapsed;r.model.paused=false;r.model.step({forward:true},.05);assert.equal(r.model.elapsed,t);
+});
+test('a wrong turn in the first approach cannot be erased by later correct approaches',()=>{
+ const r=start();J.report(r,'drive.route',{key:0,ok:false,where:{x:3,z:4,mph:5}});
+ for(let i=0;i<3;i++){
+  control(r);for(const type of ['drive.signal','drive.mirrors'])J.report(r,type,{key:0,ok:true});parkFixture(r);assert.equal(J.record(r),true);if(i<2)next(r);
+ }
+ const result=J.result(r);assert.equal(result.stats.completed,true);assert.equal(result.ratios.safety,1);assert.equal(result.ratios.efficiency,0);
+ assert.equal(r.log.items.filter(x=>x.cat==='efficiency').length,1);assert.deepEqual(clean(r.log.items.find(x=>x.cat==='efficiency').where),{x:3,z:4,mph:5});
 });
 function lookLeft(m){const s=O.fpMirrors.specs[0],seat={x:-.45,y:2.05,z:-1.45},dx=s.x-seat.x,dy=s.y-seat.y,dz=s.z-seat.z;m.van.look=Math.atan2(dx,-dz);m.player.pitch=-Math.atan2(dy,Math.hypot(dx,dz));}
 function approach(index,safe){
@@ -78,6 +87,14 @@ test('the real motor, gaze, indicator timing and traffic phases produce safe obs
 });
 test('driving into the actual red signal fails its real catalogue check',()=>{
  const r=approach(1,false),s=r.model.junctionLesson;assert.equal(s.crossed,true);assert.equal(s.observations['drive.red-light'].ok,false);
+});
+test('the real motor and sat-nav grace period report an unresolved wrong turn, without consuming time while paused',()=>{
+ const r=start(),m=r.model;Object.assign(m.van,{yaw:Math.PI,hand:false,belt:true});m.paused=false;
+ for(let n=0;n<1000&&!m.navigation.pending;n++)m.step({forward:m.van.speed<2},.05);
+ assert.ok(m.navigation.pending);assert.equal(m.junctionLesson.observations['drive.route'],undefined);
+ const at=m.elapsed;m.paused=true;for(let n=0;n<1000;n++)m.step({forward:true},.05);assert.equal(m.elapsed,at);
+ m.paused=false;for(let n=0;n<700&&!r.junctionLesson.routeFailure;n++)m.step({forward:m.van.speed<2},.05);
+ assert.ok(r.junctionLesson.routeFailure);assert.equal(m.junctionLesson.observations['drive.route'].ok,false);assert.ok(m.elapsed-at>=29.9);
 });
 test('round restarts cannot discard observations, and a bounded report overflow cannot finish successfully',()=>{
  const r=start();assert.throws(()=>J.model(r),/Record/);for(let n=0;n<129;n++)J.report(r,'drive.signal',{key:n,ok:true});assert.equal(r.overflow,true);assert.equal(r.model.junctionLesson.seen.size,128);parkFixture(r);assert.equal(J.record(r),false);

@@ -7,7 +7,7 @@ OTR.fpJunctionLesson={
     {kind:'giveway',index:17,type:'drive.sign-giveway',approach:'e'}
   ],
   types:new Set(['drive.sign-stop','drive.red-light','drive.sign-giveway','drive.signal','drive.mirrors','drive.route']),
-  create(){return {index:0,rounds:[],finished:false,result:null};},
+  create(){return {index:0,rounds:[],routeFailure:null,finished:false,result:null};},
   required(index){return [this.rounds[index].type,'drive.signal','drive.mirrors','drive.route'];},
   model(run){
     const course=run.junctionLesson||(run.junctionLesson=this.create()),def=this.rounds[course.index];
@@ -67,6 +67,7 @@ OTR.fpJunctionLesson={
     const old=s.observations[type],ok=detail.ok!==false;
     // More pull-outs cannot dilute a failed mirror/signal check with fresh positive points.
     if(!old||old.ok&&!ok)s.observations[type]={ok,where:detail.where};
+    if(type==='drive.route'&&!ok&&!run.junctionLesson.routeFailure)run.junctionLesson.routeFailure={where:detail.where};
     if(type===d.type)s.crossed=true;return true;
   },
   parking(m){
@@ -86,7 +87,7 @@ OTR.fpJunctionLesson={
   ready(m){const s=m.junctionLesson;return !s.recorded&&s.crossed&&s.travel>10&&this.parking(m).ok;},
   grade(run,index,observations){
     run.log.setGroup('junction-'+index);
-    for(const type of this.required(index)){
+    for(const type of this.required(index).filter(type=>type!=='drive.route')){
       const def=OTR_DATA.workdayEvents[type],item=observations[type],ok=!!item?.ok;
       run.log.check(def.cat,ok?def.max:0,def.max,ok?def.label:def.fail,{lesson:def.lesson,critical:!!def.critical,severity:def.severity,where:item?.where});
     }
@@ -101,8 +102,11 @@ OTR.fpJunctionLesson={
   },
   result(run,reason='complete'){
     const course=run.junctionLesson;if(course.result)return course.result;
-    const complete=reason==='complete'&&course.index===this.rounds.length;
+    const complete=reason==='complete'&&!run.overflow&&course.index===this.rounds.length;
     for(let i=course.index;i<this.rounds.length;i++)this.grade(run,i,i===course.index?run.model.junctionLesson.observations:{});
+    // One agreed efficiency obligation for the whole scenario, with the catalogue's original maximum of one.
+    const route=OTR_DATA.workdayEvents['drive.route'],followed=complete&&!course.routeFailure;
+    run.log.setGroup('junction-route');run.log.check(route.cat,followed?route.max:0,route.max,followed?route.label:route.fail,{lesson:route.lesson,where:course.routeFailure?.where});
     course.finished=true;run.model.junctionLesson.recorded=true;
     const ratios=run.log.ratios(['safety','efficiency']);if(!complete)ratios.safety=ratios.efficiency=0;
     course.result={score:complete?run.log.score():0,ratios,log:run.log,lessons:complete?[]:['Complete all three junction approaches and park in each marked bay.'],
