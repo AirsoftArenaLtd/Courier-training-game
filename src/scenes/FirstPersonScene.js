@@ -10,19 +10,20 @@ class FirstPersonScene extends Phaser.Scene {
     this.hubMotion=OTR.fp.create();Object.assign(this.hubMotion.player,{x:0,z:4.6,yaw:0,pitch:0});
     this.hubMotion.blocked=(x,z)=>Math.abs(x)>7.5||z< -5.5||z>7||[[-4,-2.4],[0,-3.3],[4,-2.4]].some(([sx,sz])=>OTR.fp.circleBox(x,z,0.26,{x:sx,z:sz,w:1.8,d:0.8}));
     OTR.fpAccess.textResolution(this);this.makeHud();this.workdaySound=new OTR.fpSound(this);if(OTR.a11y)OTR.a11y.applyColour(this);const token={};this.loadingToken=token;
+    const recovery=this.glRecovery=OTR.fpContext.attach(this);
     const assetAbort=new AbortController();
     this.events.once('shutdown',()=>{this.loadingToken=null;assetAbort.abort();this.checkpoint();if(this.art){this.art.dispose();this.art=null;}if(this.assetBank)this.assetBank.dispose();if(OTR.a11y)OTR.a11y.hush();});
     // keys can be remapped in Settings while this scene waits: build the key hints again when it comes back
     const freshHints=()=>{this.hints=null;OTR.fp.applyDriveRules(this.model);};this.events.on('resume',freshHints);this.events.on('wake',freshHints);
     OTR.world3d.load().then(async()=>{
-      if(!this.sys.isActive()||this.loadingToken!==token)return;
-      this.companyLogo=await OTR.fpBrand.loadLogo(this);if(!this.sys.isActive()||this.loadingToken!==token)return;
+      if(!await recovery.ready()||!this.sys.isActive()||this.loadingToken!==token)return;
+      const logo=await OTR.fpBrand.loadLogo(this);if(!await recovery.ready()||!this.sys.isActive()||this.loadingToken!==token)return;this.companyLogo=logo;
       const bar=this.add.graphics().setDepth(21);this.events.once('shutdown',()=>bar.destroy());
       this.setText('objective','Your workday is loading.',1220);if(OTR.a11y)OTR.a11y.say('Your workday is loading.');
-      this.assetBank=await OTR.fpAssets.preload({high:OTR.gfx.high(),signal:assetAbort.signal,progress:ratio=>{
+      const bank=await OTR.fpAssets.preload({high:OTR.gfx.high(),signal:assetAbort.signal,progress:ratio=>{
         if(this.loadingToken!==token)return;bar.clear();bar.fillStyle(0x42556A);bar.fillRect(24,84,600,8);bar.fillStyle(0xEBC889);bar.fillRect(24,84,600*ratio,8);
       }});
-      bar.destroy();if(!this.sys.isActive()||this.loadingToken!==token){this.assetBank.dispose();return;}
+      if(!await recovery.ready()||!this.sys.isActive()||this.loadingToken!==token){bank.dispose();return;}this.assetBank=bank;bar.destroy();
       this.view=OTR.world3d.create(this);this.art=OTR.fpWorld.build(this);
       this.handheld=new OTR.fpHandheld(this);
       this.labels=OTR.fpBrand.labels(this);
@@ -89,7 +90,7 @@ class FirstPersonScene extends Phaser.Scene {
     this.highlight();if(OTR.a11y)OTR.a11y.say([title,body,...choices.map(c=>c.label)].map(t=>OTR.i18n?OTR.i18n.t(t):t).join('. '));this.refresh();
   }
   highlight(speak=false){if(this.panel){this.panel.buttons.forEach((b,i)=>{b.setFillStyle(i===this.panel.index?0x97713D:0x42556A);b.setStrokeStyle(i===this.panel.index?3:0,0xffffff);});if(speak&&OTR.a11y)OTR.a11y.say(this.panel.choices[this.panel.index].label);}}
-  choose(index){if(!this.panel||this.transitioning)return;const choice=this.panel.choices[index];if(choice){this.inputBlockedUntil=this.time.now+180;choice.action();}}
+  choose(index){if(this.glRecovery?.lost||!this.panel||this.transitioning)return;const choice=this.panel.choices[index];if(choice){this.inputBlockedUntil=this.time.now+180;choice.action();}}
   closePanel(resume=true){
     if(this.panel){this.panel.root.destroy();this.panel=null;}this.held=Object.create(null);if(OTR.a11y)OTR.a11y.hush();
     if(resume){if(this.model)this.model.paused=this.model.phase==='debrief';this.hubMotion.paused=false;this.capture();}
@@ -339,19 +340,20 @@ class FirstPersonScene extends Phaser.Scene {
   installInput(){
     OTR.fpAccess.syncKeys();
     const canvas=this.sys.game.canvas,handlers=[],listen=(o,name,fn)=>{o.addEventListener(name,fn);handlers.push(()=>o.removeEventListener(name,fn));};
-    listen(canvas,'pointerdown',e=>{this.keyboardMode=false;if(e.button!==0||this.loading||this.panel||this.external||this.transitioning||this.time.now<(this.inputBlockedUntil||0))return;
+    listen(canvas,'pointerdown',e=>{this.keyboardMode=false;if(this.glRecovery?.lost||e.button!==0||this.loading||this.panel||this.external||this.transitioning||this.time.now<(this.inputBlockedUntil||0))return;
+      this.pointerRearm=false;
       if(this.handheld&&this.handheld.isOpen){if(this.handheld.aiming){this.handheld.trigger=true;this.capture();}return;}
       if(document.pointerLockElement===canvas)this.interact();else this.pointerStart={x:e.clientX,y:e.clientY};});
-    listen(window,'pointerup',()=>{if(this.handheld)this.handheld.trigger=false;});
-    listen(canvas,'pointerup',e=>{const start=this.pointerStart;this.pointerStart=null;if(!start||this.panel||this.external||this.transitioning)return;
+    listen(window,'pointerup',e=>{if(e.button===0)this.pointerRearm=false;if(this.handheld)this.handheld.trigger=false;});
+    listen(canvas,'pointerup',e=>{const start=this.pointerStart;this.pointerStart=null;if(this.glRecovery?.lost||!start||this.panel||this.external||this.transitioning)return;
       if(Math.hypot(e.clientX-start.x,e.clientY-start.y)<4){this.capture();this.interact();}});
-    listen(window,'mousemove',e=>{if(this.panel||this.external||this.transitioning||(this.handheld&&this.handheld.isOpen&&!this.handheld.aiming))return;if(document.pointerLockElement!==canvas&&!(e.buttons&1&&e.target===canvas))return;
+    listen(window,'mousemove',e=>{if(this.glRecovery?.lost||this.pointerRearm||this.panel||this.external||this.transitioning||(this.handheld&&this.handheld.isOpen&&!this.handheld.aiming))return;if(document.pointerLockElement!==canvas&&!(e.buttons&1&&e.target===canvas))return;
       const p=this.area==='hub'?this.hubMotion.player:this.model.player;
       if(this.model&&this.model.mode==='cab')this.model.van.look=OTR.fp.clamp(this.model.van.look+e.movementX*this.sensitivity,-1.5,1.5);else p.yaw+=e.movementX*this.sensitivity;
       p.pitch=OTR.fp.clamp(p.pitch+e.movementY*this.sensitivity,-1.05,1.05);});
     const codes=new Set(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyE','KeyF','KeyG','KeyP','KeyJ','KeyL','KeyK','KeyR','KeyB','KeyQ','KeyC','KeyH','KeyV','ShiftLeft','ShiftRight','Tab','Space','Escape','Enter','Backspace',...Array.from({length:9},(_,i)=>'Digit'+(i+1))]);
     listen(window,'keydown',e=>{
-      if(this.loading||this.external||!codes.has(e.code)||e.ctrlKey||e.metaKey||e.altKey)return;this.keyboardMode=true;e.preventDefault();const first=!this.held[e.code];this.held[e.code]=true;if(!first||e.repeat||this.transitioning)return;
+      if(this.loading||this.external||!codes.has(e.code)||e.ctrlKey||e.metaKey||e.altKey)return;e.preventDefault();if(this.glRecovery?.lost||e.repeat&&!this.held[e.code])return;this.keyboardMode=true;const first=!this.held[e.code];this.held[e.code]=true;if(!first||e.repeat||this.transitioning)return;
       if(this.handheld&&this.handheld.isOpen){
         const hh=this.handheld;
         if(e.code==='Tab')hh.close();
@@ -385,7 +387,7 @@ class FirstPersonScene extends Phaser.Scene {
       }
     });
     listen(window,'keyup',e=>{delete this.held[e.code];});
-    const pause=()=>{this.held=Object.create(null);if(this.handheld)this.handheld.close(false);if(this.model)this.model.paused=true;this.hubMotion.paused=true;this.checkpoint();if(!this.panel&&!this.external&&!this.transitioning)this.showPause(true);};
+    const pause=()=>{if(this.glRecovery?.lost)return;this.held=Object.create(null);if(this.handheld)this.handheld.close(false);if(this.model)this.model.paused=true;this.hubMotion.paused=true;this.checkpoint();if(!this.panel&&!this.external&&!this.transitioning)this.showPause(true);};
     listen(window,'blur',pause);listen(document,'visibilitychange',()=>{if(document.hidden)pause();});
     listen(document,'pointerlockchange',()=>{if(document.pointerLockElement!==canvas&&!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen&&!this.handheld.aiming))pause();});
     listen(window,'pagehide',()=>this.checkpoint());this.events.once('shutdown',()=>{handlers.forEach(remove=>remove());this.held=Object.create(null);this.releaseMouse();});
@@ -444,7 +446,7 @@ class FirstPersonScene extends Phaser.Scene {
   }
   sync(){if(this.art)this.art.sync(this.model,this.hubMotion.player,this.area);}
   update(time,delta){
-    if(this.loading||!this.view)return;const h=this.held,controls={forward:!!h.KeyW,back:!!h.KeyS,left:!!h.KeyA,right:!!h.KeyD,careful:!!(h.ShiftLeft||h.ShiftRight)};
+    if(this.glRecovery?.lost||this.loading||!this.view)return;const h=this.held,controls={forward:!!h.KeyW,back:!!h.KeyS,left:!!h.KeyA,right:!!h.KeyD,careful:!!(h.ShiftLeft||h.ShiftRight)};
     if(!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen&&!this.handheld.aiming)&&OTR.fpAccess)OTR.fpAccess.look(this,h,delta/1000);
     if(this.panel&&this.panel.type==='inspect')this.inspectAngle+=(Number(!!(h.KeyD||h.ArrowRight))-Number(!!(h.KeyA||h.ArrowLeft)))*Math.min(delta/1000,0.05)*1.8;
     if(this.model){const visible=!this.panel&&!this.external&&!this.transitioning&&!(this.handheld&&this.handheld.isOpen);if(!visible&&!(this.panel&&this.panel.preserveGaze)&&OTR.fpMirrors)OTR.fpMirrors.reset(this.model);this.model.mirrorVisible=visible;this.model.rearVisible=visible&&!!(this.art.rear&&this.art.rear.inView);}
