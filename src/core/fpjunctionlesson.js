@@ -75,7 +75,11 @@ OTR.fpJunctionLesson={
     if(!m.parked()){p.reason='Stop fully and set the parking brake before recording this checkpoint.';return p;}
     if(Math.cos(v.yaw-stop.park.yaw)<.94){p.reason='Park the whole van in the marked bay, facing the same way as the traffic.';return p;}
     if(b.axis!=='x'){
-      const proxy=Object.create(m);proxy.drivingLesson={parking:p};return OTR.fpDrivingLesson.parking(proxy,stop);
+      const proxy=Object.create(m);proxy.drivingLesson={parking:p};OTR.fpDrivingLesson.parking(proxy,stop);
+      const width=Math.abs(Math.cos(v.yaw))*1.08+Math.abs(Math.sin(v.yaw))*2.7;
+      const length=Math.abs(Math.sin(v.yaw))*1.08+Math.abs(Math.cos(v.yaw))*2.7;
+      if(p.ok&&(Math.abs(v.x-stop.park.x)+width>1.3||v.z-length<b.z0||v.z+length>b.z1)){p.ok=false;p.reason='Keep the whole van inside the painted lines of the marked bay.';}
+      return p;
     }
     const c=Math.cos(v.yaw),sn=Math.sin(v.yaw),halfX=Math.abs(c)*1.08+Math.abs(sn)*2.7,halfZ=Math.abs(sn)*1.08+Math.abs(c)*2.7;
     if(v.x-halfX<b.x0||v.x+halfX>b.x1||v.z-halfZ<b.z0||v.z+halfZ>b.z1||Math.cos(v.yaw-stop.park.yaw)<.94){

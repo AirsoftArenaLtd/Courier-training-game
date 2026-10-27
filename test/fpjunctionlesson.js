@@ -99,3 +99,14 @@ test('the real motor and sat-nav grace period report an unresolved wrong turn, w
 test('round restarts cannot discard observations, and a bounded report overflow cannot finish successfully',()=>{
  const r=start();assert.throws(()=>J.model(r),/Record/);for(let n=0;n<129;n++)J.report(r,'drive.signal',{key:n,ok:true});assert.equal(r.overflow,true);assert.equal(r.model.junctionLesson.seen.size,128);parkFixture(r);assert.equal(J.record(r),false);
 });
+
+test('the full van body must stay inside both painted lateral edges of a vertical finish bay',()=>{
+ for(const index of [0,1])for(const offset of [-.5,.5]){
+  const r=start(index);parkFixture(r);r.model.van.x+=offset;assert.equal(J.parking(r.model).ok,false,'approach '+index+', lateral offset '+offset+' crosses the paint');
+ }
+});
+test('neither end of the parked van can extend past the painted finish bay',()=>{
+ for(const index of [0,1])for(const end of ['near','far']){
+  const r=start(index);parkFixture(r);const m=r.model,b=m.stops[0].bay;m.van.z=end==='near'?b.z0+2.6:b.z1-2.6;assert.equal(J.parking(m).ok,false);
+ }
+});
