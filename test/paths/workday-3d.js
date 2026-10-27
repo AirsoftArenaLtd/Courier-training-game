@@ -789,8 +789,15 @@ const make = (opts) => async (page, ctx) => {
     must(await ctx.until(`OTR.game.scene.isActive('ResultsScene')`, 15000), 'Back on the drive map did not return to the results');
     await wait(3500);                                            // its buttons unlock once the stars have landed again
   }
-  await clickText(page, 'ResultsScene', /Debrief/);
-  must(await ctx.until(`OTR.game.scene.isActive('WorkdayDebriefScene')`, 15000), 'the debrief did not open');
+  // B-182: Debrief stays disabled until the stars have landed (B-154), which at 1 to 5 fps takes far longer than on a
+  // normal PC, and a click before then does nothing: click again until the debrief opens, within a slow-PC allowance
+  const debriefBy = Date.now() + 15000 * Math.max(4, global.__qaSlow || 1);
+  let debrief = false;
+  while (!debrief && Date.now() < debriefBy) {
+    await clickText(page, 'ResultsScene', /Debrief/);
+    debrief = await ctx.until(`OTR.game.scene.isActive('WorkdayDebriefScene')`, 5000);
+  }
+  must(debrief, 'the debrief did not open');
   await wait(1200);
   await ctx.audit('debrief');
   const rows = await ev(() => OTR.game.scene.getScene('WorkdayDebriefScene').rows.filter((r) => !r.head).length);
