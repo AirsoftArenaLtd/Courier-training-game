@@ -1,0 +1,12 @@
+{
+  "scope": "Exact frozen source and artifacts verified before the school-only parking integration and browser connection-timeout configuration change.",
+  "sourceRevision": "2ec63d0159bbae4171821be36fd5f3e68e5b922a",
+  "inputs": 687,
+  "lowNativeChecks": 169,
+  "lowNativeAccepted": true,
+  "highPartialChecks": 110,
+  "highNativeAccepted": false,
+  "highFailure": "Waiting failed at the red/green wait, model elapsed 9.9334 s; underlying cause was not retained by this harness. The longer wait did not change Puppeteer\u2019s separate default 180 s protocol timeout. Next harness records error.cause and increases only that connection allowance.",
+  "resourceViews": 0,
+  "cleanup": true
+}

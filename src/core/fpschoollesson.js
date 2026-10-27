@@ -27,9 +27,18 @@ OTR.fpSchoolLesson={
     if(def.kind==='check')run.log.check(def.cat,detail.ok===false?0:def.max,def.max,detail.ok===false?def.fail:def.label,options);
     else if(def.kind==='penalty')run.log.penalty(def.cat,def.pts,def.label,options);return true;
   },
+  parking(m){
+    const s=m.schoolLesson,p=OTR.fpDrivingLesson.parking(s.parkingModel,m.stops[0]),v=m.van,stop=m.stops[0],b=stop.bay;
+    if(!p.ok)return p;
+    if(Math.cos(v.yaw-stop.park.yaw)<.94){p.ok=false;p.reason='Park the whole van in the marked bay, facing the same way as the traffic.';return p;}
+    const width=Math.abs(Math.cos(v.yaw))*1.08+Math.abs(Math.sin(v.yaw))*2.7;
+    const length=Math.abs(Math.sin(v.yaw))*1.08+Math.abs(Math.cos(v.yaw))*2.7;
+    if(Math.abs(v.x-stop.park.x)+width>1.3||v.z-length<b.z0||v.z+length>b.z1){p.ok=false;p.reason='Keep the whole van inside the painted lines of the marked bay.';}
+    return p;
+  },
   ready(m){
     const s=m.schoolLesson,b=m.driving?.bus.state;
-    return s.busSeen&&(b==='leaving'||b==='done')&&s.crossingSeen&&m.crossing.state==='resolved'&&OTR.fpDrivingLesson.parking(s.parkingModel,m.stops[0]).ok;
+    return s.busSeen&&(b==='leaving'||b==='done')&&s.crossingSeen&&m.crossing.state==='resolved'&&this.parking(m).ok;
   },
   result(run,reason='complete'){
     const m=run.model,s=m.schoolLesson;if(s.result)return s.result;

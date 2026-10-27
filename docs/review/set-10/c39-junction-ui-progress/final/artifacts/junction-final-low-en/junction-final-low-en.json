@@ -1,0 +1,146 @@
+{
+  "checks": 169,
+  "runs": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "shots": [
+        "junction-final-low-en-low-en-normal-mounted-route.png",
+        "junction-final-low-en-low-en-normal-bay-0.png",
+        "junction-final-low-en-low-en-normal-bay-1.png",
+        "junction-final-low-en-low-en-normal-bay-2.png"
+      ],
+      "rounds": [
+        {
+          "index": 0,
+          "observations": {
+            "drive.mirrors": {
+              "ok": true,
+              "where": {
+                "x": 1.7,
+                "z": -44.77278650631366,
+                "mph": 0.7358910070425787
+              }
+            },
+            "drive.signal": {
+              "ok": true
+            },
+            "drive.sign-stop": {
+              "ok": true,
+              "where": {
+                "x": 1.7,
+                "z": -49.303135645540834,
+                "mph": 9.575278039336714
+              }
+            }
+          },
+          "travel": 15.861392945633284,
+          "elapsed": 8.483200000000028,
+          "parking": {
+            "ready": true,
+            "reason": "",
+            "instances": 4,
+            "axis": "z",
+            "texture": false,
+            "elapsed": 10.183299999999994,
+            "modelElapsed": 10.183299999999932
+          }
+        },
+        {
+          "index": 1,
+          "observations": {
+            "drive.mirrors": {
+              "ok": true,
+              "where": {
+                "x": 46.7,
+                "z": 0.22986233059595093,
+                "mph": 0.6918679377428874
+              }
+            },
+            "drive.signal": {
+              "ok": true
+            },
+            "drive.red-light": {
+              "ok": true,
+              "where": {
+                "x": 46.7,
+                "z": -4.07370481737396,
+                "mph": 9.364083826702995
+              }
+            }
+          },
+          "travel": 15.760527204002791,
+          "elapsed": 32.38289999999893,
+          "parking": {
+            "ready": true,
+            "reason": "",
+            "instances": 4,
+            "axis": "z",
+            "texture": false,
+            "elapsed": 44.26619999999972,
+            "modelElapsed": 33.9828999999993
+          }
+        },
+        {
+          "index": 2,
+          "observations": {
+            "drive.mirrors": {
+              "ok": true,
+              "where": {
+                "x": 122.52278650631365,
+                "z": -55.55,
+                "mph": 0.7358910070425787
+              }
+            },
+            "drive.signal": {
+              "ok": true
+            },
+            "drive.sign-giveway": {
+              "ok": true,
+              "where": {
+                "x": 126.84128657430406,
+                "z": -55.55,
+                "mph": 9.380538693216396
+              }
+            }
+          },
+          "travel": 15.760352756310397,
+          "elapsed": 15.23259999999972,
+          "parking": {
+            "ready": true,
+            "reason": "",
+            "instances": 4,
+            "axis": "x",
+            "texture": false,
+            "elapsed": 61.165499999998794,
+            "modelElapsed": 16.899299999999577
+          }
+        }
+      ],
+      "result": {
+        "id": "m1-junctions",
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1500,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1793113324802
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    }
+  ],
+  "errors": [],
+  "fixture": "Test-only optional registry descriptor/content directly starts the production adapter; shared A-30 routing is not certified. Unsmoothed real Phaser delta retains the original 0.05-second cap. All control encounters, mirror/signal checks, movement, braking, round transitions, finish actions and results are live. After each real junction encounter and at least 12 m of actual travel, an explicit stopped pose skips remaining travel to just behind that round’s finish bay. Native acceleration/braking/parking and the real finish gate follow. Aim poses point at rendered controls; no observation, judgement, travel counter, timer, score or result is injected. QA_FONT=noto pins the installed script font for layout review only.",
+  "complete": true
+}

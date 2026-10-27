@@ -1,6 +1,51 @@
 {
-  "phase": "queued",
-  "jobs": [],
+  "phase": "failed",
+  "jobs": [
+    {
+      "tag": "junction-final-low-en",
+      "script": "test/fpjunctionlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_FONT": "noto"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "junction-final-low-en.json": "0c5dbd467f075fab5366d8d7b30e65fdc194fa16047870b15b31bb34af365eab",
+        "junction-final-low-en-low-en-normal-bay-2.png": "07326601851236232efd456a98a5432b958d2d6a8d5f9ef612e6618adb82a5e4",
+        "junction-final-low-en-low-en-normal-bay-0.png": "12d3d19473b40f9b979b198561672b16f6ec810e2781056e68b1bc527eb3b9dc",
+        "junction-final-low-en-low-en-normal-mounted-route.png": "59c8dd036316f51205efbf0b60fdc2c499b7d14d14bec91388780f349770e4e7",
+        "junction-final-low-en-low-en-normal-bay-1.png": "ced8967c93161513baceeb0e8e79df812ecd14fdbcacf940bf0dfc604d849016"
+      }
+    },
+    {
+      "tag": "junction-final-high-ta",
+      "script": "test/fpjunctionlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_FONT": "noto"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "junction-final-high-ta-high-ta-large-mounted-route.png": "8c623ddb5f2ec884cda9873904ecd1712f16cd2c6ef357d787fca6328f10f82a",
+        "junction-final-high-ta-high-ta-large-bay-0.png": "73cbef3741635c4f934a6bc5338d033a20e8c4277589f3b8e84d3fbb03f9c4b0",
+        "junction-final-high-ta-failure.png": "4aaf0a01797ef014d82da8f3ac25c8eeb9be0830936ab3f871b30d82a899387b",
+        "junction-final-high-ta.json": "eef749d67ca85d64a2e26f93a34c57e13e94a5d1e1a41a9c619e8bdbd6a6c186"
+      }
+    }
+  ],
   "pid": 167980,
-  "startedAt": 1793112251.1179886
+  "startedAt": 1793112251.1179886,
+  "serverPid": 170702,
+  "tag": "junction-final-high-ta",
+  "childPid": 171408,
+  "failure": "Browser job failed: junction-final-high-ta",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793113762.3949149
 }

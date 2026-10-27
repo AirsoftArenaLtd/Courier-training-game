@@ -1,0 +1,13 @@
+{
+  "status": "component draft, not loaded",
+  "tests": 6,
+  "pass": 6,
+  "fail": 0,
+  "files": {
+    "fpnightlesson.proposed.js": "ec11ae50e94734c2e9bdb9a2c4d1e7601156f6ba1fa00dcc4dd92185b46fb1c7",
+    "initial-component.log": "de155f7f465df168500764efd605219041ad56de874ae66195f9db6f206e1360",
+    "component.log": "ba662cccaf056089b5d4ea013650bddb021b0658c9bce49fb7062c970123a82f",
+    "night-core.js": "9c5b50d875ac529e56488e146c62ef127ce6093e811ca90dad85806019e4ca37",
+    "README.md": "66b023809baf65dae75ba996a01f76decea4cd8879cc82b1faf68979390b4093"
+  }
+}

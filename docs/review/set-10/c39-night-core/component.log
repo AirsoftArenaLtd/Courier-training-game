@@ -1,0 +1,14 @@
+✔ the night run uses a real town, faulty lights, lead traffic and beyond-depot painted bay without a saved lesson field (11.952558ms)
+✔ actual inspection, motor, night and following controllers earn each catalogue check once (3772.227548ms)
+✔ driving with lights off and inspecting after departure retain their failures after correction (1699.050066ms)
+✔ a wrong turn survives later route credit, while timeout retains observations and earns zero (2764.002838ms)
+✔ a clean but unfinished drive, no live traffic encounter, paint overhang or reversed van cannot finish (1328.042824ms)
+✔ the local event set is bounded, ignores unrelated checks and cannot finish after overflow (1.615952ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9592.992636
