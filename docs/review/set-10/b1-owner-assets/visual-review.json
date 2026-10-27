@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-27T04:37:27.782Z",
+  "originalResolution": true,
+  "files": {
+    "b1-desk-loaded-high-high-hub.png": "66f2c2aaa7b4f914d07800a3ce29ad84df0dcb931c9744b56eaba1f3f7b813d0",
+    "b1-desk-fallback-high-high-hub.png": "bd5ff68776d0abdc71f3f1c28fe1bb638c0e52b7d200334378d5b72ef74520d0",
+    "b1-desk-native-en-normal-hub-day.png": "6046d1a3e1eca79da51462032a347d8c95ed85e834e7434600c72be18eca9de8",
+    "b1-desk-native-ta-large-hub-practice.png": "fa2d55a6fd4edfb9a74a7a2eab0748b6c5f9c07d4e04e2d0ae81d8bafe538587",
+    "b1-desk-native-ta-large-debrief.png": "44f19827aabbc701afb17d4d72e2cdbbd6fbf06033834f61e5268a7357e664f3"
+  },
+  "observations": [
+    "The actual furniture desk replaces all three High counter bodies; the existing physical station signs remain.",
+    "Low and all-model-missing High retain the original counter bodies.",
+    "All three desks contribute visible pixels in each English/Tamil normal/larger fixture; the actual debrief key action retains its existing panel.",
+    "No new text, score, save, station collision or route behavior is introduced; existing UI is not claimed redesigned."
+  ]
+}

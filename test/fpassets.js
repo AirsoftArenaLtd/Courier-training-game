@@ -81,5 +81,5 @@ test('late decoder completion after cancellation releases geometry and material 
 });
 
 test('a missing real High van is counted as a recovered model fallback',async()=>{
- const {F}=context(),bank=await F.preload({high:true,fetch:url=>url.endsWith('/delivery-high.glb')?Promise.resolve(new Response('',{status:404})):assetLocal(url)});assert.equal(bank.models.size,14);assert.equal(bank.textures.size,5);assert.equal(bank.stats.loaded,19);assert.equal(bank.stats.failed,0);assert.equal(bank.stats.fallbacks,1);assert.ok(bank.models.has('van-exterior'));assert.ok(bank.stats.errors.some(e=>e.path.endsWith('/delivery-high.glb')));bank.dispose();
+ const {F}=context(),bank=await F.preload({high:true,fetch:url=>url.endsWith('/delivery-high.glb')?Promise.resolve(new Response('',{status:404})):assetLocal(url)});assert.equal(bank.models.size,15);assert.equal(bank.textures.size,5);assert.equal(bank.stats.loaded,20);assert.equal(bank.stats.failed,0);assert.equal(bank.stats.fallbacks,1);assert.ok(bank.models.has('van-exterior'));assert.ok(bank.stats.errors.some(e=>e.path.endsWith('/delivery-high.glb')));bank.dispose();
 });

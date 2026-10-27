@@ -72,6 +72,28 @@ test('hub stations are pickable and inactive route interactions are invisible',(
   }
   assert.equal(w.art.route.visible,false);
 });
+test('the uploaded High desks share three stable instance batches and preserve exact station rays and counter occluders',async()=>{
+ const {install,local}=require('./tools/fpassets-context'),loader=install(context),bank=await loader.preload({high:true,fetch:local});
+ const camera=new THREE.PerspectiveCamera(68,16/9,.08,180),world=new THREE.Scene();world.add(camera);context.OTR.gfx={high:()=>true};
+ const scene={view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}},panel:null,assetBank:bank},m=context.OTR.fpMission.create('campaign',1),before=JSON.stringify(m.snapshot()),art=context.OTR.fpWorld.build(scene,m);
+ try{
+  const desks=art.hub.getObjectByName('asset:hub-desk');assert.ok(desks);assert.equal(desks.children.length,3);assert.ok(desks.children.every(o=>o.isInstancedMesh&&o.count===3));const arrays=desks.children.map(o=>o.instanceMatrix.array);
+  for(const [id,x,z] of [['hub-day',-4,-2.4],['hub-practice',0,-3.3],['hub-record',4,-2.4]]){
+   art.sync(null,{x,z:z+2,yaw:0,pitch:0},'hub');const target=art.interactions.find(o=>o.userData.interaction===id);camera.lookAt(target.getWorldPosition(new THREE.Vector3()));world.updateMatrixWorld(true);assert.equal(art.pick(),id);
+   const proxy=art.occluders.find(o=>o.parent===art.hub&&o.position.x===x&&o.position.z===z);assert.ok(proxy);assert.deepEqual(proxy.scale.toArray(),[1.8,1.1,.8]);assert.equal(proxy.position.y,.55);assert.equal(proxy.layers.mask,2);
+  }
+  for(let n=0;n<100;n++)art.sync(null,{x:0,z:0,yaw:n*.01,pitch:0},'hub');desks.children.forEach((o,i)=>assert.equal(o.instanceMatrix.array,arrays[i]));assert.equal(JSON.stringify(m.snapshot()),before);
+  art.sync(m,null,'route');assert.equal(art.hub.visible,false);let privateDisposals=0,sourceDisposals=0;desks.children.forEach(o=>{o.addEventListener('dispose',()=>privateDisposals++);o.geometry.addEventListener('dispose',()=>sourceDisposals++);});art.dispose();assert.equal(privateDisposals,3);assert.equal(sourceDisposals,0,'World shutdown retains bank-owned model geometry');
+ }finally{if(art.hub.parent)art.dispose();bank.dispose();}
+});
+test('Low never requests the High furniture, and a missing High desk keeps all original station targets',async()=>{
+ const {local}=require('./tools/fpassets-context');
+ for(const high of [false,true]){
+  let requests=0;const bank=await context.OTR.fpAssets.preload({high,fetch:async url=>{if(url.endsWith('/kenney-furniture-kit/models/desk-high.glb')){requests++;return new Response('',{status:404});}return local(url);}});context.OTR.gfx={high:()=>high};
+  const camera=new THREE.PerspectiveCamera(68,16/9,.08,180),world=new THREE.Scene();world.add(camera);const scene={view:{world,camera,mirror:{camera:new THREE.PerspectiveCamera(),on:false}},panel:null,assetBank:bank},art=context.OTR.fpWorld.build(scene,context.OTR.fpMission.create('campaign',1));
+  try{assert.equal(requests,high?1:0);assert.equal(art.hub.getObjectByName('asset:hub-desk'),undefined);for(const id of ['hub-day','hub-practice','hub-record']){const target=art.interactions.find(o=>o.userData.interaction===id),v=target.position;art.sync(null,{x:v.x,z:v.z+2,yaw:0,pitch:0},'hub');camera.lookAt(v);world.updateMatrixWorld(true);assert.equal(art.pick(),id);}}finally{art.dispose();bank.dispose();}
+ }
+});
 test('low graphics retains identical parcel, door and vehicle interaction targets',()=>{
   const a=world(true),b=world(false);
   const ids=w=>w.art.interactions.map(o=>o.userData.interaction).sort().join('|');assert.equal(ids(a),ids(b));

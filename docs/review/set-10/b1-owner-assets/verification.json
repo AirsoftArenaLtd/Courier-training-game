@@ -1,0 +1,112 @@
+{
+  "at": "2026-10-27T04:37:27.782Z",
+  "status": "complete",
+  "sourceInputsVerified": 535,
+  "changedSources": [],
+  "browserJobs": 7,
+  "pixelRayKeyActionChecks": 85,
+  "assetLoadFallbackLayoutChecks": 50,
+  "benchViews": 5,
+  "measurements": [
+    {
+      "file": "bench-b1-desk-accessible-low-low.json",
+      "quality": "low",
+      "peak": {
+        "calls": 6,
+        "triangles": 136,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 3557376
+      },
+      "phaserBytes": 1537568
+    },
+    {
+      "file": "bench-b1-desk-fallback-high-high.json",
+      "quality": "high",
+      "peak": {
+        "calls": 6,
+        "triangles": 136,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 7815168
+      },
+      "phaserBytes": 4389030
+    },
+    {
+      "file": "bench-b1-desk-fallback-low-low.json",
+      "quality": "low",
+      "peak": {
+        "calls": 6,
+        "triangles": 136,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 3557376
+      },
+      "phaserBytes": 1464246
+    },
+    {
+      "file": "bench-b1-desk-loaded-high-high.json",
+      "quality": "high",
+      "peak": {
+        "calls": 9,
+        "triangles": 694,
+        "textures": 1,
+        "geometries": 6,
+        "attachmentBytes": 7815168
+      },
+      "phaserBytes": 4389030
+    },
+    {
+      "file": "bench-b1-desk-loaded-low-low.json",
+      "quality": "low",
+      "peak": {
+        "calls": 6,
+        "triangles": 136,
+        "textures": 1,
+        "geometries": 3,
+        "attachmentBytes": 3557376
+      },
+      "phaserBytes": 1464246
+    }
+  ],
+  "unchangedBudgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "cpuPassed": 116,
+  "cpuSuites": {
+    "fpworld": 25,
+    "fpassets": 10,
+    "fpactors": 17,
+    "fptown": 11,
+    "fpmaterials": 5,
+    "workday": 25,
+    "savesize": 21,
+    "credits": 2
+  },
+  "assetPolicyTestsPassedAtImport": 3,
+  "currentCatalogueI18nPassed": true,
+  "excludedPreflight": [
+    "credits-restricted-attempt.log: child spawn EPERM; retry under allowed child-process context passes both checks",
+    "world-tests.log: outer file runner only; detailed fpworld-tests.log retains all25 cases"
+  ],
+  "browserLeaseReleased": true,
+  "ownedServersExited": true,
+  "scope": "Five hub-only resource views. Existing C49 route evidence retains its source scope, with the new High-only hub group hidden on routes. No full207-view rerun, shared default/current-pilot acceptance or Intel60fps claim.",
+  "whitespaceCheck": {
+    "authoredFiles": "passed",
+    "exception": "The original Furniture Kit licence retains its exact CRLF/tab whitespace, as required by the asset policy. It is excluded from the authored-text whitespace check; its byte-for-byte source hash is verified in inventory.json."
+  }
+}
