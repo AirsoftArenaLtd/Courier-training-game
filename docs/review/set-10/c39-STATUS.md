@@ -2,6 +2,8 @@
 
 C-39 is doing again on its existing pushed C-38 stack. Claude accepted the junction/night `drive.route` efficiency obligation and school completion gate on 27 October. Five adapters retain their completed source-scoped evidence; junctions and night driving are next. The four existing m1 entries now carry their authorized `scene3d` keys, retaining ids, content, categories, 2D scenes and defaults. New English sentences await Claude's translation pass.
 
+The junction core now has three actual town approaches and the agreed one-point `drive.route` obligation for the whole course. At `0d44bc03`, 12 new cases and 199 related cases pass, including real motor/controller observations and the sat-nav grace period. It is not yet loaded or registered; UI, rotated bay rendering, native/layout/resource acceptance and night driving remain. [Exact progress scope and retained failures](c39-junction-progress/README.md).
+
 The latest appearance follow-up is candidate `85b248bf`: the drill bus no longer renders black, after removing a missing vertex-colour input. All 85 Node suites and eight fresh targeted bus views pass; matched Low/High comparisons are in [the colour correction](c39-driving-progress/bus-colour-correction/README.md). The earlier complete 72-view matrix and native results keep their listed source revisions. The new change is only the bus material flag and its regression test.
 
 | Adapter | Scenario | Native evidence | Resource views | Evidence |
