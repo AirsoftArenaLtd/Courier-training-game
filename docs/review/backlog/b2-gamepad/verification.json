@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-27T04:47:10.371664+00:00",
+  "scope": "Pure, unloaded gamepad controller only; scene/motor/menu/browser/shared-settings integration pending",
+  "passed": 7,
+  "syntaxPassed": [
+    "src/core/fpgamepad.js",
+    "test/fpgamepad.js"
+  ],
+  "perFrameOwnControllerAllocations": "No new object/array construction in poll; one reused frame and fixed compiled index buffers. Browser API/reader allocations are outside this statement.",
+  "sourceHashes": {
+    "src/core/fpgamepad.js": "412545dc61c9e33e862f5e7ff8056ad71b6608e60223f14039647059616191b6",
+    "test/fpgamepad.js": "2338c0f34a2ddd0d9b2da1328aa13c7c20902b558f1f916341cd2f8a43760209",
+    "index.html": "ea72735e26ae3cd10f9be736d53349fb6d0ab69aa8c7eea1bc47d2696def6f8e",
+    "src/core/firstperson.js": "a61c98a07c1b69c269186791c56331120fabca5f4d2ecd21a95d4810cf43469e",
+    "src/scenes/FirstPersonScene.js": "2a3bf24fbf8bb69529ddfec8c03c7c7e023301cd1f8fa7ff51345d61a9e261b0"
+  },
+  "logSha256": "44f985b2c0d10f9e6392ba956877a918417f38b2cbe0de1d9a5a1b18bdc3e356",
+  "loadedByIndex": false,
+  "sharedSettingsSaveEdits": false,
+  "renderingChange": false,
+  "nativeAcceptance": false
+}
