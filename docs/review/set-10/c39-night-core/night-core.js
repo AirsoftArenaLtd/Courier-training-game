@@ -13,7 +13,7 @@ function inspect(r,decision='repair'){const m=r.model;Object.assign(m.player,m.p
 function drive(r,lights=true){const m=r.model;m.paused=false;m.mode='cab';Object.assign(m.van,{headlights:lights,hand:false,belt:true,gear:1});for(let i=0;i<300;i++)m.step({forward:m.van.speed<3},.05);return m;}
 function park(m){Object.assign(m.van,m.stops[0].park,{speed:0,hand:true});}
 test('the night run uses a real town, faulty lights, lead traffic and beyond-depot painted bay without a saved lesson field',()=>{
- const r=setup(),m=r.model;assert.equal(O.fpNight.required(m),true);assert.equal(m.fault,'lights');assert.equal(m.repaired,false);assert.equal(m.mode,'walk');assert.equal(m.trainingArea,null);assert.equal(m.stops.length,1);assert.equal(m.parcels.length,0);assert.ok(m.stops[0].park.z<m.van.z-30);assert.equal(m.traffic[0].x,m.van.x);assert.equal(m.traffic[0].z,m.van.z-24);assert.equal(m.snapshot().nightLesson,undefined);assert.equal(N.attach(r),false);
+ const r=setup(),m=r.model;assert.equal(O.fpNight.required(m),true);assert.equal(m.fault,'lights');assert.equal(m.repaired,false);assert.equal(m.mode,'walk');assert.equal(m.trainingArea,null);assert.ok(m.near('lights'),'the trainee starts near the front inspection point');assert.equal(m.stops.length,1);assert.equal(m.parcels.length,0);assert.ok(m.stops[0].park.z<m.van.z-30);assert.equal(m.traffic[0].x,m.van.x);assert.equal(m.traffic[0].z,m.van.z-24);assert.equal(m.snapshot().nightLesson,undefined);assert.equal(N.attach(r),false);
 });
 test('actual inspection, motor, night and following controllers earn each catalogue check once',()=>{
  const r=setup();inspect(r);const m=drive(r);assert.ok(m.nightLesson.travel>30);assert.equal(m.nightLesson.started,true);assert.equal(m.nightLesson.followingSeen,true);assert.equal(m.nightDrive.required,true);assert.equal(m.checks.lights,true);assert.equal(N.ready(m),false);park(m);assert.equal(N.ready(m),true);
@@ -31,4 +31,8 @@ test('a clean but unfinished drive, no live traffic encounter, paint overhang or
 });
 test('the local event set is bounded, ignores unrelated checks and cannot finish after overflow',()=>{
  const r=setup();assert.equal(N.report(r,'drive.contact',{key:'ignored'}),false);for(let i=0;i<128;i++)assert.equal(N.report(r,'drive.route',{key:i}),true);assert.equal(N.report(r,'drive.route',{key:0,ok:false}),false);assert.equal(r.model.nightLesson.seen.size,128);assert.equal(N.report(r,'drive.route',{key:128}),false);assert.equal(r.overflow,true);assert.equal(N.result(r).score,0);
+});
+
+test('the lead vehicle waits through a real pretrip interval and starts only after the van moves',()=>{
+ const r=setup(),m=r.model,lead=m.nightLesson.lead,x=lead.x,z=lead.z;m.paused=false;for(let i=0;i<800;i++)m.step({},.05);assert.equal(lead.x,x);assert.equal(lead.z,z);assert.equal(m.nightLesson.started,false);inspect(r);drive(r);assert.equal(m.nightLesson.started,true);assert.equal(m.nightLesson.followingSeen,true);assert.ok(lead.z<z,'the lead vehicle moves under the live traffic controller');
 });

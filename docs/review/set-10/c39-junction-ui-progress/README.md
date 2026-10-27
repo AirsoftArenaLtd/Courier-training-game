@@ -1,8 +1,8 @@
 # C-39 junction UI and review follow-ups
 
 Doing on `codex/c39-route-driving`, retaining its existing C-38 stack.
-The corrected runtime is `2ec63d01`; the preceding UI implementation is
-`18a92fc0`. This is not a complete C-39 handoff: night driving and shared A-30
+The junction paint correction is `2ec63d01`; the preceding UI implementation is
+`18a92fc0`. Source `cceb27a2` adds the school-only paint/direction gate and separate browser protocol allowance. This is not a complete C-39 handoff: night driving and shared A-30
 optional-entry support remain.
 
 The mounted route device and remappable checkpoint key use the same encounter,
@@ -40,14 +40,11 @@ No timer or verdict was edited to pass it. Final source gives that native wait
 inputs that differ now are reconstructible from `18a92fc0`; the final plan binds
 the stricter source and the added device-overlap checks.
 
-The final validator has been requeued under `final/status.json` behind the C-50 review correction: English Low
-normal and larger Tamil High native journeys, then **32 requested resource views**
-across loaded Low/High, accessible Low and missing-model Low. It enforces original
-`fpquality` limits, actual control/paint rays, no injected course observations,
-unchanged workday/checkpoint state and 20 device visits. No passing result is
-claimed for jobs not yet completed. All browsers use the workspace lease and a
-loopback-only server; the validator records cleanup and exact source/artifact
-hashes. Cloud FPS cannot certify Intel 60 fps (O-1).
+The `final/` validator completed the strict English Low journey with **169 native checks**. High Tamil larger retained **110 partial checks**, then failed at the red-signal wait (`Waiting failed`, elapsed 9.9334 simulation seconds; the old harness did not retain the underlying cause). All frozen inputs and artifacts were verified, and its browser/server/lease were released. The resource jobs following that failure did not run. Source snapshots under `final/source-before-next/` reconstruct the later school predicate and browser-only configuration changes.
+
+The active validator is now `next/status.json`, source `cceb27a2`: **32 requested resource views first**, then the High native retry. It records `error.cause` and supplies a 1,200-second Puppeteer connection allowance alongside the existing 900-second wait; the real game delta, 0.05-second cap, signal timing, observations and verdicts are unchanged. Original `fpquality` limits, actual control/paint rays, unchanged workday/checkpoint state and 20 device visits remain required. No passing result is claimed for unfinished jobs. All browsers use the workspace lease and a loopback-only server, with exact source/artifact hashes and cleanup recorded. Cloud FPS cannot certify Intel 60 fps (O-1).
+
+The school-only paint/direction fix is now integrated: ten school cases and fourteen unchanged junction cases pass. Its native acceptance remains separate. The night module is an unloaded component/UI draft in `../c39-night-core/` with seven passing real-controller cases; registration, native layout/inspection/drive/results and graphics measurements remain.
 
 The native test discloses stopped pose fixtures after an actual junction encounter
 and at least 12 m of real travel, to skip the remaining journey to just behind the
@@ -57,7 +54,4 @@ registry/content directly starts the production adapter; it does not certify the
 pending shared launcher. `QA_FONT=noto` is an explicit installed-font review pin
 on this older stack, not a shared font change.
 
-C-50's new review regression takes the browser lease first, because it blocks
-C-51/C-52. Its correction is on its own original branch, with a current-pilot
-candidate; C-39's committed source is frozen independently. The earlier deferral happened before a browser/server started, and its plan/status remain under `deferred-c50/`; the validator is now requeued behind C-50's complete-source checks. New text awaits
-Claude's catalogue/translation review when the full scenario is handed over.
+C-50's correction is complete and pushed at `63cd7cc6`: all 1,176 strict language, 144 layout/occlusion and 16 resource views pass on its complete current-pilot candidate. Its browser lease is released; C-39 has continued immediately. Historical deferral files and failed native runs remain separately scoped. New module text awaits Claude's catalogue/translation review when the full scenario is handed over.

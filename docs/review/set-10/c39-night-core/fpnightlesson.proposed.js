@@ -11,18 +11,18 @@ OTR.fpNightLesson={
       route:route.map((l,i)=>({lotId:l.id,stop:{answer:true,packages:[{number:l.number,street:l.street,tracking:'night-'+i,weight:4,service:'standard'}]}}))};
     const m=OTR.fpMission.create('campaign',seed,plan),s=this.create(),stop=m.stops[0],bay=TownDriveScene.prototype.parkBay.call({van:{g:{hl:2.7}},P:1/scale,T},lot);
     stop.index=1;stop.bay={streetX:0,z0:8-(bay.x1-T.depot.x)*scale,z1:8-(bay.x0-T.depot.x)*scale};
-    m.nightLesson=s;s.bounds={...m.bounds};s.start={...m.van};s.parkingModel=Object.create(m);s.parkingModel.drivingLesson={parking:s.parking};
+    m.nightLesson=s;s.bounds={...m.bounds};s.start={...m.van};const front=OTR.fp.local(m.van,2.3,-3.5),light=m.point('lights');s.playerStart={...m.player,...front,yaw:Math.atan2(light.x-front.x,-(light.z-front.z))};s.parkingModel=Object.create(m);s.parkingModel.drivingLesson={parking:s.parking};
     m.stops=[stop];m.parcels=[];m.phase='route';m.departed=m.secured=true;m.mode='walk';m.cargoOpen=false;return m;
   },
   attach(run){
-    const m=run.model,s=m.nightLesson;if(s.attached)return false;s.attached=true;m.bounds={...s.bounds};m.trainingArea=null;Object.assign(m.van,s.start);
+    const m=run.model,s=m.nightLesson;if(s.attached)return false;s.attached=true;m.bounds={...s.bounds};m.trainingArea=null;Object.assign(m.van,s.start);Object.assign(m.player,s.playerStart);m.mode='walk';
     m.nightDrive={version:1,leg:0,required:false,failed:false};
     OTR.fpDriving.configure(m);m.driving.bus.state=m.driving.siren.state='done';OTR.fpDriving.syncActors(m);m.crossing.state='resolved';
     // A real moving lead vehicle supplies the existing three-second-gap observation.
-    Object.assign(m.traffic[0],{x:m.van.x,z:m.van.z-24,yaw:0,speed:4,cruise:4});OTR.fpNav.configure(m);
+    s.lead=m.traffic[0];Object.assign(s.lead,{x:m.van.x,z:m.van.z-24,yaw:0,speed:0,cruise:0});OTR.fpNav.configure(m);
     m.moduleReport=(type,detail)=>this.report(run,type,detail);
     const step=m.step;m.step=(input,seconds)=>{
-      if(m.paused||s.finished)return;const x=m.van.x,z=m.van.z;step.call(m,input,seconds);s.travel+=Math.hypot(m.van.x-x,m.van.z-z);
+      if(m.paused||s.finished)return;if(!s.started)s.lead.speed=s.lead.cruise=0;else s.lead.cruise=4;const x=m.van.x,z=m.van.z;step.call(m,input,seconds);s.travel+=Math.hypot(m.van.x-x,m.van.z-z);
       if(!s.started&&Math.abs(m.van.speed)>.3){s.started=true;this.report(run,'inspect.lights',{key:'before-moving',ok:m.checks.lights===true});}
       if(m.driving.followingSeen)s.followingSeen=true;
     };return true;

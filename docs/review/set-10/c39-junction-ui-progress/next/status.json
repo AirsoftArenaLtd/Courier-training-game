@@ -1,0 +1,46 @@
+{
+  "phase": "running",
+  "jobs": [
+    {
+      "tag": "junction-budget-loaded-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "junctionapproach0,junctionapproach1,junctionapproach2,junctionfinish0,junctionfinish1,junctionfinish2,junctiondevice,junctioncycle",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_JUNCTIONLESSON": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "junction-budget-loaded-low-low-junctioncycle.png": "d2b727cc6b93ea8c1077b4c6e742717fbab1fc220bcca895e51859c1be26c9a2",
+        "junction-budget-loaded-low-low-junctionapproach2.png": "89d655442204dbeb57f907bdd88e583a1a020d944766a0782e476c37d7a8e209",
+        "junction-budget-loaded-low-low-junctionfinish1.png": "ca94224d080ad9a51198f49024bed478f590c073f6602cf57d99494248155f28",
+        "junction-budget-loaded-low-low-junctionapproach1.png": "7aa16048d32a027629fb60a105ebe4aef6cfcfab6cc0ac13b7a222b738dd3860",
+        "junction-budget-loaded-low-low-junctionfinish0.png": "cca679afeeb67a311b60926f5ec03af94773cd06944988eb23c47dc913f1aa3a",
+        "junction-budget-loaded-low-low-junctiondevice.png": "d2b727cc6b93ea8c1077b4c6e742717fbab1fc220bcca895e51859c1be26c9a2",
+        "junction-budget-loaded-low-low-junctionfinish2.png": "4aa5185bae328a46f0c8d4e7dd5fbd8ea80b1275862a35c2499ca0e56be84c42",
+        "junction-budget-loaded-low-low-junctionapproach0.png": "78c9b711246b926db629066fab1868a4d627ff2e63aed205733eb9feeb69c1fa",
+        "bench-junction-budget-loaded-low-low.json": "0e5198db20505cae9e4aa79c3f0a75804c5eeb5da79e3f535ddde389329ecd0c"
+      },
+      "peak": {
+        "calls": 44,
+        "triangles": 1256,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1944310
+      }
+    }
+  ],
+  "pid": 173071,
+  "startedAt": 1793114005.7300665,
+  "serverPid": 173322,
+  "tag": "junction-budget-loaded-high",
+  "childPid": 173791
+}
