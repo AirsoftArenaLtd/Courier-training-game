@@ -1,0 +1,14 @@
+START layout-low
+END layout-low 0
+START navigation
+END navigation 0
+START repository
+END repository 0
+START weather-low
+END weather-low 0
+START weather-high
+END weather-high 0
+START hud
+END hud 0
+START cab
+END cab 1
