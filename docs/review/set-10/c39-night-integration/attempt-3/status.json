@@ -1,6 +1,30 @@
 {
-  "phase": "queued",
-  "jobs": [],
+  "phase": "failed",
+  "jobs": [
+    {
+      "tag": "night-high-ta",
+      "script": "test/fpnightlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_FONT": "noto"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "night-high-ta-high-ta-large-light-test.png": "bfd9660811d65e5b778faa3712cb0da519752a1093b7710f8018e706f8c0048f",
+        "night-high-ta.json": "c435e6bcb327b014a262cdbc9d5796a413224565923b5a2274a50259ef7408a2"
+      }
+    }
+  ],
   "pid": 187989,
-  "startedAt": 1793174173.5322552
+  "startedAt": 1793174173.5322552,
+  "serverPid": 188963,
+  "tag": "night-high-ta",
+  "childPid": 188964,
+  "failure": "Browser job failed: night-high-ta",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793174555.2179732
 }
