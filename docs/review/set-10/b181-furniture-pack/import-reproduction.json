@@ -1,0 +1,19 @@
+{
+  "realOwnerArchives": [
+    {
+      "file": "kenney_furniture-kit.zip",
+      "sha256": "e67652d0932cee41683f74711c03d3e192a2af9979ef8e6b237711f5482d46b0"
+    },
+    {
+      "file": "kenney_mini-characters.zip",
+      "sha256": "9e1d48e6d7b8479ebbe84df71eb5bd8e1b3f0da546dea641890dccc8a02d0999"
+    }
+  ],
+  "deskBytesUnchanged": true,
+  "deskSourceSectionUnchanged": true,
+  "benchMatchesShipped": true,
+  "legacyFolderAbsent": true,
+  "secondRunStable": true,
+  "manifestFiles": 37,
+  "modelsPrepared": 3
+}

@@ -128,7 +128,7 @@ def prepare(mini, furniture, destination):
     files, evidence = [], []
     for archive, pack, title, url, models in [
         (mini, 'kenney-mini-characters', 'Mini Characters 1.0', 'https://kenney.nl/assets/mini-characters', [('character-male-a', 'ambient-adult-a'), ('character-female-a', 'ambient-adult-b')]),
-        (furniture, 'kenney-furniture', 'Furniture Kit 2.0', 'https://kenney.nl/assets/furniture-kit', [('bench', 'town-bench')]),
+        (furniture, 'kenney-furniture-kit', 'Furniture Kit 2.0', 'https://kenney.nl/assets/furniture-kit', [('bench', 'town-bench')]),
     ]:
         with ZipFile(archive) as z:
             licence = z.read('License.txt')
@@ -158,7 +158,15 @@ def prepare(mini, furniture, destination):
             text += 'High only. Adult meshes retain source positions, normals, indices, joints, weights and inverse bind matrices. Palette colours are sampled offline into linear RGB vertices; UVs/images and all clips except idle/walk are removed. The two clips are renamed Idle_Neutral/Walk. No runtime image, bone texture or external fetch. The bench is the unchanged source GLB.\n\nReproduce with `python3 test/tools/prepare-ambient.py MINI_ZIP FURNITURE_ZIP OUTPUT_3D`.\n'
             for rec in records:
                 text += f'\nSource `{rec["source"]}` SHA-256: `{rec["sourceSHA256"]}`.\nOutput `{rec["output"]}`: {rec["bytes"]} bytes; SHA-256: `{rec["outputSHA256"]}`.\n'
-            (folder/'SOURCE.md').write_text(text)
+            source_note = folder/'SOURCE.md'
+            if pack == 'kenney-furniture-kit':
+                # The desk shares this pack. Retain its provenance when reproducing the bench.
+                header = text.split('High only.', 1)[0]
+                base = source_note.read_text().split('## Town bench', 1)[0].rstrip() if source_note.exists() else header.rstrip()
+                text = base+'\n\n## Town bench\n\nHigh only. The bench is the unchanged static, colour-only source GLB. Both furniture models share the original author licence and pack credit.\n\nReproduce with `python3 test/tools/prepare-ambient.py MINI_ZIP FURNITURE_ZIP OUTPUT_3D`.\n'
+                for rec in records:
+                    text += f'\nSource `{rec["source"]}` SHA-256: `{rec["sourceSHA256"]}`.\nOutput `{rec["output"]}`: {rec["bytes"]} bytes; SHA-256: `{rec["outputSHA256"]}`.\n'
+            source_note.write_text(text)
             evidence.append({'pack': pack, 'archiveSHA256': town.digest(archive.read_bytes()), 'licenceSHA256': town.digest(licence), 'models': records})
     manifest_path = destination/'manifest.json'
     manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {'version': 1, 'files': []}

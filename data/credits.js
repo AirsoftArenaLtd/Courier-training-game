@@ -98,12 +98,5 @@ OTR_DATA.credits = [
 "author": "Kenney",
 "licence": "CC0",
 "url": "https://kenney.nl/assets/mini-characters"
-},
-{
-"pack": "kenney-furniture",
-"name": "Furniture Kit 2.0",
-"author": "Kenney",
-"licence": "CC0",
-"url": "https://kenney.nl/assets/furniture-kit"
 }
 ];

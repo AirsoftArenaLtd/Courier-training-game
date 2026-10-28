@@ -1,0 +1,11 @@
+✔ every shipped file is in the manifest with its real size, and every manifest entry exists (5.343865ms)
+✔ every pack keeps a CC0 licence and a source note (1.718784ms)
+✔ formats and sizes stay inside the budget (0.547316ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14.333312
