@@ -4,58 +4,37 @@
       B-160: 3980 of 4000 characters with 30 missed signals (59 pins)
       B-168: 3970 of 4000, 2 of 20 runs kept, 29 pins
       B-147: 26701 characters under SCORM 2004 (limit 64,000)
-✔ a small save goes to the LMS as it is (39.238784ms)
-✔ step 1 and 2: old route history and the last workday's lines go first (16.989784ms)
-✔ step 3: a long day is packed, and comes back whole, places and all (115.433519ms)
-✔ A-27: a full day of the cab, sign, route, night and damage events keeps every report and every pin on a normal save (269.662332ms)
-✖ B-52: the worst milestone 8 day stays within SCORM 1.2, keeps its score, and names each critical type for the LMS (249.184174ms)
-✔ B-68: C-34's damage and load on the worst milestone 8 day still pack with room to spare (445.001049ms)
-✔ B-75: C-33's richer stops on the C-34 damage day still pack with room to spare (142.935824ms)
-✔ B-93: C-35's walkaround and post-trip report on the richer-stop damage day still pack with room to spare (270.718221ms)
-✔ B-98: C-35's heaviest day (21 damage reports on the richer-stop day; C-36's radio call and night lights, B-103) still packs, and reloads the same (187.182581ms)
-✔ B-114: a packed day writes known types as numbers from a list that only grows; names still unpack (1.264585ms)
-✔ B-114: C-36's heaviest day with successful lights on every leg packs with at least 300 characters to spare (B-120) (246.778213ms)
-✔ B-160: the heaviest day with 30 missed signals still packs, keeps every pin and reloads the same (351.760989ms)
-✔ B-168: an established trainee keeps the heaviest day's pins; the record loses its oldest runs, not the day (298.10475ms)
-✔ B-168: an established trainee's heaviest day with 30 missed signals keeps its score whole (311.072593ms)
-✔ B-160: a v2 day (placed rows in e, no n or p) still unpacks as before (0.386142ms)
-✔ B-147: C-36's heaviest day under SCORM 2004 is saved in full and reloads the same (25.784764ms)
-✔ B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads (3.801727ms)
-✔ B-16: a day with a mirror check on every turn (C-23 keys) stays packed, keeps its score and its pins (223.842026ms)
-✔ B-16: runs of numbered keys pack once and come back exactly, in order (0.415066ms)
-✔ A-27: on a heavy save the same day keeps its score; a whole course of stars and assessments is never lost (239.806475ms)
-✔ step 4 and 5: a very long day on a heavy save keeps its score only, and says so (121.815063ms)
-✔ step 7: a day too long even for the summary keeps its total, flagged truncated (44.686996ms)
-✔ step 8: a save too big for anything else still reaches the LMS within the limit (83.460136ms)
-✔ every write of a long day stays within the limit, from the first report to the last (25100.986664ms)
-✔ SCORM 2004 and local saves are not cut (65.460275ms)
-✔ B-36: a month of workdays (aids, criticals, pins and the town) stays within the limit and keeps the course (7421.047338ms)
+✔ a small save goes to the LMS as it is (34.110648ms)
+✔ step 1 and 2: old route history and the last workday's lines go first (47.647174ms)
+✔ step 3: a long day is packed, and comes back whole, places and all (181.986614ms)
+✔ A-27: a full day of the cab, sign, route, night and damage events keeps every report and every pin on a normal save (326.764619ms)
+✔ B-52: the worst milestone 8 day stays within SCORM 1.2, keeps its score, and names each critical type for the LMS (453.82748ms)
+✔ B-68: C-34's damage and load on the worst milestone 8 day still pack with room to spare (337.86251ms)
+✔ B-75: C-33's richer stops on the C-34 damage day still pack with room to spare (287.744383ms)
+✔ B-93: C-35's walkaround and post-trip report on the richer-stop damage day still pack with room to spare (385.087486ms)
+✔ B-98: C-35's heaviest day (21 damage reports on the richer-stop day; C-36's radio call and night lights, B-103) still packs, and reloads the same (400.625472ms)
+✔ B-114: a packed day writes known types as numbers from a list that only grows; names still unpack (0.95433ms)
+✔ B-114: C-36's heaviest day with successful lights on every leg packs with at least 300 characters to spare (B-120) (328.832938ms)
+✔ B-160: the heaviest day with 30 missed signals still packs, keeps every pin and reloads the same (394.351437ms)
+✔ B-168: an established trainee keeps the heaviest day's pins; the record loses its oldest runs, not the day (409.255932ms)
+✔ B-168: an established trainee's heaviest day with 30 missed signals keeps its score whole (445.442195ms)
+✔ B-160: a v2 day (placed rows in e, no n or p) still unpacks as before (1.018076ms)
+✔ B-147: C-36's heaviest day under SCORM 2004 is saved in full and reloads the same (27.067173ms)
+✔ B-55: a packed day writes type names short and stop checks in pairs, and comes back the same; an older packed day still loads (2.378939ms)
+✔ B-16: a day with a mirror check on every turn (C-23 keys) stays packed, keeps its score and its pins (274.321884ms)
+✔ B-16: runs of numbered keys pack once and come back exactly, in order (0.446003ms)
+✔ A-27: on a heavy save the same day keeps its score; a whole course of stars and assessments is never lost (304.401512ms)
+✔ step 4 and 5: a very long day on a heavy save keeps its score only, and says so (218.609327ms)
+✔ step 7: a day too long even for the summary keeps its total, flagged truncated (81.097691ms)
+✔ step 8: a save too big for anything else still reaches the LMS within the limit (29.921289ms)
+✔ every write of a long day stays within the limit, from the first report to the last (23085.701674ms)
+✔ SCORM 2004 and local saves are not cut (37.236846ms)
+✔ B-36: a month of workdays (aids, criticals, pins and the town) stays within the limit and keeps the course (4356.70048ms)
 ℹ tests 26
 ℹ suites 0
-ℹ pass 25
-ℹ fail 1
+ℹ pass 26
+ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 36300.762245
-
-✖ failing tests:
-
-test at test/savesize.js:178:1
-✖ B-52: the worst milestone 8 day stays within SCORM 1.2, keeps its score, and names each critical type for the LMS (249.184174ms)
-  Error: Cannot find module '../server/xapi.js'
-  Require stack:
-  - /workspace/b183-gamepad-persistence/test/savesize.js
-      at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)
-      at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)
-      at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)
-      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)
-      at Module._load (node:internal/modules/cjs/loader:1294:5)
-      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
-      at Module.require (node:internal/modules/cjs/loader:1617:12)
-      at require (node:internal/modules/helpers:153:16)
-      at TestContext.<anonymous> (/workspace/b183-gamepad-persistence/test/savesize.js:202:16)
-      at Test.runInAsyncScope (node:async_hooks:227:14) {
-    code: 'MODULE_NOT_FOUND',
-    requireStack: [ '/workspace/b183-gamepad-persistence/test/savesize.js' ]
-  }
+ℹ duration_ms 32476.889331

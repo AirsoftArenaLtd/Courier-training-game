@@ -1,0 +1,22 @@
+[
+  {
+    "suite": "test/fpcontext.js",
+    "exit": 0,
+    "cases": 8
+  },
+  {
+    "suite": "test/fpaccess.js",
+    "exit": 0,
+    "cases": 12
+  },
+  {
+    "suite": "test/savesize.js",
+    "exit": 0,
+    "cases": 26
+  },
+  {
+    "suite": "test/i18n.js",
+    "exit": 0,
+    "cases": null
+  }
+]
