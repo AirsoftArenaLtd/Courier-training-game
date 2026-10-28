@@ -1,0 +1,102 @@
+{
+  "phase": "complete",
+  "pid": 139066,
+  "jobs": [
+    {
+      "tag": "menu-low-en-0",
+      "script": "test/fpgamepadmenubrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 81,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "menu-low-en-0/menu-low-en-0.json",
+          "sha256": "228346ebe1d1ed3f11330b52ed20e9b26e5a847544afe3436bb5baa947628551"
+        }
+      ]
+    },
+    {
+      "tag": "menu-high-en-0",
+      "script": "test/fpgamepadmenubrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 81,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "menu-high-en-0/menu-high-en-0.json",
+          "sha256": "2ab1ce941a1f83b6ce8a385b7c0b42cdcc1f64f450839930e4ea0ad69f920c15"
+        }
+      ]
+    },
+    {
+      "tag": "menu-low-ta-1",
+      "script": "test/fpgamepadmenubrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 81,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "menu-low-ta-1/menu-low-ta-1.json",
+          "sha256": "5de35594ea9326c5dffae45c360830ca8a33f61bab101e41a3250f4593b558d0"
+        }
+      ]
+    },
+    {
+      "tag": "menu-high-ta-1",
+      "script": "test/fpgamepadmenubrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 81,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "menu-high-ta-1/menu-high-ta-1.json",
+          "sha256": "bbdee1c2cc547d2215bc9f9a97c6a0cf0bdbd550407948097430817a029bce28"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793082837.830505,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8399",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 140991,
+  "index": 3,
+  "tag": "menu-high-ta-1",
+  "childPid": 142113,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793083580.165103
+}

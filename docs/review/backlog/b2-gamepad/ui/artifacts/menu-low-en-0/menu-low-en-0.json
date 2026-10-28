@@ -1,0 +1,200 @@
+{
+  "quality": "low",
+  "language": "en",
+  "large": false,
+  "checks": 81,
+  "views": [
+    {
+      "kind": "bindings",
+      "page": 0,
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1640235
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 1,
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1606523
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 2,
+      "frames": 3,
+      "peak": {
+        "calls": 39,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1608091
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 3,
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1625563
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 4,
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1641915
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 5,
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1625003
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 6,
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1639899
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 7,
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1166,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1569563
+      }
+    },
+    {
+      "kind": "guide",
+      "page": 0,
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1537670
+      }
+    },
+    {
+      "kind": "guide",
+      "page": 1,
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1715782
+      }
+    },
+    {
+      "kind": "guide",
+      "page": 2,
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1692763
+      }
+    },
+    {
+      "kind": "guide",
+      "page": 3,
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1728688
+      }
+    },
+    {
+      "kind": "guide",
+      "page": 4,
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1727355
+      }
+    },
+    {
+      "kind": "deadzone",
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1772422
+      }
+    },
+    {
+      "kind": "capture",
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1489664
+      }
+    },
+    {
+      "kind": "edit",
+      "frames": 3,
+      "peak": {
+        "calls": 41,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1470395
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Parked cab/profile and direct production-menu presentation fixtures. Three rendered frames per view; no FPS claim, full-route gate or approved new Tamil translation claim.",
+  "complete": true
+}

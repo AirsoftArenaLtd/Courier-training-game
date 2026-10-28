@@ -1,0 +1,47 @@
+{
+  "verifiedAt": "2026-10-27T06:00:23.417648+00:00",
+  "phase": "complete",
+  "jobs": 16,
+  "sourceInputsVerified": 525,
+  "checks": 665,
+  "nativeGamepadCases": 8,
+  "nativeGamepadChecks": 272,
+  "keyboardSuites": 4,
+  "keyboardChecks": 393,
+  "resourceViews": 12,
+  "planSha256": "f900709ab5f850d932fe25a615d9a00b5718bc123d53a565ecc918bdad843c03",
+  "statusSha256": "cfbda376e6247f913a219c0b8e1b54b2be8934d3f67d89ba4281accd1256c00d",
+  "peaks": {
+    "b2-resources-loaded-low": {
+      "calls": 41,
+      "triangles": 1330,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1925291
+    },
+    "b2-resources-loaded-high": {
+      "calls": 70,
+      "triangles": 92730,
+      "textures": 3,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 5530395
+    },
+    "b2-resources-accessible-low": {
+      "calls": 41,
+      "triangles": 1330,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1960507
+    },
+    "b2-resources-fallback-low": {
+      "calls": 34,
+      "triangles": 956,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1972891
+    }
+  },
+  "ownedServerExited": true,
+  "leaseReleased": true,
+  "scope": "Exact pre-affinity-correction controller. All checks completed before changing source. Current controller follow-up will be recorded separately; original tests/artifacts are not relabelled."
+}

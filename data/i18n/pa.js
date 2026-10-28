@@ -4086,7 +4086,38 @@ window.OTR_I18N.pa = {
 "Pause the replay.": "ਰੀਪਲੇ ਰੋਕੋ।",
 "You signaled for at least three seconds before moving.": "ਚੱਲਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਸੀਂ ਘੱਟੋ-ਘੱਟ ਤਿੰਨ ਸਕਿੰਟ ਸਿਗਨਲ ਦਿੱਤਾ।",
 "You moved without signaling in the correct direction for three seconds.": "ਸਹੀ ਦਿਸ਼ਾ ਵਿੱਚ ਤਿੰਨ ਸਕਿੰਟ ਸਿਗਨਲ ਦਿੱਤੇ ਬਿਨਾਂ ਤੁਸੀਂ ਚੱਲ ਪਏ।",
-"cab habit: signal, mirror, belt or lights": "ਕੈਬ ਦੀ ਆਦਤ: ਸਿਗਨਲ, ਸ਼ੀਸ਼ਾ, ਸੀਟ ਬੈਲਟ ਜਾਂ ਹੈੱਡਲਾਈਟਾਂ"
+"cab habit: signal, mirror, belt or lights": "ਕੈਬ ਦੀ ਆਦਤ: ਸਿਗਨਲ, ਸ਼ੀਸ਼ਾ, ਸੀਟ ਬੈਲਟ ਜਾਂ ਹੈੱਡਲਾਈਟਾਂ",
+"Gamepad controls": "ਗੇਮਪੈਡ ਕੰਟਰੋਲ",
+"Walk or steer left and right": "ਤੁਰੋ ਜਾਂ ਖੱਬੇ-ਸੱਜੇ ਮੋੜੋ",
+"Walk forward and backward": "ਅੱਗੇ ਅਤੇ ਪਿੱਛੇ ਤੁਰੋ",
+"Look left and right": "ਖੱਬੇ ਅਤੇ ਸੱਜੇ ਦੇਖੋ",
+"Look up and down": "ਉੱਪਰ ਅਤੇ ਹੇਠਾਂ ਦੇਖੋ",
+"Accelerate": "ਰਫ਼ਤਾਰ ਵਧਾਓ",
+"Brake": "ਬ੍ਰੇਕ ਲਾਓ",
+"Interact or scan": "ਇੰਟਰੈਕਟ ਜਾਂ ਸਕੈਨ ਕਰੋ",
+"Set the parking brake": "ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਾਓ",
+"Previous menu choice": "ਮੀਨੂ ਦੀ ਪਿਛਲੀ ਚੋਣ",
+"Next menu choice": "ਮੀਨੂ ਦੀ ਅਗਲੀ ਚੋਣ",
+"Disabled": "ਬੰਦ",
+"Move and look with the gamepad.": "ਗੇਮਪੈਡ ਨਾਲ ਚੱਲੋ ਅਤੇ ਦੇਖੋ।",
+"Drive with the gamepad.": "ਗੇਮਪੈਡ ਨਾਲ ਗੱਡੀ ਚਲਾਓ।",
+"Use the cab controls.": "ਕੈਬਿਨ ਦੇ ਕੰਟਰੋਲ ਵਰਤੋ।",
+"Use menus and the handheld.": "ਮੀਨੂ ਅਤੇ ਹੈਂਡਹੈਲਡ ਵਰਤੋ।",
+"Connect a standard gamepad.": "ਇੱਕ ਆਮ ਗੇਮਪੈਡ ਜੋੜੋ।",
+"Change gamepad controls": "ਗੇਮਪੈਡ ਕੰਟਰੋਲ ਬਦਲੋ",
+"Changes apply to this 3D session. Keyboard controls stay the same.": "ਬਦਲਾਅ ਸਿਰਫ਼ ਇਸ 3D ਸੈਸ਼ਨ ਉੱਤੇ ਲਾਗੂ ਹੁੰਦੇ ਹਨ। ਕੀਬੋਰਡ ਕੰਟਰੋਲ ਉਹੀ ਰਹਿੰਦੇ ਹਨ।",
+"Stick sensitivity": "ਸਟਿੱਕ ਦੀ ਸੰਵੇਦਨਸ਼ੀਲਤਾ",
+"Restore default gamepad controls": "ਗੇਮਪੈਡ ਦੇ ਮੂਲ ਕੰਟਰੋਲ ਵਾਪਸ ਲਿਆਓ",
+"Reset gamepad controls for this 3D session?": "ਇਸ 3D ਸੈਸ਼ਨ ਲਈ ਗੇਮਪੈਡ ਕੰਟਰੋਲ ਰੀਸੈੱਟ ਕਰਨੇ ਹਨ?",
+"Restore defaults": "ਮੂਲ ਸੈਟਿੰਗ ਵਾਪਸ ਲਿਆਓ",
+"Change a gamepad control": "ਗੇਮਪੈਡ ਦਾ ਇੱਕ ਕੰਟਰੋਲ ਬਦਲੋ",
+"Choose a new input": "ਨਵਾਂ ਇਨਪੁਟ ਚੁਣੋ",
+"Disable this input": "ਇਹ ਇਨਪੁਟ ਬੰਦ ਕਰੋ",
+"Choose a gamepad input": "ਗੇਮਪੈਡ ਇਨਪੁਟ ਚੁਣੋ",
+"Release all controls, move one stick axis, then release it. Escape cancels.": "ਸਾਰੇ ਕੰਟਰੋਲ ਛੱਡੋ, ਇੱਕ ਸਟਿੱਕ ਦਾ ਇੱਕ ਧੁਰਾ ਹਿਲਾਓ, ਫਿਰ ਛੱਡੋ। Esc ਰੱਦ ਕਰਦਾ ਹੈ।",
+"Release all controls, press one button, then release it. Escape cancels.": "ਸਾਰੇ ਕੰਟਰੋਲ ਛੱਡੋ, ਇੱਕ ਬਟਨ ਦਬਾਓ, ਫਿਰ ਛੱਡੋ। Esc ਰੱਦ ਕਰਦਾ ਹੈ।",
+"Choose another gamepad input": "ਗੇਮਪੈਡ ਦਾ ਕੋਈ ਹੋਰ ਇਨਪੁਟ ਚੁਣੋ",
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ਇਹ ਇਨਪੁਟ ਪਹਿਲਾਂ ਹੀ ਇੱਕੋ ਸਮੇਂ ਵਰਤੀ ਜਾਂਦੀ ਕਿਰਿਆ ਨੂੰ ਦਿੱਤਾ ਹੋਇਆ ਹੈ। ਕੋਈ ਹੋਰ ਇਨਪੁਟ ਚੁਣੋ ਜਾਂ ਪਹਿਲਾਂ ਉਸ ਦੀ ਦੂਜੀ ਕਿਰਿਆ ਬੰਦ ਕਰੋ।"
 },
 "templates": [
 [
@@ -5904,6 +5935,42 @@ window.OTR_I18N.pa = {
 [
 "The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
 "ਸੱਜਾ ਇੰਡੀਕੇਟਰ ਚਾਲੂ ਹੈ। ਚੱਲਣ ਤੋਂ ਪਹਿਲਾਂ ਘੱਟੋ-ਘੱਟ ਤਿੰਨ ਸਕਿੰਟ ਸਿਗਨਲ ਦਿਓ। ਬੰਦ ਕਰਨ ਲਈ {0} ਦਬਾਓ।"
+],
+[
+"Axis {0}",
+"ਧੁਰਾ {0}"
+],
+[
+"Button {0}",
+"ਬਟਨ {0}"
+],
+[
+"Use {0} and {1} to walk. Use {2} and {3} to look.",
+"ਤੁਰਨ ਲਈ {0} ਅਤੇ {1} ਵਰਤੋ। ਦੇਖਣ ਲਈ {2} ਅਤੇ {3} ਵਰਤੋ।"
+],
+[
+"Use {0} to steer, {1} to accelerate and {2} to brake. Use {3} to change between drive and reverse while stopped.",
+"ਮੋੜਨ ਲਈ {0}, ਰਫ਼ਤਾਰ ਵਧਾਉਣ ਲਈ {1} ਅਤੇ ਬ੍ਰੇਕ ਲਈ {2} ਵਰਤੋ। ਰੁਕੇ ਹੋਏ ਡਰਾਈਵ ਅਤੇ ਰਿਵਰਸ ਵਿਚਕਾਰ ਬਦਲਣ ਲਈ {3} ਵਰਤੋ।"
+],
+[
+"Use {0} for the seatbelt and {1} for the parking brake. Use {2} and {3} for the signals.",
+"ਸੀਟ ਬੈਲਟ ਲਈ {0} ਅਤੇ ਪਾਰਕਿੰਗ ਬ੍ਰੇਕ ਲਈ {1} ਵਰਤੋ। ਇੰਡੀਕੇਟਰਾਂ ਲਈ {2} ਅਤੇ {3} ਵਰਤੋ।"
+],
+[
+"Use {0} to choose or interact and {1} to go back. Use {2} for the handheld. Hold the interact button to scan while aiming.",
+"ਚੁਣਨ ਜਾਂ ਇੰਟਰੈਕਟ ਕਰਨ ਲਈ {0} ਅਤੇ ਵਾਪਸ ਜਾਣ ਲਈ {1} ਵਰਤੋ। ਹੈਂਡਹੈਲਡ ਲਈ {2} ਵਰਤੋ। ਨਿਸ਼ਾਨਾ ਲਾਉਂਦੇ ਸਮੇਂ ਸਕੈਨ ਕਰਨ ਲਈ ਇੰਟਰੈਕਟ ਬਟਨ ਦਬਾ ਕੇ ਰੱਖੋ।"
+],
+[
+"Press a gamepad button to connect, then release all controls. Use {0} and {1} to choose menu options. Keyboard and mouse controls remain available.",
+"ਜੋੜਨ ਲਈ ਗੇਮਪੈਡ ਦਾ ਇੱਕ ਬਟਨ ਦਬਾਓ, ਫਿਰ ਸਾਰੇ ਕੰਟਰੋਲ ਛੱਡੋ। ਮੀਨੂ ਦੀਆਂ ਚੋਣਾਂ ਲਈ {0} ਅਤੇ {1} ਵਰਤੋ। ਕੀਬੋਰਡ ਅਤੇ ਮਾਊਸ ਵੀ ਕੰਮ ਕਰਦੇ ਰਹਿੰਦੇ ਹਨ।"
+],
+[
+"Ignore stick movement below {0} percent. Choose a higher value if the view or steering moves while the stick is released.",
+"{0} ਪ੍ਰਤੀਸ਼ਤ ਤੋਂ ਘੱਟ ਸਟਿੱਕ ਦੀ ਹਿਲਜੁਲ ਅਣਡਿੱਠੀ ਕਰੋ। ਜੇ ਸਟਿੱਕ ਛੱਡਣ ਉੱਤੇ ਵੀ ਨਜ਼ਾਰਾ ਜਾਂ ਸਟੀਅਰਿੰਗ ਹਿੱਲਦਾ ਹੈ ਤਾਂ ਵੱਡਾ ਮੁੱਲ ਚੁਣੋ।"
+],
+[
+"Ignore movement below {0} percent.",
+"{0} ਪ੍ਰਤੀਸ਼ਤ ਤੋਂ ਘੱਟ ਹਿਲਜੁਲ ਅਣਡਿੱਠੀ ਕਰੋ।"
 ]
 ],
 "keep": [

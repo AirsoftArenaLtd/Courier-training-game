@@ -4086,7 +4086,38 @@ window.OTR_I18N.bn = {
 "Pause the replay.": "রিপ্লে থামান।",
 "You signaled for at least three seconds before moving.": "চলার আগে আপনি অন্তত তিন সেকেন্ড সিগন্যাল দিয়েছেন।",
 "You moved without signaling in the correct direction for three seconds.": "সঠিক দিকে তিন সেকেন্ড সিগন্যাল না দিয়েই আপনি চলতে শুরু করেছেন।",
-"cab habit: signal, mirror, belt or lights": "ক্যাব-অভ্যাস: সিগন্যাল, আয়না, সিটবেল্ট বা হেডলাইট"
+"cab habit: signal, mirror, belt or lights": "ক্যাব-অভ্যাস: সিগন্যাল, আয়না, সিটবেল্ট বা হেডলাইট",
+"Gamepad controls": "গেমপ্যাড নিয়ন্ত্রণ",
+"Walk or steer left and right": "হাঁটুন বা বাঁয়ে-ডানে ঘোরান",
+"Walk forward and backward": "সামনে ও পিছনে হাঁটুন",
+"Look left and right": "বাঁয়ে ও ডানে দেখুন",
+"Look up and down": "উপরে ও নিচে দেখুন",
+"Accelerate": "গতি বাড়ান",
+"Brake": "ব্রেক করুন",
+"Interact or scan": "ইন্টারঅ্যাক্ট বা স্ক্যান করুন",
+"Set the parking brake": "পার্কিং ব্রেক লাগান",
+"Previous menu choice": "মেনুর আগের বিকল্প",
+"Next menu choice": "মেনুর পরের বিকল্প",
+"Disabled": "বন্ধ",
+"Move and look with the gamepad.": "গেমপ্যাড দিয়ে চলুন ও দেখুন।",
+"Drive with the gamepad.": "গেমপ্যাড দিয়ে গাড়ি চালান।",
+"Use the cab controls.": "কেবিনের নিয়ন্ত্রণ ব্যবহার করুন।",
+"Use menus and the handheld.": "মেনু ও হ্যান্ডহেল্ড ব্যবহার করুন।",
+"Connect a standard gamepad.": "একটি সাধারণ গেমপ্যাড যুক্ত করুন।",
+"Change gamepad controls": "গেমপ্যাড নিয়ন্ত্রণ বদলান",
+"Changes apply to this 3D session. Keyboard controls stay the same.": "পরিবর্তন শুধু এই 3D সেশনে প্রযোজ্য। কীবোর্ড নিয়ন্ত্রণ একই থাকে।",
+"Stick sensitivity": "স্টিকের সংবেদনশীলতা",
+"Restore default gamepad controls": "গেমপ্যাডের ডিফল্ট নিয়ন্ত্রণ ফিরিয়ে আনুন",
+"Reset gamepad controls for this 3D session?": "এই 3D সেশনের গেমপ্যাড নিয়ন্ত্রণ রিসেট করবেন?",
+"Restore defaults": "ডিফল্ট ফিরিয়ে আনুন",
+"Change a gamepad control": "গেমপ্যাডের একটি নিয়ন্ত্রণ বদলান",
+"Choose a new input": "নতুন ইনপুট বেছে নিন",
+"Disable this input": "এই ইনপুট বন্ধ করুন",
+"Choose a gamepad input": "গেমপ্যাড ইনপুট বেছে নিন",
+"Release all controls, move one stick axis, then release it. Escape cancels.": "সব নিয়ন্ত্রণ ছেড়ে দিন, একটি স্টিকের একটি অক্ষ নাড়ান, তারপর ছেড়ে দিন। Esc বাতিল করে।",
+"Release all controls, press one button, then release it. Escape cancels.": "সব নিয়ন্ত্রণ ছেড়ে দিন, একটি বোতাম চাপুন, তারপর ছেড়ে দিন। Esc বাতিল করে।",
+"Choose another gamepad input": "গেমপ্যাডের অন্য একটি ইনপুট বেছে নিন",
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "এই ইনপুটটি আগেই এমন একটি কাজে দেওয়া আছে যা একই সময়ে ব্যবহার হয়। অন্য ইনপুট বেছে নিন বা আগে তার অন্য কাজটি বন্ধ করুন।"
 },
 "templates": [
 [
@@ -5904,6 +5935,42 @@ window.OTR_I18N.bn = {
 [
 "The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
 "ডান ইন্ডিকেটর চালু আছে। চলার আগে অন্তত তিন সেকেন্ড সিগন্যাল দিন। বন্ধ করতে {0} চাপুন।"
+],
+[
+"Axis {0}",
+"অক্ষ {0}"
+],
+[
+"Button {0}",
+"বোতাম {0}"
+],
+[
+"Use {0} and {1} to walk. Use {2} and {3} to look.",
+"হাঁটতে {0} ও {1} ব্যবহার করুন। দেখতে {2} ও {3} ব্যবহার করুন।"
+],
+[
+"Use {0} to steer, {1} to accelerate and {2} to brake. Use {3} to change between drive and reverse while stopped.",
+"ঘোরাতে {0}, গতি বাড়াতে {1} ও ব্রেক করতে {2} ব্যবহার করুন। থামা অবস্থায় ড্রাইভ ও রিভার্সের মধ্যে বদলাতে {3} ব্যবহার করুন।"
+],
+[
+"Use {0} for the seatbelt and {1} for the parking brake. Use {2} and {3} for the signals.",
+"সিটবেল্টের জন্য {0} ও পার্কিং ব্রেকের জন্য {1} ব্যবহার করুন। ইন্ডিকেটরের জন্য {2} ও {3} ব্যবহার করুন।"
+],
+[
+"Use {0} to choose or interact and {1} to go back. Use {2} for the handheld. Hold the interact button to scan while aiming.",
+"বেছে নিতে বা ইন্টারঅ্যাক্ট করতে {0} ও ফিরে যেতে {1} ব্যবহার করুন। হ্যান্ডহেল্ডের জন্য {2} ব্যবহার করুন। লক্ষ্য করার সময় স্ক্যান করতে ইন্টারঅ্যাক্ট বোতাম চেপে ধরে রাখুন।"
+],
+[
+"Press a gamepad button to connect, then release all controls. Use {0} and {1} to choose menu options. Keyboard and mouse controls remain available.",
+"যুক্ত করতে গেমপ্যাডের একটি বোতাম চাপুন, তারপর সব নিয়ন্ত্রণ ছেড়ে দিন। মেনুর বিকল্প বাছতে {0} ও {1} ব্যবহার করুন। কীবোর্ড ও মাউসও কাজ করে।"
+],
+[
+"Ignore stick movement below {0} percent. Choose a higher value if the view or steering moves while the stick is released.",
+"{0} শতাংশের কম স্টিকের নড়াচড়া উপেক্ষা করুন। স্টিক ছাড়া অবস্থাতেও দৃশ্য বা স্টিয়ারিং নড়লে বড় মান বেছে নিন।"
+],
+[
+"Ignore movement below {0} percent.",
+"{0} শতাংশের কম নড়াচড়া উপেক্ষা করুন।"
 ]
 ],
 "keep": [

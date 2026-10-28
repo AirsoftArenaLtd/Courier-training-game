@@ -1,0 +1,310 @@
+{
+  "phase": "complete",
+  "pid": 138181,
+  "jobs": [
+    {
+      "tag": "ui-low-en-normal",
+      "script": "test/fpgamepadremapbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 100,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal-bindings.png",
+          "sha256": "107a52a041ded2dd0f211209ea1e2f5d23b5b4bd605ae3e71f901f8fe0677edf"
+        },
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal-capture.png",
+          "sha256": "64aaf3db2f47055983d6c879edc4cb43e35a0106ce32c37161e42d65df38636b"
+        },
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal-conflict.png",
+          "sha256": "c9528464c2001dfa43ff69bc563a3e8423e7e249540cbd3a04f4f27b9d56202c"
+        },
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal-deadzone.png",
+          "sha256": "3b7bc7cfcf6c457c0aff111fadc27654ba4e7656192ea46ad9c30ccd552a0463"
+        },
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal-driving-guide.png",
+          "sha256": "7ef526398d6db08ec7fd8ce5d3399d2af4013230d4b7288a4f3c1afbfc9ab604"
+        },
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal-remapped.png",
+          "sha256": "9df9327f128cc56badfc57e67d36d6bb9bbe010d80af219e40fc82161704b589"
+        },
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal-reset.png",
+          "sha256": "718d453e7236721f4a4292a0c63b66fb577f2c91f203b8fad70c8963764056b7"
+        },
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal.json",
+          "sha256": "43c36ac83fa5dc518e86c2e7a4da60febbd564927daa20d0ad8c8d7af8177c4b"
+        }
+      ]
+    },
+    {
+      "tag": "ui-high-en-large",
+      "script": "test/fpgamepadremapbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "en",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 100,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "ui-high-en-large/ui-high-en-large-bindings.png",
+          "sha256": "fe773f347212e083db74e7c1770af60652f7ae31605e020765fd8fb481c22ae8"
+        },
+        {
+          "file": "ui-high-en-large/ui-high-en-large-capture.png",
+          "sha256": "c5bdfbc51df0492b1d2aaa0d0aaa9ffd612cdd0271f556191f2e819130126bab"
+        },
+        {
+          "file": "ui-high-en-large/ui-high-en-large-conflict.png",
+          "sha256": "8d00244f439038e7bd801a00b77c452089c9c261151538ff598bd699b0097fc9"
+        },
+        {
+          "file": "ui-high-en-large/ui-high-en-large-deadzone.png",
+          "sha256": "989fa289bc27f16b352d9eb3012983bae89f2d78e602116a6b0e7d067e50f0ac"
+        },
+        {
+          "file": "ui-high-en-large/ui-high-en-large-driving-guide.png",
+          "sha256": "d4157d739c53649cdb1870b5a81386584247f37aa11fdebfafa46c6fb3598978"
+        },
+        {
+          "file": "ui-high-en-large/ui-high-en-large-remapped.png",
+          "sha256": "6dabc05db1bfdae5ee66f61d8e39e391a913c3ba7bbf3c6ecaeb12aaee36deeb"
+        },
+        {
+          "file": "ui-high-en-large/ui-high-en-large-reset.png",
+          "sha256": "6edc11d8a40544cebc67d4653b1547572b001c51475ee0c7e1282bdeda54052d"
+        },
+        {
+          "file": "ui-high-en-large/ui-high-en-large.json",
+          "sha256": "200fccff6db76ca9e88fabe3d8eaddf1c3676c840e68033da38a4e90fb3e5b2e"
+        }
+      ]
+    },
+    {
+      "tag": "ui-low-ta-normal",
+      "script": "test/fpgamepadremapbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "ta",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 100,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "ui-low-ta-normal/ui-low-ta-normal-bindings.png",
+          "sha256": "d79689805c4c593c7577a61a724282f0d4f436d7276ad0fe38fd4cce6b2a2daf"
+        },
+        {
+          "file": "ui-low-ta-normal/ui-low-ta-normal-capture.png",
+          "sha256": "bd97138890bc6ed801e67652e9ca7ac35026195e7bd8fb365a1cbdfc55d1e0c1"
+        },
+        {
+          "file": "ui-low-ta-normal/ui-low-ta-normal-conflict.png",
+          "sha256": "60d153a1be87c75e4fd08bac11d875d287fc188815529b0de020498d7b5a82bb"
+        },
+        {
+          "file": "ui-low-ta-normal/ui-low-ta-normal-deadzone.png",
+          "sha256": "f74ed9e0ca7aabdcf8fe49be6993763787256e43f0956bffeb6c4b0ef4a7171c"
+        },
+        {
+          "file": "ui-low-ta-normal/ui-low-ta-normal-driving-guide.png",
+          "sha256": "3a23b75bc97ccc160d9bc8b2d23dcc4bb3357140dbb2f6934669956ff3073eea"
+        },
+        {
+          "file": "ui-low-ta-normal/ui-low-ta-normal-remapped.png",
+          "sha256": "0173fafa325d203937658e60d05c6021535c6090294dd8639970d8f694322032"
+        },
+        {
+          "file": "ui-low-ta-normal/ui-low-ta-normal-reset.png",
+          "sha256": "ad83004e9a7d4ad7b5e8423dd4c9566602bfcd916d14d336eb20b0559d5d3fc8"
+        },
+        {
+          "file": "ui-low-ta-normal/ui-low-ta-normal.json",
+          "sha256": "51d728014aba42ff7ec0f700a90f6b1edc4381e4ae460a18fd2b7b52e1bd98b4"
+        }
+      ]
+    },
+    {
+      "tag": "ui-high-ta-large",
+      "script": "test/fpgamepadremapbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 100,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "ui-high-ta-large/ui-high-ta-large-bindings.png",
+          "sha256": "64d0a035db1aacfde159cb6963a23ac25b2e4f2ace875876dd1213a7dfe1336e"
+        },
+        {
+          "file": "ui-high-ta-large/ui-high-ta-large-capture.png",
+          "sha256": "4e30a7d87e81df2df706b55121c3d98fb043df2aaadc83cf25c55a3125ed337e"
+        },
+        {
+          "file": "ui-high-ta-large/ui-high-ta-large-conflict.png",
+          "sha256": "7e9299d70548007901a90d811ed02e73cdc085e63946a6b474b941f3c64db405"
+        },
+        {
+          "file": "ui-high-ta-large/ui-high-ta-large-deadzone.png",
+          "sha256": "7f204108fb994d4ed2477ce5b92199a28b8b1c36636a792d066d47bb3e405c28"
+        },
+        {
+          "file": "ui-high-ta-large/ui-high-ta-large-driving-guide.png",
+          "sha256": "8248d78d403d1fde328009074fc732dedbaf6458200d342971461e18668ebffc"
+        },
+        {
+          "file": "ui-high-ta-large/ui-high-ta-large-remapped.png",
+          "sha256": "26798e1ce93be55661893767016e43a098e2761386c5874c4fcee8319aae460e"
+        },
+        {
+          "file": "ui-high-ta-large/ui-high-ta-large-reset.png",
+          "sha256": "48d586e734a7b6114e83062e82b795c81e82be925edd59a693c3398931cae51e"
+        },
+        {
+          "file": "ui-high-ta-large/ui-high-ta-large.json",
+          "sha256": "1df28ee597d07e9b87bc49424c36ceb36025798265ee74005c0f89b44b68dc0c"
+        }
+      ]
+    },
+    {
+      "tag": "ui-runtime-low-en",
+      "script": "test/fpgamepadbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 34,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "ui-runtime-low-en/ui-runtime-low-en-fractional-drive.png",
+          "sha256": "98c787c4394a8d94fbbff6e32cb51695b8f1a153c19786ab5c7f61f0518c8502"
+        },
+        {
+          "file": "ui-runtime-low-en/ui-runtime-low-en-handheld.png",
+          "sha256": "a8dd69d3c8228c8fa0af3f5d02471187042e5faa00289933be79330f7f2e76b5"
+        },
+        {
+          "file": "ui-runtime-low-en/ui-runtime-low-en-pause.png",
+          "sha256": "fa27a631e1d68579d769f22876fd1a136a1f8158f0c19b649e2c689eabb65bc0"
+        },
+        {
+          "file": "ui-runtime-low-en/ui-runtime-low-en-stopped-reverse.png",
+          "sha256": "3573a917830ea7d8d6ec5cdcd87e327e11e86200f1dbe78e8904a2a5b1aff363"
+        },
+        {
+          "file": "ui-runtime-low-en/ui-runtime-low-en.json",
+          "sha256": "87bb4392698100737e80729b017e2cd05aa9886567752893e3cd0857d5a84581"
+        }
+      ]
+    },
+    {
+      "tag": "ui-runtime-high-ta",
+      "script": "test/fpgamepadbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "accepted": true,
+      "checks": 34,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "ui-runtime-high-ta/ui-runtime-high-ta-fractional-drive.png",
+          "sha256": "3a7b8c811d638e8b14b1815cee660fb583ebcb4a8adac6e3c6a31e4d9a2e76a1"
+        },
+        {
+          "file": "ui-runtime-high-ta/ui-runtime-high-ta-handheld.png",
+          "sha256": "41e3a911152aa8faed9c748508e3410622ed22095a9ef612a8ee8afeb78c0aca"
+        },
+        {
+          "file": "ui-runtime-high-ta/ui-runtime-high-ta-pause.png",
+          "sha256": "0f62907380e6962cda4ce27ff9b42f9ba871f5a1a8ad0da9f1a52d625c82cea5"
+        },
+        {
+          "file": "ui-runtime-high-ta/ui-runtime-high-ta-stopped-reverse.png",
+          "sha256": "0a2ed85bca8fcec0c84b8ec720b61cfb6362cf8cd11922c259a672e702b2e12e"
+        },
+        {
+          "file": "ui-runtime-high-ta/ui-runtime-high-ta.json",
+          "sha256": "959e2ba5a535695ed6139c9c9bc907e13cf0d08f33e99d29f5f47f91adc9eed2"
+        }
+      ]
+    },
+    {
+      "tag": "ui-affinity",
+      "script": "test/fpgamepadaffinitybrowser.js",
+      "env": {},
+      "exit": 0,
+      "accepted": true,
+      "checks": 21,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "ui-affinity/ui-affinity-driver-retained.png",
+          "sha256": "f1de2a3c4d00581e62602585a5747eb2fed52c673ebbce388252e0b7f801df5a"
+        },
+        {
+          "file": "ui-affinity/ui-affinity-replacement-neutral.png",
+          "sha256": "b98c7d332df4fe71df61b2572643e395ecc3b05a8952716d3bf1372bace00308"
+        },
+        {
+          "file": "ui-affinity/ui-affinity.json",
+          "sha256": "9c5933e3672204894fd458bf03e068c09ae9a51cd726dc1fa221dfce7aade7e3"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793082436.7253647,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8399",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 138184,
+  "index": 6,
+  "tag": "ui-affinity",
+  "childPid": 140663,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793083494.813258
+}

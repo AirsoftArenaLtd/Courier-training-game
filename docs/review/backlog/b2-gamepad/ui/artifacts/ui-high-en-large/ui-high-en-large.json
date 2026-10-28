@@ -1,0 +1,1449 @@
+{
+  "quality": "high",
+  "language": "en",
+  "large": true,
+  "checks": 100,
+  "shots": [
+    "driving-guide",
+    "bindings",
+    "capture",
+    "remapped",
+    "conflict",
+    "deadzone",
+    "reset"
+  ],
+  "layouts": [
+    {
+      "name": "existing keyboard controls",
+      "rows": [
+        {
+          "source": "3D controls",
+          "text": "3D controls",
+          "x": 563.5,
+          "y": 111.5,
+          "right": 716.5,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "The controls use the same saved key map as Settings and Accessibility. Press P to select a visible nearby target without the mouse.",
+          "text": "The controls use the same saved key map as Settings and Accessibility. Press P to select a visible nearby target without the mouse.",
+          "x": 152,
+          "y": 170,
+          "right": 1073,
+          "bottom": 222,
+          "size": 19
+        },
+        {
+          "source": "1. W: Move forward or accelerate",
+          "text": "1. W: Move forward or accelerate",
+          "x": 240.5,
+          "y": 391,
+          "right": 551.5,
+          "bottom": 415,
+          "size": 19
+        },
+        {
+          "source": "2. S: Move back or brake",
+          "text": "2. S: Move back or brake",
+          "x": 769.5,
+          "y": 391,
+          "right": 998.5,
+          "bottom": 415,
+          "size": 19
+        },
+        {
+          "source": "3. A: Move or steer left",
+          "text": "3. A: Move or steer left",
+          "x": 289.5,
+          "y": 449,
+          "right": 502.5,
+          "bottom": 473,
+          "size": 19
+        },
+        {
+          "source": "4. D: Move or steer right",
+          "text": "4. D: Move or steer right",
+          "x": 769.5,
+          "y": 449,
+          "right": 998.5,
+          "bottom": 473,
+          "size": 19
+        },
+        {
+          "source": "5. Next page",
+          "text": "5. Next page",
+          "x": 336.5,
+          "y": 507,
+          "right": 455.5,
+          "bottom": 531,
+          "size": 19
+        },
+        {
+          "source": "6. Gamepad controls",
+          "text": "6. Gamepad controls",
+          "x": 786.5,
+          "y": 507,
+          "right": 981.5,
+          "bottom": 531,
+          "size": 19
+        },
+        {
+          "source": "7. Back",
+          "text": "7. Back",
+          "x": 362,
+          "y": 565,
+          "right": 430,
+          "bottom": 589,
+          "size": 19
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "guide 0",
+      "rows": [
+        {
+          "source": "Move and look with the gamepad.",
+          "text": "Move and look with the gamepad.",
+          "x": 411,
+          "y": 111.5,
+          "right": 869,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Use Axis 1 and Axis 2 to walk. Use Axis 3 and Axis 4 to look.",
+          "text": "Use Axis 1 and Axis 2 to walk. Use Axis 3 and Axis 4 to look.",
+          "x": 152,
+          "y": 170,
+          "right": 786,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Next page",
+          "text": "1. Next page",
+          "x": 571,
+          "y": 448.5,
+          "right": 709,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "2. Change gamepad controls",
+          "text": "2. Change gamepad controls",
+          "x": 484,
+          "y": 506.5,
+          "right": 796,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "3. Back",
+          "text": "3. Back",
+          "x": 601,
+          "y": 564.5,
+          "right": 679,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "guide 1",
+      "rows": [
+        {
+          "source": "Drive with the gamepad.",
+          "text": "Drive with the gamepad.",
+          "x": 473,
+          "y": 111.5,
+          "right": 807,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Use Axis 1 to steer, Button 8 to accelerate and Button 7 to brake. Use Button 3 to change between drive and reverse while stopped.",
+          "text": "Use Axis 1 to steer, Button 8 to accelerate and Button 7 to brake. Use Button 3 to change between drive and reverse while stopped.",
+          "x": 152,
+          "y": 170,
+          "right": 1104,
+          "bottom": 230,
+          "size": 23
+        },
+        {
+          "source": "1. Next page",
+          "text": "1. Next page",
+          "x": 571,
+          "y": 448.5,
+          "right": 709,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "2. Change gamepad controls",
+          "text": "2. Change gamepad controls",
+          "x": 484,
+          "y": 506.5,
+          "right": 796,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "3. Back",
+          "text": "3. Back",
+          "x": 601,
+          "y": 564.5,
+          "right": 679,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "guide 2",
+      "rows": [
+        {
+          "source": "Use the cab controls.",
+          "text": "Use the cab controls.",
+          "x": 499,
+          "y": 111.5,
+          "right": 781,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Use Button 13 for the seatbelt and Button 14 for the parking brake. Use Button 5 and Button 6 for the signals.",
+          "text": "Use Button 13 for the seatbelt and Button 14 for the parking brake. Use Button 5 and Button 6 for the signals.",
+          "x": 152,
+          "y": 170,
+          "right": 1071,
+          "bottom": 230,
+          "size": 23
+        },
+        {
+          "source": "1. Next page",
+          "text": "1. Next page",
+          "x": 571,
+          "y": 448.5,
+          "right": 709,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "2. Change gamepad controls",
+          "text": "2. Change gamepad controls",
+          "x": 484,
+          "y": 506.5,
+          "right": 796,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "3. Back",
+          "text": "3. Back",
+          "x": 601,
+          "y": 564.5,
+          "right": 679,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "guide 3",
+      "rows": [
+        {
+          "source": "Use menus and the handheld.",
+          "text": "Use menus and the handheld.",
+          "x": 439,
+          "y": 111.5,
+          "right": 841,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Use Button 1 to choose or interact and Button 2 to go back. Use Button 9 for the handheld. Hold the interact button to scan while aiming.",
+          "text": "Use Button 1 to choose or interact and Button 2 to go back. Use Button 9 for the handheld. Hold the interact button to scan while aiming.",
+          "x": 152,
+          "y": 170,
+          "right": 1017,
+          "bottom": 230,
+          "size": 23
+        },
+        {
+          "source": "1. Next page",
+          "text": "1. Next page",
+          "x": 571,
+          "y": 448.5,
+          "right": 709,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "2. Change gamepad controls",
+          "text": "2. Change gamepad controls",
+          "x": 484,
+          "y": 506.5,
+          "right": 796,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "3. Back",
+          "text": "3. Back",
+          "x": 601,
+          "y": 564.5,
+          "right": 679,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "guide 4",
+      "rows": [
+        {
+          "source": "Connect a standard gamepad.",
+          "text": "Connect a standard gamepad.",
+          "x": 438,
+          "y": 111.5,
+          "right": 842,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Press a gamepad button to connect, then release all controls. Use Button 13 and Button 14 to choose menu options. Keyboard and mouse controls remain available.",
+          "text": "Press a gamepad button to connect, then release all controls. Use Button 13 and Button 14 to choose menu options. Keyboard and mouse controls remain available.",
+          "x": 152,
+          "y": 170,
+          "right": 1099,
+          "bottom": 230,
+          "size": 23
+        },
+        {
+          "source": "1. Next page",
+          "text": "1. Next page",
+          "x": 571,
+          "y": 448.5,
+          "right": 709,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "2. Change gamepad controls",
+          "text": "2. Change gamepad controls",
+          "x": 484,
+          "y": 506.5,
+          "right": 796,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "3. Back",
+          "text": "3. Back",
+          "x": 601,
+          "y": 564.5,
+          "right": 679,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 0",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111.5,
+          "right": 763,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Axis 1: Walk or steer left and right",
+          "text": "1. Axis 1: Walk or steer left and right",
+          "x": 197,
+          "y": 390.5,
+          "right": 595,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "2. Axis 2: Walk forward and backward",
+          "text": "2. Axis 2: Walk forward and backward",
+          "x": 679,
+          "y": 390.5,
+          "right": 1089,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "3. Axis 3: Look left and right",
+          "text": "3. Axis 3: Look left and right",
+          "x": 243.5,
+          "y": 448.5,
+          "right": 548.5,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "4. Next page",
+          "text": "4. Next page",
+          "x": 815,
+          "y": 448.5,
+          "right": 953,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506.5,
+          "right": 495,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506.5,
+          "right": 1083.5,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "7. Back",
+          "text": "7. Back",
+          "x": 357,
+          "y": 564.5,
+          "right": 435,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 1",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111.5,
+          "right": 763,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Axis 4: Look up and down",
+          "text": "1. Axis 4: Look up and down",
+          "x": 245,
+          "y": 390.5,
+          "right": 547,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "2. Button 8: Accelerate",
+          "text": "2. Button 8: Accelerate",
+          "x": 760,
+          "y": 390.5,
+          "right": 1008,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "3. Button 7: Brake",
+          "text": "3. Button 7: Brake",
+          "x": 298,
+          "y": 448.5,
+          "right": 494,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "4. Next page",
+          "text": "4. Next page",
+          "x": 815,
+          "y": 448.5,
+          "right": 953,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506.5,
+          "right": 495,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506.5,
+          "right": 1083.5,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "7. Back",
+          "text": "7. Back",
+          "x": 357,
+          "y": 564.5,
+          "right": 435,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 2",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111.5,
+          "right": 763,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Button 1: Interact or scan",
+          "text": "1. Button 1: Interact or scan",
+          "x": 243,
+          "y": 390.5,
+          "right": 549,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "2. Button 2: Back",
+          "text": "2. Button 2: Back",
+          "x": 791.5,
+          "y": 390.5,
+          "right": 976.5,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "3. Button 3: Change gear",
+          "text": "3. Button 3: Change gear",
+          "x": 260.5,
+          "y": 448.5,
+          "right": 531.5,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "4. Next page",
+          "text": "4. Next page",
+          "x": 815,
+          "y": 448.5,
+          "right": 953,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506.5,
+          "right": 495,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506.5,
+          "right": 1083.5,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "7. Back",
+          "text": "7. Back",
+          "x": 357,
+          "y": 564.5,
+          "right": 435,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 3",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111.5,
+          "right": 763,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Button 4: Select the next nearby target",
+          "text": "1. Button 4: Select the next nearby target",
+          "x": 207,
+          "y": 371,
+          "right": 585,
+          "bottom": 421,
+          "size": 22
+        },
+        {
+          "source": "2. Button 5: Signal left",
+          "text": "2. Button 5: Signal left",
+          "x": 763,
+          "y": 383.5,
+          "right": 1005,
+          "bottom": 408.5,
+          "size": 22
+        },
+        {
+          "source": "3. Button 6: Signal right",
+          "text": "3. Button 6: Signal right",
+          "x": 266.5,
+          "y": 448.5,
+          "right": 525.5,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "4. Next page",
+          "text": "4. Next page",
+          "x": 815,
+          "y": 448.5,
+          "right": 953,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506.5,
+          "right": 495,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506.5,
+          "right": 1083.5,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "7. Back",
+          "text": "7. Back",
+          "x": 357,
+          "y": 564.5,
+          "right": 435,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 4",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111.5,
+          "right": 763,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Button 9: Open or close the handheld",
+          "text": "1. Button 9: Open or close the handheld",
+          "x": 179,
+          "y": 390.5,
+          "right": 613,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "2. Button 10: Open the menu",
+          "text": "2. Button 10: Open the menu",
+          "x": 726.5,
+          "y": 390.5,
+          "right": 1041.5,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "3. Button 14: Set the parking brake",
+          "text": "3. Button 14: Set the parking brake",
+          "x": 204.5,
+          "y": 448.5,
+          "right": 587.5,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "4. Next page",
+          "text": "4. Next page",
+          "x": 815,
+          "y": 448.5,
+          "right": 953,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506.5,
+          "right": 495,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506.5,
+          "right": 1083.5,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "7. Back",
+          "text": "7. Back",
+          "x": 357,
+          "y": 564.5,
+          "right": 435,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 5",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111.5,
+          "right": 763,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Button 13: Fasten the seatbelt",
+          "text": "1. Button 13: Fasten the seatbelt",
+          "x": 218,
+          "y": 390.5,
+          "right": 574,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "2. Button 12: Look forward",
+          "text": "2. Button 12: Look forward",
+          "x": 738.5,
+          "y": 390.5,
+          "right": 1029.5,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "3. Button 11: Walk carefully",
+          "text": "3. Button 11: Walk carefully",
+          "x": 245.5,
+          "y": 448.5,
+          "right": 546.5,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "4. Next page",
+          "text": "4. Next page",
+          "x": 815,
+          "y": 448.5,
+          "right": 953,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506.5,
+          "right": 495,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506.5,
+          "right": 1083.5,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "7. Back",
+          "text": "7. Back",
+          "x": 357,
+          "y": 564.5,
+          "right": 435,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 6",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111.5,
+          "right": 763,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Button 13: Previous menu choice",
+          "text": "1. Button 13: Previous menu choice",
+          "x": 204,
+          "y": 390.5,
+          "right": 588,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "2. Button 14: Next menu choice",
+          "text": "2. Button 14: Next menu choice",
+          "x": 713,
+          "y": 390.5,
+          "right": 1055,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "3. Button 15: Previous menu choice",
+          "text": "3. Button 15: Previous menu choice",
+          "x": 204,
+          "y": 448.5,
+          "right": 588,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "4. Next page",
+          "text": "4. Next page",
+          "x": 815,
+          "y": 448.5,
+          "right": 953,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506.5,
+          "right": 495,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506.5,
+          "right": 1083.5,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "7. Back",
+          "text": "7. Back",
+          "x": 357,
+          "y": 564.5,
+          "right": 435,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "bindings 7",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111.5,
+          "right": 763,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Button 16: Next menu choice",
+          "text": "1. Button 16: Next menu choice",
+          "x": 225,
+          "y": 448.5,
+          "right": 567,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "2. Next page",
+          "text": "2. Next page",
+          "x": 815,
+          "y": 448.5,
+          "right": 953,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "3. Stick sensitivity",
+          "text": "3. Stick sensitivity",
+          "x": 297,
+          "y": 506.5,
+          "right": 495,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "4. Restore default gamepad controls",
+          "text": "4. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506.5,
+          "right": 1083.5,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "5. Back",
+          "text": "5. Back",
+          "x": 357,
+          "y": 564.5,
+          "right": 435,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "edit",
+      "rows": [
+        {
+          "source": "Change a gamepad control",
+          "text": "Change a gamepad control",
+          "x": 458.5,
+          "y": 111.5,
+          "right": 821.5,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Change gear",
+          "text": "Change gear",
+          "x": 152,
+          "y": 170,
+          "right": 291,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Choose a new input",
+          "text": "1. Choose a new input",
+          "x": 520,
+          "y": 448.5,
+          "right": 760,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "2. Disable this input",
+          "text": "2. Disable this input",
+          "x": 531,
+          "y": 506.5,
+          "right": 749,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "3. Back",
+          "text": "3. Back",
+          "x": 601,
+          "y": 564.5,
+          "right": 679,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "capture",
+      "rows": [
+        {
+          "source": "Choose a gamepad input",
+          "text": "Choose a gamepad input",
+          "x": 473,
+          "y": 111.5,
+          "right": 807,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Release all controls, press one button, then release it. Escape cancels.",
+          "text": "Release all controls, press one button, then release it. Escape cancels.",
+          "x": 152,
+          "y": 170,
+          "right": 900,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Cancel",
+          "text": "1. Cancel",
+          "x": 591,
+          "y": 564.5,
+          "right": 689,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "remapped",
+      "rows": [
+        {
+          "source": "Gamepad controls",
+          "text": "Gamepad controls",
+          "x": 517,
+          "y": 111.5,
+          "right": 763,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "text": "Changes apply to this 3D session. Keyboard controls stay the same.",
+          "x": 152,
+          "y": 170,
+          "right": 877,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Button 1: Interact or scan",
+          "text": "1. Button 1: Interact or scan",
+          "x": 243,
+          "y": 390.5,
+          "right": 549,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "2. Button 2: Back",
+          "text": "2. Button 2: Back",
+          "x": 791.5,
+          "y": 390.5,
+          "right": 976.5,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "3. Button 17: Change gear",
+          "text": "3. Button 17: Change gear",
+          "x": 254.5,
+          "y": 448.5,
+          "right": 537.5,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "4. Next page",
+          "text": "4. Next page",
+          "x": 815,
+          "y": 448.5,
+          "right": 953,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "5. Stick sensitivity",
+          "text": "5. Stick sensitivity",
+          "x": 297,
+          "y": 506.5,
+          "right": 495,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "6. Restore default gamepad controls",
+          "text": "6. Restore default gamepad controls",
+          "x": 684.5,
+          "y": 506.5,
+          "right": 1083.5,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "7. Back",
+          "text": "7. Back",
+          "x": 357,
+          "y": 564.5,
+          "right": 435,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "conflict",
+      "rows": [
+        {
+          "source": "Choose another gamepad input",
+          "text": "Choose another gamepad input",
+          "x": 426.5,
+          "y": 111.5,
+          "right": 853.5,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "That input is already assigned to an action used at the same time. Choose another input or disable its other action first.",
+          "text": "That input is already assigned to an action used at the same time. Choose another input or disable its other action first.",
+          "x": 152,
+          "y": 170,
+          "right": 1102,
+          "bottom": 230,
+          "size": 23
+        },
+        {
+          "source": "1. Try again",
+          "text": "1. Try again",
+          "x": 576.5,
+          "y": 506.5,
+          "right": 703.5,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "2. Back",
+          "text": "2. Back",
+          "x": 601,
+          "y": 564.5,
+          "right": 679,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "deadzone",
+      "rows": [
+        {
+          "source": "Stick sensitivity",
+          "text": "Stick sensitivity",
+          "x": 534,
+          "y": 111.5,
+          "right": 746,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Ignore stick movement below 18 percent. Choose a higher value if the view or steering moves while the stick is released.",
+          "text": "Ignore stick movement below 18 percent. Choose a higher value if the view or steering moves while the stick is released.",
+          "x": 152,
+          "y": 170,
+          "right": 1085,
+          "bottom": 230,
+          "size": 23
+        },
+        {
+          "source": "1. Ignore movement below 10 percent.",
+          "text": "1. Ignore movement below 10 percent.",
+          "x": 429,
+          "y": 390.5,
+          "right": 851,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "2. Ignore movement below 18 percent.",
+          "text": "2. Ignore movement below 18 percent.",
+          "x": 429,
+          "y": 448.5,
+          "right": 851,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "3. Ignore movement below 30 percent.",
+          "text": "3. Ignore movement below 30 percent.",
+          "x": 429,
+          "y": 506.5,
+          "right": 851,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "4. Back",
+          "text": "4. Back",
+          "x": 601,
+          "y": 564.5,
+          "right": 679,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "deadzone changed",
+      "rows": [
+        {
+          "source": "Stick sensitivity",
+          "text": "Stick sensitivity",
+          "x": 534,
+          "y": 111.5,
+          "right": 746,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Ignore stick movement below 30 percent. Choose a higher value if the view or steering moves while the stick is released.",
+          "text": "Ignore stick movement below 30 percent. Choose a higher value if the view or steering moves while the stick is released.",
+          "x": 152,
+          "y": 170,
+          "right": 1085,
+          "bottom": 230,
+          "size": 23
+        },
+        {
+          "source": "1. Ignore movement below 10 percent.",
+          "text": "1. Ignore movement below 10 percent.",
+          "x": 429,
+          "y": 390.5,
+          "right": 851,
+          "bottom": 415.5,
+          "size": 22
+        },
+        {
+          "source": "2. Ignore movement below 18 percent.",
+          "text": "2. Ignore movement below 18 percent.",
+          "x": 429,
+          "y": 448.5,
+          "right": 851,
+          "bottom": 473.5,
+          "size": 22
+        },
+        {
+          "source": "3. Ignore movement below 30 percent.",
+          "text": "3. Ignore movement below 30 percent.",
+          "x": 429,
+          "y": 506.5,
+          "right": 851,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "4. Back",
+          "text": "4. Back",
+          "x": 601,
+          "y": 564.5,
+          "right": 679,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    },
+    {
+      "name": "reset confirmation",
+      "rows": [
+        {
+          "source": "Restore default gamepad controls",
+          "text": "Restore default gamepad controls",
+          "x": 410.5,
+          "y": 111.5,
+          "right": 869.5,
+          "bottom": 142.5,
+          "size": 27
+        },
+        {
+          "source": "Reset gamepad controls for this 3D session?",
+          "text": "Reset gamepad controls for this 3D session?",
+          "x": 152,
+          "y": 170,
+          "right": 629,
+          "bottom": 198,
+          "size": 23
+        },
+        {
+          "source": "1. Restore defaults",
+          "text": "1. Restore defaults",
+          "x": 537.5,
+          "y": 506.5,
+          "right": 742.5,
+          "bottom": 531.5,
+          "size": 22
+        },
+        {
+          "source": "2. Cancel",
+          "text": "2. Cancel",
+          "x": 591,
+          "y": 564.5,
+          "right": 689,
+          "bottom": 589.5,
+          "size": 22
+        }
+      ],
+      "bad": []
+    }
+  ],
+  "errors": [],
+  "scope": "One initial parked-cab/profile fixture, then real keyboard/menu choices and fake Gamepad API values. No subsequent position, mission, score or timer writes. New UI text uses the translation pipeline; new translations and durable shared gamepad settings remain pending.",
+  "initial": {
+    "gear": 2,
+    "belt": true,
+    "hand": true,
+    "paused": false,
+    "elapsed": 0.07496666666666649,
+    "draft": null,
+    "held": {},
+    "stored": "{\"muted\":false,\"hints\":true,\"volume\":0.55,\"a11y\":{\"keys\":{\"KeyR\":\"KeyT\"},\"large\":true,\"colour\":false,\"narrate\":false,\"reducedMotion\":true}}",
+    "local": "[[\"otr_save_v1_firstperson_v2\",null]]",
+    "frame": {
+      "connected": true,
+      "active": true,
+      "device": 0,
+      "steer": 0,
+      "moveX": 0,
+      "moveY": 0,
+      "lookX": 0,
+      "lookY": 0,
+      "throttle": 0,
+      "brake": 0,
+      "careful": false,
+      "held": 0,
+      "pressed": 0,
+      "released": 0
+    },
+    "controls": {
+      "forward": 0,
+      "back": 0,
+      "left": 0,
+      "right": 0,
+      "careful": false
+    }
+  },
+  "complete": true
+}

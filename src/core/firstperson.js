@@ -2,6 +2,7 @@
 window.OTR = window.OTR || {};
 OTR.fp = {
   clamp(x, a, b) { return Math.max(a, Math.min(b, x)); },
+  pressure(value) { return value===true?1:Number.isFinite(value)?this.clamp(value,0,1):0; },
   approach(x, to, amount) { return x < to ? Math.min(to, x + amount) : Math.max(to, x - amount); },
   local(v, x, z) {
     return { x: v.x + Math.cos(v.yaw) * x - Math.sin(v.yaw) * z,
@@ -56,13 +57,13 @@ OTR.fp = {
   },
   drive(m, input, dt) {
     if (!(dt > 0)) return;
-    const v = m.van, speed = v.speed, assist = this.driveAssist(m), mass = 2400 + this.payload(m);
+    const v = m.van, speed = v.speed, assist = this.driveAssist(m), mass = 2400 + this.payload(m),throttle=this.pressure(input.forward),brake=this.pressure(input.back);
     const grip = this.clamp(Number(m.traction) || 1, 0.2, 1), abs = Math.abs(speed);
-    if (v.hand || v.gear === 2 || input.back) {
+    if (v.hand || v.gear === 2 || brake) {
       const braking = v.hand ? 19200 : 13500 + assist * 1000;
-      v.speed = this.approach(speed, 0, braking / mass * grip * dt);
-    } else if (input.forward && v.gear !== 0) {
-      const force = v.gear * 6200 / (1 + abs * abs * 0.016), drag = Math.sign(speed) * (500 + 8 * abs * abs);
+      v.speed = this.approach(speed, 0, braking / mass * grip * dt*(v.hand||v.gear===2?1:brake));
+    } else if (throttle && v.gear !== 0) {
+      const force = v.gear * 6200 / (1 + abs * abs * 0.016)*throttle, drag = Math.sign(speed) * (500 + 8 * abs * abs);
       v.speed = this.clamp(speed + (force - drag) / mass * dt, -(1.7 + (1 - assist) * 0.4), 12 - assist * 4);
     } else if (v.gear < 0) {
       v.speed = this.approach(speed, -(0.45 - assist * 0.1), 0.6 * 2400 / mass * dt);
@@ -71,7 +72,7 @@ OTR.fp = {
     }
     const oldSteer = v.steer;
     const limit = Math.min(0.58 / (1 + (mass - 2400) / 4000), Math.atan((4.8 - assist) * grip * 3.3 / Math.max(1, abs * abs)));
-    const target = (Number(!!input.right) - Number(!!input.left)) * limit;
+    const target = (this.pressure(input.right) - this.pressure(input.left)) * limit;
     v.steer = this.approach(v.steer, target, (target ? 1.05 + assist * 0.35 : 1.5 + assist) * dt);
     const distance = (speed + v.speed) * 0.5 * dt, turn = distance * Math.tan((oldSteer + v.steer) * 0.5) / 3.3;
     const yaw = v.yaw + turn, mid = v.yaw + turn * 0.5, rear = 1.7;
@@ -100,7 +101,7 @@ OTR.fp = {
     if (contact) v.speed = 0;
     else { v.x = next.x; v.z = next.z; v.yaw = next.yaw; }
     const d = this.suspension(m, dt, (v.speed - speed) / dt, contact ? 0 : turn / dt * (speed + v.speed) * 0.5);
-    d.contact = contact; d.rpm += input.forward && !input.back && !v.hand && (v.gear===1||v.gear===-1) ? 400 : 0;
+    d.contact = contact; d.rpm += throttle && !brake && !v.hand && (v.gear===1||v.gear===-1) ? 400*throttle : 0;
     if(m.damage){d.contactBox=contactBox;d.contactNormalSpeed=normalSpeed;}
   },
   create() {

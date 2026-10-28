@@ -1,0 +1,111 @@
+{
+  "verifiedAt": "2026-10-27T06:05:31.610539+00:00",
+  "status": "owned-runtime-validated-remapping-ui-pending",
+  "baseCommit": "90844ac5",
+  "currentInputsVerified": 526,
+  "currentChangedSources": [],
+  "phaseOne": {
+    "jobs": 16,
+    "checks": 665,
+    "gamepadLayouts": 8,
+    "gamepadChecks": 272,
+    "keyboardSuites": 4,
+    "keyboardChecks": 393,
+    "resourceViews": 12,
+    "sourceInputsAtCompletion": 525
+  },
+  "currentFollowup": {
+    "jobs": 3,
+    "checks": 89,
+    "twoPadChecks": 21,
+    "singlePadCases": [
+      "Low English normal",
+      "High Tamil larger"
+    ],
+    "sourceInputs": 526
+  },
+  "allBrowserJobs": 19,
+  "allBrowserChecks": 754,
+  "cpuTests": 274,
+  "cpuScope": "256 affected/required cases retain their unchanged source; current controller8/scene9/affinity1 pass18 fresh cases. The separate English-text guard and current catalogue also pass.",
+  "keyboardOracle": {
+    "baselineCommit": "90844ac5",
+    "baselineSourceSha256": "a61c98a07c1b69c269186791c56331120fabca5f4d2ecd21a95d4810cf43469e",
+    "currentSourceSha256": "c0b31bc858d2addd633246f3c785649a4718107ad01918b905891dd8df87b616",
+    "cases": 288,
+    "comparedSteps": 57600,
+    "exact": true,
+    "beforeHistorySha256": "e7b4f78e8ad44b805f3c98e46138a161c7997f1c4f36a7de7e16f91b525b6e91",
+    "afterHistorySha256": "e7b4f78e8ad44b805f3c98e46138a161c7997f1c4f36a7de7e16f91b525b6e91",
+    "scope": "Identical boolean-key motor histories across gears, assists, brakes, speeds, traction, payload and a collision wall; no analogue/default-route/Intel acceptance implied."
+  },
+  "singlePadOracle": {
+    "beforeSourceSha256": "5d5fb18fd03a7b38e897441e1f5a8beee595b1ceb189bc357794c1ad83c198ee",
+    "currentSourceSha256": "cfcd27ac7ec7ee6eeb1f79311a2bb7415c19e3b74f4c037a7ae9fd8fb6e8263f",
+    "histories": 8,
+    "comparedFrames": 20000,
+    "exact": true,
+    "beforeHistorySha256": "b1b338e959231132493b17cabaf25f4eb88bc19890487bdf06868b1172a5c616",
+    "afterHistorySha256": "b1b338e959231132493b17cabaf25f4eb88bc19890487bdf06868b1172a5c616",
+    "scope": "Single connected pad in slot0 or1 across input, context-reset, configuration, focus-disable, identity and disconnect histories; dedicated two-pad tests cover the intentional affinity difference."
+  },
+  "resourcePeaks": {
+    "b2-resources-loaded-low": {
+      "calls": 41,
+      "triangles": 1330,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1925291
+    },
+    "b2-resources-loaded-high": {
+      "calls": 70,
+      "triangles": 92730,
+      "textures": 3,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 5530395
+    },
+    "b2-resources-accessible-low": {
+      "calls": 41,
+      "triangles": 1330,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1960507
+    },
+    "b2-resources-fallback-low": {
+      "calls": 34,
+      "triangles": 956,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1972891
+    }
+  },
+  "priorMapDelta": [
+    "src/core/fpgamepad.js"
+  ],
+  "resourceScope": "Original12 views retain their exact pre-affinity525-input scope. Only the controller reset helper differs now; geometry, assets, passes, render protocol, budgets and single-pad public traces remain unchanged. No fresh full12 rerun is claimed.",
+  "serverScope": "Both validators bind only127.0.0.1; initial all-interface launch was rejected before execution and replaced with this safer local-only setup.",
+  "allServersExited": true,
+  "allBrowserLeasesReleased": true,
+  "remaining": [
+    "Owned gamepad instructions/remapping UI",
+    "Shared bounded settings persistence/SCORM contract in Claude inbox",
+    "Shared catalogue/A31/current-pilot/default-stack/Intel acceptance"
+  ],
+  "currentSources": {
+    "index.html": "c028d4bfca8fc4bd6de38cb2a4777bc9826e3afff8e7718fe8695da7d5c6e5d5",
+    "src/core/firstperson.js": "c0b31bc858d2addd633246f3c785649a4718107ad01918b905891dd8df87b616",
+    "src/core/fpaccess.js": "d99b4b170adda94a3d1e7787b21428ebe78db95872db4cbbe9f3e7d61e515121",
+    "src/core/fpgamepad.js": "cfcd27ac7ec7ee6eeb1f79311a2bb7415c19e3b74f4c037a7ae9fd8fb6e8263f",
+    "src/core/fpgamepadscene.js": "380621a06f3cde9c3a55f7c9ba0a6547fb8ad8974f4be6dcb93d2a1ae03dcf2c",
+    "src/scenes/FirstPersonScene.js": "3d9bb8535f8a788ae3adacb599e523e08b7513226b6f7136c5341f5b38ee477f",
+    "test/fpgamepad.js": "9fae0eb925056c5eeb78457c61d5880146c73fafd2fdec373b9f2c31d8f6b22a",
+    "test/fpgamepadscene.js": "8a63e0d14fc9e95b42c1dce0ba35597d877d4119f53997d6fc836cb17b5ef753",
+    "test/fpgamepadaffinity.js": "3158ebd88e1eb217e60e4d4a73f4cd5cf529240bbdca6d1f62ea6ce2ea8aaebe",
+    "test/fpgamepadbrowser.js": "892c68ca284ed741d0060edbb4969080a644b99c32fefcabc47ff5de975cf8e0",
+    "test/fpgamepadaffinitybrowser.js": "89cf33d48581d2da44d6cd3079bf4aef6b0aed2c5f133c5fdd622e1fb11b348b"
+  },
+  "whitespaceCheck": {
+    "authoredCodeAndDocs": "passed",
+    "rawProducerException": "affinity-before.log retains the original Node failing-regression output, including its whitespace-only indentation lines. It is excluded from the authored-text whitespace check."
+  }
+}

@@ -25,6 +25,7 @@ OTR.fpGuide={
     back=back||(()=>scene.showPause());scene.showPanel('Controls and guidance',this.controls(),[
       {label:'Workday steps',action:()=>this.steps(scene,0,()=>this.open(scene,back))},
       {label:'Change the 3D controls',action:()=>OTR.fpAccess.keys(scene,0)},
+      ...(scene.gamepad&&OTR.fpGamepadUI?[{label:'Gamepad controls',action:()=>OTR.fpGamepadUI.open(scene,0,()=>this.open(scene,back))}]:[]),
       {label:'Back',action:back}
     ]);
   },

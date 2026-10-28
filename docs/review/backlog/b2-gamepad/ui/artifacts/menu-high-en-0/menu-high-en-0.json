@@ -1,0 +1,200 @@
+{
+  "quality": "high",
+  "language": "en",
+  "large": false,
+  "checks": 81,
+  "views": [
+    {
+      "kind": "bindings",
+      "page": 0,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5650299
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 1,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5515451
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 2,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5521723
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 3,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5591611
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 4,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5657019
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 5,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5589371
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 6,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5648955
+      }
+    },
+    {
+      "kind": "bindings",
+      "page": 7,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5367611
+      }
+    },
+    {
+      "kind": "guide",
+      "page": 0,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5240038
+      }
+    },
+    {
+      "kind": "guide",
+      "page": 1,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5952486
+      }
+    },
+    {
+      "kind": "guide",
+      "page": 2,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5860411
+      }
+    },
+    {
+      "kind": "guide",
+      "page": 3,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 6004112
+      }
+    },
+    {
+      "kind": "guide",
+      "page": 4,
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5998779
+      }
+    },
+    {
+      "kind": "deadzone",
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 6179046
+      }
+    },
+    {
+      "kind": "capture",
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 65391,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5048016
+      }
+    },
+    {
+      "kind": "edit",
+      "frames": 3,
+      "peak": {
+        "calls": 49,
+        "triangles": 62527,
+        "textures": 3,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 4970939
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Parked cab/profile and direct production-menu presentation fixtures. Three rendered frames per view; no FPS claim, full-route gate or approved new Tamil translation claim.",
+  "complete": true
+}

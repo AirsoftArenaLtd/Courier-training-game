@@ -4085,7 +4085,38 @@ window.OTR_I18N.mr = {
 "Pause the replay.": "रिप्ले थांबवा.",
 "You signaled for at least three seconds before moving.": "निघण्यापूर्वी तुम्ही किमान तीन सेकंद सिग्नल दिला.",
 "You moved without signaling in the correct direction for three seconds.": "योग्य दिशेला तीन सेकंद सिग्नल न देता तुम्ही निघालात.",
-"cab habit: signal, mirror, belt or lights": "केबिनमधील सवय: सिग्नल, आरसा, सीटबेल्ट किंवा हेडलाइट"
+"cab habit: signal, mirror, belt or lights": "केबिनमधील सवय: सिग्नल, आरसा, सीटबेल्ट किंवा हेडलाइट",
+"Gamepad controls": "गेमपॅड नियंत्रणे",
+"Walk or steer left and right": "चाला किंवा डावीकडे-उजवीकडे वळा",
+"Walk forward and backward": "पुढे आणि मागे चाला",
+"Look left and right": "डावीकडे आणि उजवीकडे पाहा",
+"Look up and down": "वर आणि खाली पाहा",
+"Accelerate": "वेग वाढवा",
+"Brake": "ब्रेक लावा",
+"Interact or scan": "इंटरॅक्ट किंवा स्कॅन करा",
+"Set the parking brake": "पार्किंग ब्रेक लावा",
+"Previous menu choice": "मेनूचा मागील पर्याय",
+"Next menu choice": "मेनूचा पुढील पर्याय",
+"Disabled": "बंद",
+"Move and look with the gamepad.": "गेमपॅडने चाला आणि पाहा.",
+"Drive with the gamepad.": "गेमपॅडने गाडी चालवा.",
+"Use the cab controls.": "केबिनची नियंत्रणे वापरा.",
+"Use menus and the handheld.": "मेनू आणि हँडहेल्ड वापरा.",
+"Connect a standard gamepad.": "एक साधा गेमपॅड जोडा.",
+"Change gamepad controls": "गेमपॅड नियंत्रणे बदला",
+"Changes apply to this 3D session. Keyboard controls stay the same.": "बदल फक्त या 3D सत्राला लागू होतात. कीबोर्ड नियंत्रणे तशीच राहतात.",
+"Stick sensitivity": "स्टिकची संवेदनशीलता",
+"Restore default gamepad controls": "गेमपॅडची मूळ नियंत्रणे परत आणा",
+"Reset gamepad controls for this 3D session?": "या 3D सत्रासाठी गेमपॅड नियंत्रणे रीसेट करायची?",
+"Restore defaults": "मूळ सेटिंग परत आणा",
+"Change a gamepad control": "गेमपॅडचे एक नियंत्रण बदला",
+"Choose a new input": "नवीन इनपुट निवडा",
+"Disable this input": "हा इनपुट बंद करा",
+"Choose a gamepad input": "गेमपॅड इनपुट निवडा",
+"Release all controls, move one stick axis, then release it. Escape cancels.": "सर्व नियंत्रणे सोडा, एका स्टिकचा एक अक्ष हलवा, मग सोडा. Esc रद्द करते.",
+"Release all controls, press one button, then release it. Escape cancels.": "सर्व नियंत्रणे सोडा, एक बटण दाबा, मग सोडा. Esc रद्द करते.",
+"Choose another gamepad input": "गेमपॅडचा दुसरा इनपुट निवडा",
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "हा इनपुट आधीच एकाच वेळी वापरल्या जाणाऱ्या क्रियेला दिलेला आहे. दुसरा इनपुट निवडा किंवा आधी त्याची दुसरी क्रिया बंद करा."
 },
 "templates": [
 [
@@ -5903,6 +5934,42 @@ window.OTR_I18N.mr = {
 [
 "The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
 "उजवा इंडिकेटर चालू आहे. निघण्यापूर्वी किमान तीन सेकंद सिग्नल द्या. बंद करण्यासाठी {0} दाबा."
+],
+[
+"Axis {0}",
+"अक्ष {0}"
+],
+[
+"Button {0}",
+"बटण {0}"
+],
+[
+"Use {0} and {1} to walk. Use {2} and {3} to look.",
+"चालण्यासाठी {0} आणि {1} वापरा. पाहण्यासाठी {2} आणि {3} वापरा."
+],
+[
+"Use {0} to steer, {1} to accelerate and {2} to brake. Use {3} to change between drive and reverse while stopped.",
+"वळण्यासाठी {0}, वेग वाढवण्यासाठी {1} आणि ब्रेकसाठी {2} वापरा. थांबलेले असताना ड्राइव्ह आणि रिव्हर्स बदलण्यासाठी {3} वापरा."
+],
+[
+"Use {0} for the seatbelt and {1} for the parking brake. Use {2} and {3} for the signals.",
+"सीटबेल्टसाठी {0} आणि पार्किंग ब्रेकसाठी {1} वापरा. इंडिकेटरसाठी {2} आणि {3} वापरा."
+],
+[
+"Use {0} to choose or interact and {1} to go back. Use {2} for the handheld. Hold the interact button to scan while aiming.",
+"निवडण्यासाठी किंवा इंटरॅक्ट करण्यासाठी {0} आणि मागे जाण्यासाठी {1} वापरा. हँडहेल्डसाठी {2} वापरा. नेम धरताना स्कॅन करण्यासाठी इंटरॅक्ट बटण दाबून ठेवा."
+],
+[
+"Press a gamepad button to connect, then release all controls. Use {0} and {1} to choose menu options. Keyboard and mouse controls remain available.",
+"जोडण्यासाठी गेमपॅडचे एक बटण दाबा, मग सर्व नियंत्रणे सोडा. मेनूचे पर्याय निवडण्यासाठी {0} आणि {1} वापरा. कीबोर्ड आणि माउसही चालू राहतात."
+],
+[
+"Ignore stick movement below {0} percent. Choose a higher value if the view or steering moves while the stick is released.",
+"{0} टक्क्यांपेक्षा कमी स्टिकची हालचाल दुर्लक्षित करा. स्टिक सोडलेली असतानाही दृश्य किंवा स्टीअरिंग हलत असेल तर मोठे मूल्य निवडा."
+],
+[
+"Ignore movement below {0} percent.",
+"{0} टक्क्यांपेक्षा कमी हालचाल दुर्लक्षित करा."
 ]
 ],
 "keep": [

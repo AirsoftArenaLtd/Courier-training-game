@@ -4086,7 +4086,38 @@ window.OTR_I18N.fr = {
 "Pause the replay.": "Mettre le replay en pause.",
 "You signaled for at least three seconds before moving.": "Tu as mis le clignotant au moins trois secondes avant de partir.",
 "You moved without signaling in the correct direction for three seconds.": "Tu es parti sans mettre le clignotant du bon côté pendant trois secondes.",
-"cab habit: signal, mirror, belt or lights": "réflexe en cabine : clignotant, rétroviseur, ceinture ou phares"
+"cab habit: signal, mirror, belt or lights": "réflexe en cabine : clignotant, rétroviseur, ceinture ou phares",
+"Gamepad controls": "Commandes de la manette",
+"Walk or steer left and right": "Marcher ou tourner à gauche et à droite",
+"Walk forward and backward": "Marcher en avant et en arrière",
+"Look left and right": "Regarder à gauche et à droite",
+"Look up and down": "Regarder en haut et en bas",
+"Accelerate": "Accélérer",
+"Brake": "Freiner",
+"Interact or scan": "Interagir ou scanner",
+"Set the parking brake": "Serrer le frein à main",
+"Previous menu choice": "Choix précédent du menu",
+"Next menu choice": "Choix suivant du menu",
+"Disabled": "Désactivé",
+"Move and look with the gamepad.": "Déplacez-vous et regardez avec la manette.",
+"Drive with the gamepad.": "Conduisez avec la manette.",
+"Use the cab controls.": "Utilisez les commandes de la cabine.",
+"Use menus and the handheld.": "Utilisez les menus et le terminal.",
+"Connect a standard gamepad.": "Branchez une manette standard.",
+"Change gamepad controls": "Modifier les commandes de la manette",
+"Changes apply to this 3D session. Keyboard controls stay the same.": "Les modifications valent pour cette session 3D. Les commandes du clavier restent les mêmes.",
+"Stick sensitivity": "Sensibilité du stick",
+"Restore default gamepad controls": "Rétablir les commandes de la manette par défaut",
+"Reset gamepad controls for this 3D session?": "Réinitialiser les commandes de la manette pour cette session 3D ?",
+"Restore defaults": "Rétablir par défaut",
+"Change a gamepad control": "Modifier une commande de la manette",
+"Choose a new input": "Choisissez une nouvelle entrée",
+"Disable this input": "Désactiver cette entrée",
+"Choose a gamepad input": "Choisissez une entrée de la manette",
+"Release all controls, move one stick axis, then release it. Escape cancels.": "Relâchez toutes les commandes, bougez un axe d'un stick, puis relâchez-le. Échap annule.",
+"Release all controls, press one button, then release it. Escape cancels.": "Relâchez toutes les commandes, appuyez sur un bouton, puis relâchez-le. Échap annule.",
+"Choose another gamepad input": "Choisissez une autre entrée de la manette",
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "Cette entrée est déjà attribuée à une action utilisée en même temps. Choisissez une autre entrée ou désactivez d'abord son autre action."
 },
 "templates": [
 [
@@ -5904,6 +5935,42 @@ window.OTR_I18N.fr = {
 [
 "The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
 "Le clignotant droit est allumé. Mets le clignotant au moins trois secondes avant de partir. Appuie sur {0} pour l'arrêter."
+],
+[
+"Axis {0}",
+"Axe {0}"
+],
+[
+"Button {0}",
+"Bouton {0}"
+],
+[
+"Use {0} and {1} to walk. Use {2} and {3} to look.",
+"Utilisez {0} et {1} pour marcher. Utilisez {2} et {3} pour regarder."
+],
+[
+"Use {0} to steer, {1} to accelerate and {2} to brake. Use {3} to change between drive and reverse while stopped.",
+"Utilisez {0} pour tourner, {1} pour accélérer et {2} pour freiner. Utilisez {3} pour passer de la marche avant à la marche arrière à l'arrêt."
+],
+[
+"Use {0} for the seatbelt and {1} for the parking brake. Use {2} and {3} for the signals.",
+"Utilisez {0} pour la ceinture et {1} pour le frein à main. Utilisez {2} et {3} pour les clignotants."
+],
+[
+"Use {0} to choose or interact and {1} to go back. Use {2} for the handheld. Hold the interact button to scan while aiming.",
+"Utilisez {0} pour choisir ou interagir et {1} pour revenir. Utilisez {2} pour le terminal. Maintenez le bouton d'interaction pour scanner en visant."
+],
+[
+"Press a gamepad button to connect, then release all controls. Use {0} and {1} to choose menu options. Keyboard and mouse controls remain available.",
+"Appuyez sur un bouton de la manette pour la connecter, puis relâchez toutes les commandes. Utilisez {0} et {1} pour choisir dans les menus. Le clavier et la souris restent disponibles."
+],
+[
+"Ignore stick movement below {0} percent. Choose a higher value if the view or steering moves while the stick is released.",
+"Ignorer les mouvements du stick inférieurs à {0} pour cent. Choisissez une valeur plus élevée si la vue ou la direction bouge quand le stick est relâché."
+],
+[
+"Ignore movement below {0} percent.",
+"Ignorer les mouvements inférieurs à {0} pour cent."
 ]
 ],
 "keep": [
