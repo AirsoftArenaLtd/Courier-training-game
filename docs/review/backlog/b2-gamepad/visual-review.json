@@ -1,0 +1,16 @@
+{
+  "verifiedAt": "2026-10-27T06:05:31.609887+00:00",
+  "originalResolution": true,
+  "files": {
+    "b2-pad-low-en-large/b2-pad-low-en-large-fractional-drive.png": "cccdfe4ac1bacd8031dd7798ead82832132cb9924732e36e992b9a5e3e5d18d4",
+    "b2-pad-low-ta-large/b2-pad-low-ta-large-pause.png": "342f5b5fe53601a27a23f8e61f73ccd5662126ee07605f5fe2347a5113963acb",
+    "b2-affinity-current/b2-affinity-current-driver-retained.png": "f1de2a3c4d00581e62602585a5747eb2fed52c673ebbce388252e0b7f801df5a",
+    "b2-current-high-ta-large/b2-current-high-ta-large-handheld.png": "c520a3b651f61a4bc5e86f993630320e6a56e5800c96b17ac27f4a22ff88e800"
+  },
+  "observations": [
+    "Physical cab/mirrors, larger-text pause navigation and handheld retain the existing presentation.",
+    "Gamepad context navigation retains the connected driver; actual selection is established by the API report, not inferred from a still image.",
+    "The existing paused-shift body remains English in the Tamil capture; new gamepad-specific instructions/remapping UI are still pending.",
+    "This branch starts from pilot90844ac5 and does not claim the pending C49/C50/C51/C52 visual stack or full sharedA31 acceptance."
+  ]
+}

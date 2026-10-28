@@ -1,0 +1,30 @@
+✖ modal/focus/configuration resets keep the current connected device when a lower-index pad appears (2.643359ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23.178505
+
+✖ failing tests:
+
+test at test/fpgamepadaffinity.js:5:1
+✖ modal/focus/configuration resets keep the current connected device when a lower-index pad appears (2.643359ms)
+  AssertionError [ERR_ASSERTION]: A modal reset must retain the current connected controller
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/workspace/b2-gamepad/test/fpgamepadaffinity.js:6:214)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

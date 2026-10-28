@@ -1,0 +1,59 @@
+{
+  "phase": "failed",
+  "pid": 137793,
+  "jobs": [
+    {
+      "tag": "ui-low-en-normal",
+      "script": "test/fpgamepadremapbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 1,
+      "accepted": false,
+      "checks": 40,
+      "peak": null,
+      "changedSources": [],
+      "artifacts": [
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal-bindings.png",
+          "sha256": "107a52a041ded2dd0f211209ea1e2f5d23b5b4bd605ae3e71f901f8fe0677edf"
+        },
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal-capture.png",
+          "sha256": "64aaf3db2f47055983d6c879edc4cb43e35a0106ce32c37161e42d65df38636b"
+        },
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal-driving-guide.png",
+          "sha256": "7ef526398d6db08ec7fd8ce5d3399d2af4013230d4b7288a4f3c1afbfc9ab604"
+        },
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal-failure.png",
+          "sha256": "c9528464c2001dfa43ff69bc563a3e8423e7e249540cbd3a04f4f27b9d56202c"
+        },
+        {
+          "file": "ui-low-en-normal/ui-low-en-normal.json",
+          "sha256": "2ad11b314f27050b967da17aea858ea054a81a0ff3bcbedf5b4378dcff52bf6e"
+        }
+      ]
+    }
+  ],
+  "startedAt": 1793082364.1257432,
+  "serverCommand": [
+    "python3",
+    "-m",
+    "http.server",
+    "8399",
+    "--bind",
+    "127.0.0.1"
+  ],
+  "serverPid": 137796,
+  "index": 0,
+  "tag": "ui-low-en-normal",
+  "childPid": 137797,
+  "failure": "Browser job failed: ui-low-en-normal",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793082399.2556984
+}

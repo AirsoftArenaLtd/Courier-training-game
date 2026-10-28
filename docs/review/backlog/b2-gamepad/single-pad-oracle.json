@@ -1,0 +1,10 @@
+{
+  "beforeSourceSha256": "5d5fb18fd03a7b38e897441e1f5a8beee595b1ceb189bc357794c1ad83c198ee",
+  "currentSourceSha256": "cfcd27ac7ec7ee6eeb1f79311a2bb7415c19e3b74f4c037a7ae9fd8fb6e8263f",
+  "histories": 8,
+  "comparedFrames": 20000,
+  "exact": true,
+  "beforeHistorySha256": "b1b338e959231132493b17cabaf25f4eb88bc19890487bdf06868b1172a5c616",
+  "afterHistorySha256": "b1b338e959231132493b17cabaf25f4eb88bc19890487bdf06868b1172a5c616",
+  "scope": "Single connected pad in slot0 or1 across input, context-reset, configuration, focus-disable, identity and disconnect histories; dedicated two-pad tests cover the intentional affinity difference."
+}

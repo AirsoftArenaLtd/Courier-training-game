@@ -1,0 +1,11 @@
+/* Compare complete public input traces before/after the focused device-affinity reset correction. */
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict'),crypto=require('crypto'),path=require('path');
+const root=path.resolve(__dirname,'../../../..'),old=fs.readFileSync(path.join(__dirname,'controller-before-affinity.js'),'utf8'),current=fs.readFileSync(path.join(root,'src/core/fpgamepad.js'),'utf8'),load=s=>{const c={};c.window=c;vm.createContext(c);vm.runInContext(s,c);return c.OTR.fpGamepad;},before=load(old),after=load(current),left=crypto.createHash('sha256'),right=crypto.createHash('sha256');let steps=0;
+for(const slot of [0,1])for(let variant=0;variant<4;variant++){
+ const p={id:'fixture',connected:true,mapping:'standard',axes:[0,0,0,0],buttons:Array.from({length:17},()=>({value:0,pressed:false}))},pads=[null,null,null,null];pads[slot]=p;const a=before.create(()=>pads),b=after.create(()=>pads);let seed=variant+1;
+ for(let n=0;n<2500;n++){
+  seed=(Math.imul(seed,1664525)+1013904223)>>>0;p.connected=n%197!==0;p.id='fixture'+Math.floor(n/400);const neutral=n%25<3;for(let i=0;i<4;i++)p.axes[i]=neutral?0:((seed>>i*3&7)-3)/4;for(let i=0;i<17;i++){const value=neutral?0:(seed>>i%16&1);p.buttons[i].value=value;p.buttons[i].pressed=!!value;}
+  if(n%71===0){a.reset();b.reset();}if(n%97===0){const settings={deadzone:n%2?.2:.18,buttons:{gear:n%2?16:2}};a.configure(settings);b.configure(settings);}const x=JSON.stringify(a.poll(n%139>5)),y=JSON.stringify(b.poll(n%139>5));assert.equal(y,x,'Single-pad public input changed at '+slot+':'+variant+':'+n);left.update(x);right.update(y);steps++;
+ }
+}
+const digest=s=>crypto.createHash('sha256').update(s).digest('hex'),report={beforeSourceSha256:digest(old),currentSourceSha256:digest(current),histories:8,comparedFrames:steps,exact:true,beforeHistorySha256:left.digest('hex'),afterHistorySha256:right.digest('hex'),scope:'Single connected pad in slot0 or1 across input, context-reset, configuration, focus-disable, identity and disconnect histories; dedicated two-pad tests cover the intentional affinity difference.'};fs.writeFileSync(path.join(__dirname,'single-pad-oracle.json'),JSON.stringify(report,null,2)+'\n');console.log(steps+' single-pad public frames match the prior frozen controller.');

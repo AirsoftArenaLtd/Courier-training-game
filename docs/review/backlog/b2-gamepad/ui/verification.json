@@ -1,0 +1,85 @@
+{
+  "status": "owned runtime and session-remapping UI validated; B-2 blocked on shared durable writer and translations",
+  "phases": {
+    "ui": {
+      "jobs": 7,
+      "assertions": 489,
+      "sourceInputs": 531,
+      "planSHA256": "c6b597106cbd2938d0e92109cea083fd89d4c1d586cd710cd3210b9b6fe06db0",
+      "statusSHA256": "82c3476bd505cdab17c900e89eb37d04cc186fcbe3631c2bda23a7bba5ca35b4",
+      "cleanup": true
+    },
+    "menu": {
+      "jobs": 4,
+      "assertions": 324,
+      "sourceInputs": 532,
+      "planSHA256": "fd43afa446e2fcbd3d4e94c5d0c57b54a60ef0c718308647de3929af0aa2847d",
+      "statusSHA256": "9f5400a1de944bf797bd33ed1b63bc789e22ac5989d9a1eef11e36200591bb2d",
+      "cleanup": true
+    }
+  },
+  "menuResourcePeaks": {
+    "menu-low-en-0": {
+      "calls": 41,
+      "triangles": 1236,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1772422,
+      "views": 16
+    },
+    "menu-high-en-0": {
+      "calls": 49,
+      "triangles": 65391,
+      "textures": 3,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 6179046,
+      "views": 16
+    },
+    "menu-low-ta-1": {
+      "calls": 41,
+      "triangles": 1236,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2031611,
+      "views": 16
+    },
+    "menu-high-ta-1": {
+      "calls": 49,
+      "triangles": 65391,
+      "textures": 3,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 7171718,
+      "views": 16
+    }
+  },
+  "CPU": {
+    "cases": 93,
+    "suites": [
+      "fpgamepadcapture:7",
+      "fpgamepadscene:13",
+      "fpgamepad:8",
+      "fpgamepadaffinity:1",
+      "fpaccess:12",
+      "workday:26",
+      "savesize:26"
+    ]
+  },
+  "translation": {
+    "newStrings": 31,
+    "newTemplates": 9,
+    "freshCatalogueGuard": "expected failure in all eleven translated languages; raw log retained; shared catalogue unchanged",
+    "delta": "catalogue-delta.json"
+  },
+  "scope": [
+    "Session drafts are explicitly labeled and released on scene disposal; no shared settings writer, saved payload or hardware identity.",
+    "Real-menu tests cover raw unbound-button and axis capture, entry-held gate, release-to-commit, conflicts, cancellation, disabled inputs, deadzone, reset confirmation, existing remapped keyboard and scene reload.",
+    "Actual Tamil profile uses the current shared translations. New UI strings remain English; full Tamil and twelve-language acceptance are pending.",
+    "The first attempted native gesture was a test error: A was pressed after capture was already armed, correctly causing a conflict. Corrected test opens capture with A held; no application patch.",
+    "The earlier resource/render/keyboard oracle proofs retain their prior explicit source scopes. No full-route matrix, pending graphics-stack or Intel FPS claim."
+  ],
+  "remaining": [
+    "Claude bounded shared Controls/Accessibility writer and SCORM capacity policy, preserving keyboard remaps.",
+    "Claude 31 strings/nine templates and translated screen acceptance.",
+    "B-3 context-recovery reproduction is claimed independently from pilot and underway."
+  ]
+}

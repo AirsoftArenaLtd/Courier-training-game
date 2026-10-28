@@ -1,0 +1,2 @@
+TypeError: Cannot read properties of null (reading 'buttons')
+    at /workspace/b2-gamepad/test/fpgamepadremapbrowser.js:47:31

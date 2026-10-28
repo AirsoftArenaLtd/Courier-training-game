@@ -430,7 +430,7 @@ same module and scenario ids. Starts after the new cab and the new look (milesto
 | C-43 | Codex | **Scanner & Exceptions in 3D:** proof-of-delivery photo, exception codes and adult ID checks on the real handheld. | review (codex/c43-scanner-exceptions; 36 jobs, 24 good journeys and 56 resource views pass; A31/Intel acceptance separate) |
 | C-44 | Codex | **Loading the Truck in 3D:** loading the real van by stop order and weight, finding a package in the cargo. | review (codex/c44-loading-truck; stacked on pushed C-43/C-38; own 30-job gate complete) |
 | C-45 | Codex | **Pickups & Paperwork in 3D:** a business pickup, an international parcel and dangerous goods at a real counter. | review (codex/c45-pickups-paperwork; stacked on pushed C-44/C-43/C-38) |
-| C-46 | Codex | **Safety & Wellness in 3D:** steps, dogs, heat, an incident report; new: slips on ice, a reversing near-miss, fatigue. | todo (remaining scope approved 27 Oct; pushed original pieces retained) |
+| C-46 | Codex | **Safety & Wellness in 3D:** steps, dogs, heat, an incident report; new: slips on ice, a reversing near-miss, fatigue. | blocked (codex/c46-safety-wellness; original four ids and reversing validated; Claude ice/fatigue policy pending) |
 | A-31 | Claude | **QA, translations and the review set for each 3D module** as it lands (flows in `test/paths/`, all 11 languages, larger text), and the switch to 3D by default per module once it passes. | todo (after each C-39 to C-46) |
 | A-32 | Claude | **Trainer guide and readiness** for the 3D modules and the 2D fallback. | todo (after A-31) |
 

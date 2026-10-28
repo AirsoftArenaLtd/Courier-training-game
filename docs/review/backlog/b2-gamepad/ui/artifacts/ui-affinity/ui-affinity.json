@@ -1,0 +1,10 @@
+{
+  "checks": 21,
+  "errors": [],
+  "shots": [
+    "driver-retained",
+    "replacement-neutral"
+  ],
+  "scope": "Actual hub/menu actions through two fake Gamepad API objects. No mission, position, timer, event or result fixture.",
+  "complete": true
+}

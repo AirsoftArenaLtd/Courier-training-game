@@ -1,0 +1,1 @@
+Test gesture error: the suite opened capture with Enter, waited for neutral, then pressed and released A. That is a real new A binding request, correctly rejected as an interact conflict. The entry-held-button case must open capture with A already held; the corrected test does so through the real menu. Application source unchanged.
