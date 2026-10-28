@@ -16,7 +16,8 @@ OTR.fpProblemRoute={
   attach(run){
     const m=run.model,s=m.roadProblem;if(s.attached)return false;
     m.bounds={...s.bounds};m.trainingArea=null;m.mode='cab';Object.assign(m.van,s.start);run.log=s.state.log;OTR.fpNav.configure(m);
-    const route=OTR.fpNav.route(m);if(!route?.points?.length||!OTR.fpProblemProtocol.route(s.state,route.points))throw Error('No bounded diversion route');
+    // Include the real curb lane (3.55 m from the graph center) and a normal rounded junction turn.
+    const route=OTR.fpNav.route(m);if(!route?.points?.length||!OTR.fpProblemProtocol.route(s.state,route.points,4.25))throw Error('No bounded diversion route');
     if(!route.points.some(p=>Math.abs(p.x-m.roadworks.x)>m.town.road))throw Error('Diversion did not avoid the closed street');
     s.attached=true;return true;
   },
