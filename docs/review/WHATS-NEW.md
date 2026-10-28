@@ -19,8 +19,8 @@ Your second visual review (`set-10/CHECKLIST.md`) can now be done in full, items
 | **Drive with a gamepad** (B-2): plug in a standard controller and press a button; remapping is in **Esc → Controls and guidance → Gamepad controls** and is now remembered (B-183) | the cab link above | |
 | **A lost 3D display** (B-3): close the laptop lid mid-drive and open it again; the day waits and carries on | any 3D link | |
 
-The release-candidate run on the morning of 28 October passes all 165 checks (`docs/READINESS.md`), so `pilot` is ready
-to try on one real laptop (O-1). A fresh run with the day's merges (C-52, B-181, B-183) follows.
+The release-candidate run on the evening of 28 October, with all of the above, passes all 167 checks
+(`docs/READINESS.md`), so `pilot` is ready to try on one real laptop (O-1).
 
 ## Earlier: to try from 22 October (about 15 minutes)
 

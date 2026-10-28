@@ -1,12 +1,12 @@
 # Pilot readiness
 
 One page for the owner: what is checked, what is only a draft, what only real laptops and real people can tell us,
-and the decisions that are yours. Checked on `pilot` on 28 October 2026 after B-164, C-49, C-50, C-51, B-1, B-2 and B-3,
-with A-28's release-candidate run (`node test/run-all.js --rc`, `9105e30`, 07:12 UTC).
+and the decisions that are yours. Checked on `pilot` on 28 October 2026 after B-164, C-49 to C-52, B-1 to B-3, B-181, B-183 and B-186,
+with a release-candidate run (`node test/run-all.js --rc`, `3678fba3`, 18:51 UTC).
 
 ## Verdict
 
-`pilot` is ready for the owner to try on real laptops: every check passes (165 of 165, with no reruns). The risks that remain
+`pilot` is ready for the owner to try on real laptops: every check passes (167 of 167, with no reruns). The risks that remain
 need people, not code: the frame rate on the company's machines, native-speaker review of the translations, and the
 company's own rules for data and the learning system. Merging `pilot` into `main` is the owner's decision (below).
 
@@ -17,10 +17,10 @@ prints this table's figures from that run (B-163).
 
 | Check | How | Result |
 | --- | --- | --- |
-| The 3D workday, played as a trainee | 15 shared flows (`node test/qa.js --only workday-3d,...`): a first day, later days with lockers, intercoms, reception, failed deliveries, the walk round the van, damage reported and unreported, night with and without headlights, a wrong turn, the radio call followed, checked in and declined, the replay of the last mistake. Each careful day must have **no** wrong report except the one a variant sets out to make (B-127 to B-131) | **15 of 15 clean** at Low (release-candidate run, 28 Oct 07:12, `9105e30`) |
+| The 3D workday, played as a trainee | 15 shared flows (`node test/qa.js --only workday-3d,...`): a first day, later days with lockers, intercoms, reception, failed deliveries, the walk round the van, damage reported and unreported, night with and without headlights, a wrong turn, the radio call followed, checked in and declined, the replay of the last mistake. Each careful day must have **no** wrong report except the one a variant sets out to make (B-127 to B-131) | **15 of 15 clean** at Low (release-candidate run, 28 Oct 18:51, `3678fba3`) |
 | Random play | `test/fpfuzzbrowser.js`: five seeds of random keys on a later day, the day's save checked every 25 keys (A-28) | passes, about 1,240 keys |
-| Logic tests | `node test/run-all.js`: 86 Node suites (scoring, saves, resume, SCORM and xAPI, sign-in, data export, reports, i18n, the 3D route, stops, damage, radio, replay, the quick starts) | **86 of 86** (28 Oct 07:12) |
-| Browser suites | `node test/run-all.js --browser`: 64 suites (every module by keyboard, the cab, mirrors, signs, traffic, doorsteps, sound, accessibility, the gamepad, a lost 3D display) | **64 of 64** (28 Oct 07:12) |
+| Logic tests | `node test/run-all.js`: 87 Node suites (scoring, saves, resume, SCORM and xAPI, sign-in, data export, reports, i18n, the 3D route, stops, damage, radio, replay, the quick starts) | **87 of 87** (28 Oct 18:51) |
+| Browser suites | `node test/run-all.js --browser`: 65 suites (every module by keyboard, the cab and handheld, mirrors, signs, traffic, doorsteps, sound, accessibility, the gamepad, a lost 3D display) | **65 of 65** (28 Oct 18:51) |
 | Languages | Every sentence in all 11 languages; every number kept in all 43,895 translated lines (`test/i18nnumbers.js`); the cab and its traffic lines in 12 languages at larger text (588 views, `test/fplangsbrowser.js`); the radio message and night warning in 12 languages at larger text (`test/radionightbrowser.js`); one word for each key term (`test/glossary.js`) | all pass |
 | Low graphics | Each milestone 9 feature readable at Low as at High (`test/lowparitybrowser.js`, pictures in `review/set-9/low-high/`) | passes |
 | Resume | 30 seeds restored at 3,000+ checkpoints give the same day; the day's save restores at every point of the random play | passes (`test/fpresume.js`, A-28) |
@@ -58,7 +58,6 @@ The QA machine renders in software (no graphics card), so its frame rates say no
 ## Known limits
 
 - The 3D versions of the modules (C-38 to C-46) are not in `pilot` yet: Codex is moving them onto it now that the cab and handheld redesign (C-52) is merged.
-- The figures above are from the morning's run; since then C-52, B-181 (one Furniture Kit credit), B-183 (the gamepad remapping is remembered) and B-186 (QA fixes) were merged, each after its own full review. A fresh release-candidate run follows.
 - Medium graphics does not exist: there are Low, High and the trial `?gfx=lite`.
 - A replay of the last mistake lives only in the browser's memory: it is gone when the tab closes.
 - Under machine load, a few browser suites can time out while the page is still starting (`fpdoorsbrowser`,
