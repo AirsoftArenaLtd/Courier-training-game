@@ -1,0 +1,11 @@
+✔ test/fpcustomerprotocol.js (79.707701ms)
+✔ test/fpcustomerstop.js (105.42144ms)
+✔ test/fpcustomerstopscenario.js (222.435141ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 416.681683

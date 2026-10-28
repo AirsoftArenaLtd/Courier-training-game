@@ -21,13 +21,14 @@ OTR.fpCustomerStopWorld={
     fixed(6.2,.9,-43.3,.07,1.8,.07,0x798489);fixed(6.2,1.74,-43.3,1.5,.26,.055,0xDAE3D4);writing(def.packages[0].street,6.2,1.74,-43.263,1.4,.2);
     const door=proxy('customer-stop-door',11,1.2+floor,-44.79,1.15,2.25,.12),number=proxy('customer-stop-number',9.95,1.9+floor,-44.78,.6,.3,.04),person=proxy('customer-stop-person',12.05,1.2+floor,-44.6,.5,1.6,.4),trolley=proxy('customer-stop-trolley',3.8,1.16,-38.82,.55,.15,.14),parcels=stop.packages.map((p,i)=>({data:p,index:i,proxy:proxy('customer-stop-parcel-'+p.id,0,1,0,.5,.5,.5),x:0,y:0,z:0,w:0,h:0,d:0,angle:0,visible:false}));
     const sides=[-1,1],byId=new Map(parcels.map(b=>[b.data.id,b]));
+    const protocol=stop.protocol&&OTR.fpCustomerProtocolWorld?OTR.fpCustomerProtocolWorld.build(m,{fixed,part,writing,proxy}):null;
     const actor= m.customerStage.actors[0],portrait=actor?.person.portrait||{},female=['long','bun'].includes(portrait.hairStyle),human=actor&&OTR.fpActors?.character(bank?.models.get('resident-'+(female?'women':'men')),actorPaint,portrait.shirt||0x668A91,portrait.skin);
     if(human){human.mesh.name='doorstep:'+actor.key;human.mesh.castShadow=high;human.mesh.receiveShadow=high;human.mesh.frustumCulled=true;human.geometry.boundingSphere=new T.Sphere(new T.Vector3(0,.9,0),1.5);root.add(human.mesh);}
     for(const slot of [0,2]){meshes[slot].count=slot===0?staticCount:inkCount;meshes[slot].instanceMatrix.needsUpdate=true;meshes[slot].instanceColor.needsUpdate=true;}meshes[1].count=0;
     let bx=0,by=0,bz=0,ba=0,bcs=1,bsn=0,tx=0,tz=0,ty=0,ca=0,cs=1,sn=0,doorOpen=0,doorAt=0;
     const at=(xx,yy,zz,ww,hh,dd,c)=>part(bx+xx*bcs+zz*bsn,by+yy,bz-xx*bsn+zz*bcs,ww,hh,dd,c,ba),cart=(xx,y,zz,w,h,dep,c)=>part(tx+xx*cs+zz*sn,ty+y,tz-xx*sn+zz*cs,w,h,dep,c,ca);
     const heldBox=(p,x,y,z,w,h,d,angle)=>{bx=x;by=y;bz=z;ba=angle;bcs=Math.cos(angle);bsn=Math.sin(angle);part(x,y,z,w,h,d,0xBE965E,angle);at(0,0,d/2+.006,w*.67,h*.58,.012,0xF0EEE6);for(let i=0;i<6;i++)at((i-2.5)*w*.065,-h*.04,d/2+.014,w*(i%2?.025:.04),h*.27,.007,0x202B33);at(0,h/2+.003,0,.06,.006,d,0xD6B680);};
-    return {root,batches,meshes,imports,human,parcels,door,number,person,trolley,fontLettering,
+    return {root,batches,meshes,imports,human,parcels,door,number,person,trolley,protocol,fontLettering,
       sync(model,reduced=false){
         if(disposed)throw Error('Customer doorstep was disposed');dynamicCount=0;const d=model.customerStop,S=d.state,p=model.player,stage=model.customerStage,visible=!!stage.actors[0]?.visible,sy=Math.sin(p.yaw),cy=Math.cos(p.yaw);let cartLoaded=false;if(S.heavy==='truck'&&!d.photoPending)for(const id of S.carrying)if((byId.get(id)?.data.weight||0)>=50){cartLoaded=true;break;}
         const wanted=S.answered?1:0,doorDt=Math.max(0,stage.time-doorAt);doorAt=stage.time;doorOpen=reduced?wanted:doorOpen+(wanted-doorOpen)*Math.min(1,doorDt*8);const angle=doorOpen*Math.PI/2,dc=Math.cos(angle),ds=Math.sin(angle);part(10.4+.6*dc,1.2+floor,-44.92-.6*ds,1.2,2.4,.08,def.lot.spec.door||0x4B6574,angle);part(10.4+1.02*dc+.06*ds,1.1+floor,-44.92-1.02*ds+.06*dc,.1,.1,.08,0xDCCB91,angle);
@@ -44,6 +45,7 @@ OTR.fpCustomerStopWorld={
         person.visible=visible;if(human){human.mesh.visible=visible;if(visible){human.mesh.position.set(12.05,floor,-44.6);human.mesh.rotation.y=Math.atan2(p.x-12.05,p.z+44.6);human.pose(d.talk&&d.talk.phase!=='done'?'Interact':'Idle_Neutral',stage.time,reduced,high);}}
         else if(visible){part(12.05,1.08+floor,-44.6,.42,.6,.28,portrait.shirt||0x668A91);part(12.05,1.56+floor,-44.6,.27,.3,.26,portrait.skin||0xC9A681);for(const side of sides){part(12.05+side*.12,.4+floor,-44.6,.14,.8,.18,0x3B4D5A);part(12.05+side*.28,1.03+floor,-44.6,.13,.55,.16,portrait.shirt||0x668A91);}}
         if(S.tagAttached)part(11.7,1.03+floor,-44.76,.18,.28,.012,0xEEE7C8);
+        if(protocol){protocol.sync();trolley.visible=false;door.visible=stop.protocol.spec.kind==='intercom';person.visible=visible&&stop.protocol.spec.kind==='intercom';}
         meshes[1].count=dynamicCount;batches[1].entries.length=dynamicCount;meshes[1].instanceMatrix.needsUpdate=true;meshes[1].instanceColor.needsUpdate=true;root.updateMatrixWorld(true);
       },
       liftCamera(camera,model){if(model.mode==='walk')camera.position.y+=W.ground(model);},
