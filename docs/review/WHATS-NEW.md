@@ -1,10 +1,28 @@
-# What is new since your visual review (21 October), as of 22 October
+# What is new since your visual review (21 October), as of 28 October
 
 One page for the owner: what changed in `pilot` between your High preview (21 October) and now, and the quickest way to
 see each part. Every link below opens the 3D workday from the hub on a review profile of its own, so your own progress
 is not touched (add it after `index.html` in the address, then press Start workday).
 
-## To try (about 15 minutes)
+## New since 22 October (about 10 minutes)
+
+Your second visual review (`set-10/CHECKLIST.md`) can now be done for items 1 to 12; 13 to 15 (the cab and handheld
+look, C-52) follow when C-52 is back from Codex.
+
+| What | Try it | Checklist item |
+| --- | --- | --- |
+| **The sat nav clear of the gear selector and signs** (B-164, merged 27 Oct) | `?dev=1&workday3d=1&user=review-cab&route=10&day=4` | set 10: 2, 3 |
+| **Real surfaces on High** (C-49): asphalt, pavement, grass, plaster and brick | `?dev=1&workday3d=1&user=review-look&route=1&day=3&gfx=high`, then the same with `&gfx=low` | set 10: 5 to 7 |
+| **Lettering on the signs themselves** (C-50); J still reads the sign aloud in your language | `?dev=1&workday3d=1&user=review-signs&route=1&day=3` | set 10: 8 to 10 |
+| **People you notice** (C-51): at doorsteps, at reception and along the streets on High | `?dev=1&workday3d=1&user=review-people&route=5&day=4&gfx=high` | set 10: 11, 12 |
+| **The owner's desk model** at the depot on High (B-1, from your packs) | any link above with `&gfx=high`, at the depot | |
+| **Drive with a gamepad** (B-2): plug in a standard controller and press a button; remapping is in the 3D controls screen | the cab link above | |
+| **A lost 3D display** (B-3): close the laptop lid mid-drive and open it again; the day waits and carries on | any 3D link | |
+
+The release-candidate run on 28 October passes all 165 checks (`docs/READINESS.md`), so `pilot` is ready to try on one
+real laptop (O-1).
+
+## Earlier: to try from 22 October (about 15 minutes)
 
 | What | Try it | Checklist item |
 | --- | --- | --- |
@@ -21,11 +39,9 @@ The checklists are `set-9/CHECKLIST.md` (items 1 to 31) and, for your second vis
 
 ## Being done now (from your review)
 
-- **The sat nav covers the gear selector** since C-48's wider seat view, and covers some road signs as you approach them
-  (B-164, Codex, under way). Until it lands, `pilot` is not ready for a real laptop; the release-candidate run will be
-  repeated then.
-- **Real materials, sign lettering, people, the GUI** (C-49 to C-52): C-49 and C-50 are under way with Codex; set 10's
-  checklist is ready for each.
+- **The cab and handheld look** (C-52): back with Codex, because its new gauge hood covers the road just ahead.
+- **The 3D versions of the modules** (C-38 to C-46: route and driving, packages, customers, problems, the scanner,
+  loading, pickups, safety): done by Codex and waiting for C-52, which they are built on; they come to you as a set.
 
 ## Fixed or made sure, without anything new to see
 
