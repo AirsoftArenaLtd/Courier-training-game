@@ -1,0 +1,41 @@
+{
+  "sourceRevision": "7d68ce44a61a763ac0157b6c3b13caaad28c97ee",
+  "sources": 772,
+  "scope": "Three Low English native customer protocols pass at the original frozen source. Only the High Tamil off-screen font probe failed before gameplay. The corrective helper waits for font layout; no production runtime or completed Low path changes. Full/High continuation and resources remain separate.",
+  "jobs": [
+    {
+      "tag": "c41-rebase-intercom-low",
+      "checks": 203,
+      "fontProof": {
+        "lang": "en",
+        "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null
+      },
+      "artifacts": 3
+    },
+    {
+      "tag": "c41-rebase-reception-low",
+      "checks": 192,
+      "fontProof": {
+        "lang": "en",
+        "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null
+      },
+      "artifacts": 3
+    },
+    {
+      "tag": "c41-rebase-locker-low",
+      "checks": 205,
+      "fontProof": {
+        "lang": "en",
+        "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null
+      },
+      "artifacts": 5
+    }
+  ],
+  "allPassedSubset": true
+}

@@ -1,0 +1,83 @@
+{
+  "phase": "failed",
+  "controllerPid": 245235,
+  "jobs": [
+    {
+      "tag": "c41-rebase-intercom-low",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_KIND": "intercom"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-rebase-intercom-low-intercom.png": "01cb8d7a885a0526954a3def6d8003b10f2cb8f7d276856d1d46af402a2145fa",
+        "c41-rebase-intercom-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+        "c41-rebase-intercom-low.json": "f8f412e49ee3cf20da9eb2446391096653582df298baeaa8c932db9eed7b75c2"
+      }
+    },
+    {
+      "tag": "c41-rebase-reception-low",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_KIND": "reception"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-rebase-reception-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+        "c41-rebase-reception-low.json": "5ebcaeda55a92d9496e496a40a94eb529069e4dbfce700a030e15dc31fa4ce10",
+        "c41-rebase-reception-low-reception.png": "504806329f3290196cdcfbbd2913a0b42b1610100ec88bdccebaf0ccd7d2545e"
+      }
+    },
+    {
+      "tag": "c41-rebase-locker-low",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_KIND": "locker"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-rebase-locker-low-camera-device.png": "a56e8c82fe565446696260aa966f3683f5e703b3aef26bab1185bed4b2db624e",
+        "c41-rebase-locker-low.json": "ac34e73f01e7b1770b8cc1176f29abcd353048172fc9640fb4ae0a645964aa32",
+        "c41-rebase-locker-low-locker.png": "ebf567c73e3458c5cccaf6a7182e50662d73f52afa6494eb8e01c59238495373",
+        "c41-rebase-locker-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+        "c41-rebase-locker-low-camera-frame.png": "2ca819d63ebb24ac4f80e091f544d36ffaf23880a6277bcc2ce3ba2d405ce07c"
+      }
+    },
+    {
+      "tag": "c41-rebase-intercom-high",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_KIND": "intercom"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "c41-rebase-intercom-high-failure.png": "578e8b7765c2697c6b0dc2f4978616c46bcfc1b16a798e6057aa8c5d1b2d4dda",
+        "c41-rebase-intercom-high.json": "45eb7c3941d6848819cfa1293c8604bf046d3451c3868cf9dc1461d00e796b03"
+      }
+    }
+  ],
+  "startedAt": 1793216486.6217816,
+  "serverPid": 257583,
+  "tag": "c41-rebase-intercom-high",
+  "childPid": 258671,
+  "failure": "Browser job failed: c41-rebase-intercom-high",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793218604.9611585
+}

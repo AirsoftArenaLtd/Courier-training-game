@@ -1,0 +1,20 @@
+{
+  "lang": "en",
+  "theme": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+  "gameFont": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+  "requested": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+  "accepted": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+  "before": [],
+  "layout": {
+    "width": 793.21875,
+    "font": "900 34px \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+  },
+  "after": [
+    {
+      "familyName": "Noto Sans Tamil",
+      "postScriptName": "NotoSansTamil-Bold",
+      "isCustomFont": false,
+      "glyphCount": 28
+    }
+  ]
+}
