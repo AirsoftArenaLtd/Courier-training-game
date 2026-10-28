@@ -1,0 +1,17 @@
+{
+  "scope": "New optional closure/blocked-drive policy core is deliberately unloaded/unregistered. Twelve new CPU cases plus existing three scenario, eighteen sequence and twenty-five workday cases pass. Actual driving, physical controls, native layouts, resources and shared A-30/current-pilot integration follow.",
+  "sources": {
+    "src/core/fpproblemprotocol.js": "55b8ed81b479be5ad60f5cf013e3631d43c1649647aab25a2d2a4748a5cbc93b",
+    "test/fpproblemprotocol.js": "df9bdbe3d93cea68d758acaabf2d0408b101d1763efc97c59017d8e6d19bec80",
+    "src/core/fpstops.js": "00f87064a066195e411c2fe159e33179155c5106504d7dcc5df9a41e2200134f",
+    "data/workday_events.js": "27cbfa4c5926e793ff3535534bca5fd063b0fbc267d006669f885bb572efbb2c",
+    "src/scenes/stops/StopScene.js": "cbbc60ad7f2c9bfe7f4506c38e3d2e9d5730fe9726eb5c9ef83490ded5fd72f2",
+    "data/m3_doorsteps.js": "db4c9e625c650e8044bc9a9653fc57eb5334244635ac01cc74c903b26b497758"
+  },
+  "logs": {
+    "core/workday.log": "35ce3d658f07164048be0df752dc47eaa4d26b6d32dfd3b13d4b441993229579",
+    "core/existing-scenario.log": "9cd5640a627e5ad05e996969b90a7110da593b437bdc4c3fe6308dd26c56b574",
+    "core/shared-sequence.log": "1da4541b1e14ed692b052828a698580c7b3d44fef50936d2d499d466641e1558",
+    "core/attempt-1.log": "809d80688dce2a463988df1efb3e4fadde0424bcbddaa8d0a6007417d1fea432"
+  }
+}
