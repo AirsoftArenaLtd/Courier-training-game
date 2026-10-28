@@ -209,11 +209,17 @@ Written by `node test/run-all.js --readme`.
 | `fpdamageworld.js` | Node | Located geometry, real mission state and mirror-buffer restoration without WebGL. |
 | `fpday.js` | Node | Day-specific physics, dispatch actions and compatibility without a browser. |
 | `fpdaybrowser.js` | browser (--browser) | Weather rendering and the actual safe handheld/updated-delivery workflow. |
+| `fpdevicedesignbrowser.js` | browser (--browser) | Native instrument pixels, retained device hit targets and bounded translated layouts. |
 | `fpdoors.js` | Node | Real doorstep requirements, choices, physical barriers and optional checkpoints. |
 | `fpdoorsbrowser.js` | browser (--browser) | Doorstep UI, real raycasts, signature completion/cancellation and safe outcomes. |
 | `fpdrivebrowser.js` | browser (--browser) | Driving HUD: actual Phaser layout, English/Tamil and both accessibility text sizes. |
 | `fpdriving.js` | Node | Live driving observations, hazard outcomes and checkpoint continuity. |
 | `fpdrivingbrowser.js` | browser (--browser) | Real hazard meshes, walk/cab interactions and readable safety prompts. |
+| `fpdrivinglesson.js` | Node | Compare real original scene methods with the new local grader and physical moment-of-truth rules. |
+| `fpdrivinglessonbrowser.js` | browser (--browser) | Native controls, hazard responses and parking. |
+| `fpdrivinglessonrules.js` | Node | Compare the existing town rule methods with bounded observations from the physical 3D drill. |
+| `fpdrivinglessonui.js` | Node | Registered adapter isolation, physical controls, checkpoint transitions and accessible device actions. |
+| `fpdrivinglessonworld.js` | Node | Physical controller/render correspondence and bounded, texture-free cue geometry. |
 | `fpdynamicsbrowser.js` | browser (--browser) | Real keyboard driving, a recorded manoeuvre, and rendered suspension. |
 | `fpfurniturebrowser.js` | browser (--browser) | Actual uploaded desk pixels and original station actions. |
 | `fpfuzzbrowser.js` | browser (--browser) | A 3D fuzz run. |
@@ -230,13 +236,19 @@ Written by `node test/run-all.js --readme`.
 | `fpguidebrowser.js` | browser (--browser) | Real keys through first-morning help, every guide page, blocked actions and a reload. |
 | `fphandheld.js` | Node | Handheld/controller workflow tests. |
 | `fphandheldbrowser.js` | browser (--browser) | Translated delivery choices and the independent Back control must remain usable. |
+| `fphazardlesson.js` | Node | Direct original-scorer comparisons, bounded cues, pause/reduced-motion behavior and isolated module records. |
+| `fphazardlessonbrowser.js` | browser (--browser) | Native response keys/clicks, actual cue renders, pause, results and assessment. |
 | `fphooksbrowser.js` | browser (--browser) | Real 3D scene lifecycle through the shared workday API; completion uses a finished mission fixture. |
 | `fphud.js` | Node | Display lifetime and destinations must never become mission or scoring state. |
 | `fphudbrowser.js` | browser (--browser) | Compact live display, real keyboard controls, and translated/larger layouts. |
 | `fphudcomparebrowser.js` | own command | Capture the same live, stationary fixture before/after C-47. |
+| `fpjunctionlesson.js` | Node | Actual traffic controls and motor, bounded local scoring, whole-van gates and an isolated three-round course. |
+| `fpjunctionlessonbrowser.js` | browser (--browser) | Native junction controls, actual control observations, three round transitions, marked bays and isolated results. |
+| `fpjunctionlessonui.js` | Node | Junction key/device routing, round replacement, remapped instructions and independent local course results. |
 | `fpkeysbrowser.js` | browser (--browser) | The 3D workday's menus from the keyboard alone, as B-62 does for the trainer's dialogs. |
 | `fplangsbrowser.js` | browser (--browser) | Milestone 7's cab in every language (board task A-22): the physical cab's control hints, the mirror hints, the automatic rear camera, the dusk and night head… |
 | `fplater.js` | Node | Later-day difficulty, physical detours, practice windows and save compatibility without WebGL. |
+| `fplessonbays.js` | Node | Markings must match actual graded bays, remain bounded and release only owned materials. |
 | `fplighting.js` | Node | Lighting follows the saved clock, respects trainer rules, keeps controls live and never changes scoring. |
 | `fplightingbrowser.js` | browser (--browser) | Real GL pixels, physical headlight shortcut, four saved presets and accessible captions. |
 | `fploadout.js` | Node | (first test) seeded discrepancies are stable, optional on old saves and excluded from cargo practice |
@@ -256,6 +268,9 @@ Written by `node test/run-all.js --readme`.
 | `fpnightworld.js` | Node | Night visibility and glare use the existing fog and windscreen; reset and reduced-motion paths stay bounded. |
 | `fpperf.js` | Node | Rendering batches keep physical occlusion and update their static buffers only when needed. |
 | `fpperfbrowser.js` | own command | Compare frozen frames with an untouched pilot served at QA_BEFORE_BASE. |
+| `fppretrip.js` | Node | Physical inspection/test gates and direct scoring equivalence with the existing 2D pre-trip exercise. |
+| `fppretripbrowser.js` | browser (--browser) | Native physical targets and test/record/sign-off keys. |
+| `fppretripui.js` | Node | The brake hold uses focused real time, survives slow rendering, and cancels without leaked callbacks. |
 | `fpquality.js` | own command | Fixed milestone-eight review gate. |
 | `fpqualitygate.js` | Node | Guard against mislabeled/stale fixtures and false quality passes. |
 | `fpradio.js` | Node | Dispatch route changes, additional check-in stops and honest checkpoint/report boundaries. |
@@ -268,6 +283,15 @@ Written by `node test/run-all.js --readme`.
 | `fpresume.js` | Node | Seeded model journeys. |
 | `fproute.js` | Node | Full-route identity, save compatibility and physical access, without WebGL. |
 | `fproutebrowser.js` | browser (--browser) | Generated workday: physical raycasts/scans at all five stops; fixtures skip long walks/drives. |
+| `fproutelesson.js` | Node | Original real-town graph reuse, native editing guards and direct equivalence with the 2D route scorer. |
+| `fproutelessonbrowser.js` | browser (--browser) | Actual sat-nav selection, manifest keys, three-round sequencing and same-id results; the good order is a fixture. |
+| `fproutelessonfixture.js` | Node | A module baseline starts after the preceding scene's own asynchronous workday save and shutdown. |
+| `fpscenario.js` | Node | Isolated module sessions, physical report routing, bounded set-pieces and unchanged academy result identities. |
+| `fpscenariobrowser.js` | browser (--browser) | Native module input, pause/handheld clocks, academy results, abandonment and 2D fallback without workday writes. |
+| `fpschoollesson.js` | Node | Optional school core: actual catalogue entries, physical town/parking and isolated live school-bus observations. |
+| `fpschoollessonbrowser.js` | browser (--browser) | Native school responses and finish controls. |
+| `fpschoollessonui.js` | Node | Optional school adapter input, completion and local assessment-report routing. |
+| `fpschoollessonworld.js` | Node | The school adapter must show the same bounded live actors and painted finish in either quality. |
 | `fpsignal.js` | Node | Real physical indicator, maneuver, report and checkpoint integration; no score calculation here. |
 | `fpsignalbrowser.js` | browser (--browser) | Real remapped cab stalk, game-time lead, driving keys and checkpoint reload; travel poses are fixtures. |
 | `fpsignlayoutbrowser.js` | browser (--browser) | Real sign-label placement and straight-ahead cab sight lines, in native languages and text sizes. |

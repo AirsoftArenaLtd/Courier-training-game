@@ -1,0 +1,179 @@
+{
+  "base": "3678fba3 via C38 66f2cda5",
+  "candidate": "74b7b87d11b317ab048beeb41a7ff75301e2b236",
+  "priorTip": "3dbb80cb",
+  "backupBranch": "codex/c39-before-pilot-oct28",
+  "suites": [
+    {
+      "file": "test/fpcamera.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpdrivinglesson.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpdrivinglessonrules.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpdrivinglessonui.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpdrivinglessonworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fphazardlesson.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpjunctionlesson.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpjunctionlessonui.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fplessonbays.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpnightlesson.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpnightlessonui.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppretrip.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppretripui.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpqualitygate.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fproutelesson.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpschoollesson.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpschoollessonui.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpschoollessonworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0
+    }
+  ],
+  "sources": {
+    "data/modules.js": "40ed4c80e87314f7182c89353d11e33de4d050ae9b02e5c3f235cf535ae1589c",
+    "src/core/fpaccess.js": "4f0b4f5cbab41a86c42b8448c073c226110ae3167880eed6568a74e55c43f520",
+    "src/core/fpcamera.js": "35a185dbaf3b271bde541a00f5ee32ae3cce3ea2546f876742d9d971a80a34c4",
+    "src/core/fpdrivinglesson.js": "3d82d7f629cf8704970d476d4f36bd65eb7219a327f40dd3f94b6ad8a734d0bb",
+    "src/core/fpdrivinglessonhazards.js": "77b24e36b86ff7fedb78e854cdca3b731a5e4e6ae2cb1fc95f86ddd9b615b684",
+    "src/core/fpdrivinglessonrules.js": "e8ec05c30540148859d4ae15d57aea0c5e077913237997b633ca17981e51c25c",
+    "src/core/fpdrivinglessonui.js": "20fdcccd10834c92c9af566c33f8513f1c62a24ace2758d4fb98b27fbef14258",
+    "src/core/fpdrivinglessonworld.js": "3d72d8618bab848cc8ec062ec245ad31b0263cdd350f49a0b4ad4830078e961c",
+    "src/core/fphazardlesson.js": "5fa573405c9800eb1456d48c5eab278f8e4db82ed8639ca961abea605e6abd77",
+    "src/core/fphazardlessonui.js": "77a2ef51c9bd8ed1f7e08e3b9a84d37c04e11a7a25ac4a890d7f8ba9761cc212",
+    "src/core/fphazardlessonworld.js": "08bc3b81f9ab8f5ce6821b31fd4cf62d6ca0b53eaee2eb18e80a09bdaf81682b",
+    "src/core/fphud.js": "ab6001dcc4613024fcf274b516da69e97a2e5eabf2e03057695c3736bf50a49e",
+    "src/core/fpjunctionlesson.js": "df5fb26ef6256486c8d675a188f10b8e3bdf6fb2c6ccb6627058ec5f7d4322d9",
+    "src/core/fpjunctionlessonui.js": "2a5bfa29a332c8d504ec20787b9e05cf790c249470c9e5d5e83f17039ac0e915",
+    "src/core/fplessonbays.js": "1fa7f524f102a63ff11eceeaf81e1962ecc59b3cd17862d782922531cf839473",
+    "src/core/fpnightlesson.js": "dcf8baa094beb2b0dee66f1008dcaf45d0123c67578cb6d847d2188bc005f689",
+    "src/core/fpnightlessonui.js": "c38db88b1a57f6537731a5b77b44f831d11b0e32b12cb8b3b8f534029911b5f3",
+    "src/core/fppretrip.js": "7d2cd21915af6d7e6251a54267f296b8a35fdd029ad3c7acff763573575039d8",
+    "src/core/fppretripui.js": "2df052ee8c90a3fa3f31a594e079e503e2a5e04d6cafa628ad0fcf12eaf2eeef",
+    "src/core/fppretripworld.js": "690bf8fde55c7c719fd4599456a4333d918fe38af584d875a90c473ccc4b500c",
+    "src/core/fproutelesson.js": "29f9633e9bee20d4d1271d14bf1e680860d02db6b320b155c7a737c814a324ce",
+    "src/core/fproutelessonui.js": "13164b9b8024d0d738f52ea5db542d97a2f89db6aff6c3e620cc7d425b94ec01",
+    "src/core/fpschoollesson.js": "dbbb3e999c9daccba6357066e83de6d312350ffabf9b126715c294bbf203e28e",
+    "src/core/fpschoollessonui.js": "02c50209d6c41e57f0240b73b0629f8ec7367737445b1b233c7ecf4dbb3aabf8",
+    "src/core/fpworld.js": "7a7a51876f9958942aa9d975d3c04fbff852bcac11f2850d9163488692e3d766",
+    "src/scenes/FirstPersonScenarioScene.js": "8fdb8f64f0c31e8c60937650521b7d2ff79b368c334b9c6fe67ee672d4832e44",
+    "src/scenes/FirstPersonScene.js": "ed037f5343e57215d51d679d0e02f083cc12e73ec04c7ada9262bfceb8217bb3",
+    "test/README.md": "467412911348d108b7290e907848e686ad28efcb5135f45c447a5a146942db8e",
+    "test/fpbench.js": "a31d805dfa38e178f728df68a02bb3823a0dd0334d9881e0a18ff4968a497d21",
+    "test/fpcamera.js": "3197d6de19a45ba930ac14de72f765e7f49a2ea315a0a7a7f2c47503e39528c7",
+    "test/fpdrivinglesson.js": "058edb110c228878a0572b3616ce133b4eba92d48dd450162c7623230d1c1e15",
+    "test/fpdrivinglessonbrowser.js": "f0bd0df08b8707870b2e74a9b3166ff323da42d8460d06b99003326d9ab68181",
+    "test/fpdrivinglessonrules.js": "812230194fb6a7a62fcb9d113418db2967047769fd38ab0490cc3fbf470598aa",
+    "test/fpdrivinglessonui.js": "208fdc0740e9d9159c1d22e73a125c43895504541f62af6fc246200e5957ad18",
+    "test/fpdrivinglessonworld.js": "b8bbbcabff317955645b14b50789b36f83aa2150292d8283e7e5970cb4366cb3",
+    "test/fphazardlesson.js": "284fa9bf1648022f12a2d9fcabcabba3ec5d861bf04c87ec7a2015638849d914",
+    "test/fphazardlessonbrowser.js": "2c874c17af82a789fbbdd4817c6b55f6d9f3a52a386819184764ae4739b16c30",
+    "test/fpjunctionlesson.js": "7f67662c4e0ddd422e30d4c65c1aaeea6a7de3611c8fb7f9a81f17ec53ef91d4",
+    "test/fpjunctionlessonbrowser.js": "d357da015d96e8f0e9be4ff7e5ffd199d96e85e49edec1366fd7a0111eb93ac6",
+    "test/fpjunctionlessonui.js": "87674f1168104f18832aff53cf9d9670c95cced78c51075fe66767239e140f1a",
+    "test/fplessonbays.js": "0b0e354b8694927226d6496a5f235cb950451c4951fed16fe9a2e0e1e0f5acf2",
+    "test/fpnightlesson.js": "3903c70407fefe5fe2c2d7e7e580a0bbe65ee9c25e03b7e490c487240622e359",
+    "test/fpnightlessonbrowser.js": "f62e7512443c100ab93aaec6bcba00843fa35bffdab908991acf3bb74fbf3797",
+    "test/fpnightlessonui.js": "a291fbb115328f899b54a8035260fa2109706d5ffd06fa663139389679cea86f",
+    "test/fppretrip.js": "eb6af1241a5623eb78458eb84ed42401bfe3fd224d3bfd1776486849bbb3bce8",
+    "test/fppretripbrowser.js": "6731df3adb2f6b11e22dee098aef55ab126894db645d66f6184ee9f5a9a29f6a",
+    "test/fppretripui.js": "f5fd06f4ab1d27d0853216c60419e4d1b149be7b304f74e8ecb0dbd43ffbfa12",
+    "test/fpquality.js": "c8bd330e370d6d17da7dc77571456b7111b3d1c2d4dda17ecf060c4036a1841d",
+    "test/fpqualitygate.js": "945562b507bdbc0a2b131b6fba21b1cdbfd2fe7dd8f44d66519733bdf21852cf",
+    "test/fproutelesson.js": "6b1419a429d35c9530311c5310b849da3adddef261eadd17c4a9027c4ef672fe",
+    "test/fproutelessonbrowser.js": "88e22b15eb243e4fbc2b660d4ed7ad37b09f18e7e6bb97ef78a5e45226f5a953",
+    "test/fproutelessonfixture.js": "2c9f5fa45ae02167d3804e7680762a469db24048cf3e42187607d7b88cfd32b7",
+    "test/fpschoollesson.js": "025f4a759f54f9ed19c264edbe1c05b843279fe7269633f3981b5b02073d06c8",
+    "test/fpschoollessonbrowser.js": "89ae8e797f6982625bee0dbd77dd37726c417b7d56cfee6b431ce96776c5aa22",
+    "test/fpschoollessonui.js": "90730df63d0e4c3b72fb46f6fd91ea80c1181c8686149f0f50b79d2f27b644da",
+    "test/fpschoollessonworld.js": "877005a5ab4fb563a3a1c45f2ba40144380e9cf1b8a9183cc110d58809fcc9da",
+    "test/tools/fp-driving-lesson-fixture.js": "c3c3465d354e58034ef456a22acdc654536ff3c410053b9408f8b82068b69275",
+    "test/tools/fp-driving-lesson-proof.js": "a69d523c0a7e85c3bb853a3ff934187df4764d93c8c37b4de9de1b9a8757d37d",
+    "test/tools/fp-driving-lesson-view.js": "c9a41735930aef0bac234ad09ed0b0f815bf83fedefd34e75e104997a738ac93",
+    "test/tools/fp-hazard-lesson-fixture.js": "f2aecb2b1823b0b3d0032c42b21c7b62a63f90f1c8cc2fa762513a871d7a8dea",
+    "test/tools/fp-hazard-lesson-proof.js": "a67a272a2db937a00f7d028b66bc983c1a11f201496437fc4da9d9399985690f",
+    "test/tools/fp-junction-lesson-fixture.js": "0bdc1c189e344c3faabf1b0452efd53da5adec5c2f5c3bca86488fdb3fc96113",
+    "test/tools/fp-junction-lesson-proof.js": "a7b5c35d59e925f10f6eb172cdf8016640af7f3968b574d5e6f5079089f6e04c",
+    "test/tools/fp-junction-lesson-view.js": "0e3c3ad3bde2c55a4b9ddebf3f910e3d12f8ddde21971e1ca1a04b15254017ac",
+    "test/tools/fp-night-lesson-fixture.js": "16d69c54dcb30e7d153910a7bb01260330538a6fdd101a1f4b8bc8af327beafa",
+    "test/tools/fp-night-lesson-proof.js": "213f8d530a66700409fd782827d91367945d6e6a5bc70cd4226cf606876a976e",
+    "test/tools/fp-night-lesson-view.js": "7d5c42374691a163baaa1c004e2159b05b5b4150e2cdc41ed3faabead96ebe86",
+    "test/tools/fp-pretrip-fixture.js": "c741bf40e6bb861c60ea6b5eeb69579e0fc759e72a514e17488723b245975ea1",
+    "test/tools/fp-route-lesson-fixture.js": "cd2884032091fed00db368f38f4d81168d84ea8683ed3472695c851be1860bbc",
+    "test/tools/fp-school-lesson-fixture.js": "66acd3871ba9512500433d2d2735c7e8331ebec1de134ddfecb881a7ccb077ce",
+    "test/tools/fp-school-lesson-proof.js": "c6351bf4ce9c08d78e2a729451bc0936680dec4a92f12af7385911766afff08c",
+    "test/tools/fp-school-lesson-view.js": "5e91de5824a84a22e268e08b62523fa7c534ff51afbaebd9be14814fe2fcc695"
+  },
+  "scope": "Current-pilot C39 CPU and syntax; native/resource acceptance remains separate. Scenario-specific key routing moved into the retained B2 inputAction(code), with B3 loss/focus guards unchanged. B179 suite classification retained by regenerating the test table."
+}

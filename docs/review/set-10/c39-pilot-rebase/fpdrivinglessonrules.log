@@ -1,0 +1,16 @@
+✔ speed tolerance and repeat timing match the original town rules at school and residential limits (412.857404ms)
+✔ headlight warning, one fine per dark stretch and belt stretches retain the original timers and weights (119.169354ms)
+✔ wrong-side dwell and actual four-wheel curb climbs match the original physical rules (101.473927ms)
+✔ stop and light entry use the original boundary decisions and weights while reading the actual rendered control (216.754611ms)
+✔ a full stop behind the drawn line is held for half a second before crossing, and revisits reset it (2.672044ms)
+✔ reverse camera replaces mandatory walkaround while unsafe reverse and contact retain their penalty weights (2.423601ms)
+✔ physical signals require the current three-second contract, keeping the original one-point turn penalty (59.829294ms)
+✔ backing away from a junction line never counts as a forward stop or light entry (4.142977ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 930.084754
