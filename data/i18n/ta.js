@@ -4116,7 +4116,10 @@ window.OTR_I18N.ta = {
 "Release all controls, move one stick axis, then release it. Escape cancels.": "எல்லா கட்டுப்பாடுகளையும் விடுங்கள், ஒரு ஸ்டிக்கின் ஒரு அச்சை நகர்த்தி, பின் விடுங்கள். Esc ரத்து செய்யும்.",
 "Release all controls, press one button, then release it. Escape cancels.": "எல்லா கட்டுப்பாடுகளையும் விடுங்கள், ஒரு பொத்தானை அழுத்தி, பின் விடுங்கள். Esc ரத்து செய்யும்.",
 "Choose another gamepad input": "வேறு கேம்பேட் உள்ளீட்டைத் தேர்ந்தெடுக்கவும்",
-"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "அந்த உள்ளீடு ஏற்கனவே ஒரே நேரத்தில் பயன்படும் ஒரு செயலுக்கு ஒதுக்கப்பட்டுள்ளது. வேறு உள்ளீட்டைத் தேர்ந்தெடுக்கவும் அல்லது முதலில் அதன் மற்ற செயலை முடக்கவும்."
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "அந்த உள்ளீடு ஏற்கனவே ஒரே நேரத்தில் பயன்படும் ஒரு செயலுக்கு ஒதுக்கப்பட்டுள்ளது. வேறு உள்ளீட்டைத் தேர்ந்தெடுக்கவும் அல்லது முதலில் அதன் மற்ற செயலை முடக்கவும்.",
+"Your gamepad controls are saved. Keyboard controls stay the same.": "உங்கள் கேம்பேட் கட்டுப்பாடுகள் சேமிக்கப்பட்டுள்ளன. விசைப்பலகை கட்டுப்பாடுகள் மாறாது.",
+"Reset your saved gamepad controls?": "சேமித்த கேம்பேட் கட்டுப்பாடுகளை மீட்டமைக்கவா?",
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "இந்தத் தனிப்பயன் கட்டுப்பாடுகள் சேமிக்க மிகப் பெரியவை. பயன்படுத்தாத கட்டுப்பாடுகளை இயல்புநிலைக்கு மீட்டமைத்து மீண்டும் முயலவும்."
 },
 "templates": [
 [

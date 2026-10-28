@@ -4117,7 +4117,10 @@ window.OTR_I18N.hi = {
 "Release all controls, move one stick axis, then release it. Escape cancels.": "सभी नियंत्रण छोड़ें, एक स्टिक की एक दिशा हिलाएँ, फिर छोड़ें। Esc से रद्द होता है।",
 "Release all controls, press one button, then release it. Escape cancels.": "सभी नियंत्रण छोड़ें, एक बटन दबाएँ, फिर छोड़ें। Esc से रद्द होता है।",
 "Choose another gamepad input": "गेमपैड का कोई दूसरा इनपुट चुनें",
-"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "यह इनपुट पहले से एक ऐसी क्रिया को दिया गया है जो साथ-साथ इस्तेमाल होती है। दूसरा इनपुट चुनें या पहले उसकी दूसरी क्रिया बंद करें।"
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "यह इनपुट पहले से एक ऐसी क्रिया को दिया गया है जो साथ-साथ इस्तेमाल होती है। दूसरा इनपुट चुनें या पहले उसकी दूसरी क्रिया बंद करें।",
+"Your gamepad controls are saved. Keyboard controls stay the same.": "आपके गेमपैड नियंत्रण सहेजे गए हैं। कीबोर्ड नियंत्रण वही रहते हैं।",
+"Reset your saved gamepad controls?": "अपने सहेजे गए गेमपैड नियंत्रण रीसेट करें?",
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "ये कस्टम नियंत्रण सहेजने के लिए बहुत बड़े हैं। जिन नियंत्रणों का उपयोग नहीं होता उन्हें डिफ़ॉल्ट पर वापस लाएँ और फिर से कोशिश करें।"
 },
 "templates": [
 [

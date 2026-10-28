@@ -4117,7 +4117,10 @@ window.OTR_I18N.fr = {
 "Release all controls, move one stick axis, then release it. Escape cancels.": "Relâchez toutes les commandes, bougez un axe d'un stick, puis relâchez-le. Échap annule.",
 "Release all controls, press one button, then release it. Escape cancels.": "Relâchez toutes les commandes, appuyez sur un bouton, puis relâchez-le. Échap annule.",
 "Choose another gamepad input": "Choisissez une autre entrée de la manette",
-"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "Cette entrée est déjà attribuée à une action utilisée en même temps. Choisissez une autre entrée ou désactivez d'abord son autre action."
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "Cette entrée est déjà attribuée à une action utilisée en même temps. Choisissez une autre entrée ou désactivez d'abord son autre action.",
+"Your gamepad controls are saved. Keyboard controls stay the same.": "Vos commandes de la manette sont enregistrées. Les commandes du clavier restent les mêmes.",
+"Reset your saved gamepad controls?": "Réinitialiser les commandes de la manette enregistrées ?",
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "Ces commandes personnalisées sont trop volumineuses pour être enregistrées. Rétablissez les commandes inutilisées par défaut et réessayez."
 },
 "templates": [
 [
