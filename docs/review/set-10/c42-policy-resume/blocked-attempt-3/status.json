@@ -1,0 +1,9 @@
+{
+  "phase": "superseded-before-start",
+  "controllerPid": 230991,
+  "jobs": [],
+  "startedAt": 1793213123.6035628,
+  "reason": "Final checks move to the current-pilot C41/C42 rebase before any browser child starts.",
+  "cleanupVerified": true,
+  "noChildrenStarted": true
+}
