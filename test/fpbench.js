@@ -558,6 +558,27 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    },name);await sample(name);
    const proof=await p.evaluate(()=>{const scene=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=scene.model,r=scene.scenarioSession,d=m.customerStop,a=scene.art.customerStop,before=scene.doorstepBefore;return {source:'doorstep-static-render-fixture',id:r.id,piece:r.definition.piece,phase:r.phase,stop:d.index,mode:m.mode,importedPerson:!!a.human,importedBuildings:a.imports.length,fontLettering:a.fontLettering,parcels:a.parcels.length,handheld:scene.handheld.isOpen,panel:!!scene.panel,reverse:!!scene.art.rear?.inView,canonical:d.content===OTR.registry.content(r.scenario),bounded:m.blocked(m.bounds.x0-1,m.bounds.z0),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};});(report.doorstepProof||(report.doorstepProof={}))[name]=proof;report.doorstepFixture=true;
   }
+  if(process.env.QA_CUSTOMER_PROTOCOLS==='1')for(const name of ['protocolintercom','protocolreception','protocolsignature','protocollockeropen','protocollockerclosed','protocolcamera','protocolstatus','protocolreport']){
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(name=>{
+    const kind=name.includes('reception')||name==='protocolsignature'?'reception':name.includes('locker')||name==='protocolcamera'||name==='protocolstatus'?'locker':'intercom',id='m3-'+kind;
+    if(!OTR.registry.get(id))OTR.registry.modules().find(m=>m.id==='m3').scenarios.push({id,title:'Customer protocol practice',icon:'ic_box',scene3d:'customer-protocol',dataKey:'stopSets.m3_doorsteps',optional:true,categories:['service','safety','efficiency'],blurb:'Complete the customer protocol and return to the parked van.'});
+    OTR.academy.assessing=null;OTR.game.scene.start('FirstPersonScenarioScene',{scenarioId:id});OTR.game.scene.stop('FirstPersonScene');
+   },name);await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:180000});
+   await p.evaluate(name=>{
+    const scene=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=scene.scenarioSession,m=scene.model,d=m.customerStop,p=d.protocol,K=OTR.fpCustomerStop,P=OTR.fpCustomerProtocol,A=OTR.fpCustomerProtocolScenario;window.otrBenchmarkScene='FirstPersonScenarioScene';scene.keyboardMode=true;OTR.fpScenario.begin(r);P.begin(d);scene.closePanel();
+    scene.protocolBefore={checkpoint:JSON.stringify(OTR.fpStore.read()),events:JSON.stringify(OTR.workday.events),workday:JSON.stringify(OTR.save.data.workday||null)};
+    K.take(d,'p1');K.scan(d,'p1',true);K.exit(d,true);m.mode='walk';Object.assign(m.player,{x:p.spec.kind==='intercom'?9.12:p.spec.kind==='reception'?12.05:9.25,z:-41.9,yaw:0,pitch:.22});
+    if(name==='protocolintercom')A.contact(scene,'12');
+    if(name==='protocolreception'||name==='protocolsignature'){P.action(d,'identify',{role:'reception',name:p.spec.receptionist});if(name==='protocolsignature'){A.signature(scene);scene.handheld.signatureToken=null;}else A.reception(scene);}
+    if(p.spec.kind==='locker'){P.action(d,'open','B12');P.action(d,'scan','p1');P.action(d,'deposit');if(name!=='protocollockeropen')P.action(d,'close');}
+    if(name==='protocolcamera')p.photoMode=true;
+    if(name==='protocolstatus')A.handheld(r,scene);
+    if(name==='protocolreport'){P.action(d,'call',{button:'13',purpose:'delivery'});P.action(d,'call',{button:'12',purpose:'delivery'});for(let n=0;n<41;n++)P.step(d,.05);P.action(d,'open');P.handOver(d);K.enter(d,true);m.mode='cab';P.evaluate(d);A.report(scene,1);}
+    if(scene.panel)scene.panel.customer=false;m.paused=true;m.customerStage.time=100;scene.sync();scene.refresh();
+   },name);await sample(name);
+   const proof=await p.evaluate(name=>{const scene=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=scene.model,r=scene.scenarioSession,d=m.customerStop,a=scene.art.customerStop,b=scene.protocolBefore;return {source:'customer-protocol-resource-pose',name,id:r.id,kind:d.protocol.spec.kind,registered:OTR.fpScenario.definitions.has(r.scenario.scene3d),mode:m.mode,par:d.def.par,basePar:OTR_DATA.stopSets.m3_doorsteps.stops[1].par,sequence:d.protocol.sequence,targets:a.protocol.targets.length,batches:a.meshes.length,parcels:a.parcels.length,importedPerson:!!a.human,importedBuildings:a.imports.length,fontLettering:a.fontLettering,bounded:m.blocked(m.bounds.x0-1,m.bounds.z0),handheld:scene.handheld.isOpen,panel:!!scene.panel,checkpointUnchanged:b.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:b.events===JSON.stringify(OTR.workday.events),workdayUnchanged:b.workday===JSON.stringify(OTR.save.data.workday||null)};},name);(report.protocolProof||(report.protocolProof={}))[name]=proof;report.protocolFixture=true;
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));

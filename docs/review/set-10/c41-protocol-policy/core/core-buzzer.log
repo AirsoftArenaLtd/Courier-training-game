@@ -1,0 +1,21 @@
+{"commonRuleComparisons":168}
+✔ content is copied, each authored par is preserved with only the agreed protocol grace (2.211538ms)
+✔ all three protocols finish with catalogue service and exact shared safety and efficiency (2.791231ms)
+✔ the intercom buzz uses actual active game time, excluding paused time and legacy knock jumps (0.620876ms)
+✔ wrong intercom identity stays a service failure after correcting the call and waiting (1.579683ms)
+✔ reception requires the actual carried scanned parcel, identified person and matching signature (0.358ms)
+✔ a standard recipient may take their parcel without a signature, while reception always signs (0.377259ms)
+✔ a locker needs its own scan and a closed-door photo, and reopening invalidates the record (0.974946ms)
+✔ a wrong locker or a wrong carried parcel cannot replace the actual compartment and parcel (0.203006ms)
+✔ common timing bands, climb choices, scan location and wrong pulls match the actual 2D evaluator (16.922794ms)
+✔ return trips and previous unsafe climbing remain in the common log after a successful protocol (0.980099ms)
+✔ an unfinished result is zero, keeps the observations and freezes further actions and finalization (0.554857ms)
+✔ completion cannot be evaluated twice or reported into a suspended workday (1.203657ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 36.014214

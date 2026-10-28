@@ -18,7 +18,7 @@ OTR.fpCustomerProtocolWorld={
       targets,
       sync(){
         const seq=p.sequence;
-        if(kind==='intercom')part(9.23,1.41,-44.65,.04,.025,.015,seq.opened?0x68B06B:seq.calledAt!==null?0xDBBB6B:0x283E46);
+        if(kind==='intercom')part(9.23,1.41,-44.65,.04,.025,.015,seq.opened||OTR.fpStops.ready(seq,p.spec,p.elapsed)?0x68B06B:seq.calledAt!==null?0xDBBB6B:0x283E46);
         if(kind==='locker'){
           const angle=seq.open?Math.PI*.45:0,cs=Math.cos(angle),sn=Math.sin(angle);
           part(8.35,1.02,-43.568,.78,.91,.035,0x9AA7A8);part(8.85+.4*cs,1.02,-43.568+.4*sn,.8,.91,.035,0xA9B4AF,-angle);
