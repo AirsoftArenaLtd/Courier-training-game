@@ -1,0 +1,37 @@
+{
+  "phase": "cancelled-for-visual-correction",
+  "controllerPid": 216610,
+  "jobs": [
+    {
+      "tag": "blocked-low-en",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_BAD": "0"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "blocked-low-en.json": "5bcf120a24496404728e4ee4b9ed27e22ccb2e33489bc16c33249cb7b00c5443",
+        "blocked-low-en-brief.png": "b61eda3ccd7504862231b49a4c2d47a70e6c3a4973edb9cd17e48b8c299801cb",
+        "blocked-low-en-controls.png": "8c04b676dca5223d63373c5e4c462ec4a452bca4e4476560bcb396c602526f89",
+        "blocked-low-en-failure.png": "80c301d2d2937c663508f216fb4ef042a03552b7f4c99eb881aa963775389a9d",
+        "blocked-low-en-safe-card.png": "e2746a38919ecfa343996798ffcab717515b404965c5af775351b65681c73caf",
+        "blocked-low-en-device.png": "5ac7fe41ded87e265f274f5924f57f583ff15816e940fc58501a5a9fc0280398",
+        "blocked-low-en-access-notice.png": "59e5deea500e90a1fbdcbf8233f2429da769dbd540df8c1e4d37ca45f04d2029",
+        "blocked-low-en-card-left.png": "7d9223b84bef812b06c1a8415e2be5423b2133ac59f5d70bc4803544f78f88b1"
+      }
+    }
+  ],
+  "startedAt": 1793212228.882325,
+  "serverPid": 230175,
+  "tag": "blocked-low-en",
+  "childPid": 230176,
+  "failure": "Browser job failed: blocked-low-en",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793213106.6559403,
+  "reason": "Replace card notice circular red face with the existing rectangular green plate. Duplicate queued controllers stopped by exact PID; no source changed while owned browser children ran.",
+  "cleanupVerified": true
+}
