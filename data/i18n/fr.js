@@ -4120,7 +4120,25 @@ window.OTR_I18N.fr = {
 "That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "Cette entrée est déjà attribuée à une action utilisée en même temps. Choisissez une autre entrée ou désactivez d'abord son autre action.",
 "Your gamepad controls are saved. Keyboard controls stay the same.": "Vos commandes de la manette sont enregistrées. Les commandes du clavier restent les mêmes.",
 "Reset your saved gamepad controls?": "Réinitialiser les commandes de la manette enregistrées ?",
-"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "Ces commandes personnalisées sont trop volumineuses pour être enregistrées. Rétablissez les commandes inutilisées par défaut et réessayez."
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "Ces commandes personnalisées sont trop volumineuses pour être enregistrées. Rétablissez les commandes inutilisées par défaut et réessayez.",
+"This scenario needs 3D graphics.": "Ce scénario nécessite des graphismes 3D.",
+"Begin the scenario.": "Commencer le scénario.",
+"Return to the station.": "Retourner au centre.",
+"The headlights are on.": "Les phares sont allumés.",
+"The headlights are off.": "Les phares sont éteints.",
+"The scenario is paused.": "Le scénario est en pause.",
+"Continue the scenario.": "Continuer le scénario.",
+"Read the controls.": "Lire les commandes.",
+"Use the scenario controls.": "Utiliser les commandes du scénario.",
+"Return to the scenario.": "Revenir au scénario.",
+"The left signal is on.": "Le clignotant gauche est allumé.",
+"The left signal is off.": "Le clignotant gauche est éteint.",
+"The right signal is on.": "Le clignotant droit est allumé.",
+"The right signal is off.": "Le clignotant droit est éteint.",
+"morning": "matin",
+"midday": "midi",
+"dusk": "crépuscule",
+"night": "nuit"
 },
 "templates": [
 [
@@ -5974,6 +5992,22 @@ window.OTR_I18N.fr = {
 [
 "Ignore movement below {0} percent.",
 "Ignorer les mouvements inférieurs à {0} pour cent."
+],
+[
+"Time remaining: {0} seconds.",
+"Temps restant : {0} secondes."
+],
+[
+"You have {0} seconds to complete this scenario.",
+"Vous avez {0} secondes pour terminer ce scénario."
+],
+[
+"It is {0}.",
+"Moment de la journée : {0}."
+],
+[
+"Use {0} to look. Press {1} to select a visible nearby target and {2} to interact. Press {3} to read the scenario goal.",
+"Utilisez {0} pour regarder. Appuyez sur {1} pour choisir une cible visible proche et sur {2} pour interagir. Appuyez sur {3} pour lire l'objectif du scénario."
 ]
 ],
 "keep": [

@@ -4119,7 +4119,25 @@ window.OTR_I18N.te = {
 "That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ఆ ఇన్‌పుట్ ఇప్పటికే ఒకే సమయంలో వాడే చర్యకు కేటాయించబడింది. మరో ఇన్‌పుట్ ఎంచుకోండి లేదా ముందుగా దాని ఇతర చర్యను ఆఫ్ చేయండి.",
 "Your gamepad controls are saved. Keyboard controls stay the same.": "మీ గేమ్‌ప్యాడ్ నియంత్రణలు సేవ్ అయ్యాయి. కీబోర్డ్ నియంత్రణలు అలాగే ఉంటాయి.",
 "Reset your saved gamepad controls?": "మీరు సేవ్ చేసిన గేమ్‌ప్యాడ్ నియంత్రణలను రీసెట్ చేయాలా?",
-"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "ఈ అనుకూల నియంత్రణలు సేవ్ చేయడానికి చాలా పెద్దవి. ఉపయోగించని నియంత్రణలను డిఫాల్ట్‌కు పునరుద్ధరించి మళ్లీ ప్రయత్నించండి."
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "ఈ అనుకూల నియంత్రణలు సేవ్ చేయడానికి చాలా పెద్దవి. ఉపయోగించని నియంత్రణలను డిఫాల్ట్‌కు పునరుద్ధరించి మళ్లీ ప్రయత్నించండి.",
+"This scenario needs 3D graphics.": "ఈ సన్నివేశానికి 3D గ్రాఫిక్స్ కావాలి.",
+"Begin the scenario.": "సన్నివేశాన్ని ప్రారంభించండి.",
+"Return to the station.": "స్టేషన్‌కు తిరిగి వెళ్ళండి.",
+"The headlights are on.": "హెడ్‌లైట్లు ఆన్‌లో ఉన్నాయి.",
+"The headlights are off.": "హెడ్‌లైట్లు ఆఫ్‌లో ఉన్నాయి.",
+"The scenario is paused.": "సన్నివేశం ఆపబడింది.",
+"Continue the scenario.": "సన్నివేశాన్ని కొనసాగించండి.",
+"Read the controls.": "నియంత్రణలను చదవండి.",
+"Use the scenario controls.": "సన్నివేశ నియంత్రణలను ఉపయోగించండి.",
+"Return to the scenario.": "సన్నివేశానికి తిరిగి వెళ్ళండి.",
+"The left signal is on.": "ఎడమ ఇండికేటర్ ఆన్‌లో ఉంది.",
+"The left signal is off.": "ఎడమ ఇండికేటర్ ఆఫ్‌లో ఉంది.",
+"The right signal is on.": "కుడి ఇండికేటర్ ఆన్‌లో ఉంది.",
+"The right signal is off.": "కుడి ఇండికేటర్ ఆఫ్‌లో ఉంది.",
+"morning": "ఉదయం",
+"midday": "మధ్యాహ్నం",
+"dusk": "సంధ్య",
+"night": "రాత్రి"
 },
 "templates": [
 [
@@ -5973,6 +5991,22 @@ window.OTR_I18N.te = {
 [
 "Ignore movement below {0} percent.",
 "{0} శాతం కంటే తక్కువ కదలికను పట్టించుకోవద్దు."
+],
+[
+"Time remaining: {0} seconds.",
+"మిగిలిన సమయం: {0} సెకన్లు."
+],
+[
+"You have {0} seconds to complete this scenario.",
+"ఈ సన్నివేశాన్ని పూర్తి చేయడానికి మీకు {0} సెకన్లు ఉన్నాయి."
+],
+[
+"It is {0}.",
+"రోజులో సమయం: {0}."
+],
+[
+"Use {0} to look. Press {1} to select a visible nearby target and {2} to interact. Press {3} to read the scenario goal.",
+"చూడటానికి {0} ఉపయోగించండి. దగ్గర కనిపించే లక్ష్యాన్ని ఎంచుకోవడానికి {1}, పనిచేయడానికి {2} నొక్కండి. సన్నివేశ లక్ష్యాన్ని చదవడానికి {3} నొక్కండి."
 ]
 ],
 "keep": [
