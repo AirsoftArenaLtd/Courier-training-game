@@ -1,0 +1,14 @@
+✔ component menus require the actual card pose and exception, then finish through the original kernel (12.807195ms)
+✔ wrong booking stays failed after correction and menu actions from abandoned runs cannot mutate a new state (3.972209ms)
+✔ the component consumes unrelated completion targets and checks the selected physical target before opening a card menu (1.821703ms)
+✔ all component controls and exception descriptions use bounded pages and remapped physical controls (1.824627ms)
+✔ physical component rays reach the mounted holder and notice from walkable safe poses, with stable paper buffers (5.516425ms)
+✔ locked access has a physical gate and the mounted sign describes the actual access variant (3.191444ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37.666648

@@ -8,8 +8,11 @@ OTR.fpProblemBlocked={
     const state=OTR.fpProblemProtocol.create('m4-blocked',{...source,packages:[{...source.packages[0],id:parcel.id}]},{unsafe,locked});
     parcel.location=OTR.fpMission.slots[0].id;parcel.scanned=true;
     const car={x:stop.x-stop.side*3.2,z:stop.z,w:1.9,d:4.4,h:1.35},card={x:stop.park.x+stop.side*2.4,z:stop.z+5.5,y:1.2};
-    m.blockedProblem={state,bounds:{...m.bounds},start:{...stop.park,speed:0,gear:2,hand:true,belt:false,look:0},car,card,door:{x:stop.x,z:stop.z},hazard:{x0:stop.park.x+2.7,x1:stop.x+.3,z0:stop.z-3.2,z1:stop.z+3.2},slipAt:null,attached:false};
-    m.stops=[stop];m.parcels=[parcel];m.solids.push(car);m.traffic=[];m.crossing.state='resolved';m.tickTraffic=()=>{};m.phase='route';m.mode='cab';m.departed=m.secured=m.repaired=true;m.briefing=null;
+    const holder={x:card.x,z:card.z,w:.24,d:.7,h:1.6},warning={x:car.x-1.35,z:car.z-2.8,w:.12,d:.12,h:2.7};
+    const gate=locked?{x:stop.x-stop.side*1.6,z:stop.z,w:.14,d:7.6,h:1.6}:null;
+    const fences=gate?[-1,1].map(side=>({x:stop.x-stop.side*.8,z:stop.z+side*3.8,w:1.6,d:.14,h:1.6})):[];
+    m.blockedProblem={state,bounds:{...m.bounds},start:{...stop.park,speed:0,gear:2,hand:true,belt:false,look:0},car,card,holder,warning,gate,fences,door:{x:stop.x,z:stop.z},hazard:{x0:stop.park.x+2.7,x1:stop.x+.3,z0:stop.z-3.2,z1:stop.z+3.2},slipAt:null,attached:false};
+    m.stops=[stop];m.parcels=[parcel];m.solids.push(car,holder,warning,...(gate?[gate,...fences]:[]));m.traffic=[];m.crossing.state='resolved';m.tickTraffic=()=>{};m.phase='route';m.mode='cab';m.departed=m.secured=m.repaired=true;m.briefing=null;
     m.moduleReport=(type,detail)=>OTR.fpProblemProtocol.observe(state,type,detail);
     const step=m.step;m.step=function(input,seconds){
       if(this.paused||!OTR.fpProblemProtocol.live(state))return;step.call(this,input,seconds);OTR.fpProblemProtocol.step(state,null,seconds,true);

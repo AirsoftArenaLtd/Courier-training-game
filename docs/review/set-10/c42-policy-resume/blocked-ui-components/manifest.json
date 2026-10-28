@@ -1,0 +1,27 @@
+{
+  "scope": "Unloaded blocked-drive model, fixture and UI components. Five model plus six component cases. Actual walking/colliders and independent Three rays are tested; the menu component uses an explicit pick stub. Full-world integration, native input, text layouts and graphics budgets remain separate. None of these new runtime scripts is referenced by index.html yet, so closure validation inputs remain unchanged.",
+  "cases": {
+    "model": 5,
+    "uiAndFixtures": 6
+  },
+  "sources": {
+    "src/core/fpproblemblocked.js": "a87ef96d7efe3af5eeff0c8ec4fe7477c94eece1ec46bb2e11c1ed8a53b9f1a8",
+    "src/core/fpproblemblockedworld.js": "b06efd089319040c158f538f65002eb69ba52447ee6d81fd350f061c41d17dee",
+    "src/core/fpproblemblockedui.js": "4121286da0996e6e07178d1b495f0f77b3c7a1d2e5ab290a11fac41681a5fa29",
+    "test/fpproblemblocked.js": "fd7d1b8c4c99d0eefbc495bc813ef1073fe170a8a08708f8d07d1ed77f444722",
+    "test/fpproblemblockedcomponents.js": "65c48371abaf8267d83a3e7ed667e53e6ef98ad06baee6fda6caba0d1f3949f0",
+    "test/tools/fp-problem-blocked-context.js": "90fbcee1f8ba252b325571cadcd61c3a6858d8f4bc5238fff3d50bcdc6fb3bb9",
+    "test/tools/fp-problem-route-context.js": "e807ffb1187755b45f7392487fd753d55729d9d3ecad43242e35752e1c4cd48d",
+    "test/tools/fp-problem-context.js": "703a42fda984bb16e96e10c06cb1d39c61f38a32aaa285f27e6c7956c51a2516"
+  },
+  "logs": [
+    {
+      "file": "docs/review/set-10/c42-policy-resume/blocked-ui-components/model.log",
+      "sha256": "58e0ee6c6b9fd3278a0ae2675a96996b9d51589412a2d0ecddeaf69add27845f"
+    },
+    {
+      "file": "docs/review/set-10/c42-policy-resume/blocked-ui-components/ui-and-fixtures.log",
+      "sha256": "402fd998f5911f9133397749b77225d983a40c7534969d89b135035dfe6c8817"
+    }
+  ]
+}
