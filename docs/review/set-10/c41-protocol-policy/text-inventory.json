@@ -1,0 +1,290 @@
+{
+  "scope": "Read-only use of the current catalogue scanner on the owned protocol content/UI and added target readings. Only missing catalogue sentences/templates are listed. No shared catalogue or translations are changed. Existing C-41 dialogue/doorstep text remains in its earlier handoff.",
+  "scannerSha256": "fbc1c8d3fb95e58aaaca20f9beebcd1f0a3065cbdc6cbae212a877099694c37c",
+  "strings": [
+    {
+      "text": "Deliver the parcel to unit 12. Use the intercom at the building entrance.",
+      "from": "src/core/fpcustomerprotocolcontent.js"
+    },
+    {
+      "text": "Deliver the parcel to compartment B12. Record the closed compartment with the handheld camera.",
+      "from": "src/core/fpcustomerprotocolcontent.js"
+    },
+    {
+      "text": "At the Intercom",
+      "from": "src/core/fpcustomerprotocolcontent.js"
+    },
+    {
+      "text": "At Reception",
+      "from": "src/core/fpcustomerprotocolcontent.js"
+    },
+    {
+      "text": "Locker Delivery",
+      "from": "src/core/fpcustomerprotocolcontent.js"
+    },
+    {
+      "text": "Confirm leaving this stop.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "This protocol has not been completed. Leaving now records an unfinished run.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Leave this protocol unfinished.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Continue the stop.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Complete the handover or locker record before finishing this stop.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Identify yourself as the courier making a delivery.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Say that you are visiting the building.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Return to the stop.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Use the building entrance.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "The entrance door has an electric latch.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Try to open the entrance door.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Hand over the parcel.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "The person is at the open entrance.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Give the scanned parcel to the recipient.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Use the reception desk.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Record who will receive the parcel.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Capture the receiver's signature.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Hand the parcel to the recorded receiver.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Record the receiver's name.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Who is accepting the parcel at reception?",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Read the next name.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Record who is receiving the parcel before opening the signature screen.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Capture the signature.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Cancel signing.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "The compartment door is open.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "The compartment door is closed.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Close the compartment door.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Open the compartment door.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Scan the parcel at this compartment.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Read the parcel placement controls.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Use the physical compartment at this target.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Place the scanned parcel inside.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Take the parcel back out.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Use the locker camera.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Frame the actual closed compartment in the camera view.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Resume framing the photo.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Cancel the photo.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Read this stop's details.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Open the locker camera.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Read the controls.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "protocol-locker-B12",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "The closed compartment must be visible inside the camera frame.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "The compartment photo has been recorded.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Use the cargo doors to take and scan the parcel. Close the cargo doors before returning to the cab. Face the intercom, entrance, reception desk or locker to use its controls.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Use the protocol controls.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Read the next controls page.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Complete the customer protocol, record the handover and return to the parked van.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "The intercom buzzer sounds. The entrance is unlocked.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "The handover is recorded. Return to the parked van.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "The entrance is unlocked.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Read the stop details on the handheld.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "The customer protocol is incomplete",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    }
+  ],
+  "templates": [
+    {
+      "text": "Deliver the parcel for {0} to the staffed reception desk. The person at the desk is Alex Morgan.",
+      "from": "src/core/fpcustomerprotocolcontent.js"
+    },
+    {
+      "text": "The selected intercom button is {0}.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Record {0} as the receiver.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "{0} is signing.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Use compartment {0}.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Place the parcel in compartment {0}.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Use {0}/{1}/{2}/{3} to walk. Press {4} to face a nearby physical target, then {5} to interact. The van stays parked during this scenario.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Press {0} to read the stop details or open the locker camera. While using the camera, frame the actual closed compartment, then press {1} to capture it. Pause, handheld and control pages stop the scenario clocks.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "The stop address is {0} {1}.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "Frame the closed compartment, then press {0} to capture the photo.",
+      "from": "src/core/fpcustomerprotocolscenario.js"
+    },
+    {
+      "text": "intercom button {0}",
+      "from": "src/core/fpaccess.js"
+    },
+    {
+      "text": "locker compartment {0}",
+      "from": "src/core/fpaccess.js"
+    }
+  ],
+  "properNames": [
+    "Alex Morgan"
+  ],
+  "developerOnly": [
+    "Unknown optional customer protocol"
+  ]
+}

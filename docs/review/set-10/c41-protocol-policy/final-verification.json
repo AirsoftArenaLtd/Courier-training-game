@@ -1,0 +1,128 @@
+{
+  "scope": "Owned optional protocol adapter on the pre-rebase C-38/C-41 stack. Explicit optional descriptors and Tamil font are fixtures. Shared A-30/current-pilot/translated-body/Intel acceptance is separate.",
+  "phases": {
+    "native-attempt-2": {
+      "revision": "69817c139aa7b911f575104d261960771c62d13f",
+      "inputs": 555,
+      "controllerState": "zombie (terminated, awaiting environment reaping)",
+      "jobs": [
+        {
+          "tag": "protocol-intercom-low-en",
+          "artifacts": 3,
+          "checks": 203,
+          "layouts": 11,
+          "score": 1100
+        },
+        {
+          "tag": "protocol-reception-low-en",
+          "artifacts": 3,
+          "checks": 192,
+          "layouts": 10,
+          "score": 1100
+        },
+        {
+          "tag": "protocol-locker-low-en",
+          "artifacts": 5,
+          "checks": 205,
+          "layouts": 11,
+          "score": 1100
+        },
+        {
+          "tag": "protocol-intercom-high-ta",
+          "artifacts": 3,
+          "checks": 206,
+          "layouts": 11,
+          "score": 1100
+        },
+        {
+          "tag": "protocol-reception-high-ta",
+          "artifacts": 3,
+          "checks": 195,
+          "layouts": 10,
+          "score": 1100
+        },
+        {
+          "tag": "protocol-locker-high-ta",
+          "artifacts": 5,
+          "checks": 208,
+          "layouts": 11,
+          "score": 1100
+        }
+      ]
+    },
+    "resource-attempt-2": {
+      "revision": "69817c139aa7b911f575104d261960771c62d13f",
+      "inputs": 557,
+      "controllerState": "zombie (terminated, awaiting environment reaping)",
+      "jobs": [
+        {
+          "tag": "protocol-budget-loaded-low",
+          "artifacts": 9,
+          "peak": {
+            "calls": 28,
+            "triangles": 1146,
+            "textures": 2,
+            "attachmentBytes": 3557376,
+            "phaserBytes": 2063622
+          }
+        },
+        {
+          "tag": "protocol-budget-loaded-high",
+          "artifacts": 9,
+          "peak": {
+            "calls": 43,
+            "triangles": 28936,
+            "textures": 4,
+            "attachmentBytes": 11239424,
+            "phaserBytes": 5500646
+          }
+        },
+        {
+          "tag": "protocol-budget-accessible-low",
+          "artifacts": 9,
+          "peak": {
+            "calls": 28,
+            "triangles": 1146,
+            "textures": 2,
+            "attachmentBytes": 3557376,
+            "phaserBytes": 2187072
+          }
+        },
+        {
+          "tag": "protocol-budget-fallback-low",
+          "artifacts": 9,
+          "peak": {
+            "calls": 31,
+            "triangles": 942,
+            "textures": 2,
+            "attachmentBytes": 3557376,
+            "phaserBytes": 2063622
+          }
+        }
+      ]
+    },
+    "native-negative-attempt-2": {
+      "revision": "69817c139aa7b911f575104d261960771c62d13f",
+      "inputs": 555,
+      "controllerState": "zombie (terminated, awaiting environment reaping)",
+      "jobs": [
+        {
+          "tag": "protocol-intercom-high-ta-bad",
+          "artifacts": 3,
+          "checks": 226,
+          "layouts": 12,
+          "score": 900
+        }
+      ]
+    }
+  },
+  "nativeChecks": 1435,
+  "nativeLayouts": 76,
+  "nativeJourneys": 7,
+  "resourceViews": 32,
+  "artifacts": 61,
+  "hostFontInputs": 4,
+  "uniqueInputs": 560,
+  "cleanupVerified": true,
+  "allPassed": true
+}
