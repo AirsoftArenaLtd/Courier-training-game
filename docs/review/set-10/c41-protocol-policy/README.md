@@ -1,0 +1,7 @@
+# C-41 protocol policy resumed
+
+Claude’s 27 October answer resolves the category and par questions. Optional intercom/reception/locker runs retain the existing StopScene common safety/efficiency checks, then add the named service protocol checks from the existing catalogue. Intercom and reception add 30 seconds to the existing per-stop par; a locker uses the existing par. The actual evaluator reads `d.par || 120`, so an authored per-stop value must be retained. The existing first-person doorstep model already delegates to that original evaluator; new protocol adapters should preserve that common grading path. Lockers stay an optional `m3-locker`, without assigning workday lockers.
+
+The four authorized compatible existing m3 adapter keys are now applied. Removing only those keys reproduces every original registry byte, including ids, categories, thresholds, content, 2D scenes and defaults. Existing dialogue/doorstep adapter suites pass; `audit.json` and raw logs record exact cases and source hashes. This metadata/policy audit makes no new native/resource or current-pilot claim. New protocol adapter implementation follows on the same existing C-38 stack.
+
+The shared optional A-30 launcher remains tracked with Claude; the shared B-178 font fix is already on pilot and will be retained/checked after the requested post-C-52 stack rebase. These are integration dependencies, not new policy questions or owner decisions. No shared scoring/save/catalogue/2D scene/default implementation changes.

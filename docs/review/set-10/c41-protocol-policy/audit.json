@@ -1,0 +1,43 @@
+{
+  "base": "3e17e0b8",
+  "policySource": "Claude inbox 27 October 2026; fetched pilot feadbd5a",
+  "compatibleExistingIDs": {
+    "m3-missing": "customer-conversation",
+    "m3-signature": "customer-conversation",
+    "m3-twostops": "customer-conversation",
+    "m3-doorsteps": "customer-doorsteps"
+  },
+  "everyOriginalRegistryBytePreservedAfterRemovingOnlyKeys": true,
+  "registrySHA256": "0cf6790447fdf45f0b7043892276411315c8ee402cb49976bb20be64e2197c6c",
+  "acceptedCommonChecks": [
+    "Three-point exit and entry as safety",
+    "Scanned at the van, right parcel and stop time as efficiency"
+  ],
+  "protocolServiceTypes": [
+    "stop.intercom",
+    "stop.reception",
+    "stop.locker"
+  ],
+  "parSource": {
+    "file": "src/scenes/stops/StopScene.js",
+    "expression": "const par = d.par || 120;",
+    "sha256": "cbbc60ad7f2c9bfe7f4506c38e3d2e9d5730fe9726eb5c9ef83490ded5fd72f2",
+    "intercomExtraSeconds": 30,
+    "receptionExtraSeconds": 30,
+    "lockerExtraSeconds": 0
+  },
+  "nextOwnedWork": "Add separate protocol adapters using common StopScene checks and existing service catalogue labels/lessons/criticals; keep optional locker separate and do not enable workday lockers.",
+  "externalIntegration": "A-30 shared optional launcher; B-178 font already applied on pilot, glyph confirmation after requested post-C-52 rebase",
+  "checks": [
+    {
+      "suite": "test/fpcustomerscenario.js",
+      "exit": 0,
+      "cases": 4
+    },
+    {
+      "suite": "test/fpcustomerstopscenario.js",
+      "exit": 0,
+      "cases": 4
+    }
+  ]
+}
