@@ -144,7 +144,15 @@ OTR.fpWorld = {
         box(route,r.x,.55,r.z,r.w,1.1,1,0xF2B84B,null,true);
         box(route,r.x,1.115,r.z,r.w,.03,1.03,0xEFEEE5);
       }
-      labels.push({parent:route,point:new T.Vector3(r.x,1.6,r.z),text:'This street is closed.',wrap:216,max:25});
+      // Optional road problems use the existing mounted ROAD CLOSED sign faces and J reading.
+      if(!base.roadProblem)labels.push({parent:route,point:new T.Vector3(r.x,1.6,r.z),text:'This street is closed.',wrap:216,max:25});
+    }
+    if(base.roadProblem){
+      const b=base.roadProblem.bay;
+      for(const side of [-1,1]){
+        box(route,b.x+side*b.halfWidth,.055,b.z,.08,.02,b.halfLength*2,0xEFEEE5);
+        box(route,b.x,.055,b.z+side*b.halfLength,b.halfWidth*2,.02,.08,0xEFEEE5);
+      }
     }
     const particleCount=OTR.gfx.high()?36:base.routePlan&&base.routePlan.later===1?12:18;
     const weatherParticles=OTR.fpWeather&&(wet||snow||weather==='ice')?OTR.fpWeather.particles(scene,plane,weather,particleCount):null;
