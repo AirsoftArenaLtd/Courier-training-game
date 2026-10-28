@@ -1,0 +1,871 @@
+{
+  "views": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "road-device-low-en-normal-cab.png",
+      "instrumentPixels": {
+        "changed": 8680,
+        "hoodPixels": null,
+        "rect": {
+          "x": 540,
+          "y": 320,
+          "right": 740,
+          "top": 389
+        },
+        "unchanged": true,
+        "glError": 0,
+        "textures": 2
+      },
+      "live": "road-device-low-en-normal-live-instruments.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 282,
+            "top": 259,
+            "bottom": 305,
+            "faceTop": 259,
+            "faceBottom": 305,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 334,
+            "top": 311,
+            "bottom": 357,
+            "faceTop": 311,
+            "faceBottom": 357,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 386,
+            "top": 363,
+            "bottom": 409,
+            "faceTop": 363,
+            "faceBottom": 409,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 438,
+            "top": 415,
+            "bottom": 461,
+            "faceTop": 415,
+            "faceBottom": 461,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 490,
+            "top": 467,
+            "bottom": 513,
+            "faceTop": 467,
+            "faceBottom": 513,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "road-device-low-en-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "road-device-low-en-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 280,
+            "top": 257,
+            "bottom": 303,
+            "faceTop": 257,
+            "faceBottom": 303,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 332,
+            "top": 309,
+            "bottom": 355,
+            "faceTop": 309,
+            "faceBottom": 355,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 384,
+            "top": 361,
+            "bottom": 407,
+            "faceTop": 361,
+            "faceBottom": 407,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 436,
+            "top": 413,
+            "bottom": 459,
+            "faceTop": 413,
+            "faceBottom": 459,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 488,
+            "top": 465,
+            "bottom": 511,
+            "faceTop": 465,
+            "faceBottom": 511,
+            "height": 46,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "road-device-low-en-large-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "road-device-low-ta-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 282,
+            "top": 259,
+            "bottom": 305,
+            "faceTop": 259,
+            "faceBottom": 305,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 334,
+            "top": 311,
+            "bottom": 357,
+            "faceTop": 311,
+            "faceBottom": 357,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 386,
+            "top": 363,
+            "bottom": 409,
+            "faceTop": 363,
+            "faceBottom": 409,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 438,
+            "top": 415,
+            "bottom": 461,
+            "faceTop": 415,
+            "faceBottom": 461,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 490,
+            "top": 467,
+            "bottom": 513,
+            "faceTop": 467,
+            "faceBottom": 513,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "road-device-low-ta-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "road-device-low-ta-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 271,
+            "top": 248,
+            "bottom": 294,
+            "faceTop": 248,
+            "faceBottom": 294,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 323,
+            "top": 300,
+            "bottom": 346,
+            "faceTop": 300,
+            "faceBottom": 346,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 375,
+            "top": 352,
+            "bottom": 398,
+            "faceTop": 352,
+            "faceBottom": 398,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 427,
+            "top": 404,
+            "bottom": 450,
+            "faceTop": 404,
+            "faceBottom": 450,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 483,
+            "top": 456,
+            "bottom": 510,
+            "faceTop": 456,
+            "faceBottom": 510,
+            "height": 54,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "road-device-low-ta-large-handheld.png"
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "high",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "road-device-high-en-normal-cab.png",
+      "instrumentPixels": {
+        "changed": 8272,
+        "hoodPixels": 0,
+        "rect": {
+          "x": 540,
+          "y": 320,
+          "right": 740,
+          "top": 389
+        },
+        "unchanged": true,
+        "glError": 0,
+        "textures": 4
+      },
+      "live": "road-device-high-en-normal-live-instruments.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 282,
+            "top": 259,
+            "bottom": 305,
+            "faceTop": 259,
+            "faceBottom": 305,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 334,
+            "top": 311,
+            "bottom": 357,
+            "faceTop": 311,
+            "faceBottom": 357,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 386,
+            "top": 363,
+            "bottom": 409,
+            "faceTop": 363,
+            "faceBottom": 409,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 438,
+            "top": 415,
+            "bottom": 461,
+            "faceTop": 415,
+            "faceBottom": 461,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 490,
+            "top": 467,
+            "bottom": 513,
+            "faceTop": 467,
+            "faceBottom": 513,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Image",
+        "bodyCanvases": 1,
+        "focused": true
+      },
+      "handheld": "road-device-high-en-normal-handheld.png"
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "high",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "road-device-high-en-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 280,
+            "top": 257,
+            "bottom": 303,
+            "faceTop": 257,
+            "faceBottom": 303,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 332,
+            "top": 309,
+            "bottom": 355,
+            "faceTop": 309,
+            "faceBottom": 355,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 384,
+            "top": 361,
+            "bottom": 407,
+            "faceTop": 361,
+            "faceBottom": 407,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 436,
+            "top": 413,
+            "bottom": 459,
+            "faceTop": 413,
+            "faceBottom": 459,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 488,
+            "top": 465,
+            "bottom": 511,
+            "faceTop": 465,
+            "faceBottom": 511,
+            "height": 46,
+            "font": 17
+          }
+        ],
+        "body": "Image",
+        "bodyCanvases": 1,
+        "focused": true
+      },
+      "handheld": "road-device-high-en-large-handheld.png"
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "high",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "road-device-high-ta-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 282,
+            "top": 259,
+            "bottom": 305,
+            "faceTop": 259,
+            "faceBottom": 305,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 334,
+            "top": 311,
+            "bottom": 357,
+            "faceTop": 311,
+            "faceBottom": 357,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 386,
+            "top": 363,
+            "bottom": 409,
+            "faceTop": 363,
+            "faceBottom": 409,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 438,
+            "top": 415,
+            "bottom": 461,
+            "faceTop": 415,
+            "faceBottom": 461,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 490,
+            "top": 467,
+            "bottom": 513,
+            "faceTop": 467,
+            "faceBottom": 513,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Image",
+        "bodyCanvases": 1,
+        "focused": true
+      },
+      "handheld": "road-device-high-ta-normal-handheld.png"
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "high",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "road-device-high-ta-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 271,
+            "top": 248,
+            "bottom": 294,
+            "faceTop": 248,
+            "faceBottom": 294,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 323,
+            "top": 300,
+            "bottom": 346,
+            "faceTop": 300,
+            "faceBottom": 346,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 375,
+            "top": 352,
+            "bottom": 398,
+            "faceTop": 352,
+            "faceBottom": 398,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 427,
+            "top": 404,
+            "bottom": 450,
+            "faceTop": 404,
+            "faceBottom": 450,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 483,
+            "top": 456,
+            "bottom": 510,
+            "faceTop": 456,
+            "faceBottom": 510,
+            "height": 54,
+            "font": 17
+          }
+        ],
+        "body": "Image",
+        "bodyCanvases": 1,
+        "focused": true
+      },
+      "handheld": "road-device-high-ta-large-handheld.png"
+    }
+  ],
+  "errors": [],
+  "current": {
+    "quality": "high",
+    "lang": "ta",
+    "large": true,
+    "initial": {
+      "valid": true,
+      "quality": "high",
+      "controls": [
+        "cab-park",
+        "cab-reverse",
+        "cab-neutral",
+        "cab-drive",
+        "cab-handbrake",
+        "cab-signal-left",
+        "cab-signal-right",
+        "cab-wipers",
+        "cab-headlights",
+        "cab-belt",
+        "cab-exit",
+        "cab-camera"
+      ]
+    },
+    "cab": "road-device-high-ta-large-cab.png",
+    "layout": {
+      "bad": [],
+      "buttons": [
+        {
+          "surface": "Graphics",
+          "enabled": true,
+          "x": 1060,
+          "y": 271,
+          "top": 248,
+          "bottom": 294,
+          "faceTop": 248,
+          "faceBottom": 294,
+          "height": 46,
+          "font": 17
+        },
+        {
+          "surface": "Graphics",
+          "enabled": true,
+          "x": 1060,
+          "y": 323,
+          "top": 300,
+          "bottom": 346,
+          "faceTop": 300,
+          "faceBottom": 346,
+          "height": 46,
+          "font": 17
+        },
+        {
+          "surface": "Graphics",
+          "enabled": true,
+          "x": 1060,
+          "y": 375,
+          "top": 352,
+          "bottom": 398,
+          "faceTop": 352,
+          "faceBottom": 398,
+          "height": 46,
+          "font": 17
+        },
+        {
+          "surface": "Graphics",
+          "enabled": true,
+          "x": 1060,
+          "y": 427,
+          "top": 404,
+          "bottom": 450,
+          "faceTop": 404,
+          "faceBottom": 450,
+          "height": 46,
+          "font": 17
+        },
+        {
+          "surface": "Graphics",
+          "enabled": true,
+          "x": 1060,
+          "y": 483,
+          "top": 456,
+          "bottom": 510,
+          "faceTop": 456,
+          "faceBottom": 510,
+          "height": 54,
+          "font": 17
+        }
+      ],
+      "body": "Image",
+      "bodyCanvases": 1,
+      "focused": true
+    },
+    "handheld": "road-device-high-ta-large-handheld.png"
+  },
+  "checks": 96
+}

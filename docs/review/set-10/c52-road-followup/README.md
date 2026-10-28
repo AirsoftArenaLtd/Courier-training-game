@@ -1,0 +1,9 @@
+# C-52 road visibility correction
+
+The C-52 instrument face intersected the normal seated-eye ray to the road 23 m ahead. The new Node regression fails before the correction, with `cab-instrument-face` as the obstructing mesh. Lowering the common face 4 cm preserves its size, shader, hood and physical controls; all 14 cab cases pass afterward. The existing road point and lighting threshold are unchanged.
+
+The review candidate starts at pushed B-181 `75f2fbd0`, based on current pilot `9105e301`. The original C-52 visual/test patch applies cleanly, without a merge. Its four rendering implementations match the owned branch, while the current pilot's newer B-138 control/hint prefix in `fpcab.js` is retained. Current B-2/B-3 Scene/index guards and the original lighting browser test are byte-for-byte preserved. Exact patch, candidate source and comparisons are retained here.
+
+Both lighting suites pass: 51 Low and 45 High checks. At the original (650,403) road sample, the RGB sum increases by 21.72 at Low and 20.38 at High when the native headlight key is used, exceeding the unchanged +12 threshold. Device design passes 96 checks across eight views; physical cab controls pass 200. Normal strict layouts pass all 588 cab views in twelve languages. Larger layouts and forty focused resource views are running serially under the browser lease; they are not yet claimed as passed.
+
+B-181 is independently pushed for review. It combines the desk/bench folder and credit without changing model bytes, counts or graphics; this candidate includes that branch. Source hashes and raw artifacts belong to their recorded scope. Earlier C-52 acceptance remains historical. No protected push, branch merge, road-test relocation, timing shortcut or resource-ceiling change. Cloud frame rates do not certify Intel 60 fps (O-1).

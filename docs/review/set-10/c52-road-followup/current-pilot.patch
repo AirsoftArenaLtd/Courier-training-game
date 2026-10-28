@@ -1,0 +1,334 @@
+diff --git a/src/core/fpbranding.js b/src/core/fpbranding.js
+index 43f88d4f..53c07390 100644
+--- a/src/core/fpbranding.js
++++ b/src/core/fpbranding.js
+@@ -33,27 +33,36 @@ OTR.fpBrand={
+     });
+   },
+   deviceTexture(scene,device){
+-    const b=this.read(),key='handheld_body',signature=JSON.stringify(b);let texture=scene.textures.exists(key)&&scene.textures.get(key);
++    const b=this.read(),key='handheld_body',signature='rugged-2|'+JSON.stringify(b);let texture=scene.textures.exists(key)&&scene.textures.get(key);
+     if(texture&&texture.fpBrand===signature)return key;
+     if(!texture)texture=scene.textures.createCanvas(key,device.W+40,device.H+40);
+     const ctx=texture.getContext(),cv=OTR.cv,W=device.W,H=device.H,css=n=>'#'+n.toString(16).padStart(6,'0');ctx.clearRect(0,0,W+40,H+40);
+     cv.shadow(ctx,24,10,.5);cv.rr(ctx,20,20,W,H,44);ctx.fillStyle=css(b.dark);ctx.fill();cv.noShadow(ctx);
++    cv.rr(ctx,25,25,W-10,H-10,39);ctx.strokeStyle='#687780';ctx.lineWidth=2;ctx.stroke();
+     ctx.fillStyle=css(b.accent);for(const x of [20,W+8]){cv.rr(ctx,x,70,12,160,6);ctx.fill();}
++    ctx.fillStyle='#101B23';for(const x of [22,W+6])for(let y=86;y<218;y+=12)ctx.fillRect(x,y,12,4);
+     cv.rr(ctx,20+W/2-60,30,120,18,9);ctx.fillStyle='#8A1A20';ctx.fill();ctx.fillStyle='#F26B73';ctx.fillRect(20+W/2-50,36,100,6);
+-    cv.rr(ctx,44,64,W-48,470,16);ctx.fillStyle=css(b.ink);ctx.fill();
+-    for(let r=0;r<2;r++)for(let c=0;c<4;c++){cv.rr(ctx,60+c*80,550+r*44,64,34,10);ctx.fillStyle=css(c===0&&r===0?b.accent:b.primary);ctx.fill();}
++    cv.rr(ctx,44,64,W-48,470,16);ctx.fillStyle='#101B23';ctx.fill();ctx.strokeStyle='#71818A';ctx.lineWidth=1;ctx.stroke();
++    // Speaker slots and fasteners are case details, not nonfunctional button drawings.
++    ctx.fillStyle='#101B23';for(let i=0;i<5;i++){cv.rr(ctx,W/2-36+i*22,562,12,38,5);ctx.fill();}
++    for(const x of [44,W-4])for(const y of [48,H-8]){ctx.beginPath();ctx.arc(x,y,3,0,Math.PI*2);ctx.fillStyle='#98A6AA';ctx.fill();ctx.fillStyle='#25323A';ctx.fillRect(x-2,y-.6,4,1.2);}
++    ctx.fillStyle=css(b.accent);cv.rr(ctx,W/2-14,616,68,4,2);ctx.fill();
+     ctx.fillStyle='#FFFFFF';ctx.textAlign='center';ctx.textBaseline='middle';OTR.cv.fitText(ctx,b.name,20+W/2,648,W-44,14,{min:10});
+     texture.fpBrand=signature;texture.refresh();return key;
+   },
+   deviceSkin(device){
+-    // On Low, the case is flat vector art; keep all screen text at its native size without a large canvas.
++    // Low keeps the same case design in vector art, with native-size text and no case canvas.
+     const s=device.scene,b=this.read(),g=s.add.graphics(),x=-device.W/2,y=-device.H/2;
+     g.fillStyle(0x000000,.2);g.fillRoundedRect(x+6,y+8,device.W,device.H,44);
+     g.fillStyle(b.dark);g.fillRoundedRect(x,y,device.W,device.H,44);
++    g.lineStyle(2,0x687780);g.strokeRoundedRect(x+5,y+5,device.W-10,device.H-10,39);
+     g.fillStyle(b.accent);for(const grip of [x,x+device.W-12])g.fillRoundedRect(grip,y+50,12,160,6);
++    g.fillStyle(0x101B23);for(const grip of [x+2,x+device.W-14])for(let row=66;row<198;row+=12)g.fillRect(grip,y+row,12,4);
+     g.fillStyle(0x8A1A20);g.fillRoundedRect(-60,y+10,120,18,9);g.fillStyle(0xF26B73);g.fillRect(-50,y+16,100,6);
+-    g.fillStyle(b.ink);g.fillRoundedRect(x+24,y+44,device.W-48,470,16);
+-    for(let row=0;row<2;row++)for(let col=0;col<4;col++){g.fillStyle(col===0&&row===0?b.accent:b.primary);g.fillRoundedRect(x+40+col*80,y+530+row*44,64,34,10);}
++    g.fillStyle(0x101B23);g.fillRoundedRect(x+24,y+44,device.W-48,470,16);g.lineStyle(1,0x71818A);g.strokeRoundedRect(x+24,y+44,device.W-48,470,16);
++    g.fillStyle(0x101B23);for(let i=0;i<5;i++)g.fillRoundedRect(-56+i*22,y+542,12,38,5);
++    for(const bx of [x+24,x+device.W-24])for(const by of [y+28,y+device.H-28]){g.fillStyle(0x98A6AA).fillCircle(bx,by,3);g.fillStyle(0x25323A).fillRect(bx-2,by-.6,4,1.2);}
++    g.fillStyle(b.accent).fillRoundedRect(-34,y+596,68,4,2);
+     this.releaseUnused(s,'handheld_body');return g;
+   },
+   releaseUnused(scene,key){
+@@ -70,8 +79,25 @@ OTR.fpBrand={
+     if(device.clockText)device.clockText.setY(device.sy+header/2);
+     for(const o of device.screen.list)if(o!==title&&o!==device.clockText&&o.y>=device.sy+44&&o.y<device.sy+device.sh-30)o.y+=header-44;
+     const g=device.scene.add.graphics(),b=this.read();g.fillStyle(0xF1F5FA);g.fillRoundedRect(device.sx,device.sy,device.sw,device.sh,10);
+-    g.fillStyle(def.color===undefined?b.primary:def.color);g.fillRoundedRect(device.sx,device.sy,device.sw,header,{tl:10,tr:10,bl:0,br:0});device.screen.addAt(g,0);
++    g.fillStyle(def.color===undefined?b.primary:def.color);g.fillRoundedRect(device.sx,device.sy,device.sw,header,{tl:10,tr:10,bl:0,br:0});
++    g.lineStyle(1,0xB8C7CF).strokeRoundedRect(device.sx+.5,device.sy+.5,device.sw-1,device.sh-1,10);
++    g.fillStyle(b.accent).fillRect(device.sx+14,device.sy+header-3,device.sw-28,2);device.screen.addAt(g,0);
++    // Final wrapping and hit-area sizes still belong to fpAccess.layoutDevice.
++    for(const btn of device.optionBtns||[])btn.label.setOrigin(0,.5).setX(-(device.sw-20)/2+12).setAlign('left');
+     if(!texture||!texture.startsWith('gfx_'))return;
+     this.releaseUnused(device.scene,texture);
++  },
++  deviceOptions(device){
++    // Reuse each button's input object, handlers and text. The page owns these small vector faces.
++    for(const btn of device.optionBtns||[]){
++      if(btn._fpSurface)btn._fpSurface.destroy();
++      const g=device.scene.add.graphics(),w=device.sw-20,h=btn._fpHeight||btn.height;
++      g.fillStyle(0xFFFFFF).fillRoundedRect(-w/2,-h/2,w,h,8);
++      g.lineStyle(1,0xA8BBC5).strokeRoundedRect(-w/2+.5,-h/2+.5,w-1,h-1,8);
++      g.fillStyle(this.read().accent).fillRoundedRect(-w/2+1,-h/2+8,3,h-16,1);
++      // A nonzero alpha keeps Phaser's original hit object eligible for pointer hit testing.
++      btn.bg.setAlpha(.001);btn.label.setColor('#18323F').setShadow(0,0,'rgba(0,0,0,0)',0);
++      btn._fpSurface=g;btn.addAt(g,0);
++    }
+   }
+ };
+diff --git a/src/core/fpcab.js b/src/core/fpcab.js
+index b9685037..c0250199 100644
+--- a/src/core/fpcab.js
++++ b/src/core/fpcab.js
+@@ -55,25 +55,26 @@ OTR.fpCab={
+     // Keep the mounted display below the windscreen and clear of the physical PRND selector.
+     const navX=1.12,navY=-.54;
+     face(navX,navY,-1.025,.61,.38,0x17252F);face(navX,navY-.25,-1.03,.055,.12,0x354650);
++    let hood=null;
+     if(high){part(1.13,-.88,-.08,.5,.15,.58,0x43545E);part(.5,-.77,-.7,.27,.22,.55,0x26343F);part(.415,.52,-1.02,2.27,.055,.06,0x4D5D66);
+       // Recessed vents, a gauge hood and glovebox give the dash depth without another batch or texture.
+-      part(0,-.14,-1.025,.72,.06,.15,0x17252F);part(1.15,-.47,-1,.56,.035,.06,0x17252F);
++      hood=part(0,-.1,-1.025,.72,.03,.15,0x17252F);part(1.15,-.47,-1,.56,.035,.06,0x17252F);
+       part(-.05,.435,-1.005,.48,.11,.035,0x3A444C);part(1.05,.435,-1.005,.48,.11,.035,0x3A444C);
+       for(const x of [-.48,.48,1.35]){face(x,-.345,-.953,.16,.075,0x101B23);for(let i=0;i<3;i++)face(x,-.37+i*.025,-.949,.15,.006,0x687780);}
+     }
+     part(.48,-.42,-.95,.27,.52,.1,0x17252F);
+-    const shifter=part(.48,-.58,-.86,.09,.08,.08,0xE2CFA4);
++    const shifter=part(.48,-.58,-.86,.09,.08,.08,0x96A5AD);
+     for(const [i,id] of ['cab-park','cab-reverse','cab-neutral','cab-drive'].entries()){
+       const y=-.25-i*.11;face(.48,y,-.892,.21,.085,0x455863);target(id,.48,y,-.875,.21,.09,.04);
+       labels.push({parent:root,cab:true,gear:true,local:new T.Vector3(.35,y,-.86),point:new T.Vector3(),text:['P','R','N','D'][i],max:2.5});
+     }
+-    const brake=part(.5,-.62,-.48,.06,.08,.27,0xC8BDA1,'cab-handbrake',-.4);
+-    const left=part(-.23,-.34,-.75,.18,.035,.04,0xD0D8D9,'cab-signal-left');
++    const brake=part(.5,-.62,-.48,.06,.08,.27,0x657780,'cab-handbrake',-.4);
++    const left=part(-.23,-.34,-.75,.18,.035,.04,0x899BA5,'cab-signal-left');
+     face(-.23,-.25,-.75,.18,.045,0xA2B1B9);target('cab-signal-right',-.23,-.25,-.75,.18,.045,.05);
+-    const wipers=part(.23,-.34,-.75,.18,.035,.04,0xD0D8D9,'cab-wipers');
+-    const lights=part(-.48,-.29,-1,.08,.09,.07,0xD0D8D9,'cab-headlights');
+-    const belt=part(.27,-.66,-.37,.1,.12,.09,0xF5BD63,'cab-belt');
+-    part(-.65,-.45,-.36,.055,.055,.2,0xD0D8D9,'cab-exit');
++    const wipers=part(.23,-.34,-.75,.18,.035,.04,0x899BA5,'cab-wipers');
++    const lights=part(-.48,-.29,-1,.08,.09,.07,0x899BA5,'cab-headlights');
++    const belt=part(.27,-.66,-.37,.1,.12,.09,0xC6644B,'cab-belt');
++    part(-.65,-.45,-.36,.055,.055,.2,0x899BA5,'cab-exit');
+     const batch=new T.InstancedMesh(cube,paint,parts.length);batch.frustumCulled=false;root.add(batch);
+     for(let i=0;i<parts.length;i++){batch.setMatrixAt(i,parts[i].matrix);batch.setColorAt(i,parts[i].color);parts[i].index=i;}
+     const panels=new T.InstancedMesh(sheet,paint,sheets.length);panels.frustumCulled=false;root.add(panels);
+@@ -84,15 +85,51 @@ OTR.fpCab={
+     const spokes=new T.InstancedMesh(sheet,rimPaint,high?3:4);spokes.frustumCulled=false;wheel.add(spokes);
+     for(let i=0;i<3;i++){const a=i*2*Math.PI/3;scratch.position.set(Math.sin(a)*.08,Math.cos(a)*.08,0);scratch.rotation.set(0,0,-a);scratch.scale.set(.018,.16,1);scratch.updateMatrix();spokes.setMatrixAt(i,scratch.matrix);}
+     if(!high){scratch.position.set(0,0,0);scratch.rotation.set(0,0,0);scratch.scale.set(.075,.065,1);scratch.updateMatrix();spokes.setMatrixAt(3,scratch.matrix);}
+-    const gaugePaint=new T.ShaderMaterial({uniforms:{speed:{value:0},rpm:{value:.2}},vertexShader:'varying vec2 p; void main(){p=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`
+-      precision mediump float; varying vec2 p; uniform float speed; uniform float rpm;
+-      float dial(vec2 v,float value){float r=length(v);float ring=smoothstep(.96,.9,r)*smoothstep(.8,.85,r);
+-        float a=mix(-2.35,2.35,clamp(value,0.,1.));vec2 n=vec2(sin(a),-cos(a));
+-        float t=clamp(dot(v,n),0.,.72);float needle=1.-smoothstep(.025,.045,length(v-n*t));
+-        float ticks=step(.91,fract(atan(v.x,v.y)*1.91))*step(.7,r)*step(r,.86);return max(needle,max(ring,ticks));}
+-      void main(){vec2 a=(p-vec2(.25,.5))*vec2(4.,2.);vec2 b=(p-vec2(.75,.5))*vec2(4.,2.);
+-        float ink=max(dial(a,speed),dial(b,rpm));gl_FragColor=vec4(mix(vec3(.045,.075,.09),vec3(.95,.87,.65),ink),1.);}`});
+-    const gauges=new T.Mesh(sheet,gaugePaint);gauges.position.set(0,-.235,-1.005);gauges.scale.set(.61,.18,1);root.add(gauges);
++    // Both presets share the existing two-triangle instrument face. Scales, digits and backlighting
++    // are analytic artwork, with no image, text canvas, animation timer or additional render pass.
++    const gaugePaint=new T.ShaderMaterial({uniforms:{speed:{value:0},rpm:{value:.2},lit:{value:0}},vertexShader:'varying vec2 p; void main(){p=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`
++      precision mediump float; varying vec2 p; uniform float speed; uniform float rpm; uniform float lit;
++      float band(float x,float a,float b){return smoothstep(a-.012,a+.012,x)*(1.-smoothstep(b-.012,b+.012,x));}
++      float stroke(vec2 q,vec2 a,vec2 b,float w){vec2 d=b-a;float t=clamp(dot(q-a,d)/dot(d,d),0.,1.);return 1.-smoothstep(w,w+.018,length(q-a-d*t));}
++      float digit(vec2 q,float n){
++        if(abs(q.x)>.34||abs(q.y)>.56)return 0.;
++        float a=step(.5,abs(n-1.))*step(.5,abs(n-4.));
++        float b=step(.5,abs(n-5.))*step(.5,abs(n-6.));
++        float c=step(.5,abs(n-2.));
++        float d=step(.5,abs(n-1.))*step(.5,abs(n-4.))*step(.5,abs(n-7.));
++        float e=1.-step(.5,min(min(abs(n),abs(n-2.)),min(abs(n-6.),abs(n-8.))));
++        float f=step(.5,abs(n-1.))*step(.5,abs(n-2.))*step(.5,abs(n-3.))*step(.5,abs(n-7.));
++        float g=step(.5,abs(n))*step(.5,abs(n-1.))*step(.5,abs(n-7.));
++        return max(max(max(a*stroke(q,vec2(-.23,.45),vec2(.23,.45),.025),d*stroke(q,vec2(-.23,-.45),vec2(.23,-.45),.025)),g*stroke(q,vec2(-.23,0.),vec2(.23,0.),.025)),
++          max(max(b*stroke(q,vec2(.26,.05),vec2(.26,.4),.025),c*stroke(q,vec2(.26,-.05),vec2(.26,-.4),.025)),max(e*stroke(q,vec2(-.26,-.05),vec2(-.26,-.4),.025),f*stroke(q,vec2(-.26,.05),vec2(-.26,.4),.025))));
++      }
++      vec3 dial(vec2 q,float value,float number,float redline){
++        float r=length(q),angle=atan(q.x,q.y),u=(angle+2.35)/4.7,arc=step(0.,u)*step(u,1.);
++        vec3 face=mix(vec3(.018,.029,.037),vec3(.065,.083,.092),clamp(1.-r,0.,1.));
++        vec3 ink=mix(vec3(.68,.75,.76),vec3(.79,.94,.86),lit);
++        float minor=1.-smoothstep(.035,.075,abs(fract(u*40.+.5)-.5));
++        float major=1.-smoothstep(.025,.065,abs(fract(u*8.+.5)-.5));
++        float ticks=max(minor*band(r,.79,.86),major*band(r,.7,.86))*arc;
++        face=mix(face,ink,ticks);
++        face=mix(face,vec3(.75,.23,.16),band(r,.87,.9)*arc*step(.8,u)*redline);
++        float rim=band(r,.94,.985);face=mix(face,vec3(.33,.39,.42)*(1.+q.y*.2),rim);
++        float a=mix(-2.35,2.35,clamp(value,0.,1.));vec2 n=vec2(sin(a),cos(a));
++        float needle=stroke(q,n*(-.13),n*.72,.018);face=mix(face,vec3(1.,.42,.2),needle);
++        face=mix(face,vec3(.57,.65,.66),1.-smoothstep(.065,.09,r));
++        float num=clamp(floor(number+.5),0.,9999.),digits;
++        if(redline>.5){vec2 read=(q-vec2(0.,-.4))*vec2(8.,8.5);
++          digits=max(max(digit(read+vec2(1.05,0.),floor(num/1000.))*step(1000.,num),digit(read+vec2(.35,0.),mod(floor(num/100.),10.))*step(100.,num)),
++            max(digit(read-vec2(.35,0.),mod(floor(num/10.),10.))*step(10.,num),digit(read-vec2(1.05,0.),mod(num,10.))));
++        }else{vec2 read=(q-vec2(0.,-.4))*vec2(5.,7.);digits=max(digit(read+vec2(.4,0.),floor(num/10.))*step(10.,num),digit(read-vec2(.4,0.),mod(num,10.)));}
++        face=mix(face,ink,digits);return mix(vec3(.025,.038,.047),face,1.-smoothstep(1.,1.025,r));
++      }
++      void main(){
++        vec2 left=(p-vec2(.25,.5))*vec2(7.2,2.54),right=(p-vec2(.75,.5))*vec2(7.2,2.54);
++        vec3 colour=p.x<.5?dial(left,speed,speed*40.,0.):dial(right,rpm,rpm*4000.,1.);
++        float edge=band(p.x,.008,.992)*band(p.y,.025,.975);colour=mix(vec3(.14,.18,.2),colour,edge);
++        gl_FragColor=vec4(colour,1.);
++      }`});
++    const gauges=new T.Mesh(sheet,gaugePaint);gauges.name='cab-instrument-face';gauges.position.set(0,-.275,-1.005);gauges.scale.set(.61,.215,1);root.add(gauges);
+     labels.push({parent:root,cab:true,gauge:'speed',wrap:260,local:new T.Vector3(-.16,-.34,-.99),point:new T.Vector3(),text:'The speed is 0 mph.',max:2.5});
+     labels.push({parent:root,cab:true,gauge:'rpm',wrap:260,local:new T.Vector3(.16,-.47,-.99),point:new T.Vector3(),text:'The engine is at 800 RPM.',max:2.5});
+     function change(p,rx,rz,color,y=p.y,z=p.z){
+@@ -100,14 +137,14 @@ OTR.fpCab={
+       batch.setMatrixAt(p.index,scratch.matrix);colour.setHex(color);batch.setColorAt(p.index,colour);
+     }
+     const navigation={parent:root,cab:true,local:new T.Vector3(navX,navY,-1.005),point:new T.Vector3(),max:2.5};
+-    let state=-1;return {root,wheel,gauges,parts,batch,navigation,
++    let state=-1;return {root,wheel,gauges,hood,parts,batch,navigation,
+       sync(m){
+-        const v=m.van;wheel.rotation.z=-v.steer*3;gaugePaint.uniforms.speed.value=Math.abs(v.speed)/17.8816;gaugePaint.uniforms.rpm.value=(m.motion?m.motion.rpm:800)/4000;
++        const v=m.van;wheel.rotation.z=-v.steer*3;gaugePaint.uniforms.speed.value=Math.abs(v.speed)/17.8816;gaugePaint.uniforms.rpm.value=(m.motion?m.motion.rpm:800)/4000;gaugePaint.uniforms.lit.value=v.headlights?1:0;
+         const next=v.gear+1+4*Number(v.hand)+8*Number(v.belt)+16*Number(!!v.headlights)+32*Number(!!v.wipers)+64*(m.signal+1);if(next===state)return;state=next;
+-        change(shifter,0,0,0xE2CFA4,-.25-(v.gear===2?0:v.gear+2)*.11,shifter.z);
+-        change(brake,v.hand?-.4:0,0,v.hand?0xE2CFA4:0xA2B1B9);change(left,0,m.signal*.32,m.signal?0xF5BD63:0xD0D8D9,left.y+m.signal*.045);
+-        change(wipers,0,v.wipers?.28:0,v.wipers?0xF5BD63:0xD0D8D9);change(lights,0,v.headlights?.6:0,v.headlights?0xE2E9CC:0xD0D8D9);
+-        change(belt,0,0,v.belt?0xD0D8D9:0xF5BD63,belt.y,v.belt?-.42:-.37);
++        change(shifter,0,0,0x96A5AD,-.25-(v.gear===2?0:v.gear+2)*.11,shifter.z);
++        change(brake,v.hand?-.4:0,0,v.hand?0x96A5AD:0x657780);change(left,0,m.signal*.32,m.signal?0xF5BD63:0x899BA5,left.y+m.signal*.045);
++        change(wipers,0,v.wipers?.28:0,v.wipers?0xF5BD63:0x899BA5);change(lights,0,v.headlights?.6:0,v.headlights?0xBFE1D6:0x899BA5);
++        change(belt,0,0,v.belt?0x899BA5:0xC6644B,belt.y,v.belt?-.42:-.37);
+         batch.instanceMatrix.needsUpdate=true;batch.instanceColor.needsUpdate=true;
+       },
+       dispose(){paint.dispose();rimPaint.dispose();gaugePaint.dispose();}
+diff --git a/src/core/fphandheld.js b/src/core/fphandheld.js
+index fb755a85..28c0f646 100644
+--- a/src/core/fphandheld.js
++++ b/src/core/fphandheld.js
+@@ -40,6 +40,7 @@ OTR.fpHandheld = class {
+     s.closePanel(false); s.model.paused = !aiming; s.held = Object.create(null); s.pointerStart = null;
+     this.device.open(def); if (!aiming) s.releaseMouse(); s.checkpoint();
+     if(OTR.fpAccess)OTR.fpAccess.layoutDevice(this);
++    if(OTR.fpBrand)OTR.fpBrand.deviceOptions(this.device);
+     if (OTR.a11y) OTR.a11y.say([def.title,...(def.lines||[]).map(line=>typeof line==='string'?line:line.text),...(def.options||[]).map(o=>o.label)].map(t=>OTR.i18n.t(t)).join('. '));
+     return true;
+   }
+diff --git a/src/core/fphud.js b/src/core/fphud.js
+index 40b04075..072fb344 100644
+--- a/src/core/fphud.js
++++ b/src/core/fphud.js
+@@ -34,8 +34,10 @@ OTR.fpHud={
+     s.hint.setFontSize(large?22:18);s.soundCue.setFontSize(large?21:17);
+     s.controls.setFontSize(large?22:18);s.help.setFontSize(large?22:18);
+     s.hint.setOrigin(.5,1);s.controls.setOrigin(.5,1);s.help.setOrigin(.5,1);
++    s.hintBack.setFillStyle(0x14232C,.96).setStrokeStyle(1,0x83969E,.65);
++    s.headerBack.setFillStyle(0x14232C,.96).setStrokeStyle(1,0x83969E,.45);
+     s.navRoot=s.add.container(0,0).setDepth(10).setVisible(false);
+-    s.navBack=s.add.rectangle(0,-8,290,100,0x10232E,.98).setOrigin(.5,0);s.navMap=s.add.graphics();
++    s.navBack=s.add.rectangle(0,-8,290,100,0x101D25,1).setOrigin(.5,0).setStrokeStyle(2,0x647983,1);s.navMap=s.add.graphics();
+     s.navText=OTR.txt(s,0,0,'',OTR.fpAccess.settings().large?21:17,'#ffffff',{wrap:270,oy:0,align:'center'});
+     s.navRoot.add([s.navBack,s.navMap,s.navText]);
+   },
+@@ -58,8 +60,10 @@ OTR.fpHud={
+     const inside=(px,py,pad=0)=>px>=left+pad&&px<=left+mw-pad&&py>=top+pad&&py<=top+mapHeight-pad;
+     // Clip vector lines numerically: no mask, render target or enlarged text canvas.
+     const line=(ax,ay,bx,by)=>{const dx=bx-ax,dy=by-ay;let lo=0,hi=1;for(const [p,q] of [[-dx,ax-left],[dx,left+mw-ax],[-dy,ay-top],[dy,top+mapHeight-ay]]){if(!p){if(q<0)return;}else{const t=q/p;if(p<0)lo=Math.max(lo,t);else hi=Math.min(hi,t);if(lo>hi)return;}}g.lineBetween(ax+lo*dx,ay+lo*dy,ax+hi*dx,ay+hi*dy);};
+-    g.fillStyle(0x233E42).fillRect(left,top,mw,mapHeight);
+-    g.lineStyle(2,0x8799A3);for(const v of m.town.xs)line(x(v),y(b.z0),x(v),y(b.z1));for(const v of m.town.zs)line(x(b.x0),y(v),x(b.x1),y(v));
++    g.fillStyle(0x1B3038).fillRect(left,top,mw,mapHeight);
++    g.lineStyle(4,0x526872);for(const v of m.town.xs)line(x(v),y(b.z0),x(v),y(b.z1));for(const v of m.town.zs)line(x(b.x0),y(v),x(b.x1),y(v));
++    g.lineStyle(1,0xA4B6BD);for(const v of m.town.xs)line(x(v),y(b.z0),x(v),y(b.z1));for(const v of m.town.zs)line(x(b.x0),y(v),x(b.x1),y(v));
++    g.lineStyle(1,0x647983).strokeRect(left,top,mw,mapHeight);
+     const nav=OTR.fpNav&&m.kind==='campaign'?OTR.fpNav.route(m):null;
+     if(nav&&nav.points.length>1){g.lineStyle(4,0x7BE6FA);for(let i=1;i<nav.points.length;i++)line(x(nav.points[i-1].x),y(nav.points[i-1].z),x(nav.points[i].x),y(nav.points[i].z));}
+     if(OTR.fpNav)for(const o of OTR.fpNav.obstacles(m)){if(!inside(x(o.x),y(o.z),4))continue;g.lineStyle(2,0xffffff).strokeRect(x(o.x)-3,y(o.z)-2,6,4);}
+diff --git a/test/fpcab.js b/test/fpcab.js
+index bab69516..4b22be43 100644
+--- a/test/fpcab.js
++++ b/test/fpcab.js
+@@ -67,3 +67,28 @@ test('speed, RPM, wheel and physical switch indicators follow the mission while
+  assert.ok(Math.abs(a.wheel.rotation.z+.6)<1e-9);assert.ok(Math.abs(a.gauges.material.uniforms.speed.value-8/17.8816)<1e-9);assert.equal(a.gauges.material.uniforms.rpm.value,.6);assert.notDeepEqual(a.batch.instanceMatrix.array,before);
+  assert.equal(s.view.camera.fov,76);assert.equal(s.model.snapshot().cameraMotion,undefined);s.art.dispose();
+ });
++test('instrument backlighting follows the real headlights without a texture, timer or mission write',()=>{
++ for(const high of [false,true]){
++  const s=scene(high),face=s.art.cab.gauges,uniforms=face.material.uniforms;
++  assert.equal(face.geometry.index.count,6);assert.equal(face.material.map,undefined);
++  for(const on of [false,true,false]){
++   s.model.van.headlights=on;const before=JSON.stringify(s.model.snapshot());s.sync();
++   assert.equal(uniforms.lit.value,on?1:0);assert.equal(JSON.stringify(s.model.snapshot()),before);
++   s.model.elapsed+=20;s.sync();assert.equal(uniforms.lit.value,on?1:0);
++  }
++  let disposed=0;face.material.addEventListener('dispose',()=>disposed++);s.art.dispose();assert.equal(disposed,1);
++ }
++});
++test('the High instrument hood stays above the dial face from the seated eye',()=>{
++ const s=scene(true),a=s.art.cab,h=a.hood;assert.ok(h);
++ for(const pitch of [0,.18,.35]){
++  s.model.player.pitch=pitch;s.sync();
++  const lip=new THREE.Vector3(0,h.y-h.h/2,h.z+h.d/2).applyMatrix4(a.root.matrixWorld).project(s.view.camera);
++  const top=new THREE.Vector3(0,a.gauges.position.y+a.gauges.scale.y/2,a.gauges.position.z).applyMatrix4(a.root.matrixWorld).project(s.view.camera);
++  assert.ok(lip.y>top.y,'The hood clips the top of the instrument face at pitch '+pitch);
++ }
++ s.art.dispose();
++});
++test('the seated driver can see the centre of the road 23 metres ahead over the instrument cluster',()=>{
++ for(const high of [false,true]){const s=scene(high),v=s.model.van,p=F.local(v,0,-23),point=new THREE.Vector3(p.x,.04,p.z),camera=s.view.camera;s.view.world.updateMatrixWorld(true);camera.updateMatrixWorld(true);const ray=new THREE.Raycaster(camera.position,point.clone().sub(camera.position).normalize(),0,camera.position.distanceTo(point));const hits=ray.intersectObject(s.art.cab.root,true).filter(h=>h.object.visible&&h.object.layers.test(camera.layers));assert.equal(hits.length,0,JSON.stringify({high,eye:camera.position.toArray(),road:point.toArray(),face:s.art.cab.gauges.position.toArray(),hit:hits[0]&&{name:hits[0].object.name,type:hits[0].object.type,point:hits[0].point.toArray()}}));s.art.dispose();}
++});
+diff --git a/test/fpdevicedesignbrowser.js b/test/fpdevicedesignbrowser.js
+new file mode 100644
+index 00000000..0363e6b6
+--- /dev/null
++++ b/test/fpdevicedesignbrowser.js
+@@ -0,0 +1,59 @@
++/* Native instrument pixels, retained device hit targets and bounded translated layouts. */
++const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
++const BASE=process.env.QA_BASE||'http://127.0.0.1:8368',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c52-design';fs.mkdirSync(OUT,{recursive:true});
++const LANGS=(process.env.QA_LANGS||'en,ta').split(',');
++(async()=>{
++ const browser=await pp.launch({executablePath:process.env.QA_BROWSER||'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});let page,checks=0;const report={views:[],errors:[]};
++ try{for(const quality of (process.env.QA_QUALITIES||'low,high').split(',')){
++  page=await browser.newPage();await page.setViewport({width:1280,height:720});await page.evaluateOnNewDocument(()=>localStorage.clear());page.on('pageerror',e=>report.errors.push(e.message));page.on('console',m=>{if(m.type()==='error'&&/THREE|shader|WebGL/.test(m.text()))report.errors.push(m.text());});
++  await page.goto(BASE+'/first-person.html?gfx='+quality);const ready=()=>page.waitForFunction(()=>window.OTR?.game?.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading,{timeout:60000});await ready();for(const lang of LANGS)if(lang!=='en')await page.addScriptTag({url:BASE+'/data/i18n/'+lang+'.js'});
++  const frames=async()=>{const at=await page.evaluate(()=>OTR.game.loop.frame);await page.waitForFunction(f=>OTR.game.loop.frame>f+2,{timeout:60000},at);};
++  const shot=async name=>{await frames();const file=TAG+'-'+quality+'-'+name+'.png';await page.screenshot({path:path.join(OUT,file)});return file;};
++  for(const lang of LANGS)for(const large of [false,true]){
++   console.log(quality+' '+lang+' large='+large);
++   await page.evaluate(({lang,large})=>{const s=OTR.game.scene.getScene('FirstPersonScene');window.designToken=s.loadingToken;OTR.i18n.use(lang);const font=OTR.fpBrand.scriptFonts[lang];OTR.theme.font=font?'"'+font+'", "Noto Sans", sans-serif':'"Noto Sans", sans-serif';Object.assign(OTR.a11y.settings(),{large,colour:true,reducedMotion:true});s.scene.restart();},{lang,large});
++   await page.waitForFunction(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return !s.loading&&s.loadingToken!==window.designToken;},{timeout:60000});
++   const initial=await page.evaluate(()=>{
++    const s=OTR.game.scene.getScene('FirstPersonScene');s.capture=()=>{};s.closePanel();s.keyboardMode=true;
++    let plan=OTR.fpStopFlow.prepare(OTR.fpRoute.plan(4,7),true);plan=OTR.fpRadio.prepare(OTR.fpWalkaroundFlow.prepare(OTR.fpDamageFlow.prepare(OTR.fpTraffic.prepare(OTR.fpNav.prepare(OTR.fpSigns.prepare(OTR.fpLater.prepare(plan)))))));
++    const m=OTR.fpMission.create('campaign',7,plan);OTR.fpDay.configure(m);OTR.fpDriving.configure(m);OTR.fpDoors.configure(m);OTR.fpStopFlow.configure(m);OTR.fpLoadout.configure(m);
++    m.phase='route';m.departed=m.secured=true;m.events[m.briefKey]=true;OTR.fpLater.depart(m);OTR.fpWalkaroundFlow.depart(m);for(const p of m.parcels)p.location='slot'+(p.anomaly?5:p.stop);
++    m.step=()=>{};m.mode='cab';m.paused=false;m.routePlan.timeOfDay='midday';Object.assign(m.van,{speed:0,gear:1,hand:true,belt:true,headlights:false,look:0});OTR.fp.suspension(m,0);m.player.pitch=.18;s.model=m;s.area='route';s.rebuildWorld();s.sync();s.refresh();s.hud.navAt=-1000;OTR.fpHud.navigation(s);OTR.workday.begin();
++    return {valid:!!OTR.fpMission.restore(m.snapshot()),quality:OTR.gfx.high()?'high':'low',controls:s.art.interactions.filter(o=>o.userData.interaction?.startsWith('cab-')).map(o=>o.userData.interaction)};
++   });assert.equal(initial.quality,quality);assert.equal(initial.valid,true);assert.ok(initial.controls.includes('cab-reverse')&&initial.controls.includes('cab-headlights'));checks+=3;
++   const key=quality+'-'+lang+'-'+(large?'large':'normal'),view={quality,lang,large,initial};view.cab=await shot(lang+'-'+(large?'large':'normal')+'-cab');
++   if(lang==='en'&&!large){
++    const pixels=await page.evaluate(async()=>{
++     const s=OTR.game.scene.getScene('FirstPersonScene'),face=s.art.cab.gauges,gl=s.game.renderer.gl,m=s.model,beforeState=JSON.stringify(m.snapshot()),beforeEvents=JSON.stringify(OTR.workday.events);
++     const read=()=>new Promise(resolve=>s.game.events.once('postrender',()=>{const data=new Uint8Array(1280*720*4);gl.readPixels(0,0,1280,720,gl.RGBA,gl.UNSIGNED_BYTE,data);resolve(data);}));
++     const box=new THREE.Box3().setFromObject(face),corners=[];for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z]){const p=new THREE.Vector3(x,y,z).project(s.view.camera);corners.push({x:(p.x+1)*640,y:(p.y+1)*360});}
++     const r={x:Math.max(0,Math.floor(Math.min(...corners.map(p=>p.x)))),y:Math.max(0,Math.floor(Math.min(...corners.map(p=>p.y))))};r.right=Math.min(1280,Math.ceil(Math.max(...corners.map(p=>p.x))));r.top=Math.min(720,Math.ceil(Math.max(...corners.map(p=>p.y))));
++     const before=await read();face.visible=false;let after;try{after=await read();}finally{face.visible=true;}
++     const difference=(a,b)=>{let changed=0;for(let y=r.y;y<r.top;y++)for(let x=r.x;x<r.right;x++){const i=(y*1280+x)*4;if(Math.abs(a[i]-b[i])+Math.abs(a[i+1]-b[i+1])+Math.abs(a[i+2]-b[i+2])>18)changed++;}return changed;};
++     let hoodPixels=null;const cab=s.art.cab;if(cab.hood){const saved=new THREE.Matrix4();cab.batch.getMatrixAt(cab.hood.index,saved);try{cab.batch.setMatrixAt(cab.hood.index,new THREE.Matrix4().makeScale(0,0,0));cab.batch.instanceMatrix.needsUpdate=true;hoodPixels=difference(before,await read());}finally{cab.batch.setMatrixAt(cab.hood.index,saved);cab.batch.instanceMatrix.needsUpdate=true;}}
++     return {changed:difference(before,after),hoodPixels,rect:r,unchanged:beforeState===JSON.stringify(m.snapshot())&&beforeEvents===JSON.stringify(OTR.workday.events),glError:gl.getError(),textures:s.view.diagnostics.textures};
++    });assert.ok(pixels.changed>100,JSON.stringify(pixels));assert.ok(pixels.unchanged);assert.equal(pixels.glError,0);assert.ok(pixels.textures<=(quality==='high'?4:2));if(quality==='high'){assert.equal(pixels.hoodPixels,0,'The hood covers the instrument face');checks++;}view.instrumentPixels=pixels;checks+=4;
++    const live=await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;Object.assign(m.van,{speed:8,headlights:true});m.motion.rpm=2400;s.sync();const u=s.art.cab.gauges.material.uniforms;return {speed:u.speed.value,rpm:u.rpm.value,lit:u.lit.value};});assert.ok(Math.abs(live.speed-8/17.8816)<1e-8);assert.equal(live.rpm,.6);assert.equal(live.lit,1);checks+=3;
++    view.live=await shot('en-normal-live-instruments');await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.model.van.speed=0;s.model.motion.rpm=800;s.sync();});
++   }
++   await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.home());await page.waitForFunction(()=>{const d=OTR.game.scene.getScene('FirstPersonScene').handheld.device;return d.isOpen&&Math.abs(d.root.y-d.Yopen)<1;});
++   const layout=await page.evaluate(()=>{
++    const s=OTR.game.scene.getScene('FirstPersonScene'),d=s.handheld.device,bad=[],buttons=d.optionBtns.map(b=>{const r=b.label.getBounds();if(r.x<d.root.x+d.sx||r.right>d.root.x+d.sx+d.sw||r.y<d.root.y+d.sy||r.bottom>d.root.y+d.sy+d.sh)bad.push(b.label.text);return {surface:b._fpSurface?.type,enabled:b.enabled,x:d.root.x+b.x,y:d.root.y+b.y,top:d.root.y+b.y-b._fpHeight/2,bottom:d.root.y+b.y+b._fpHeight/2,faceTop:d.root.y+b.y-b._fpHeight*b.scaleY/2,faceBottom:d.root.y+b.y+b._fpHeight*b.scaleY/2,height:b._fpHeight,font:parseFloat(b.label.style.fontSize)*b.label.scaleY};});
++    // The merged dense-page layout intentionally allows gaps from two to six pixels.
++    // Check both its minimum spacing and the rendered face after any hover transform.
++    for(let i=1;i<buttons.length;i++)if(buttons[i].top<buttons[i-1].bottom+2-.01||buttons[i].faceTop<buttons[i-1].faceBottom-.01)bad.push('Overlapping choices');
++    const top=Math.min(...buttons.map(b=>b.top));for(const o of d.screen.list)if(o.type==='Text'&&o.y>d.sy+44&&o.y<d.sy+d.sh-30&&o.getBounds().bottom>top-4)bad.push(o.text);
++    return {bad,buttons,body:d.body.type,bodyCanvases:Object.keys(s.textures.list).filter(k=>k==='handheld_body').length,focused:!!s.handheld.focusRing?.active};
++   });view.layout=layout;report.current=view;fs.writeFileSync(path.join(OUT,TAG+'-progress.json'),JSON.stringify(report,null,2)+'\n');assert.deepEqual(layout.bad,[]);assert.ok(layout.buttons.every(b=>b.surface==='Graphics'&&b.font>=15&&b.height>=46));assert.ok(layout.focused);if(quality==='low'){assert.equal(layout.body,'Graphics');assert.equal(layout.bodyCanvases,0);checks+=2;}checks+=3;view.handheld=await shot(lang+'-'+(large?'large':'normal')+'-handheld');
++   // Test the real pointer path as well as the preserved numbered/remapped keyboard routes.
++   const index=await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.options.findIndex(o=>o.label==='Stop details'));
++   await page.mouse.click(layout.buttons[index].x,layout.buttons[index].y);await frames();assert.equal(await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.title),'STOP DETAILS');checks++;
++   await page.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');s.handheld.home();const a=OTR.a11y.settings();a.keys.KeyP='KeyO';});await page.keyboard.press('Tab');await frames();
++   await page.keyboard.press('o');await frames();assert.ok(await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').target));checks++;
++   await page.keyboard.press('Tab');await frames();await page.keyboard.press('2');await frames();assert.equal(await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').handheld.device.current.title),'STOP DETAILS');checks++;
++   report.views.push(view);
++  }
++  await page.close();page=null;
++ }assert.deepEqual(report.errors,[]);checks++;report.checks=checks;fs.writeFileSync(path.join(OUT,TAG+'.json'),JSON.stringify(report,null,2)+'\n');console.log(checks+' device visual browser checks passed');}
++ catch(e){if(page)await page.screenshot({path:path.join(OUT,TAG+'-failure.png')}).catch(()=>{});throw e;}finally{await browser.close();}
++})().catch(e=>{console.error(e.stack);process.exitCode=1;});
