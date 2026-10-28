@@ -1,4 +1,10 @@
-# C-42 status — 24 October 2026
+# C-42 status — 28 October 2026
+
+**The remaining policy questions are answered; closure and blocked-drive work can proceed.** Accepted Claude’s 27 October rules: full safety on a completed careful run with no penalties; unsafe blocked-drive exceptions use UN and retain the parcel without approaching the unsafe door; AC is for an actually locked site; service uses the existing reattempt protocol and catalogue severity. The agreed per-stop par policy is retained. Four compatible existing-id m4 keys are now applied; all other original registry bytes/defaults are identical.
+
+The completed historical manifest verifies 32 durable good existing-id journeys and 22 continuation jobs; its original runtime/resources/glyph limitations remain source-scoped. The text below is historical evidence, not a live validation job or a still-unanswered policy request. The B-178/font/current-pilot rebase follows the C-52 merge. `c42-policy-resume/` records the fresh source/metadata audit. C-41’s frozen native/resource jobs continue in their separate worktree while this next scope is prepared.
+
+# Historical 24–25 October evidence
 
 **C-42 final existing-id resource gate (24 October 2026; native continuation active):** unchanged runtime `836a101a`, corrected resource protocol `c2998888`, passes all **48** views in the four original profiles. Loaded Low **39 / 2086 / 2 / 3557376 / 1939083**; High **56 / 35352 / 4 / 11239424 / 5252955**; accessible Low **39 / 2086 / 2 / 3557376 / 2106224**; fallback Low **41 / 1926 / 2 / 3557376 / 1939083** (calls / triangles / Three textures / attachment bytes / Phaser estimate bytes). The original ceilings are unchanged. Seventeen durable native journeys passed before the recessed second-door approach needed a test-route correction; remaining journeys/follow-ups run under protocol `27c4e863`. Resources, raw reports and captures: `docs/review/set-10/c42-entry-alignment/runtime-836a101a-c2998888/`. This is no complete native-matrix, readable-Tamil, current-pilot/default or Intel FPS acceptance. Shared optional-policy/font blocks remain.
 

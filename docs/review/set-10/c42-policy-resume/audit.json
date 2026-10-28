@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-28",
+  "pilot": "c98f8a32",
+  "compatibleKeys": [
+    "m4-address",
+    "m4-recover",
+    "m4-damaged",
+    "m4-storm"
+  ],
+  "otherRegistryBytesUnchanged": true,
+  "registryBeforeSha256": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+  "registryAfterSha256": "31bcd89ead7c77c5d95c1a88a1f156c7e67a168c38fe480ee74cf8d99faaaa6e",
+  "historicalRuntime": "836a101ae1b13176551962d6e9566bbfad990884",
+  "historicalExistingIdBrowserGateComplete": true,
+  "historicalGoodNativeJourneys": 32,
+  "historicalFollowUpJobs": 22,
+  "historicalContinuationManifestVerified": true,
+  "confirmedPolicy": {
+    "carefulSafetyAfterCompletion": 1.0,
+    "unsafeException": "UN",
+    "lockedAccessException": "AC",
+    "service": "stop.reattempt",
+    "severities": "Existing catalogue critical drive.contact and major stop.hazard",
+    "par": "Existing per-stop Tricky Doorsteps par plus 30 seconds for the agreed protocol grace"
+  },
+  "sources": {
+    "src/core/fpnav.js": "0421f4c0a32789c5346285ed1cded006f2010b7f66279d787e7354aaadf510ec",
+    "src/core/fpstops.js": "00f87064a066195e411c2fe159e33179155c5106504d7dcc5df9a41e2200134f",
+    "src/core/fpproblemscenario.js": "e53ea666ad3280b260a22e3ac035914f181d63f9b26e5fec9182ed0508941179",
+    "src/scenes/stops/StopScene.js": "cbbc60ad7f2c9bfe7f4506c38e3d2e9d5730fe9726eb5c9ef83490ded5fd72f2",
+    "data/scanner.js": "2858a398d6f0e93376d8f637b528c965ae1d6e44c3c782ca19322c09933f4eb3",
+    "data/workday_events.js": "27cbfa4c5926e793ff3535534bca5fd063b0fbc267d006669f885bb572efbb2c"
+  }
+}
