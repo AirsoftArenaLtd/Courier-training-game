@@ -1,0 +1,7 @@
+{
+  "inputs": 662,
+  "artifacts": 9,
+  "nativeAccepted": false,
+  "failure": "Prototype lab deliberately sets OTR.save.ephemeral=true; the fixture did not enable the existing writer. Both keyboard and gamepad preferences therefore correctly remained ephemeral. No production writer change.",
+  "cleanup": true
+}

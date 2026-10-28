@@ -3,10 +3,10 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const c={Phaser:{Scene:class{}},URLSearchParams,location:{search:''},document:{hidden:false}};c.window=c;vm.createContext(c);
 for(const f of ['firstperson','fpmission','fpcab','fpaccess','fpgamepad','fpgamepadcapture','fpgamepadscene','fpgamepadui'])vm.runInContext(fs.readFileSync(__dirname+'/../src/core/'+f+'.js','utf8'),c);
 const O=c.OTR;O.registerScene=C=>c.Scene=C;vm.runInContext(fs.readFileSync(__dirname+'/../src/scenes/FirstPersonScene.js','utf8'),c);
-let settings={};O.fpAccess.settings=()=>settings;
+let settings={},writes=0;O.fpAccess.settings=()=>settings;O.a11y={settings:()=>settings,save:()=>{writes++;}};
 const button=(p,n,value=1)=>{p.buttons[n].value=value;p.buttons[n].pressed=value>.5;};
 function fixture(){
- settings={};const p={id:'fixture',connected:true,mapping:'standard',axes:[0,0,0,0],buttons:Array.from({length:17},()=>({value:0,pressed:false}))},events=[],m=O.fpMission.create('campaign',1);m.mode='cab';m.paused=false;m.touch=()=>{};O.workday={report:(type,detail)=>events.push({type,...detail})};
+ settings={};writes=0;const p={id:'fixture',connected:true,mapping:'standard',axes:[0,0,0,0],buttons:Array.from({length:17},()=>({value:0,pressed:false}))},events=[],m=O.fpMission.create('campaign',1);m.mode='cab';m.paused=false;m.touch=()=>{};O.workday={report:(type,detail)=>events.push({type,...detail})};
  const s={model:m,held:{},area:'route',panel:null,loading:false,external:false,transitioning:false,hubMotion:O.fp.create(),actions:[],highlights:0,
   handheld:{isOpen:false,aiming:false,device:{current:{}},index:0,scan(){this.isOpen=this.aiming=true;},choose(){this.device.current={};},close(){this.isOpen=false;},home(){this.aiming=false;this.device.current={};}},
   closePanel(){this.panel=null;this.held={};},showPause(){this.panel={index:0,choices:[{},{}]};},choose(i){this.choice=i;this.closePanel();},highlight(){this.highlights++;},showScanner(){this.handheld.isOpen=true;},interact(){this.actions.push('interact');},showParcel(){},
@@ -53,8 +53,10 @@ test('raw capture of an unbound button suppresses actions and held input cannot 
 test('capture cancels with its panel and focus resets a half-complete gesture',()=>{
  const {s,p,g}=fixture();s.panel={};g.tick();let calls=0;g.startCapture('buttons',()=>calls++);g.tick();button(p,16);g.tick();g.suspend();button(p,16,0);g.tick();g.resume();g.tick();assert.equal(calls,0);button(p,16);g.tick();s.closePanel();g.tick();button(p,16,0);g.tick();assert.equal(calls,0);assert.equal(g.controller.frame.active,true);
 });
-test('draft remaps do not mutate shared settings or survive adapter disposal',()=>{
- const {s,g}=fixture();settings.gamepad={deadzone:.2,buttons:{gear:16}};const before=JSON.stringify(settings);s.gamepad=g;O.fpGamepadUI.apply(s,'buttons','gear',3);assert.equal(g.bindings().buttons.gear,3);assert.equal(JSON.stringify(settings),before);O.fpGamepadUI.apply(s,'buttons','gear',2);assert.equal(g.bindings().buttons.gear,undefined);assert.equal(JSON.stringify(settings),before);g.dispose();assert.equal(g.session,null);
+test('remaps use the shared writer and survive controller disposal while keyboard mappings stay intact',()=>{
+ const {s,p,g}=fixture();settings.keys={KeyR:'KeyT'};settings.gamepad={deadzone:.2,buttons:{gear:16}};s.gamepad=g;
+ assert.equal(O.fpGamepadUI.apply(s,'buttons','gear',3),true);assert.equal(g.bindings().buttons.gear,3);assert.equal(writes,1);assert.equal(settings.keys.KeyR,'KeyT');assert.equal(g.session,null);
+ O.fpGamepadUI.apply(s,'buttons','gear',16);const saved=JSON.stringify(settings);g.dispose();settings=JSON.parse(saved);const restored=O.fpGamepadScene.create(s,()=>[p]);s.gamepad=restored;restored.tick();restored.tick();button(p,16);restored.tick();assert.equal(s.actions.at(-1),'cab-reverse');assert.equal(settings.keys.KeyR,'KeyT');restored.dispose();
 });
 test('remap conflicts follow simultaneous contexts and retain the intentional menu/cab D-pad reuse',()=>{
  const {s,g}=fixture();s.gamepad=g;const ui=O.fpGamepadUI;

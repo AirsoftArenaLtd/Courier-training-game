@@ -624,3 +624,42 @@ test('B-36: a month of workdays (aids, criticals, pins and the town) stays withi
   assert.equal(last.townSeed, 1025, 'and its town, for the drive map');
   assert.ok(S.workday.first && S.workday.first.at, 'the first day is kept for the before-and-after report');
 });
+
+// B-183: the remembered gamepad controls (a11y.gamepad, at most 300 characters) ride in the settings with any keyboard
+// remaps. On the established trainee's heaviest day either one alone leaves the day packed with its places; the largest
+// of both together cost the day its places, but never the score or the settings
+const b183Gamepad = () => ({ deadzone: 0.3, axes: { steer: 4, moveY: 5, lookX: 6, lookY: 7 }, buttons: { throttle: 22, brake: 23,
+  interact: 24, back: 25, gear: 26, focus: 27, signalLeft: 28, signalRight: 29, handheld: 30, pause: 31, handbrake: 16, belt: 17,
+  lookForward: 18, menuUp: 19, menuDown: 20 } });
+const b183Keys = () => Object.fromEntries('WASDERQFCMXZ'.split('').map((c, i) => ['Key' + c, 'Key' + 'IJKLUTOHVNBY'[i]]));
+const b183Day = (a11y) => {
+  asScorm(false);
+  heavy({ runs: 20, scenarios: 14 });
+  SAVE.data.settings.a11y = Object.assign({ keys: {}, large: true, colour: true, narrate: true }, a11y);
+  W.start(null);
+  play(c35HeavyDay());
+  return summary(W.log);
+};
+const plain = (o) => JSON.parse(JSON.stringify(o));
+
+test('B-183: the largest saved gamepad controls, or twelve remapped keys, keep the heaviest day packed and reload the same', () => {
+  assert.ok(JSON.stringify(b183Gamepad()).length > 270 && JSON.stringify(b183Gamepad()).length <= 300, 'about the largest a11y.gamepad that is saved');
+  for (const [what, a11y] of [['gamepad', { gamepad: b183Gamepad() }], ['keys', { keys: b183Keys() }]]) {
+    const live = b183Day(a11y), s = stored();
+    assert.equal(lms.refused, 0, `${what}: the LMS never refused a save`);
+    assert.equal(stage(s), 'packed', `${what}: packed, so the day keeps its places`);
+    console.log(`      B-183 (${what}): ${JSON.stringify(s).length} of ${SAVE.SCORM12_LIMIT}`);
+    reload(); W.resume(null);
+    assert.deepEqual(plain(SAVE.data.settings.a11y), plain(Object.assign({ keys: {}, large: true, colour: true, narrate: true }, a11y)), `${what}: the settings come back`);
+    assert.deepEqual(summary(W.log), live, `${what}: the same score after a reload`);
+  }
+});
+
+test('B-183: both at their largest on the heaviest day keep the score and every setting, not the places', () => {
+  const a11y = { gamepad: b183Gamepad(), keys: b183Keys() }, live = b183Day(a11y);
+  assert.equal(lms.refused, 0, 'the LMS never refused a save');
+  reload(); W.resume(null);
+  assert.deepEqual(plain(SAVE.data.settings.a11y.gamepad), a11y.gamepad, 'the gamepad controls come back');
+  assert.deepEqual(plain(SAVE.data.settings.a11y.keys), a11y.keys, 'and the keyboard remaps');
+  assert.deepEqual(summary(W.log), live, 'the same score, ratios, critical mistakes and items after a reload');
+});

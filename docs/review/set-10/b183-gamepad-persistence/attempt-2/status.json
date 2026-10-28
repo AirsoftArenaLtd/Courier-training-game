@@ -1,0 +1,36 @@
+{
+  "phase": "failed",
+  "jobs": [
+    {
+      "tag": "saved-remap-low-en",
+      "script": "test/fpgamepadremapbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "saved-remap-low-en-remapped.png": "1e5c2021aba3e47d3738d7c1006745f8f377c851f24202f4d99749b4e0a478cf",
+        "saved-remap-low-en-driving-guide.png": "1fc3ab7edf08bdd2eb4b3b16a11c0919e637fec8b12c2c5c6794a39c4e49d817",
+        "saved-remap-low-en-conflict.png": "53dea3e60ed504b9cb9ec298d8b91fffd43f08ea773c661d4773d33e1f5d8282",
+        "saved-remap-low-en-deadzone.png": "920e687eb53397f5e387b85e04680bc113aefee65f76a14fc7e77c5fc29cd652",
+        "saved-remap-low-en-capture.png": "7ed8eb43651a4e44c3a922f3e457875d276086ca6bbe1ead088b3abe64ac5d5e",
+        "saved-remap-low-en-reset.png": "da538e8dcf021f9a2dded1b335bb01e1c8eacf0761b8a01fe9185a7dad4769b0",
+        "saved-remap-low-en.json": "9a6e6ab2ee7d48e2a98f36a883254348ee7271753733b5a88c2cbed21576b60c",
+        "saved-remap-low-en-failure.png": "20eba578bf64a2e10207949363b1a1f7eae557a308d8a38d405832d17eb8f31d",
+        "saved-remap-low-en-bindings.png": "ca7eff008bc5d8677a24adc6e8d6f0aa850a940971379065e7c7d169ead16b40"
+      }
+    }
+  ],
+  "pid": 187333,
+  "startedAt": 1793173854.7420528,
+  "serverPid": 188504,
+  "tag": "saved-remap-low-en",
+  "childPid": 188505,
+  "failure": "Browser job failed: saved-remap-low-en",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793174422.972065
+}

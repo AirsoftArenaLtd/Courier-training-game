@@ -4116,7 +4116,10 @@ window.OTR_I18N.kn = {
 "Release all controls, move one stick axis, then release it. Escape cancels.": "ಎಲ್ಲಾ ನಿಯಂತ್ರಣಗಳನ್ನು ಬಿಡಿ, ಒಂದು ಸ್ಟಿಕ್‌ನ ಒಂದು ಅಕ್ಷವನ್ನು ಸರಿಸಿ, ನಂತರ ಬಿಡಿ. Esc ರದ್ದುಮಾಡುತ್ತದೆ.",
 "Release all controls, press one button, then release it. Escape cancels.": "ಎಲ್ಲಾ ನಿಯಂತ್ರಣಗಳನ್ನು ಬಿಡಿ, ಒಂದು ಬಟನ್ ಒತ್ತಿ, ನಂತರ ಬಿಡಿ. Esc ರದ್ದುಮಾಡುತ್ತದೆ.",
 "Choose another gamepad input": "ಬೇರೆ ಗೇಮ್‌ಪ್ಯಾಡ್ ಇನ್‌ಪುಟ್ ಆಯ್ಕೆಮಾಡಿ",
-"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ಆ ಇನ್‌ಪುಟ್ ಈಗಾಗಲೇ ಒಂದೇ ಸಮಯದಲ್ಲಿ ಬಳಸುವ ಕ್ರಿಯೆಗೆ ನಿಗದಿಯಾಗಿದೆ. ಬೇರೆ ಇನ್‌ಪುಟ್ ಆಯ್ಕೆಮಾಡಿ ಅಥವಾ ಮೊದಲು ಅದರ ಇನ್ನೊಂದು ಕ್ರಿಯೆಯನ್ನು ಆಫ್ ಮಾಡಿ."
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ಆ ಇನ್‌ಪುಟ್ ಈಗಾಗಲೇ ಒಂದೇ ಸಮಯದಲ್ಲಿ ಬಳಸುವ ಕ್ರಿಯೆಗೆ ನಿಗದಿಯಾಗಿದೆ. ಬೇರೆ ಇನ್‌ಪುಟ್ ಆಯ್ಕೆಮಾಡಿ ಅಥವಾ ಮೊದಲು ಅದರ ಇನ್ನೊಂದು ಕ್ರಿಯೆಯನ್ನು ಆಫ್ ಮಾಡಿ.",
+"Your gamepad controls are saved. Keyboard controls stay the same.": "ನಿಮ್ಮ ಗೇಮ್‌ಪ್ಯಾಡ್ ನಿಯಂತ್ರಣಗಳನ್ನು ಉಳಿಸಲಾಗಿದೆ. ಕೀಬೋರ್ಡ್ ನಿಯಂತ್ರಣಗಳು ಹಾಗೆಯೇ ಇರುತ್ತವೆ.",
+"Reset your saved gamepad controls?": "ನಿಮ್ಮ ಉಳಿಸಿದ ಗೇಮ್‌ಪ್ಯಾಡ್ ನಿಯಂತ್ರಣಗಳನ್ನು ಮರುಹೊಂದಿಸಬೇಕೆ?",
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "ಈ ಕಸ್ಟಮ್ ನಿಯಂತ್ರಣಗಳು ಉಳಿಸಲು ತುಂಬಾ ದೊಡ್ಡದಾಗಿವೆ. ಬಳಸದ ನಿಯಂತ್ರಣಗಳನ್ನು ಡೀಫಾಲ್ಟ್‌ಗೆ ಮರುಸ್ಥಾಪಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 },
 "templates": [
 [

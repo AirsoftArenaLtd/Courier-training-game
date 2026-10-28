@@ -4116,7 +4116,10 @@ window.OTR_I18N.te = {
 "Release all controls, move one stick axis, then release it. Escape cancels.": "అన్ని నియంత్రణలు వదిలి, ఒక స్టిక్ అక్షాన్ని కదిపి, తర్వాత వదలండి. Esc రద్దు చేస్తుంది.",
 "Release all controls, press one button, then release it. Escape cancels.": "అన్ని నియంత్రణలు వదిలి, ఒక బటన్ నొక్కి, తర్వాత వదలండి. Esc రద్దు చేస్తుంది.",
 "Choose another gamepad input": "మరో గేమ్‌ప్యాడ్ ఇన్‌పుట్ ఎంచుకోండి",
-"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ఆ ఇన్‌పుట్ ఇప్పటికే ఒకే సమయంలో వాడే చర్యకు కేటాయించబడింది. మరో ఇన్‌పుట్ ఎంచుకోండి లేదా ముందుగా దాని ఇతర చర్యను ఆఫ్ చేయండి."
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ఆ ఇన్‌పుట్ ఇప్పటికే ఒకే సమయంలో వాడే చర్యకు కేటాయించబడింది. మరో ఇన్‌పుట్ ఎంచుకోండి లేదా ముందుగా దాని ఇతర చర్యను ఆఫ్ చేయండి.",
+"Your gamepad controls are saved. Keyboard controls stay the same.": "మీ గేమ్‌ప్యాడ్ నియంత్రణలు సేవ్ అయ్యాయి. కీబోర్డ్ నియంత్రణలు అలాగే ఉంటాయి.",
+"Reset your saved gamepad controls?": "మీరు సేవ్ చేసిన గేమ్‌ప్యాడ్ నియంత్రణలను రీసెట్ చేయాలా?",
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "ఈ అనుకూల నియంత్రణలు సేవ్ చేయడానికి చాలా పెద్దవి. ఉపయోగించని నియంత్రణలను డిఫాల్ట్‌కు పునరుద్ధరించి మళ్లీ ప్రయత్నించండి."
 },
 "templates": [
 [

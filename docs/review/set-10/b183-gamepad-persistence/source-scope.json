@@ -1,0 +1,21 @@
+{
+  "basePilot": "9105e301",
+  "newestFetchedPilot": "feadbd5a (documentation/images only afterward)",
+  "changedOwnedInputs": {
+    "src/core/fpgamepad.js": "0d77d690a6965b085b200a267021945f2e787e12cc530594f3754547a7d92b69",
+    "src/core/fpgamepadui.js": "eed1cd3621ecc7027158e44c154acd2f7dd8660d0a9cd5ebaf22e1a2e81eba15",
+    "test/fpgamepadprefs.js": "617846aa11ed025005d0f5be8dd20cccb8b6ab54f1835a0e6a30fb4ddb46d530",
+    "test/fpgamepadscene.js": "11ddfdde1e9866d62a6f1d92833e2e583c6f0eac7162c80a64981fb30c6829c4",
+    "test/fpgamepadremapbrowser.js": "1390a0c1a2c2059a4f7c9666d29322d1ffbaab8c0b198996005c5a3c3d6aaf48"
+  },
+  "unchangedSharedAndSceneInputs": [
+    "src/core/a11y.js",
+    "src/core/save.js",
+    "src/scenes/FirstPersonScene.js",
+    "index.html"
+  ],
+  "claudeFollowUp": [
+    "Three revised body translations from new-strings.json",
+    "The agreed shared gamepad save-size case"
+  ]
+}

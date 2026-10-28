@@ -1,0 +1,21 @@
+✔ fractional triggers drive the actual motor and keyboard braking retains priority without held-key mutation (3.883647ms)
+✔ analogue steering is fractional, keyboard steering overrides it and walking scales continuously (4.584014ms)
+✔ gamepad gear edges use the actual stopped-cab guard and emit each source observation once (1.968679ms)
+✔ D-pad navigation never toggles cab controls, and held throttle cannot escape a modal or focus transition (0.807778ms)
+✔ handheld choice changes rearm input and aiming keeps scan hold separate from mouse and keyboard (0.980749ms)
+✔ keyboard look overrides the corresponding analogue axis and cab look stays within its existing limits (0.664953ms)
+✔ disconnect and in-place settings changes clear stale commands and keep the keyboard path available (0.459022ms)
+✔ the live merge reuses one controls object for long sessions and does not change snapshots itself (351.561798ms)
+✔ losing pointer lock keeps gamepad menus usable; window blur suspends until focus and shutdown releases listeners (2.13443ms)
+✔ raw capture of an unbound button suppresses actions and held input cannot escape the resulting menu (2.770759ms)
+✔ capture cancels with its panel and focus resets a half-complete gesture (0.942521ms)
+✔ remaps use the shared writer and survive controller disposal while keyboard mappings stay intact (0.952526ms)
+✔ remap conflicts follow simultaneous contexts and retain the intentional menu/cab D-pad reuse (0.394185ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 383.797244

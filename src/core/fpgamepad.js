@@ -8,7 +8,12 @@ OTR.fpGamepad=(()=>{
  const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
  const index=(value,fallback,limit)=>value===undefined?fallback:Number.isInteger(value)&&value>=-1&&value<limit?value:-1;
  const standard=pad=>!!pad&&pad.connected===true&&pad.mapping==='standard';
- return Object.freeze({defaults,actions,
+ const preferences=options=>{
+  const out={};if(Number.isFinite(options?.deadzone)&&options.deadzone>=.05&&options.deadzone<=.45&&options.deadzone!==defaults.deadzone)out.deadzone=options.deadzone;
+  for(const group of ['axes','buttons']){const values={};for(const name of Object.keys(defaults[group])){const value=options?.[group]?.[name],limit=group==='axes'?8:32;if(Number.isInteger(value)&&value>=-1&&value<limit&&value!==defaults[group][name])values[name]=value;}if(Object.keys(values).length)out[group]=values;}
+  return JSON.stringify(out).length<=300?out:null;
+ };
+ return Object.freeze({defaults,actions,preferences,
   create(reader){
    const read=reader||(()=>typeof navigator!=='undefined'&&navigator.getGamepads?navigator.getGamepads():empty);
    const axes=new Int8Array(4),buttons=new Int8Array(names.length+2);

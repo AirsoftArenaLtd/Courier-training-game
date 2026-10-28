@@ -4116,7 +4116,10 @@ window.OTR_I18N.ml = {
 "Release all controls, move one stick axis, then release it. Escape cancels.": "എല്ലാ നിയന്ത്രണങ്ങളും വിടുക, ഒരു സ്റ്റിക്കിന്റെ ഒരു അക്ഷം നീക്കുക, പിന്നെ വിടുക. Esc റദ്ദാക്കും.",
 "Release all controls, press one button, then release it. Escape cancels.": "എല്ലാ നിയന്ത്രണങ്ങളും വിടുക, ഒരു ബട്ടൺ അമർത്തുക, പിന്നെ വിടുക. Esc റദ്ദാക്കും.",
 "Choose another gamepad input": "മറ്റൊരു ഗെയിംപാഡ് ഇൻപുട്ട് തിരഞ്ഞെടുക്കുക",
-"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ആ ഇൻപുട്ട് ഇതിനകം ഒരേ സമയം ഉപയോഗിക്കുന്ന ഒരു പ്രവർത്തനത്തിന് നൽകിയിട്ടുണ്ട്. മറ്റൊരു ഇൻപുട്ട് തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ ആദ്യം അതിന്റെ മറ്റേ പ്രവർത്തനം ഓഫാക്കുക."
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ആ ഇൻപുട്ട് ഇതിനകം ഒരേ സമയം ഉപയോഗിക്കുന്ന ഒരു പ്രവർത്തനത്തിന് നൽകിയിട്ടുണ്ട്. മറ്റൊരു ഇൻപുട്ട് തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ ആദ്യം അതിന്റെ മറ്റേ പ്രവർത്തനം ഓഫാക്കുക.",
+"Your gamepad controls are saved. Keyboard controls stay the same.": "നിങ്ങളുടെ ഗെയിംപാഡ് നിയന്ത്രണങ്ങൾ സംരക്ഷിച്ചു. കീബോർഡ് നിയന്ത്രണങ്ങൾ മാറില്ല.",
+"Reset your saved gamepad controls?": "സംരക്ഷിച്ച ഗെയിംപാഡ് നിയന്ത്രണങ്ങൾ പുനഃസജ്ജമാക്കണോ?",
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "ഈ ഇഷ്ടാനുസൃത നിയന്ത്രണങ്ങൾ സംരക്ഷിക്കാൻ കഴിയാത്തത്ര വലുതാണ്. ഉപയോഗിക്കാത്ത നിയന്ത്രണങ്ങൾ സ്ഥിര നിലയിലേക്ക് മാറ്റി വീണ്ടും ശ്രമിക്കുക."
 },
 "templates": [
 [

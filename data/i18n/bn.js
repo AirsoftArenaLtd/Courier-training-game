@@ -4117,7 +4117,10 @@ window.OTR_I18N.bn = {
 "Release all controls, move one stick axis, then release it. Escape cancels.": "সব নিয়ন্ত্রণ ছেড়ে দিন, একটি স্টিকের একটি অক্ষ নাড়ান, তারপর ছেড়ে দিন। Esc বাতিল করে।",
 "Release all controls, press one button, then release it. Escape cancels.": "সব নিয়ন্ত্রণ ছেড়ে দিন, একটি বোতাম চাপুন, তারপর ছেড়ে দিন। Esc বাতিল করে।",
 "Choose another gamepad input": "গেমপ্যাডের অন্য একটি ইনপুট বেছে নিন",
-"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "এই ইনপুটটি আগেই এমন একটি কাজে দেওয়া আছে যা একই সময়ে ব্যবহার হয়। অন্য ইনপুট বেছে নিন বা আগে তার অন্য কাজটি বন্ধ করুন।"
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "এই ইনপুটটি আগেই এমন একটি কাজে দেওয়া আছে যা একই সময়ে ব্যবহার হয়। অন্য ইনপুট বেছে নিন বা আগে তার অন্য কাজটি বন্ধ করুন।",
+"Your gamepad controls are saved. Keyboard controls stay the same.": "আপনার গেমপ্যাড নিয়ন্ত্রণ সংরক্ষিত আছে। কীবোর্ড নিয়ন্ত্রণ একই থাকে।",
+"Reset your saved gamepad controls?": "আপনার সংরক্ষিত গেমপ্যাড নিয়ন্ত্রণ রিসেট করবেন?",
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "এই কাস্টম নিয়ন্ত্রণগুলো সংরক্ষণ করার জন্য খুব বড়। অব্যবহৃত নিয়ন্ত্রণগুলো ডিফল্টে ফিরিয়ে আবার চেষ্টা করুন।"
 },
 "templates": [
 [

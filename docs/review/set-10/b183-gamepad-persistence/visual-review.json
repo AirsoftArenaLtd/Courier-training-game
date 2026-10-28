@@ -1,0 +1,10 @@
+{
+  "review": "Original-size normal English bindings/error and larger Tamil bindings/reset/error captures inspected. Text wraps within its panel and choices, with visible focus and no overlap. Three revised body sentences still have English or mixed template fallback until Claude translates them. Saved-controls larger type is at least 22 px (body 23); the unchanged existing keyboard-remap page retains its 19 px contract.",
+  "files": {
+    "attempt-3/artifacts/saved-remap-low-en/saved-remap-low-en-bindings.png": "ca7eff008bc5d8677a24adc6e8d6f0aa850a940971379065e7c7d169ead16b40",
+    "attempt-3/artifacts/saved-remap-low-en/saved-remap-low-en-too-many-overrides.png": "7942d93e19b930c432aa61f33087b645f9488174d150100c9bcdd1788e132e4e",
+    "attempt-3/artifacts/saved-remap-high-ta/saved-remap-high-ta-bindings.png": "2a7505d4f18e9352178f95b98ea0869959b2e799f760031ce757177ba2f9aa64",
+    "attempt-3/artifacts/saved-remap-high-ta/saved-remap-high-ta-reset.png": "0d33e7487d7bb28c5b1a216303088bab1f1aa83787d6019dcfe45cbafc295c06",
+    "attempt-3/artifacts/saved-remap-high-ta/saved-remap-high-ta-too-many-overrides.png": "81018097e45096f99a989d695fc15a27a11b0fac04591f79c7b462eda48152a4"
+  }
+}

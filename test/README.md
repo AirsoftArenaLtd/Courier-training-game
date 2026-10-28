@@ -182,6 +182,10 @@ Written by `node test/run-all.js --readme`.
 | `fpaccesslayout.js` | browser (--browser) | 3D layouts: QA_LANGS accepts language codes; QA_FONT=noto selects installed script-specific review fonts. |
 | `fpactors.js` | Node | Real rigs, ordinary animated geometry, physical targets, fallback and state ownership. |
 | `fpactorsbrowser.js` | browser (--browser) | Rendered actor/door proof and real-key interaction. |
+| `fpambient.js` | Node | Ambient presentation cannot occupy trainee paths or change the mission. |
+| `fpambientassets.js` | Node | Uploaded ambient rigs retain their source palette, independent poses and strict fallback guards. |
+| `fpambientbrowser.js` | browser (--browser) | Native people pixels, source/fallback choices and accessible ordinary-route presentation. |
+| `fpambientworld.js` | Node | Ambient people use actual town bounds and preserve physical access, reflection state and source ownership. |
 | `fpassets.js` | Node | (first test) the real vendored loader selects Low and High and parses the bundled CC0 variants |
 | `fpassetsbrowser.js` | browser (--browser) | Actual local loader, rendered variants, failure recovery, restart ownership and loading layouts. |
 | `fpbench.js` | own command | Unmodified ?bench=1 plus raw-frame samples of the first-person prototype. |
@@ -193,6 +197,10 @@ Written by `node test/run-all.js --readme`.
 | `fpcabbrowser.js` | browser (--browser) | Real keyboard target selection and action keys, including larger/Tamil layouts and a saved-control reload. |
 | `fpcamera.js` | Node | (first test) the driver sits behind the controls with a wider cab lens without touching saved mission state |
 | `fpcamerabrowser.js` | browser (--browser) | Real-key camera feel, physical dashboard anchoring, accessibility and approved trainer rules on resume. |
+| `fpcontext.js` | Node | Lifecycle tests use the actual mission state and owned scene input handlers; browser coverage forces real GL loss. |
+| `fpcontextbrowser.js` | browser (--browser) | Forced shared-context loss while real keyboard input drives the actual motor. |
+| `fpcontextkeyboardbrowser.js` | browser (--browser) | A real remapping prompt must freeze, and native Enter must still activate the fallback Reload button. |
+| `fpcontextrecoverybrowser.js` | browser (--browser) | Actual GL loss through loading, moving cab, menus, scanning and restart. |
 | `fpdamage.js` | Node | Damage state, approved report vocabulary and future checkpoint contract. |
 | `fpdamageassets.js` | Node | Damage placement against the shipped van meshes, including their unsprung wheels. |
 | `fpdamagebrowser.js` | browser (--browser) | Real scene launch, keyboard height reminder, motor contact, reports and recovery. |
@@ -207,7 +215,17 @@ Written by `node test/run-all.js --readme`.
 | `fpdriving.js` | Node | Live driving observations, hazard outcomes and checkpoint continuity. |
 | `fpdrivingbrowser.js` | browser (--browser) | Real hazard meshes, walk/cab interactions and readable safety prompts. |
 | `fpdynamicsbrowser.js` | browser (--browser) | Real keyboard driving, a recorded manoeuvre, and rendered suspension. |
+| `fpfurniturebrowser.js` | browser (--browser) | Actual uploaded desk pixels and original station actions. |
 | `fpfuzzbrowser.js` | browser (--browser) | A 3D fuzz run. |
+| `fpgamepad.js` | Node | Fake-pad lifecycle and analogue input checks; this slice is not yet scene-loaded. |
+| `fpgamepadaffinity.js` | Node | A connected driver's controller must keep ownership when a lower-index device appears during a menu. |
+| `fpgamepadaffinitybrowser.js` | browser (--browser) | Real menus with two fake browser Gamepads: connected driver ownership must survive context changes. |
+| `fpgamepadbrowser.js` | browser (--browser) | Actual scene/motor/cab/menu integration through a fake browser Gamepad API. |
+| `fpgamepadcapture.js` | Node | (first test) entry held inputs cannot bind; an unassigned button binds only on complete release |
+| `fpgamepadmenubrowser.js` | browser (--browser) | Focused menu resource samples. |
+| `fpgamepadprefs.js` | Node | Persistent user choices, bounded overrides and reset without touching keyboard settings or pad identity. |
+| `fpgamepadremapbrowser.js` | browser (--browser) | Real controls-screen navigation and raw Gamepad API gestures. |
+| `fpgamepadscene.js` | Node | Scene-local fake-pad integration, original cab/action guards and real motor checks. |
 | `fpguide.js` | Node | First-time guidance state, saved migrations and hints that do not change the mission. |
 | `fpguidebrowser.js` | browser (--browser) | Real keys through first-morning help, every guide page, blocked actions and a reload. |
 | `fphandheld.js` | Node | Handheld/controller workflow tests. |
@@ -223,6 +241,8 @@ Written by `node test/run-all.js --readme`.
 | `fplightingbrowser.js` | browser (--browser) | Real GL pixels, physical headlight shortcut, four saved presets and accessible captions. |
 | `fploadout.js` | Node | (first test) seeded discrepancies are stable, optional on old saves and excluded from cargo practice |
 | `fploadoutbrowser.js` | browser (--browser) | Physical unlisted-package scan and Dispatch load-check UI, both text sizes and languages. |
+| `fpmaterials.js` | Node | Uploaded surface sources: High selects them, Low never requests them, failures stay local. |
+| `fpmaterialsbrowser.js` | browser (--browser) | Native decoded surface pixels on actual roads, lawns, paths and facades; review camera poses are fixtures. |
 | `fpmirrors.js` | Node | Gaze evidence, manoeuvre keys, checkpoint continuity and the bounded reflection scheduler. |
 | `fpmirrorsbrowser.js` | browser (--browser) | Live reflected geometry, gaze-only reporting, keyboard access and saved dwell in the real shared GL context. |
 | `fpmission.js` | Node | Mission/restore checks run without a browser, canvas or generated artwork. |
@@ -248,6 +268,8 @@ Written by `node test/run-all.js --readme`.
 | `fpsignal.js` | Node | Real physical indicator, maneuver, report and checkpoint integration; no score calculation here. |
 | `fpsignalbrowser.js` | browser (--browser) | Real remapped cab stalk, game-time lead, driving keys and checkpoint reload; travel poses are fixtures. |
 | `fpsignlayoutbrowser.js` | browser (--browser) | Real sign-label placement and straight-ahead cab sight lines, in native languages and text sizes. |
+| `fpsignlettering.js` | Node | Physical face contents, exact address packing, bounded atlas ownership and the retained explicit reading. |
+| `fpsignletteringbrowser.js` | browser (--browser) | Actual face pixels on all lettered signs, with the material pack present and absent. |
 | `fpsigns.js` | Node | Sign data must agree with generated routes and the 3D stop obligations. |
 | `fpsignsbrowser.js` | browser (--browser) | Rendered sign geometry, bounded text, real reading keys and modal visibility. |
 | `fpsound.js` | Node | Sound is bounded, quiet before interaction, optional, captioned and independent from scoring. |
