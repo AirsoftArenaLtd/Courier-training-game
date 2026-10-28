@@ -1,0 +1,265 @@
+{
+  "scope": "Read-only prefix of the current catalogue scanner, stopped before all mkdir/write operations. Missing closure/blocked-drive sentences, templates and new target/sign readings only. Optional metadata is listed separately. No catalogue or translation mutation.",
+  "scannerSha256": "fbc1c8d3fb95e58aaaca20f9beebcd1f0a3065cbdc6cbae212a877099694c37c",
+  "strings": [
+    {
+      "text": "the delivery-card holder",
+      "from": "src/core/fpaccess.js"
+    },
+    {
+      "text": "the driveway access notice",
+      "from": "src/core/fpaccess.js"
+    },
+    {
+      "text": "Read the blocked-drive information.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Approach the delivery-card holder at the public edge before leaving the card.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Leave the delivery attempt card.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The card is already in the holder.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The card holder is outside the blocked driveway.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Leave the card in the holder.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Record the exception at the secured van before leaving the card.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Blocked driveway.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "No exception is recorded.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Record retention and a reattempt.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Finish this stop.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "This code does not match the access conditions, or the parcel is not secured at the legally parked van.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Record an exception before recording retention.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Return to the legally parked van and secure the retained parcel with the cargo doors closed.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The retention and next attempt have been recorded.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Access prevented delivery.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The recipient was absent.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The address was incorrect.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The required photo ID was unavailable.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Dispatch changed the delivery.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Record why the parcel is retained.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The retention record is incomplete.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Read the next retention reason.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The next attempt record is incomplete.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Book the next delivery attempt.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Complete the exception, safe card, retained parcel and next-attempt records. Return to the legally parked van with its parcel secured and cargo doors closed.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Keep the van on the public road. Read the access notice and inspect the driveway before choosing an exception. The delivery-card holder is at the safe public edge. Keep the parcel secured in the van when access prevents delivery.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Use the blocked-drive controls.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Assess the blocked driveway and complete a safe delivery attempt with the parcel secured.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Move close to the physical target and face it before continuing.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The driveway is unsafe. Keep to the public path.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The entry gate is locked.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The driveway is blocked. Inspect the public approach.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The entry cannot be reached safely. Record the access conditions from the secured van.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The accessible door has been reached. Nobody has answered.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Your footing slipped on the driveway. Return to the safe public path.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Read the road-closure information.",
+      "from": "src/core/fpproblemrouteui.js"
+    },
+    {
+      "text": "Return to the road.",
+      "from": "src/core/fpproblemrouteui.js"
+    },
+    {
+      "text": "Read the physical road sign.",
+      "from": "src/core/fpproblemrouteui.js"
+    },
+    {
+      "text": "Follow the diversion on the sat nav, then park the whole van inside the marked destination bay, facing with traffic. Set the parking brake before finishing.",
+      "from": "src/core/fpproblemrouteui.js"
+    },
+    {
+      "text": "Read the diversion.",
+      "from": "src/core/fpproblemrouteui.js"
+    },
+    {
+      "text": "Finish the diversion.",
+      "from": "src/core/fpproblemrouteui.js"
+    },
+    {
+      "text": "Use the diversion controls.",
+      "from": "src/core/fpproblemrouteui.js"
+    },
+    {
+      "text": "Follow the diversion around the road closure and park in the marked destination bay.",
+      "from": "src/core/fpproblemrouteui.js"
+    },
+    {
+      "text": "The driveway is unsafe. Keep the parcel and record exception UN.",
+      "from": "src/core/fpsigns.js"
+    },
+    {
+      "text": "The site is locked. Keep the parcel and record exception AC.",
+      "from": "src/core/fpsigns.js"
+    },
+    {
+      "text": "The driveway is blocked. Park legally and inspect the public approach.",
+      "from": "src/core/fpsigns.js"
+    },
+    {
+      "text": "Leave the delivery attempt card in the holder at the public edge.",
+      "from": "src/core/fpsigns.js"
+    }
+  ],
+  "templates": [
+    {
+      "text": "Exception {0} is recorded.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The next available attempt is day {0} in the afternoon.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Book day {0} in the afternoon.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Book day {0} in the morning.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Use {0}/{1}/{2}/{3} to walk. Look with the mouse or {4}. Press {5} to select a nearby physical target and {6} to use it.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Press {0} for the exception, retention and next-attempt records. Use the physical card holder to leave a card. Close the cargo doors and return to the legally parked van before finishing with {1} or the device.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Press {0} to leave the delivery attempt card.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Press {0} to read the driveway access notice.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "Press {0} to take the parcel from its shelf.",
+      "from": "src/core/fpproblemblockedui.js"
+    },
+    {
+      "text": "The destination is {0}.",
+      "from": "src/core/fpproblemrouteui.js"
+    },
+    {
+      "text": "Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Use the mouse or {4} to look. Press {5} to select a nearby cab control and {6} to use it.",
+      "from": "src/core/fpproblemrouteui.js"
+    },
+    {
+      "text": "Press {0} for the parking brake, {1} for the seatbelt, and {2} for drive or reverse. Press {3}/{4} for the signals and {5} to look forward. Look at the physical mirrors before moving off.",
+      "from": "src/core/fpproblemrouteui.js"
+    },
+    {
+      "text": "The road ahead is closed. Follow the mounted sat nav around the closure to {0}. Read a visible sign with {1}. Park inside the marked bay, facing with traffic. Press {2} to finish, or use the device with {3}.",
+      "from": "src/core/fpproblemrouteui.js"
+    },
+    {
+      "text": "Press {0} to read the diversion and finish details.",
+      "from": "src/core/fpproblemrouteui.js"
+    }
+  ],
+  "excluded": "Existing C41 customer target readings remain in its own handoff."
+}

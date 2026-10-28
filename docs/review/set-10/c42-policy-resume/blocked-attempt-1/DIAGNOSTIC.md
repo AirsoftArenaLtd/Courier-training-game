@@ -1,0 +1,3 @@
+# Cargo restraint approach diagnostic
+
+The first real-key Low journey passed 179 checks: physical notice, UN exception, safe public holder/card, actual cargo pickup, retention refusal while unsecured, and replacement on the real shelf. Its runner then tried to use the restraint while still inside the cargo aisle. The restraint was occluded from there, so the exact ray/pick guard correctly refused it. No production source changed: the next runner walks back out to the rear restraint before using it. No pose, parcel, protocol, clock or scoring state is assigned. This failed journey is diagnostic, not acceptance. Owned server/browser exited and lease released.
