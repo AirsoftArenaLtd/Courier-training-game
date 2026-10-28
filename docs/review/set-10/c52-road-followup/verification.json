@@ -1,0 +1,57 @@
+{
+  "candidateBase": "75f2fbd095bfa0446176c8aebb5ad77e67d72152",
+  "inputsPerAttempt": 660,
+  "artifacts": 95,
+  "nativeChecks": 392,
+  "languageViews": 1176,
+  "resourceViews": 40,
+  "profiles": {
+    "road-budget-loaded-low": {
+      "calls": 53,
+      "triangles": 1858,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2074422
+    },
+    "road-budget-loaded-high": {
+      "calls": 76,
+      "triangles": 122843,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 6830182
+    },
+    "road-budget-accessible-low": {
+      "calls": 53,
+      "triangles": 1858,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2528230
+    },
+    "road-budget-fallback-low": {
+      "calls": 47,
+      "triangles": 1654,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2074422
+    }
+  },
+  "roadSamples": {
+    "low": {
+      "sumDifference": 21.716049382716108,
+      "point": [
+        650,
+        403
+      ]
+    },
+    "high": {
+      "sumDifference": 20.3827160493827,
+      "point": [
+        650,
+        403
+      ]
+    }
+  },
+  "cleanup": true,
+  "intel60fpsCertified": false,
+  "retryScope": "Only the inherited benchmark missing closing brace changed between attempts. Native/language runtime sources are identical."
+}

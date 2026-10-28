@@ -1,0 +1,9 @@
+{
+  "review": "Inspected the original full-size captures: road is visible above the lowered cluster at Low/High; the Tamil larger handheld choices and cab/nav text fit. Mirrors and controls remain visible. Existing very bright lower-cab lighting pool is visible and is not certified as finished lighting artwork by this correction.",
+  "files": {
+    "attempt-1/artifacts/road-light-low/c25-low-night-headlights.png": "55a868e90a2b90dd5a3ece3894e1da6daf52f2456d291dd712ffe0c47aae2248",
+    "attempt-1/artifacts/road-light-high/c25-high-night-headlights.png": "374f6bf3dff6f1563586aed9fd1a67df855e4c1390206bfd1f730afd495dc284",
+    "attempt-1/artifacts/road-device/road-device-high-ta-large-handheld.png": "a455e15f9f8fff1e4e4802995c3427525e4781c45f06377cbcc0ad175add8ff8",
+    "attempt-1/artifacts/road-device/road-device-low-ta-large-cab.png": "4c31e9b4a0fe3e49d43bdc17910cb1346a4f31403a4eb7783975725ee13185a0"
+  }
+}
