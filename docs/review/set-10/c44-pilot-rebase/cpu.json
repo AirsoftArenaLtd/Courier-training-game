@@ -1,0 +1,89 @@
+{
+  "base": "C43 ed6ebe94 over current-pilot C42/C41/C38",
+  "candidate": "c2aca97c313fe2817677a44af89b57be93bcc3e7",
+  "priorTip": "fbb766bc",
+  "backupBranch": "codex/c44-before-pilot-oct28",
+  "suites": [
+    {
+      "file": "test/fploading.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fploadinggeometry.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fploadingreference.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fploadingscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fploadingwalk.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fploadingworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscannerstopworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemblockedworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0
+    }
+  ],
+  "sources": {
+    "data/modules.js": "6fd61bac7a019da15cbc89106cd008df35f7877d702979859d1b273aaae44bf4",
+    "src/core/fpaccess.js": "4af25a4ffa5843d27eb3b7ee5f19e9b098d253510bb2414b1a0db1e16612a3b7",
+    "src/core/fpactors.js": "27eb8222c724c052c5944c4e49bf87c234faa7bb9b3958a1c9382ddb050c0e54",
+    "src/core/fploading.js": "2a7bb76031c4bb9ad5f21bd7682f9149e36e1e8a24a7f88eafde85ccbf19a847",
+    "src/core/fploadingscenario.js": "352206b211b62e1b1223f08ddb8b885dd59ed25f51dd6901e5c8afca02e16d47",
+    "src/core/fploadingworld.js": "0b3233a157c21636892ee9761199539d1ad198c086dabeae7adb910ce3aa8fba",
+    "src/core/fpworld.js": "2dd5be978c8bdd3537d5a91135cfe2c29941f155489e36d5a87428c49dfa414a",
+    "src/scenes/FirstPersonScenarioScene.js": "f61750a439c871ecccbf375493cecc7d2e32ca1f15c6193e17c21ef5b9e3f03a",
+    "test/fpbench.js": "73aa8fbca34ebdcb2d8a54f374ec0acc5c4ffc4f6a8a72a01e3e6cf025ee914a",
+    "test/fploading.js": "c7621eb1eb79f125c61f87b64bdd5246d5202e0e25e1d0b8d6ec9b7954a5c5fd",
+    "test/fploadingbrowser.js": "daf2dc961dca70b6ef9b9617d5eb56bd4375720bf023fa87a39a28c5ef0bb155",
+    "test/fploadinggeometry.js": "3fb6744539c6c560f27a5828f3a080eb79b85f67d39484c5a4377cb6d893cc88",
+    "test/fploadingreference.js": "3f8906fd4c7734073fe6ae9ea50fa65cc470066c2caef8b95ce56ed4264d2136",
+    "test/fploadingscenario.js": "8486340c422decc265922ef3ab315a30ce013c2aaf9e7400ae7b0a9bde7ddfe0",
+    "test/fploadingwalk.js": "5a6662e53326648d5acf3523a5fe0b83714925bd64b38f6543978bb7768f0135",
+    "test/fploadingworld.js": "f1657f7c70f9faf3ad6904cfc96623bef86fd10811293f93f281604504d371bd",
+    "test/tools/fp-loading-context.js": "2b63218b830e780d356e500859a38161407dcc6e78b9a0dadf383eac761c68f9",
+    "test/tools/fp-loading-fixture.js": "bfc84f5e0d388586a7371212bce0a9f40b4abacc3ec9918f7d006717b4527680",
+    "test/tools/fp-loading-original.js": "113af86af72d1099ad78d1e86d43c616b1aea7e69fd2fedef203f752a13ab09d",
+    "test/tools/fp-loading-pose.js": "8066605ae5f539935b8bf14cfdae59b6113e1d1cf6b937ae32e55d064b2145f0",
+    "test/tools/fp-loading-quality.js": "27b08218b71f7c5eadd57e1881bfb4780a479f2462460e44e510fa845f870f23",
+    "test/tools/fp-loading-walk.js": "fa935591d7988b722cb678a844abafbb01177bd1ae73b5e8bea95d6a275324ab"
+  },
+  "scope": "Current-pilot C44 CPU and syntax. Kept C41 protocol/blocked-drive target names and both loading/blocked world adapters. Two loading links authorized 27 Oct; stripping only those lines restores every parent registry byte, including defaults and 2D fallbacks. Native uses actual metadata and verifies links survive a real reload without changing the default. Historical full matrices retain exact source scopes; fresh browser checks are separate."
+}

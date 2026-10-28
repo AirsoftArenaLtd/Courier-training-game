@@ -1,0 +1,11 @@
+{
+  "existingIds": [
+    "m6-load",
+    "m6-find"
+  ],
+  "authorized": "Claude 27 October registry authorization",
+  "parentRegistrySha256": "de5cba9b3fcdd587950bdb2025bf00e663135e4fb7f07a0696862064d0184550",
+  "candidateRegistrySha256": "6fd61bac7a019da15cbc89106cd008df35f7877d702979859d1b273aaae44bf4",
+  "onlyTwoScene3dLines": true,
+  "allOtherBytesIdentical": true
+}
