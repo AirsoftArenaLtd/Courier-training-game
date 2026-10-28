@@ -1,0 +1,44 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ each selected shifter position confirms its state without asking for the same shift (2.466853ms)
+✔ Park holds the van with the parking brake released; Neutral has no engine force or creep (5.236012ms)
+✔ Drive, Reverse and the existing shortcut use the same selected drivetrain (0.64944ms)
+✔ unsafe direction attempts report the approved mistake without defeating the stopped-only interlock (0.605033ms)
+✔ shift keys stay unique after a checkpoint reload, and selecting the same gear reports nothing (1.861689ms)
+✔ cargo practice can change gear without adding reports to a suspended campaign (0.643301ms)
+✔ physical toggles change the saved controls, use visible positions as well as colour, and touch the mission (0.758985ms)
+✔ legacy checkpoints still load and new optional fields and Park/Neutral are strictly validated (4.801907ms)
+✔ every physical control is raycastable in both presets, independent of the exterior entry target (37.669056ms)
+✔ keyboard target selection reaches every cab control without moving the van or requiring pointer lock (8.963047ms)
+✔ speed, RPM, wheel and physical switch indicators follow the mission while cosmetic reduced motion stays stable (5.88394ms)
+✔ instrument backlighting follows the real headlights without a texture, timer or mission write (10.227366ms)
+✔ the High instrument hood stays above the dial face from the seated eye (4.185857ms)
+✖ the seated driver can see the centre of the road 23 metres ahead over the instrument cluster (6.197073ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 13
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 103.797397
+
+✖ failing tests:
+
+test at test/fpcab.js:92:1
+✖ the seated driver can see the centre of the road 23 metres ahead over the instrument cluster (6.197073ms)
+  AssertionError [ERR_ASSERTION]: {"high":false,"eye":[3.55,2.05,6.55],"road":[4,0.04,-15],"face":[0,-0.235,-1.005],"hit":{"name":"cab-instrument-face","type":"Mesh","point":[3.5793387470997673,1.9189535962877031,5.1450000000000005]}}
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/workspace/c52-device-design/test/fpcab.js:93:467)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

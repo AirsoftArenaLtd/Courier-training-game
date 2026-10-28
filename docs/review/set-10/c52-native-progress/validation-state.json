@@ -1,0 +1,228 @@
+{
+  "task": "C-52",
+  "started": "2026-10-22T18:33:22.826975+00:00",
+  "complete": false,
+  "pilotBase": "90844ac5",
+  "baselineCandidate": "055415cf",
+  "ownedRuntime": "f5d4ab68",
+  "ownedFixture": "f5d4ab68",
+  "candidateRevision": "7dcbd2b6aab6816f4de4e6e59c14a1919b4514cd",
+  "jobs": [
+    {
+      "name": "compact-gap-regression",
+      "args": [
+        "node",
+        "test/fpdevicedesignbrowser.js"
+      ],
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "ml",
+        "QA_TAG": "c52-compact-gap"
+      },
+      "exit": 0,
+      "log": "c52-final-compact-gap-regression.log",
+      "candidateRevision": "8a06a4b24068dca0c726c8f7f3bd4f0499f51f7c",
+      "result": "23 checks pass; larger-text nominal and rendered gaps 3.75px; hit heights 46,46,46,46,56.",
+      "scope": "Low presentation unchanged by the High-only hood correction; retained with its original source version."
+    },
+    {
+      "name": "device-low-all-languages",
+      "args": [
+        "node",
+        "test/fpdevicedesignbrowser.js"
+      ],
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en,es,fr,hi,bn,mr,te,ta,gu,kn,ml,pa",
+        "QA_TAG": "c52-final-design-low"
+      },
+      "start": "2026-10-22T19:19:20.160717+00:00",
+      "log": "c52-final-device-low-all-languages.log",
+      "pid": 289963,
+      "exit": 0,
+      "end": "2026-10-22T19:24:11.212523+00:00",
+      "candidateRevision": "8a06a4b24068dca0c726c8f7f3bd4f0499f51f7c",
+      "scope": "Low presentation unchanged by the High-only hood correction; retained with its original source version."
+    },
+    {
+      "name": "hood-regression",
+      "args": [
+        "node",
+        "test/fpdevicedesignbrowser.js"
+      ],
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "en",
+        "QA_TAG": "c52-hood-regression"
+      },
+      "exit": 0,
+      "log": "c52-final-hood-regression.log",
+      "candidateRevision": "7dcbd2b6aab6816f4de4e6e59c14a1919b4514cd",
+      "result": "27 native checks pass. The dial visibility probe changes 9,830 pixels, hiding the High hood changes zero pixels within the instrument face, and mission/reports remain unchanged."
+    },
+    {
+      "name": "repository",
+      "args": [
+        "node",
+        "test/run-all.js"
+      ],
+      "env": {},
+      "start": "2026-10-22T19:31:22.629284+00:00",
+      "log": "c52-final-repository.log",
+      "pid": 291332,
+      "exit": 0,
+      "end": "2026-10-22T19:40:57.759525+00:00"
+    },
+    {
+      "name": "device-high",
+      "args": [
+        "node",
+        "test/fpdevicedesignbrowser.js"
+      ],
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_TAG": "c52-final-design-high"
+      },
+      "start": "2026-10-22T19:40:57.925919+00:00",
+      "log": "c52-final-device-high.log",
+      "pid": 294922,
+      "exit": 0,
+      "end": "2026-10-22T19:44:10.472249+00:00"
+    },
+    {
+      "name": "hud-low",
+      "args": [
+        "node",
+        "test/fphudbrowser.js"
+      ],
+      "env": {
+        "QA_GFX": "low"
+      },
+      "start": "2026-10-22T19:44:10.630223+00:00",
+      "log": "c52-final-hud-low.log",
+      "pid": 295265,
+      "exit": 0,
+      "end": "2026-10-22T19:46:54.314278+00:00"
+    },
+    {
+      "name": "hud-high",
+      "args": [
+        "node",
+        "test/fphudbrowser.js"
+      ],
+      "env": {
+        "QA_GFX": "high"
+      },
+      "start": "2026-10-22T19:46:54.493397+00:00",
+      "log": "c52-final-hud-high.log",
+      "pid": 295595,
+      "exit": 0,
+      "end": "2026-10-22T19:56:17.126787+00:00"
+    },
+    {
+      "name": "cab-controls",
+      "args": [
+        "node",
+        "test/fpcabbrowser.js"
+      ],
+      "env": {},
+      "start": "2026-10-22T19:56:17.311143+00:00",
+      "log": "c52-final-cab-controls.log",
+      "pid": 295943,
+      "exit": 0,
+      "end": "2026-10-22T19:57:50.072222+00:00"
+    },
+    {
+      "name": "delivery-layouts",
+      "args": [
+        "node",
+        "test/fpdoorsbrowser.js"
+      ],
+      "env": {},
+      "start": "2026-10-22T19:57:50.222741+00:00",
+      "log": "c52-final-delivery-layouts.log",
+      "pid": 296274,
+      "exit": 0,
+      "end": "2026-10-22T20:00:27.914904+00:00"
+    },
+    {
+      "name": "theme-and-cleanup",
+      "args": [
+        "node",
+        "test/fpbrandingbrowser.js"
+      ],
+      "env": {},
+      "start": "2026-10-22T20:00:28.093597+00:00",
+      "log": "c52-final-theme-and-cleanup.log",
+      "pid": 296606,
+      "exit": 0,
+      "end": "2026-10-22T20:00:58.414605+00:00"
+    },
+    {
+      "name": "narration",
+      "args": [
+        "node",
+        "test/fpnarrationbrowser.js"
+      ],
+      "env": {},
+      "start": "2026-10-22T20:00:58.598024+00:00",
+      "log": "c52-final-narration.log",
+      "pid": 296957,
+      "exit": 0,
+      "end": "2026-10-22T20:01:32.920715+00:00"
+    },
+    {
+      "name": "sign-clearance-low",
+      "args": [
+        "node",
+        "test/fpsignlayoutbrowser.js"
+      ],
+      "env": {
+        "QA_GFX": "low",
+        "QA_TAG": "c52-final-signs-low"
+      },
+      "start": "2026-10-22T20:01:33.098456+00:00",
+      "log": "c52-final-sign-clearance-low.log",
+      "pid": 297280,
+      "exit": 0,
+      "end": "2026-10-22T20:09:16.379103+00:00"
+    },
+    {
+      "name": "sign-clearance-high",
+      "args": [
+        "node",
+        "test/fpsignlayoutbrowser.js"
+      ],
+      "env": {
+        "QA_GFX": "high",
+        "QA_TAG": "c52-final-signs-high"
+      },
+      "start": "2026-10-22T20:09:16.529834+00:00",
+      "log": "c52-final-sign-clearance-high.log",
+      "pid": 297712
+    }
+  ],
+  "phase": "sign-clearance-high",
+  "rule": "No merge or protected-branch push. Sources frozen. Prior exploratory runs are excluded.",
+  "priorFailedJobs": [
+    {
+      "name": "device-low-all-languages",
+      "args": [
+        "node",
+        "test/fpdevicedesignbrowser.js"
+      ],
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en,es,fr,hi,bn,mr,te,ta,gu,kn,ml,pa",
+        "QA_TAG": "c52-final-design-low"
+      },
+      "start": "2026-10-22T18:42:39.825118+00:00",
+      "log": "c52-final-device-low-all-languages.log",
+      "pid": 288905,
+      "exit": 1,
+      "end": "2026-10-22T18:47:01.615571+00:00",
+      "reason": "The new test required a five-pixel gap; merged fpAccess intentionally uses two to six pixels on dense translated pages. Corrected test also checks actual rendered faces and 46-pixel hit heights."
+    }
+  ],
+  "resumed": "2026-10-22T19:31:22.553455+00:00"
+}

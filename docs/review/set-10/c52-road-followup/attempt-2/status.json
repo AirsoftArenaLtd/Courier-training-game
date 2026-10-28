@@ -1,0 +1,177 @@
+{
+  "phase": "complete",
+  "jobs": [
+    {
+      "tag": "road-budget-loaded-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "cab,mirrorInterior,handheld,lightingnightreverse,nightoff,nighton,nightglare,nightreduced,navfull,signsjunction",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_RADIO": "1",
+        "QA_LIGHTING": "1",
+        "QA_NAV": "1",
+        "QA_SIGNS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "road-budget-loaded-low-low-nightreduced.png": "ccdc7431bdfc52f21932ac99dc81a6d97c82753c040948c68222843c9caed145",
+        "road-budget-loaded-low-low-lightingnightreverse.png": "cbde67ffc0d07457927a2e9451b414e3217cbb6a43cc0f58ecd7e6e5b9eb9cc0",
+        "road-budget-loaded-low-low-mirrorInterior.png": "85e6589d1a77651293189968d43e0d03d1ad30a8dbf0e474f8207a24023de434",
+        "road-budget-loaded-low-low-signsjunction.png": "4464ba1e4d97d3d02525c9b68d00449193a6eeafaf5c0b4a5874b1e07b1de258",
+        "road-budget-loaded-low-low-handheld.png": "c50950d842470984c051e858ed81f653961d07ad8163f87e72acf8a89789fb9b",
+        "road-budget-loaded-low-low-nightoff.png": "7f8ef8e38ca0a2c65c9ff16bb51abd4d10b4d40d619e8331aff67226267e43a0",
+        "road-budget-loaded-low-low-nighton.png": "c68fc29da12dcafdf0a7c02483c52be188b69ca82358df30d7d192f4d240a3ca",
+        "bench-road-budget-loaded-low-low.json": "2cafc1e4a0e908bbeb6175f7a28066e49e0b0908bd8b7ca20481206fb782db73",
+        "road-budget-loaded-low-low-nightglare.png": "67290d52d43892f8143cfbb8ee6b78b137c2c85d48acb8442aaaae1140da9e0c",
+        "road-budget-loaded-low-low-cab.png": "bc2d61fc51cafbe121dda1a663ecffe3e8e86787a1bfc1264425c30b5850b9d9",
+        "road-budget-loaded-low-low-navfull.png": "ac1e1eddf308939f17dff93f7ba1fc163af856934e0e63f747636776530e1b5f"
+      },
+      "peak": {
+        "calls": 53,
+        "triangles": 1858,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2074422
+      }
+    },
+    {
+      "tag": "road-budget-loaded-high",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "cab,mirrorInterior,handheld,lightingnightreverse,nightoff,nighton,nightglare,nightreduced,navfull,signsjunction",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_RADIO": "1",
+        "QA_LIGHTING": "1",
+        "QA_NAV": "1",
+        "QA_SIGNS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "road-budget-loaded-high-high-signsjunction.png": "9913c8481cb76bf23533c296d5f182f52a2440d75a5272f03324af385b11cd82",
+        "road-budget-loaded-high-high-cab.png": "d3731342118cae25b306a2011540c88e01b84955b031d640230532998e597700",
+        "road-budget-loaded-high-high-handheld.png": "f4396a47e5f5a696d872d23e8b8774b2bdbc0e04b02a6cc94fe0f635557c21e9",
+        "road-budget-loaded-high-high-navfull.png": "94c6d0685f15228c64e91604dc71ed66ac8005b2ed78ecd6711edac132e052e4",
+        "bench-road-budget-loaded-high-high.json": "087ac1ac748126c795b9de98d891bc5447dbc67f02ba5eecd118712cb17e8795",
+        "road-budget-loaded-high-high-lightingnightreverse.png": "148bfa895d05cd22dd7c411b23094c0e1284df99c555c551f3de206a8882231c",
+        "road-budget-loaded-high-high-nightglare.png": "cb8c00c66803b9d1201a6b4e8e5cb75e72fda963828d63cd82d2359dc605140b",
+        "road-budget-loaded-high-high-nighton.png": "f0e787b5c82afd738a2cfe0f39dbd73dd1e05baa043642ad3f4a26b0c8ab7989",
+        "road-budget-loaded-high-high-mirrorInterior.png": "7dc04cb2a4125ac906ce72c299e30dc950b1cb5552ee4aa6247e6164d0e27966",
+        "road-budget-loaded-high-high-nightreduced.png": "d090c08c92d986f17d244730550910d7cd4ada637700d12093c3b16f431772bc",
+        "road-budget-loaded-high-high-nightoff.png": "c3bf820bdaab078dc46227bc3bb864ff6756cceb51b7ba97321b6e7e7e7e9397"
+      },
+      "peak": {
+        "calls": 76,
+        "triangles": 122843,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 6830182
+      }
+    },
+    {
+      "tag": "road-budget-accessible-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "cab,mirrorInterior,handheld,lightingnightreverse,nightoff,nighton,nightglare,nightreduced,navfull,signsjunction",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_RADIO": "1",
+        "QA_LIGHTING": "1",
+        "QA_NAV": "1",
+        "QA_SIGNS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "bench-road-budget-accessible-low-low.json": "bad7cdee542d55a45627be350ebecc9f7ddc80e569b792c328102877683d91ce",
+        "road-budget-accessible-low-low-handheld.png": "be069e23f0907fb2da899b81374deb4b7c4f7b2be86e511ac76e86f3149172af",
+        "road-budget-accessible-low-low-cab.png": "1fa0c883430aee657dab68b79ed2fdd27dbb492fb702794cd37edcc8b6031696",
+        "road-budget-accessible-low-low-nightreduced.png": "276055efe3598e3df57be28c15a5b50b070fda60bbee390524a72c4aa31c9e43",
+        "road-budget-accessible-low-low-mirrorInterior.png": "41009a609619a85be0277f02c6566c241a62770d36238df0897bdcb111788fd2",
+        "road-budget-accessible-low-low-signsjunction.png": "44ea4b17edd3d97c8b590480fdad4be80eff600be4ade7689689acf0bea7cabe",
+        "road-budget-accessible-low-low-nightglare.png": "276055efe3598e3df57be28c15a5b50b070fda60bbee390524a72c4aa31c9e43",
+        "road-budget-accessible-low-low-nighton.png": "d40ef65aeab31852c85e9ee43042bcb77349403300df35192f410943233fd030",
+        "road-budget-accessible-low-low-lightingnightreverse.png": "efbef31b247852c99624649df60367526b25ce3751930e67fd7b0e0c527970c2",
+        "road-budget-accessible-low-low-nightoff.png": "f836db658c994dbe56bcbbb08daab912d8f99125a6e14ec6fdcabd232f89fe8a",
+        "road-budget-accessible-low-low-navfull.png": "85474db352ecae1649d90b65187d98bfd5b2ea42a62a2a50d7ea8c2f0a910077"
+      },
+      "peak": {
+        "calls": 53,
+        "triangles": 1858,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2528230
+      }
+    },
+    {
+      "tag": "road-budget-fallback-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1",
+        "QA_VIEWS": "cab,mirrorInterior,handheld,lightingnightreverse,nightoff,nighton,nightglare,nightreduced,navfull,signsjunction",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_RADIO": "1",
+        "QA_LIGHTING": "1",
+        "QA_NAV": "1",
+        "QA_SIGNS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "road-budget-fallback-low-low-nighton.png": "097919c4df98412149e40760abba156a8d740914adb789b2e8faeb046de2db53",
+        "road-budget-fallback-low-low-nightoff.png": "10c4a33bfea61ab1fa24a22d87f58ec991115d135ba5a948e44ae657ce098dcd",
+        "bench-road-budget-fallback-low-low.json": "de3f2fd05174be6b6f49599d125d549f2b57c3566f01fa0461930ad4c3121363",
+        "road-budget-fallback-low-low-cab.png": "cc9ebe6964e3c785fb59b8e09130a05425891c76c09bf925e0d868b3a90cf3c7",
+        "road-budget-fallback-low-low-navfull.png": "7508e5bd232d07775004902aee6b2a0217462483a98e9fcf7b697dab0a48048d",
+        "road-budget-fallback-low-low-signsjunction.png": "e8f9f4390be39fbbb74826102de8216f86d35f1aa714681ca00b0638868a5e39",
+        "road-budget-fallback-low-low-nightreduced.png": "f02062ff437fffa5c0c52eff76dbeeb8e57fcbe65a6d6d1dec24c2fc89db70a4",
+        "road-budget-fallback-low-low-nightglare.png": "e80d5f15b3ed558531eceab6f39338ddac2f477d6324cb9c65e1e5da1d640fdf",
+        "road-budget-fallback-low-low-handheld.png": "1cfb78940a095400f676b566123b0e175403e9c235ad26317dda30c26e971ebb",
+        "road-budget-fallback-low-low-mirrorInterior.png": "facf1eac7b65cdebec65e521b9b228fcf4e90bebf92ac6a63c582aaac77ec056",
+        "road-budget-fallback-low-low-lightingnightreverse.png": "5284318682c02322a9bc6197c9ac1090a982e4052f87791874c6e999752acfd0"
+      },
+      "peak": {
+        "calls": 47,
+        "triangles": 1654,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2074422
+      }
+    }
+  ],
+  "pid": 186594,
+  "startedAt": 1793173636.6168602,
+  "serverPid": 186614,
+  "tag": "road-budget-fallback-low",
+  "childPid": 188005,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793174320.5023685
+}

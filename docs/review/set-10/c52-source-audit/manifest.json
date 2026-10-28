@@ -1,0 +1,27 @@
+{
+  "status": "Source audit only; no new visual claim",
+  "date": "2026-10-22T17:44:58.201150+00:00",
+  "base": "1da29bf63fa57d34d725ebf138d86f612c18c004",
+  "files": {
+    "src/core/fpcab.js": {
+      "sha256": "2ef3cef1c6f0f11943550c880efb7427bc73e2ae9c94d7b45ba16db5b82d9f9e",
+      "bytes": 10640
+    },
+    "src/core/fphud.js": {
+      "sha256": "011edefd04a267954b4b6cf97a98e522e20f3af4e91c3918c658c363d69f75e7",
+      "bytes": 9865
+    },
+    "src/core/fphandheld.js": {
+      "sha256": "aecbfc95d658cc4e5a2f77d160f9303a88b2f6e18d493507791937b361a5f948",
+      "bytes": 14843
+    },
+    "src/scenes/FirstPersonScene.js": {
+      "sha256": "8909bb140cb8410c20d0ddde7db42fe11771265b666a97f7f44b75d8cf73646b",
+      "bytes": 50726
+    },
+    "docs/ASSETS.md": {
+      "sha256": "0a4f0858317deb47a9e45c61d4034ac059e5ab166b5f1dddc423c7d4380dca73",
+      "bytes": 6055
+    }
+  }
+}

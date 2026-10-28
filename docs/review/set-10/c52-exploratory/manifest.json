@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-22T18:31:35.807848+00:00",
+  "status": "Exploratory only; excluded from final acceptance",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 688,
+      "sha256": "98cf0506a8b223a7b5ebe698a15b2168744b698f43be548458d9ceb2553bc694"
+    },
+    {
+      "file": "c52-design-failure.png",
+      "bytes": 211674,
+      "sha256": "1bdaaac7fbc99a654a6a1c73d6b5908cb1a2405f2fd6e79242938b3c133fcb17"
+    },
+    {
+      "file": "c52-design-high-en-large-cab.png",
+      "bytes": 207288,
+      "sha256": "97a562e507fb43092ee3db2872d1ca434a62cf06389ad890ac3342477dd33881"
+    },
+    {
+      "file": "c52-design-high-en-large-handheld.png",
+      "bytes": 167819,
+      "sha256": "a9495ebf1c3df969ee074636aca129acfaa834ce4616c50da378b6ec3f42a820"
+    },
+    {
+      "file": "c52-design-high-en-normal-cab.png",
+      "bytes": 197080,
+      "sha256": "333835ab327b4e2daa262b17f4e457d5471e174bd8901d7a228b12499a593e4c"
+    },
+    {
+      "file": "c52-design-high-en-normal-handheld.png",
+      "bytes": 177642,
+      "sha256": "6b50f2943b730531959d7c34037f348562b4833929e314f783f49dc1d4d30c9d"
+    },
+    {
+      "file": "c52-design-high-en-normal-live-instruments.png",
+      "bytes": 227026,
+      "sha256": "cb5e4a85ebd91d55fa1bec72c4e5db7f9cf82bb5d45c94225b5b23677ddf8128"
+    },
+    {
+      "file": "c52-design-high-ta-large-cab.png",
+      "bytes": 220932,
+      "sha256": "6703cbde69dc98227b388950224c7ac7ff4b3ab53be461ae8d7226b3da9ce8a8"
+    },
+    {
+      "file": "c52-design-high-ta-large-handheld.png",
+      "bytes": 180656,
+      "sha256": "bcf0f3a1958ccaebf77186fa1d1d3a9502bd0abded13087aecc41423b435630d"
+    },
+    {
+      "file": "c52-design-high-ta-normal-cab.png",
+      "bytes": 203843,
+      "sha256": "52b617d56f687675a2f4191ed80bd7cacffba4d77319084c5c32bbb3844f660b"
+    },
+    {
+      "file": "c52-design-high-ta-normal-handheld.png",
+      "bytes": 173313,
+      "sha256": "5e3f8729ffc1c90715152de09479ce92a01046619d4738b80973dd8cb9731606"
+    },
+    {
+      "file": "c52-design-low-en-large-cab.png",
+      "bytes": 196052,
+      "sha256": "41fa49cb86b7a4f948e5d056a8d04aa2effddbbeaab79b24ccbdfe354b5ae35b"
+    },
+    {
+      "file": "c52-design-low-en-large-handheld.png",
+      "bytes": 154795,
+      "sha256": "38f513ef435ea94ff42140fd4c6e67a0fd37bdd81905eedb59d1b225dcf24649"
+    },
+    {
+      "file": "c52-design-low-en-normal-cab.png",
+      "bytes": 192476,
+      "sha256": "f9fdba5567e31ce2106c52449096ed238c11946c0b304535f6d65fe536237a37"
+    },
+    {
+      "file": "c52-design-low-en-normal-handheld.png",
+      "bytes": 162674,
+      "sha256": "a46d5123456be739604cc228954334a979ada6d371463652baa2c67d69ec6525"
+    },
+    {
+      "file": "c52-design-low-en-normal-live-instruments.png",
+      "bytes": 211924,
+      "sha256": "f31fec2e202878f6e00aef7651354a8148d3ac8d4ae0578dad4381594d651edd"
+    },
+    {
+      "file": "c52-design-low-ta-large-cab.png",
+      "bytes": 209354,
+      "sha256": "23b7fcc05314a4460000eda3752018decbce0c21707628e0979ec78137dcb9ed"
+    },
+    {
+      "file": "c52-design-low-ta-large-handheld.png",
+      "bytes": 166155,
+      "sha256": "7edbdaca3c1b7b77035cf2f65b35da67e80a92a2c5cfef028ef7c97d9716bfee"
+    },
+    {
+      "file": "c52-design-low-ta-normal-cab.png",
+      "bytes": 204995,
+      "sha256": "a7a2b1b70b462078035749fa1df06fc6763f2d8964deb76dc63eab194032c7b7"
+    },
+    {
+      "file": "c52-design-low-ta-normal-handheld.png",
+      "bytes": 158868,
+      "sha256": "9ce52897c47492b26b30fb8dedf88ba42105b00eb19b9435a989bd550a89b942"
+    },
+    {
+      "file": "c52-design.json",
+      "bytes": 14994,
+      "sha256": "3361be32076adec808d93ee79fbb5e2db920d10839b3c3d7eb2ae28b3ea7b3c7"
+    },
+    {
+      "file": "c52-first-design.log",
+      "bytes": 985,
+      "sha256": "f1149acf9cc195b30ebd5c2b6d988d8b4bb0f66692b5936923c6498bd22a2468"
+    },
+    {
+      "file": "c52-first-hud.log",
+      "bytes": 112,
+      "sha256": "69b409c5461f1830e02344ced5d2a3c036feead646e5fbf8e940bf42dfc5dd9e"
+    },
+    {
+      "file": "c52-second-design.log",
+      "bytes": 985,
+      "sha256": "f1149acf9cc195b30ebd5c2b6d988d8b4bb0f66692b5936923c6498bd22a2468"
+    },
+    {
+      "file": "c52-third-design.log",
+      "bytes": 191,
+      "sha256": "19bf209cee5d77abb249ae2ec5f5f32fae3f7d3c8cb9a43fe935bb286dbce3e5"
+    }
+  ]
+}

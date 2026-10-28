@@ -1,0 +1,3 @@
+# C-52 exploratory diagnostics
+
+These are implementation-stage captures and checks, excluded from final acceptance. The first two native runs failed because the fixture had not initialized lazy suspension/RPM state; the second zero-duration drive call returns before initialization. The corrected fixture calls the real suspension initializer. The third run passed 95 native checks, but the final control-colour adjustment arrived during its layouts, so it is not acceptance for one frozen runtime. The first HUD run passed 186 checks before that colour-only adjustment. Final acceptance reruns on a frozen current-pilot candidate, with all 12 languages on Low and English/Tamil on High.

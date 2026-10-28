@@ -1,0 +1,9 @@
+low en large=false
+low en large=true
+low ta large=false
+low ta large=true
+high en large=false
+high en large=true
+high ta large=false
+high ta large=true
+95 device visual browser checks passed

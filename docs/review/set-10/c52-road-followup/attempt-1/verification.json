@@ -1,0 +1,10 @@
+{
+  "status": "native/language accepted; resource runner syntax failed before samples",
+  "inputs": 660,
+  "artifacts": 51,
+  "nativeChecks": 392,
+  "languageViews": 1176,
+  "resourceViews": 0,
+  "baselineBenchmarkSHA256": "1403c5a724e8f22a4464dc4fc0b3e8e764c732a69becea240c044e2e1d417a94",
+  "cleanup": true
+}

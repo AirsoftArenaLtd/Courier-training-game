@@ -1,0 +1,2249 @@
+{
+  "views": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-en-normal-cab.png",
+      "instrumentPixels": {
+        "changed": 10577,
+        "rect": {
+          "x": 539,
+          "y": 332,
+          "right": 741,
+          "top": 402
+        },
+        "unchanged": true,
+        "glError": 0,
+        "textures": 2
+      },
+      "live": "c52-final-design-low-low-en-normal-live-instruments.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 282,
+            "top": 259,
+            "bottom": 305,
+            "faceTop": 259,
+            "faceBottom": 305,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 334,
+            "top": 311,
+            "bottom": 357,
+            "faceTop": 311,
+            "faceBottom": 357,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 386,
+            "top": 363,
+            "bottom": 409,
+            "faceTop": 363,
+            "faceBottom": 409,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 438,
+            "top": 415,
+            "bottom": 461,
+            "faceTop": 415,
+            "faceBottom": 461,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 490,
+            "top": 467,
+            "bottom": 513,
+            "faceTop": 467,
+            "faceBottom": 513,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-en-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-en-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 280,
+            "top": 257,
+            "bottom": 303,
+            "faceTop": 257,
+            "faceBottom": 303,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 332,
+            "top": 309,
+            "bottom": 355,
+            "faceTop": 309,
+            "faceBottom": 355,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 384,
+            "top": 361,
+            "bottom": 407,
+            "faceTop": 361,
+            "faceBottom": 407,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 436,
+            "top": 413,
+            "bottom": 459,
+            "faceTop": 413,
+            "faceBottom": 459,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 488,
+            "top": 465,
+            "bottom": 511,
+            "faceTop": 465,
+            "faceBottom": 511,
+            "height": 46,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-en-large-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "es",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-es-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 282,
+            "top": 259,
+            "bottom": 305,
+            "faceTop": 259,
+            "faceBottom": 305,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 334,
+            "top": 311,
+            "bottom": 357,
+            "faceTop": 311,
+            "faceBottom": 357,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 386,
+            "top": 363,
+            "bottom": 409,
+            "faceTop": 363,
+            "faceBottom": 409,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 438,
+            "top": 415,
+            "bottom": 461,
+            "faceTop": 415,
+            "faceBottom": 461,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 490,
+            "top": 467,
+            "bottom": 513,
+            "faceTop": 467,
+            "faceBottom": 513,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-es-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "es",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-es-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 280,
+            "top": 257,
+            "bottom": 303,
+            "faceTop": 257,
+            "faceBottom": 303,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 332,
+            "top": 309,
+            "bottom": 355,
+            "faceTop": 309,
+            "faceBottom": 355,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 384,
+            "top": 361,
+            "bottom": 407,
+            "faceTop": 361,
+            "faceBottom": 407,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 436,
+            "top": 413,
+            "bottom": 459,
+            "faceTop": 413,
+            "faceBottom": 459,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 488,
+            "top": 465,
+            "bottom": 511,
+            "faceTop": 465,
+            "faceBottom": 511,
+            "height": 46,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-es-large-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "fr",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-fr-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 282,
+            "top": 259,
+            "bottom": 305,
+            "faceTop": 259,
+            "faceBottom": 305,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 334,
+            "top": 311,
+            "bottom": 357,
+            "faceTop": 311,
+            "faceBottom": 357,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 386,
+            "top": 363,
+            "bottom": 409,
+            "faceTop": 363,
+            "faceBottom": 409,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 438,
+            "top": 415,
+            "bottom": 461,
+            "faceTop": 415,
+            "faceBottom": 461,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 490,
+            "top": 467,
+            "bottom": 513,
+            "faceTop": 467,
+            "faceBottom": 513,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-fr-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "fr",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-fr-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 280,
+            "top": 257,
+            "bottom": 303,
+            "faceTop": 257,
+            "faceBottom": 303,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 332,
+            "top": 309,
+            "bottom": 355,
+            "faceTop": 309,
+            "faceBottom": 355,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 384,
+            "top": 361,
+            "bottom": 407,
+            "faceTop": 361,
+            "faceBottom": 407,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 436,
+            "top": 413,
+            "bottom": 459,
+            "faceTop": 413,
+            "faceBottom": 459,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 488,
+            "top": 465,
+            "bottom": 511,
+            "faceTop": 465,
+            "faceBottom": 511,
+            "height": 46,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-fr-large-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "hi",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-hi-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 280,
+            "top": 257,
+            "bottom": 303,
+            "faceTop": 257,
+            "faceBottom": 303,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 332,
+            "top": 309,
+            "bottom": 355,
+            "faceTop": 309,
+            "faceBottom": 355,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 384,
+            "top": 361,
+            "bottom": 407,
+            "faceTop": 361,
+            "faceBottom": 407,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 436,
+            "top": 413,
+            "bottom": 459,
+            "faceTop": 413,
+            "faceBottom": 459,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 488,
+            "top": 465,
+            "bottom": 511,
+            "faceTop": 465,
+            "faceBottom": 511,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-hi-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "hi",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-hi-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 278,
+            "top": 255,
+            "bottom": 301,
+            "faceTop": 255,
+            "faceBottom": 301,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 330,
+            "top": 307,
+            "bottom": 353,
+            "faceTop": 307,
+            "faceBottom": 353,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 382,
+            "top": 359,
+            "bottom": 405,
+            "faceTop": 359,
+            "faceBottom": 405,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 434,
+            "top": 411,
+            "bottom": 457,
+            "faceTop": 411,
+            "faceBottom": 457,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 486,
+            "top": 463,
+            "bottom": 509,
+            "faceTop": 463,
+            "faceBottom": 509,
+            "height": 46,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-hi-large-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "bn",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-bn-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 281,
+            "top": 258,
+            "bottom": 304,
+            "faceTop": 258,
+            "faceBottom": 304,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 333,
+            "top": 310,
+            "bottom": 356,
+            "faceTop": 310,
+            "faceBottom": 356,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 385,
+            "top": 362,
+            "bottom": 408,
+            "faceTop": 362,
+            "faceBottom": 408,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 437,
+            "top": 414,
+            "bottom": 460,
+            "faceTop": 414,
+            "faceBottom": 460,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 489,
+            "top": 466,
+            "bottom": 512,
+            "faceTop": 466,
+            "faceBottom": 512,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-bn-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "bn",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-bn-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 279,
+            "top": 256,
+            "bottom": 302,
+            "faceTop": 256,
+            "faceBottom": 302,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 331,
+            "top": 308,
+            "bottom": 354,
+            "faceTop": 308,
+            "faceBottom": 354,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 383,
+            "top": 360,
+            "bottom": 406,
+            "faceTop": 360,
+            "faceBottom": 406,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 435,
+            "top": 412,
+            "bottom": 458,
+            "faceTop": 412,
+            "faceBottom": 458,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 487,
+            "top": 464,
+            "bottom": 510,
+            "faceTop": 464,
+            "faceBottom": 510,
+            "height": 46,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-bn-large-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "mr",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-mr-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 280,
+            "top": 257,
+            "bottom": 303,
+            "faceTop": 257,
+            "faceBottom": 303,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 332,
+            "top": 309,
+            "bottom": 355,
+            "faceTop": 309,
+            "faceBottom": 355,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 384,
+            "top": 361,
+            "bottom": 407,
+            "faceTop": 361,
+            "faceBottom": 407,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 436,
+            "top": 413,
+            "bottom": 459,
+            "faceTop": 413,
+            "faceBottom": 459,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 488,
+            "top": 465,
+            "bottom": 511,
+            "faceTop": 465,
+            "faceBottom": 511,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-mr-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "mr",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-mr-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 278,
+            "top": 255,
+            "bottom": 301,
+            "faceTop": 255,
+            "faceBottom": 301,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 330,
+            "top": 307,
+            "bottom": 353,
+            "faceTop": 307,
+            "faceBottom": 353,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 382,
+            "top": 359,
+            "bottom": 405,
+            "faceTop": 359,
+            "faceBottom": 405,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 434,
+            "top": 411,
+            "bottom": 457,
+            "faceTop": 411,
+            "faceBottom": 457,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 486,
+            "top": 463,
+            "bottom": 509,
+            "faceTop": 463,
+            "faceBottom": 509,
+            "height": 46,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-mr-large-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "te",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-te-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 280,
+            "top": 257,
+            "bottom": 303,
+            "faceTop": 257,
+            "faceBottom": 303,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 332,
+            "top": 309,
+            "bottom": 355,
+            "faceTop": 309,
+            "faceBottom": 355,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 384,
+            "top": 361,
+            "bottom": 407,
+            "faceTop": 361,
+            "faceBottom": 407,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 436,
+            "top": 413,
+            "bottom": 459,
+            "faceTop": 413,
+            "faceBottom": 459,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 488,
+            "top": 465,
+            "bottom": 511,
+            "faceTop": 465,
+            "faceBottom": 511,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-te-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "te",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-te-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 276,
+            "top": 253,
+            "bottom": 299,
+            "faceTop": 253,
+            "faceBottom": 299,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 328,
+            "top": 305,
+            "bottom": 351,
+            "faceTop": 305,
+            "faceBottom": 351,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 380,
+            "top": 357,
+            "bottom": 403,
+            "faceTop": 357,
+            "faceBottom": 403,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 432,
+            "top": 409,
+            "bottom": 455,
+            "faceTop": 409,
+            "faceBottom": 455,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 484,
+            "top": 461,
+            "bottom": 507,
+            "faceTop": 461,
+            "faceBottom": 507,
+            "height": 46,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-te-large-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-ta-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 282,
+            "top": 259,
+            "bottom": 305,
+            "faceTop": 259,
+            "faceBottom": 305,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 334,
+            "top": 311,
+            "bottom": 357,
+            "faceTop": 311,
+            "faceBottom": 357,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 386,
+            "top": 363,
+            "bottom": 409,
+            "faceTop": 363,
+            "faceBottom": 409,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 438,
+            "top": 415,
+            "bottom": 461,
+            "faceTop": 415,
+            "faceBottom": 461,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 490,
+            "top": 467,
+            "bottom": 513,
+            "faceTop": 467,
+            "faceBottom": 513,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-ta-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-ta-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 271,
+            "top": 248,
+            "bottom": 294,
+            "faceTop": 248,
+            "faceBottom": 294,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 323,
+            "top": 300,
+            "bottom": 346,
+            "faceTop": 300,
+            "faceBottom": 346,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 375,
+            "top": 352,
+            "bottom": 398,
+            "faceTop": 352,
+            "faceBottom": 398,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 427,
+            "top": 404,
+            "bottom": 450,
+            "faceTop": 404,
+            "faceBottom": 450,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 483,
+            "top": 456,
+            "bottom": 510,
+            "faceTop": 456,
+            "faceBottom": 510,
+            "height": 54,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-ta-large-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "gu",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-gu-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 280,
+            "top": 257,
+            "bottom": 303,
+            "faceTop": 257,
+            "faceBottom": 303,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 332,
+            "top": 309,
+            "bottom": 355,
+            "faceTop": 309,
+            "faceBottom": 355,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 384,
+            "top": 361,
+            "bottom": 407,
+            "faceTop": 361,
+            "faceBottom": 407,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 436,
+            "top": 413,
+            "bottom": 459,
+            "faceTop": 413,
+            "faceBottom": 459,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 488,
+            "top": 465,
+            "bottom": 511,
+            "faceTop": 465,
+            "faceBottom": 511,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-gu-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "gu",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-gu-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 276,
+            "top": 253,
+            "bottom": 299,
+            "faceTop": 253,
+            "faceBottom": 299,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 328,
+            "top": 305,
+            "bottom": 351,
+            "faceTop": 305,
+            "faceBottom": 351,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 380,
+            "top": 357,
+            "bottom": 403,
+            "faceTop": 357,
+            "faceBottom": 403,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 432,
+            "top": 409,
+            "bottom": 455,
+            "faceTop": 409,
+            "faceBottom": 455,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 484,
+            "top": 461,
+            "bottom": 507,
+            "faceTop": 461,
+            "faceBottom": 507,
+            "height": 46,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-gu-large-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "kn",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-kn-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 278.17999267578125,
+            "top": 255.17999267578125,
+            "bottom": 301.17999267578125,
+            "faceTop": 255.17999267578125,
+            "faceBottom": 301.17999267578125,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 330.17999267578125,
+            "top": 307.17999267578125,
+            "bottom": 353.17999267578125,
+            "faceTop": 307.17999267578125,
+            "faceBottom": 353.17999267578125,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 382.17999267578125,
+            "top": 359.17999267578125,
+            "bottom": 405.17999267578125,
+            "faceTop": 359.17999267578125,
+            "faceBottom": 405.17999267578125,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 434.17999267578125,
+            "top": 411.17999267578125,
+            "bottom": 457.17999267578125,
+            "faceTop": 411.17999267578125,
+            "faceBottom": 457.17999267578125,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 486.17999267578125,
+            "top": 463.17999267578125,
+            "bottom": 509.17999267578125,
+            "faceTop": 463.17999267578125,
+            "faceBottom": 509.17999267578125,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-kn-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "kn",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-kn-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 273.4750061035156,
+            "top": 250.47500610351562,
+            "bottom": 296.4750061035156,
+            "faceTop": 250.47500610351562,
+            "faceBottom": 296.4750061035156,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 325.4750061035156,
+            "top": 302.4750061035156,
+            "bottom": 348.4750061035156,
+            "faceTop": 302.4750061035156,
+            "faceBottom": 348.4750061035156,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 377.4750061035156,
+            "top": 354.4750061035156,
+            "bottom": 400.4750061035156,
+            "faceTop": 354.4750061035156,
+            "faceBottom": 400.4750061035156,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 429.4750061035156,
+            "top": 406.4750061035156,
+            "bottom": 452.4750061035156,
+            "faceTop": 406.4750061035156,
+            "faceBottom": 452.4750061035156,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 481.4750061035156,
+            "top": 458.4750061035156,
+            "bottom": 504.4750061035156,
+            "faceTop": 458.4750061035156,
+            "faceBottom": 504.4750061035156,
+            "height": 46,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-kn-large-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "ml",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-ml-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 263,
+            "top": 240,
+            "bottom": 286,
+            "faceTop": 240,
+            "faceBottom": 286,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 315,
+            "top": 292,
+            "bottom": 338,
+            "faceTop": 292,
+            "faceBottom": 338,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 367,
+            "top": 344,
+            "bottom": 390,
+            "faceTop": 344,
+            "faceBottom": 390,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 419,
+            "top": 396,
+            "bottom": 442,
+            "faceTop": 396,
+            "faceBottom": 442,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 472,
+            "top": 448,
+            "bottom": 496,
+            "faceTop": 448,
+            "faceBottom": 496,
+            "height": 48,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-ml-normal-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "ml",
+      "large": true,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-ml-large-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 256,
+            "top": 233,
+            "bottom": 279,
+            "faceTop": 233,
+            "faceBottom": 279,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 305.75,
+            "top": 282.75,
+            "bottom": 328.75,
+            "faceTop": 282.75,
+            "faceBottom": 328.75,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 355.5,
+            "top": 332.5,
+            "bottom": 378.5,
+            "faceTop": 332.5,
+            "faceBottom": 378.5,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 405.25,
+            "top": 382.25,
+            "bottom": 428.25,
+            "faceTop": 382.25,
+            "faceBottom": 428.25,
+            "height": 46,
+            "font": 17
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 460,
+            "top": 432,
+            "bottom": 488,
+            "faceTop": 432,
+            "faceBottom": 488,
+            "height": 56,
+            "font": 17
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-ml-large-handheld.png"
+    },
+    {
+      "quality": "low",
+      "lang": "pa",
+      "large": false,
+      "initial": {
+        "valid": true,
+        "quality": "low",
+        "controls": [
+          "cab-park",
+          "cab-reverse",
+          "cab-neutral",
+          "cab-drive",
+          "cab-handbrake",
+          "cab-signal-left",
+          "cab-signal-right",
+          "cab-wipers",
+          "cab-headlights",
+          "cab-belt",
+          "cab-exit",
+          "cab-camera"
+        ]
+      },
+      "cab": "c52-final-design-low-low-pa-normal-cab.png",
+      "layout": {
+        "bad": [],
+        "buttons": [
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 281,
+            "top": 258,
+            "bottom": 304,
+            "faceTop": 258,
+            "faceBottom": 304,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 333,
+            "top": 310,
+            "bottom": 356,
+            "faceTop": 310,
+            "faceBottom": 356,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 385,
+            "top": 362,
+            "bottom": 408,
+            "faceTop": 362,
+            "faceBottom": 408,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 437,
+            "top": 414,
+            "bottom": 460,
+            "faceTop": 414,
+            "faceBottom": 460,
+            "height": 46,
+            "font": 15
+          },
+          {
+            "surface": "Graphics",
+            "enabled": true,
+            "x": 1060,
+            "y": 489,
+            "top": 466,
+            "bottom": 512,
+            "faceTop": 466,
+            "faceBottom": 512,
+            "height": 46,
+            "font": 15
+          }
+        ],
+        "body": "Graphics",
+        "bodyCanvases": 0,
+        "focused": true
+      },
+      "handheld": "c52-final-design-low-low-pa-normal-handheld.png"
+    }
+  ],
+  "errors": [],
+  "current": {
+    "quality": "low",
+    "lang": "pa",
+    "large": true,
+    "initial": {
+      "valid": true,
+      "quality": "low",
+      "controls": [
+        "cab-park",
+        "cab-reverse",
+        "cab-neutral",
+        "cab-drive",
+        "cab-handbrake",
+        "cab-signal-left",
+        "cab-signal-right",
+        "cab-wipers",
+        "cab-headlights",
+        "cab-belt",
+        "cab-exit",
+        "cab-camera"
+      ]
+    },
+    "cab": "c52-final-design-low-low-pa-large-cab.png",
+    "layout": {
+      "bad": [],
+      "buttons": [
+        {
+          "surface": "Graphics",
+          "enabled": true,
+          "x": 1060,
+          "y": 278,
+          "top": 255,
+          "bottom": 301,
+          "faceTop": 255,
+          "faceBottom": 301,
+          "height": 46,
+          "font": 17
+        },
+        {
+          "surface": "Graphics",
+          "enabled": true,
+          "x": 1060,
+          "y": 330,
+          "top": 307,
+          "bottom": 353,
+          "faceTop": 307,
+          "faceBottom": 353,
+          "height": 46,
+          "font": 17
+        },
+        {
+          "surface": "Graphics",
+          "enabled": true,
+          "x": 1060,
+          "y": 382,
+          "top": 359,
+          "bottom": 405,
+          "faceTop": 359,
+          "faceBottom": 405,
+          "height": 46,
+          "font": 17
+        },
+        {
+          "surface": "Graphics",
+          "enabled": true,
+          "x": 1060,
+          "y": 434,
+          "top": 411,
+          "bottom": 457,
+          "faceTop": 411,
+          "faceBottom": 457,
+          "height": 46,
+          "font": 17
+        },
+        {
+          "surface": "Graphics",
+          "enabled": true,
+          "x": 1060,
+          "y": 486,
+          "top": 463,
+          "bottom": 509,
+          "faceTop": 463,
+          "faceBottom": 509,
+          "height": 46,
+          "font": 17
+        }
+      ],
+      "body": "Graphics",
+      "bodyCanvases": 0,
+      "focused": true
+    }
+  }
+}

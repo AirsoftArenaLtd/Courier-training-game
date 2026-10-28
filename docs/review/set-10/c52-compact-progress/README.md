@@ -1,0 +1,7 @@
+# C-52 compact-layout progress
+
+The completed repository run passes 81 of 81 suites on candidate `221b12d9`, carrying current pilot `90844ac5` and the owned B-164/C-49/C-50/C-51/C-52 stack. Its source scope is retained in the initial state. The subsequent all-language native run reached Malayalam larger text, then failed because the new test required a five-pixel gap. The merged `fpAccess.layoutDevice` intentionally permits two-to-six-pixel gaps on dense translated pages. The screenshot shows separated faces; this was a false assertion, not a new application overlap.
+
+Only `test/fpdevicedesignbrowser.js` changes for fixture `afec37a9` / candidate `8a06a4b2`. It now checks the existing two-pixel minimum, actual face bounds after hover scale, full 46-pixel hit targets and full-sized text. It writes progress diagnostics before asserting. No runtime, translation, layout algorithm, input or saved state changes.
+
+The focused native Malayalam normal/larger regression passes 23 checks. Larger text has four 3.75-pixel nominal and rendered face gaps, with target heights 46, 46, 46, 46 and 56 pixels. All 12 languages and all remaining final native/geometry/resource jobs are rerunning or pending. The existing 81-suite repository pass is retained because application and Node-test sources are unchanged; the translated-assertion guard and 12 cab unit checks also pass after the fixture correction. This progress archive is not complete C-52 acceptance and contains no new frame-rate claim. O-1 remains separate.

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>On The Route — Courier Training</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='7' width='26' height='20' rx='3' fill='%23C8894A'/%3E%3Crect x='3' y='7' width='26' height='6' rx='2' fill='%23E0A565'/%3E%3Crect x='13' y='7' width='6' height='20' fill='%231F4E79'/%3E%3C/svg%3E">
+</head>
+<body>
+  <div id="game"></div>
+  <noscript>This training game needs JavaScript enabled.</noscript>
+
+  <!-- Engine: Phaser 3.80.1, shipped with the game (no CDN: company networks often block or stall it) -->
+  <script src="lib/phaser.min.js"></script>
+
+  <!-- Content (edit these to change scenarios — no engine changes needed) -->
+  <script src="data/theme.js"></script>
+  <script src="data/config.js"></script>
+  <script src="data/credits.js"></script>
+  <script src="data/modules.js"></script>
+  <script src="data/m1_pretrip.js"></script>
+  <script src="data/m1_routes.js"></script>
+  <script src="data/m1_driving.js"></script>
+  <script src="data/m1_hazards.js"></script>
+  <script src="data/m2_sorting.js"></script>
+  <script src="data/m2_lifting.js"></script>
+  <script src="data/m2_labels.js"></script>
+  <script src="data/m3_dialogues.js"></script>
+  <script src="data/m4_dialogues.js"></script>
+  <script src="data/m4_recover.js"></script>
+  <script src="data/m8_incident.js"></script>
+  <script src="data/scanner.js"></script>
+  <script src="data/m5_stops.js"></script>
+  <script src="data/m8_stops.js"></script>
+  <script src="data/m3_doorsteps.js"></script>
+  <script src="data/m6_loading.js"></script>
+  <script src="data/m7_pickups.js"></script>
+  <script src="data/town.js"></script>
+  <script src="data/vehicle.js"></script>
+  <script src="data/shift_briefs.js"></script>
+  <script src="data/workday_events.js"></script>
+  <script src="data/quizzes.js"></script>
+
+  <!-- Engine core -->
+  <script src="src/core/theme.js"></script>
+  <script src="src/core/i18n.js"></script>
+  <script src="src/core/textures.js"></script>
+  <script src="assets/art-pack.js"></script>
+  <script src="src/core/assets.js"></script>
+  <script src="src/core/draw.js"></script>
+  <script src="src/core/rig.js"></script>
+  <script src="src/core/scenery.js"></script>
+  <script src="src/core/atmos.js"></script>
+  <script src="src/core/stage.js"></script>
+  <script src="src/core/townart.js"></script>
+  <script src="src/core/gfx.js"></script>
+  <script src="src/core/b3d.js"></script>
+  <script src="src/core/lighting.js"></script>
+  <script src="src/core/wx.js"></script>
+  <script src="src/core/people.js"></script>
+  <script src="src/core/cab.js"></script>
+  <script src="src/core/firstperson.js"></script>
+  <script src="src/core/fpcamera.js"></script>
+  <script src="src/core/fpmission.js"></script>
+  <script src="src/core/fproute.js"></script>
+  <script src="src/core/fplater.js"></script>
+  <script src="src/core/fpdoors.js"></script>
+  <script src="src/core/fpstops.js"></script>
+  <script src="src/core/fpstopflow.js"></script>
+  <script src="src/core/fpstopscene.js"></script>
+  <script src="src/core/fpday.js"></script>
+  <script src="src/core/fpradio.js"></script>
+  <script src="src/core/fpnight.js"></script>
+  <script src="src/core/fpradioui.js"></script>
+  <script src="src/core/fpsignal.js"></script>
+  <script src="src/core/fpdriving.js"></script>
+  <script src="src/core/fploadout.js"></script>
+  <script src="src/core/world3d.js"></script>
+  <script src="src/core/fpcontext.js"></script>
+  <script src="src/core/fpbranding.js"></script>
+  <script src="src/core/fpassets.js"></script>
+  <script src="src/core/fpcab.js"></script>
+  <script src="src/core/fpmirrors.js"></script>
+  <script src="src/core/fprear.js"></script>
+  <script src="src/core/fplighting.js"></script>
+  <script src="src/core/fpweather.js"></script>
+  <script src="src/core/fptown.js"></script>
+  <script src="src/core/fpmaterials.js"></script>
+  <script src="src/core/fpsignlettering.js"></script>
+  <script src="src/core/fpsigns.js"></script>
+  <script src="src/core/fptraffic.js"></script>
+  <script src="src/core/fpnav.js"></script>
+  <script src="src/core/fpactors.js"></script>
+  <script src="src/core/fpambient.js"></script>
+  <script src="src/core/fpdamage.js"></script>
+  <script src="src/core/fpdamageflow.js"></script>
+  <script src="src/core/fpdamageworld.js"></script>
+  <script src="src/core/fpwalkaround.js"></script>
+  <script src="src/core/fpwalkaroundflow.js"></script>
+  <script src="src/core/fpwalkaroundui.js"></script>
+  <script src="src/core/fpworld.js"></script>
+  <script src="src/core/fphandheld.js"></script>
+  <script src="src/core/fpaccess.js"></script>
+  <script src="src/core/fpgamepad.js"></script>
+  <script src="src/core/fpgamepadcapture.js"></script>
+  <script src="src/core/fpgamepadscene.js"></script>
+  <script src="src/core/fpgamepadui.js"></script>
+  <script src="src/core/fpguide.js"></script>
+  <script src="src/core/fpreplay.js"></script>
+  <script src="src/core/fpreplayui.js"></script>
+  <script src="src/core/fphud.js"></script>
+  <script src="src/core/fpsound.js"></script>
+  <script src="src/core/truckart.js"></script>
+  <script src="src/core/town.js"></script>
+  <script src="src/core/vehicle.js"></script>
+  <script src="src/core/shift.js"></script>
+  <script src="src/core/scorelog.js"></script>
+  <script src="src/core/workday.js"></script>
+  <script src="src/core/talk.js"></script>
+  <script src="src/core/scanner.js"></script>
+  <script src="src/core/audio.js"></script>
+  <script src="src/core/identity.js"></script>
+  <script src="src/core/signin.js"></script>
+  <script src="src/core/save.js"></script>
+  <script src="src/core/a11y.js"></script>
+  <script src="src/core/academy.js"></script>
+  <script src="src/core/record.js"></script>
+  <script src="src/core/pilotreport.js"></script>
+  <script src="src/core/scoring.js"></script>
+  <script src="src/core/validate.js"></script>
+  <script src="src/core/fx.js"></script>
+  <script src="src/core/ui.js"></script>
+  <script src="src/core/flow.js"></script>
+
+  <!-- Scenes -->
+  <script src="src/scenes/BootScene.js"></script>
+  <script src="src/scenes/TitleScene.js"></script>
+  <script src="src/scenes/HubScene.js"></script>
+  <script src="src/scenes/ResultsScene.js"></script>
+  <script src="src/scenes/BaseScenarioScene.js"></script>
+  <script src="src/scenes/PauseScene.js"></script>
+  <script src="src/scenes/m1/PreTripScene.js"></script>
+  <script src="src/scenes/m1/RoutePlannerScene.js"></script>
+  <script src="src/scenes/m2/SortingScene.js"></script>
+  <script src="src/scenes/m2/LiftingScene.js"></script>
+  <script src="src/scenes/m2/LabelScene.js"></script>
+  <script src="src/scenes/shared/DialogueScene.js"></script>
+  <script src="src/scenes/stops/StopScene.js"></script>
+  <script src="src/scenes/m6/LoadingScene.js"></script>
+  <script src="src/scenes/m7/PickupScene.js"></script>
+  <script src="src/scenes/shift/driveAids.js"></script>
+  <script src="src/scenes/shift/TownDriveScene.js"></script>
+  <script src="src/scenes/m1/DrivingScene.js"></script>
+  <script src="src/scenes/m1/HazardScene.js"></script>
+  <script src="src/scenes/shift/ShiftBriefScene.js"></script>
+  <script src="src/scenes/shift/PostTripScene.js"></script>
+  <script src="src/scenes/shift/ShiftDebriefScene.js"></script>
+  <script src="src/scenes/TrainerScene.js"></script>
+  <script src="src/scenes/RecordScene.js"></script>
+  <script src="src/scenes/QuizScene.js"></script>
+  <script src="src/scenes/AccessScene.js"></script>
+  <script src="src/scenes/DriveReviewScene.js"></script>
+  <script src="src/scenes/WorkdayDebriefScene.js"></script>
+  <script src="src/scenes/LabScene.js"></script>
+  <script src="src/scenes/FirstPersonScene.js"></script>
+  <script src="src/scenes/FPReplayScene.js"></script>
+  <script src="src/scenes/BenchScene.js"></script>
+
+  <script src="src/main.js"></script>
+</body>
+</html>

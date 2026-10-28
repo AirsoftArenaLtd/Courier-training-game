@@ -1,6 +1,6 @@
 # C-51 visual evidence
 
-This sheet shows the people and yard detail on `codex/c51-visible-people`, stacked on C-50. It describes branch evidence, not a newly published owner preview. C-51 remains in progress while the complete 224-view resource gate runs.
+This sheet shows the people and yard detail on `codex/c51-visible-people`, stacked on C-50. It describes branch evidence, not a newly published owner preview. C-51 has since passed the complete 224-view resource gate and is ready for review. The capture notes below retain their original progress scope; use [the final acceptance manifest](c51-acceptance/manifest.json) for all final profile figures.
 
 The native captures use C-51 runtime `32623203` with the current-pilot B-164/C-49/C-50 stack. The later corrections change test fixtures only: the High town test now counts the new bench group, and the resource fixture now performs real departure setup and preserves generated weather. The manifests retain the separate candidate and fixture versions.
 

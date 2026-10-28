@@ -1,0 +1,151 @@
+{
+  "phase": "failed",
+  "jobs": [
+    {
+      "tag": "road-light-low",
+      "script": "test/fplightingbrowser.js",
+      "env": {
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c25-low-morning.png": "bc696798010a86201b1ff1657a966d7dd1600cebc6f7dac71da09d39c47a6816",
+        "c25-low-night.png": "833b13d0f6dbd3b8a2a60f6a2323792e6ae07d092d44a3a206c46ffffbedf1d2",
+        "c25-low-dusk.png": "6693c3b2a7c8c0e5df7d64a21469c14caf1b0d7bea5f297ee3391f7de2228c77",
+        "c25-low-ta-large-reduced.png": "7f159344a54cfc4de584043bcfb533ea4dac256b8cee806915f5458198075038",
+        "c25-low-night-headlights.png": "55a868e90a2b90dd5a3ece3894e1da6daf52f2456d291dd712ffe0c47aae2248",
+        "c25-low-midday.png": "c74b666f8738e154aa6c222c3b167c1e640bc57c6a00aa7ce1290b641110c190",
+        "c25-low-lighting.json": "b9d2e7cf5ba35a0174b53f61bb159d69ea089cfb06c1ef2962a2e25ecbcda9be"
+      }
+    },
+    {
+      "tag": "road-light-high",
+      "script": "test/fplightingbrowser.js",
+      "env": {
+        "QA_GFX": "high"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c25-high-midday.png": "e87e6b236ad7a2a067929a6936d41353ce7cf271e858ef9fee985f2eb12ae570",
+        "c25-high-lighting.json": "06daf7694a926b86b712284b74e65a484188186c1b86c1fc746309b59b6a1e3b",
+        "c25-high-soft-shadows.png": "1293522de7185ecaffd4a1811e1130780e6e3e6e9f3be35d2ab17febcfe50a93",
+        "c25-high-night-headlights.png": "374f6bf3dff6f1563586aed9fd1a67df855e4c1390206bfd1f730afd495dc284",
+        "c25-high-no-shadow-comparison.png": "ea070bf04f474a96989c4c7481d484a6b7f262efa2cdedf330a45b46e09d6705",
+        "c25-high-dusk.png": "90492e3b69118a6182230664efbddefbf596e5140981f7741e08651e13d268d4",
+        "c25-high-ta-large-reduced.png": "3c2f72f0e817e8f2f5bf01f30aa7203bb42336b6bdc5ae03cb71d9c0ffb68118",
+        "c25-high-morning.png": "468301e46fe970133376da94a98c60b33e3c0b3cf7289c5619bd16638b8cbf7d",
+        "c25-high-night.png": "1724849cc6e532af74a0a2b470f27e3c9b275dfd4cdebe895faac214cfd509f4"
+      }
+    },
+    {
+      "tag": "road-device",
+      "script": "test/fpdevicedesignbrowser.js",
+      "env": {},
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "road-device-low-en-normal-handheld.png": "3c9ac2b79704ff0616892df04f030596e4697835615856e838c1cd931d06cc9a",
+        "road-device-high-ta-large-cab.png": "7abc50f2a99d38a808391d8d9cf98dca5aff7d3bdb7c0be5338b55ff41e6f7c3",
+        "road-device-high-en-normal-handheld.png": "de0e769ab32dc381f86a3d8cf82798e32c95ae3d9feb7dbbdcad3aec7ca94452",
+        "road-device-low-en-normal-cab.png": "c82f73775c9cc945ad32c2353eb93d7b10e4ece53ebc434f20eff6340ddafea7",
+        "road-device-high-en-normal-cab.png": "3468697132788cffce935ce433fb777dd389e9ea78deb3d9c9bc1a0475b81786",
+        "road-device-high-ta-normal-cab.png": "43780011b02f7a12cd90f8efbf0bf0a581b8c1b204fb8ed3614e31ea899be5ec",
+        "road-device-low-en-large-cab.png": "a48e34afa75caa98e391295dae39eb0af5f3d868b88dbeaec86a0b41e4dafbfd",
+        "road-device-low-en-large-handheld.png": "7d0af07a5d2b996ba5088d55ff3a390d315d86628b30fffee67919e42da1fd14",
+        "road-device-high-en-normal-live-instruments.png": "f6e09f7811fd9603f413137c468d6a6505287e84fb0bbff96c080d4c857aecca",
+        "road-device-progress.json": "7690db81fc2536e0324a042c1e2c4ded39eae701ed34ef776653faf1127d6231",
+        "road-device-high-ta-normal-handheld.png": "8ccb919f145dfea109d74e30674dac4d41f8d0a4c492266228a85b8871b97c4b",
+        "road-device-high-en-large-cab.png": "77b6b04ed82c0839cb0c3065c0d9535941d06aed7f40779b19629ddc92077ee9",
+        "road-device.json": "064a25fdcfbb081de6c36101b7fa4c58812c225dc19a710986e45a01113a4002",
+        "road-device-low-ta-normal-handheld.png": "d66ba4976bc8466a2627775c670a9ca3b9d0beb046e7dcbc4f70ced8e1488c56",
+        "road-device-low-ta-normal-cab.png": "05db953a16f334ba776be7b8937bf5267d10ec9500eea081a430e094bf716dc6",
+        "road-device-high-ta-large-handheld.png": "a455e15f9f8fff1e4e4802995c3427525e4781c45f06377cbcc0ad175add8ff8",
+        "road-device-low-en-normal-live-instruments.png": "f1a3fce68b4bbd7d0a471f079d8075a1bc7b975b6f3669e5734179f7672c7276",
+        "road-device-low-ta-large-cab.png": "4c31e9b4a0fe3e49d43bdc17910cb1346a4f31403a4eb7783975725ee13185a0",
+        "road-device-low-ta-large-handheld.png": "37d7502bc22c42b0455408c5ef4dca866b703046a7a54df855e3dc688a435501",
+        "road-device-high-en-large-handheld.png": "a5660bd3e84540754e9315e8d7657df7e404aa609d7f5443b9536b419d9ae314"
+      }
+    },
+    {
+      "tag": "road-cab-controls",
+      "script": "test/fpcabbrowser.js",
+      "env": {},
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c22-cab.json": "93211f82928f304bb3f113e93b1a233ef953c6a7f5f48b31dfdf2862fb774e96",
+        "c22-cab-en-large.png": "a56511abddd025c162c9bad28f86a7ed0c33556854cb58464052f3af1bda3a28",
+        "c22-cab-en-normal.png": "56e31f7df8bfd4c5744c3acfad2255b830ceb6e116dd8c3f8b00a673eeb011b9",
+        "c22-cab-ta-normal.png": "8df3e785dcb300c8e5e773658e766688c6c897230253e26ce636754ab2114346",
+        "c22-cab-ta-large.png": "6b830b001dc621b97aa930042e67254525a20d1b24321d5ec57187b4cf9f6046"
+      }
+    },
+    {
+      "tag": "road-languages-normal",
+      "script": "test/fplangsbrowser.js",
+      "env": {
+        "QA_LARGE": "0",
+        "QA_STRICT": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b51-signal-red-ta-normal.png": "2bdb76fd8b87d40d2395a4110055edfe534a0e30c95eb65f4587827de5fe01b7",
+        "a22-reverse-ta-normal.png": "4d3bc246819ccf9d520b237bd82253c9b90b8b0ba6e3c41233f91310009b6df1",
+        "b51-give-way-ta-normal.png": "b7acf5108c7c3e81e146eda792e85380732ba940143cbd6d341e8c68ed3d94dc",
+        "a22-reverse-ml-normal.png": "9e64cbf7235f1780e7cd2e95c7f8f29b22de54ed0f3739886831559e438b3ae8",
+        "a22-reverse-en-normal.png": "dfc724b2b7bb249d77674adf730b3c9fc0f071070705cd81a1fac983d6e2727b"
+      }
+    },
+    {
+      "tag": "road-languages-larger",
+      "script": "test/fplangsbrowser.js",
+      "env": {
+        "QA_LARGE": "1",
+        "QA_STRICT": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "a22-reverse-en-large.png": "b16c8b534e53fac144a3616f01265d0da1d20998927c0ab4a3cd859b33627ce7",
+        "b51-signal-red-ta-large.png": "4853efd9da9cd8400758611372386d732779e5e5f4b62c7d389ef4bf71be7a83",
+        "b51-give-way-ta-large.png": "cf056514da5c3104e561200c8fce01fcdacabeeb3242c82850bdbcc9a36717f7",
+        "a22-reverse-ta-large.png": "d81dcbae2d52df01e54c77ca6aefce17f681abfac55299d113b1e51492ed579b",
+        "a22-reverse-ml-large.png": "5ad360c19b0218337cd28d42beec75ead56849952dd9d07029c4613b16742589"
+      }
+    },
+    {
+      "tag": "road-budget-loaded-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "cab,mirrorInterior,handheld,lightingnightreverse,nightoff,nighton,nightglare,nightreduced,navfull,signsjunction",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_RADIO": "1",
+        "QA_LIGHTING": "1",
+        "QA_NAV": "1",
+        "QA_SIGNS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {}
+    }
+  ],
+  "pid": 181437,
+  "startedAt": 1793172387.4240284,
+  "serverPid": 181446,
+  "tag": "road-budget-loaded-low",
+  "childPid": 185892,
+  "failure": "Browser job failed: road-budget-loaded-low",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793173347.0476007
+}

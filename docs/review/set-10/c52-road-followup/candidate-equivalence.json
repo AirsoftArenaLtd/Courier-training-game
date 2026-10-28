@@ -1,0 +1,39 @@
+{
+  "base": "75f2fbd0",
+  "basePilot": "9105e301",
+  "currentPilotSceneIndexAndRoadPixelTestPreserved": true,
+  "files": {
+    "src/core/fpbranding.js": {
+      "wholeSourceMatchesOwned": true,
+      "sha256": "23ee67332b8a710c26299b5c7723c3e1096a8113fa1b5daa5ec8d401332081aa"
+    },
+    "src/core/fpcab.js": {
+      "renderBuildMatchesOwned": true,
+      "earlierCurrentPilotControlLogicRetained": true,
+      "sha256": "82335862b108b917ebbfe9bfe96f10d6c1a5a8d5a737ea797aaadccfdfc6c63d"
+    },
+    "src/core/fphandheld.js": {
+      "wholeSourceMatchesOwned": true,
+      "sha256": "63c07b8209c1f967c0646d00d529acdda46dcea1d1a744533f27c47c2477dded"
+    },
+    "src/core/fphud.js": {
+      "wholeSourceMatchesOwned": true,
+      "sha256": "cf8eb6ef9d0fca21e30b0eb3599629e2c71235513975a4c439c3ecbaab97183a"
+    },
+    "test/fpcab.js": {
+      "sha256": "e6a6ddd2000c88c3dfed4d59ff0b046a80ba97455b012ab645d4382d27ea3248"
+    },
+    "test/fpdevicedesignbrowser.js": {
+      "sha256": "4d564b7a47fb161bfe1c3228ca0529a1ef8ad32b6524e0bd80ab8f3522014cb0"
+    },
+    "index.html": {
+      "sha256": "19b0d49691baaa593f0bd7b29e4f3d9906ee27123b0fcd07a8099f1c7ffa3d2d"
+    },
+    "src/scenes/FirstPersonScene.js": {
+      "sha256": "bceaebbce7639d1fb7c0c318849f0f8236eaa6fff425479d489b66d017b651f2"
+    },
+    "test/fplightingbrowser.js": {
+      "sha256": "bd5c5ac316942ca7038c8a1c048eeee780430b0c01bbaf85fa16fd78650a274c"
+    }
+  }
+}
