@@ -36,8 +36,8 @@ only manage Low, so it must stay clear there too.
 | 10 | C-50, merged | A school-zone sign at Low | The lettering is still clear at Low |
 | 11 | C-51, merged | Walk to a doorstep and a business reception | The person you deal with is clearly there and faces you; it does not feel like an empty street |
 | 12 | C-51, merged | Look along the street while driving | People and street detail make it feel lived in, without getting in the way of driving |
-| 13 | C-52 | Look at the dashboard | The instruments look like a real van's, not a prototype panel; speed and warnings are easy to read |
-| 14 | C-52 | Open the handheld (Tab) at a stop | It looks like a real device; Tamil with larger text still fits |
-| 15 | C-52 | The same with colour-blind cues on (Settings → Accessibility) | Every state still reads without relying on colour |
+| 13 | C-52, merged | Look at the dashboard | The instruments look like a real van's, not a prototype panel; speed and warnings are easy to read |
+| 14 | C-52, merged | Open the handheld (Tab) at a stop | It looks like a real device; Tamil with larger text still fits |
+| 15 | C-52, merged | The same with colour-blind cues on (Settings → Accessibility) | Every state still reads without relying on colour |
 
 Anything else you notice goes here:
