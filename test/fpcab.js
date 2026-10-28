@@ -89,3 +89,6 @@ test('the High instrument hood stays above the dial face from the seated eye',()
  }
  s.art.dispose();
 });
+test('the seated driver can see the centre of the road 23 metres ahead over the instrument cluster',()=>{
+ for(const high of [false,true]){const s=scene(high),v=s.model.van,p=F.local(v,0,-23),point=new THREE.Vector3(p.x,.04,p.z),camera=s.view.camera;s.view.world.updateMatrixWorld(true);camera.updateMatrixWorld(true);const ray=new THREE.Raycaster(camera.position,point.clone().sub(camera.position).normalize(),0,camera.position.distanceTo(point));const hits=ray.intersectObject(s.art.cab.root,true).filter(h=>h.object.visible&&h.object.layers.test(camera.layers));assert.equal(hits.length,0,JSON.stringify({high,eye:camera.position.toArray(),road:point.toArray(),face:s.art.cab.gauges.position.toArray(),hit:hits[0]&&{name:hits[0].object.name,type:hits[0].object.type,point:hits[0].point.toArray()}}));s.art.dispose();}
+});

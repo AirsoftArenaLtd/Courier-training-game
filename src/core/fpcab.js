@@ -129,7 +129,7 @@ OTR.fpCab={
         float edge=band(p.x,.008,.992)*band(p.y,.025,.975);colour=mix(vec3(.14,.18,.2),colour,edge);
         gl_FragColor=vec4(colour,1.);
       }`});
-    const gauges=new T.Mesh(sheet,gaugePaint);gauges.name='cab-instrument-face';gauges.position.set(0,-.235,-1.005);gauges.scale.set(.61,.215,1);root.add(gauges);
+    const gauges=new T.Mesh(sheet,gaugePaint);gauges.name='cab-instrument-face';gauges.position.set(0,-.275,-1.005);gauges.scale.set(.61,.215,1);root.add(gauges);
     labels.push({parent:root,cab:true,gauge:'speed',wrap:260,local:new T.Vector3(-.16,-.34,-.99),point:new T.Vector3(),text:'The speed is 0 mph.',max:2.5});
     labels.push({parent:root,cab:true,gauge:'rpm',wrap:260,local:new T.Vector3(.16,-.47,-.99),point:new T.Vector3(),text:'The engine is at 800 RPM.',max:2.5});
     function change(p,rx,rz,color,y=p.y,z=p.z){
