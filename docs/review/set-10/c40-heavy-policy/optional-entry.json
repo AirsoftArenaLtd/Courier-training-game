@@ -1,0 +1,20 @@
+{
+  "scope": "Prepared optional metadata; A-30 supplies shared optional-scene validation and routing. Browser test adds this descriptor only within its isolated page.",
+  "entry": {
+    "id": "m2-heavy",
+    "title": "Handle heavy and awkward loads.",
+    "icon": "ic_lift",
+    "scene3d": "heavy-load-bay",
+    "dataKey": "lifting",
+    "optional": true,
+    "categories": [
+      "safety",
+      "efficiency"
+    ],
+    "blurb": "The posted solo lifting limit is 50 lb (23 kg). Use help or equipment for heavier or awkward loads.",
+    "learn": [
+      "Use a coworker or equipment for heavy and awkward loads."
+    ],
+    "controls": "Use the physical lifting bay controls or their keyboard shortcuts."
+  }
+}

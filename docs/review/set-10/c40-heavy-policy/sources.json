@@ -1,5 +1,9 @@
 {
   "data/modules.js": "90e978e361287c4d26f26d38212050d92d6f67db09d621a3a11c3271f38702f4",
   "src/core/fppackageheavy.js": "f8feef7f8d1481dd6319c687b05bae7539d17d35c9136c1c12a4e77bde2ad90e",
-  "test/fppackageheavy.js": "3e796e5aa0790bcca4679bb75d6eaa986b3cf314aaeca4368453e513052bf954"
+  "src/core/fppackageheavyscenario.js": "6776a98ea4fef3c3dada1810ffa30de63cb53344e37a0ec376be2c45d098f9d3",
+  "test/fppackageheavy.js": "3e796e5aa0790bcca4679bb75d6eaa986b3cf314aaeca4368453e513052bf954",
+  "test/fppackageheavyscenario.js": "7820a0022cdaa5239178213bae13a5f0f8f52aea91a77a4b2e8b3770a6c46268",
+  "test/fppackageheavybrowser.js": "70a7a0ed6ca64d339b86da3dc115c331f5d24e99e507dd532b06b2f0c136219f",
+  "index.html": "db72f104d98c24bf4ad301877b7e37dd7c5f14fa803793c08df566fc54a03638"
 }
