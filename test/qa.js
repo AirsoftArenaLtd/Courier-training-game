@@ -163,9 +163,10 @@ function auditLayout() {
     }
     const skipBounds = bleeds || covers;
 
-    // Text that renders wider than the wrap box it was given
+    // Text that renders wider than the wrap box it was given, as drawn: an outline adds its thickness to the width, and
+    // a word too long for its box may be shrunk to fit (B-186)
     if (obj.type === 'Text' && obj.style && obj.style.wordWrapWidth) {
-      if (obj.width > obj.style.wordWrapWidth + 2) {
+      if ((obj.width - (obj.style.strokeThickness || 0)) * Math.abs(obj.scaleX || 1) > obj.style.wordWrapWidth + 2) {
         out.push({ kind: 'text-overflow', scene: scene.sys.settings.key, what: describe(obj), detail: `width ${Math.round(obj.width)} > wrap ${Math.round(obj.style.wordWrapWidth)}` });
       }
     }
