@@ -1,0 +1,76 @@
+{
+  "phase": "complete",
+  "controllerPid": 214905,
+  "jobs": [
+    {
+      "tag": "c38-rebase-native",
+      "script": "test/fpscenariobrowser.js",
+      "env": {},
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c38-rebase-native.json": "3b438548a7a2524d069f250b105182ad40adb9a0f1b02326be51edf68a0cd2c1",
+        "c38-rebase-native-high-en-large.png": "f443ce48805ec212ece865afb6ebaf780603716c74dec28bc9857ff6d109bcfb",
+        "c38-rebase-native-low-en-large.png": "f76babe1039a94ad317b73dfacc4997066a494403ab264702202823cc6bfb303",
+        "c38-rebase-native-high-ta-large.png": "22f915415895e34c1b1e354fbf651c0691df6707ad6b072d4a13f05e45f870bb",
+        "c38-rebase-native-low-ta-large.png": "39b4b50a0a9696ee583def39e0f8f70fd50e800216670cdfb9c4327007cc006d",
+        "c38-rebase-native-low-ta-normal.png": "af55945dc8f2f0be9e0d3f81ab6dc9a3489db127b09fbe5903e71d8e0179bed6",
+        "c38-rebase-native-low-en-normal.png": "1a1b40840bce8dd7bff175362ca43701effc969d394fa15decf85680c48f6c1b",
+        "c38-rebase-native-high-en-normal.png": "1a5013471e74a6d6092e9fc03ba2c9eca1e2f315f2420d6e93417ffd0456a3b3",
+        "c38-rebase-native-high-ta-normal.png": "c258505043a21628313af3284ee701270cec3d3420b6b61230772ec3e0f10274"
+      }
+    },
+    {
+      "tag": "c38-rebase-resources",
+      "script": "test/fpquality.js",
+      "env": {
+        "QA_MODULES_ONLY": "1",
+        "QA_FPS_FLOOR": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c38-rebase-resources-loaded-high-high-modulestreet.png": "3142dd2283aba7c5d9e43a79bacd997780276d00a09155eb24e3a7f2985378fc",
+        "c38-rebase-resources-fallback-low-low-modulecabreverse.png": "73a8af6b5aed3800d1ed7abe9faefd0f45e89484c9a1751b095498baf455c726",
+        "c38-rebase-resources-loaded-low-low-modulestreet.png": "8d3fb1d387443fda0a95e7c88a144497ff30743f691efb4cff396fb0ac273365",
+        "c38-rebase-resources-loaded-low-low-moduledepot.png": "2c21e26cd62822296f70d8e13258344acb0f5e2472854fd43153b5104b919f82",
+        "c38-rebase-resources-loaded-high-high-modulecab.png": "b4d4cd52c877baac9437b2bb25d09c375c1a2aca7241395ef72f8488327f9d32",
+        "c38-rebase-resources-loaded-high-high-modulecabhandheld.png": "a77016b2a5ac662cb87f9d0e68cf3e50a6adb3009686a55e469329a40cb106ac",
+        "c38-rebase-resources-loaded-high-high-moduledoorstep.png": "2da09002a5ab908b383cb54b136b7e22878711b6785a2d7a9dccc3082a5b289a",
+        "bench-c38-rebase-resources-fallback-low-low.json": "fb1bdb7aa30c774748d57a98d1739e436eaedf49601601d0a20ccc5c03901266",
+        "c38-rebase-resources-fallback-low.log": "8023ee94a535ded15579b5bb680839cba4c25e6a6caf6329ee0ea82eb9ea22c7",
+        "c38-rebase-resources-accessible-low-low-modulecab.png": "5a00c74607e37d909d9caa9eeeea4894b070850f414b3d3dcd7c1171dddae792",
+        "bench-c38-rebase-resources-accessible-low-low.json": "b3e77f76777894ef8f1d6a84954277925b07f0f4cf1adf23678985fd5c0c2954",
+        "c38-rebase-resources-fallback-low-low-moduledepot.png": "daf3ed4237b4e46d40867e7d5628f490d6281234c6799cdc71e5fb142d44c96b",
+        "bench-c38-rebase-resources-loaded-low-low.json": "d619b8669a4d03f76aca2501a5596fac7b2d16ae3b8cb5243dfec83e9aeefaa1",
+        "c38-rebase-resources-quality.json": "92c5ca6032209b63846bffb485391171641836a196b0604fde016fec48a4c2c8",
+        "c38-rebase-resources-fallback-low-low-modulestreet.png": "d2fb7483bb0d69a2485b362ebd3ad7ddea494f2774f5985777cfbb35a1ac3c66",
+        "c38-rebase-resources-loaded-low-low-modulecabhandheld.png": "4a713e08f83474a412ec2cfaba6170d5dde362df8bb7a45e8398905c126690bd",
+        "c38-rebase-resources-accessible-low-low-moduledoorstep.png": "8a66aa877b06819fffa73ef17711182bc13d253e28f311e4982352070c09ff08",
+        "c38-rebase-resources-accessible-low-low-moduledepot.png": "0c59692db25234f3976db41e90b2a9e34475dcf2f346877c9aab83ab229e74c1",
+        "c38-rebase-resources-loaded-low.log": "babb5dc0eaf418fc8f8b6b37457c403df512f7129b30a9b06b2a59d6d19a7882",
+        "bench-c38-rebase-resources-loaded-high-high.json": "7a2c7ee71ea1d4ad790f99f82e7cd9b6fbbb1fc76a91b4c4395b29d5e51c5ae2",
+        "c38-rebase-resources-accessible-low-low-modulecabhandheld.png": "c854901d75ee1e10f06c14350d7e47e4ecdabd3077cdd4a3545e66f58c171a39",
+        "c38-rebase-resources-accessible-low-low-modulecabreverse.png": "354ce2ea60f98d0564283978e6fdc590b84929f441d5680c2cd51e29746a47ae",
+        "c38-rebase-resources-loaded-high-high-modulecabreverse.png": "16b59dc37924681990bcd129fb461916da3c710c471e91d73e50de91650f1a51",
+        "c38-rebase-resources-loaded-low-low-modulecabreverse.png": "e6a96bda79b88de9500ef2ffe1438c3fea3d3105c433d5c310fa9f2af4fa5627",
+        "c38-rebase-resources-accessible-low-low-modulestreet.png": "d8216b38f745e702ec7818134d12b0a2d25c3eddd6ac4963cd33ec578a23f7e7",
+        "c38-rebase-resources-fallback-low-low-modulecabhandheld.png": "44e612058ae44e2a27fb332545af96d4cce98d522d0cd95d7ee66bcdc84f87a6",
+        "c38-rebase-resources-loaded-low-low-moduledoorstep.png": "c86c8a9e5809ee502e9ca5c3e8597f354b94f8bec71fa749cee39aa80fde5a03",
+        "c38-rebase-resources-accessible-low.log": "45dfa8327cac587dc7dee0fc364968693f03cf50c817ec3c8715da15d71b44ba",
+        "c38-rebase-resources-loaded-low-low-modulecab.png": "330ff2828d080b3d4422c077aa99d73f95528a58de2018781dd7530b08b4f45b",
+        "c38-rebase-resources-loaded-high-high-moduledepot.png": "8fd45d9adaa7b462c50db511eed1ad27a6d8a284f73be6b0fa661f65c43aab7d",
+        "c38-rebase-resources-fallback-low-low-modulecab.png": "efbd3bf51cf8b72f8ef4b031be46f4993113471e168fc818cd51ac9c7bae9831",
+        "c38-rebase-resources-loaded-high.log": "151c0d95c75edde1e93d3dbb8cb348cb880316a3b9ce09ee9211d5bddca5a903",
+        "c38-rebase-resources-fallback-low-low-moduledoorstep.png": "7c9d31b6db92fe09fb110c6da869d51ebe50c0b89d41655a647a061cdd15311c"
+      }
+    }
+  ],
+  "startedAt": 1793212127.9218376,
+  "serverPid": 215061,
+  "tag": "c38-rebase-resources",
+  "childPid": 221949,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793212975.9748116
+}

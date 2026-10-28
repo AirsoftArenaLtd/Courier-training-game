@@ -1,0 +1,118 @@
+{
+  "sourceRevision": "66f2cda585ee771c52348680eeaef7e4a7030db6",
+  "scope": "module-set-pieces",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "moduledepot",
+        "modulestreet",
+        "moduledoorstep",
+        "modulecab",
+        "modulecabreverse",
+        "modulecabhandheld"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c38-rebase-resources-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 141455,
+      "peak": {
+        "calls": 32,
+        "triangles": 870,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1597840
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "moduledepot",
+        "modulestreet",
+        "moduledoorstep",
+        "modulecab",
+        "modulecabreverse",
+        "modulecabhandheld"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c38-rebase-resources-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 262479,
+      "peak": {
+        "calls": 47,
+        "triangles": 32707,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 4923856
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "moduledepot",
+        "modulestreet",
+        "moduledoorstep",
+        "modulecab",
+        "modulecabreverse",
+        "modulecabhandheld"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c38-rebase-resources-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 126314,
+      "peak": {
+        "calls": 32,
+        "triangles": 870,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1969664
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "moduledepot",
+        "modulestreet",
+        "moduledoorstep",
+        "modulecab",
+        "modulecabreverse",
+        "modulecabhandheld"
+      ],
+      "accessibility": "",
+      "fallback": true,
+      "report": "bench-c38-rebase-resources-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 114374,
+      "peak": {
+        "calls": 36,
+        "triangles": 716,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1597840
+      }
+    }
+  ]
+}
