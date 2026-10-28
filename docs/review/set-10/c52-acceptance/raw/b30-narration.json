@@ -1,0 +1,91 @@
+{
+  "sixSelections": [
+    {
+      "text": "Press E to select park (P).",
+      "time": 4017.2000000476837,
+      "lang": "en"
+    },
+    {
+      "text": "Drive is selected.",
+      "time": 5584.700000047684,
+      "lang": "en"
+    },
+    {
+      "text": "Press E to signal left.",
+      "time": 7379.800000011921,
+      "lang": "en"
+    }
+  ],
+  "controlsAndMirror": [
+    {
+      "text": "Press E to select park (P).",
+      "time": 4017.2000000476837,
+      "lang": "en"
+    },
+    {
+      "text": "Drive is selected.",
+      "time": 5584.700000047684,
+      "lang": "en"
+    },
+    {
+      "text": "Press E to signal left.",
+      "time": 7379.800000011921,
+      "lang": "en"
+    },
+    {
+      "text": "The van is in reverse.",
+      "time": 9065.200000047684,
+      "lang": "en"
+    },
+    {
+      "text": "The headlights are on. Press E to switch them off.",
+      "time": 10771.700000047684,
+      "lang": "en"
+    },
+    {
+      "text": "The van is in drive.",
+      "time": 12355.400000035763,
+      "lang": "en"
+    },
+    {
+      "text": "Look at the left mirror for a moment to check it.",
+      "time": 14187.200000047684,
+      "lang": "en"
+    },
+    {
+      "text": "Your left mirror check is current.",
+      "time": 17768.80000001192,
+      "lang": "en"
+    }
+  ],
+  "panelProtectedForMs": 1900,
+  "stopAndBands": [
+    {
+      "text": "Stop. A rear obstacle is within 0.5 meters.",
+      "time": 20804.200000047684,
+      "lang": "en"
+    },
+    {
+      "text": "The rear camera is live. A rear obstacle is within three meters.",
+      "time": 22378.100000023842,
+      "lang": "en"
+    },
+    {
+      "text": "The rear camera is live. A rear obstacle is within one meter.",
+      "time": 24209.400000035763,
+      "lang": "en"
+    }
+  ],
+  "reverseFourSeconds": {
+    "said": [
+      {
+        "text": "The parking brake is off. Press E to set it.",
+        "time": 27462.600000023842,
+        "lang": "en"
+      }
+    ],
+    "speed": -1.7
+  },
+  "checks": 19,
+  "errors": []
+}

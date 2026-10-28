@@ -1,0 +1,62 @@
+ok   flag off: the hub offers the 2D route only
+ok   the workday starts the scene registered as FirstPersonScene
+ok   flag on: Start workday, with the 2D route day below
+ok   layout: hub-offer
+ok   layout: hub-start-confirm
+ok   the 3D scene is started with { workday: { resume: false } }
+ok   good day scored 3600 (expected 3600), stars {"safety":3,"efficiency":3,"service":3}
+ok   good day saved: a route day, a run on the record, nothing in progress
+ok   results: title, 9 / 9 stars, FLAWLESS!, the day in numbers
+ok   layout: results-good
+ok   drive review: a clean drive
+ok   layout: review-good
+ok   debrief: every phase and stop has its section
+ok   debrief: one line per kind of check per section (16)
+ok   layout: debrief-good
+ok   hub: the last workday's debrief, and the next day
+ok   layout: hub-after
+ok   paused: the hub offers Resume and Abandon
+ok   layout: hub-in-progress
+ok   after a reload the hub still offers Resume
+ok   resumed with { resume: true } and the score so far
+ok   bad day scored 0 (expected 0), stars {"safety":0,"efficiency":1,"service":0} (expected {"safety":0,"efficiency":1,"service":0})
+ok   bad day ratios {"safety":0,"efficiency":0.364,"service":0.154} (expected {"safety":0,"efficiency":0.364,"service":0.154})
+ok   a critical mistake caps safety at one star and is on the record
+ok   results: critical headline, seven pins, two of three delivered
+ok   layout: results-bad
+ok   drive review: seven mistakes, the first selected
+ok   drive review: every pin on the plan
+ok   drive review: a pin says how fast
+ok   layout: review-bad
+ok   layout: debrief-bad-1
+ok   layout: debrief-bad-2
+ok   debrief: the critical line, the repeated speeding counted once (×2), every stop (2 pages)
+ok   map link opens the review on that pin
+ok   debrief: a map link on each pinned driving mistake (6), two on page 1
+ok   debrief: TAB shows the focus ring
+ok   layout: debrief-keyboard
+ok   keyboard: the second map link opens the review on its pin (5, expected 5)
+ok   layout: review-keyboard
+ok   keyboard: an arrow then ENTER shows the next pin's details (6, expected 6)
+ok   keyboard: back on the debrief, the ring starts on the same map link
+ok   empty day: nothing tested, no stars, and it says so
+ok   layout: results-empty
+ok   empty day: the debrief says nothing was recorded
+ok   layout: debrief-empty
+ok   layout: review-empty
+ok   layout: hub-abandon-confirm
+ok   abandoned: nothing in progress, not scored, Start workday again
+ok   record: three route days
+ok   layout: record-modules
+ok   record: the workday's critical mistake, named
+ok   layout: record-lessons
+ok   record: three workday runs in recent runs
+ok   layout: record-recent
+ok   trainer PIN
+ok   trainer view: the workdays on the record from the server
+ok   printed record names the workday
+ok   layout: debrief-unknown-type
+ok   record: a run the registry no longer lists shows by its id
+ok   no page errors
+
+all workday flow checks passed

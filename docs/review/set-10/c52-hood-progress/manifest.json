@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-22T19:32:39.129411+00:00",
+  "status": "doing; final acceptance resumed",
+  "runtime": "f5d4ab68",
+  "candidate": "7dcbd2b6",
+  "checks": 27,
+  "instrumentProbe": {
+    "changed": 9830,
+    "hoodPixels": 0,
+    "rect": {
+      "x": 539,
+      "y": 332,
+      "right": 741,
+      "top": 402
+    },
+    "unchanged": true,
+    "glError": 0,
+    "textures": 4
+  },
+  "retainedLowSource": "8a06a4b2;272 native checks, unchanged Low presentation",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1474,
+      "sha256": "a7f2b993782b8e7e842834abaa484d1d9c1f22789092bfd208453aaa9faa720c"
+    },
+    {
+      "file": "acceptance-hood-resume.py",
+      "bytes": 15618,
+      "sha256": "95ee34806f4617ec9a578532a3d590b6596675b0ca6f4f9669114400980a666e"
+    },
+    {
+      "file": "c52-final-hood-regression.log",
+      "bytes": 78,
+      "sha256": "b030c84890bee13822feaef4462225055a7c3ea291abc166b88e2718f7371816"
+    },
+    {
+      "file": "c52-hood-regression-high-en-large-cab.png",
+      "bytes": 199881,
+      "sha256": "9b42360c9d799710582b8e2077ea6f9b09b925a97cde3395bef76397e0d93a57"
+    },
+    {
+      "file": "c52-hood-regression-high-en-large-handheld.png",
+      "bytes": 168816,
+      "sha256": "4cfafd756b77001c932099af163f03b9bd68ea8e9d7040e2db59965df05f0f8e"
+    },
+    {
+      "file": "c52-hood-regression-high-en-normal-cab.png",
+      "bytes": 204440,
+      "sha256": "0f71eec2fc2b0d88169351dde3ee9ab6c7d822f70785dcd08c00d5c94cee5430"
+    },
+    {
+      "file": "c52-hood-regression-high-en-normal-handheld.png",
+      "bytes": 178790,
+      "sha256": "51d5050637fdb8b5b0c08896ea79a98acfb9745121d851d49a29beb1dbbbf602"
+    },
+    {
+      "file": "c52-hood-regression-high-en-normal-live-instruments.png",
+      "bytes": 228203,
+      "sha256": "f67180bad1171bdfeb78b62d7b2123beb73a82b0661ebb747c93e6233f2597c0"
+    },
+    {
+      "file": "c52-hood-regression.json",
+      "bytes": 6921,
+      "sha256": "9fd83b61a9ce72878dd46650a24f789bb25b95b014291732c8d4da2eb50bf001"
+    }
+  ]
+}

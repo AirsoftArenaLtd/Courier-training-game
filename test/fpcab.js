@@ -67,3 +67,28 @@ test('speed, RPM, wheel and physical switch indicators follow the mission while 
  assert.ok(Math.abs(a.wheel.rotation.z+.6)<1e-9);assert.ok(Math.abs(a.gauges.material.uniforms.speed.value-8/17.8816)<1e-9);assert.equal(a.gauges.material.uniforms.rpm.value,.6);assert.notDeepEqual(a.batch.instanceMatrix.array,before);
  assert.equal(s.view.camera.fov,76);assert.equal(s.model.snapshot().cameraMotion,undefined);s.art.dispose();
 });
+test('instrument backlighting follows the real headlights without a texture, timer or mission write',()=>{
+ for(const high of [false,true]){
+  const s=scene(high),face=s.art.cab.gauges,uniforms=face.material.uniforms;
+  assert.equal(face.geometry.index.count,6);assert.equal(face.material.map,undefined);
+  for(const on of [false,true,false]){
+   s.model.van.headlights=on;const before=JSON.stringify(s.model.snapshot());s.sync();
+   assert.equal(uniforms.lit.value,on?1:0);assert.equal(JSON.stringify(s.model.snapshot()),before);
+   s.model.elapsed+=20;s.sync();assert.equal(uniforms.lit.value,on?1:0);
+  }
+  let disposed=0;face.material.addEventListener('dispose',()=>disposed++);s.art.dispose();assert.equal(disposed,1);
+ }
+});
+test('the High instrument hood stays above the dial face from the seated eye',()=>{
+ const s=scene(true),a=s.art.cab,h=a.hood;assert.ok(h);
+ for(const pitch of [0,.18,.35]){
+  s.model.player.pitch=pitch;s.sync();
+  const lip=new THREE.Vector3(0,h.y-h.h/2,h.z+h.d/2).applyMatrix4(a.root.matrixWorld).project(s.view.camera);
+  const top=new THREE.Vector3(0,a.gauges.position.y+a.gauges.scale.y/2,a.gauges.position.z).applyMatrix4(a.root.matrixWorld).project(s.view.camera);
+  assert.ok(lip.y>top.y,'The hood clips the top of the instrument face at pitch '+pitch);
+ }
+ s.art.dispose();
+});
+test('the seated driver can see the centre of the road 23 metres ahead over the instrument cluster',()=>{
+ for(const high of [false,true]){const s=scene(high),v=s.model.van,p=F.local(v,0,-23),point=new THREE.Vector3(p.x,.04,p.z),camera=s.view.camera;s.view.world.updateMatrixWorld(true);camera.updateMatrixWorld(true);const ray=new THREE.Raycaster(camera.position,point.clone().sub(camera.position).normalize(),0,camera.position.distanceTo(point));const hits=ray.intersectObject(s.art.cab.root,true).filter(h=>h.object.visible&&h.object.layers.test(camera.layers));assert.equal(hits.length,0,JSON.stringify({high,eye:camera.position.toArray(),road:point.toArray(),face:s.art.cab.gauges.position.toArray(),hit:hits[0]&&{name:hits[0].object.name,type:hits[0].object.type,point:hits[0].point.toArray()}}));s.art.dispose();}
+});

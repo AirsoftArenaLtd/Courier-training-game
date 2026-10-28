@@ -34,8 +34,10 @@ OTR.fpHud={
     s.hint.setFontSize(large?22:18);s.soundCue.setFontSize(large?21:17);
     s.controls.setFontSize(large?22:18);s.help.setFontSize(large?22:18);
     s.hint.setOrigin(.5,1);s.controls.setOrigin(.5,1);s.help.setOrigin(.5,1);
+    s.hintBack.setFillStyle(0x14232C,.96).setStrokeStyle(1,0x83969E,.65);
+    s.headerBack.setFillStyle(0x14232C,.96).setStrokeStyle(1,0x83969E,.45);
     s.navRoot=s.add.container(0,0).setDepth(10).setVisible(false);
-    s.navBack=s.add.rectangle(0,-8,290,100,0x10232E,.98).setOrigin(.5,0);s.navMap=s.add.graphics();
+    s.navBack=s.add.rectangle(0,-8,290,100,0x101D25,1).setOrigin(.5,0).setStrokeStyle(2,0x647983,1);s.navMap=s.add.graphics();
     s.navText=OTR.txt(s,0,0,'',OTR.fpAccess.settings().large?21:17,'#ffffff',{wrap:270,oy:0,align:'center'});
     s.navRoot.add([s.navBack,s.navMap,s.navText]);
   },
@@ -58,8 +60,10 @@ OTR.fpHud={
     const inside=(px,py,pad=0)=>px>=left+pad&&px<=left+mw-pad&&py>=top+pad&&py<=top+mapHeight-pad;
     // Clip vector lines numerically: no mask, render target or enlarged text canvas.
     const line=(ax,ay,bx,by)=>{const dx=bx-ax,dy=by-ay;let lo=0,hi=1;for(const [p,q] of [[-dx,ax-left],[dx,left+mw-ax],[-dy,ay-top],[dy,top+mapHeight-ay]]){if(!p){if(q<0)return;}else{const t=q/p;if(p<0)lo=Math.max(lo,t);else hi=Math.min(hi,t);if(lo>hi)return;}}g.lineBetween(ax+lo*dx,ay+lo*dy,ax+hi*dx,ay+hi*dy);};
-    g.fillStyle(0x233E42).fillRect(left,top,mw,mapHeight);
-    g.lineStyle(2,0x8799A3);for(const v of m.town.xs)line(x(v),y(b.z0),x(v),y(b.z1));for(const v of m.town.zs)line(x(b.x0),y(v),x(b.x1),y(v));
+    g.fillStyle(0x1B3038).fillRect(left,top,mw,mapHeight);
+    g.lineStyle(4,0x526872);for(const v of m.town.xs)line(x(v),y(b.z0),x(v),y(b.z1));for(const v of m.town.zs)line(x(b.x0),y(v),x(b.x1),y(v));
+    g.lineStyle(1,0xA4B6BD);for(const v of m.town.xs)line(x(v),y(b.z0),x(v),y(b.z1));for(const v of m.town.zs)line(x(b.x0),y(v),x(b.x1),y(v));
+    g.lineStyle(1,0x647983).strokeRect(left,top,mw,mapHeight);
     const nav=OTR.fpNav&&m.kind==='campaign'?OTR.fpNav.route(m):null;
     if(nav&&nav.points.length>1){g.lineStyle(4,0x7BE6FA);for(let i=1;i<nav.points.length;i++)line(x(nav.points[i-1].x),y(nav.points[i-1].z),x(nav.points[i].x),y(nav.points[i].z));}
     if(OTR.fpNav)for(const o of OTR.fpNav.obstacles(m)){if(!inside(x(o.x),y(o.z),4))continue;g.lineStyle(2,0xffffff).strokeRect(x(o.x)-3,y(o.z)-2,6,4);}

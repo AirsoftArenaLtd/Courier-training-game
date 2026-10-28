@@ -1,0 +1,27 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ paused controls leave position and vehicle unchanged (3.796695ms)
+✔ diagonal walking has the same speed as straight walking (7.719334ms)
+✔ walking slides along walls and remains outside their collision volume (1.299936ms)
+✔ walking respects a rotated van collision footprint (0.213935ms)
+✔ rotated vehicle collisions detect corners without an oversized circular footprint (0.208387ms)
+✔ van stops at a depot wall without passing through it (10.526641ms)
+✔ a long frame does not simulate a large jump after tab inactivity (0.649056ms)
+✔ 30 and 120 FPS inputs produce consistent vehicle travel (48.790454ms)
+✔ steering recentres promptly after the key is released (5.251799ms)
+✔ brake slows the van without selecting reverse (9.659534ms)
+✔ gear can change only while stopped inside the cab (0.299021ms)
+✔ exit needs a stopped van and parking brake (0.934477ms)
+✔ exit selects a clear side and refuses when both sides are blocked (0.195508ms)
+✔ inspection requires proximity and a facing label to scan (0.21034ms)
+✔ a package cannot be loaded without scanning (0.537442ms)
+✔ complete courier sequence needs scanning, loading and a correctly parked van (0.193264ms)
+✔ delivery parking checks position, direction, motion and parking brake (0.580525ms)
+✔ interaction ray respects walls, range and hidden parent groups (3.405438ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 105.140818

@@ -332,6 +332,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    if(kind==='ambientmirror')await lookAtTarget(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.art.ambient.selection.slots[0].site.x<s.model.van.x?'mirror-left':'mirror-right';}));
    (report.ambientProof||(report.ambientProof={}))[kind]=proof;report.ambientFixture=true;await sample(kind);
   }
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));

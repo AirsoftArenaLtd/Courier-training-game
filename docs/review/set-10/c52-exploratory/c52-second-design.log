@@ -1,0 +1,9 @@
+low en large=false
+TypeError: Cannot set properties of undefined (setting 'rpm')
+    at evaluate (evaluate at /workspace/c52-device-design/test/fpdevicedesignbrowser.js:34:27, <anonymous>:0:127)
+    at #evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/IsolatedWorld.js:105:16)
+    at async CdpFrame.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:362:20)
+    at async CdpPage.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:830:20)
+    at async /workspace/c52-device-design/test/fpdevicedesignbrowser.js:34:16

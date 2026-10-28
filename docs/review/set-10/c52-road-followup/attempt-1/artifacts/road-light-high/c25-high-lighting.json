@@ -1,0 +1,176 @@
+{
+  "quality": "high",
+  "presets": [
+    {
+      "time": "morning",
+      "caption": "The engine is running. · It is morning.",
+      "shadow": true,
+      "map": true,
+      "interior": 0,
+      "diagnostics": {
+        "calls": 49,
+        "triangles": 49820,
+        "textures": 4,
+        "geometries": 29,
+        "targetWidth": 1280,
+        "targetHeight": 720,
+        "attachmentBytes": 11239424,
+        "restores": 0
+      }
+    },
+    {
+      "time": "midday",
+      "caption": "The engine is running. · It is midday.",
+      "shadow": true,
+      "map": true,
+      "interior": 0,
+      "diagnostics": {
+        "calls": 31,
+        "triangles": 42692,
+        "textures": 4,
+        "geometries": 29,
+        "targetWidth": 1280,
+        "targetHeight": 720,
+        "attachmentBytes": 11239424,
+        "restores": 0
+      }
+    },
+    {
+      "time": "dusk",
+      "caption": "The engine is running. · It is dusk. Switch on the headlights before moving.",
+      "shadow": true,
+      "map": true,
+      "interior": 0.45,
+      "diagnostics": {
+        "calls": 44,
+        "triangles": 51871,
+        "textures": 4,
+        "geometries": 29,
+        "targetWidth": 1280,
+        "targetHeight": 720,
+        "attachmentBytes": 11239424,
+        "restores": 0
+      }
+    },
+    {
+      "time": "night",
+      "caption": "The engine is running. · It is night. Switch on the headlights before moving.",
+      "shadow": false,
+      "map": true,
+      "interior": 0.45,
+      "diagnostics": {
+        "calls": 31,
+        "triangles": 42692,
+        "textures": 4,
+        "geometries": 29,
+        "targetWidth": 1280,
+        "targetHeight": 720,
+        "attachmentBytes": 11239424,
+        "restores": 0
+      }
+    }
+  ],
+  "fixture": "A stationary, repaired, loaded first-day van. Time presets and walk viewpoints are fixtures; L uses the real keyboard control.",
+  "headlights": {
+    "off": {
+      "x": 650,
+      "y": 403,
+      "rgb": [
+        0,
+        0,
+        9.148148148148142
+      ]
+    },
+    "on": {
+      "x": 650,
+      "y": 403,
+      "rgb": [
+        7.061728395061723,
+        10.913580246913572,
+        11.555555555555546
+      ]
+    }
+  },
+  "reverse": {
+    "on": 55,
+    "off": 0
+  },
+  "shadows": {
+    "changed": 15310,
+    "total": 768662
+  },
+  "occlusion": {
+    "changed": 3956,
+    "total": 117603
+  },
+  "layouts": [
+    {
+      "lang": "en",
+      "large": false,
+      "phaserBytes": 5131899,
+      "text": "The engine is running. · It is night. The headlights are on.",
+      "font": 17,
+      "left": 24,
+      "right": 508,
+      "top": 18,
+      "bottom": 39,
+      "glare": 0,
+      "fov": 76
+    },
+    {
+      "lang": "en",
+      "large": true,
+      "phaserBytes": 5144443,
+      "text": "The engine is running. · It is night. The headlights are on.",
+      "font": 18,
+      "left": 24,
+      "right": 536,
+      "top": 18,
+      "bottom": 39,
+      "glare": 0,
+      "fov": 76
+    },
+    {
+      "lang": "ta",
+      "large": false,
+      "phaserBytes": 6987334,
+      "text": "என்ஜின் ஓடுகிறது. · இரவு நேரம். முகப்பு விளக்குகள் எரிகின்றன.",
+      "font": 17,
+      "left": 24,
+      "right": 659,
+      "top": 18,
+      "bottom": 40,
+      "glare": 0,
+      "fov": 76
+    },
+    {
+      "lang": "ta",
+      "large": true,
+      "phaserBytes": 6790214,
+      "text": "என்ஜின் ஓடுகிறது. · இரவு நேரம். முகப்பு விளக்குகள் எரிகின்றன.",
+      "font": 18,
+      "left": 24,
+      "right": 696,
+      "top": 18,
+      "bottom": 40,
+      "glare": 0,
+      "fov": 76
+    }
+  ],
+  "trainer": {
+    "time": "morning",
+    "planned": "night"
+  },
+  "resume": {
+    "seed": 10,
+    "clock": 500,
+    "restored": {
+      "seed": 10,
+      "clock": 500,
+      "preset": "night",
+      "headlights": true
+    }
+  },
+  "checks": 45,
+  "errors": []
+}

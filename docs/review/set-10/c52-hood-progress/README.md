@@ -1,0 +1,7 @@
+# C-52 High instrument visibility correction
+
+A visual review of the earlier successful High native captures showed the thick hood covering the upper dial arcs. The original pixel test proved that the instrument face rendered, but did not prove that the whole face was clear. Runtime `f5d4ab68` slims and raises that existing High part without adding geometry, textures or a pass. Low rendering and all control/label/screen positions are unchanged.
+
+On current-pilot candidate `7dcbd2b6`, 13 cab unit checks pass, including a new projected hood/face clearance guard at three seated pitches. The focused English normal/larger High run passes 27 native checks. Its visibility probe changes 9,830 instrument pixels when the face is hidden, while hiding the hood changes zero pixels inside the face. The probe leaves mission snapshots and reports unchanged, with no WebGL error and four Three textures.
+
+The previous 44 High checks and 81-suite repository run are historical, with exact source scopes in the validation state and separate diagnostics. Both rerun after this High geometry change. The completed 272-check Low, all-12-language run remains valid at `8a06a4b2`; its presentation is unchanged by this High-only correction. The compact Malayalam 23-check regression and its 3.75-pixel gaps are separately archived. All other native, geometry and 224-view resource jobs are still pending or running. C-52 stays doing; this is not final resource or Intel FPS acceptance.
