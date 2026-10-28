@@ -1,0 +1,54 @@
+{
+  "scope": "Complete two-journey native closure subset at f9f5b604. Explicit optional descriptor and Tamil-font fixtures remain; new strings are English fallback. New blocked-drive sources are unloaded and are not inputs of the frozen closure runtime. Resource budget, post-C52/current-pilot rebase and Intel FPS remain separate.",
+  "sourceRevision": "f9f5b604767998152a664044990d2a053d638baa",
+  "reports": [
+    {
+      "tag": "closure-low-en",
+      "checks": 122,
+      "layouts": 7,
+      "score": 400,
+      "ratios": {
+        "safety": 1,
+        "efficiency": 1
+      },
+      "assessmentPassed": null,
+      "artifacts": 9
+    },
+    {
+      "tag": "closure-high-ta-large",
+      "checks": 127,
+      "layouts": 7,
+      "score": 400,
+      "ratios": {
+        "safety": 1,
+        "efficiency": 1
+      },
+      "assessmentPassed": true,
+      "artifacts": 9
+    }
+  ],
+  "nativeChecks": 249,
+  "layouts": 14,
+  "checkedSources": 560,
+  "checkedFontFiles": 4,
+  "checkedArtifacts": 18,
+  "cleanup": {
+    "serverPid": {
+      "pid": 208618,
+      "state": "gone"
+    },
+    "childPid": {
+      "pid": 209109,
+      "state": "gone"
+    },
+    "controllerPid": {
+      "pid": 208565,
+      "state": "zombie"
+    }
+  },
+  "visualReview": [
+    "Low normal: original-size parked cab and physical sign reader inspected; new goal/time/readout text remains readable and in bounds.",
+    "High larger Tamil: original-size device and sign-reader inspected. Existing Tamil road instruction has full glyphs under the explicit installed font fixture; new titles/options remain English pending translation. Device text/options/back control are separated."
+  ],
+  "allPassed": true
+}

@@ -1,0 +1,53 @@
+{
+  "scope": "Eight actual adapter/geometry/device resource poses in each unchanged quality profile. Explicit static poses are separate from native gameplay acceptance. Shared optional launcher/current-pilot rebase, translations, blocked drive and Intel FPS remain separate.",
+  "sourceRevision": "aeef7e79dd23e34287e96ed361405905cd0b293a",
+  "sources": 565,
+  "jobs": 4,
+  "views": 32,
+  "artifacts": 36,
+  "peaks": {
+    "closure-budget-loaded-low": {
+      "calls": 40,
+      "triangles": 1102,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1958571
+    },
+    "closure-budget-loaded-high": {
+      "calls": 71,
+      "triangles": 135950,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 5330907
+    },
+    "closure-budget-accessible-low": {
+      "calls": 40,
+      "triangles": 1102,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2210992
+    },
+    "closure-budget-fallback-low": {
+      "calls": 39,
+      "triangles": 906,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1958571
+    }
+  },
+  "cleanup": {
+    "controllerPid": {
+      "pid": 210143,
+      "state": "zombie"
+    },
+    "serverPid": {
+      "pid": 210145,
+      "state": "gone"
+    },
+    "childPid": {
+      "pid": 211307,
+      "state": "gone"
+    }
+  },
+  "allPassed": true
+}

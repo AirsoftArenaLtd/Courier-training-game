@@ -1,0 +1,153 @@
+{
+  "phase": "complete",
+  "jobs": [
+    {
+      "tag": "closure-budget-loaded-low",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "closurecab,closuremirror,closurebarrier,closureturn,closurebay,closuredevice,closurecontrols,closurereverse",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_PROBLEM_ROUTES": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "closure-budget-loaded-low-low-closurecab.png": "b730c647d0e50fc5daad9df2969e2973ff94cec0131ee7f5de168306a7d50041",
+        "closure-budget-loaded-low-low-closurereverse.png": "1c82e30d3dfb3910c52d408a1217e310f5c4fdfdeadeedf03fd38be295b8e782",
+        "closure-budget-loaded-low-low-closuredevice.png": "375f63a03170e1a580df26f0acc07176f107225b5f8029e965148289366a9c89",
+        "closure-budget-loaded-low-low-closurecontrols.png": "5c270325736bf62f6c9589da85f33461847fda6889302b1bd66eccef5f43c55d",
+        "closure-budget-loaded-low-low-closuremirror.png": "19b74f1b2a110e7c2660a2fb18c8a8932ac67d5775c4a2958176feaaf3f14dc0",
+        "closure-budget-loaded-low-low-closurebarrier.png": "563739b5c263c5c50f54525c1f707d7a6b7fe31e89c6e600ad1f55ffbeefdef0",
+        "closure-budget-loaded-low-low-closureturn.png": "fb13c6d12744d49154a8d655c1f3ec1cd54c40716daa71afff4103547b25b2b5",
+        "closure-budget-loaded-low-low-closurebay.png": "3690dfd0b03b5c847a162db295a423a4673a83ea7c6ed09a4edd8d74a3541c81",
+        "bench-closure-budget-loaded-low-low.json": "efb331f0572bdc4e0302843716da663f1300ab899b4d6266ffc00cdb6a18486c"
+      },
+      "peak": {
+        "calls": 40,
+        "triangles": 1102,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1958571
+      }
+    },
+    {
+      "tag": "closure-budget-loaded-high",
+      "env": {
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "closurecab,closuremirror,closurebarrier,closureturn,closurebay,closuredevice,closurecontrols,closurereverse",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_PROBLEM_ROUTES": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "closure-budget-loaded-high-high-closurecab.png": "e1ec3e0a0c0b7b2f61f9d9aba656924dd0818d46d9920c860114b8454c0af6c4",
+        "bench-closure-budget-loaded-high-high.json": "73815ef233c650f69d26743c1d32a10e5f9e9e70e7cd1644f388cbf6bcc1b233",
+        "closure-budget-loaded-high-high-closurebay.png": "21652807e34a82d9a99222162a5fe64271bc5a33fd557daffacca5f9f76e41be",
+        "closure-budget-loaded-high-high-closurecontrols.png": "952c89a8c466ca8daaa80eb0ec8b674c6b55bd3d0cc98de2e7cbb12728504e6c",
+        "closure-budget-loaded-high-high-closuremirror.png": "182dcea3a29ec3aa158e61283a0c58ee0f170fadf155a00566785d5c1a30881c",
+        "closure-budget-loaded-high-high-closurebarrier.png": "15fd2bef13bec1eb872f8c1b2b1dd3b89ad330522180ae2c2ed2d2f75a2d2c71",
+        "closure-budget-loaded-high-high-closuredevice.png": "7d54438c94aef888570c9ccf331eba5d3257869b023bc36788384210463ae0c6",
+        "closure-budget-loaded-high-high-closureturn.png": "9f9ad09db72f15109513725d03d6b99075c4f10ad87704f87fb472e86ac64629",
+        "closure-budget-loaded-high-high-closurereverse.png": "c6eec2dd0dec391d8301aa96953511d94bc26cfe1482a9611d05e05ac571d3a6"
+      },
+      "peak": {
+        "calls": 71,
+        "triangles": 135950,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5330907
+      }
+    },
+    {
+      "tag": "closure-budget-accessible-low",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "closurecab,closuremirror,closurebarrier,closureturn,closurebay,closuredevice,closurecontrols,closurereverse",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_PROBLEM_ROUTES": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "closure-budget-accessible-low-low-closuremirror.png": "93174eb8efc5f4ad5c4a89a365e4b36c17937b6bd9e7fa21b2e728df57768044",
+        "closure-budget-accessible-low-low-closurecontrols.png": "6b7b0ab187eea959859cabf2e79c765e738594bf909bb8befee783558ff6ef59",
+        "closure-budget-accessible-low-low-closurebay.png": "bc05f1a96c725c8d9d0152c3f31e41f89948c4b417c2fe90fc32d80a8c7db50b",
+        "closure-budget-accessible-low-low-closurecab.png": "66554d436cdd61550089d2de27985afb0fc069468cd984e1f3f92c15f4765a68",
+        "closure-budget-accessible-low-low-closureturn.png": "8a72142df3d44bfff09770d02f1bbdb41eb3669f520dcefac192aff3971c5a3c",
+        "closure-budget-accessible-low-low-closurereverse.png": "fe290a4991c46cea684a426d9183f3a2d13c693dd5167273020afc85a8fe7f55",
+        "bench-closure-budget-accessible-low-low.json": "aa8b047201d0fadbc4f0bbde5dcdb4ce688331fdd1b459254ab6e515d92b4bc0",
+        "closure-budget-accessible-low-low-closurebarrier.png": "244a252f27817a354f203018aa4762285d361a8682f2a87cdbf44833af11b434",
+        "closure-budget-accessible-low-low-closuredevice.png": "6defb28d31206c716a6686e8d7cbb0587980680ffd3bd7d24db2da9564b56d1a"
+      },
+      "peak": {
+        "calls": 40,
+        "triangles": 1102,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2210992
+      }
+    },
+    {
+      "tag": "closure-budget-fallback-low",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1",
+        "QA_VIEWS": "closurecab,closuremirror,closurebarrier,closureturn,closurebay,closuredevice,closurecontrols,closurereverse",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_PROBLEM_ROUTES": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "closure-budget-fallback-low-low-closurebarrier.png": "e2119f0b9501df8fc15a1b2c537e4e39f7431ec941f359f73cea16867fff45ba",
+        "closure-budget-fallback-low-low-closuredevice.png": "87b4d0bc244478faf214a5ad4f502fb193ac3b477017525aac8dcd59ffb85c10",
+        "closure-budget-fallback-low-low-closurebay.png": "7b2483c43ebc1c52fb4e95f44b144d76d2611299cd6c6b00fccf91408fded11e",
+        "closure-budget-fallback-low-low-closurecab.png": "b586f1c4cd07664380afb3bf1ddbd6b1a5bba29f51a68328c236bedabff5fc1c",
+        "bench-closure-budget-fallback-low-low.json": "7d2d4a9c97108e6d6652ffe453547ae5ddccd88e5a0e6be0470eba11f18f3d15",
+        "closure-budget-fallback-low-low-closurecontrols.png": "f7b9b9947a4489308c45e7afb60e55a17dfd7dcf4d5816bb0cfc392a91d7ae6b",
+        "closure-budget-fallback-low-low-closuremirror.png": "9b61c037510dc98452ba2a371e0df5205b31fc6026cb20b3580275b6d70aa95d",
+        "closure-budget-fallback-low-low-closureturn.png": "4d7de45a8c3824e3c3cb193f5e216b0dafad4aa07f514479e5f765b03ffd4819",
+        "closure-budget-fallback-low-low-closurereverse.png": "892fee9d548e7bb5b5efa4ebab2b753b90054c40b49bb432cf8985b8c43526e6"
+      },
+      "peak": {
+        "calls": 39,
+        "triangles": 906,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1958571
+      }
+    }
+  ],
+  "controllerPid": 210143,
+  "startedAt": 1793201539.062763,
+  "serverPid": 210145,
+  "tag": "closure-budget-fallback-low",
+  "childPid": 211307,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793202146.7982554
+}

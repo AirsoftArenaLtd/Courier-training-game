@@ -1,0 +1,12 @@
+{
+  "phase": "failed",
+  "jobs": [],
+  "controllerPid": 208958,
+  "startedAt": 1793198839.342968,
+  "serverPid": 210014,
+  "tag": "closure-budget-loaded-low",
+  "failure": "[Errno 32] Broken pipe",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793201266.706708
+}
