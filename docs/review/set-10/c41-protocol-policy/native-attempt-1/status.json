@@ -1,0 +1,87 @@
+{
+  "phase": "failed",
+  "jobs": [
+    {
+      "tag": "protocol-intercom-low-en",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_KIND": "intercom",
+        "QA_BAD": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "protocol-intercom-low-en-report.png": "c869eee0f53b870648f1e19d30ba09b60690ea9f3007c5b8184f64cb6085f9de",
+        "protocol-intercom-low-en.json": "1fbf497b81101ebcd58cb3cb15c7f5051ad552b9356ddc6384e6b232dcf99e66",
+        "protocol-intercom-low-en-intercom.png": "ba796b05c29d402df5a96b2d58ede25a13906ea47337cc6abb63bbd9c6fa00b5"
+      }
+    },
+    {
+      "tag": "protocol-reception-low-en",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_KIND": "reception",
+        "QA_BAD": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c33-campaign-journeys.json": "671e58c7bafff97b62d32d9666b0c9498447cabcbd31aefb3a36389940584633",
+        "protocol-reception-low-en.json": "772fbe49acbd24e3aebf31464e4cea5a0791968701811a43ff3fa3655cfdb550",
+        "protocol-reception-low-en-report.png": "c869eee0f53b870648f1e19d30ba09b60690ea9f3007c5b8184f64cb6085f9de",
+        "protocol-reception-low-en-reception.png": "e019e30683aab902853dc43f91d50c3076bfa2ab69ade7d19025e5abad14f78d"
+      }
+    },
+    {
+      "tag": "protocol-locker-low-en",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_KIND": "locker",
+        "QA_BAD": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "protocol-locker-low-en.json": "7d2eea66881edecfe3c6b5ab7e7b9e2ee7bb98e818d75fdde28edd9692a1f31a",
+        "protocol-locker-low-en-report.png": "c869eee0f53b870648f1e19d30ba09b60690ea9f3007c5b8184f64cb6085f9de",
+        "protocol-locker-low-en-camera-device.png": "58af408701db5363dff23013362a35c7c1d701b9b37bd57937b6ae386c442d3a",
+        "protocol-locker-low-en-locker.png": "0b3b8d243e295b70399d059619527d7278c4927014d0755d3fa61dd1d04d2b14",
+        "protocol-locker-low-en-camera-frame.png": "3c34acfb557410a64102dcf05fd6257ddc88e1b9081668d38eb5c371d4350335"
+      }
+    },
+    {
+      "tag": "protocol-intercom-high-ta",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_KIND": "intercom",
+        "QA_BAD": "0"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "protocol-intercom-high-ta.json": "4eaf53e6c02bd2a4a4c544004170f51952b7ff941636104b724c358f32db529c"
+      }
+    }
+  ],
+  "pid": 199418,
+  "startedAt": 1793190928.4705806,
+  "serverPid": 199422,
+  "tag": "protocol-intercom-high-ta",
+  "childPid": 200752,
+  "failure": "Browser job failed: protocol-intercom-high-ta",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793191242.0149405
+}

@@ -1,0 +1,139 @@
+{
+  "journeys": 30,
+  "stops": 150,
+  "checkpoints": 759,
+  "scormMax": 1764,
+  "ownedStateMax": 1061,
+  "coverage": [
+    "gated",
+    "intercom",
+    "locker",
+    "reattempt:absent",
+    "reattempt:address",
+    "reattempt:id",
+    "reception"
+  ],
+  "travel": "Position fixtures; delivery actions, reports, checkpoint readers and returns are real.",
+  "cases": [
+    {
+      "seed": 1,
+      "day": 4
+    },
+    {
+      "seed": 2,
+      "day": 5
+    },
+    {
+      "seed": 3,
+      "day": 6
+    },
+    {
+      "seed": 4,
+      "day": 7
+    },
+    {
+      "seed": 5,
+      "day": 8
+    },
+    {
+      "seed": 6,
+      "day": 9
+    },
+    {
+      "seed": 7,
+      "day": 10
+    },
+    {
+      "seed": 8,
+      "day": 11
+    },
+    {
+      "seed": 9,
+      "day": 12
+    },
+    {
+      "seed": 10,
+      "day": 3
+    },
+    {
+      "seed": 11,
+      "day": 4
+    },
+    {
+      "seed": 12,
+      "day": 5
+    },
+    {
+      "seed": 13,
+      "day": 6
+    },
+    {
+      "seed": 14,
+      "day": 7
+    },
+    {
+      "seed": 15,
+      "day": 8
+    },
+    {
+      "seed": 16,
+      "day": 9
+    },
+    {
+      "seed": 17,
+      "day": 10
+    },
+    {
+      "seed": 18,
+      "day": 11
+    },
+    {
+      "seed": 19,
+      "day": 12
+    },
+    {
+      "seed": 20,
+      "day": 3
+    },
+    {
+      "seed": 21,
+      "day": 4
+    },
+    {
+      "seed": 22,
+      "day": 5
+    },
+    {
+      "seed": 23,
+      "day": 6
+    },
+    {
+      "seed": 24,
+      "day": 7
+    },
+    {
+      "seed": 25,
+      "day": 8
+    },
+    {
+      "seed": 26,
+      "day": 9
+    },
+    {
+      "seed": 2,
+      "day": 3
+    },
+    {
+      "seed": 1,
+      "day": 3
+    },
+    {
+      "seed": 4,
+      "day": 3
+    },
+    {
+      "seed": 31,
+      "day": 3
+    }
+  ]
+}
