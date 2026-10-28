@@ -30,6 +30,11 @@ ready"), then `default3d`, then whether the PC can run 3D (`OTR.gfx` / WebGL). A
 is shown as "needs 3D" and does not block the module (it is left out of that trainee's completion count, and the record
 says why).
 
+Built (A-30): `OTR.flow.startScenario` asks `OTR.fpScenario.resolve` with `OTR.academy.presentationOf(id)` (the rule
+`presentation: { m1: 'auto' | '3d' | '2d', ... }`, missing means `'auto'`) and `OTR.registry.can3d()`. Completion, the
+hub's count and the LMS use `OTR.registry.counted()`: every scenario but the `optional` ones and, on a PC without WebGL,
+the 3D-only ones (the trainer's view counts those). `test/scenario3d.js` checks it.
+
 ## Finishing a 3D scenario
 
 The 3D runner ends a scenario exactly as a 2D scene does: `OTR.flow.complete(scene, scenarioId, result)` with

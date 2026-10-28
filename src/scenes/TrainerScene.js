@@ -174,7 +174,7 @@ class TrainerScene extends Phaser.Scene {
     (this.pageBtns || []).forEach(b => { const i = this.focusables.indexOf(b); if (i >= 0) this.focusables.splice(i, 1); b.destroy(); });
     this.pageBtns = [];
     const rows = this.trainees.slice(this.page * per, this.page * per + per);
-    const total = OTR.registry.all().length;
+    const total = OTR.registry.counted(true).length;
     rows.forEach((t, i) => {
       const y = top + 84 + i * 66;
       this.list.add(OTR.tex.shape(this, (g) => { g.fillStyle(0x1B5E9E, i % 2 ? 0.04 : 0.08); g.fillRoundedRect(x + 18, y - 28, w - 36, 58, 10); }));
