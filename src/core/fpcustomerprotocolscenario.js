@@ -7,7 +7,7 @@ OTR.fpCustomerProtocolScenario={
     m.customerStage.actors[0].visible=kind==='reception';OTR.fpCustomerStage.target(m.customerStage);
     if(kind==='reception')m.solids.push({x:12.05,z:-43.65,w:2.2,d:.78});
     if(kind==='locker')m.solids.push({x:8.8,z:-43.9,w:1.94,d:.7});
-    m.customerStop.protocol.photoMode=false;
+    m.customerStop.protocol.photoMode=false;m.customerStop.protocol.buzzed=false;
   },
   confirmMissed(scene){this.panel(scene,'Confirm leaving this stop.','This protocol has not been completed. Leaving now records an unfinished run.',[{label:'Leave this protocol unfinished.',action:()=>scene.finishScenario('incomplete')},{label:'Continue the stop.',action:()=>scene.closePanel()}]);},
   finishStop(scene){if(OTR.fpCustomerProtocol.evaluate(scene.model.customerStop))this.report(scene);else this.notice(scene,'Complete the handover or locker record before finishing this stop.');},
@@ -17,7 +17,8 @@ OTR.fpCustomerProtocolScenario={
     {label:'Return to the stop.',action:()=>scene.closePanel()}
   ]);},
   act(scene,action,value){
-    OTR.fpCustomerProtocol.action(scene.model.customerStop,action,value);scene.closePanel();scene.sync();
+    const d=scene.model.customerStop;if(action==='call')d.protocol.buzzed=false;
+    OTR.fpCustomerProtocol.action(d,action,value);scene.closePanel();scene.sync();
   },
   door(scene){const d=scene.model.customerStop;if(d.protocol.sequence.opened){this.handover(scene);return;}this.panel(scene,'Use the building entrance.','The entrance door has an electric latch.',[
     {label:'Try to open the entrance door.',action:()=>{this.act(scene,'open');d.state.answered=d.protocol.sequence.opened;scene.model.customerStage.actors[0].visible=d.state.answered;OTR.fpCustomerStage.target(scene.model.customerStage);scene.sync();}},
@@ -92,9 +93,9 @@ OTR.fpScenario.register('customer-protocol',{
     else if(id==='customer-stop-number')A.notice(scene,`The stop address is ${d.def.packages[0].number} ${d.def.packages[0].street}.`);
     else return false;return true;
   },
-  tick(run,scene,dt,active){const d=scene.model?.customerStop;if(!d)return;if(d.phase==='brief'&&run.phase==='active')OTR.fpCustomerProtocol.begin(d);OTR.fpCustomerProtocol.step(d,dt,active);if(active)scene.model.customerStage.time+=dt;},
+  tick(run,scene,dt,active){const d=scene.model?.customerStop;if(!d)return;if(d.phase==='brief'&&run.phase==='active')OTR.fpCustomerProtocol.begin(d);OTR.fpCustomerProtocol.step(d,dt,active);if(active){scene.model.customerStage.time+=dt;const p=d.protocol;if(!p.buzzed&&OTR.fpStops.ready(p.sequence,p.spec,p.elapsed)){p.buzzed=true;OTR.audio?.play('buzzer');scene.message('The intercom buzzer sounds. The entrance is unlocked.');}}},
   controls(run,scene){OTR.fpCustomerProtocolScenario.controls(scene);},
   handheld(run,scene){OTR.fpCustomerProtocolScenario.handheld(run,scene);},
-  status(run){const d=run.model.customerStop;return d.protocol.photoMode?`Frame the closed compartment, then press ${OTR.fpAccess.key('KeyE')} to capture the photo.`:d.state.outcome?'The handover is recorded. Return to the parked van.':'Read the stop details on the handheld.';},
+  status(run){const d=run.model.customerStop;return d.protocol.photoMode?`Frame the closed compartment, then press ${OTR.fpAccess.key('KeyE')} to capture the photo.`:d.state.outcome?'The handover is recorded. Return to the parked van.':d.protocol.buzzed?'The entrance is unlocked.':'Read the stop details on the handheld.';},
   result(run,reason){const r=OTR.fpCustomerProtocol.result(run.model.customerStop,reason);if(!r)throw Error('The customer protocol is incomplete');return r;}
 });

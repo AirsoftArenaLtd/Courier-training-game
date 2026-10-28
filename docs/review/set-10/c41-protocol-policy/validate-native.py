@@ -2,7 +2,7 @@
 """Customer protocols: serial native workflows under the browser lease."""
 from pathlib import Path
 import os,json,hashlib,subprocess,fcntl,time,shutil,psutil
-BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3];OUT=BASE/'native-attempt-1';OUT.mkdir(exist_ok=True);os.chdir(ROOT)
+BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3];OUT=BASE/'native-attempt-2';OUT.mkdir(exist_ok=True);os.chdir(ROOT)
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 files=[p for name in ['src','data','lib','assets/3d'] for p in Path(name).rglob('*') if p.is_file()]+[Path(p) for p in ['test/fpcustomerprotocolbrowser.js','index.html','first-person.html']]
 jobs=[{'tag':'protocol-'+kind+'-'+quality+'-'+lang+('-bad' if bad else ''),'script':'test/fpcustomerprotocolbrowser.js','env':{'QA_GFX':quality,'QA_LANG':lang,'QA_LARGE':large,'QA_KIND':kind,'QA_BAD':'1' if bad else '0'}} for quality,lang,large in [('low','en','0'),('high','ta','1')] for kind,bad in [('intercom',False),('reception',False),('locker',False)]]
