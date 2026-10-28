@@ -1,0 +1,22 @@
+{
+  "sourceRevision": "f9f5b604",
+  "cases": {
+    "model": 6,
+    "worldAndSession": 5
+  },
+  "scope": "Current model uses 4.25 m route gates: the actual destination curb is 3.55 m from the navigation graph center and normal junction turns are rounded. The full motor world case passes at 1/3/5/8 physics frames per control sample, retaining shared timing for the slower case. CPU geometry only; native/resource acceptance separate. Earlier 3.5 m component evidence remains historical.",
+  "sources": {
+    "src/core/fpproblemroute.js": "50a5850faa029df6b48141dda24faa6f957ba80b92c5629ce4233b7a7b58d5d5",
+    "src/core/fpproblemprotocol.js": "acf1bc8cc332e60aff7829490db3dc20564c2530c87c982c0a4cd50a36a780b4",
+    "src/core/fpproblemrouteui.js": "2c1ecd74c8b85172e4bc9cce146d9cbfd03ad90b2beb197cc988a6a6d5b5f9d4",
+    "src/core/fpworld.js": "1cb5968e384dadd1611a2af025ad028fc78df01fad8e189ba145b1e9dba05717",
+    "test/fpproblemroute.js": "36ab926c11a8dc233f274bca40a6719aa84d96c747dbdba0ac7bd7cbfe0a7912",
+    "test/fpproblemrouteworld.js": "035bc13099ff36ec26d7615dfd3571d5b5bb45768e36c1c187b405392642652c",
+    "test/tools/fp-problem-route-context.js": "e807ffb1187755b45f7392487fd753d55729d9d3ecad43242e35752e1c4cd48d",
+    "test/tools/fp-problem-context.js": "703a42fda984bb16e96e10c06cb1d39c61f38a32aaa285f27e6c7956c51a2516"
+  },
+  "logs": {
+    "docs/review/set-10/c42-policy-resume/closure-components-attempt-2/route-model.log": "64a1df2f48933d1c9868c5d1737a5c0287534fd084404495eafdac46a8ff4f20",
+    "docs/review/set-10/c42-policy-resume/closure-components-attempt-2/route-world.log": "a01b9ae4a8801a89217a9a85e750985b77499115b4621f5fc63ddcd9f14765d4"
+  }
+}

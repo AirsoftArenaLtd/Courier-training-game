@@ -1,0 +1,16 @@
+{
+  "scope": "Five CPU cases for the unloaded blocked-drive model. Real mission parcel/slot/restraint/parking/card/door proximity, actual walking around the car for safe access, sticky catalogue hazard and booking, freeze/timeout/workday isolation. No rendered/native UI acceptance. Earlier logs retain development passes; attempt 3 is current and checks a reachable walking pose rather than placing a fixture inside the house collider.",
+  "cases": 5,
+  "notLoadedInIndex": true,
+  "sources": {
+    "src/core/fpproblemblocked.js": "7281c42fd3dabb38200cd26eeacd368b55b36dbd62a9dfb56b0279af05fcd71d",
+    "src/core/fpproblemprotocol.js": "acf1bc8cc332e60aff7829490db3dc20564c2530c87c982c0a4cd50a36a780b4",
+    "test/fpproblemblocked.js": "f79fd724ef6cd152bea5b4316899d04799e815c2006e7138ae0a352e3a03c8df",
+    "test/tools/fp-problem-route-context.js": "e807ffb1187755b45f7392487fd753d55729d9d3ecad43242e35752e1c4cd48d",
+    "test/tools/fp-problem-context.js": "703a42fda984bb16e96e10c06cb1d39c61f38a32aaa285f27e6c7956c51a2516"
+  },
+  "currentLog": {
+    "file": "docs/review/set-10/c42-policy-resume/blocked-components/attempt-3.log",
+    "sha256": "f8fa1c1ab5a6ae51b529619df599647dc100fc4885a82498c23daef4115177c8"
+  }
+}

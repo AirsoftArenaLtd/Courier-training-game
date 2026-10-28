@@ -1,0 +1,5 @@
+# Diagnostic native attempt — a13ef1ed
+
+Low English passed 108 initial controls/device/sign-reading checks, then the polling driver contacted the public curb at the first right turn. The exact failed pose is in `contact-diagnostic.json`; there was no solid overlap, and the whole-van road-footprint check rejected the next pose. This attempt is not native acceptance. Only its owned node/browser subtree was stopped; the controller archived its files, stopped its loopback server and released the browser lease. High did not run.
+
+The follow-up model uses 4.25 m route gates because the authored curb center is 3.55 m from the navigation graph center; the earlier 3.5 m radius could also miss legal curb driving. The browser driver now brakes for turns, anticipates steering decay, checks contact immediately and reports periodic progress. A four-cadence actual-motor regression covers the corrected model. Runtime and runner for the fresh attempt are frozen at f9f5b604; original failed input/artifact hashes remain in this folder.

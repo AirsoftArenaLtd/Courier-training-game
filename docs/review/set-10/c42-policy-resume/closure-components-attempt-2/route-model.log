@@ -1,0 +1,14 @@
+✔ the actual navigation graph takes a bounded detour around the solid closure toward a real delivery curb (7.433745ms)
+✔ scenario-shell setup restores the real model bounds and start before deriving its route (1.520378ms)
+✔ normal driving in the right-hand lane enters the first route gate without crossing the center line (17.449072ms)
+✔ the vehicle motor cannot drive through the closure and reports its catalogue contact to the isolated log (331.215125ms)
+✔ the whole van must be parked in the destination bay, aligned with traffic; a relocation never finishes the route (1.731267ms)
+✔ paused and finished models stay still, and unfinished results preserve actual contact observations with zero stars (2.027654ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 367.828874
