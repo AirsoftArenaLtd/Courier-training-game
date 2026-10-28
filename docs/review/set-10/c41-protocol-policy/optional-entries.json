@@ -1,0 +1,44 @@
+{
+  "scope": "Prepared optional descriptors for A-30 support. No 2D scene or default is added; the owned adapter authors its isolated content. Native/resource fixtures supply only a temporary existing-content dataKey for the current shared registry reader. Do not treat that fixture as optional-launcher acceptance.",
+  "entries": [
+    {
+      "id": "m3-intercom",
+      "title": "At the Intercom",
+      "icon": "ic_box",
+      "scene3d": "customer-protocol",
+      "optional": true,
+      "categories": [
+        "service",
+        "safety",
+        "efficiency"
+      ],
+      "blurb": "Deliver the parcel to unit 12 using the building intercom."
+    },
+    {
+      "id": "m3-reception",
+      "title": "At Reception",
+      "icon": "ic_box",
+      "scene3d": "customer-protocol",
+      "optional": true,
+      "categories": [
+        "service",
+        "safety",
+        "efficiency"
+      ],
+      "blurb": "Identify the receiver, capture their signature and hand over the parcel at reception."
+    },
+    {
+      "id": "m3-locker",
+      "title": "Locker Delivery",
+      "icon": "ic_box",
+      "scene3d": "customer-protocol",
+      "optional": true,
+      "categories": [
+        "service",
+        "safety",
+        "efficiency"
+      ],
+      "blurb": "Use the assigned compartment and photograph its closed door."
+    }
+  ]
+}
