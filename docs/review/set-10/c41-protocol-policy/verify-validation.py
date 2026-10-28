@@ -6,17 +6,20 @@ BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3]
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 result={'scope':'Owned optional protocol adapter on the pre-rebase C-38/C-41 stack. Explicit optional descriptors and Tamil font are fixtures. Shared A-30/current-pilot/translated-body/Intel acceptance is separate.','phases':{},'nativeChecks':0,'nativeLayouts':0,'nativeJourneys':0,'resourceViews':0,'artifacts':0}
 all_sources={};modes=set()
+def terminated(pid):
+ try:return psutil.Process(pid).status()==psutil.STATUS_ZOMBIE
+ except psutil.NoSuchProcess:return True
 for folder,expected in [('native-attempt-2',6),('resource-attempt-2',4),('native-negative-attempt-2',1)]:
  path=BASE/folder;plan=json.loads((path/'plan.json').read_text());status=json.loads((path/'status.json').read_text())
  assert status['phase']=='complete',(folder,status)
  assert status['serverExited'] and status['leaseReleased']
- assert not psutil.pid_exists(status['pid']) and not psutil.pid_exists(status['serverPid']) and not psutil.pid_exists(status['childPid'])
+ assert terminated(status['pid']) and not psutil.pid_exists(status['serverPid']) and not psutil.pid_exists(status['childPid'])
  assert len(status['jobs'])==expected
  for f,h in plan['sources'].items():
   assert sha(ROOT/f)==h,('changed source',folder,f)
   if f in all_sources:assert all_sources[f]==h,('different phase inputs',f)
   all_sources[f]=h
- summary={'revision':plan['sourceRevision'],'inputs':len(plan['sources']),'jobs':[]}
+ summary={'revision':plan['sourceRevision'],'inputs':len(plan['sources']),'controllerState':'zombie (terminated, awaiting environment reaping)' if psutil.pid_exists(status['pid']) else 'reaped','jobs':[]}
  for job in status['jobs']:
   assert job['exit']==0 and not job['changedSources'] and job['artifacts']
   item={'tag':job['tag'],'artifacts':len(job['artifacts'])}
@@ -51,6 +54,9 @@ extra=json.loads((BASE/'additional-inputs.json').read_text())
 for f,item in extra['sources'].items():
  assert sha(ROOT/f)==item['sha256'];assert hashlib.sha256(subprocess.check_output(['git','show',item['frozenRevision']+':'+f],cwd=ROOT)).hexdigest()==item['sha256']
  all_sources[f]=item['sha256']
+fonts=json.loads((BASE/'host-fonts.json').read_text())
+for f,h in fonts['files'].items():assert sha(Path(f))==h,('changed host font',f)
+result['hostFontInputs']=len(fonts['files'])
 result.update(uniqueInputs=len(all_sources),cleanupVerified=True,allPassed=True)
 (BASE/'final-verification.json').write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps({k:v for k,v in result.items() if k!='phases'}))

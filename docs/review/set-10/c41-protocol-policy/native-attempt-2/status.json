@@ -1,0 +1,125 @@
+{
+  "phase": "complete",
+  "jobs": [
+    {
+      "tag": "protocol-intercom-low-en",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_KIND": "intercom",
+        "QA_BAD": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "protocol-intercom-low-en-report.png": "c869eee0f53b870648f1e19d30ba09b60690ea9f3007c5b8184f64cb6085f9de",
+        "protocol-intercom-low-en.json": "ad4753dbb57a4a8d0637c3a4fab8fe4038f301e72b14fbe60e237fec97084802",
+        "protocol-intercom-low-en-intercom.png": "24dd79ebce6e9afd923b281b9755c924f48aadb75c358b299a0a722f1ca0444e"
+      }
+    },
+    {
+      "tag": "protocol-reception-low-en",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_KIND": "reception",
+        "QA_BAD": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "protocol-reception-low-en.json": "ba98942ef3d5b4508cc4a46eb10e225206a6d86bbfc40c3da3be0b44f8f1453d",
+        "protocol-reception-low-en-report.png": "c869eee0f53b870648f1e19d30ba09b60690ea9f3007c5b8184f64cb6085f9de",
+        "protocol-reception-low-en-reception.png": "46bbf4cb4c1852291244302e793911b4d01cbe8afe8edef71c3f916057236d21"
+      }
+    },
+    {
+      "tag": "protocol-locker-low-en",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_KIND": "locker",
+        "QA_BAD": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "protocol-locker-low-en.json": "e800b8fbc216657f8cdc69ef103113235e1a17b9db052bb5b93de941dc5e879a",
+        "protocol-locker-low-en-report.png": "c869eee0f53b870648f1e19d30ba09b60690ea9f3007c5b8184f64cb6085f9de",
+        "protocol-locker-low-en-camera-device.png": "494f29168a469579e21d05353e825365c69bcaa7e548f0350254b10aef4c7b7c",
+        "protocol-locker-low-en-locker.png": "d47af2c4e3616337a1b3ccbe45bca304ecfc5e1e8c49e1bf640041a6f309a012",
+        "protocol-locker-low-en-camera-frame.png": "5b7a695e2a56353cffc49d36a54df7668775d0b9fc38747fe62d679ac3981f50"
+      }
+    },
+    {
+      "tag": "protocol-intercom-high-ta",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_KIND": "intercom",
+        "QA_BAD": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "protocol-intercom-high-ta.json": "6b89f7f7253477087bb4710c4a773b04028873aee8965641c03eed986e970b10",
+        "protocol-intercom-high-ta-report.png": "dd974c56daeef8848ca897beee02957e22ef956a9cebf42204b280964f2c5aec",
+        "protocol-intercom-high-ta-intercom.png": "09c859adb3202a73714d5bb86b75dc582665e415848711081ffd8cd1b6cf697e"
+      }
+    },
+    {
+      "tag": "protocol-reception-high-ta",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_KIND": "reception",
+        "QA_BAD": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "protocol-reception-high-ta.json": "138f63c4f50bfb2024db3204199d1fc5ab1c7b6ea3502cabc51b1dec8fa5aedf",
+        "protocol-reception-high-ta-reception.png": "c7e2859119d32a1237b2a989dd5b077d25f621b8aa9c60251bdbf9b4b2beca28",
+        "protocol-reception-high-ta-report.png": "dd974c56daeef8848ca897beee02957e22ef956a9cebf42204b280964f2c5aec"
+      }
+    },
+    {
+      "tag": "protocol-locker-high-ta",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_KIND": "locker",
+        "QA_BAD": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "protocol-locker-high-ta-report.png": "dd974c56daeef8848ca897beee02957e22ef956a9cebf42204b280964f2c5aec",
+        "protocol-locker-high-ta-locker.png": "d4f3c6da24216b1709aa57751127ec57acd583bbbe33b2c46078b3fbefab6330",
+        "protocol-locker-high-ta-camera-device.png": "33fd099b6097776adf6f8f2a6911b825c7fca298c539580133e66a78b250f543",
+        "protocol-locker-high-ta.json": "7c8627ba9031036500bc051274770aac987d32382be7de2cc977d883163d6b18",
+        "protocol-locker-high-ta-camera-frame.png": "cf3af575c6f3f6ad48a6f153a93713dd70c46b007a142efa9bfc128e386e2695"
+      }
+    }
+  ],
+  "pid": 201226,
+  "startedAt": 1793191301.876172,
+  "serverPid": 201230,
+  "tag": "protocol-locker-high-ta",
+  "childPid": 203973,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793192936.126415
+}

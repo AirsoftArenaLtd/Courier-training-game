@@ -1,0 +1,19 @@
+{
+  "scope": "Original-size inspection of representative new native and static resource views; exact pixels/hashes below. These checks do not cover newly translated sentences or the post-C-52 shared-font rebase.",
+  "checks": [
+    "High larger native reception shows the imported person and usable counter.",
+    "High larger native locker handheld body and all three choices stay inside the real device screen.",
+    "High native intercom Tamil title has clear glyphs under the explicitly selected local font; new body sentences remain English fallback.",
+    "High resource signature widget fits its screen with cancel/back controls.",
+    "Missing-model Low locker has a visible moving door, deposited parcel and mounted B11/B12 identities.",
+    "Accessible Low service finding fits its panel at full text size."
+  ],
+  "images": {
+    "native-attempt-2/artifacts/protocol-reception-high-ta/protocol-reception-high-ta-reception.png": "c7e2859119d32a1237b2a989dd5b077d25f621b8aa9c60251bdbf9b4b2beca28",
+    "native-attempt-2/artifacts/protocol-locker-high-ta/protocol-locker-high-ta-camera-device.png": "33fd099b6097776adf6f8f2a6911b825c7fca298c539580133e66a78b250f543",
+    "native-attempt-2/artifacts/protocol-intercom-high-ta/protocol-intercom-high-ta-intercom.png": "09c859adb3202a73714d5bb86b75dc582665e415848711081ffd8cd1b6cf697e",
+    "resource-attempt-2/artifacts/protocol-budget-loaded-high/protocol-budget-loaded-high-high-protocolsignature.png": "2f2bf1463bc3ee7cc550afcd2e204e0a4da0c09844e02e78d5c77d51b9ed9d0a",
+    "resource-attempt-2/artifacts/protocol-budget-fallback-low/protocol-budget-fallback-low-low-protocollockeropen.png": "eb98c13a3f9f6033faed03d2697ab62f1ea471499185b490984423c6ac2883fb",
+    "resource-attempt-2/artifacts/protocol-budget-accessible-low/protocol-budget-accessible-low-low-protocolreport.png": "c57752455ab786ed34d3ec8e23e735083f65171209ed4d1cbf0debd9ebf81e72"
+  }
+}

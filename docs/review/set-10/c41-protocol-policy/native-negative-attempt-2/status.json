@@ -1,0 +1,31 @@
+{
+  "phase": "complete",
+  "jobs": [
+    {
+      "tag": "protocol-intercom-high-ta-bad",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_KIND": "intercom",
+        "QA_BAD": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "protocol-intercom-high-ta-bad.json": "433a977c981842e9240fc6d9330326873aed1f8f5b531f9bf3d401df72a91a0f",
+        "protocol-intercom-high-ta-bad-intercom.png": "1920658226f318c4819dd0f0f910ae51e4e963ca2765b9d70360a47e4f190a2d",
+        "protocol-intercom-high-ta-bad-report.png": "dd974c56daeef8848ca897beee02957e22ef956a9cebf42204b280964f2c5aec"
+      }
+    }
+  ],
+  "pid": 201578,
+  "startedAt": 1793191313.8360736,
+  "serverPid": 205883,
+  "tag": "protocol-intercom-high-ta-bad",
+  "childPid": 205884,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793193997.4756951
+}
