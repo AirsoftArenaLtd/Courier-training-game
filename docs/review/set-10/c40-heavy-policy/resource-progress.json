@@ -1,0 +1,33 @@
+{
+  "scope": "Partial only. Completed original-protocol profiles with verified copied artifacts; remaining profiles are not accepted yet.",
+  "sourceRevision": "abc4e7ea2868e659bae5ab1454a5b41e034f2d03",
+  "inputs": 558,
+  "nativeRuntimeInputsIdentical": true,
+  "artifacts": 14,
+  "profiles": [
+    {
+      "tag": "heavy-budget-loaded-low",
+      "views": 6,
+      "peak": {
+        "calls": 35,
+        "triangles": 1160,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1857515
+      }
+    },
+    {
+      "tag": "heavy-budget-loaded-high",
+      "views": 6,
+      "peak": {
+        "calls": 37,
+        "triangles": 16290,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5624326
+      }
+    }
+  ],
+  "phaseAtSnapshot": "running",
+  "activeAtSnapshot": "heavy-budget-accessible-low"
+}

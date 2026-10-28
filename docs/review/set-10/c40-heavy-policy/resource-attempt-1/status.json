@@ -1,0 +1,78 @@
+{
+  "phase": "running",
+  "jobs": [
+    {
+      "tag": "heavy-budget-loaded-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "heavyassess,heavygrip,heavyteam,heavytruck,heavycritical,heavystatus",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_PACKAGE_HEAVY": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "heavy-budget-loaded-low-low-heavytruck.png": "dd4aee9a33dca73e3ecc016ef5733256a650f432d9b664a4728e3aa5939734fd",
+        "heavy-budget-loaded-low-low-heavygrip.png": "386f5359f854900382f4fb94bfb18e2a686c855487504a0fb24330ecf682af3f",
+        "heavy-budget-loaded-low-low-heavystatus.png": "b153fcc47f060c49d85c11de15134bd02607f4501650e5747731d433a4461358",
+        "heavy-budget-loaded-low-low-heavycritical.png": "58291aad29127827b3d27b3aaca016acde3321110f1d12ac6524f7e2b6c0e5a6",
+        "heavy-budget-loaded-low-low-heavyteam.png": "ad9187a0b4c75e87dbdfab0a39ebadccb8a56b63c835666a29d81161b361293b",
+        "bench-heavy-budget-loaded-low-low.json": "0a933c35bd79c64637283a8f2d017bf5471fd57d086efa588a6196ece16a93cf",
+        "heavy-budget-loaded-low-low-heavyassess.png": "d7f23650c9af8c8b3dfa2792b6fd0a541d91b2e145967aae7e60a7f00f225d26"
+      },
+      "peak": {
+        "calls": 35,
+        "triangles": 1160,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1857515
+      }
+    },
+    {
+      "tag": "heavy-budget-loaded-high",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "heavyassess,heavygrip,heavyteam,heavytruck,heavycritical,heavystatus",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_PACKAGE_HEAVY": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "bench-heavy-budget-loaded-high-high.json": "fe2a052564ea63e2b9377a2435c461408d6b0f2968b312665bcac4fdab915852",
+        "heavy-budget-loaded-high-high-heavyassess.png": "36d5840d66ad708d688961e2ed5ae224a9c43a9e5c71adc9e9eed9ab97a6d8a7",
+        "heavy-budget-loaded-high-high-heavyteam.png": "6b09c809f1bc57f9e42b47e8147ceb4e568aa88f709dbae31f9e4c6c39917b7e",
+        "heavy-budget-loaded-high-high-heavystatus.png": "50f13743886bca2f7be7d1551bfeb837567868a2fbd705aee7fe11f875e1b33a",
+        "heavy-budget-loaded-high-high-heavycritical.png": "2255a84538936042c652c21292f38aa14a81519217a50f0257bff34044606b22",
+        "heavy-budget-loaded-high-high-heavygrip.png": "3ff400cf44dad08e7a336b3d06d17852b5764958d313c6128a2f15265885b9f1",
+        "heavy-budget-loaded-high-high-heavytruck.png": "0c1bbe2df01b086a4e932f39d14654d2279172495ae02bc19278a4640bada228"
+      },
+      "peak": {
+        "calls": 37,
+        "triangles": 16290,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5624326
+      }
+    }
+  ],
+  "pid": 196309,
+  "startedAt": 1793178047.744466,
+  "serverPid": 196370,
+  "tag": "heavy-budget-accessible-low",
+  "childPid": 197128
+}
