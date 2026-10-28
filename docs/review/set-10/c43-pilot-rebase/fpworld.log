@@ -1,0 +1,83 @@
+✔ parking practice at Dispatch opens its own menu instead of a workday completion (5.198308ms)
+✔ render diagnostics count world, mirror and composite once per frame without accumulating (4.884163ms)
+✔ depot parcels and vehicle inspection/entry points can be reached with real raycasts (88.682278ms)
+✔ all six empty shelf positions and the restraint are selectable from the cargo aisle (54.994897ms)
+✔ loaded parcel raycasts follow the parked van rotation and obey the closed door (9.364796ms)
+✔ all customer doors are outside the house occluder and reachable from the path (13.758679ms)
+✔ hub stations are pickable and inactive route interactions are invisible (12.001015ms)
+✔ the uploaded High desks share three stable instance batches and preserve exact station rays and counter occluders (656.628884ms)
+✔ Low never requests the High furniture, and a missing High desk keeps all original station targets (539.837951ms)
+✔ low graphics retains identical parcel, door and vehicle interaction targets (8.296935ms)
+✔ the sprung body dives and rolls without tilting the tyres, and reduced motion removes both (8.297206ms)
+✔ turning the head moves the view without carrying the dashboard or changing the saved mission (4.171878ms)
+✔ reduced motion clears even the last fractional degree of speed zoom (44.72248ms)
+✔ walkaround front and mirror marks leave the headlights directly reachable (19.496421ms)
+✔ three physical mirrors remain live without a button and reflection visibility restores exactly (8.148752ms)
+✔ inspection refreshes the raycast rather than opening a formerly aimed-at parcel (0.548157ms)
+✔ a carried package can still be put back on its empty depot table without another target (0.617402ms)
+✔ scanner reads the barcode face, not the back of a box or through a closed door (6.085547ms)
+✔ a carried parcel is raised for scanning and keeps its actual identity (4.944583ms)
+✔ low graphics keeps barcode scanning on cargo shelves (3.496478ms)
+✔ legacy parcel visibility keeps its original range when compacting render instances (8.416675ms)
+✔ saving practice preserves a separate suspended workday (0.770834ms)
+✔ scene transition saves before swapping models and ignores duplicate requests (0.298901ms)
+✔ both hub-workday exit choices checkpoint then pause without entering the prototype hub (0.260884ms)
+✔ successful hub workday dispatch hands the numbered summary to results and clears its checkpoint (0.972428ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1552.322791
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.

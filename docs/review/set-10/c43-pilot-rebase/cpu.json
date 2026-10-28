@@ -1,0 +1,84 @@
+{
+  "base": "C42 6e689fae over current-pilot C41/C38",
+  "candidate": "7aa78f06df0fafbc90998e2b50b37bd76922a8f5",
+  "priorTip": "381c15d7",
+  "backupBranch": "codex/c43-before-pilot-oct28",
+  "suites": [
+    {
+      "file": "test/fpscannerphoto.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscannerstop.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscannerstopgeometry.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscannerstopscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscannerstopworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcustomerprotocolscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemblockedworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0
+    }
+  ],
+  "registryContent": "All index-loaded data passed OTR.validate.all with zero errors. Stripping the three added scene3d lines restores the exact parent registry bytes.",
+  "sources": {
+    "data/modules.js": "de5cba9b3fcdd587950bdb2025bf00e663135e4fb7f07a0696862064d0184550",
+    "src/core/fpscanneridentity.js": "86ac59f42b92650ef6965461d9869056337b671f147148392a2c5f693f610db6",
+    "src/core/fpscannerphoto.js": "d26292a456b9e314b96636bfe3913b6e77039975bc29e403ecb88e8591cae3c9",
+    "src/core/fpscannerstop.js": "6a8fea5c3b14a2fbc9ca4c7aa8465753af17829f721338ca3ba25abf592381f0",
+    "src/core/fpscannerstopscenario.js": "4517ee574f9eb9dc9f77516df1a15b7e117b206f121c725cd496547575991f4b",
+    "src/core/fpscannerstopworld.js": "20c71e1e7a2ad714243562dcbaf761d9e44f0e4d28e960622b00d4bd3a3afd64",
+    "src/core/fpworld.js": "2e81ecdb5ec280bfe5794293af99a315ecba203c52181abd32459a955ae03182",
+    "src/scenes/FirstPersonScenarioScene.js": "229d68a40733bcabed3182c280cb0e5e915b15a4a5b7b8495681a68069cb1d3c",
+    "test/fpbench.js": "c2ef8634ac1faa2f8c8d3ee293ea99ad2d836a8e3a305a7e9b69d1835a16085d",
+    "test/fpscannerphoto.js": "172663513b83c511cd40e3f46f884864ad4c09c8d45e03a2237252027830cd35",
+    "test/fpscannerstop.js": "2ad18ba855545cf6b2890daa513e96f7813341718f49e5c86e825cbe2dba237f",
+    "test/fpscannerstopbrowser.js": "bbbc310e3b7d9ebb8038c86e404e282e47b3cdda98832639f65520da1bf89309",
+    "test/fpscannerstopgeometry.js": "d3a4561e6efa39c8775b9fb9297a435e3423b1ab7af1adcad91189be8bfd5b55",
+    "test/fpscannerstopscenario.js": "2ede8b7493d0494931fbbeebc1bc66562d096d301b64a8b0759ddbccf9524eca",
+    "test/fpscannerstopworld.js": "8295e1419db65129b3c50b302f5b904ac75ec26578a592a005143699f5c3bdbd",
+    "test/tools/fp-scanner-context.js": "019272c8bad4cb0d912a5452800ce33875c5c97bbf0316fe9809b16458ca4787",
+    "test/tools/fp-scanner-fixture.js": "73ca7b96b73e2ce472c3baadec8049d799d471bf5e07258bf6b649838177d5f0",
+    "test/tools/fp-scanner-pose.js": "5c696bf0b3be996e3d4134f7569835179ac7e948cf0957e39a8aaf102d389a89",
+    "test/tools/fp-scanner-quality.js": "4692816d38caa277b2a1f3fc6a2925cf21794b75e86ec806beae799465a02c89"
+  },
+  "scope": "Current-pilot C43 CPU/content/syntax. Physical hints, scanner photo callbacks, C41 protocols, B178 fonts and B2/B3 controls retained. Three scanner links authorized 27 Oct. Historic native/resources retain their original scope; fresh browser checks are separate.",
+  "diagnostic": "test/data.js was misselected by filename: it tests unrelated trainee-data server APIs and loopback binding was denied by the default sandbox. Its log is separate and is not counted as registry coverage or a product regression. No passed core suite was rerun."
+}

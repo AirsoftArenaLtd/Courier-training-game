@@ -1,0 +1,14 @@
+✔ intercom, reception and locker complete through actual targets, carried parcels and voluntary walking (205.98418ms)
+✔ remote target ids cannot open an intercom, reception or locker control (14.000134ms)
+✔ the real intercom wait signals readiness once, pauses without a buzz and rearms for another call (50.728898ms)
+✔ cancelled signatures, obstructed camera frames and expiry cannot invent a completed protocol (25.655307ms)
+✔ the mounted protocol fixtures have real collision boundaries and bounded geometry (84.480035ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 401.928725
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
