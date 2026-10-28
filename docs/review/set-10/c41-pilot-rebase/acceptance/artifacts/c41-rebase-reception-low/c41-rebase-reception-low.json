@@ -1,0 +1,578 @@
+{
+  "quality": "low",
+  "lang": "en",
+  "large": false,
+  "kind": "reception",
+  "bad": false,
+  "checks": 192,
+  "layouts": [
+    {
+      "name": "brief",
+      "rows": [
+        {
+          "source": "Customer protocol practice",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Complete the customer protocol and return to the parked van.\n\nComplete the customer protocol, record the handover and return to the parked van.\n\nYou have 480 seconds to complete this scenario.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 306
+        },
+        {
+          "source": "1. Begin the scenario.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the station.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls 0",
+      "rows": [
+        {
+          "source": "Use the protocol controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Use W/A/S/D to walk. Press O to face a nearby physical target, then U to interact. The van stays parked during this scenario.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls 1",
+      "rows": [
+        {
+          "source": "Use the protocol controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Use the cargo doors to take and scan the parcel. Close the cargo doors before returning to the cab. Face the intercom, entrance, reception desk or locker to use its controls.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls 2",
+      "rows": [
+        {
+          "source": "Use the protocol controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Press TAB to read the stop details or open the locker camera. While using the camera, frame the actual closed compartment, then press U to capture it. Pause, handheld and control pages stop the scenario clocks.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "climb down",
+      "rows": [
+        {
+          "source": "Choose how to climb down.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The van is parked at the stop.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Face the cab, hold the grab handle and step down.",
+          "scale": 1,
+          "font": 18,
+          "top": 450.5,
+          "bottom": 471.5
+        },
+        {
+          "source": "2. Hop down to the curb.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "3. Remain in the cab.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "parcel",
+      "rows": [
+        {
+          "source": "Read the package label.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "This package is for Ana Morales.\nIts address is 14 Alder Ln.\nIt weighs 8 pounds and uses signature service.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 250
+        },
+        {
+          "source": "1. Take this package from its shelf.",
+          "scale": 1,
+          "font": 18,
+          "top": 450.5,
+          "bottom": 471.5
+        },
+        {
+          "source": "2. Scan this package.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "3. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "reception",
+      "rows": [
+        {
+          "source": "Use the reception desk.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The person at reception is Alex Morgan.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Record who will receive the parcel.",
+          "scale": 1,
+          "font": 18,
+          "top": 392.5,
+          "bottom": 413.5
+        },
+        {
+          "source": "2. Capture the receiver's signature.",
+          "scale": 1,
+          "font": 18,
+          "top": 450.5,
+          "bottom": 471.5
+        },
+        {
+          "source": "3. Hand the parcel to the recorded receiver.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "4. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "receiver",
+      "rows": [
+        {
+          "source": "Record the receiver's name.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Who is accepting the parcel at reception?",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Record Alex Morgan as the receiver.",
+          "scale": 1,
+          "font": 18,
+          "top": 450.5,
+          "bottom": 471.5
+        },
+        {
+          "source": "2. Read the next name.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "3. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "climb in",
+      "rows": [
+        {
+          "source": "Choose how to climb into the cab.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The van is parked at the stop.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Hold the grab handle and step up one foot at a time.",
+          "scale": 1,
+          "font": 18,
+          "top": 450.5,
+          "bottom": 471.5
+        },
+        {
+          "source": "2. Jump up in one move.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "3. Remain beside the van.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "stop report",
+      "rows": [
+        {
+          "source": "Review stop 1.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "This stop has ended.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Finish the scenario.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    }
+  ],
+  "shots": [
+    "c41-rebase-reception-low-reception.png",
+    "c41-rebase-reception-low-report.png"
+  ],
+  "errors": [],
+  "scope": "Real persistent profile and suspended workday plus the prepared optional descriptor are setup fixtures. Walking, cargo, parcel, scanning, intercom, reception, signature, locker, camera, climbing and finish use real keyboard controls and physical rays. No subsequent pose, clock, score, verdict or completion writes. This build uses the shipped B-178 language font selection without an override, with an actual Phaser-font glyph-family probe. New sentences await translations; shared optional launcher and resource checks are separate.",
+  "fontProof": {
+    "lang": "en",
+    "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "override": null
+  },
+  "completedStop": {
+    "mode": "cab",
+    "phase": "report",
+    "elapsed": 27.036333333333584,
+    "sequence": {
+      "version": 1,
+      "kind": "reception",
+      "parcel": "p1",
+      "failed": false,
+      "role": "reception",
+      "signed": true,
+      "handed": true
+    },
+    "buzzed": false,
+    "state": {
+      "inVan": true,
+      "carrying": [],
+      "scanned": {
+        "p1": true
+      },
+      "scannedInVan": true,
+      "pulls": 1,
+      "wrongPulls": 0,
+      "addressChecked": false,
+      "knocks": 0,
+      "answered": false,
+      "talked": false,
+      "vanTrips": 0,
+      "outcome": "delivered",
+      "type": "reception",
+      "signer": "Alex Morgan",
+      "code": null,
+      "tagPrinted": false,
+      "tagAttached": false,
+      "spot": null,
+      "photo": null,
+      "idResult": null,
+      "exitSafe": true,
+      "enterSafe": true,
+      "hazards": {},
+      "delivered": [
+        "p1"
+      ],
+      "elapsed": 27.036333333333584,
+      "done": true
+    }
+  },
+  "result": {
+    "id": "m3-reception",
+    "result": {
+      "score": 1100,
+      "ratios": {
+        "service": 1,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "log": {
+        "items": [
+          {
+            "cat": "safety",
+            "got": 2,
+            "max": 2,
+            "label": "Climbed down from the cab with three points of contact",
+            "good": true,
+            "partial": false,
+            "lesson": "Use three points of contact getting in and out of the truck. Jumping down is one of the most common ways couriers get hurt.",
+            "feedback": null,
+            "group": "m3-reception",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218508198,
+            "where": null
+          },
+          {
+            "cat": "safety",
+            "got": 2,
+            "max": 2,
+            "label": "Climbed back into the cab safely",
+            "good": true,
+            "partial": false,
+            "lesson": "Grab handle, one step at a time, and never jump up while carrying anything.",
+            "feedback": null,
+            "group": "m3-reception",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218508198,
+            "where": null
+          },
+          {
+            "cat": "efficiency",
+            "got": 1,
+            "max": 1,
+            "label": "Scanned the package before leaving the truck",
+            "good": true,
+            "partial": false,
+            "lesson": "Scan before you step out. It confirms the stop and shows signature needs before you walk to the door.",
+            "feedback": null,
+            "group": "m3-reception",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218508198,
+            "where": null
+          },
+          {
+            "cat": "efficiency",
+            "got": 3,
+            "max": 3,
+            "label": "Finished the stop in good time (27s, par 160s)",
+            "good": true,
+            "partial": false,
+            "lesson": "Plan the stop before you step out: package pulled, scanned and ready. It saves walks back to the truck.",
+            "feedback": null,
+            "group": "m3-reception",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218508198,
+            "where": null
+          },
+          {
+            "cat": "efficiency",
+            "got": 1,
+            "max": 1,
+            "label": "Pulled only the right package from the shelves",
+            "good": true,
+            "partial": false,
+            "lesson": null,
+            "feedback": null,
+            "group": "m3-reception",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218508198,
+            "where": null
+          },
+          {
+            "cat": "service",
+            "got": 2,
+            "max": 2,
+            "label": "Left the parcel at reception correctly",
+            "good": true,
+            "partial": false,
+            "lesson": "Get the name and a signature from the person at reception, and record who took it.",
+            "feedback": null,
+            "group": "m3-reception",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218508198,
+            "where": null,
+            "type": "stop.reception"
+          }
+        ],
+        "group": "m3-reception"
+      },
+      "lessons": [],
+      "stats": {
+        "completed": true,
+        "stops": [
+          {
+            "outcome": "delivered",
+            "code": null,
+            "type": "reception",
+            "time": 27.036333333333584,
+            "id": "m3-reception"
+          }
+        ],
+        "protocol": {
+          "type": "stop.reception",
+          "complete": true,
+          "ok": true,
+          "failed": false
+        },
+        "seconds": 27
+      }
+    },
+    "stars": {
+      "service": 3,
+      "safety": 3,
+      "efficiency": 3
+    },
+    "record": {
+      "plays": 1,
+      "bestScore": 1100,
+      "bestStars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "lastPlayed": 1793218509378
+    }
+  },
+  "durable": true,
+  "complete": true
+}

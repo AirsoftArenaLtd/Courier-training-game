@@ -1,0 +1,597 @@
+{
+  "quality": "low",
+  "lang": "en",
+  "large": false,
+  "kind": "intercom",
+  "bad": false,
+  "checks": 203,
+  "layouts": [
+    {
+      "name": "brief",
+      "rows": [
+        {
+          "source": "Customer protocol practice",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Complete the customer protocol and return to the parked van.\n\nComplete the customer protocol, record the handover and return to the parked van.\n\nYou have 480 seconds to complete this scenario.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 306
+        },
+        {
+          "source": "1. Begin the scenario.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the station.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls 0",
+      "rows": [
+        {
+          "source": "Use the protocol controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Use W/A/S/D to walk. Press O to face a nearby physical target, then U to interact. The van stays parked during this scenario.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls 1",
+      "rows": [
+        {
+          "source": "Use the protocol controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Use the cargo doors to take and scan the parcel. Close the cargo doors before returning to the cab. Face the intercom, entrance, reception desk or locker to use its controls.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls 2",
+      "rows": [
+        {
+          "source": "Use the protocol controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Press TAB to read the stop details or open the locker camera. While using the camera, frame the actual closed compartment, then press U to capture it. Pause, handheld and control pages stop the scenario clocks.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "climb down",
+      "rows": [
+        {
+          "source": "Choose how to climb down.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The van is parked at the stop.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Face the cab, hold the grab handle and step down.",
+          "scale": 1,
+          "font": 18,
+          "top": 450.5,
+          "bottom": 471.5
+        },
+        {
+          "source": "2. Hop down to the curb.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "3. Remain in the cab.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "parcel",
+      "rows": [
+        {
+          "source": "Read the package label.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "This package is for Ana Morales.\nIts address is 14 Alder Ln.\nIt weighs 8 pounds and uses standard service.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 250
+        },
+        {
+          "source": "1. Take this package from its shelf.",
+          "scale": 1,
+          "font": 18,
+          "top": 450.5,
+          "bottom": 471.5
+        },
+        {
+          "source": "2. Scan this package.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "3. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "intercom",
+      "rows": [
+        {
+          "source": "Use the intercom.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The selected intercom button is 12.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Identify yourself as the courier making a delivery.",
+          "scale": 1,
+          "font": 18,
+          "top": 450.5,
+          "bottom": 471.5
+        },
+        {
+          "source": "2. Say that you are visiting the building.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "3. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "entrance",
+      "rows": [
+        {
+          "source": "Use the building entrance.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The entrance door has an electric latch.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Try to open the entrance door.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "handover",
+      "rows": [
+        {
+          "source": "Hand over the parcel.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The person is at the open entrance.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Give the scanned parcel to the recipient.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "climb in",
+      "rows": [
+        {
+          "source": "Choose how to climb into the cab.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The van is parked at the stop.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Hold the grab handle and step up one foot at a time.",
+          "scale": 1,
+          "font": 18,
+          "top": 450.5,
+          "bottom": 471.5
+        },
+        {
+          "source": "2. Jump up in one move.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "3. Remain beside the van.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "stop report",
+      "rows": [
+        {
+          "source": "Review stop 1.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "This stop has ended.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Finish the scenario.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    }
+  ],
+  "shots": [
+    "c41-rebase-intercom-low-intercom.png",
+    "c41-rebase-intercom-low-report.png"
+  ],
+  "errors": [],
+  "scope": "Real persistent profile and suspended workday plus the prepared optional descriptor are setup fixtures. Walking, cargo, parcel, scanning, intercom, reception, signature, locker, camera, climbing and finish use real keyboard controls and physical rays. No subsequent pose, clock, score, verdict or completion writes. This build uses the shipped B-178 language font selection without an override, with an actual Phaser-font glyph-family probe. New sentences await translations; shared optional launcher and resource checks are separate.",
+  "fontProof": {
+    "lang": "en",
+    "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "override": null
+  },
+  "completedStop": {
+    "mode": "cab",
+    "phase": "report",
+    "elapsed": 30.614796666666965,
+    "sequence": {
+      "version": 1,
+      "kind": "intercom",
+      "parcel": "p1",
+      "failed": false,
+      "calledAt": 13.864796666666729,
+      "callValid": true,
+      "opened": true
+    },
+    "buzzed": true,
+    "state": {
+      "inVan": true,
+      "carrying": [],
+      "scanned": {
+        "p1": true
+      },
+      "scannedInVan": true,
+      "pulls": 1,
+      "wrongPulls": 0,
+      "addressChecked": false,
+      "knocks": 0,
+      "answered": true,
+      "talked": false,
+      "vanTrips": 0,
+      "outcome": "delivered",
+      "type": "recipient",
+      "signer": null,
+      "code": null,
+      "tagPrinted": false,
+      "tagAttached": false,
+      "spot": null,
+      "photo": null,
+      "idResult": null,
+      "exitSafe": true,
+      "enterSafe": true,
+      "hazards": {},
+      "delivered": [
+        "p1"
+      ],
+      "elapsed": 30.614796666666965,
+      "done": true
+    }
+  },
+  "result": {
+    "id": "m3-intercom",
+    "result": {
+      "score": 1100,
+      "ratios": {
+        "service": 1,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "log": {
+        "items": [
+          {
+            "cat": "safety",
+            "got": 2,
+            "max": 2,
+            "label": "Climbed down from the cab with three points of contact",
+            "good": true,
+            "partial": false,
+            "lesson": "Use three points of contact getting in and out of the truck. Jumping down is one of the most common ways couriers get hurt.",
+            "feedback": null,
+            "group": "m3-intercom",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218434377,
+            "where": null
+          },
+          {
+            "cat": "safety",
+            "got": 2,
+            "max": 2,
+            "label": "Climbed back into the cab safely",
+            "good": true,
+            "partial": false,
+            "lesson": "Grab handle, one step at a time, and never jump up while carrying anything.",
+            "feedback": null,
+            "group": "m3-intercom",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218434377,
+            "where": null
+          },
+          {
+            "cat": "efficiency",
+            "got": 1,
+            "max": 1,
+            "label": "Scanned the package before leaving the truck",
+            "good": true,
+            "partial": false,
+            "lesson": "Scan before you step out. It confirms the stop and shows signature needs before you walk to the door.",
+            "feedback": null,
+            "group": "m3-intercom",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218434377,
+            "where": null
+          },
+          {
+            "cat": "efficiency",
+            "got": 3,
+            "max": 3,
+            "label": "Finished the stop in good time (31s, par 160s)",
+            "good": true,
+            "partial": false,
+            "lesson": "Plan the stop before you step out: package pulled, scanned and ready. It saves walks back to the truck.",
+            "feedback": null,
+            "group": "m3-intercom",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218434377,
+            "where": null
+          },
+          {
+            "cat": "efficiency",
+            "got": 1,
+            "max": 1,
+            "label": "Pulled only the right package from the shelves",
+            "good": true,
+            "partial": false,
+            "lesson": null,
+            "feedback": null,
+            "group": "m3-intercom",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218434377,
+            "where": null
+          },
+          {
+            "cat": "service",
+            "got": 2,
+            "max": 2,
+            "label": "Used the intercom correctly",
+            "good": true,
+            "partial": false,
+            "lesson": "Press the right button, say who you are and what you bring, then wait for the buzz.",
+            "feedback": null,
+            "group": "m3-intercom",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218434377,
+            "where": null,
+            "type": "stop.intercom"
+          }
+        ],
+        "group": "m3-intercom"
+      },
+      "lessons": [],
+      "stats": {
+        "completed": true,
+        "stops": [
+          {
+            "outcome": "delivered",
+            "code": null,
+            "type": "recipient",
+            "time": 30.614796666666965,
+            "id": "m3-intercom"
+          }
+        ],
+        "protocol": {
+          "type": "stop.intercom",
+          "complete": true,
+          "ok": true,
+          "failed": false
+        },
+        "seconds": 31
+      }
+    },
+    "stars": {
+      "service": 3,
+      "safety": 3,
+      "efficiency": 3
+    },
+    "record": {
+      "plays": 1,
+      "bestScore": 1100,
+      "bestStars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "lastPlayed": 1793218435232
+    }
+  },
+  "durable": true,
+  "complete": true
+}

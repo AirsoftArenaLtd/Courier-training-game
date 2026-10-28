@@ -1,0 +1,82 @@
+{
+  "quality": "high",
+  "lang": "ta",
+  "large": true,
+  "kind": "intercom",
+  "bad": false,
+  "checks": 1,
+  "layouts": [],
+  "shots": [],
+  "errors": [],
+  "scope": "Real persistent profile and suspended workday plus the prepared optional descriptor are setup fixtures. Walking, cargo, parcel, scanning, intercom, reception, signature, locker, camera, climbing and finish use real keyboard controls and physical rays. No subsequent pose, clock, score, verdict or completion writes. This build uses the shipped B-178 language font selection without an override, with an actual Phaser-font glyph-family probe. New sentences await translations; shared optional launcher and resource checks are separate.",
+  "failure": {
+    "message": "Tamil glyphs resolve through the actual game text font.",
+    "stack": "AssertionError [ERR_ASSERTION]: Tamil glyphs resolve through the actual game text font.\n    at module.exports (/workspace/c41-customer-interaction/test/tools/fp-script-font-proof.js:11:10)\n    at async /workspace/c41-customer-interaction/test/fpcustomerprotocolbrowser.js:22:239"
+  },
+  "state": {
+    "mode": "cab",
+    "player": {
+      "x": -0.1,
+      "z": -43.7,
+      "yaw": 0,
+      "pitch": 0
+    },
+    "phase": "brief",
+    "target": null,
+    "panel": [
+      "Customer protocol practice",
+      "Complete the customer protocol and return to the parked van.\n\nComplete the customer protocol, record the handover and return to the parked van.\n\nYou have 480 seconds to complete this scenario.",
+      "1. Begin the scenario.",
+      "2. Return to the station."
+    ],
+    "stop": {
+      "inVan": true,
+      "carrying": [],
+      "scanned": {},
+      "scannedInVan": false,
+      "pulls": 0,
+      "wrongPulls": 0,
+      "addressChecked": false,
+      "knocks": 0,
+      "answered": false,
+      "talked": false,
+      "vanTrips": 0,
+      "outcome": null,
+      "type": null,
+      "signer": null,
+      "code": null,
+      "tagPrinted": false,
+      "tagAttached": false,
+      "spot": null,
+      "photo": null,
+      "idResult": null,
+      "exitSafe": null,
+      "enterSafe": null,
+      "hazards": {},
+      "delivered": [],
+      "elapsed": 0,
+      "done": false
+    },
+    "protocol": {
+      "spec": {
+        "kind": "intercom",
+        "parcel": "p1",
+        "button": "12",
+        "available": true
+      },
+      "sequence": {
+        "version": 1,
+        "kind": "intercom",
+        "parcel": "p1",
+        "failed": false,
+        "calledAt": null,
+        "callValid": false,
+        "opened": false
+      },
+      "elapsed": 0,
+      "evaluated": false,
+      "photoMode": false,
+      "buzzed": false
+    }
+  }
+}

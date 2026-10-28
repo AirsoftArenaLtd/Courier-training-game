@@ -7,7 +7,8 @@ module.exports=async(page,sceneKey='FirstPersonScenarioScene')=>{
  const id='otr-script-font-proof',session=await page.createCDPSession();
  try{
   await page.evaluate(({id,family})=>{const el=document.createElement('span');el.id=id;el.textContent='பாதுகாப்பு வாசல்கள் முக்கியப் பாடங்கள்';Object.assign(el.style,{fontFamily:family,fontWeight:'900',fontSize:'34px',position:'fixed',left:'-10000px',top:'-10000px'});document.body.appendChild(el);},{id,family:proof.family});
+  proof.layout=await page.evaluate(async id=>{const el=document.getElementById(id),r=el.getBoundingClientRect();await document.fonts.load('900 34px '+el.style.fontFamily,el.textContent);await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));return {width:r.width,font:getComputedStyle(el).font};},id);
   await session.send('DOM.enable');await session.send('CSS.enable');const doc=await session.send('DOM.getDocument'),node=await session.send('DOM.querySelector',{nodeId:doc.root.nodeId,selector:'#'+id});const result=await session.send('CSS.getPlatformFontsForNode',{nodeId:node.nodeId});proof.platformFonts=result.fonts;
-  assert.ok(proof.platformFonts.some(f=>/Noto.*Tamil/i.test(f.familyName)&&f.glyphCount>0),'Tamil glyphs resolve through the actual game text font.');return proof;
+  assert.ok(proof.platformFonts.some(f=>/Noto.*Tamil/i.test(f.familyName)&&f.glyphCount>0),'Tamil glyphs resolve through the actual game text font: '+JSON.stringify(proof));return proof;
  }finally{await page.evaluate(id=>document.getElementById(id)?.remove(),id);await session.detach();}
 };
