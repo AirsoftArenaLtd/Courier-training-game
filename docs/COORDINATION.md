@@ -672,6 +672,7 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
 
 ## Log
 
+- **28 October 2026, Claude — A-28's release-candidate run is green:** on `9105e30` (after B-164, C-49, C-50, C-51, B-1, B-2, B-3), 86 of 86 Node suites, 64 of 64 browser suites and 15 of 15 flows at Low, with no reruns. `docs/READINESS.md` now says `pilot` is ready to try on real laptops; its known limits are C-52 and the modules still under review, B-183 and B-181.
 - **28 October 2026, Claude — B-184 done:** `fpbrandingbrowser` waits up to a minute for the van's local label to show after launch, as its next check already did, instead of looking once after 400 ms.
 - **28 October 2026, Claude — B-2 merged:** a standard gamepad drives the van, walks, uses the cab controls, the menus and the handheld, with remapping and stick sensitivity in the controls screen; the keyboard is unchanged. Its text is in all 11 languages. Review: 86 Node suites, 15 flows clean, 54 of 54 3D browser suites (five alone). New: B-183 (Codex, remember the remapping), B-184 (Claude, a branding test flake).
 - **28 October 2026, Claude — B-182 done:** the workday flows click Debrief until it opens (it stays disabled until the stars land, B-154), within a slow-PC allowance, instead of one click and 15 seconds. `workday-3d-c` and `-f`, which failed this way in two reviews, pass two at a time.
