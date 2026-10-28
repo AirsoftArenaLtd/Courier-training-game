@@ -1,0 +1,22 @@
+[
+  {
+    "suite": "test/fpgamepadprefs.js",
+    "pass": 5
+  },
+  {
+    "suite": "test/fpgamepad.js",
+    "pass": 8
+  },
+  {
+    "suite": "test/fpgamepadscene.js",
+    "pass": 13
+  },
+  {
+    "suite": "test/fpgamepadcapture.js",
+    "pass": 7
+  },
+  {
+    "suite": "test/fpgamepadaffinity.js",
+    "pass": 1
+  }
+]

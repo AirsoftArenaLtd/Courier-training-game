@@ -1,0 +1,8 @@
+TypeError: Cannot read properties of null (reading 'van')
+    at evaluate (evaluate at state (/workspace/b183-gamepad-persistence/test/fpgamepadremapbrowser.js:14:23), <anonymous>:0:118)
+    at #evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/IsolatedWorld.js:105:16)
+    at async CdpFrame.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:362:20)
+    at async CdpPage.evaluate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:830:20)
+    at async /workspace/b183-gamepad-persistence/test/fpgamepadremapbrowser.js:60:210

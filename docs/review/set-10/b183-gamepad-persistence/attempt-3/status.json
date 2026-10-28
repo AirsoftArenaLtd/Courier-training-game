@@ -1,0 +1,57 @@
+{
+  "phase": "complete",
+  "jobs": [
+    {
+      "tag": "saved-remap-low-en",
+      "script": "test/fpgamepadremapbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "saved-remap-low-en-remapped.png": "1e5c2021aba3e47d3738d7c1006745f8f377c851f24202f4d99749b4e0a478cf",
+        "saved-remap-low-en-driving-guide.png": "1fc3ab7edf08bdd2eb4b3b16a11c0919e637fec8b12c2c5c6794a39c4e49d817",
+        "saved-remap-low-en-conflict.png": "53dea3e60ed504b9cb9ec298d8b91fffd43f08ea773c661d4773d33e1f5d8282",
+        "saved-remap-low-en-deadzone.png": "920e687eb53397f5e387b85e04680bc113aefee65f76a14fc7e77c5fc29cd652",
+        "saved-remap-low-en-capture.png": "7ed8eb43651a4e44c3a922f3e457875d276086ca6bbe1ead088b3abe64ac5d5e",
+        "saved-remap-low-en-reset.png": "da538e8dcf021f9a2dded1b335bb01e1c8eacf0761b8a01fe9185a7dad4769b0",
+        "saved-remap-low-en.json": "87db5ee87ae91ccf6f46466f0ddf1101984a083359f0f6a76eacefa211e6e6e7",
+        "saved-remap-low-en-bindings.png": "ca7eff008bc5d8677a24adc6e8d6f0aa850a940971379065e7c7d169ead16b40",
+        "saved-remap-low-en-too-many-overrides.png": "7942d93e19b930c432aa61f33087b645f9488174d150100c9bcdd1788e132e4e"
+      }
+    },
+    {
+      "tag": "saved-remap-high-ta",
+      "script": "test/fpgamepadremapbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "saved-remap-high-ta.json": "cfaa5d58916903bd0aaea10ad192e9e276a47af304a6ef22f3f4341c20a9fc3c",
+        "saved-remap-high-ta-remapped.png": "bde0e20c688c896df722152eb3091388bca4acc100ca37a797b23db62a305190",
+        "saved-remap-high-ta-too-many-overrides.png": "81018097e45096f99a989d695fc15a27a11b0fac04591f79c7b462eda48152a4",
+        "saved-remap-high-ta-bindings.png": "2a7505d4f18e9352178f95b98ea0869959b2e799f760031ce757177ba2f9aa64",
+        "saved-remap-high-ta-conflict.png": "7b335fb296c3b057cb4b22efafd36b06f1f5623a1edda9c8ed3f572a20e133cd",
+        "saved-remap-high-ta-reset.png": "0d33e7487d7bb28c5b1a216303088bab1f1aa83787d6019dcfe45cbafc295c06",
+        "saved-remap-high-ta-deadzone.png": "775f29117ed0d557049e1e8710da9cf29f093eeb7f39bf86040805d4292e240e",
+        "saved-remap-high-ta-capture.png": "f0dcd638b9691f7f4f92e4980a10ec373d9599658be7afdc089f06056a7eff07",
+        "saved-remap-high-ta-driving-guide.png": "854e10d8b68773bf5e79387dd5e04354606326f0502e57d4aa0cd33d4544eab2"
+      }
+    }
+  ],
+  "pid": 189373,
+  "startedAt": 1793174560.3104384,
+  "serverPid": 189440,
+  "tag": "saved-remap-high-ta",
+  "childPid": 189904,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793175108.0655255
+}

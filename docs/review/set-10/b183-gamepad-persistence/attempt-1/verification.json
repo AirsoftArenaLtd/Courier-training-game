@@ -1,0 +1,8 @@
+{
+  "status": "failed native reload fixture; not acceptance",
+  "inputs": 662,
+  "partialChecks": 101,
+  "completedLayoutAudits": 21,
+  "failure": "state() assumed an active van after page reload; the prototype correctly opens its hub. Read saved bindings independently of model presence.",
+  "cleanup": true
+}

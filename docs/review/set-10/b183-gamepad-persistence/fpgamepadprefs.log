@@ -1,0 +1,13 @@
+✔ saved overrides contain only valid changed indices and sensitivity, never hardware fields (2.099856ms)
+✔ remapping saves through the existing writer and survives serialization without keyboard changes (1.302815ms)
+✔ disabled axes and sensitivity persist and restoring their defaults removes redundant overrides (0.508487ms)
+✔ an oversized configuration leaves saved bindings untouched and offers a way back (0.342306ms)
+✔ the existing reset confirmation clears only saved gamepad overrides (0.583289ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 42.413586
