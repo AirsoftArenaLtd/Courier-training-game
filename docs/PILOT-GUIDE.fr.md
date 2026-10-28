@@ -33,6 +33,11 @@ n'a donc besoin de l'entendre pour jouer. Si un PC a du mal avec la 3D, choisiss
 automatiques tant que des locuteurs natifs ne les ont pas relues (`docs/review/`) ; demandez aux stagiaires de signaler
 toute formulation qui semble incorrecte.
 
+**6. Manette.** Une manette standard fonctionne aussi dans le monde 3D : appuyez sur l'un de ses boutons, puis relâchez
+toutes les commandes. **Esc → Commandes et aide → Commandes de la manette** montre le rôle de chaque bouton et permet au
+stagiaire d'en changer n'importe lequel ou de régler la sensibilité des sticks ; ses choix sont enregistrés avec sa
+progression. Le clavier et la souris continuent de fonctionner.
+
 ## Une première séance (environ une heure)
 
 | Durée | Contenu | Remarques |
@@ -153,6 +158,7 @@ après, certificat, ses données) et la partie LMS se trouvent dans le guide ang
 | Un stagiaire ne peut pas se connecter | Vérifiez l'identifiant d'employé (majuscules et minuscules sont indifférentes). Cinq essais erronés le bloquent 15 minutes ; **Gérer → Nouveau mot de passe** (Manage → New password) le débloque aussitôt. |
 | Le jeu ne démarre pas, ou affiche "WebGL is required" | L'accélération graphique est désactivée ou bloquée. Ouvrez `chrome://gpu` (Edge : `edge://gpu`) et cherchez "WebGL: Hardware accelerated". Demandez à l'informatique de l'activer ; essayez **Réglages → Graphismes → Graphismes bas** (Settings → Graphics → Low). |
 | La 3D est lente ou saccadée | **Réglages → Graphismes → Graphismes bas** (Settings → Graphics → Low) ; fermez les autres fenêtres et onglets, et branchez l'ordinateur portable sur le secteur. Indiquez le modèle du PC au responsable du jeu : le pilote mesure de vrais PC. |
+| Une manette ne fait rien | Le monde 3D ouvert, appuyez sur l'un de ses boutons, puis relâchez toutes les commandes. Seules les manettes que le navigateur reconnaît comme standard fonctionnent ; le clavier et la souris fonctionnent toujours. **Commandes de la manette → Rétablir les commandes de la manette par défaut** annule un changement de boutons. |
 | La progression semble perdue | Sur le serveur de formation, elle est conservée par identifiant d'employé : vérifiez qu'ils se sont connectés avec le même identifiant. En mode navigateur seul, la progression reste dans ce navigateur et s'efface avec ses données de site. |
 | Le texte semble incorrect dans une langue | Notez l'écran et le texte ; les corrections vont dans les fiches de relecture native de `docs/review/`. |
 | Un stagiaire veut que ses données soient supprimées | **Réglages → Formateur** (Settings → Trainer) → le stagiaire → **Ses données** (Their data). |

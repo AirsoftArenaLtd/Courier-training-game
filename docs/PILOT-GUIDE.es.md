@@ -32,6 +32,11 @@ necesita oírlo para jugar. Si una PC tiene dificultades con el 3D, elija
 hasta que hablantes nativos las revisen (`docs/review/`); pida a los participantes que informen de cualquier texto que
 parezca incorrecto.
 
+**6. Mando.** En el mundo 3D también funciona un mando estándar: pulsa uno de sus botones y luego suelta todos los
+controles. **Esc → Controles y guía → Controles del mando** muestra qué hace cada botón y permite al alumno cambiar
+cualquiera de ellos o la sensibilidad de los sticks; lo que elija se guarda con su progreso. El teclado y el ratón
+siguen funcionando.
+
 ## Una primera sesión (alrededor de una hora)
 
 | Tiempo | Qué | Notas |
@@ -150,6 +155,7 @@ antes y después, certificado, sus datos) y la parte del LMS están en la guía 
 | Un participante no puede iniciar sesión | Revise el ID de empleado (no importan las mayúsculas). Cinco intentos fallidos lo bloquean 15 minutos; **Gestionar → Nueva contraseña** (Manage → New password) lo desbloquea de inmediato. |
 | El juego no arranca, o aparece "WebGL is required" | La aceleración gráfica está desactivada o bloqueada. Abra `chrome://gpu` (Edge: `edge://gpu`) y busque "WebGL: Hardware accelerated". Pida a TI que la active; pruebe **Configuración → Gráficos → Gráficos bajos** (Settings → Graphics → Low). |
 | El 3D va lento o entrecortado | **Configuración → Gráficos → Gráficos bajos** (Settings → Graphics → Low); cierre otras ventanas y pestañas, y conecte la laptop a la corriente. Indique el modelo de la PC al responsable del juego: el piloto mide PC reales. |
+| Un mando no hace nada | Con el mundo 3D abierto, pulsa uno de sus botones y luego suelta todos los controles. Solo funcionan los mandos que el navegador reconoce como estándar; el teclado y el ratón funcionan siempre. **Controles del mando → Restaurar los controles del mando predeterminados** deshace un cambio de botones. |
 | Parece que se perdió el progreso | En el servidor de capacitación se guarda por ID de empleado: compruebe que iniciaron sesión con el mismo ID. En el modo solo navegador, el progreso vive en ese navegador y se borra con sus datos del sitio. |
 | El texto se ve mal en un idioma | Anote la pantalla y el texto; las correcciones van en las hojas de revisión nativa de `docs/review/`. |
 | Un participante quiere que se borren sus datos | **Configuración → Capacitador** (Settings → Trainer) → el participante → **Sus datos** (Their data). |

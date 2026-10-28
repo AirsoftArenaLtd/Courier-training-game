@@ -50,6 +50,11 @@ narration speaks, so no one needs to hear it to play. If a PC struggles with the
 **Settings → Graphics → Low**. Translations are machine drafts until native speakers have reviewed them
 (`docs/review/`); tell trainees to report wording that looks wrong.
 
+**6. Gamepad.** A standard gamepad also works in the 3D world: press one of its buttons, then let go of every control.
+**Esc → Controls and guidance → Gamepad controls** shows what each button does and lets a trainee give any action a
+different button or change the stick sensitivity; their choices are saved with their progress. The keyboard and mouse
+keep working.
+
 ## A first session (about an hour)
 
 | Time | What | Notes |
@@ -163,6 +168,7 @@ is finished, and passed once the best workday met your pass marks.
 | A trainee cannot sign in | Check the employee ID (case does not matter). Five wrong tries lock it for 15 minutes; **Manage → New password** unlocks it at once. |
 | The game does not start, or "WebGL is required" | Graphics acceleration is off or blocked. Open `chrome://gpu` (Edge: `edge://gpu`) and look for "WebGL: Hardware accelerated". Ask IT to turn it on; try **Settings → Graphics → Low**. |
 | The 3D is slow or jerky | **Settings → Graphics → Low**, close other windows and tabs, and plug the laptop in. Tell the game's maintainer the PC model: the pilot measures real PCs. |
+| A gamepad does nothing | With the 3D world open, press one of its buttons, then let go of every control. Only gamepads the browser reports as standard work; the keyboard and mouse always do. **Gamepad controls → Restore default gamepad controls** undoes a remapping. |
 | Progress seems lost | On the training server it is kept per employee ID: check they signed in with the same ID. In browser-only mode progress lives in that browser and clears with its site data. |
 | The text looks wrong in a language | Write down the screen and the text; the native-review sheets in `docs/review/` are where corrections go. |
 | A trainee wants their data removed | **Settings → Trainer → the trainee → Their data**. |
