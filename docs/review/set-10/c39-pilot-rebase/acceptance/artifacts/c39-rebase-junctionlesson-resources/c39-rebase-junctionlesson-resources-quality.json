@@ -1,0 +1,126 @@
+{
+  "sourceRevision": "a5c6cf6462638be176aa008b01861dddf7991e88",
+  "scope": "junction-module",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "junctionapproach0",
+        "junctionapproach1",
+        "junctionapproach2",
+        "junctionfinish0",
+        "junctionfinish1",
+        "junctionfinish2",
+        "junctiondevice",
+        "junctioncycle"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-rebase-junctionlesson-resources-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 131034,
+      "peak": {
+        "calls": 44,
+        "triangles": 1256,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1944310
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "junctionapproach0",
+        "junctionapproach1",
+        "junctionapproach2",
+        "junctionfinish0",
+        "junctionfinish1",
+        "junctionfinish2",
+        "junctiondevice",
+        "junctioncycle"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-rebase-junctionlesson-resources-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 218766,
+      "peak": {
+        "calls": 55,
+        "triangles": 87825,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5274150
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "junctionapproach0",
+        "junctionapproach1",
+        "junctionapproach2",
+        "junctionfinish0",
+        "junctionfinish1",
+        "junctionfinish2",
+        "junctiondevice",
+        "junctioncycle"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c39-rebase-junctionlesson-resources-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 137760,
+      "peak": {
+        "calls": 44,
+        "triangles": 1266,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2126283
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "junctionapproach0",
+        "junctionapproach1",
+        "junctionapproach2",
+        "junctionfinish0",
+        "junctionfinish1",
+        "junctionfinish2",
+        "junctiondevice",
+        "junctioncycle"
+      ],
+      "accessibility": "",
+      "fallback": true,
+      "report": "bench-c39-rebase-junctionlesson-resources-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 119035,
+      "peak": {
+        "calls": 41,
+        "triangles": 1012,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1944310
+      }
+    }
+  ]
+}

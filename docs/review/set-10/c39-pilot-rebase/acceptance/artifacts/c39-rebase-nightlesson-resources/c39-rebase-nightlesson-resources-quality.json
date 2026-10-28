@@ -1,0 +1,122 @@
+{
+  "sourceRevision": "a5c6cf6462638be176aa008b01861dddf7991e88",
+  "scope": "night-module",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "nightlessoninspect",
+        "nightlessoncaboff",
+        "nightlessoncabon",
+        "nightlessonlead",
+        "nightlessonfinish",
+        "nightlessondevice",
+        "nightlessoncycle"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-rebase-nightlesson-resources-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 112403,
+      "peak": {
+        "calls": 42,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1850603
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "nightlessoninspect",
+        "nightlessoncaboff",
+        "nightlessoncabon",
+        "nightlessonlead",
+        "nightlessonfinish",
+        "nightlessondevice",
+        "nightlessoncycle"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-rebase-nightlesson-resources-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 182336,
+      "peak": {
+        "calls": 55,
+        "triangles": 79455,
+        "textures": 3,
+        "attachmentBytes": 9142272,
+        "phaserBytes": 4899323
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "nightlessoninspect",
+        "nightlessoncaboff",
+        "nightlessoncabon",
+        "nightlessonlead",
+        "nightlessonfinish",
+        "nightlessondevice",
+        "nightlessoncycle"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c39-rebase-nightlesson-resources-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 127970,
+      "peak": {
+        "calls": 42,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1978512
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "nightlessoninspect",
+        "nightlessoncaboff",
+        "nightlessoncabon",
+        "nightlessonlead",
+        "nightlessonfinish",
+        "nightlessondevice",
+        "nightlessoncycle"
+      ],
+      "accessibility": "",
+      "fallback": true,
+      "report": "bench-c39-rebase-nightlesson-resources-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 102177,
+      "peak": {
+        "calls": 41,
+        "triangles": 958,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1850603
+      }
+    }
+  ]
+}
