@@ -1,0 +1,12 @@
+✔ the mounted screen and mapped finish key use the same actual encounter/whole-bay gate (14.161747ms)
+✔ all three rounds retain one log and finish once instead of rebuilding past the last approach (5.239803ms)
+✔ reverse camera, cab and mirrors remain physical while unrelated parcel interactions are blocked (0.94725ms)
+✔ brief and next-round instructions retain actual key remaps and the shared controls entry (3.48321ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31.608575

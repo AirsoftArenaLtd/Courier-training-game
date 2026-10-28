@@ -1,0 +1,44 @@
+✔ each approach uses its actual signed junction, an in-bounds parked start and a reachable finish bay (53.252064ms)
+✔ only this round’s control key can satisfy its encounter; duplicates and unrelated reports cannot create credit (48.633564ms)
+✔ later positive pull-outs cannot dilute a failed signal or mirror observation (8.823227ms)
+✔ completion needs observed travel and the whole stopped van, facing traffic, inside the actual bay (48.647239ms)
+✔ the three-round result retains exact catalogue wording and a single one-point route obligation for the whole course (38.248664ms)
+✔ an actual wrong-route report stays failed at finish, and a red-light failure retains the catalogue critical (5.413932ms)
+✔ timeout retains current observations, supplies missing obligations and earns zero in both categories (6.43362ms)
+✔ a wrong turn in the first approach cannot be erased by later correct approaches (8.582394ms)
+✔ the real motor, gaze, indicator timing and traffic phases produce safe observations at all three controls (7772.506846ms)
+✔ driving into the actual red signal fails its real catalogue check (648.688753ms)
+✔ the real motor and sat-nav grace period report an unresolved wrong turn, without consuming time while paused (4405.16938ms)
+✔ round restarts cannot discard observations, and a bounded report overflow cannot finish successfully (3.358287ms)
+✖ the full van body must stay inside both painted lateral edges of a vertical finish bay (1.574029ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13130.798526
+
+✖ failing tests:
+
+test at test/fpjunctionlesson.js:103:1
+✖ the full van body must stay inside both painted lateral edges of a vertical finish bay (1.574029ms)
+  AssertionError [ERR_ASSERTION]: approach 0, lateral offset -0.5 crosses the paint
+  
+  true !== false
+  
+      at TestContext.<anonymous> (/workspace/c39-route-driving/test/fpjunctionlesson.js:105:68)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

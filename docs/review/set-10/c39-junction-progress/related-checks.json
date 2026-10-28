@@ -1,0 +1,52 @@
+[
+  {
+    "suite": "fpmission",
+    "exit": 0,
+    "checks": 39
+  },
+  {
+    "suite": "fptraffic",
+    "exit": 0,
+    "checks": 37
+  },
+  {
+    "suite": "fpsignal",
+    "exit": 0,
+    "checks": 11
+  },
+  {
+    "suite": "fpmirrors",
+    "exit": 0,
+    "checks": 14
+  },
+  {
+    "suite": "fpnav",
+    "exit": 0,
+    "checks": 19
+  },
+  {
+    "suite": "fpdrivinglesson",
+    "exit": 0,
+    "checks": 13
+  },
+  {
+    "suite": "fpschoollesson",
+    "exit": 0,
+    "checks": 7
+  },
+  {
+    "suite": "fpscenario",
+    "exit": 0,
+    "checks": 13
+  },
+  {
+    "suite": "workday",
+    "exit": 0,
+    "checks": 25
+  },
+  {
+    "suite": "savesize",
+    "exit": 0,
+    "checks": 21
+  }
+]

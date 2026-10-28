@@ -1,0 +1,22 @@
+{
+  "scope": "Shared compatibility proposal only, evaluated in memory; actual shared source files are untouched. A-30 still owns startScenario routing and trainer selection.",
+  "sources": {
+    "data/theme.js": "5b72ac985373d9d4efdc3eca4de2623e0415f2d47d52c94a514df1db026bd3eb",
+    "data/config.js": "16566aefd5415077de46c3821661048fbac8cb4656a88e5b5686f113cddca7cc",
+    "src/core/theme.js": "bd13a1b4de6cac1c54eb84f9a04bd815f5c1f7b06fc4688ab3a3f8d7b61eed7a",
+    "src/core/flow.js": "85fa4082ef0d9175ae743d7dd4510dae89442b57de762258e3eb62d2be22d7b0",
+    "src/core/validate.js": "14c9079c90764e087d40280cfab07f9f41aa0fa55bceabced3efa6093b8794e8",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/core/fpschoollessonui.js": "02c50209d6c41e57f0240b73b0629f8ec7367737445b1b233c7ecf4dbb3aabf8"
+  },
+  "currentFailure": {
+    "missingDataKey": "TypeError: Cannot read properties of undefined (reading 'split')",
+    "provisionalSchoolKey": [
+      "m1-school: scene \"undefined\" is not registered",
+      "m1-school: dataKey \"schoolZoneLesson\" not found"
+    ],
+    "registryContent": "TypeError: Cannot read properties of undefined (reading 'split')"
+  },
+  "proposedCasesPassed": 9,
+  "launcherCurrentSourceStillRequires2dScene": true
+}

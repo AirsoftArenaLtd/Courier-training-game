@@ -1,0 +1,30 @@
+{
+  "phase": "failed",
+  "jobs": [
+    {
+      "tag": "night-low-en",
+      "script": "test/fpnightlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_FONT": "noto"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "night-low-en.json": "5260984423730ac09b295bfd42c8e4bb169995480ec20f2fb8b4ab6c452696c3",
+        "night-low-en-low-en-normal-light-test.png": "8c3476308a34a5ad8895b929052205a3664c473dbccb4176bd82ea66247c3663"
+      }
+    }
+  ],
+  "pid": 176070,
+  "startedAt": 1793118563.2291226,
+  "serverPid": 176076,
+  "tag": "night-low-en",
+  "childPid": 176077,
+  "failure": "Browser job failed: night-low-en",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793118768.27359
+}

@@ -1,0 +1,6 @@
+{
+  "reason": "Defer own long route run until the short real-writer gamepad reload regression completes. No acceptance claimed from the interrupted job.",
+  "controllerPID": 187989,
+  "childPID": 188964,
+  "time": 1793174555.078076
+}

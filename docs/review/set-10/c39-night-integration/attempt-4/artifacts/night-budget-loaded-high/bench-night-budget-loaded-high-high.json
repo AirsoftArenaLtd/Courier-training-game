@@ -1,0 +1,150 @@
+{
+  "tag": "night-budget-loaded-high",
+  "quality": "high",
+  "textureDimensions": "intrinsic image/canvas",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "high",
+  "assets": {
+    "quality": "high",
+    "loaded": 22,
+    "failed": 0,
+    "fallbacks": 0,
+    "bytes": 8377598,
+    "decodedBytes": 24680796,
+    "errors": []
+  },
+  "prototype": {
+    "nightlessoninspect": {
+      "frames": 14,
+      "avgFPS": 1.36,
+      "low1FPS": 0.95,
+      "p99ms": 1057.3,
+      "maxMs": 1057.3,
+      "peak": {
+        "calls": 45,
+        "triangles": 51992,
+        "textures": 3,
+        "geometries": 22,
+        "attachmentBytes": 9142272
+      },
+      "target": {
+        "width": 1280,
+        "height": 720
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 96,
+        "baseLevelRGBABytes": 3015412,
+        "withMipmapsUpperBytes": 4020550
+      },
+      "worldProfile": {
+        "meshes": 119,
+        "instances": 309,
+        "geometries": 34,
+        "materials": 51,
+        "geometryBytes": 2610004,
+        "instanceBytes": 65388,
+        "shadowCasters": 85
+      },
+      "mirrorViews": {
+        "updates": [
+          7,
+          6,
+          6,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 5.14,
+          "y": 1.65,
+          "z": 4.5,
+          "yaw": -1.8860110265456076,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "nightLessonProof": {
+    "nightlessoninspect": {
+      "source": "registered-night-adapter",
+      "id": "m1-night",
+      "key": "night-route-drive",
+      "name": "nightlessoninspect",
+      "optional": true,
+      "night": true,
+      "headlights": false,
+      "lightCaption": "It is night. Switch on the headlights before moving.",
+      "fogFar": 30,
+      "inspectionPanel": true,
+      "inspectionNear": true,
+      "mode": "walk",
+      "leadVisible": true,
+      "leadHeld": true,
+      "leadSame": true,
+      "traffic": true,
+      "navigation": true,
+      "stops": 1,
+      "logItems": 0,
+      "observations": 0,
+      "travel": 0,
+      "started": false,
+      "followingSeen": false,
+      "finished": false,
+      "reduced": false,
+      "device": false,
+      "deviceVisits": 0,
+      "parking": false,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "nightLessonFixture": true,
+  "phaserTextures": {
+    "count": 96,
+    "baseLevelRGBABytes": 3015412,
+    "withMipmapsUpperBytes": 4020550
+  },
+  "phaserTexturesPeak": {
+    "count": 96,
+    "baseLevelRGBABytes": 3015412,
+    "withMipmapsUpperBytes": 4020550
+  },
+  "missingViews": [],
+  "errors": []
+}

@@ -1,0 +1,11 @@
+{
+  "beforeSourceRevision": "6cb4ac5691ab6bdf49368e7fcadece365b8cbb20",
+  "afterSourceRevision": "ac5350cdd1972baa78d7e30fef6c604a684b067d",
+  "changedFrozenInputs": [
+    "src/scenes/FirstPersonScene.js"
+  ],
+  "beforeSHA256": "c45703031b6dc1c145b7ba5e7330fa5727e4701634bbcb5a1d933394f5b7331f",
+  "afterSHA256": "cac39dbb6646ac994f28a08e9624cfb090f07e59969f0e8c98eb8f98d001ecd5",
+  "patch": "diff --git a/src/scenes/FirstPersonScene.js b/src/scenes/FirstPersonScene.js\nindex 05fddc9b..15905166 100644\n--- a/src/scenes/FirstPersonScene.js\n+++ b/src/scenes/FirstPersonScene.js\n@@ -208,7 +208,7 @@ class FirstPersonScene extends Phaser.Scene {\n     const m=this.model;if(!m||!m.near(part))return;const bad=!m.repaired&&m.fault===part;\n     const condition=part==='tyres'?(bad?'A bulge is visible in the tire sidewall.':'The tire sidewalls are intact and the tread is visible.'):(bad?'The left headlamp does not illuminate during the light test.':'Both headlamps illuminate during the light test.');\n     const choose=decision=>{this.message(m.inspectVan(part,decision));this.checkpoint();this.closePanel();};\n-    this.showPanel(part==='tyres'?'Tire inspection':'Light test',condition,[{label:'Mark serviceable',action:()=>choose('ready')},{label:'Request repair',action:()=>choose('repair')},{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});\n+    this.showPanel(part==='tyres'?'Tire inspection':'Light test',condition,[{label:'Mark serviceable',action:()=>choose('ready')},{label:'Request repair',action:()=>choose('repair')},{label:'Back',action:()=>this.closePanel()}],{accessibleText:!!this.scenarioSession,back:()=>this.closePanel()});\n   }\n   showDoor(id,entry=false){\n     const m=this.model,s=m.stop(id);if(!s||!m.near('door'+id))return;if(s.resolved){this.message('This stop already has a recorded outcome.');return;}\n",
+  "reasonForFocusedResources": "Module inspection text styling only; four affected panel profiles rerun after the earlier seven-view-per-profile result. Broader previous views retain their prior hashes and source scope."
+}

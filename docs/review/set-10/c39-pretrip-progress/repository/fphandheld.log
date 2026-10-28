@@ -1,0 +1,17 @@
+✔ handheld stays closed while moving or unsecured and does not pause the vehicle (5.211649ms)
+✔ workday details retain the full objective and cargo state without changing the mission (3.8155ms)
+✔ scanning needs a continuous trigger on one visible barcode and never picks up a box (1.229394ms)
+✔ switching targets resets scan time and inaccessible parcels cannot be scanned (0.569169ms)
+✔ wrong-stop scan warns on the device without verifying a different delivery (0.452958ms)
+✔ a scanned held parcel can be recorded on the device after contact at its address (2.178945ms)
+✔ scanning a retained parcel at Returns physically checks that parcel back in (0.449403ms)
+✔ putting away or suspending the handheld cancels held input and respects pause (2.384338ms)
+✔ cargo practice exposes scanning but disables delivery recording and route changes (1.766496ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 62.249949

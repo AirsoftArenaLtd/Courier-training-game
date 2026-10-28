@@ -1,0 +1,42 @@
+{
+  "sourceRevision": "39afb81b67836ae6201d89821e46508ff6493f44",
+  "scope": "school-zone-module",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "schoolapproach",
+        "schoolbus",
+        "schoolchildren",
+        "schoolclear",
+        "schoolfinish",
+        "schoolreverse",
+        "schooldevice",
+        "schoolcycle"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-school-preflight-8380-loaded-low-low.json",
+      "exit": 1,
+      "elapsedMs": 119739,
+      "error": "loaded-low: No isolated visible school-drive proof for schoolapproach."
+    }
+  ]
+}

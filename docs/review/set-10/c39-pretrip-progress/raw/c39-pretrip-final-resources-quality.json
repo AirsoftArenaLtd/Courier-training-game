@@ -1,0 +1,126 @@
+{
+  "sourceRevision": "c244a076b9f0b097b59dd469de316165cdbbfb17",
+  "scope": "pretrip-module",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "pretripwalk",
+        "pretripfront",
+        "pretriprear",
+        "pretripcab",
+        "pretriptire",
+        "pretripbrake",
+        "pretriprecords",
+        "pretripcycle"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-pretrip-final-resources-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 156442,
+      "peak": {
+        "calls": 33,
+        "triangles": 894,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2737760
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "pretripwalk",
+        "pretripfront",
+        "pretriprear",
+        "pretripcab",
+        "pretriptire",
+        "pretripbrake",
+        "pretriprecords",
+        "pretripcycle"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-pretrip-final-resources-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 323576,
+      "peak": {
+        "calls": 46,
+        "triangles": 13299,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5702064
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "pretripwalk",
+        "pretripfront",
+        "pretriprear",
+        "pretripcab",
+        "pretriptire",
+        "pretripbrake",
+        "pretriprecords",
+        "pretripcycle"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c39-pretrip-final-resources-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 159335,
+      "peak": {
+        "calls": 33,
+        "triangles": 894,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2856758
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "pretripwalk",
+        "pretripfront",
+        "pretriprear",
+        "pretripcab",
+        "pretriptire",
+        "pretripbrake",
+        "pretriprecords",
+        "pretripcycle"
+      ],
+      "accessibility": "",
+      "fallback": true,
+      "report": "bench-c39-pretrip-final-resources-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 158018,
+      "peak": {
+        "calls": 40,
+        "triangles": 836,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2737760
+      }
+    }
+  ]
+}

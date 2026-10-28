@@ -1,0 +1,61 @@
+{
+  "candidateRevision": "11c15b336fb050d8c615ced59c6d67a7d62d715d",
+  "status": "failed accessible benchmark isolation proof; fixture shutdown ordering correction",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 902,
+      "sha256": "3257926b40523d131c0f8ff904db70a217324d8d11922f02999db6759707d51a"
+    },
+    {
+      "file": "bench-c39-route-final-resources-accessible-low-low.json",
+      "bytes": 13888,
+      "sha256": "4cbd866ba0e24f649fd805f7c7e1ad8e75d5b29db3c41ee680661684d1a7511d"
+    },
+    {
+      "file": "c39-route-final-resources-accessible-low-low-lessonroutebrief.png",
+      "bytes": 79065,
+      "sha256": "7f440891fac0915cde5d97b6a5e9b51c0b5c120b0ece87bb84152f1782ad5706"
+    },
+    {
+      "file": "c39-route-final-resources-accessible-low-low-lessonroutecab.png",
+      "bytes": 160164,
+      "sha256": "6492be9d7e6c7d8cb65fb0d77a617885d3e00348ab44aa563a51a21a9042a280"
+    },
+    {
+      "file": "c39-route-final-resources-accessible-low-low-lessonroutecycle.png",
+      "bytes": 76882,
+      "sha256": "68adcf77f98a7a86188798ba248bc0795d51bd7b8df8d0f498da3f46985c1ea6"
+    },
+    {
+      "file": "c39-route-final-resources-accessible-low-low-lessonrouteedit.png",
+      "bytes": 74048,
+      "sha256": "06475b578bfca450443375336a720d8def9e70eda9af3e3c34c0ed106d87edda"
+    },
+    {
+      "file": "c39-route-final-resources-accessible-low-low-lessonroutereverse.png",
+      "bytes": 156260,
+      "sha256": "544c8ab75784a03c4d8336aa9dd8e0abc866a9c6bcaec16a14da0b732486f27d"
+    },
+    {
+      "file": "c39-route-final-resources-accessible-low-low-lessonroutereview.png",
+      "bytes": 76407,
+      "sha256": "f64fd9ec067ce19299ddbe0c2dec24adb7372d1e0eea1558d5c88f31399fd87c"
+    },
+    {
+      "file": "c39-route-final-resources-accessible-low.log",
+      "bytes": 4723,
+      "sha256": "94c2cfff024077b6f645114dd8a756acc730e8ff7e3c57bc2a24e1eaea41835a"
+    },
+    {
+      "file": "c39-route-final-resources-quality.json",
+      "bytes": 2164,
+      "sha256": "604574f92a7f19842a5bffe1f8039910bf3c8b7e80c9407333d0c9667ed81251"
+    },
+    {
+      "file": "c39-route-final-resources.log",
+      "bytes": 316,
+      "sha256": "92ec6e7fc30eac16bdfc0df521afe0c5b5e26ad4eed07911870219d857e8df57"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ parking practice at Dispatch opens its own menu instead of a workday completion (2.27435ms)
+✔ render diagnostics count world, mirror and composite once per frame without accumulating (4.287186ms)
+✔ depot parcels and vehicle inspection/entry points can be reached with real raycasts (51.01047ms)
+✔ all six empty shelf positions and the restraint are selectable from the cargo aisle (30.263115ms)
+✔ loaded parcel raycasts follow the parked van rotation and obey the closed door (14.165999ms)
+✔ all customer doors are outside the house occluder and reachable from the path (9.250448ms)
+✔ hub stations are pickable and inactive route interactions are invisible (6.890201ms)
+✔ low graphics retains identical parcel, door and vehicle interaction targets (10.480976ms)
+✔ the sprung body dives and rolls without tilting the tyres, and reduced motion removes both (15.674357ms)
+✔ turning the head moves the view without carrying the dashboard or changing the saved mission (8.297764ms)
+✔ reduced motion clears even the last fractional degree of speed zoom (12.771205ms)
+✔ walkaround front and mirror marks leave the headlights directly reachable (34.948939ms)
+✔ three physical mirrors remain live without a button and reflection visibility restores exactly (5.410771ms)
+✔ inspection refreshes the raycast rather than opening a formerly aimed-at parcel (0.5092ms)
+✔ a carried package can still be put back on its empty depot table without another target (0.509341ms)
+✔ scanner reads the barcode face, not the back of a box or through a closed door (3.932764ms)
+✔ a carried parcel is raised for scanning and keeps its actual identity (8.670433ms)
+✔ low graphics keeps barcode scanning on cargo shelves (7.764329ms)
+✔ legacy parcel visibility keeps its original range when compacting render instances (4.455293ms)
+✔ saving practice preserves a separate suspended workday (0.858915ms)
+✔ scene transition saves before swapping models and ignores duplicate requests (0.378358ms)
+✔ both hub-workday exit choices checkpoint then pause without entering the prototype hub (0.354212ms)
+✔ successful hub workday dispatch hands the numbered summary to results and clears its checkpoint (0.726851ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 243.981531

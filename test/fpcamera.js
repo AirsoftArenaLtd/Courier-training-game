@@ -62,3 +62,17 @@ test('the approved trainer API is cached at launch/resume and never called by th
   for(const assists of ['full','light','off']){academy.settings=academy.merge({workday:{assists}});F.applyDriveRules(restored);assert.equal(F.driveAssist(restored),{full:1,light:.5,off:0}[assists]);}
  }finally{academy.workdayRules=original;academy.settings=null;}
 });
+
+test('watch-only hazard clips use a forward upright view without moving the physical cab or normal driver',()=>{
+ for(const yaw of [0,Math.PI/2,-Math.PI/2]){const m=model();m.van.yaw=yaw;const before=JSON.stringify(m.snapshot()),normal={...C.update(C.create(),m,true,false,false)};
+  m.hazardLesson={};const p=C.update(C.create(),m,true,false,false);assert.ok(Math.abs(p.y-normal.y-.35)<1e-9);assert.ok(Math.abs(p.x-normal.x+.3*Math.cos(yaw)-.35*Math.sin(yaw))<1e-9);assert.ok(Math.abs(p.z-normal.z+.3*Math.sin(yaw)+.35*Math.cos(yaw))<1e-9);assert.equal(p.fov,normal.fov);assert.equal(JSON.stringify(m.snapshot()),before);
+  delete m.hazardLesson;assert.deepEqual({...C.update(C.create(),m,true,false,false)},normal);
+ }
+});
+
+test('the controllable drill uses the clear cab view while ordinary workdays retain their seat',()=>{
+ for(const yaw of [0,Math.PI/2,-Math.PI/2,Math.PI]){const m=model();m.van.yaw=yaw;const normal={...C.update(C.create(),m,true,false,false)};m.drivingLesson={};const p=C.update(C.create(),m,true,false,false);assert.equal(p.y,2.4);assert.equal(p.fov,normal.fov);assert.ok(Math.abs(p.x-normal.x+.3*Math.cos(yaw)-.35*Math.sin(yaw))<1e-9);delete m.drivingLesson;assert.deepEqual({...C.update(C.create(),m,true,false,false)},normal);}
+});
+test('school children use the same clear cab view without changing the ordinary workday seat',()=>{
+ const m=model(),r=C.create(),normal={...C.update(r,m,true,false,false)},saved=JSON.stringify(m.snapshot());m.schoolLesson={};const p=C.update(C.create(),m,true,false,false);assert.equal(p.y,2.4);assert.equal(p.fov,normal.fov);assert.equal(JSON.stringify(m.snapshot()),saved);delete m.schoolLesson;assert.deepEqual({...C.update(C.create(),m,true,false,false)},normal);
+});

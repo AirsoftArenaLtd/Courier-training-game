@@ -1,0 +1,40 @@
+{
+  "earlierNativeSource": "bf3cbb8bf9672272d6ce846d20847abc62f60163",
+  "currentGameSource": "ec9aaeae9461e15208942554d50509a204ccb1be",
+  "identicalDrivingAndRunnerSources": [
+    {
+      "path": "src/core/fpdrivinglesson.js",
+      "sha256": "3d82d7f629cf8704970d476d4f36bd65eb7219a327f40dd3f94b6ad8a734d0bb"
+    },
+    {
+      "path": "src/core/fpdrivinglessonhazards.js",
+      "sha256": "77b24e36b86ff7fedb78e854cdca3b731a5e4e6ae2cb1fc95f86ddd9b615b684"
+    },
+    {
+      "path": "src/core/fpdrivinglessonrules.js",
+      "sha256": "e8ec05c30540148859d4ae15d57aea0c5e077913237997b633ca17981e51c25c"
+    },
+    {
+      "path": "src/core/fpdrivinglessonui.js",
+      "sha256": "20fdcccd10834c92c9af566c33f8513f1c62a24ace2758d4fb98b27fbef14258"
+    },
+    {
+      "path": "src/core/fpdrivinglessonworld.js",
+      "sha256": "ea7216a51438fb4b18451624b53ff12a12bde48e79af8e19260a2d87fb102d0b"
+    },
+    {
+      "path": "src/core/fpscenario.js",
+      "sha256": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff"
+    },
+    {
+      "path": "src/scenes/FirstPersonScenarioScene.js",
+      "sha256": "8fdb8f64f0c31e8c60937650521b7d2ff79b368c334b9c6fe67ee672d4832e44"
+    }
+  ],
+  "changedGameHooks": [
+    "index.html adds school/bay scripts",
+    "fpworld.js adds named bus/fallback targets and the module-only painted-bay build/sync/dispose hook",
+    "fpcamera.js extends the existing observation-seat condition to school only"
+  ],
+  "limits": "The five earlier native modes are still explicitly scoped to their original build. All four current resource profiles test the painted bay; the three current High native modes are recorded separately."
+}

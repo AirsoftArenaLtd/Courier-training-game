@@ -1,0 +1,220 @@
+{
+  "checks": 132,
+  "runs": [
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "stops": [
+        {
+          "result": {
+            "hazard": {
+              "id": "phone",
+              "ok": true
+            },
+            "checkpoint": 0,
+            "diagnostics": {
+              "calls": 44,
+              "triangles": 35353,
+              "textures": 4,
+              "geometries": 24,
+              "targetWidth": 1280,
+              "targetHeight": 720,
+              "attachmentBytes": 11239424
+            },
+            "coaching": false
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6199999999999997,
+              "skew": 0,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 79,
+            "seconds": 0.0875,
+            "violations": {},
+            "signal": 0
+          }
+        },
+        {
+          "result": {
+            "hazard": {
+              "id": "ball",
+              "ok": true
+            },
+            "checkpoint": 1,
+            "diagnostics": {
+              "calls": 81,
+              "triangles": 124759,
+              "textures": 4,
+              "geometries": 27,
+              "targetWidth": 1280,
+              "targetHeight": 720,
+              "attachmentBytes": 11239424
+            },
+            "coaching": false
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6199999999999997,
+              "skew": 0,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 137,
+            "seconds": 0.0875,
+            "violations": {},
+            "signal": 0
+          }
+        },
+        {
+          "result": {
+            "hazard": {
+              "id": "door",
+              "ok": true
+            },
+            "checkpoint": 2,
+            "diagnostics": {
+              "calls": 68,
+              "triangles": 83150,
+              "textures": 4,
+              "geometries": 27,
+              "targetWidth": 1280,
+              "targetHeight": 720,
+              "attachmentBytes": 11239424
+            },
+            "coaching": false
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6199999999999997,
+              "skew": 0,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 196,
+            "seconds": 0.054300000000046575,
+            "violations": {},
+            "signal": 0
+          }
+        }
+      ],
+      "shots": [
+        "c39-driving-current-high-en-large-high-en-large-hazard-0.png",
+        "c39-driving-current-high-en-large-high-en-large-park-0.png",
+        "c39-driving-current-high-en-large-high-en-large-hazard-1.png",
+        "c39-driving-current-high-en-large-high-en-large-park-1.png",
+        "c39-driving-current-high-en-large-high-en-large-hazard-2.png",
+        "c39-driving-current-high-en-large-high-en-large-park-2.png",
+        "c39-driving-current-high-en-large-high-en-large-hazard-3.png"
+      ]
+    }
+  ],
+  "errors": [],
+  "fixture": "The existing m1-driving id temporarily receives scene3d. Phaser reads unsmoothed real frame deltas; both the production motor and session retain their unchanged 0.05-second cap. Approach and pre-bay positions replace travel between exercises; only the unscored junction observation cache is reset at those pose changes, never a score or recorded violation. Hazard and checkpoint verdicts, scores, results and records are never injected. The native throttle, brake, shifter, mirror gaze, signals and record controls drive every response and parking action. A non-scoring timeline jump to ten seconds shortens only the crosswalk wait outside the first ordinary Low English run.",
+  "failure": "Error: Waiting failed\n    at <instance_members_initializer> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:24:21)\n    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:30:16)\n    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)\n    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)\n    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)\n    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)\n    at /workspace/c39-school-next/test/fpdrivinglessonbrowser.js:45:234",
+  "activeState": {
+    "phase": "active",
+    "elapsed": 51.93330000000441,
+    "paused": false,
+    "van": {
+      "x": 41.45,
+      "z": -119.09792730225043,
+      "yaw": 3.141592653589793,
+      "speed": -1.9,
+      "steer": 0,
+      "gear": -1,
+      "hand": false,
+      "belt": true,
+      "look": 0.9291004738539146,
+      "mirrors": [
+        1.0165999999999988,
+        -100,
+        -100,
+        -1,
+        0
+      ],
+      "shifts": 7,
+      "headlights": true,
+      "wipers": true
+    },
+    "hazard": {
+      "active": false,
+      "kind": "water",
+      "t": 3.599900000000044,
+      "ending": 0.8331999999999768,
+      "judged": true,
+      "personVisible": false,
+      "ballVisible": false,
+      "phone": false,
+      "doorReach": 0,
+      "armOut": false,
+      "carBox": {
+        "x": 1000000,
+        "z": 1000000,
+        "w": 1.8,
+        "d": 4.3,
+        "h": 1.5
+      },
+      "busBox": {
+        "x": 1000000,
+        "z": 1000000,
+        "w": 2.6,
+        "d": 12,
+        "h": 3.4
+      },
+      "observation": {
+        "fd": 3.7812816694293927,
+        "lat": 7.93728085083912e-16,
+        "vanLength": 5.4,
+        "mph": 5.272854929695793,
+        "child": false,
+        "arrived": false,
+        "touching": false,
+        "opened": false,
+        "gap": -1.905,
+        "distance": 6.481281669429393,
+        "brake": false,
+        "steer": 0,
+        "throttle": false,
+        "handheld": false,
+        "armOut": false
+      },
+      "id": "water",
+      "wait": 0,
+      "hold": 0,
+      "bad": 0,
+      "tIn": 0,
+      "inside": false,
+      "minMph": 5.272854929695793,
+      "reached": true,
+      "x": 42.375,
+      "z": -124.53185477302634,
+      "yaw": 3.141592653589793,
+      "dir": -1,
+      "street": 45,
+      "personX": 0,
+      "personZ": 0,
+      "ballX": 0,
+      "ballZ": 0,
+      "opened": false,
+      "traction": 1,
+      "baseline": 0,
+      "outcome": true,
+      "carX": 3.75,
+      "carZ": -129.55147856030703
+    },
+    "checkpoint": 3,
+    "violations": {},
+    "held": {
+      "KeyW": true
+    }
+  }
+}

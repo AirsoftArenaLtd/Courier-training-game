@@ -1,0 +1,11 @@
+✔ device and keyboard finish controls cannot complete an unstarted or out-of-bay night route (5.397011ms)
+✔ the night adapter preserves physical inspection, driver, headlights, mirrors and reversing camera (1.413505ms)
+✔ the night brief and three control pages use the current remapped keys (1.642911ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.780204

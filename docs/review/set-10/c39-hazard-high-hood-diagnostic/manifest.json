@@ -1,0 +1,31 @@
+{
+  "status": "diagnostic only; High gauge-hood obstruction rejected",
+  "candidate": "4b0e7b03",
+  "files": {
+    "c39-hazard-final-native-low-en-normal-3.png": "52e17c0851f76a693c885fbd2e29e9756c9a81f299051e0c34be28b22a731d30",
+    "c39-hazard-final-native-low-ta-normal-2.png": "5c4dc0a3a742d1d6147d625c416177bfb77fd625a194031932753989ff9ca0e5",
+    "c39-hazard-final-native-low-en-large-3.png": "7dfc6b06edc086d8e4face6a5e075e64e62d5c58fc7b0e83cbf0fe5c6f122125",
+    "c39-hazard-final-native-low-ta-normal-4.png": "cdbb0db899cee4a89c4c6b9d112cd1b8aa2edd818d7316bd3fa65fd9e5699d11",
+    "c39-hazard-final-native-low-ta-large-4.png": "7f44faf3a24cf2b66959add266a14906e65989a2b77a7f82858c5b8c138b9744",
+    "c39-hazard-final-native-low-en-large-0.png": "e8145482bb98000be4650e123563f1ea820cbee9ca8ca72f3e62e2bd64f2c651",
+    "c39-hazard-final-native-low-ta-normal-0.png": "f1af6fed421385b37429a33a8307e0306fb8004c1f72e67fe018b7a14ace381a",
+    "c39-hazard-final-native.json": "ae8f7415d4ff5c3348700507c08885fa9ce6586d2030f17d9a98378a9c836c0d",
+    "c39-hazard-final-native-low-en-normal-1.png": "69033e8f4b56279043cb2c63074cd408eb8601502f96d4726024a14603157f99",
+    "c39-hazard-final-native-low-ta-large-0.png": "0538d57665acb99e8159c679ee3aca57704cdd78aeb776c2b444dc5e18dc28fa",
+    "c39-hazard-final-native-low-ta-normal-1.png": "ae0814fcfdc1490e18a5178073b873774aabf4c917d495415fe5f8850ec399e4",
+    "README.md": "62970b38229f494dccef05c1b1e182d252b13b6ce96f60f8b07defdedcdb6f0e",
+    "c39-hazard-final-native-low-en-normal-4.png": "4158fbca17bcdd0ff1071af86b57020a832447607378584f4db79de3f52644b3",
+    "c39-hazard-final-native-low-en-normal-0.png": "39deb7f7cfe14aa8985baab9998f506e7732d2d06e6e2d42c7dffca8572fcb0a",
+    "c39-hazard-final-native-low-ta-normal-3.png": "0f4e8c5697b8ce84091b972ac0614b616700445adc90e2617984a191cab05c74",
+    "c39-hazard-final-native-low-en-normal-2.png": "eba45bba5b9f37c2429c749667f947f21c9cdf2b546c8962cc4c584ce8ef46f4",
+    "c39-hazard-final-native-low-en-large-2.png": "e476392eb9c2e2344deaec816efdf2ed0e1ad04efcb148a669db2aa35692f65e",
+    "c39-hazard-final-native-low-ta-large-1.png": "2da172c23df6343ba0d57c0289f8aed1a50c79ab14898773d8c00682e9a8649f",
+    "c39-hazard-final-native.log": "c4d6e447298b9d40ee231c2f2ece78276ed217b94e825a491437bc43728eeee0",
+    "c39-hazard-final-native-low-en-large-1.png": "617e4f45e8b5110625740b1f12d4c998d808e68f7e1dd9de197c4c0425f59533",
+    "c39-hazard-final-native-failure.png": "efd6d36ffe2d294d7560f9f0232cd6a1a1c971183eaeaf21b07d8c74d62456f8",
+    "c39-hazard-final-native-low-en-large-4.png": "14f97f91303bdf3d8aebcb16a1161df805910c51b9bc9c06ef3b20195ef01e47",
+    "c39-hazard-final-native-low-ta-large-2.png": "fcf6f1cf00ebaee26424033e6a4b03f5b490faf67c5b5433427322ec696e64e8",
+    "run-state.json": "658e682a599c1551cc40fd4dc4bfd6ae2d0d65618e400df2660664c630a41921",
+    "c39-hazard-final-native-low-ta-large-3.png": "41cb75eeeec01fd3a295153867be6cb7211e70c276aa29a6cdd3627226de406e"
+  }
+}

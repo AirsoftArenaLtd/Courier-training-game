@@ -1,0 +1,4 @@
+loaded-low: PASS {"calls":45,"triangles":1670,"textures":2,"attachmentBytes":3557376,"phaserBytes":2105926}
+loaded-high: PASS {"calls":86,"triangles":185244,"textures":4,"attachmentBytes":11239424,"phaserBytes":5921222}
+accessible-low: PASS {"calls":45,"triangles":1670,"textures":2,"attachmentBytes":3557376,"phaserBytes":2285670}
+fallback-low: PASS {"calls":46,"triangles":1620,"textures":2,"attachmentBytes":3557376,"phaserBytes":2105926}

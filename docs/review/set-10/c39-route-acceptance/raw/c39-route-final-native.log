@@ -1,0 +1,10 @@
+route low en normal good
+route low en large good
+route low ta normal good
+route low ta large good
+route high en normal good
+route high en large good
+route high ta normal good
+route high ta large good
+route low en normal bad
+5718 native sat-nav checks passed

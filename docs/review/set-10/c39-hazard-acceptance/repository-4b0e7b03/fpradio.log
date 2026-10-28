@@ -1,0 +1,29 @@
+✔ first three days and unmarked older plans have no call or new night state (52.956778ms)
+✔ a deterministic later night retains explicit presets and respects the trainer night rule (5.133662ms)
+✔ calls wait for actual driving; pauses, walking and return do not advance them (3.082921ms)
+✔ reading and responding require the parking brake and a stopped van (3.004005ms)
+✔ acceptance changes the real destination without changing parcel identities or crediting the call (12.096517ms)
+✔ doing a different delivery first, declining or ignoring the call reports once and never blocks finish (15.753684ms)
+✔ additional check-ins use a different public curb with paths in both directions across forty seeds (256.097663ms)
+✔ a check-in needs actual safe parking at the added destination; moving or remote acknowledgements fail (3.432636ms)
+✔ captions persist for unread and accepted calls regardless of audio; completion clears them (3.169979ms)
+✔ state is bounded and copied by snapshots; restore validation never emits a score report (3.148348ms)
+✔ malformed radio states and forged report boundaries reject while a missed unread call remains valid (2.66822ms)
+✔ headlight credit waits for leg end, requires actual movement, and omits unused places (1.725261ms)
+✔ moving without required lights is reported immediately and switching them on cannot erase it (2.687578ms)
+✔ dusk, fog and storms need lights; clear mornings, parked vans and paused simulation do not (14.789273ms)
+✔ oncoming glare reuses its output, is bounded, and is absent in reduced motion or daylight (2.037681ms)
+✔ real mission snapshots resume at each radio step without replaying reports or changing the next destination (86.319584ms)
+✔ an authorized route change clears the old route grace period and reanchors the navigation path (1.465328ms)
+✔ forty complete later-day plans keep the added curb clear of solids and reachable around closures and low clearances (464.518508ms)
+✔ a check-in stays the navigation destination after deliveries and then yields to the depot (3.415ms)
+✔ real exit and finish guards control the light and missed-call report boundaries (1.726503ms)
+✔ combined radio/night fixtures must run the actual walkaround departure before restoring (11.641788ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 980.194153

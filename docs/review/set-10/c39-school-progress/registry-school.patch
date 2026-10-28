@@ -1,0 +1,21 @@
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -57,6 +57,18 @@
+         blurb: 'Five short clips from the driver\'s seat. Something starts to happen in each one: press the moment you see it coming, not when it is already in front of you.',
+         learn: ['Reading the clue before the hazard', 'Children, reversing cars and opening doors', 'Pedestrians who aren\'t looking', 'Cars that won\'t stop'],
+         controls: 'SPACE or click when you see a hazard developing · ENTER for the next clip'
++      },
++      {
++        id: 'm1-school',
++        title: 'Drive safely through a school zone.',
++        icon: 'ic_wheel',
++        scene3d: 'school-zone-drive',
++        dataKey: 'schoolZoneLesson',
++        categories: ['safety'],
++        optional: true,
++        blurb: 'Keep to the school-zone speed limit, stop for the flashing school bus and wait for children to clear the crossing.',
++        learn: ['Read the school-zone signs.', 'Wait for the school bus and children.'],
++        controls: 'Use the physical cab controls or their keyboard shortcuts. Follow the sat nav and press the finish key after parking.'
+       }
+     ]
+   },

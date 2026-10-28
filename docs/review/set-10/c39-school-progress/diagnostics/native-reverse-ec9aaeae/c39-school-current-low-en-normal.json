@@ -1,0 +1,99 @@
+{
+  "checks": 84,
+  "runs": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "shots": [
+        "c39-school-current-low-en-normal-low-en-normal-mounted-route.png",
+        "c39-school-current-low-en-normal-low-en-normal-bus-stop.png",
+        "c39-school-current-low-en-normal-low-en-normal-children.png"
+      ],
+      "bus": {
+        "state": "leaving",
+        "seen": true,
+        "checks": 1,
+        "right": 2,
+        "passed": 0,
+        "log": {
+          "items": [
+            {
+              "cat": "safety",
+              "got": 2,
+              "max": 2,
+              "label": "Stopped for a school bus with its lights flashing",
+              "good": true,
+              "partial": false,
+              "lesson": "Stop for a school bus with its red lights flashing, in both directions, until the lights go off.",
+              "feedback": null,
+              "group": "drive",
+              "kind": "check",
+              "critical": false,
+              "at": 1792773886746,
+              "where": {
+                "x": 92.625,
+                "z": 40.36016812645295,
+                "mph": 0
+              }
+            }
+          ]
+        }
+      },
+      "crossing": {
+        "seen": true,
+        "state": "resolved",
+        "contact": 0
+      }
+    }
+  ],
+  "errors": [],
+  "fixture": "A browser-only optional m1-school registry entry exercises the real registered adapter. Phaser uses unsmoothed real delta with the unchanged 0.05-second motor/session cap. The actual motor spawns the live bus and native braking earns its check. A stopped approach pose replaces travel to the crossing; actual controller time and children progress are never shortened. A pre-bay pose replaces travel to the finish; native throttle/brake, automatic camera and finish controls complete parking. No encounter flag, judgement, score, result or saved record is injected. Camera aiming poses locate actual rendered controls; the native action key still uses the real raycast.",
+  "failure": "Error: Waiting failed\n    at <instance_members_initializer> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:24:21)\n    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:30:16)\n    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)\n    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)\n    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)\n    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)\n    at /workspace/c39-school-next/test/fpschoollessonbrowser.js:44:235",
+  "activeState": {
+    "phase": "active",
+    "elapsed": 65.26470000000643,
+    "van": {
+      "x": 93.55000000000001,
+      "z": -39.0638620655263,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": -1,
+      "hand": false,
+      "belt": true,
+      "look": 0.9299216124405971,
+      "mirrors": [
+        1.1999999999999984,
+        -100,
+        -100,
+        -1,
+        0
+      ],
+      "shifts": 1
+    },
+    "crossing": {
+      "state": "resolved",
+      "x": 96.4536600000035,
+      "z": 10.25,
+      "clock": 15.578799999999662,
+      "early": true
+    },
+    "bus": {
+      "state": "leaving",
+      "x": 92.625,
+      "z": -32.56384933976458,
+      "yaw": 0,
+      "clock": 5.8753000000000295,
+      "hold": 3.004299999999998,
+      "passed": false
+    },
+    "counts": {
+      "drive.school-bus": 1
+    },
+    "paused": false,
+    "held": {
+      "KeyW": true
+    }
+  }
+}

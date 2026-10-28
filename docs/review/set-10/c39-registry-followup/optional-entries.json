@@ -1,0 +1,53 @@
+{
+  "scope": "Prepared metadata only. Apply once A-30 supports optional registered 3D-only entries without a 2D scene or unused dataKey. The browser descriptors have test-only content keys; those are deliberately omitted here. No runtime registry edit is made.",
+  "entries": [
+    {
+      "id": "m1-school",
+      "title": "Drive safely through a school zone.",
+      "icon": "ic_wheel",
+      "scene3d": "school-zone-drive",
+      "categories": [
+        "safety"
+      ],
+      "optional": true,
+      "blurb": "Keep to the school-zone speed limit, stop for the flashing school bus and wait for children to clear the crossing.",
+      "learn": [
+        "Read the school-zone signs.",
+        "Wait for the school bus and children."
+      ],
+      "controls": "Use the physical cab controls or their keyboard shortcuts. Follow the sat nav and press the finish key after parking."
+    },
+    {
+      "id": "m1-junctions",
+      "title": "Drive safely through three junctions.",
+      "icon": "ic_wheel",
+      "scene3d": "junction-approaches",
+      "categories": [
+        "safety",
+        "efficiency"
+      ],
+      "optional": true,
+      "blurb": "Drive through the stop-sign, red-light and give-way approaches, then park in each marked bay.",
+      "learn": [
+        "Read the junction controls and give way safely."
+      ],
+      "controls": "Use the physical cab controls or their keyboard shortcuts."
+    },
+    {
+      "id": "m1-night",
+      "title": "Drive safely at night.",
+      "icon": "ic_wheel",
+      "scene3d": "night-route-drive",
+      "categories": [
+        "safety",
+        "efficiency"
+      ],
+      "optional": true,
+      "blurb": "Inspect the headlights, follow the night route with a safe gap and park in the marked bay.",
+      "learn": [
+        "Check the headlights and maintain a safe following gap."
+      ],
+      "controls": "Use the physical inspection and cab controls or their keyboard shortcuts."
+    }
+  ]
+}

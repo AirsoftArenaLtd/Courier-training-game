@@ -1,0 +1,366 @@
+{
+  "phase": "complete",
+  "controllerPid": 228638,
+  "jobs": [
+    {
+      "tag": "c39-rebase-pretrip-low",
+      "script": "test/fppretripbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-pretrip-low-low-en-normal-brake_pedal.png": "fe90c359d4f36454514a087d42ddb5d26eedc762c73bf3ec599a5a1f88463e67",
+        "c39-rebase-pretrip-low-low-en-normal-tire_front_p.png": "68651747bb60650a170dbc0dd5d3e2eaf1cc3e0e5f4887c6a5b5c754a244f77f",
+        "c39-rebase-pretrip-low.json": "ce446783f18f0553a0250e158c50314973beabe13069efa69b7c4a4e90c7505d"
+      }
+    },
+    {
+      "tag": "c39-rebase-routelesson-low",
+      "script": "test/fproutelessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-routelesson-low.json": "893cdf1552e4ae6e2ab4306bbdca10d35e75eb6d9e5fd6f53972ceb32fe3abed",
+        "c39-rebase-routelesson-low-low-en-normal.png": "6633fb74c3d0b7f2a0f3730753352a6e681d21160d04ae87c82242b66d114cc2",
+        "c39-rebase-routelesson-low-low-en-normal-bad.png": "b496da4088ea9116efb1ae8af0ee5068b29af70ddd789a3e244c0c386aa4ac09"
+      }
+    },
+    {
+      "tag": "c39-rebase-hazardlesson-low",
+      "script": "test/fphazardlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-hazardlesson-low-low-en-normal-1-spam.png": "1c4b03d5f34fa878910c699b80edd7534984a7fa76522f9502e974a35b0f8739",
+        "c39-rebase-hazardlesson-low-low-en-normal-2-spam.png": "9ef9effbc0636f3f3ed115a86fd2ac07e11931579806091212946e7842f5ed96",
+        "c39-rebase-hazardlesson-low-low-en-normal-2.png": "466c64199a97ff855dc6aa9a138ce9949363a8fc7a05b351e2bd501b5cef5ee7",
+        "c39-rebase-hazardlesson-low-low-en-normal-3.png": "821625ff86bfe6d5071916af8e5ce18d605532872c26e129d95c8e0d7c63c4ed",
+        "c39-rebase-hazardlesson-low.json": "82e37330c3a755137dc1431a57545773343edde27b70fdd7fb8ea6c70845b81f",
+        "c39-rebase-hazardlesson-low-low-en-normal-4-spam.png": "23194304fd2ef40f479bdb8b8df847a342a2ee993388fe3642e44475742e760b",
+        "c39-rebase-hazardlesson-low-low-en-normal-4.png": "e7875a3a19b6bb12a2acb7c8d282dc5c9988d40d15bdeae1f9947ec1653bf3a2",
+        "c39-rebase-hazardlesson-low-low-en-normal-3-spam.png": "b2f089c8885c19bb52859e34cff455f9bf4476265bd0389343ee1ee9948cb1c0",
+        "c39-rebase-hazardlesson-low-low-en-normal-0-spam.png": "b31cede722709fa9b80417c1612a2d32ad8656e9ff225fc0557180004f7e0d76",
+        "c39-rebase-hazardlesson-low-low-en-normal-1.png": "a5fd4d5ee8074d039213108f84933ce507b090dea3027b981f184ad41f4ad800",
+        "c39-rebase-hazardlesson-low-low-en-normal-0.png": "00271ae654fc4bcc8208bc993e32b2700fab6a5b409e84e1cf44ae7964d2f2a4"
+      }
+    },
+    {
+      "tag": "c39-rebase-drivinglesson-low",
+      "script": "test/fpdrivinglessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-drivinglesson-low-low-en-normal-hazard-3.png": "247a015edd84e93cdbe6e6bb2681ac1f9892bb28c23e24c025b9f47ea44425f4",
+        "c39-rebase-drivinglesson-low-low-en-normal-park-4.png": "573b84a9dbc95258ce0c55714930d7585eb42e74a53fd677173c7aa103b1faa7",
+        "c39-rebase-drivinglesson-low-low-en-normal-park-5.png": "812d6c02c9d99e9c9a14cd31e6a60eac56e4937c764c4d7954f367b539472129",
+        "c39-rebase-drivinglesson-low-low-en-normal-hazard-1.png": "fc79de34fd205b28573d3f8cd3d824a38163218b887a67d9898050f2bdfcae1f",
+        "c39-rebase-drivinglesson-low.json": "6dc9ebff064512abbe711878b2e5fee9bb56a88bc642c73a2e4aadeb9148c43f",
+        "c39-rebase-drivinglesson-low-low-en-normal-park-0.png": "20e371c3569b644f2d032313b74205b9b49b6eda2145528d8a6c93770940f25e",
+        "c39-rebase-drivinglesson-low-low-en-normal-hazard-0.png": "9411e0ae01836d0d21ad0b53bf4d9fcd6bb1d1f311feb95ec28ffdf7fd59c9b2",
+        "c39-rebase-drivinglesson-low-low-en-normal-hazard-2.png": "fc0216817510b0da8b73889c9336f028850076b001be88977d86999f7b6fefc6",
+        "c39-rebase-drivinglesson-low-low-en-normal-park-2.png": "f75624f5f8fdd1881b4853461cf5510ccc1993ff4b8f47de0f1be3e12cc44ad0",
+        "c39-rebase-drivinglesson-low-low-en-normal-park-1.png": "7f5b9d1900de7d6e802e212895d1e0463435c7405600ad2ae8e1b24d81d09615",
+        "c39-rebase-drivinglesson-low-low-en-normal-hazard-4.png": "70180e561f06faa80c9e445d4a67def232bd5031e8d7d3a103d88a1733b16a9a",
+        "c39-rebase-drivinglesson-low-low-en-normal-park-3.png": "d2370d643e22f28a35ff440e4bad8b9d10500ce925c0279800bc120575ff483e",
+        "c39-rebase-drivinglesson-low-low-en-normal-hazard-5.png": "99acc96283dbdfe7385429e7a0fdbf40dbb1be6ff0fe1a71af028d90d42083a6"
+      }
+    },
+    {
+      "tag": "c39-rebase-junctionlesson-low",
+      "script": "test/fpjunctionlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-junctionlesson-low-low-en-normal-bay-0.png": "4af2fbb9ce4afdd1b968a6ae6281f2b84eff04b5218b4609bf9b514d3425a255",
+        "c39-rebase-junctionlesson-low-low-en-normal-bay-1.png": "19f7a8e9d0a3fed4cfe1baca4eb456164e51ff6e1223da40eda083b6e91b1c76",
+        "c39-rebase-junctionlesson-low-low-en-normal-mounted-route.png": "780004c93456ab9a2e495c05455782df58575132f4ae79e9d064504befc9f97c",
+        "c39-rebase-junctionlesson-low.json": "75da276fda7f2814663dfce879d40e69cb3d06a047ff4023f5b77e515886ac6d",
+        "c39-rebase-junctionlesson-low-low-en-normal-bay-2.png": "adc7b6d11eead8856898986580fc38a977d7c46bb31bbe67623b83ea5cbd178e"
+      }
+    },
+    {
+      "tag": "c39-rebase-schoollesson-low",
+      "script": "test/fpschoollessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-schoollesson-low-low-en-normal-mounted-route.png": "0cf0948af4f5d5cd0b73890e12987be7793199360b0088731e19246461933b8b",
+        "c39-rebase-schoollesson-low.json": "af694b554fbec035e00c0eb35e12c2e1de4c14355d184c9bd29d3ad2a0228660",
+        "c39-rebase-schoollesson-low-low-en-normal-children.png": "208418555b04e68a66ddc6d6c815379c77bc8c80c723f31ff11ac54d956fba1e",
+        "c39-rebase-schoollesson-low-low-en-normal-bus-stop.png": "a88a8962dd03e6544ac39bf0c3467eceb5c5c98416af714b20faba9504f19237",
+        "c39-rebase-schoollesson-low-low-en-normal-reverse-bay.png": "2e160c77f37859f09ba7675e947fca8cdf08fe2bff87ed578ad5bb7ab6556f09"
+      }
+    },
+    {
+      "tag": "c39-rebase-nightlesson-low",
+      "script": "test/fpnightlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-nightlesson-low-low-en-normal-night-encounter.png": "232143bbf58c73f99136af71261ef0d55912be884db289708e0fd73918109808",
+        "c39-rebase-nightlesson-low-low-en-normal-finish-bay.png": "a1b6a40a9a23793d5642634a49a1ab02462a0c7f6beaf2b8dc5510a2961ef6a6",
+        "c39-rebase-nightlesson-low.json": "8df5f2ccad74030d931865bf0f4baf2ad1aede4d96334da97a983c9e6c19963c",
+        "c39-rebase-nightlesson-low-low-en-normal-light-test.png": "8c3476308a34a5ad8895b929052205a3664c473dbccb4176bd82ea66247c3663"
+      }
+    },
+    {
+      "tag": "c39-rebase-junctionlesson-high-ta",
+      "script": "test/fpjunctionlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_GFX": "high"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-junctionlesson-high-ta-high-ta-large-mounted-route.png": "4d234163010453becaf75f435fb5cdf51e953231caa53904997ec2a5ff2d388c",
+        "c39-rebase-junctionlesson-high-ta-high-ta-large-bay-0.png": "25cd7f850c5e5e59422a0b9ff9deed9d79e670a8adb61c53a067fd4b9df5ffdf",
+        "c39-rebase-junctionlesson-high-ta-high-ta-large-bay-2.png": "9247f5ed1b91b201a7a10bad695ed93cb1dff8ca7d01b4a6afcc1a207f406a17",
+        "c39-rebase-junctionlesson-high-ta-high-ta-large-bay-1.png": "edcc34dc204796fe371751bb291d336f2c1308d32b0ded8d50228cdab2c15a42",
+        "c39-rebase-junctionlesson-high-ta.json": "d9e7175f0fbc72a29b97b786a2c84acfd96d1a384d74adc46f61310e974ed100"
+      }
+    },
+    {
+      "tag": "c39-rebase-schoollesson-high-ta",
+      "script": "test/fpschoollessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_GFX": "high"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-schoollesson-high-ta-high-ta-large-children.png": "f776c77172efad157c2184c9734cb3f324788ab0e0088c0efeceb548247789a1",
+        "c39-rebase-schoollesson-high-ta-high-ta-large-reverse-bay.png": "f3dd8f9ef92548b517d1db732ac45c800df0ca4033aa36bc75757d5eb249ecb2",
+        "c39-rebase-schoollesson-high-ta-high-ta-large-bus-stop.png": "77e8329d47ad9410d34c2f712d28bcda2ea6b0943a99e00ea9fbd57ed2e5bfe1",
+        "c39-rebase-schoollesson-high-ta-high-ta-large-mounted-route.png": "074aadd1e836cf9a9b5face94f533ef1bcb0c32e4950e9b698cc989dbe2d721c",
+        "c39-rebase-schoollesson-high-ta.json": "b1cd6c412995353f76b9703adfba2e3f8aa8c5ed5f11da4c8d46ba4bcb86fe7b"
+      }
+    },
+    {
+      "tag": "c39-rebase-nightlesson-high-ta",
+      "script": "test/fpnightlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_GFX": "high"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-nightlesson-high-ta-high-ta-large-night-encounter.png": "b5ad27f6f2ab31893c9b4b01b93636d075645e05208f2bbdc6389de477e6c669",
+        "c39-rebase-nightlesson-high-ta-high-ta-large-light-test.png": "bfd9660811d65e5b778faa3712cb0da519752a1093b7710f8018e706f8c0048f",
+        "c39-rebase-nightlesson-high-ta.json": "a6aa0190c25a1b286053c085526af6b9c505f503ef2abbf90fc0146c8fb78a16",
+        "c39-rebase-nightlesson-high-ta-high-ta-large-finish-bay.png": "e55a7a1ad483572f2979c070bc5a4120144a5880b79fc6552439f4aae0280051"
+      }
+    },
+    {
+      "tag": "c39-rebase-junctionlesson-resources",
+      "script": "test/fpquality.js",
+      "env": {
+        "QA_JUNCTIONLESSON_ONLY": "1",
+        "QA_FPS_FLOOR": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-junctionlesson-resources-fallback-low-low-junctionapproach1.png": "8e30483784a1d8ae829604d0580c6f5cb804f8a667de952c775fcaf0fe9ff238",
+        "c39-rebase-junctionlesson-resources-loaded-low-low-junctionfinish1.png": "ca94224d080ad9a51198f49024bed478f590c073f6602cf57d99494248155f28",
+        "c39-rebase-junctionlesson-resources-quality.json": "486613a46ab13b55944676f3474bc1a6b493e55f142f6cbb5423d882a7a805b5",
+        "c39-rebase-junctionlesson-resources-accessible-low-low-junctionfinish0.png": "65508018e753ac52c1ab5d0eb05f00168bf04d3f8066fa62c7dd8c91b1161780",
+        "c39-rebase-junctionlesson-resources-fallback-low-low-junctionapproach2.png": "e32e21797f991a9436e5723c780a563085ff5f548dcb098b457e889f81f19045",
+        "c39-rebase-junctionlesson-resources-loaded-high-high-junctionfinish1.png": "2494654b6a0117f57931ae6571bbc4794113119aefcff6e4df53851c0ac95575",
+        "bench-c39-rebase-junctionlesson-resources-loaded-low-low.json": "4671d32783b7d32d58a30d147d5971018381b23018ad56bd84be474827d36595",
+        "c39-rebase-junctionlesson-resources-loaded-high-high-junctionfinish2.png": "23df8be2ce75784833f0002426aa1cb80fb0582584ef0ec20f5cac35bc82c2e2",
+        "c39-rebase-junctionlesson-resources-loaded-high-high-junctionapproach1.png": "5a23bebeaf50277eba0a380db4f36368ebf87180fabf7cafc8e60cdbf244073d",
+        "c39-rebase-junctionlesson-resources-accessible-low-low-junctioncycle.png": "7965745cbf7a51028ce0ffba3ef6b85cb3300c080bc75c7da0cf5466048b019e",
+        "bench-c39-rebase-junctionlesson-resources-accessible-low-low.json": "889c462e3274958276853204674f07746dbca4bf113d9940bc2e7defe8d0ee83",
+        "bench-c39-rebase-junctionlesson-resources-loaded-high-high.json": "59ddac2abfe5777f6df9992773d21a7c4b479113cb6fa5baadff73e697da4811",
+        "c39-rebase-junctionlesson-resources-accessible-low-low-junctionfinish2.png": "36f9b86c3205d3dedf865e9f4b6bfb7ca7945c19ed63cae368e8733ddd2cdbb6",
+        "c39-rebase-junctionlesson-resources-fallback-low-low-junctionapproach0.png": "4e6759cc91ed339ebaf8180d44ec4c7096a7ae70d661d20ce43616931f30fb0a",
+        "c39-rebase-junctionlesson-resources-accessible-low-low-junctionapproach2.png": "aaf9e0c9878e29e45ebec897a27b5ee110f6ac0f3b8c28507c2df5b3e345921b",
+        "c39-rebase-junctionlesson-resources-loaded-high-high-junctiondevice.png": "37c2a758cce7b42ff166bafd0930c32faf03066c406244e7d9b9e55182d5d58e",
+        "c39-rebase-junctionlesson-resources-loaded-high.log": "4e43fd816e827b650a3c658a974799d89cd9984362a9a18f7cea076c633ceea1",
+        "c39-rebase-junctionlesson-resources-loaded-high-high-junctionapproach2.png": "9f2ebeac7500e1edd8a7a3eb99eacb0d8f3fd33cc242a918b8e49fd661aac6cf",
+        "c39-rebase-junctionlesson-resources-fallback-low-low-junctiondevice.png": "2584b123bf2e6c347ab51c601c1ae608d4b3176b2ae4a05b13973953b08d1d60",
+        "c39-rebase-junctionlesson-resources-fallback-low.log": "b8f6ed371156ca063573ecdf1d651ea99fbab9ea198ec90ac6a1b7406feb6540",
+        "c39-rebase-junctionlesson-resources-accessible-low-low-junctionapproach1.png": "209c37fae09ea184068888eecafc73c5c351c2e83a148ab2286943f7a4608529",
+        "c39-rebase-junctionlesson-resources-loaded-low-low-junctionapproach1.png": "833b9ee25b254b647c76a905032f531c8ed133c51e452ab4bab4680db7cd614e",
+        "c39-rebase-junctionlesson-resources-accessible-low-low-junctionapproach0.png": "045654ff7340a0cf87f6566a86decea7982492e5f8796c00d2ebb43361c58cf3",
+        "c39-rebase-junctionlesson-resources-fallback-low-low-junctionfinish2.png": "949043d911827b0ccc4fa2945c7eac74553f295ae62243b0108f349305997ce3",
+        "c39-rebase-junctionlesson-resources-accessible-low-low-junctiondevice.png": "7965745cbf7a51028ce0ffba3ef6b85cb3300c080bc75c7da0cf5466048b019e",
+        "c39-rebase-junctionlesson-resources-fallback-low-low-junctionfinish0.png": "66df339b02b078cc23b8635702f8453aa26bb722322b02f36f9f4b48db86828a",
+        "c39-rebase-junctionlesson-resources-loaded-high-high-junctionapproach0.png": "f1dbf364e63053a3164e708a63c17d9ecd1b2f1def1786b9900e6c2ae9d75ce2",
+        "c39-rebase-junctionlesson-resources-accessible-low.log": "fc09ddafb963b0fcac40dd06727d0d78979ab1882b8b7fab8f75ec47c4d8f000",
+        "c39-rebase-junctionlesson-resources-loaded-low-low-junctionfinish0.png": "cca679afeeb67a311b60926f5ec03af94773cd06944988eb23c47dc913f1aa3a",
+        "c39-rebase-junctionlesson-resources-fallback-low-low-junctionfinish1.png": "987acc1ec64fd7d433f25c49dc5d888dab909bdb9e72c684d7e0732e6aba8b2d",
+        "c39-rebase-junctionlesson-resources-loaded-low.log": "f8cba802e28bbb3bd94cea9c67a9ff0c888dee60dda2ab5b30cfe6ff19829a14",
+        "c39-rebase-junctionlesson-resources-loaded-low-low-junctiondevice.png": "7482e213c713a5d9fd9d7f26c618f17ee08dee3d5b69181d185c5a6a8f84024c",
+        "c39-rebase-junctionlesson-resources-loaded-high-high-junctionfinish0.png": "f485b489f2480f5df082fedc34b0ba14f4d43933add96732d2f8f27709b845b4",
+        "c39-rebase-junctionlesson-resources-loaded-low-low-junctioncycle.png": "7482e213c713a5d9fd9d7f26c618f17ee08dee3d5b69181d185c5a6a8f84024c",
+        "bench-c39-rebase-junctionlesson-resources-fallback-low-low.json": "4c05a849f7a67f930cfa3cbe9ef1cc502cb4104ad32dfb8d1789d0a4429feba7",
+        "c39-rebase-junctionlesson-resources-loaded-high-high-junctioncycle.png": "37c2a758cce7b42ff166bafd0930c32faf03066c406244e7d9b9e55182d5d58e",
+        "c39-rebase-junctionlesson-resources-fallback-low-low-junctioncycle.png": "2584b123bf2e6c347ab51c601c1ae608d4b3176b2ae4a05b13973953b08d1d60",
+        "c39-rebase-junctionlesson-resources-loaded-low-low-junctionapproach2.png": "22de217e6bac8fdfd00bf1c284a548c892a145fa8affbec011c0397c07c3713e",
+        "c39-rebase-junctionlesson-resources-loaded-low-low-junctionapproach0.png": "e15b52c0dbc2f3501f18771d0ef42488006221ea42d2cfce22cd3c6657ad99ca",
+        "c39-rebase-junctionlesson-resources-accessible-low-low-junctionfinish1.png": "f2e40e6ccc7f182f9f4adebade0bf009a17350a41f928c5cca29a31410de5475",
+        "c39-rebase-junctionlesson-resources-loaded-low-low-junctionfinish2.png": "4aa5185bae328a46f0c8d4e7dd5fbd8ea80b1275862a35c2499ca0e56be84c42"
+      }
+    },
+    {
+      "tag": "c39-rebase-schoollesson-resources",
+      "script": "test/fpquality.js",
+      "env": {
+        "QA_SCHOOLLESSON_ONLY": "1",
+        "QA_FPS_FLOOR": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-schoollesson-resources-loaded-high.log": "536fc6334cd6599872407591b957ecd84da571b1a9f1428c3325ea106d77ff76",
+        "c39-rebase-schoollesson-resources-fallback-low.log": "4a6018569090b4ee7537eeaf29b4299bb0905797fcb5fa4d4e457a231a994fa2",
+        "c39-rebase-schoollesson-resources-fallback-low-low-schoolreverse.png": "f426963bbd3f151f4a764cb0505f49956d552490df684f5a69b874c7f66f42c0",
+        "c39-rebase-schoollesson-resources-quality.json": "0a83228f5954a9e9ac414f784579a3b9f85f03609023906f9fb651c8565de30d",
+        "c39-rebase-schoollesson-resources-accessible-low-low-schoolclear.png": "d79e75396a36ae64f97a867fcef1b5007c7e53b9e6745652d4301ead91f280b3",
+        "c39-rebase-schoollesson-resources-loaded-high-high-schoolbus.png": "4db0f7fb183a2288fdbfbae0b42a49722df6417d45970ed2c0630987e7fb9b92",
+        "c39-rebase-schoollesson-resources-loaded-low-low-schoolfinish.png": "e9441263ab8a0e5df743d2b953f6e5d10c2e2494ce8d160c88f46bc9089da30e",
+        "c39-rebase-schoollesson-resources-fallback-low-low-schooldevice.png": "b335c80b4b1032055bc6632c0f45dd8652b1a604d85592a35c2053f53ea51a08",
+        "c39-rebase-schoollesson-resources-loaded-high-high-schoolapproach.png": "a4593568e7d5ba7b954cd198acc978fb54882bed95ea48190d3fb9e51b07166d",
+        "c39-rebase-schoollesson-resources-accessible-low-low-schoolapproach.png": "c6ff6e5cd4c5490f28e3a649057751cab5165b1df40b0ad0bad47955a14112c9",
+        "c39-rebase-schoollesson-resources-loaded-low-low-schoolclear.png": "751a5e4e31c7a331817b6dfcce81487c39352f7792cacc9f18d4fc0519950c5d",
+        "c39-rebase-schoollesson-resources-loaded-low-low-schoolreverse.png": "8dc508362edc7ed5b1d500daa786680683daeef3861408b4c415aaa7fc846e5b",
+        "bench-c39-rebase-schoollesson-resources-accessible-low-low.json": "59dc12c43f6acb15967bae92db924f988d6ebd3e868d6808de65ad9739c88370",
+        "c39-rebase-schoollesson-resources-loaded-low-low-schooldevice.png": "b21039bfbce96e5d65a969c5fa6b69aba13f21113e9641a95c7b21cf8a16703f",
+        "c39-rebase-schoollesson-resources-loaded-high-high-schoolclear.png": "06b2407272a115b70fbe6970d20136f202108bef52ab0a52a3bd573dca55b0d6",
+        "c39-rebase-schoollesson-resources-fallback-low-low-schoolchildren.png": "a1d966b24e3ffe34266bfffc8baf792bbdded7a4c0354ce6852670f855c67d25",
+        "c39-rebase-schoollesson-resources-fallback-low-low-schoolclear.png": "e42adb34513a2973756178f321e6fc9d521add631a2d66aa8eadc7d11e7f7b73",
+        "c39-rebase-schoollesson-resources-loaded-low-low-schoolcycle.png": "b21039bfbce96e5d65a969c5fa6b69aba13f21113e9641a95c7b21cf8a16703f",
+        "c39-rebase-schoollesson-resources-accessible-low-low-schoolcycle.png": "3bd647b87a5915ca7b514b07f35cde3de3a9767e66ae80a420bb776f998692a1",
+        "c39-rebase-schoollesson-resources-accessible-low-low-schooldevice.png": "3bd647b87a5915ca7b514b07f35cde3de3a9767e66ae80a420bb776f998692a1",
+        "bench-c39-rebase-schoollesson-resources-fallback-low-low.json": "490641a4dda555d6c166d212faa03030009747d2bb77c643242980360c7af47f",
+        "c39-rebase-schoollesson-resources-loaded-low.log": "3e3cc2deaa94ccf78ddcf691359f97f4e4033893ee7fc6b1501cfda5a0fe0ada",
+        "c39-rebase-schoollesson-resources-fallback-low-low-schoolapproach.png": "3f4908f2e78640eb11efa3c31a8b7e84ab93b66f58722f6b37e7961aad0f495c",
+        "c39-rebase-schoollesson-resources-loaded-high-high-schoolchildren.png": "4ba983383244eddbd9d3e245526d60deabc77c6fa6ea342315d3c24b3220f28e",
+        "c39-rebase-schoollesson-resources-loaded-high-high-schoolreverse.png": "67e9614fcc8a2326dc07aa00b8dd79cce99f77cfa09ef03bc45a6118f2703eda",
+        "c39-rebase-schoollesson-resources-accessible-low-low-schoolchildren.png": "a3db6726831545e19bf99d65c6c02726bf8497e9e05f549e3ef168578ceee344",
+        "bench-c39-rebase-schoollesson-resources-loaded-high-high.json": "40815727ba7ad89fc19145b53b026a10be43b2eb62649fdc6e5887e1d42d9fe5",
+        "c39-rebase-schoollesson-resources-accessible-low-low-schoolreverse.png": "f684512a65aeae53ac4dab1b0879874cd03e478d19b647a7dc4e83ee3cc82440",
+        "c39-rebase-schoollesson-resources-accessible-low.log": "a9175feaec9f14c294117fe6a455edcb07a113773095582eda2fa76e70cf4a77",
+        "c39-rebase-schoollesson-resources-loaded-low-low-schoolbus.png": "8253cef4c297e76c7509f1873540bdd2666586f6815f1a4734d9eee87d2e6023",
+        "c39-rebase-schoollesson-resources-loaded-low-low-schoolapproach.png": "cf1b1259d618fd572da89c73ae270a2de8323ac108a65cd4b780c1f3bb54452b",
+        "bench-c39-rebase-schoollesson-resources-loaded-low-low.json": "5b5a13c7b48f2e6f331025c6afa9686c8c58140ba3d73aff5651f15dae707215",
+        "c39-rebase-schoollesson-resources-accessible-low-low-schoolbus.png": "79696803fe24304ff161a519a9544e64c2a7a6225d9990505895d6f68866f6c8",
+        "c39-rebase-schoollesson-resources-fallback-low-low-schoolfinish.png": "ab0633d58a5e83b9b9a3cdaf32630aca33a6c3487f51d61f8c1837064cb20dbb",
+        "c39-rebase-schoollesson-resources-loaded-low-low-schoolchildren.png": "636c7316e6d47750022f0846115c84034a86ad3cf8b65d34a7411fb3f8af975a",
+        "c39-rebase-schoollesson-resources-fallback-low-low-schoolbus.png": "7c047cb0fd0ebd316d8aa201fac77e9b335509db39caa27f8921c6a8cdd7b2dd",
+        "c39-rebase-schoollesson-resources-loaded-high-high-schooldevice.png": "a5477c8a3be2b7ab6e142e7ea778c3fdb232077f6e17699b4ca3b389391fc10c",
+        "c39-rebase-schoollesson-resources-loaded-high-high-schoolcycle.png": "a5477c8a3be2b7ab6e142e7ea778c3fdb232077f6e17699b4ca3b389391fc10c",
+        "c39-rebase-schoollesson-resources-accessible-low-low-schoolfinish.png": "94987b91b272ffb831ceb4eee22806524837c1a9b36fa0d4c0ee4350bdf66cf7",
+        "c39-rebase-schoollesson-resources-loaded-high-high-schoolfinish.png": "4569f71a236abc3327efcd9b6e3c51ea217b34575b8f567f1a8698e60c4f05a3",
+        "c39-rebase-schoollesson-resources-fallback-low-low-schoolcycle.png": "b335c80b4b1032055bc6632c0f45dd8652b1a604d85592a35c2053f53ea51a08"
+      }
+    },
+    {
+      "tag": "c39-rebase-nightlesson-resources",
+      "script": "test/fpquality.js",
+      "env": {
+        "QA_NIGHTLESSON_ONLY": "1",
+        "QA_FPS_FLOOR": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c39-rebase-nightlesson-resources-accessible-low-low-nightlessondevice.png": "796f73edef1a0963edc556db13647c080b2b8553f4d227f8318f6719bb7160bc",
+        "c39-rebase-nightlesson-resources-fallback-low-low-nightlessondevice.png": "57496b8397ae0cb1528f7b7f3926833742b2ea7d3a49daaa9159502b126c0b39",
+        "c39-rebase-nightlesson-resources-loaded-low-low-nightlessoninspect.png": "e51cdb8c85fe9b1ccc9af7c360286c58dc8d792056b13615f7c7356dbb22c275",
+        "c39-rebase-nightlesson-resources-loaded-low-low-nightlessoncaboff.png": "aa621baca7397ebba2b7a4b2db96b1c77b7651eed856f035c8a2ef9e54ddbeaf",
+        "c39-rebase-nightlesson-resources-loaded-low-low-nightlessoncycle.png": "4a09ec0811de73379ef8fc06b437bfb8654c9996301c58b266fa1d3145c2c97e",
+        "c39-rebase-nightlesson-resources-fallback-low-low-nightlessoncaboff.png": "431eb5d4b1b46592b7fc647ae7c991a5081a9f23ca83fa966022025b3624cfe6",
+        "bench-c39-rebase-nightlesson-resources-loaded-low-low.json": "1aa9a5f264b2e63e9e4c41d775f844d4ab560300f78d8ebbe9800302fef0348f",
+        "c39-rebase-nightlesson-resources-quality.json": "48bd1ed8ec860b10fe73fa58255f8fb4693b714ee732424e5d5d5c7b1962159c",
+        "c39-rebase-nightlesson-resources-loaded-high-high-nightlessonfinish.png": "9bd4d4575de5102faaa9aa3deb79ec8c9a671ae81abb9264312c9f22b8c12166",
+        "c39-rebase-nightlesson-resources-loaded-high.log": "ff8ba98860e9a093f84b3aff677486eab7cdb142fc676a9952b0ed02ceccbdbb",
+        "c39-rebase-nightlesson-resources-loaded-low-low-nightlessoncabon.png": "1ba9920a831d1e40bd72a09347779b130de8dcc8a78b33868d7d9b260d322fe9",
+        "c39-rebase-nightlesson-resources-accessible-low-low-nightlessoncycle.png": "796f73edef1a0963edc556db13647c080b2b8553f4d227f8318f6719bb7160bc",
+        "c39-rebase-nightlesson-resources-loaded-high-high-nightlessoncycle.png": "bc014c81e01c5c452345003fd04e5e340ead56f01c09c9d327e28a3411abd70a",
+        "bench-c39-rebase-nightlesson-resources-accessible-low-low.json": "cf606c78a0d1f4b88a93fd069ad1d53ce959f954a8c4b9557f890f1760eba00e",
+        "c39-rebase-nightlesson-resources-accessible-low-low-nightlessonfinish.png": "ba7cc2890f958618c318ee9b14210b3fdfd45d4da917c2708d703c1e298a528e",
+        "bench-c39-rebase-nightlesson-resources-fallback-low-low.json": "24485997c330d8140cf51c08e089a4d657c6f89d310070eeee8291b90bde7f5d",
+        "c39-rebase-nightlesson-resources-loaded-low-low-nightlessonfinish.png": "228678343fc7a65cab0020b362b002fe806ebdd64f6bab19b989b8ef4deb2743",
+        "c39-rebase-nightlesson-resources-accessible-low-low-nightlessoncabon.png": "374c7b51bed073bc478884d8d06586a2a1c2c3475a3ac22cc1039004ead62dca",
+        "c39-rebase-nightlesson-resources-loaded-high-high-nightlessonlead.png": "4edf3c1ed4784e2374509418f524fa6c6161f9ef7d9450025229f72149450109",
+        "c39-rebase-nightlesson-resources-loaded-high-high-nightlessoncabon.png": "1656398784b3017ff5749901f84b3baa173f4fd5b250d3ef68d049d72a50e1a5",
+        "c39-rebase-nightlesson-resources-loaded-low-low-nightlessondevice.png": "4a09ec0811de73379ef8fc06b437bfb8654c9996301c58b266fa1d3145c2c97e",
+        "c39-rebase-nightlesson-resources-loaded-high-high-nightlessoncaboff.png": "f54da69dd78cb8dff75aaed062392b44f034af4bdbef3365e242daa72e018a50",
+        "c39-rebase-nightlesson-resources-fallback-low-low-nightlessonfinish.png": "f30752ff2dd3b54d9cf0a47219436bd4cc7f522f053a3f5a7f90aaa4fb8039cc",
+        "c39-rebase-nightlesson-resources-loaded-high-high-nightlessoninspect.png": "b871b944c8665ce39d84ac351b16d369d7e1a33eb001f82c1ff6661b2111ce25",
+        "c39-rebase-nightlesson-resources-accessible-low-low-nightlessoninspect.png": "8da3b6d4495205cc6cb1d9bfe0a7ce131ca58153d504aa9a0b42f8c52d625533",
+        "c39-rebase-nightlesson-resources-accessible-low-low-nightlessonlead.png": "026097941bd5366c07addf7d7e28e572feaa460e4a1e4759a490c80bab136d59",
+        "c39-rebase-nightlesson-resources-fallback-low-low-nightlessoncycle.png": "57496b8397ae0cb1528f7b7f3926833742b2ea7d3a49daaa9159502b126c0b39",
+        "c39-rebase-nightlesson-resources-fallback-low-low-nightlessonlead.png": "447141e06a15e9683096e54035426343780dc01242dea21a228692e05cfb7845",
+        "c39-rebase-nightlesson-resources-loaded-low.log": "dd74c01c119c094ea9f1074a70c19fe4b18092be225c9423a6d8025aae1f8cf4",
+        "c39-rebase-nightlesson-resources-fallback-low-low-nightlessoninspect.png": "2a977fe5aef5ebb4deed035cd026d37e66ec08c315023b348f0dd7a74e220255",
+        "c39-rebase-nightlesson-resources-fallback-low.log": "555316fc367d4f2f4beafd7673ca9e03389b1da34fc84addb7461e514580aeeb",
+        "c39-rebase-nightlesson-resources-accessible-low-low-nightlessoncaboff.png": "bdf8460583561e8fce73fb6b3a62512b40abd80fc05611abdf618eb01c2f5b92",
+        "bench-c39-rebase-nightlesson-resources-loaded-high-high.json": "8a2576abaabcc92d327731ec8fd96f726939ca3f6028d157fd9fb8c4f3d5a5ac",
+        "c39-rebase-nightlesson-resources-loaded-low-low-nightlessonlead.png": "70c55d622ac6b8917fba98ef55b9d03d78442fd823c203793cf8686583434910",
+        "c39-rebase-nightlesson-resources-fallback-low-low-nightlessoncabon.png": "2917b50e1f18753932da660450965c1afc0399af07ed67b8f03934520813fe18",
+        "c39-rebase-nightlesson-resources-loaded-high-high-nightlessondevice.png": "bc014c81e01c5c452345003fd04e5e340ead56f01c09c9d327e28a3411abd70a",
+        "c39-rebase-nightlesson-resources-accessible-low.log": "834bac1878595823accedb2cc411749a64295ad2bfb3365b25b19d978a719403"
+      }
+    }
+  ],
+  "startedAt": 1793212663.3117647,
+  "serverPid": 230600,
+  "tag": "c39-rebase-nightlesson-resources",
+  "childPid": 251036,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793217955.082301
+}

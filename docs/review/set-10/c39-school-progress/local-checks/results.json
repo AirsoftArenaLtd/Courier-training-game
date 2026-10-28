@@ -1,0 +1,108 @@
+[
+  {
+    "suite": "firstperson.js",
+    "exit": 0,
+    "seconds": 0.17
+  },
+  {
+    "suite": "fpmission.js",
+    "exit": 0,
+    "seconds": 0.16
+  },
+  {
+    "suite": "fpworld.js",
+    "exit": 0,
+    "seconds": 0.28
+  },
+  {
+    "suite": "fpscenario.js",
+    "exit": 0,
+    "seconds": 0.16
+  },
+  {
+    "suite": "fpdriving.js",
+    "exit": 0,
+    "seconds": 0.46
+  },
+  {
+    "suite": "fpdrivinglesson.js",
+    "exit": 0,
+    "seconds": 0.87
+  },
+  {
+    "suite": "fpdrivinglessonrules.js",
+    "exit": 0,
+    "seconds": 0.6
+  },
+  {
+    "suite": "fpdrivinglessonworld.js",
+    "exit": 0,
+    "seconds": 0.19
+  },
+  {
+    "suite": "fpdrivinglessonui.js",
+    "exit": 0,
+    "seconds": 0.38
+  },
+  {
+    "suite": "fpcamera.js",
+    "exit": 0,
+    "seconds": 0.13
+  },
+  {
+    "suite": "fpschoollesson.js",
+    "exit": 0,
+    "seconds": 3.8
+  },
+  {
+    "suite": "fpschoollessonui.js",
+    "exit": 0,
+    "seconds": 0.08
+  },
+  {
+    "suite": "fpschoollessonworld.js",
+    "exit": 0,
+    "seconds": 1.02
+  },
+  {
+    "suite": "fplessonbays.js",
+    "exit": 0,
+    "seconds": 0.09
+  },
+  {
+    "suite": "fpqualitygate.js",
+    "exit": 0,
+    "seconds": 0.07
+  },
+  {
+    "suite": "workday.js",
+    "exit": 0,
+    "seconds": 0.08
+  },
+  {
+    "suite": "savesize.js",
+    "exit": 0,
+    "seconds": 15.84
+  },
+  {
+    "suite": "i18n.js",
+    "exit": 0,
+    "seconds": 0.25
+  },
+  {
+    "suite": "englishtext.js (unchanged current-pilot guard against owned worktree)",
+    "exit": 0,
+    "seconds": 0.06,
+    "command": [
+      "node",
+      "-e",
+      "const fs=require('node:fs'),vm=require('node:vm');const f='/workspace/c39-driving-acceptance/test/englishtext.js';vm.runInNewContext(fs.readFileSync(f,'utf8'),{require,__dirname:'/workspace/c39-route-driving/test',console},{filename:f});"
+    ],
+    "guardSha256": "da44210b913c706d2ff50c3e79be02f6589d2e17b35b132ead6bb2a15317396d"
+  },
+  {
+    "suite": "assets.js",
+    "exit": 0,
+    "seconds": 0.06
+  }
+]

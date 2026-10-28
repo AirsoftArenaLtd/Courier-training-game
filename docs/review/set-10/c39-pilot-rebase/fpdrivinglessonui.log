@@ -1,0 +1,14 @@
+✔ the registered driving adapter restores the full town and isolates actual physical input from workday data (411.409795ms)
+✔ checkpoint recording uses the same physical action from the device and mapped shortcut, and invalid parking resumes (5.429289ms)
+✔ rain changes exactly halfway without resetting time or the physical hazard pool, then six checkpoints finish (2.164387ms)
+✔ the physical mounted screen reads the route outside reverse, and reverse keeps its live camera interaction (36.45477ms)
+✔ instruction pages and controls name remapped keys and use the physical mirror and camera contract (5.540194ms)
+✔ each bounded approach still arms naturally after the actual motor advances a frame (49.112754ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 524.006391

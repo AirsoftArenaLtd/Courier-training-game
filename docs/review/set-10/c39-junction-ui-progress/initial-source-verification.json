@@ -1,0 +1,10 @@
+{
+  "inputs": 563,
+  "allInputsVerified": true,
+  "archivedInputs": {
+    "src/core/fpjunctionlesson.js": "source-before-paint/src/core/fpjunctionlesson.js",
+    "test/fpjunctionlessonbrowser.js": "source-before-paint/test/fpjunctionlessonbrowser.js"
+  },
+  "sourceRevision": "18a92fc0",
+  "scope": "Initial native evidence, before strict paint-edge correction and larger wall allowance; final validation has its own plan."
+}

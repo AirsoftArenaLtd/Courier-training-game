@@ -1,0 +1,866 @@
+{
+  "checks": 671,
+  "runs": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "spam": false,
+      "clips": [
+        {
+          "response": {
+            "id": "ball",
+            "flags": [
+              6.099879999999983
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.07621402963345522,
+              "y": -0.18624574695736656,
+              "z": 0.9894276917201248,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "ball",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nA ball rolling out from between parked cars: a child is very likely to follow it. Cover the brake the moment you see the ball.",
+            "1. Watch the next clip."
+          ],
+          "why": "A ball rolling out from between parked cars: a child is very likely to follow it. Cover the brake the moment you see the ball."
+        },
+        {
+          "response": {
+            "id": "reversing",
+            "flags": [
+              6.099999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.6444867391939947,
+              "y": -0.2993411881741876,
+              "z": 0.9750713578794876,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "reversing",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nReverse lights on a car in a driveway: it is about to back out, and the driver may not see a van. Ease off and be ready to stop.",
+            "1. Watch the next clip."
+          ],
+          "why": "Reverse lights on a car in a driveway: it is about to back out, and the driver may not see a van. Ease off and be ready to stop."
+        },
+        {
+          "response": {
+            "id": "phone",
+            "flags": [
+              6.049999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.44305671883606584,
+              "y": -0.20675980212349732,
+              "z": 0.9762629544754935,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "phone",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nA pedestrian heading for the crossing with their eyes on their phone may step out without looking. Slow down before the crossing.",
+            "1. Watch the next clip."
+          ],
+          "why": "A pedestrian heading for the crossing with their eyes on their phone may step out without looking. Slow down before the crossing."
+        },
+        {
+          "response": {
+            "id": "door",
+            "flags": [
+              6.049999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.1934943880704051,
+              "y": -0.24698518411124679,
+              "z": 0.9771290656530274,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "door",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nSomeone sitting in a parked car with the brake lights on may open the door into the road. Give parked cars a door's width.",
+            "1. Watch the next clip."
+          ],
+          "why": "Someone sitting in a parked car with the brake lights on may open the door into the road. Give parked cars a door's width."
+        },
+        {
+          "response": {
+            "id": "runner",
+            "flags": [
+              5.049999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.13005858520671632,
+              "y": -0.2993411881741876,
+              "z": 0.9750713578794876,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "runner",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nA car coming up to the side street's stop sign too fast to stop: be ready for it to roll out in front of you.",
+            "1. See the results."
+          ],
+          "why": "A car coming up to the side street's stop sign too fast to stop: be ready for it to roll out in front of you."
+        }
+      ],
+      "shots": [
+        "c39-hazard-final-native-low-en-normal-0.png",
+        "c39-hazard-final-native-low-en-normal-1.png",
+        "c39-hazard-final-native-low-en-normal-2.png",
+        "c39-hazard-final-native-low-en-normal-3.png",
+        "c39-hazard-final-native-low-en-normal-4.png"
+      ],
+      "result": {
+        "id": "m1-spot",
+        "stars": {
+          "safety": 3
+        },
+        "score": 2500,
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "spam": false,
+      "clips": [
+        {
+          "response": {
+            "id": "ball",
+            "flags": [
+              6.033333333333332
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": true,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": -0.06444150578749876,
+              "y": -0.16275801001961365,
+              "z": 0.9910083493898524,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "ball",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "This road scene has ended. Your response has been recorded.",
+            "1. Watch the next clip."
+          ],
+          "why": "A ball rolling out from between parked cars: a child is very likely to follow it. Cover the brake the moment you see the ball."
+        },
+        {
+          "response": {
+            "id": "reversing",
+            "flags": [
+              6.049999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": true,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.2555456799574823,
+              "y": -0.1145626769555533,
+              "z": 0.9910083493898524,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "reversing",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "This road scene has ended. Your response has been recorded.",
+            "1. Watch the next clip."
+          ],
+          "why": "Reverse lights on a car in a driveway: it is about to back out, and the driver may not see a van. Ease off and be ready to stop."
+        },
+        {
+          "response": {
+            "id": "phone",
+            "flags": [
+              6.016666666666666
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": true,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.17890093268153265,
+              "y": -0.08145083113955955,
+              "z": 0.9911880027486965,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "phone",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "This road scene has ended. Your response has been recorded.",
+            "1. Watch the next clip."
+          ],
+          "why": "A pedestrian heading for the crossing with their eyes on their phone may step out without looking. Slow down before the crossing."
+        },
+        {
+          "response": {
+            "id": "door",
+            "flags": [
+              6.016666666666666
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": true,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.07788520293255935,
+              "y": -0.09941627443396746,
+              "z": 0.9913253404069508,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "door",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "This road scene has ended. Your response has been recorded.",
+            "1. Watch the next clip."
+          ],
+          "why": "Someone sitting in a parked car with the brake lights on may open the door into the road. Give parked cars a door's width."
+        },
+        {
+          "response": {
+            "id": "runner",
+            "flags": [
+              5.049999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": true,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.049775507918619843,
+              "y": -0.1145626769555533,
+              "z": 0.9910083493898524,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "runner",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "This road scene has ended. Your response has been recorded.",
+            "1. See the results."
+          ],
+          "why": "A car coming up to the side street's stop sign too fast to stop: be ready for it to roll out in front of you."
+        }
+      ],
+      "shots": [
+        "c39-hazard-final-native-low-en-large-0.png",
+        "c39-hazard-final-native-low-en-large-1.png",
+        "c39-hazard-final-native-low-en-large-2.png",
+        "c39-hazard-final-native-low-en-large-3.png",
+        "c39-hazard-final-native-low-en-large-4.png"
+      ],
+      "result": {
+        "id": "m1-spot",
+        "stars": {
+          "safety": 3
+        },
+        "score": 2500,
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792735818381,
+          "pending": false,
+          "at": 1792735835126,
+          "stars": {
+            "safety": 3
+          },
+          "score": 2500,
+          "criticals": [],
+          "lessons": [
+            "Eyes up and early every time: the earlier you see a hazard developing, the more time you have to deal with it."
+          ]
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "spam": false,
+      "clips": [
+        {
+          "response": {
+            "id": "ball",
+            "flags": [
+              6.033333333333332
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": -0.16837941834798054,
+              "y": -0.4252709294060872,
+              "z": 0.9750713578794876,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "ball",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nA ball rolling out from between parked cars: a child is very likely to follow it. Cover the brake the moment you see the ball.",
+            "1. Watch the next clip."
+          ],
+          "why": "A ball rolling out from between parked cars: a child is very likely to follow it. Cover the brake the moment you see the ball."
+        },
+        {
+          "response": {
+            "id": "reversing",
+            "flags": [
+              6.049999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.6677114865523367,
+              "y": -0.2993411881741876,
+              "z": 0.9750713578794876,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "reversing",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nReverse lights on a car in a driveway: it is about to back out, and the driver may not see a van. Ease off and be ready to stop.",
+            "1. Watch the next clip."
+          ],
+          "why": "Reverse lights on a car in a driveway: it is about to back out, and the driver may not see a van. Ease off and be ready to stop."
+        },
+        {
+          "response": {
+            "id": "phone",
+            "flags": [
+              6.016653333333332
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.45413535209056166,
+              "y": -0.20675980212349732,
+              "z": 0.9762629544754935,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "phone",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nA pedestrian heading for the crossing with their eyes on their phone may step out without looking. Slow down before the crossing.",
+            "1. Watch the next clip."
+          ],
+          "why": "A pedestrian heading for the crossing with their eyes on their phone may step out without looking. Slow down before the crossing."
+        },
+        {
+          "response": {
+            "id": "door",
+            "flags": [
+              6.016666666666666
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.1934943880704051,
+              "y": -0.24698518411124679,
+              "z": 0.9771290656530274,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "door",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nSomeone sitting in a parked car with the brake lights on may open the door into the road. Give parked cars a door's width.",
+            "1. Watch the next clip."
+          ],
+          "why": "Someone sitting in a parked car with the brake lights on may open the door into the road. Give parked cars a door's width."
+        },
+        {
+          "response": {
+            "id": "runner",
+            "flags": [
+              5.049999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": false,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.13005858520671632,
+              "y": -0.2993411881741876,
+              "z": 0.9750713578794876,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "runner",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "You scored 5 of 5 points.\n\nA car coming up to the side street's stop sign too fast to stop: be ready for it to roll out in front of you.",
+            "1. See the results."
+          ],
+          "why": "A car coming up to the side street's stop sign too fast to stop: be ready for it to roll out in front of you."
+        }
+      ],
+      "shots": [
+        "c39-hazard-final-native-low-ta-normal-0.png",
+        "c39-hazard-final-native-low-ta-normal-1.png",
+        "c39-hazard-final-native-low-ta-normal-2.png",
+        "c39-hazard-final-native-low-ta-normal-3.png",
+        "c39-hazard-final-native-low-ta-normal-4.png"
+      ],
+      "result": {
+        "id": "m1-spot",
+        "stars": {
+          "safety": 3
+        },
+        "score": 2500,
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "spam": false,
+      "clips": [
+        {
+          "response": {
+            "id": "ball",
+            "flags": [
+              6.033273333333332
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": true,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": -0.06444150578749876,
+              "y": -0.16275801001961365,
+              "z": 0.9910083493898524,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "ball",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "This road scene has ended. Your response has been recorded.",
+            "1. Watch the next clip."
+          ],
+          "why": "A ball rolling out from between parked cars: a child is very likely to follow it. Cover the brake the moment you see the ball."
+        },
+        {
+          "response": {
+            "id": "reversing",
+            "flags": [
+              6.033293333333332
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": true,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.25554745765419373,
+              "y": -0.1145626769555533,
+              "z": 0.9910083493898524,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "reversing",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "This road scene has ended. Your response has been recorded.",
+            "1. Watch the next clip."
+          ],
+          "why": "Reverse lights on a car in a driveway: it is about to back out, and the driver may not see a van. Ease off and be ready to stop."
+        },
+        {
+          "response": {
+            "id": "phone",
+            "flags": [
+              6.016666666666666
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": true,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.17890093268153265,
+              "y": -0.08145083113955955,
+              "z": 0.9911880027486965,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "phone",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "This road scene has ended. Your response has been recorded.",
+            "1. Watch the next clip."
+          ],
+          "why": "A pedestrian heading for the crossing with their eyes on their phone may step out without looking. Slow down before the crossing."
+        },
+        {
+          "response": {
+            "id": "door",
+            "flags": [
+              6.0166266666666655
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": true,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.07788520293255935,
+              "y": -0.09941627443396746,
+              "z": 0.9913253404069508,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "door",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "This road scene has ended. Your response has been recorded.",
+            "1. Watch the next clip."
+          ],
+          "why": "Someone sitting in a parked car with the brake lights on may open the door into the road. Give parked cars a door's width."
+        },
+        {
+          "response": {
+            "id": "runner",
+            "flags": [
+              5.049999999999999
+            ],
+            "presses": 1,
+            "hand": false,
+            "gear": 1,
+            "reduced": true,
+            "controls": false,
+            "help": false,
+            "assets": true,
+            "person": true,
+            "sightline": {
+              "visible": true,
+              "x": 0.049775507918619843,
+              "y": -0.1145626769555533,
+              "z": 0.9910083493898524,
+              "clear": true,
+              "hit": "Mesh"
+            }
+          },
+          "result": {
+            "id": "runner",
+            "pts": 5,
+            "flags": 1,
+            "tooMany": false
+          },
+          "sources": [
+            "This clip is complete.",
+            "This road scene has ended. Your response has been recorded.",
+            "1. See the results."
+          ],
+          "why": "A car coming up to the side street's stop sign too fast to stop: be ready for it to roll out in front of you."
+        }
+      ],
+      "shots": [
+        "c39-hazard-final-native-low-ta-large-0.png",
+        "c39-hazard-final-native-low-ta-large-1.png",
+        "c39-hazard-final-native-low-ta-large-2.png",
+        "c39-hazard-final-native-low-ta-large-3.png",
+        "c39-hazard-final-native-low-ta-large-4.png"
+      ],
+      "result": {
+        "id": "m1-spot",
+        "stars": {
+          "safety": 3
+        },
+        "score": 2500,
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792735856473,
+          "pending": false,
+          "at": 1792735871861,
+          "stars": {
+            "safety": 3
+          },
+          "score": 2500,
+          "criticals": [],
+          "lessons": [
+            "Eyes up and early every time: the earlier you see a hazard developing, the more time you have to deal with it."
+          ]
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "spam": false,
+      "clips": [],
+      "shots": []
+    }
+  ],
+  "errors": [],
+  "fixture": "Temporary scene3d field. The first ordinary Low English clip plays in full real scene time. Other clips jump to just before the clue and to the ending after real input; no flags, verdicts, scores or results are injected. Cue pictures are sampled after a separate disclosed time jump.",
+  "failure": "AssertionError [ERR_ASSERTION]: {\"source\":\"registered-hazard-adapter\",\"id\":\"m1-spot\",\"key\":\"hazard-road-clips\",\"clips\":5,\"kind\":\"ball\",\"stage\":\"after\",\"time\":7.8332999999999995,\"at\":6,\"logItems\":0,\"flags\":1,\"reduced\":false,\"loadedCar\":true,\"loadedPerson\":true,\"cue\":{\"visible\":true,\"x\":-0.16837941834798054,\"y\":-0.4252709294060872,\"z\":0.9750713578794876,\"clear\":false,\"hit\":\"Mesh\"},\"bounded\":true,\"checkpointUnchanged\":true,\"eventsUnchanged\":true,\"workdayUnchanged\":true}\n\nfalse !== true\n\n    at /workspace/c39-hazard-acceptance/test/fphazardlessonbrowser.js:35:152"
+}

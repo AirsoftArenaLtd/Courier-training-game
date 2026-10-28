@@ -1,0 +1,2011 @@
+{
+  "tag": "c39-painted-driving-current-accessible-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "audioContext": "running",
+  "accessibility": [
+    "large",
+    "colour",
+    "reduced"
+  ],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 14,
+    "failed": 0,
+    "fallbacks": 0,
+    "bytes": 824208,
+    "decodedBytes": 354468,
+    "errors": []
+  },
+  "prototype": {
+    "drillphoneclue": {
+      "frames": 55,
+      "avgFPS": 5.4,
+      "low1FPS": 2.54,
+      "p99ms": 393.9,
+      "maxMs": 393.9,
+      "peak": {
+        "calls": 42,
+        "triangles": 1028,
+        "textures": 2,
+        "geometries": 20,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 97,
+        "baseLevelRGBABytes": 1271264,
+        "withMipmapsUpperBytes": 1695019
+      },
+      "worldProfile": {
+        "meshes": 149,
+        "instances": 352,
+        "geometries": 40,
+        "materials": 57,
+        "geometryBytes": 139068,
+        "instanceBytes": 77828,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          19,
+          19,
+          18,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 1.875,
+          "y": 2.4,
+          "z": -24.383333333333344,
+          "yaw": 0.6,
+          "pitch": -0.45,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 1.875,
+          "baseZ": -24.383333333333344,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillphoneafter": {
+      "frames": 48,
+      "avgFPS": 4.75,
+      "low1FPS": 1.79,
+      "p99ms": 559.8,
+      "maxMs": 559.8,
+      "peak": {
+        "calls": 42,
+        "triangles": 1028,
+        "textures": 2,
+        "geometries": 20,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 105,
+        "baseLevelRGBABytes": 1570796,
+        "withMipmapsUpperBytes": 2094395
+      },
+      "worldProfile": {
+        "meshes": 149,
+        "instances": 352,
+        "geometries": 40,
+        "materials": 57,
+        "geometryBytes": 139068,
+        "instanceBytes": 77828,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          16,
+          16,
+          15,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 1.875,
+          "y": 2.4,
+          "z": -24.383333333333344,
+          "yaw": 0.6,
+          "pitch": -0.45,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 1.875,
+          "baseZ": -24.383333333333344,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillballclue": {
+      "frames": 67,
+      "avgFPS": 6.61,
+      "low1FPS": 2.34,
+      "p99ms": 427.4,
+      "maxMs": 427.4,
+      "peak": {
+        "calls": 38,
+        "triangles": 1074,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1482452,
+        "withMipmapsUpperBytes": 1976603
+      },
+      "worldProfile": {
+        "meshes": 149,
+        "instances": 340,
+        "geometries": 40,
+        "materials": 57,
+        "geometryBytes": 139068,
+        "instanceBytes": 77828,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          22,
+          22,
+          21,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 1.875,
+          "y": 2.4,
+          "z": -73.96666666666668,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 1.875,
+          "baseZ": -73.96666666666668,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillballafter": {
+      "frames": 58,
+      "avgFPS": 5.73,
+      "low1FPS": 2.09,
+      "p99ms": 479.6,
+      "maxMs": 479.6,
+      "peak": {
+        "calls": 38,
+        "triangles": 1074,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1482452,
+        "withMipmapsUpperBytes": 1976603
+      },
+      "worldProfile": {
+        "meshes": 149,
+        "instances": 340,
+        "geometries": 40,
+        "materials": 57,
+        "geometryBytes": 139068,
+        "instanceBytes": 77828,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          21,
+          21,
+          19,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 1.875,
+          "y": 2.4,
+          "z": -73.96666666666668,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 1.875,
+          "baseZ": -73.96666666666668,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drilldoorclue": {
+      "frames": 61,
+      "avgFPS": 6.03,
+      "low1FPS": 2.07,
+      "p99ms": 483.1,
+      "maxMs": 483.1,
+      "peak": {
+        "calls": 38,
+        "triangles": 972,
+        "textures": 2,
+        "geometries": 16,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1482452,
+        "withMipmapsUpperBytes": 1976603
+      },
+      "worldProfile": {
+        "meshes": 149,
+        "instances": 335,
+        "geometries": 40,
+        "materials": 57,
+        "geometryBytes": 139068,
+        "instanceBytes": 77828,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          21,
+          20,
+          20,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 1.875,
+          "y": 2.4,
+          "z": -118.96666666666668,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 1.875,
+          "baseZ": -118.96666666666668,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drilldoorafter": {
+      "frames": 60,
+      "avgFPS": 5.99,
+      "low1FPS": 2.15,
+      "p99ms": 464.5,
+      "maxMs": 464.5,
+      "peak": {
+        "calls": 38,
+        "triangles": 972,
+        "textures": 2,
+        "geometries": 16,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1482452,
+        "withMipmapsUpperBytes": 1976603
+      },
+      "worldProfile": {
+        "meshes": 149,
+        "instances": 335,
+        "geometries": 40,
+        "materials": 57,
+        "geometryBytes": 139068,
+        "instanceBytes": 77828,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          20,
+          20,
+          19,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 1.875,
+          "y": 2.4,
+          "z": -118.96666666666668,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 1.875,
+          "baseZ": -118.96666666666668,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillwaterclue": {
+      "frames": 45,
+      "avgFPS": 4.48,
+      "low1FPS": 1.89,
+      "p99ms": 528.7,
+      "maxMs": 528.7,
+      "peak": {
+        "calls": 43,
+        "triangles": 1002,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1503652,
+        "withMipmapsUpperBytes": 2004870
+      },
+      "worldProfile": {
+        "meshes": 150,
+        "instances": 363,
+        "geometries": 41,
+        "materials": 58,
+        "geometryBytes": 139280,
+        "instanceBytes": 78980,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          16,
+          16,
+          14,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 43.125,
+          "y": 2.4,
+          "z": -135.11666666666667,
+          "yaw": 3.141592653589793,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 43.125,
+          "baseZ": -135.11666666666667,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillwaterafter": {
+      "frames": 47,
+      "avgFPS": 4.59,
+      "low1FPS": 2.09,
+      "p99ms": 478.9,
+      "maxMs": 478.9,
+      "peak": {
+        "calls": 43,
+        "triangles": 1002,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1503652,
+        "withMipmapsUpperBytes": 2004870
+      },
+      "worldProfile": {
+        "meshes": 150,
+        "instances": 363,
+        "geometries": 41,
+        "materials": 58,
+        "geometryBytes": 139280,
+        "instanceBytes": 78980,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          17,
+          16,
+          15,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 43.125,
+          "y": 2.4,
+          "z": -135.11666666666667,
+          "yaw": 3.141592653589793,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 43.125,
+          "baseZ": -135.11666666666667,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillcrosswalkclue": {
+      "frames": 49,
+      "avgFPS": 4.68,
+      "low1FPS": 1.5,
+      "p99ms": 666.2,
+      "maxMs": 666.2,
+      "peak": {
+        "calls": 44,
+        "triangles": 1352,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1503652,
+        "withMipmapsUpperBytes": 2004870
+      },
+      "worldProfile": {
+        "meshes": 150,
+        "instances": 366,
+        "geometries": 41,
+        "materials": 58,
+        "geometryBytes": 139280,
+        "instanceBytes": 78980,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          18,
+          17,
+          16,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 43.125,
+          "y": 2.4,
+          "z": -85.53333333333333,
+          "yaw": 3.141592653589793,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 43.125,
+          "baseZ": -85.53333333333333,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillcrosswalkafter": {
+      "frames": 41,
+      "avgFPS": 4.03,
+      "low1FPS": 1.54,
+      "p99ms": 649.2,
+      "maxMs": 649.2,
+      "peak": {
+        "calls": 44,
+        "triangles": 1352,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1503652,
+        "withMipmapsUpperBytes": 2004870
+      },
+      "worldProfile": {
+        "meshes": 150,
+        "instances": 366,
+        "geometries": 41,
+        "materials": 58,
+        "geometryBytes": 139280,
+        "instanceBytes": 78980,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          15,
+          15,
+          14,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 43.125,
+          "y": 2.4,
+          "z": -85.53333333333333,
+          "yaw": 3.141592653589793,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 43.125,
+          "baseZ": -85.53333333333333,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillbusclue": {
+      "frames": 40,
+      "avgFPS": 3.96,
+      "low1FPS": 1.25,
+      "p99ms": 797.5,
+      "maxMs": 797.5,
+      "peak": {
+        "calls": 45,
+        "triangles": 1670,
+        "textures": 2,
+        "geometries": 20,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1503652,
+        "withMipmapsUpperBytes": 2004870
+      },
+      "worldProfile": {
+        "meshes": 150,
+        "instances": 365,
+        "geometries": 41,
+        "materials": 58,
+        "geometryBytes": 139280,
+        "instanceBytes": 78980,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          15,
+          14,
+          13,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 43.125,
+          "y": 2.4,
+          "z": -40.53333333333334,
+          "yaw": 3.141592653589793,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 43.125,
+          "baseZ": -40.53333333333334,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillbusafter": {
+      "frames": 47,
+      "avgFPS": 4.61,
+      "low1FPS": 1.85,
+      "p99ms": 539.8,
+      "maxMs": 539.8,
+      "peak": {
+        "calls": 45,
+        "triangles": 1670,
+        "textures": 2,
+        "geometries": 20,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1503652,
+        "withMipmapsUpperBytes": 2004870
+      },
+      "worldProfile": {
+        "meshes": 150,
+        "instances": 365,
+        "geometries": 41,
+        "materials": 58,
+        "geometryBytes": 139280,
+        "instanceBytes": 78980,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          16,
+          16,
+          15,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 43.125,
+          "y": 2.4,
+          "z": -40.53333333333334,
+          "yaw": 3.141592653589793,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 43.125,
+          "baseZ": -40.53333333333334,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillparking0": {
+      "frames": 48,
+      "avgFPS": 4.78,
+      "low1FPS": 2.05,
+      "p99ms": 487.7,
+      "maxMs": 487.7,
+      "peak": {
+        "calls": 41,
+        "triangles": 1084,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1714252,
+        "withMipmapsUpperBytes": 2285670
+      },
+      "worldProfile": {
+        "meshes": 149,
+        "instances": 353,
+        "geometries": 40,
+        "materials": 57,
+        "geometryBytes": 139068,
+        "instanceBytes": 77828,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          9,
+          9,
+          7,
+          23
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 2.8000000000000003,
+          "y": 2.4,
+          "z": -41.13333333333334,
+          "yaw": 0.6,
+          "pitch": -0.45,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 2.8000000000000003,
+          "baseZ": -41.13333333333334,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillparking1": {
+      "frames": 48,
+      "avgFPS": 4.7,
+      "low1FPS": 1.65,
+      "p99ms": 607.2,
+      "maxMs": 607.2,
+      "peak": {
+        "calls": 38,
+        "triangles": 1056,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1714252,
+        "withMipmapsUpperBytes": 2285670
+      },
+      "worldProfile": {
+        "meshes": 149,
+        "instances": 353,
+        "geometries": 40,
+        "materials": 57,
+        "geometryBytes": 139068,
+        "instanceBytes": 77828,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          9,
+          8,
+          7,
+          23
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 2.8000000000000003,
+          "y": 2.4,
+          "z": -90.71666666666668,
+          "yaw": 0.6,
+          "pitch": -0.45,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 2.8000000000000003,
+          "baseZ": -90.71666666666668,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillparking2": {
+      "frames": 47,
+      "avgFPS": 4.68,
+      "low1FPS": 1.98,
+      "p99ms": 505.8,
+      "maxMs": 505.8,
+      "peak": {
+        "calls": 37,
+        "triangles": 952,
+        "textures": 2,
+        "geometries": 17,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1714252,
+        "withMipmapsUpperBytes": 2285670
+      },
+      "worldProfile": {
+        "meshes": 149,
+        "instances": 335,
+        "geometries": 40,
+        "materials": 57,
+        "geometryBytes": 139068,
+        "instanceBytes": 77828,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          9,
+          9,
+          7,
+          24
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 2.8000000000000003,
+          "y": 2.4,
+          "z": -135.7166666666667,
+          "yaw": 0.6,
+          "pitch": -0.45,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 2.8000000000000003,
+          "baseZ": -135.7166666666667,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillparking3": {
+      "frames": 36,
+      "avgFPS": 3.53,
+      "low1FPS": 1.25,
+      "p99ms": 800.3,
+      "maxMs": 800.3,
+      "peak": {
+        "calls": 44,
+        "triangles": 1144,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1714252,
+        "withMipmapsUpperBytes": 2285670
+      },
+      "worldProfile": {
+        "meshes": 150,
+        "instances": 372,
+        "geometries": 41,
+        "materials": 58,
+        "geometryBytes": 139280,
+        "instanceBytes": 78980,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          7,
+          7,
+          5,
+          18
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 42.2,
+          "y": 2.4,
+          "z": -118.36666666666669,
+          "yaw": 3.741592653589793,
+          "pitch": -0.45,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 42.2,
+          "baseZ": -118.36666666666669,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillparking4": {
+      "frames": 38,
+      "avgFPS": 3.74,
+      "low1FPS": 2.87,
+      "p99ms": 348.6,
+      "maxMs": 348.6,
+      "peak": {
+        "calls": 42,
+        "triangles": 1182,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1714252,
+        "withMipmapsUpperBytes": 2285670
+      },
+      "worldProfile": {
+        "meshes": 150,
+        "instances": 372,
+        "geometries": 41,
+        "materials": 58,
+        "geometryBytes": 139280,
+        "instanceBytes": 78980,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          8,
+          8,
+          6,
+          20
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 42.2,
+          "y": 2.4,
+          "z": -68.78333333333333,
+          "yaw": 3.741592653589793,
+          "pitch": -0.45,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 42.2,
+          "baseZ": -68.78333333333333,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillparking5": {
+      "frames": 39,
+      "avgFPS": 3.85,
+      "low1FPS": 1.77,
+      "p99ms": 563.4,
+      "maxMs": 563.4,
+      "peak": {
+        "calls": 42,
+        "triangles": 1244,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 99,
+        "baseLevelRGBABytes": 1714252,
+        "withMipmapsUpperBytes": 2285670
+      },
+      "worldProfile": {
+        "meshes": 150,
+        "instances": 365,
+        "geometries": 41,
+        "materials": 58,
+        "geometryBytes": 139280,
+        "instanceBytes": 78980,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          8,
+          7,
+          6,
+          20
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 42.2,
+          "y": 2.4,
+          "z": -23.783333333333335,
+          "yaw": 3.741592653589793,
+          "pitch": -0.45,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 42.2,
+          "baseZ": -23.783333333333335,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "drivingLessonProof": {
+    "drillphoneclue": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "phone",
+      "stage": "clue",
+      "index": 0,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "phone",
+      "hazardTime": 1.0000000000000007,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "clear",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.2161651325656511,
+        "y": -0.04735637161018624,
+        "z": 0.916666495622753,
+        "hit": "rear-camera-screen",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillphoneafter": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "phone",
+      "stage": "after",
+      "index": 0,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "phone",
+      "hazardTime": 9.999999999999831,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "clear",
+      "device": true,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "hit": null,
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillballclue": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "ball",
+      "stage": "clue",
+      "index": 1,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "ball",
+      "hazardTime": 1.0000000000000007,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "clear",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.03514484084212117,
+        "y": -0.23135346657213804,
+        "z": 0.9874942094208307,
+        "hit": "Mesh",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillballafter": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "ball",
+      "stage": "after",
+      "index": 1,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "ball",
+      "hazardTime": 3.099999999999978,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "clear",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.09413796654140362,
+        "y": -0.1799415851116629,
+        "z": 0.9874942094208307,
+        "hit": "actor:character",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drilldoorclue": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "door",
+      "stage": "clue",
+      "index": 2,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "door",
+      "hazardTime": 1.8000000000000014,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "clear",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.03088040645023267,
+        "y": -0.1435034065246579,
+        "z": 0.9880701983122382,
+        "hit": "Mesh",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drilldoorafter": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "door",
+      "stage": "after",
+      "index": 2,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "door",
+      "hazardTime": 2.4999999999999907,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "clear",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.03088040645023267,
+        "y": -0.1435034065246579,
+        "z": 0.9880701983122382,
+        "hit": "Mesh",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillwaterclue": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "water",
+      "stage": "clue",
+      "index": 3,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "water",
+      "hazardTime": 0.09999999999999999,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "rain",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.04518622393987077,
+        "y": -0.2495618412560566,
+        "z": 0.9874942094208307,
+        "hit": "Mesh",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillwaterafter": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "water",
+      "stage": "after",
+      "index": 3,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "water",
+      "hazardTime": 2.0000000000000013,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "rain",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.04518622393987077,
+        "y": -0.2495618412560566,
+        "z": 0.9874942094208307,
+        "hit": "Mesh",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillcrosswalkclue": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "crosswalk",
+      "stage": "clue",
+      "index": 4,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "crosswalk",
+      "hazardTime": 2.0000000000000013,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "rain",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.4608994841866812,
+        "y": -0.14995132092638574,
+        "z": 0.9874942094208307,
+        "hit": "actor:character",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillcrosswalkafter": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "crosswalk",
+      "stage": "after",
+      "index": 4,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "crosswalk",
+      "hazardTime": 5.9999999999999165,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "rain",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.02711173436393159,
+        "y": -0.14995132092638574,
+        "z": 0.9874942094208307,
+        "hit": "actor:character",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillbusclue": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "bus",
+      "stage": "clue",
+      "index": 5,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "bus",
+      "hazardTime": 1.0000000000000007,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "rain",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": -0.2002047740195057,
+        "y": -0.12320293785815728,
+        "z": 0.9837693758128985,
+        "hit": "Mesh",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillbusafter": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "bus",
+      "stage": "after",
+      "index": 5,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "bus",
+      "hazardTime": 2.99999999999998,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "rain",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": -0.2002047740195057,
+        "y": -0.12320293785815728,
+        "z": 0.9837693758128985,
+        "hit": "Mesh",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillparking0": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "parking",
+      "stage": "bay",
+      "index": 0,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": false,
+      "hazardKind": null,
+      "hazardTime": 0,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "clear",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.21616513256564907,
+        "y": -0.047356371610182656,
+        "z": 0.916666495622753,
+        "hit": "rear-camera-screen",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": {
+        "ok": true,
+        "reverse": true,
+        "steer": 0.22
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillparking1": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "parking",
+      "stage": "bay",
+      "index": 1,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": false,
+      "hazardKind": null,
+      "hazardTime": 0,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "clear",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.2161651325656442,
+        "y": -0.04735637161018487,
+        "z": 0.9166664956227533,
+        "hit": "rear-camera-screen",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": {
+        "ok": true,
+        "reverse": true,
+        "steer": 0.22
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillparking2": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "parking",
+      "stage": "bay",
+      "index": 2,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": false,
+      "hazardKind": null,
+      "hazardTime": 0,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "clear",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.216165132565662,
+        "y": -0.04735637161019001,
+        "z": 0.9166664956227528,
+        "hit": "rear-camera-screen",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": {
+        "ok": true,
+        "reverse": true,
+        "steer": 0.22
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillparking3": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "parking",
+      "stage": "bay",
+      "index": 3,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": false,
+      "hazardKind": null,
+      "hazardTime": 0,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "rain",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.21616513256565875,
+        "y": -0.0473563716101893,
+        "z": 0.9166664956227539,
+        "hit": "rear-camera-screen",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": {
+        "ok": true,
+        "reverse": true,
+        "steer": 0.22
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillparking4": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "parking",
+      "stage": "bay",
+      "index": 4,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": false,
+      "hazardKind": null,
+      "hazardTime": 0,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "rain",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.21616513256565267,
+        "y": -0.047356371610180095,
+        "z": 0.9166664956227535,
+        "hit": "rear-camera-screen",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": {
+        "ok": true,
+        "reverse": true,
+        "steer": 0.22
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillparking5": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "parking",
+      "stage": "bay",
+      "index": 5,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": false,
+      "hazardKind": null,
+      "hazardTime": 0,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": true,
+      "loadedPerson": true,
+      "reduced": true,
+      "weather": "rain",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0.21616513256565098,
+        "y": -0.04735637161018337,
+        "z": 0.9166664956227518,
+        "hit": "rear-camera-screen",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": {
+        "ok": true,
+        "reverse": true,
+        "steer": 0.22
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "drivingLessonFixture": true,
+  "phaserTextures": {
+    "count": 99,
+    "baseLevelRGBABytes": 1714252,
+    "withMipmapsUpperBytes": 2285670
+  },
+  "phaserTexturesPeak": {
+    "count": 99,
+    "baseLevelRGBABytes": 1714252,
+    "withMipmapsUpperBytes": 2285670
+  },
+  "missingViews": [],
+  "errors": []
+}

@@ -1,0 +1,88 @@
+{
+  "sourceRevision": "11c15b336fb050d8c615ced59c6d67a7d62d715d",
+  "scope": "route-planning-module",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "lessonroutecab",
+        "lessonroutebrief",
+        "lessonrouteedit",
+        "lessonroutereview",
+        "lessonroutecycle",
+        "lessonroutereverse"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-route-final-resources-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 131588,
+      "peak": {
+        "calls": 28,
+        "triangles": 642,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1742086
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "lessonroutecab",
+        "lessonroutebrief",
+        "lessonrouteedit",
+        "lessonroutereview",
+        "lessonroutecycle",
+        "lessonroutereverse"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-route-final-resources-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 259846,
+      "peak": {
+        "calls": 42,
+        "triangles": 6006,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5499718
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "lessonroutecab",
+        "lessonroutebrief",
+        "lessonrouteedit",
+        "lessonroutereview",
+        "lessonroutecycle",
+        "lessonroutereverse"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c39-route-final-resources-accessible-low-low.json",
+      "exit": 1,
+      "elapsedMs": 129494,
+      "error": "accessible-low: No isolated physical route-planning proof for lessonroutecab."
+    }
+  ]
+}

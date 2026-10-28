@@ -1,0 +1,62 @@
+✔ each approach uses its actual signed junction, an in-bounds parked start and a reachable finish bay (18.209949ms)
+✔ only this round’s control key can satisfy its encounter; duplicates and unrelated reports cannot create credit (5.752272ms)
+✔ later positive pull-outs cannot dilute a failed signal or mirror observation (2.095994ms)
+✖ completion needs observed travel and the whole stopped van, facing traffic, inside the actual bay (3.548085ms)
+✖ the three-round result retains exact catalogue wording and maxima, with a single route obligation per approach (3.565562ms)
+✔ an actual wrong-route report stays failed at finish, and a red-light failure retains the catalogue critical (0.795792ms)
+✔ timeout retains current observations, supplies missing obligations and earns zero in both categories (2.516208ms)
+✔ the real motor, gaze, indicator timing and traffic phases produce safe observations at all three controls (2928.865313ms)
+✔ driving into the actual red signal fails its real catalogue check (270.692925ms)
+✔ round restarts cannot discard observations, and a bounded report overflow cannot finish successfully (1.428386ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 8
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3244.557411
+
+✖ failing tests:
+
+test at test/fpjunctionlesson.js:36:1
+✖ completion needs observed travel and the whole stopped van, facing traffic, inside the actual bay (3.548085ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (/workspace/c39-route-driving/test/fpjunctionlesson.js:38:58)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/fpjunctionlesson.js:42:1
+✖ the three-round result retains exact catalogue wording and maxima, with a single route obligation per approach (3.565562ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (/workspace/c39-route-driving/test/fpjunctionlesson.js:48:224)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

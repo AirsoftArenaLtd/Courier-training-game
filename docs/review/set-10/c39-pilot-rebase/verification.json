@@ -1,0 +1,196 @@
+{
+  "sourceRevision": "a5c6cf6462638be176aa008b01861dddf7991e88",
+  "base": "pilot 3678fba3 via C38; pilot 51e066b5 changes docs only",
+  "sources": 800,
+  "fonts": 4,
+  "artifacts": 177,
+  "cpuSuites": 24,
+  "nativeAssertions": 2750,
+  "nativeJobs": [
+    {
+      "tag": "c39-rebase-pretrip-low",
+      "checks": 243,
+      "runs": 1,
+      "scope": "Only travel positions, the deterministic defect seed and temporary scene3d registry field are fixtures. Nearby ray selection, remapped keys, cab entry/exit, switches, tests, condition recording and the existing results screen are real."
+    },
+    {
+      "tag": "c39-rebase-routelesson-low",
+      "checks": 1252,
+      "runs": 2,
+      "scope": "Temporary scene3d registry field and the original planner solver\u2019s good stop order. All target selection, reading, sequencing, acceptance and results use real keys."
+    },
+    {
+      "tag": "c39-rebase-hazardlesson-low",
+      "checks": 318,
+      "runs": 2,
+      "scope": "Temporary scene3d field. The first ordinary Low English clip plays in full real scene time. Other clips jump to just before the clue and to the ending after real input; no flags, verdicts, scores or results are injected. Cue pictures are sampled after a separate disclosed time jump."
+    },
+    {
+      "tag": "c39-rebase-drivinglesson-low",
+      "checks": 192,
+      "runs": 1,
+      "scope": "The existing m1-driving id temporarily receives scene3d. Phaser reads unsmoothed real frame deltas; both the production motor and session retain their unchanged 0.05-second cap. Approach and pre-bay positions replace travel between exercises; only the unscored junction observation cache is reset at those pose changes, never a score or recorded violation. Hazard and checkpoint verdicts, scores, results and records are never injected. The native throttle, brake, shifter, mirror gaze, signals and record controls drive every response and parking action. A non-scoring timeline jump to ten seconds shortens only the crosswalk wait outside the first ordinary Low English run."
+    },
+    {
+      "tag": "c39-rebase-junctionlesson-low",
+      "checks": 169,
+      "runs": 1,
+      "scope": "Test-only optional registry descriptor/content directly starts the production adapter; shared A-30 routing is not certified. Unsmoothed real Phaser delta retains the original 0.05-second cap. All control encounters, mirror/signal checks, movement, braking, round transitions, finish actions and results are live. After each real junction encounter and at least 12 m of actual travel, an explicit stopped pose skips remaining travel to just behind that round\u2019s finish bay. Native acceleration/braking/parking and the real finish gate follow. Aim poses point at rendered controls; no observation, judgement, travel counter, timer, score or result is injected. QA_FONT=noto pins the installed script font for layout review only."
+    },
+    {
+      "tag": "c39-rebase-schoollesson-low",
+      "checks": 104,
+      "runs": 1,
+      "scope": "A browser-only optional m1-school registry entry exercises the real registered adapter. Phaser uses unsmoothed real delta with the unchanged 0.05-second motor/session cap. The actual motor spawns the live bus and native braking earns its check. A stopped approach pose replaces travel to the crossing; actual controller time and children progress are never shortened. A pre-bay pose replaces travel to the finish; native throttle/brake, automatic camera and finish controls complete parking. No encounter flag, judgement, score, result or saved record is injected. Camera aiming poses locate actual rendered controls; the native action key still uses the real raycast."
+    },
+    {
+      "tag": "c39-rebase-nightlesson-low",
+      "checks": 105,
+      "runs": 1,
+      "scope": "Test-only optional registry/content directly starts the real adapter; shared A-30 routing is separate. Light inspection, repair choice, walking around the front to the driver door, cab entry, physical mirror/headlight controls, live lead traffic, at least 35 m of actual native driving, braking and final parking/results use production paths. Aim angles locate physical targets without moving the player. After the live night/following encounter and a full stop, one declared pre-bay pose skips the remaining route travel. Native throttle/brake and finish follow. No encounter, timer, verdict, score or result is injected. Unsmoothed real delta and the 0.05-second cap remain. QA_FONT=noto is a review-only font pin."
+    },
+    {
+      "tag": "c39-rebase-junctionlesson-high-ta",
+      "checks": 169,
+      "runs": 1,
+      "scope": "Test-only optional registry descriptor/content directly starts the production adapter; shared A-30 routing is not certified. Unsmoothed real Phaser delta retains the original 0.05-second cap. All control encounters, mirror/signal checks, movement, braking, round transitions, finish actions and results are live. After each real junction encounter and at least 12 m of actual travel, an explicit stopped pose skips remaining travel to just behind that round\u2019s finish bay. Native acceleration/braking/parking and the real finish gate follow. Aim poses point at rendered controls; no observation, judgement, travel counter, timer, score or result is injected. QA_FONT=noto pins the installed script font for layout review only."
+    },
+    {
+      "tag": "c39-rebase-schoollesson-high-ta",
+      "checks": 93,
+      "runs": 1,
+      "scope": "A browser-only optional m1-school registry entry exercises the real registered adapter. Phaser uses unsmoothed real delta with the unchanged 0.05-second motor/session cap. The actual motor spawns the live bus and native braking earns its check. A stopped approach pose replaces travel to the crossing; actual controller time and children progress are never shortened. A pre-bay pose replaces travel to the finish; native throttle/brake, automatic camera and finish controls complete parking. No encounter flag, judgement, score, result or saved record is injected. Camera aiming poses locate actual rendered controls; the native action key still uses the real raycast."
+    },
+    {
+      "tag": "c39-rebase-nightlesson-high-ta",
+      "checks": 105,
+      "runs": 1,
+      "scope": "Test-only optional registry/content directly starts the real adapter; shared A-30 routing is separate. Light inspection, repair choice, walking around the front to the driver door, cab entry, physical mirror/headlight controls, live lead traffic, at least 35 m of actual native driving, braking and final parking/results use production paths. Aim angles locate physical targets without moving the player. After the live night/following encounter and a full stop, one declared pre-bay pose skips the remaining route travel. Native throttle/brake and finish follow. No encounter, timer, verdict, score or result is injected. Unsmoothed real delta and the 0.05-second cap remain. QA_FONT=noto is a review-only font pin."
+    }
+  ],
+  "resourceViews": 92,
+  "resources": [
+    {
+      "tag": "c39-rebase-junctionlesson-resources",
+      "views": 32,
+      "peaks": {
+        "loaded-low": {
+          "calls": 44,
+          "triangles": 1256,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 1944310
+        },
+        "loaded-high": {
+          "calls": 55,
+          "triangles": 87825,
+          "textures": 4,
+          "attachmentBytes": 11239424,
+          "phaserBytes": 5274150
+        },
+        "accessible-low": {
+          "calls": 44,
+          "triangles": 1266,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 2126283
+        },
+        "fallback-low": {
+          "calls": 41,
+          "triangles": 1012,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 1944310
+        }
+      }
+    },
+    {
+      "tag": "c39-rebase-schoollesson-resources",
+      "views": 32,
+      "peaks": {
+        "loaded-low": {
+          "calls": 40,
+          "triangles": 1178,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 1857051
+        },
+        "loaded-high": {
+          "calls": 74,
+          "triangles": 161417,
+          "textures": 4,
+          "attachmentBytes": 11239424,
+          "phaserBytes": 5281648
+        },
+        "accessible-low": {
+          "calls": 40,
+          "triangles": 1178,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 2012576
+        },
+        "fallback-low": {
+          "calls": 41,
+          "triangles": 1124,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 1857051
+        }
+      }
+    },
+    {
+      "tag": "c39-rebase-nightlesson-resources",
+      "views": 28,
+      "peaks": {
+        "loaded-low": {
+          "calls": 42,
+          "triangles": 1236,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 1850603
+        },
+        "loaded-high": {
+          "calls": 55,
+          "triangles": 79455,
+          "textures": 3,
+          "attachmentBytes": 9142272,
+          "phaserBytes": 4899323
+        },
+        "accessible-low": {
+          "calls": 42,
+          "triangles": 1236,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 1978512
+        },
+        "fallback-low": {
+          "calls": 41,
+          "triangles": 958,
+          "textures": 2,
+          "attachmentBytes": 3557376,
+          "phaserBytes": 1850603
+        }
+      }
+    }
+  ],
+  "cleanup": {
+    "controllerPid": {
+      "pid": 228638,
+      "state": "zombie"
+    },
+    "serverPid": {
+      "pid": 230600,
+      "state": "gone"
+    },
+    "childPid": {
+      "pid": 251036,
+      "state": "gone"
+    }
+  },
+  "scope": "Focused current-pilot rebase gate. All native runners retain their explicit fixture scopes, including declared stopped pre-bay travel shortcuts in junction/night; those are not full-route-driving claims. Static resource poses are separate from native gameplay. Historical wider matrices retain their original source scopes. Shared A30/A31 and native Intel FPS remain separate.",
+  "allPassed": true,
+  "visualReview": [
+    "Original-size High larger Tamil night light-test panel: full glyphs, readable type and three separated choices.",
+    "Original-size High larger Tamil night encounter: mounted sign lettering, three physical mirrors, route device, cab gauges and forward road remain visible; goal/clock/caption do not overlap."
+  ]
+}

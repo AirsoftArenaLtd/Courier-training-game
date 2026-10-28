@@ -24,10 +24,13 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     this.model=OTR.fpScenario.model(this.scenarioSession);this.area='route';this.target=null;this.rebuildWorld();this.sync();this.showScenarioBrief();
   }
   clockSentence(){return `Time remaining: ${Math.ceil(this.scenarioSession.remaining)} seconds.`;}
-  showScenarioBrief(){
-    const r=this.scenarioSession;
-    this.showPanel(r.scenario.title,[r.scenario.blurb,r.definition.goal,`You have ${r.definition.seconds} seconds to complete this scenario.`].filter(Boolean).join('\n\n'),[
-      {label:'Begin the scenario.',action:()=>{OTR.fpScenario.begin(r);this.closePanel();}},
+  showScenarioBrief(page=0){
+    const r=this.scenarioSession,extra=r.definition.brief?.(r),clock=`You have ${r.definition.seconds} seconds to complete this scenario.`;
+    const pages=Array.isArray(extra)?[[r.scenario.blurb,r.definition.goal].filter(Boolean).join('\n\n'),...extra]:[[r.scenario.blurb,r.definition.goal,extra,clock].filter(Boolean).join('\n\n')];
+    if(Array.isArray(extra))pages[pages.length-1]+='\n\n'+clock;
+    const last=page+1>=pages.length;
+    this.showPanel(r.scenario.title,pages[page],[
+      {label:last?'Begin the scenario.':'Read the next instruction page.',action:()=>{if(!last){this.showScenarioBrief(page+1);return;}OTR.fpScenario.begin(r);this.closePanel();}},
       {label:'Return to the station.',action:()=>this.toHub()}
     ],{accessibleText:true,back:()=>this.toHub()});
   }
@@ -46,6 +49,7 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     ],{accessibleText:true,back:()=>this.closePanel()});
   }
   showScenarioControls(){
+    const r=this.scenarioSession;if(r?.definition.controls){r.definition.controls(r,this);return;}
     this.showPanel('Use the scenario controls.',`Use ${OTR.fpAccess.lookKeys()} to look. Press ${OTR.fpAccess.key('KeyP')} to select a visible nearby target and ${OTR.fpAccess.key('KeyE')} to interact. Press ${OTR.fpAccess.key('Tab')} to read the scenario goal.`,[
       {label:'Continue the scenario.',action:()=>this.closePanel()}
     ],{accessibleText:true,back:()=>this.showPause()});
@@ -65,7 +69,10 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     if(r&&!OTR.fpScenario.coaching(r)&&text!==control&&!String(text).startsWith('Selected ')&&!String(text).startsWith('No nearby target'))return;
     super.message(text);
   }
+  interactionHint(id,m,key){return this.scenarioSession?.definition?.hint?.(this.scenarioSession,id,key)||null;}
+  scenarioKey(code){const r=this.scenarioSession;return !!(r&&r.phase==='active'&&r.definition.key&&r.definition.key(r,this,code));}
   controlHint(id,m,key){
+    const hint=this.scenarioSession?.definition?.hint?.(this.scenarioSession,id,key);if(hint)return hint;
     if(this.scenarioSession&&!OTR.fpScenario.coaching(this.scenarioSession)){
       if(id==='cab-signal-left')return m.signal===-1?'The left signal is on.':'The left signal is off.';
       if(id==='cab-signal-right')return m.signal===1?'The right signal is on.':'The right signal is off.';
@@ -116,7 +123,8 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     const second=Math.ceil(r.remaining);if(second!==this.moduleClockSecond){this.moduleClockSecond=second;this.moduleClock.setText(this.clockSentence());}
     const bottom=this.moduleClock.y+this.moduleClock.height+10;this.moduleBack.setDisplaySize(620,bottom-10);
     this.soundCue.setY(bottom+12);this.headerBack.setY(bottom+4);
-    if(!OTR.fpScenario.coaching(r)){this.hint.setVisible(false);this.hintBack.setVisible(false);this.controls.setVisible(false);this.help.setVisible(false);}
+    if(!OTR.fpScenario.coaching(r)){this.hint.setVisible(visible&&!!this.physicalAffordance);this.hintBack.setVisible(visible&&!!this.physicalAffordance);this.controls.setVisible(false);this.help.setVisible(false);}
+    if(r.definition.observation){this.controls.setVisible(false);this.help.setVisible(false);this.navRoot.setVisible(false);}
   }
   update(time,delta){
     const r=this.scenarioSession,active=!!this.model&&!this.loading&&!this.model.paused&&!this.panel&&!this.external&&!this.transitioning&&!this.handheld?.isOpen;

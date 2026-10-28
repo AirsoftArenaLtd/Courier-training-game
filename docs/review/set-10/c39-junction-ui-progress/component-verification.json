@@ -1,0 +1,17 @@
+{
+  "runtime": "2ec63d0159bbae4171821be36fd5f3e68e5b922a",
+  "componentCases": {
+    "core-after-paint": 14,
+    "ui": 4,
+    "bays": 3,
+    "quality-protocol": 22
+  },
+  "relatedCases": 114,
+  "selectedCases": 157,
+  "initialNativeScope": "18a92fc0, before paint correction",
+  "initialNativeChecks": 165,
+  "highNative": "wall limit reached at 9.9832 of 27 required simulation seconds, not accepted",
+  "initialArtifactsVerified": true,
+  "initialCleanup": true,
+  "finalValidation": "Requeued behind the complete C-50 review correction; prior unstarted deferral retained under deferred-c50/. See final/status.json."
+}

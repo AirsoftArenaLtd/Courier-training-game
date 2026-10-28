@@ -1,0 +1,22 @@
+{
+  "directSuites": [
+    "node test/fpdrivinglesson.js",
+    "node test/fpdrivinglessonrules.js",
+    "node test/fpdrivinglessonworld.js",
+    "node test/fpmission.js",
+    "node test/fpworld.js",
+    "node test/workday.js",
+    "node test/savesize.js",
+    "node test/i18n.js",
+    "node test/fpscenario.js",
+    "node test/fpcamera.js",
+    "node test/fpqualitygate.js"
+  ],
+  "borrowedGuard": {
+    "source": "origin/pilot:test/englishtext.js at 90844ac5ab146bbc1be29bcd387926007a0a591b",
+    "method": "Module._compile(unchangedSource, path.resolve(test/englishtext.js)), with module.filename and module.paths resolved to this worktree",
+    "result": "englishtext-pilot.log",
+    "excludedInitialMissingFileResult": "englishtext.log"
+  },
+  "status": "development components only; not loaded or browser-accepted"
+}

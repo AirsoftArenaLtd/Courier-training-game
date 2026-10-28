@@ -1,0 +1,30 @@
+✔ a profile requires actual frames for every named view and its requested quality (12.924536ms)
+✔ resource overflow, lost contexts and page errors fail the integrated gate (0.553856ms)
+✔ a fallback profile must really fail every selected model without loading any (0.419643ms)
+✔ High has explicit separate ceilings while the original Low ceilings remain (0.296367ms)
+✔ accessibility and running sound cannot be silently omitted from the fixture (0.389968ms)
+✔ a blank physical mirror cannot pass on resource counters alone (0.402166ms)
+✔ module counters require the requested real set-piece, boundaries and unchanged workday state (0.904436ms)
+✔ radio and night counters need actual route, caption, visibility and reduced-motion proofs (3.575837ms)
+✔ healthy profiles reject a recovered fallback and reports missing the fallback counter (0.29153ms)
+✔ navigation views must name their versioned campaign fixture (0.237459ms)
+✔ damage views require the located damage, cargo and physical clearance fixture (39.726022ms)
+✔ clearance views require a lasting readable warning and the reverse view also requires its camera (0.542259ms)
+✔ richer-stop counters need physical control, custody and native-schedule proofs (0.379993ms)
+✔ traffic views require the combined versioned traffic and navigation fixture (0.734259ms)
+✔ walkaround views require the opted-in model and seven non-rendered physical targets (2.546564ms)
+✔ ambient views require visible bounded people, the correct source variant and a restorable day (1.601106ms)
+✔ pre-trip views require the real registered adapter, all targets, bounded canvas reuse and isolated saves (0.500095ms)
+✔ route views require the registered planner, bounded panels, all twenty stop edits and unchanged workday state (1.933338ms)
+✔ hazard clips require actual cue sightlines, timing, model sources and isolated same-id scoring (1.658834ms)
+✔ controllable-driving resources require all hazards and bays without changing the full workday scope (8.893973ms)
+✔ school resources require live actors, the real painted bay, accessibility and isolated optional records (3.629497ms)
+✔ junction views require real controls, no injected progress, correctly rotated paint and unchanged workday state (1.070496ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 103.423248

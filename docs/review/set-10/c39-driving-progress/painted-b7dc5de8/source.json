@@ -1,0 +1,28 @@
+{
+  "candidate": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+  "runtimeSource": "ec9aaeae9461e15208942554d50509a204ccb1be",
+  "sources": {
+    "index.html": "348e8118bb3804f391df0624f800c0ddc3f29fa12cb5f92ff60f7f14ee7ecfde",
+    "src/core/fpdrivinglesson.js": "3d82d7f629cf8704970d476d4f36bd65eb7219a327f40dd3f94b6ad8a734d0bb",
+    "src/core/fpdrivinglessonhazards.js": "77b24e36b86ff7fedb78e854cdca3b731a5e4e6ae2cb1fc95f86ddd9b615b684",
+    "src/core/fpdrivinglessonrules.js": "e8ec05c30540148859d4ae15d57aea0c5e077913237997b633ca17981e51c25c",
+    "src/core/fpdrivinglessonui.js": "20fdcccd10834c92c9af566c33f8513f1c62a24ace2758d4fb98b27fbef14258",
+    "src/core/fpdrivinglessonworld.js": "ea7216a51438fb4b18451624b53ff12a12bde48e79af8e19260a2d87fb102d0b",
+    "src/core/fpworld.js": "703ba2a32e14dac104d9ec9977d2c643bf1fbc349425c1b281076344f5bb454b",
+    "src/core/fpcamera.js": "35a185dbaf3b271bde541a00f5ee32ae3cce3ea2546f876742d9d971a80a34c4",
+    "test/fpdrivinglesson.js": "058edb110c228878a0572b3616ce133b4eba92d48dd450162c7623230d1c1e15",
+    "test/fpdrivinglessonrules.js": "812230194fb6a7a62fcb9d113418db2967047769fd38ab0490cc3fbf470598aa",
+    "test/fpdrivinglessonui.js": "208fdc0740e9d9159c1d22e73a125c43895504541f62af6fc246200e5957ad18",
+    "test/fpdrivinglessonworld.js": "6a0259fbc7c461fbe36a44223be9e19569ed3f0b110a63233c0266bb1e8e4c6f",
+    "test/fpdrivinglessonbrowser.js": "a781d98f42f1fee49a1fb2b5e5f9f2ab90628634ee0f89e8ad5838f11947c662",
+    "test/fpcamera.js": "3197d6de19a45ba930ac14de72f765e7f49a2ea315a0a7a7f2c47503e39528c7",
+    "test/fpbench.js": "a58a037964647e714ad81d0b06ed29f319e3caabb6770aa931fd80e1e32f3c7e",
+    "test/fpquality.js": "63f1b53baddc126a3b93db3227536a3ab43286166c21826b8d3c55f96350ed24",
+    "test/fpqualitygate.js": "8a379b1822542596d123dc3d517bd6f883ffee374c5a323091ca3bc868e565a0",
+    "test/tools/fp-driving-lesson-fixture.js": "c3c3465d354e58034ef456a22acdc654536ff3c410053b9408f8b82068b69275",
+    "test/tools/fp-driving-lesson-view.js": "c9a41735930aef0bac234ad09ed0b0f815bf83fedefd34e75e104997a738ac93",
+    "test/tools/fp-driving-lesson-proof.js": "a69d523c0a7e85c3bb853a3ff934187df4764d93c8c37b4de9de1b9a8757d37d"
+  },
+  "nodeEvidence": "../../c39-school-progress/validated-b7dc5de8/node/results.json",
+  "note": "All 85 Node suites share this frozen candidate. The game tree is unchanged from ec9aaeae. This resource run includes the real painted bay hooks; older bf3cbb8b native results predate them."
+}

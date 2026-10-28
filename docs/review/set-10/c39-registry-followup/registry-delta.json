@@ -1,0 +1,11 @@
+{
+  "base": "e159deedc5875f6df431d690e80b78155a0fc70a",
+  "onlyChanges": {
+    "m1-pretrip": "pretrip-van",
+    "m1-route": "route-satnav",
+    "m1-driving": "driving-town-drill",
+    "m1-spot": "hazard-road-clips"
+  },
+  "allOriginalRegistryFieldsPreserved": true,
+  "default3dAdded": false
+}

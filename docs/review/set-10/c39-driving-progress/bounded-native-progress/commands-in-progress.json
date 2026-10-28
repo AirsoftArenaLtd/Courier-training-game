@@ -1,0 +1,339 @@
+{
+  "source": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+  "runtimeSource": "ec9aaeae9461e15208942554d50509a204ccb1be",
+  "qaOnlyChangedPaths": [
+    "test/tools/fp-school-lesson-proof.js",
+    "test/fpquality.js",
+    "test/fpqualitygate.js"
+  ],
+  "nativeTest": {
+    "path": "/workspace/c39-route-driving/test/fpschoollessonbrowser.js",
+    "sha256": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2"
+  },
+  "base": "http://127.0.0.1:8380",
+  "root": "/workspace/c39-school-next",
+  "nodeResults": "/tmp/c39-school-node-b7dc5de8/results.json",
+  "steps": [
+    {
+      "name": "school-low-resources",
+      "command": [
+        "node",
+        "test/fpquality.js"
+      ],
+      "env": {
+        "QA_SCHOOLLESSON_ONLY": "1",
+        "QA_PROFILES": "loaded-low",
+        "QA_TAG": "c39-school-current-low"
+      },
+      "started": 1792773671.022388,
+      "log": "/tmp/c39-school-acceptance-school-low-resources.log",
+      "pid": 367763,
+      "exit": 0,
+      "finished": 1792773801.4551265
+    },
+    {
+      "name": "school-low-en-normal",
+      "command": [
+        "node",
+        "/workspace/c39-route-driving/test/fpschoollessonbrowser.js"
+      ],
+      "env": {
+        "QA_TAG": "c39-school-current-low-en-normal",
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal"
+      },
+      "testSource": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "started": 1792774365.462861,
+      "log": "/tmp/c39-school-acceptance-school-low-en-normal.log",
+      "pid": 369553,
+      "exit": 0,
+      "finished": 1792774516.2769215
+    },
+    {
+      "name": "school-other-resources",
+      "command": [
+        "node",
+        "test/fpquality.js"
+      ],
+      "env": {
+        "QA_SCHOOLLESSON_ONLY": "1",
+        "QA_PROFILES": "loaded-high,accessible-low,fallback-low",
+        "QA_TAG": "c39-school-current-other"
+      },
+      "testSource": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+      "reportRoot": "/workspace/c39-school-next/test/out/fp-review",
+      "started": 1792775216.0133007,
+      "log": "/tmp/c39-school-acceptance-school-other-resources.log",
+      "pid": 370723,
+      "exit": 0,
+      "finished": 1792775716.3658636
+    },
+    {
+      "name": "school-low-en-large",
+      "command": [
+        "node",
+        "/workspace/c39-route-driving/test/fpschoollessonbrowser.js"
+      ],
+      "env": {
+        "QA_TAG": "c39-current-school-low-en-large",
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "large"
+      },
+      "testSource": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "started": 1792775716.3847895,
+      "log": "/tmp/c39-school-acceptance-school-low-en-large.log",
+      "pid": 372746,
+      "exit": 0,
+      "finished": 1792775858.034186
+    },
+    {
+      "name": "school-low-ta-normal",
+      "command": [
+        "node",
+        "/workspace/c39-route-driving/test/fpschoollessonbrowser.js"
+      ],
+      "env": {
+        "QA_TAG": "c39-current-school-low-ta-normal",
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "normal"
+      },
+      "testSource": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "started": 1792775858.04783,
+      "log": "/tmp/c39-school-acceptance-school-low-ta-normal.log",
+      "pid": 373105,
+      "exit": 0,
+      "finished": 1792776013.058046
+    },
+    {
+      "name": "school-low-ta-large",
+      "command": [
+        "node",
+        "/workspace/c39-route-driving/test/fpschoollessonbrowser.js"
+      ],
+      "env": {
+        "QA_TAG": "c39-current-school-low-ta-large",
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large"
+      },
+      "testSource": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "started": 1792776013.0734365,
+      "log": "/tmp/c39-school-acceptance-school-low-ta-large.log",
+      "pid": 373534,
+      "exit": 0,
+      "finished": 1792776163.002938
+    },
+    {
+      "name": "school-high-en-normal",
+      "command": [
+        "node",
+        "/workspace/c39-route-driving/test/fpschoollessonbrowser.js"
+      ],
+      "env": {
+        "QA_TAG": "c39-current-school-high-en-normal",
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal"
+      },
+      "testSource": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "started": 1792776163.0185463,
+      "log": "/tmp/c39-school-acceptance-school-high-en-normal.log",
+      "pid": 374092,
+      "exit": 0,
+      "finished": 1792776752.9629273
+    },
+    {
+      "name": "school-high-en-large",
+      "command": [
+        "node",
+        "/workspace/c39-route-driving/test/fpschoollessonbrowser.js"
+      ],
+      "env": {
+        "QA_TAG": "c39-current-school-high-en-large",
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "en",
+        "QA_SIZES": "large"
+      },
+      "testSource": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "started": 1792776752.979537,
+      "log": "/tmp/c39-school-acceptance-school-high-en-large.log",
+      "pid": 374830,
+      "exit": 0,
+      "finished": 1792777319.749714
+    },
+    {
+      "name": "school-high-ta-normal",
+      "command": [
+        "node",
+        "/workspace/c39-route-driving/test/fpschoollessonbrowser.js"
+      ],
+      "env": {
+        "QA_TAG": "c39-current-school-high-ta-normal",
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "normal"
+      },
+      "testSource": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "started": 1792777319.7636337,
+      "log": "/tmp/c39-school-acceptance-school-high-ta-normal.log",
+      "pid": 375209,
+      "exit": 0,
+      "finished": 1792777900.8958275
+    },
+    {
+      "name": "school-high-ta-large",
+      "command": [
+        "node",
+        "/workspace/c39-route-driving/test/fpschoollessonbrowser.js"
+      ],
+      "env": {
+        "QA_TAG": "c39-current-school-high-ta-large",
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large"
+      },
+      "testSource": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "started": 1792777900.9143481,
+      "log": "/tmp/c39-school-acceptance-school-high-ta-large.log",
+      "pid": 375591,
+      "exit": 0,
+      "finished": 1792778456.906756
+    },
+    {
+      "name": "painted-driving-resources",
+      "command": [
+        "node",
+        "test/fpquality.js"
+      ],
+      "env": {
+        "QA_DRIVINGLESSON_ONLY": "1",
+        "QA_PROFILES": "loaded-low,loaded-high,accessible-low,fallback-low",
+        "QA_TAG": "c39-painted-driving-current"
+      },
+      "testSource": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+      "reportRoot": "/workspace/c39-school-next/test/out/fp-review",
+      "started": 1792778456.9232786,
+      "log": "/tmp/c39-school-acceptance-painted-driving-resources.log",
+      "pid": 375973,
+      "exit": 0,
+      "finished": 1792779716.6321623
+    },
+    {
+      "name": "retained-runner",
+      "command": [
+        "node",
+        "test/fpscenariobrowser.js"
+      ],
+      "env": {
+        "QA_TAG": "c39-school-current-retained-runner"
+      },
+      "started": 1792783127.4723022,
+      "log": "/tmp/c39-driving-bounded-retained-runner.log",
+      "reportRoot": "/workspace/c39-school-next/test/out/fp-review",
+      "pid": 378267,
+      "exit": 0,
+      "finished": 1792783267.4794323
+    },
+    {
+      "name": "driving-high-en-large",
+      "command": [
+        "node",
+        "/workspace/c39-route-driving/test/fpdrivinglessonbrowser.js"
+      ],
+      "env": {
+        "QA_TAG": "c39-driving-bounded-high-en-large",
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "en",
+        "QA_SIZES": "large"
+      },
+      "testSource": "f0bd0df08b8707870b2e74a9b3166ff323da42d8460d06b99003326d9ab68181",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "log": "/tmp/c39-driving-bounded-driving-high-en-large.log",
+      "previousAttempts": [
+        {
+          "name": "driving-high-en-large",
+          "command": [
+            "node",
+            "test/fpdrivinglessonbrowser.js"
+          ],
+          "env": {
+            "QA_TAG": "c39-driving-current-high-en-large",
+            "QA_QUALITIES": "high",
+            "QA_LANGS": "en",
+            "QA_SIZES": "large"
+          },
+          "testSource": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+          "reportRoot": "/workspace/c39-school-next/test/out/fp-review",
+          "started": 1792779716.6471472,
+          "log": "/tmp/c39-school-acceptance-driving-high-en-large.log",
+          "pid": 377650,
+          "exit": 1,
+          "finished": 1792780727.9029682
+        }
+      ],
+      "started": 1792783267.4958317,
+      "pid": 378953,
+      "exit": 0,
+      "finished": 1792784645.2224572
+    },
+    {
+      "name": "driving-high-ta-normal",
+      "command": [
+        "node",
+        "/workspace/c39-route-driving/test/fpdrivinglessonbrowser.js"
+      ],
+      "env": {
+        "QA_TAG": "c39-driving-bounded-high-ta-normal",
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "normal"
+      },
+      "testSource": "f0bd0df08b8707870b2e74a9b3166ff323da42d8460d06b99003326d9ab68181",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "log": "/tmp/c39-driving-bounded-driving-high-ta-normal.log",
+      "started": 1792784645.2390084,
+      "pid": 379495,
+      "exit": 0,
+      "finished": 1792786016.8428936
+    },
+    {
+      "name": "driving-high-ta-large",
+      "command": [
+        "node",
+        "/workspace/c39-route-driving/test/fpdrivinglessonbrowser.js"
+      ],
+      "env": {
+        "QA_TAG": "c39-driving-bounded-high-ta-large",
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large"
+      },
+      "testSource": "f0bd0df08b8707870b2e74a9b3166ff323da42d8460d06b99003326d9ab68181",
+      "reportRoot": "/workspace/c39-route-driving/test/out/fp-review",
+      "log": "/tmp/c39-driving-bounded-driving-high-ta-large.log",
+      "started": 1792786016.8595216,
+      "pid": 379899,
+      "exit": 0,
+      "finished": 1792787410.3589916
+    }
+  ],
+  "complete": true,
+  "limits": "School source has all eight native modes and all four resource profiles. Painted driving has 72 current views and the three remaining High native modes; five earlier driving modes remain explicitly scoped to bf3cbb8b.",
+  "failure": null,
+  "correctedDrivingNative": {
+    "path": "/workspace/c39-route-driving/test/fpdrivinglessonbrowser.js",
+    "sha256": "f0bd0df08b8707870b2e74a9b3166ff323da42d8460d06b99003326d9ab68181",
+    "change": "Test-only protocol timeout, live-game-time bounded parking wait, progress timings and nested error cause capture. Gameplay and parking predicates are unchanged."
+  }
+}

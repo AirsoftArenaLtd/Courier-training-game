@@ -1,0 +1,11 @@
+{
+  "schoolCases": 10,
+  "unchangedJunctionCases": 14,
+  "runtimeMatchesProposal": true,
+  "source": {
+    "src/core/fpschoollesson.js": "dbbb3e999c9daccba6357066e83de6d312350ffabf9b126715c294bbf203e28e",
+    "test/fpschoollesson.js": "025f4a759f54f9ed19c264edbe1c05b843279fe7269633f3981b5b02073d06c8",
+    "test/fpjunctionlessonbrowser.js": "d357da015d96e8f0e9be4ff7e5ffd199d96e85e49edec1366fd7a0111eb93ac6"
+  },
+  "nativeSchoolAcceptance": false
+}

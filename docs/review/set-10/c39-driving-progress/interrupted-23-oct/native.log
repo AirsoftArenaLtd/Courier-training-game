@@ -1,0 +1,72 @@
+driving low en normal
+checkpoint 1 hazard
+checkpoint 1 parking
+checkpoint 2 hazard
+checkpoint 2 parking
+checkpoint 3 hazard
+checkpoint 3 parking
+checkpoint 4 hazard
+checkpoint 4 parking
+checkpoint 5 hazard
+checkpoint 5 parking
+checkpoint 6 hazard
+checkpoint 6 parking
+driving low en large
+checkpoint 1 hazard
+checkpoint 1 parking
+checkpoint 2 hazard
+checkpoint 2 parking
+checkpoint 3 hazard
+checkpoint 3 parking
+checkpoint 4 hazard
+checkpoint 4 parking
+checkpoint 5 hazard
+checkpoint 5 parking
+checkpoint 6 hazard
+checkpoint 6 parking
+driving low ta normal
+checkpoint 1 hazard
+checkpoint 1 parking
+checkpoint 2 hazard
+checkpoint 2 parking
+checkpoint 3 hazard
+checkpoint 3 parking
+checkpoint 4 hazard
+checkpoint 4 parking
+checkpoint 5 hazard
+checkpoint 5 parking
+checkpoint 6 hazard
+checkpoint 6 parking
+driving low ta large
+checkpoint 1 hazard
+checkpoint 1 parking
+checkpoint 2 hazard
+checkpoint 2 parking
+checkpoint 3 hazard
+checkpoint 3 parking
+checkpoint 4 hazard
+checkpoint 4 parking
+checkpoint 5 hazard
+checkpoint 5 parking
+checkpoint 6 hazard
+checkpoint 6 parking
+driving high en normal
+checkpoint 1 hazard
+checkpoint 1 parking
+checkpoint 2 hazard
+checkpoint 2 parking
+checkpoint 3 hazard
+checkpoint 3 parking
+checkpoint 4 hazard
+checkpoint 4 parking
+checkpoint 5 hazard
+checkpoint 5 parking
+checkpoint 6 hazard
+checkpoint 6 parking
+driving high en large
+Error: net::ERR_EMPTY_RESPONSE at http://127.0.0.1:8378/first-person.html?gfx=high&lang=en
+    at navigate (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:189:27)
+    at async Deferred.race (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)
+    at async CdpFrame.goto (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:155:25)
+    at async CdpPage.goto (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:580:20)
+    at async /workspace/c39-driving-acceptance/test/fpdrivinglessonbrowser.js:17:3

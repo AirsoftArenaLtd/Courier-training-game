@@ -1,0 +1,19 @@
+{
+  "status": "diagnostic only; visible-cue review failed after passing 288 input/scoring checks",
+  "candidate": "3409391d",
+  "files": {
+    "c39-hazard-smoke-low-en-normal-1.png": "b97d724f2691a7f2ea92afa4ca2f1a153ee1392ae92bcf5d3c8f9006617630f9",
+    "c39-hazard-smoke-low-en-normal-2-spam.png": "fd271eda924190e3486c57273fbedbb904eb008a2e20a0dc52133f26216da2b8",
+    "c39-hazard-smoke-low-en-normal-4-spam.png": "ca4025ec5e5b0cd9ad15a3e7c11b71dd817e535b75f9649c9377c2ef19e3e8a8",
+    "c39-hazard-smoke-low-en-normal-4.png": "7eec6714a060decab1901e1fcadfa3e83e05325b8fe927af60621eb7ee13e6a1",
+    "c39-hazard-smoke.json": "6c29580e5ddc7bb442ca3e88da5067c8c5c6b0d5424c0cf431a67a1466e36878",
+    "c39-hazard-smoke-low-en-normal-0.png": "7218f45c8f86ff17d0783134f84e378fc1487f2b98557d3a1a8e44951449e638",
+    "c39-hazard-smoke-low-en-normal-0-spam.png": "f208af5816dbe4d64d41cfe995560a6289dca44c21a792416c06da1f6adae48d",
+    "c39-hazard-smoke.log": "493ae6ef204d00170a156cef5361cd24bea3ab0394e3b563ec88be8cd82b2db1",
+    "README.md": "4f16de5e1846a38233c9e4c59fa6a24dcd7a78565a4e691acadcf36d791a40eb",
+    "c39-hazard-smoke-low-en-normal-3-spam.png": "9c2e98694b7981bbf8bfb91ac31e63c9d2da47e5278abf4e9380bde387ec1c76",
+    "c39-hazard-smoke-low-en-normal-2.png": "7b2a6aaa933c21ef299400356f43f99c0b28d838d22745ab9eef680b6841aba0",
+    "c39-hazard-smoke-low-en-normal-1-spam.png": "5d626e6775499dcc05900d0f559a73269d2ec8195df62bf522c2f14fdcbf32c3",
+    "c39-hazard-smoke-low-en-normal-3.png": "2c466393e7b636df1a218b982a5493387783e95a2a840d5eb22a79e60277a418"
+  }
+}

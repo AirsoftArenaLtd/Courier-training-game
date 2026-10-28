@@ -1,0 +1,37 @@
+✔ the night run uses a real town, faulty lights, lead traffic and beyond-depot painted bay without a saved lesson field (12.488376ms)
+✔ actual inspection, motor, night and following controllers earn each catalogue check once (2985.575171ms)
+✔ driving with lights off and inspecting after departure retain their failures after correction (2626.360729ms)
+✔ a wrong turn survives later route credit, while timeout retains observations and earns zero (5185.112596ms)
+✖ a clean but unfinished drive, no live traffic encounter, paint overhang or reversed van cannot finish (1712.835724ms)
+✔ the local event set is bounded, ignores unrelated checks and cannot finish after overflow (1.171118ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12535.241584
+
+✖ failing tests:
+
+test at docs/review/set-10/c39-night-core/night-core.js:29:1
+✖ a clean but unfinished drive, no live traffic encounter, paint overhang or reversed van cannot finish (1712.835724ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (/workspace/c39-route-driving/docs/review/set-10/c39-night-core/night-core.js:30:102)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

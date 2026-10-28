@@ -1,0 +1,27 @@
+{
+  "source": "bf3cbb8bf9672272d6ce846d20847abc62f60163",
+  "root": "/workspace/c39-driving-acceptance",
+  "base": "http://127.0.0.1:8378",
+  "steps": [
+    {
+      "name": "native",
+      "command": [
+        "node",
+        "test/fpdrivinglessonbrowser.js"
+      ],
+      "env": {
+        "QA_BASE": "http://127.0.0.1:8378",
+        "QA_BROWSER": "/usr/bin/chromium",
+        "QA_FPS_FLOOR": "0",
+        "QA_TAG": "c39-driving-native-accepted"
+      },
+      "started": 1792753421.485338,
+      "log": "/tmp/c39-driving-acceptance-native.log",
+      "pid": 358862,
+      "exit": 1,
+      "finished": 1792756389.8602667
+    }
+  ],
+  "complete": false,
+  "failure": "native failed; inspect the raw log and generated report."
+}

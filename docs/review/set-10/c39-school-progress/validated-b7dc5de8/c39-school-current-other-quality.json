@@ -1,0 +1,100 @@
+{
+  "sourceRevision": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+  "scope": "school-zone-module",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "schoolapproach",
+        "schoolbus",
+        "schoolchildren",
+        "schoolclear",
+        "schoolfinish",
+        "schoolreverse",
+        "schooldevice",
+        "schoolcycle"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-school-current-other-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 222353,
+      "peak": {
+        "calls": 69,
+        "triangles": 161008,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5281648
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "schoolapproach",
+        "schoolbus",
+        "schoolchildren",
+        "schoolclear",
+        "schoolfinish",
+        "schoolreverse",
+        "schooldevice",
+        "schoolcycle"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c39-school-current-other-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 140224,
+      "peak": {
+        "calls": 40,
+        "triangles": 1178,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2012576
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "schoolapproach",
+        "schoolbus",
+        "schoolchildren",
+        "schoolclear",
+        "schoolfinish",
+        "schoolreverse",
+        "schooldevice",
+        "schoolcycle"
+      ],
+      "accessibility": "",
+      "fallback": true,
+      "report": "bench-c39-school-current-other-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 137724,
+      "peak": {
+        "calls": 41,
+        "triangles": 1124,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1857051
+      }
+    }
+  ]
+}

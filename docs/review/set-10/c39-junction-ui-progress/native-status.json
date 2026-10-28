@@ -1,0 +1,37 @@
+{
+  "phase": "failed",
+  "jobs": [
+    {
+      "tag": "junction-low-en-normal",
+      "exit": 0,
+      "changed": [],
+      "artifacts": {
+        "junction-low-en-normal-low-en-normal-bay-1.png": "093cb288de591b67a0862e18bcd2548e276c936de2312038fcc1a46192c4f153",
+        "junction-low-en-normal-low-en-normal-bay-0.png": "b82063d3a45cd8a8f49da83fafa80976b3e72f65764be2e90efb512eb5def370",
+        "junction-low-en-normal-low-en-normal-mounted-route.png": "59c8dd036316f51205efbf0b60fdc2c499b7d14d14bec91388780f349770e4e7",
+        "junction-low-en-normal-low-en-normal-bay-2.png": "b638da4e5d20b797c4e3aab487f4d3c311e6bf1bbc5efbb8200f572b97eedeb0",
+        "junction-low-en-normal.json": "e07f19b8ba325663c4d64e508f4a6506203f1bd954322cee2c87ba7f49be5edc"
+      }
+    },
+    {
+      "tag": "junction-high-ta-large",
+      "exit": 1,
+      "changed": [],
+      "artifacts": {
+        "junction-high-ta-large-high-ta-large-mounted-route.png": "8c623ddb5f2ec884cda9873904ecd1712f16cd2c6ef357d787fca6328f10f82a",
+        "junction-high-ta-large-failure.png": "4aaf0a01797ef014d82da8f3ac25c8eeb9be0830936ab3f871b30d82a899387b",
+        "junction-high-ta-large-high-ta-large-bay-0.png": "bcc95a41ed1d3ba109e22df916eebc546028e6a4d0900dcc84020edd7309af29",
+        "junction-high-ta-large.json": "94112114415f301b0e4498011232c76eb5d7e15d5e710324278c736e14da55c2"
+      }
+    }
+  ],
+  "startedAt": 1793100099.3017864,
+  "pid": 161113,
+  "serverPid": 161120,
+  "tag": "junction-high-ta-large",
+  "childPid": 161606,
+  "failure": "Native job failed: junction-high-ta-large",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793100811.1173754
+}

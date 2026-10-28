@@ -1,0 +1,446 @@
+{
+  "runs": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "pass": true,
+      "proof": {
+        "texts": [
+          {
+            "text": "Read the driving route.",
+            "x": 916,
+            "y": 103.5,
+            "right": 1124,
+            "bottom": 124.5,
+            "size": 18
+          },
+          {
+            "text": "⌫ Back",
+            "x": 1130,
+            "y": 517.5,
+            "right": 1204,
+            "bottom": 538.5,
+            "size": 18
+          },
+          {
+            "text": "Checkpoint 1 of 6 is at 208 Harbor St.",
+            "x": 916,
+            "y": 150,
+            "right": 1138,
+            "bottom": 196,
+            "size": 18
+          },
+          {
+            "text": "1  Record this checkpoint.",
+            "x": 924,
+            "y": 425,
+            "right": 1150,
+            "bottom": 446,
+            "size": 18
+          },
+          {
+            "text": "2  Return to the road.",
+            "x": 924,
+            "y": 477,
+            "right": 1111,
+            "bottom": 498,
+            "size": 18
+          }
+        ],
+        "bodyBottom": 196,
+        "first": 411.5,
+        "last": 509.5,
+        "back": 517.5,
+        "logItems": 0
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "pass": true,
+      "proof": {
+        "texts": [
+          {
+            "text": "Read the driving route.",
+            "x": 916,
+            "y": 101.5,
+            "right": 1170,
+            "bottom": 126.5,
+            "size": 22
+          },
+          {
+            "text": "⌫ Back",
+            "x": 1114,
+            "y": 515.5,
+            "right": 1204,
+            "bottom": 540.5,
+            "size": 22
+          },
+          {
+            "text": "Checkpoint 1 of 6 is at 208 Harbor St.",
+            "x": 916,
+            "y": 150,
+            "right": 1187,
+            "bottom": 202,
+            "size": 22
+          },
+          {
+            "text": "1  Record this checkpoint.",
+            "x": 924,
+            "y": 401.5,
+            "right": 1066,
+            "bottom": 451.5,
+            "size": 22
+          },
+          {
+            "text": "2  Return to the road.",
+            "x": 924,
+            "y": 473,
+            "right": 1153,
+            "bottom": 498,
+            "size": 22
+          }
+        ],
+        "bodyBottom": 202,
+        "first": 395.4999989271164,
+        "last": 507.5,
+        "back": 515.5,
+        "logItems": 0
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "pass": true,
+      "proof": {
+        "texts": [
+          {
+            "text": "Read the driving route.",
+            "x": 916,
+            "y": 103,
+            "right": 1124,
+            "bottom": 125,
+            "size": 18
+          },
+          {
+            "text": "⌫ Back",
+            "x": 1130,
+            "y": 517,
+            "right": 1204,
+            "bottom": 539,
+            "size": 18
+          },
+          {
+            "text": "Checkpoint 1 of 6 is at 208 Harbor St.",
+            "x": 916,
+            "y": 150,
+            "right": 1138,
+            "bottom": 198,
+            "size": 18
+          },
+          {
+            "text": "1  this checkpoint.-ஐப் பதிவு செய்யுங்கள்",
+            "x": 924,
+            "y": 409,
+            "right": 1186,
+            "bottom": 453,
+            "size": 18
+          },
+          {
+            "text": "2  Return to the road.",
+            "x": 924,
+            "y": 476,
+            "right": 1111,
+            "bottom": 498,
+            "size": 18
+          }
+        ],
+        "bodyBottom": 198,
+        "first": 403.0000009536743,
+        "last": 509,
+        "back": 517,
+        "logItems": 0
+      }
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "pass": true,
+      "proof": {
+        "texts": [
+          {
+            "text": "Read the driving route.",
+            "x": 916,
+            "y": 101,
+            "right": 1170,
+            "bottom": 127,
+            "size": 22
+          },
+          {
+            "text": "⌫ Back",
+            "x": 1114,
+            "y": 515,
+            "right": 1204,
+            "bottom": 541,
+            "size": 22
+          },
+          {
+            "text": "Checkpoint 1 of 6 is at 208 Harbor St.",
+            "x": 916,
+            "y": 150,
+            "right": 1187,
+            "bottom": 206,
+            "size": 22
+          },
+          {
+            "text": "1  this checkpoint.-ஐப் பதிவு செய்யுங்கள்",
+            "x": 924,
+            "y": 399,
+            "right": 1168,
+            "bottom": 451,
+            "size": 22
+          },
+          {
+            "text": "2  Return to the road.",
+            "x": 924,
+            "y": 472,
+            "right": 1153,
+            "bottom": 498,
+            "size": 22
+          }
+        ],
+        "bodyBottom": 206,
+        "first": 392.999999165535,
+        "last": 507,
+        "back": 515,
+        "logItems": 0
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "pass": true,
+      "proof": {
+        "texts": [
+          {
+            "text": "Read the driving route.",
+            "x": 916,
+            "y": 103.5,
+            "right": 1124,
+            "bottom": 124.5,
+            "size": 18
+          },
+          {
+            "text": "⌫ Back",
+            "x": 1130,
+            "y": 517.5,
+            "right": 1204,
+            "bottom": 538.5,
+            "size": 18
+          },
+          {
+            "text": "Checkpoint 1 of 6 is at 208 Harbor St.",
+            "x": 916,
+            "y": 150,
+            "right": 1138,
+            "bottom": 196,
+            "size": 18
+          },
+          {
+            "text": "1  Record this checkpoint.",
+            "x": 924,
+            "y": 425,
+            "right": 1150,
+            "bottom": 446,
+            "size": 18
+          },
+          {
+            "text": "2  Return to the road.",
+            "x": 924,
+            "y": 477,
+            "right": 1111,
+            "bottom": 498,
+            "size": 18
+          }
+        ],
+        "bodyBottom": 196,
+        "first": 411.5,
+        "last": 509.5,
+        "back": 517.5,
+        "logItems": 0
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "pass": true,
+      "proof": {
+        "texts": [
+          {
+            "text": "Read the driving route.",
+            "x": 916,
+            "y": 101.5,
+            "right": 1170,
+            "bottom": 126.5,
+            "size": 22
+          },
+          {
+            "text": "⌫ Back",
+            "x": 1114,
+            "y": 515.5,
+            "right": 1204,
+            "bottom": 540.5,
+            "size": 22
+          },
+          {
+            "text": "Checkpoint 1 of 6 is at 208 Harbor St.",
+            "x": 916,
+            "y": 150,
+            "right": 1187,
+            "bottom": 202,
+            "size": 22
+          },
+          {
+            "text": "1  Record this checkpoint.",
+            "x": 924,
+            "y": 401.5,
+            "right": 1066,
+            "bottom": 451.5,
+            "size": 22
+          },
+          {
+            "text": "2  Return to the road.",
+            "x": 924,
+            "y": 473,
+            "right": 1153,
+            "bottom": 498,
+            "size": 22
+          }
+        ],
+        "bodyBottom": 202,
+        "first": 395.4999989271164,
+        "last": 507.5,
+        "back": 515.5,
+        "logItems": 0
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "pass": true,
+      "proof": {
+        "texts": [
+          {
+            "text": "Read the driving route.",
+            "x": 916,
+            "y": 103,
+            "right": 1124,
+            "bottom": 125,
+            "size": 18
+          },
+          {
+            "text": "⌫ Back",
+            "x": 1130,
+            "y": 517,
+            "right": 1204,
+            "bottom": 539,
+            "size": 18
+          },
+          {
+            "text": "Checkpoint 1 of 6 is at 208 Harbor St.",
+            "x": 916,
+            "y": 150,
+            "right": 1138,
+            "bottom": 198,
+            "size": 18
+          },
+          {
+            "text": "1  this checkpoint.-ஐப் பதிவு செய்யுங்கள்",
+            "x": 924,
+            "y": 409,
+            "right": 1186,
+            "bottom": 453,
+            "size": 18
+          },
+          {
+            "text": "2  Return to the road.",
+            "x": 924,
+            "y": 476,
+            "right": 1111,
+            "bottom": 498,
+            "size": 18
+          }
+        ],
+        "bodyBottom": 198,
+        "first": 403.0000009536743,
+        "last": 509,
+        "back": 517,
+        "logItems": 0
+      }
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "pass": true,
+      "proof": {
+        "texts": [
+          {
+            "text": "Read the driving route.",
+            "x": 916,
+            "y": 101,
+            "right": 1170,
+            "bottom": 127,
+            "size": 22
+          },
+          {
+            "text": "⌫ Back",
+            "x": 1114,
+            "y": 515,
+            "right": 1204,
+            "bottom": 541,
+            "size": 22
+          },
+          {
+            "text": "Checkpoint 1 of 6 is at 208 Harbor St.",
+            "x": 916,
+            "y": 150,
+            "right": 1187,
+            "bottom": 206,
+            "size": 22
+          },
+          {
+            "text": "1  this checkpoint.-ஐப் பதிவு செய்யுங்கள்",
+            "x": 924,
+            "y": 399,
+            "right": 1168,
+            "bottom": 451,
+            "size": 22
+          },
+          {
+            "text": "2  Return to the road.",
+            "x": 924,
+            "y": 472,
+            "right": 1153,
+            "bottom": 498,
+            "size": 22
+          }
+        ],
+        "bodyBottom": 206,
+        "first": 392.999999165535,
+        "last": 507,
+        "back": 515,
+        "logItems": 0
+      }
+    }
+  ],
+  "errors": [],
+  "complete": true
+}
