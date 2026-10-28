@@ -13,4 +13,10 @@ The author's `License.txt` is retained byte for byte as `LICENSE.txt` (SHA-256 `
 High uses one three-instance desk batch for the prototype depot's existing stations. The exact existing full-box
 occluders and the three original station signs/actions remain. Low and missing-file cases keep the original procedural
 counter bodies. No Low variant is listed or downloaded. No texture, extra pass, gameplay/save/scoring or text change.
-The other furniture models remain outside the game until a real consumer and its frame-budget evidence need them.
+The bench is documented below; the other furniture models remain outside the game until they have a consumer and frame-budget evidence.
+
+## Town bench
+
+C-51 also uses the unchanged source `Models/GLTF format/bench.glb` from the same owner-supplied Furniture Kit 2.0 archive as `models/bench-high.glb`. It is 10,756 bytes; source and output SHA-256: `ba05a6d23a5a5a44da016757632070e47ff7587ce10e2f6d6d52328b4cf5489b`. High places it through the existing static ambient batch; Low and missing-model cases retain their existing fallback. No new consumer, material, texture or render pass is introduced by consolidating the folder.
+
+Reproduce the bench import with `python3 test/tools/prepare-ambient.py MINI_ZIP FURNITURE_ZIP OUTPUT_3D`; its output path is the shared `kenney-furniture-kit` folder. Both furniture models share the one original author licence and pack credit.

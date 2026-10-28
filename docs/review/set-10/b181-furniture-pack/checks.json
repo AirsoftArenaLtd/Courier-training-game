@@ -1,0 +1,22 @@
+[
+  {
+    "suite": "test/assets.js",
+    "exit": 0,
+    "cases": 3
+  },
+  {
+    "suite": "test/credits.js",
+    "exit": 0,
+    "cases": 2
+  },
+  {
+    "suite": "test/fpassets.js",
+    "exit": 0,
+    "cases": 10
+  },
+  {
+    "suite": "test/fpambientassets.js",
+    "exit": 0,
+    "cases": 6
+  }
+]

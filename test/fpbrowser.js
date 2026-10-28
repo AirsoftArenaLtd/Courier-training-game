@@ -17,7 +17,7 @@ let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok
   p.on('pageerror',e=>errors.push(e.message));
   const ev=(fn,...args)=>p.evaluate(fn,...args);
   const state=()=>ev(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),m=s.model;return {area:s.area,panel:!!s.panel,transition:s.transitioning,device:s.handheld.isOpen,aiming:s.handheld.aiming,m:m&&m.snapshot()};});
-  const until=fn=>p.waitForFunction(fn,{timeout:20000});
+  const until=(fn,timeout=20000)=>p.waitForFunction(fn,{timeout});   // B-185: the scan holds below wait 90 s, as they run in game time
   const ready=()=>until(()=>window.OTR&&OTR.game&&OTR.game.scene.isActive('FirstPersonScene')&&!OTR.game.scene.getScene('FirstPersonScene').loading);
   const press=async key=>{await p.keyboard.press(key);await wait(180);};
   const shot=async name=>{
@@ -40,7 +40,7 @@ let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok
    },x,z,id,barcode);await wait(100);
   };
   const aimPoint=async id=>{const point=await ev(id=>{const m=OTR.game.scene.getScene('FirstPersonScene').model;return m.point(id);},id);await pose(point.x,point.z+1.5,id);};
-  const scan=async()=>{await press('Tab');await press('Digit1');check((await state()).aiming,'scanner enters aiming mode');await p.keyboard.down('Space');await until(()=>!OTR.game.scene.getScene('FirstPersonScene').handheld.aiming);await p.keyboard.up('Space');await wait(180);check(!(await state()).aiming&&(await state()).device,'continuous trigger opens a scan result');};
+  const scan=async()=>{await press('Tab');await press('Digit1');check((await state()).aiming,'scanner enters aiming mode');await p.keyboard.down('Space');await until(()=>!OTR.game.scene.getScene('FirstPersonScene').handheld.aiming,90000);await p.keyboard.up('Space');await wait(180);check(!(await state()).aiming&&(await state()).device,'continuous trigger opens a scan result');};
   const open=async()=>{await p.goto(BASE+'/first-person.html?gfx='+GFX+'&lang='+LANG);await ready();await until(()=>OTR.i18n.lang===(new URLSearchParams(location.search).get('lang')||'en'));};
   await open();check(await ev(()=>!!OTR.game.scene.getScene('FirstPersonScene').view),'3D renderer starts');await shot('welcome');
   await press('Enter');await press('KeyH');await shot('hub');await press('Digit2');await until(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return !s.transitioning&&s.model&&s.panel;});await press('Enter');await until(()=>!OTR.game.scene.getScene('FirstPersonScene').panel);
@@ -106,7 +106,7 @@ let checks=0;const check=(ok,text)=>{assert.ok(ok,text);checks++;console.log('ok
   await ev(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');Object.assign(s.model.van,{x:4,z:8,yaw:0,speed:0,hand:true});s.sync();});
   await aimPoint('cargo');await press('KeyE');const ret=(await state()).m.parcels.find(p=>p.returnRequired),slot=Number(ret.location.slice(4));
   await pose(4,8+2.05-(slot%3)*1.05+0.65,ret.id);await press('KeyE');await pose(-12.2,5,'returns');await press('KeyE');
-  check((await state()).aiming,'Returns opens the barcode scanner');await p.keyboard.down('Space');await until(()=>!OTR.game.scene.getScene('FirstPersonScene').handheld.aiming);await p.keyboard.up('Space');await wait(200);
+  check((await state()).aiming,'Returns opens the barcode scanner');await p.keyboard.down('Space');await until(()=>!OTR.game.scene.getScene('FirstPersonScene').handheld.aiming,90000);await p.keyboard.up('Space');await wait(200);
   check((await state()).m.parcels[ret.stop].location==='returned','return scan checks in the held parcel');await shot('return-receipt');await press('Digit1');
   await pose(-12.1,11,'dispatch');await press('KeyE');await press('Digit1');check((await state()).m.phase==='debrief','Dispatch completes the workday');await shot('debrief');await press('Escape');await until(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.area==='hub'&&!s.transitioning;});check((await state()).area==='hub','debrief returns to hub');
   await press('KeyH');await until(()=>OTR.game.scene.getScene('FirstPersonScene').panel);
