@@ -21,10 +21,10 @@ OTR.fpProblemProtocol={
     if(s.seen.size>=32){s.overflow=true;return false;}s.seen.add(token);
     s.log.penalty(def.cat,def.pts,def.label,{lesson:def.lesson,severity:def.severity,critical:!!def.critical,type,where:detail.where});return true;
   },
-  route(s,points){
-    if(!this.live(s)||s.kind!=='closure'||s.route||!Array.isArray(points)||points.length<2||points.length>16||points.some(p=>!p||!Number.isFinite(p.x)||!Number.isFinite(p.z)))return false;
+  route(s,points,radius=3.5){
+    if(!this.live(s)||s.kind!=='closure'||s.route||!Number.isFinite(radius)||radius<.5||radius>6||!Array.isArray(points)||points.length<2||points.length>16||points.some(p=>!p||!Number.isFinite(p.x)||!Number.isFinite(p.z)))return false;
     if(points.some((p,i)=>i&&Math.hypot(p.x-points[i-1].x,p.z-points[i-1].z)<.25))return false;
-    s.route={points:points.map(p=>({x:p.x,z:p.z})),next:0,lastX:null,lastZ:null,gateX:null,gateZ:null};return true;
+    s.route={points:points.map(p=>({x:p.x,z:p.z})),radius,next:0,lastX:null,lastZ:null,gateX:null,gateZ:null};return true;
   },
   step(s,pose,seconds,active=true){
     if(!active||!this.live(s))return false;const dt=Math.max(0,Math.min(.05,Number(seconds)||0));s.elapsed+=dt;
@@ -33,7 +33,7 @@ OTR.fpProblemProtocol={
     const jump=r.lastX!==null&&Math.hypot(pose.x-r.lastX,pose.z-r.lastZ)>Math.abs(pose.speed)*dt+.5;
     r.lastX=pose.x;r.lastZ=pose.z;
     if(jump){this.observe(s,'drive.route',{ok:false});return false;}
-    const point=r.points[r.next];if(!point||Math.abs(pose.speed)<.3||Math.hypot(pose.x-point.x,pose.z-point.z)>2.5||r.gateX!==null&&Math.hypot(pose.x-r.gateX,pose.z-r.gateZ)<.25)return false;
+    const point=r.points[r.next];if(!point||Math.abs(pose.speed)<.3||Math.hypot(pose.x-point.x,pose.z-point.z)>r.radius||r.gateX!==null&&Math.hypot(pose.x-r.gateX,pose.z-r.gateZ)<.25)return false;
     r.next++;r.gateX=pose.x;r.gateZ=pose.z;return true;
   },
   reachDoor(s,pose,door){
