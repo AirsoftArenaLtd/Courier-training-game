@@ -1,0 +1,86 @@
+{
+  "phase": "complete",
+  "jobs": [
+    {
+      "tag": "heavy-low-en-safe",
+      "script": "test/fppackageheavybrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_UNSAFE": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "heavy-low-en-safe-load-1.png": "d3bf6e6045d8bae5c26157c8d088ff9954d363cc4958f85997be75f3b724bb48",
+        "heavy-low-en-safe-load-0.png": "7a36f6251553710f3fbc09d589c7aefe399b8e517b3c7cc219b5d7211e452a99",
+        "heavy-low-en-safe-policy.png": "7b8d340c74760627e150203b7c29f2948449ee60fb2bb516c2f438172f1861f6",
+        "heavy-low-en-safe-reading.png": "da2991b4c1cb63251b1fd5cbf49ee0aebb2c15c434d9222dc42daf0ccfc42647",
+        "heavy-low-en-safe.json": "ae930996d8b0476250de99788452ddf6200975c987413978be6484f90d3fedb8"
+      }
+    },
+    {
+      "tag": "heavy-high-ta-safe",
+      "script": "test/fppackageheavybrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_UNSAFE": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "heavy-high-ta-safe-load-0.png": "b49cb6db29bbf8f45fec22f3d103c97535fe1b0d1b0e28cacbfe50ccce5bd75d",
+        "heavy-high-ta-safe.json": "efe10e8b79d52b9de1fe9c6194d96750a25f431ed8ee9f36a1981b3bd84d4eb2",
+        "heavy-high-ta-safe-load-1.png": "24bdfdac86fa040d33509466fe7e78e79e9b03dec0a63aad7a2f4f4ffd31d409",
+        "heavy-high-ta-safe-reading.png": "be022acf5e61b680aee607bf2ce76d273ed92cce9268af80c4bc46b320634673",
+        "heavy-high-ta-safe-policy.png": "bec52de3af5ecc794d516d7cd153647a4f56cc9f1f53f949c6bdfcd91d378caf"
+      }
+    },
+    {
+      "tag": "heavy-low-en-unsafe",
+      "script": "test/fppackageheavybrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_UNSAFE": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "heavy-low-en-unsafe-critical.png": "40e898a8182a4a64ba7bf8cb9cf243de8b2ac88f03eb7fe24faa110951c42d49",
+        "heavy-low-en-unsafe-reading.png": "2cfa5fb04c6c8abb5404daa84bd9c73e46bebca8a43b8f92feb9c69296030954",
+        "heavy-low-en-unsafe.json": "87b6f8d74391e0ea56a205ef08c4884f99d641e0d60e70e6d014cd2dc9de02e0",
+        "heavy-low-en-unsafe-policy.png": "7b8d340c74760627e150203b7c29f2948449ee60fb2bb516c2f438172f1861f6"
+      }
+    },
+    {
+      "tag": "heavy-high-ta-unsafe",
+      "script": "test/fppackageheavybrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_UNSAFE": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "heavy-high-ta-unsafe.json": "a91155116d8fc86e0d113217b073ac98466f2cffdf20e3ba977dc5b7bb686829",
+        "heavy-high-ta-unsafe-reading.png": "be022acf5e61b680aee607bf2ce76d273ed92cce9268af80c4bc46b320634673",
+        "heavy-high-ta-unsafe-policy.png": "bec52de3af5ecc794d516d7cd153647a4f56cc9f1f53f949c6bdfcd91d378caf"
+      }
+    }
+  ],
+  "pid": 194631,
+  "startedAt": 1793177140.5856404,
+  "serverPid": 194711,
+  "tag": "heavy-high-ta-unsafe",
+  "childPid": 195781,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793177469.770099
+}
