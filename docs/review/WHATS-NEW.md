@@ -6,8 +6,7 @@ is not touched (add it after `index.html` in the address, then press Start workd
 
 ## New since 22 October (about 10 minutes)
 
-Your second visual review (`set-10/CHECKLIST.md`) can now be done for items 1 to 12; 13 to 15 (the cab and handheld
-look, C-52) follow when C-52 is back from Codex.
+Your second visual review (`set-10/CHECKLIST.md`) can now be done in full, items 1 to 15.
 
 | What | Try it | Checklist item |
 | --- | --- | --- |
@@ -16,11 +15,12 @@ look, C-52) follow when C-52 is back from Codex.
 | **Lettering on the signs themselves** (C-50); J still reads the sign aloud in your language | `?dev=1&workday3d=1&user=review-signs&route=1&day=3` | set 10: 8 to 10 |
 | **People you notice** (C-51): at doorsteps, at reception and along the streets on High | `?dev=1&workday3d=1&user=review-people&route=5&day=4&gfx=high` | set 10: 11, 12 |
 | **The owner's desk model** at the depot on High (B-1, from your packs) | any link above with `&gfx=high`, at the depot | |
-| **Drive with a gamepad** (B-2): plug in a standard controller and press a button; remapping is in the 3D controls screen | the cab link above | |
+| **The cab and handheld look like real devices** (C-52, merged 28 Oct); the road just ahead is clear of the instruments | the cab link above; Tab at a stop for the handheld | set 10: 13 to 15 |
+| **Drive with a gamepad** (B-2): plug in a standard controller and press a button; remapping is in **Esc → Controls and guidance → Gamepad controls** and is now remembered (B-183) | the cab link above | |
 | **A lost 3D display** (B-3): close the laptop lid mid-drive and open it again; the day waits and carries on | any 3D link | |
 
-The release-candidate run on 28 October passes all 165 checks (`docs/READINESS.md`), so `pilot` is ready to try on one
-real laptop (O-1).
+The release-candidate run on the morning of 28 October passes all 165 checks (`docs/READINESS.md`), so `pilot` is ready
+to try on one real laptop (O-1). A fresh run with the day's merges (C-52, B-181, B-183) follows.
 
 ## Earlier: to try from 22 October (about 15 minutes)
 
@@ -39,9 +39,9 @@ The checklists are `set-9/CHECKLIST.md` (items 1 to 31) and, for your second vis
 
 ## Being done now (from your review)
 
-- **The cab and handheld look** (C-52): back with Codex, because its new gauge hood covers the road just ahead.
 - **The 3D versions of the modules** (C-38 to C-46: route and driving, packages, customers, problems, the scanner,
-  loading, pickups, safety): done by Codex and waiting for C-52, which they are built on; they come to you as a set.
+  loading, pickups, safety): Codex is moving them onto today's `pilot` now that C-52 is in; I review them in order and
+  they come to you as a set.
 
 ## Fixed or made sure, without anything new to see
 

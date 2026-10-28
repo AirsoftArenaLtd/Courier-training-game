@@ -50,16 +50,15 @@ The QA machine renders in software (no graphics card), so its frame rates say no
 
 ## Decisions for the owner
 
-1. **Merge `pilot` into `main`?** Only you approve this. Suggested order: O-1 on one real laptop first (the release-candidate run is green); C-52 and the 3D modules (C-38 to C-46) are still under review and can follow in a later merge.
+1. **Merge `pilot` into `main`?** Only you approve this. Suggested order: O-1 on one real laptop first (the release-candidate run is green); the 3D modules (C-38 to C-46) are still under review and can follow in a later merge.
 2. **The open questions** (one page with our recommendations: `docs/review/DECISIONS.md`) on the board (`docs/COORDINATION.md`, "Questions for the owner"): 2 to 4, 6, 7, 8 (`?gfx=lite`
    for PCs without a graphics driver), 10 (no headlights at night: points or a star) and 11 (do the new 3D-only
    scenarios count for the certificate). Each has a default in use until you answer.
 
 ## Known limits
 
-- The cab and handheld redesign (C-52) and the 3D versions of the modules (C-38 to C-46) are not in `pilot` yet: C-52 is back with Codex (its new gauge hood covers the road ahead), and the modules are built on it.
-- The gamepad's remapping lasts one 3D session until B-183 saves it.
-- The Credits screen names Kenney's Furniture Kit twice until B-181 folds its two folders into one.
+- The 3D versions of the modules (C-38 to C-46) are not in `pilot` yet: Codex is moving them onto it now that the cab and handheld redesign (C-52) is merged.
+- The figures above are from the morning's run; since then C-52, B-181 (one Furniture Kit credit), B-183 (the gamepad remapping is remembered) and B-186 (QA fixes) were merged, each after its own full review. A fresh release-candidate run follows.
 - Medium graphics does not exist: there are Low, High and the trial `?gfx=lite`.
 - A replay of the last mistake lives only in the browser's memory: it is gone when the tab closes.
 - Under machine load, a few browser suites can time out while the page is still starting (`fpdoorsbrowser`,
