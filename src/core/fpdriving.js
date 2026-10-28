@@ -27,7 +27,7 @@ OTR.fpDriving = {
   fire(m,type,key,ok,text,extra) {
     const id=`driver:${type}:${key}`;if(m.events[id])return;
     m.log(id,'driving',ok?'good':'needs',text);
-    if(OTR.workday&&m.kind!=='parking')OTR.workday.report(type,{key,ok,stop:m.phase==='route'?m.activeStop+1:undefined,...extra,
+    if(OTR.workday&&m.kind!=='parking')OTR.fpMission.emit(m,type,{key,ok,stop:m.phase==='route'?m.activeStop+1:undefined,...extra,
       where:{x:m.van.x,z:m.van.z,mph:Math.abs(m.van.speed)*2.2369362921}});
   },
   endLeg(m) {

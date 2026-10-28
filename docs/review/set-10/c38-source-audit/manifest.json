@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-22T21:35:37.609647+00:00",
+  "status": "Initial source audit only",
+  "base": "200830071a1863c5f0c22c8b75cd194e8c8d2ea0",
+  "taskRow": "| C-38 | Codex | **3D scenario runner** (contract: `docs/3D-MODULES.md`): loads a small set-piece (part of the depot, one street, one doorstep, the cab), gives a goal and a timer, runs practice and assessment, and hands the result to the existing results screen. One scenario per data entry; the 2D fallback is chosen when 3D is not available. | todo (after C-24, C-27) |",
+  "files": {
+    "docs/3D-MODULES.md": {
+      "sha256": "5a2ab15b6dc22c158669743183249998edd40e305af091fbfe977eb91d5c87c6",
+      "bytes": 3629
+    },
+    "docs/WORKDAY-EVENTS.md": {
+      "sha256": "e67e94ed7f1775c233428f15244f34bf486dd6a38c288f00db3bead270bbd6fe",
+      "bytes": 17452
+    },
+    "src/scenes/FirstPersonScene.js": {
+      "sha256": "8909bb140cb8410c20d0ddde7db42fe11771265b666a97f7f44b75d8cf73646b",
+      "bytes": 50726
+    },
+    "src/core/fpmission.js": {
+      "sha256": "46028bee4738ccf1014acabcb03fd34fc96234b0389a13cb71827b1c48112cf9",
+      "bytes": 45517
+    }
+  }
+}

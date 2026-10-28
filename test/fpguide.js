@@ -12,3 +12,14 @@ test('context hints are once per action type, yield to notices/panels and never 
 test('old checkpoints default safely, and guidance flags survive a local profile round trip',()=>{
  const p=O.fpStore.empty();p.guidance={intro:true,seen:['parcel','driver','parcel','bad key',7]};O.fpStore.write(p);const r=O.fpStore.read();assert.deepEqual(JSON.parse(JSON.stringify(r.guidance)),{intro:true,seen:['parcel','driver']});delete p.guidance;O.fpStore.write(p);assert.equal(O.fpStore.read().guidance.intro,false);
 });
+
+test('module runs never reuse or narrate saved workday coaching, while workdays retain it',()=>{
+ const spoken=[];O.a11y={say:text=>spoken.push(text)};
+ try{
+  for(const assessment of [false,true]){
+   const s=scene();s.progress.guidance.intro=true;s.scenarioSession={assessment};const before=JSON.stringify(s.progress);
+   assert.equal(G.hint(s,'driver'),null);assert.equal(G.hint(s,'tyres'),null);assert.deepEqual(spoken,[]);assert.equal(JSON.stringify(s.progress),before);assert.equal(s.saves,undefined);
+  }
+  const s=scene();s.progress.guidance.intro=true;assert.match(G.hint(s,'tyres'),/Inspect the tires/);assert.equal(spoken.length,1);assert.equal(s.saves,1);
+ }finally{delete O.a11y;}
+});

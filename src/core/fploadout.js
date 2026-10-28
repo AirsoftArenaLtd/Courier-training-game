@@ -20,7 +20,7 @@ OTR.fpLoadout = {
     const id=`loadout:${type}:${key}`;
     if(m.events[id])return;
     m.log(id,'loading',ok?'good':'needs',text);
-    if(OTR.workday)OTR.workday.report(type,{key,ok,stop});
+    if(OTR.workday)OTR.fpMission.emit(m,type,{key,ok,stop});
   },
   scan(m,p) {
     p.scanned=true;m.lastScan=p.id;m.touch();

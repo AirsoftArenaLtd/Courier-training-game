@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "scope": "Six exploratory loaded Low module views; not the final 24-view gate",
+  "sourceRevision": "7ad9f3bf708689e709947d98f99b040714b26e8c",
+  "peak": {
+    "calls": 32,
+    "triangles": 870,
+    "textures": 2,
+    "attachmentBytes": 3557376,
+    "phaserBytes": 1602768
+  }
+}

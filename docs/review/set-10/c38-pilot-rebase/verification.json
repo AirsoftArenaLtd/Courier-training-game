@@ -1,0 +1,58 @@
+{
+  "scope": "C38 transplanted onto pilot 3678fba3: current native lifecycle/layout/isolation and 24 focused resource views. Historical manifests keep their exact older source scope; Intel FPS remains O-1.",
+  "candidate": "66f2cda585ee771c52348680eeaef7e4a7030db6",
+  "base": "3678fba3",
+  "sourceInputs": 555,
+  "hostFonts": 4,
+  "artifacts": 42,
+  "cpuSuites": 18,
+  "nativeChecks": 231,
+  "nativeLayouts": 8,
+  "resourceViews": 24,
+  "peaks": {
+    "loaded-low": {
+      "calls": 32,
+      "triangles": 870,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1597840
+    },
+    "loaded-high": {
+      "calls": 47,
+      "triangles": 32707,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 4923856
+    },
+    "accessible-low": {
+      "calls": 32,
+      "triangles": 870,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1969664
+    },
+    "fallback-low": {
+      "calls": 36,
+      "triangles": 716,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1597840
+    }
+  },
+  "cleanup": {
+    "controllerPid": {
+      "pid": 214905,
+      "state": "zombie"
+    },
+    "serverPid": {
+      "pid": 215061,
+      "state": "gone"
+    },
+    "childPid": {
+      "pid": 221949,
+      "state": "gone"
+    }
+  },
+  "visualReview": "Original-size High larger Tamil cab inspected: rendered Tamil glyphs, separated goal/clock/caption, three physical mirrors and lowered instrument hood retain the forward view. New C38 goal remains its original pending translation handoff.",
+  "allPassed": true
+}

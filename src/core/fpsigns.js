@@ -16,7 +16,7 @@ OTR.fpSigns = {
   emit(m,g,ok,atSign=false){
     if(!g||m.events[g.event])return;const words={speed:['Kept to the posted speed limit.','Exceeded the posted speed limit.'],school:['Kept to the school-zone speed limit.','Exceeded the school-zone speed limit.'],giveway:['Gave way to traffic when leaving the depot.','Left the depot without giving way to nearby traffic.'],roadworks:['Used another street around the road closure.','Contacted the closure instead of following the diversion.'],oneway:['','Entered a one-way street against its direction.'],noentry:['','Entered a street from its prohibited end.']};
     m.log(g.event,'driving',ok?'good':'needs',words[g.kind][ok?0:1]);
-    if(OTR.workday)OTR.workday.report(g.type,{key:g.id,stop:m.phase==='route'?m.activeStop+1:undefined,ok,where:{x:atSign?g.x:m.van.x,z:atSign?g.z:m.van.z,mph:atSign?0:Math.abs(m.van.speed)*2.2369362921}});
+    if(OTR.workday)OTR.fpMission.emit(m,g.type,{key:g.id,stop:m.phase==='route'?m.activeStop+1:undefined,ok,where:{x:atSign?g.x:m.van.x,z:atSign?g.z:m.van.z,mph:atSign?0:Math.abs(m.van.speed)*2.2369362921}});
   },
   seen(m,g){if(g&&!m.events[g.seen]){m.events[g.seen]=true;m.touch();}},
   barrierContact(m){return !!(this.enabled(m)&&m.roadworks&&m.motion&&m.motion.contact&&OTR.fp.vanBox(m._motorPose||m.van,m.roadworks));},

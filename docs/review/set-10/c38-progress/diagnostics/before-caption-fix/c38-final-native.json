@@ -1,0 +1,527 @@
+{
+  "views": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "proof": {
+        "quality": "low",
+        "assessment": false,
+        "coaching": true,
+        "goal": {
+          "x": 24,
+          "y": 18,
+          "right": 275,
+          "bottom": 39
+        },
+        "clock": {
+          "x": 24,
+          "y": 47,
+          "right": 289,
+          "bottom": 68
+        },
+        "goalFont": 18,
+        "hintVisible": true,
+        "controlsVisible": true,
+        "diagnostics": {
+          "calls": 23,
+          "triangles": 610,
+          "textures": 2,
+          "geometries": 11,
+          "targetWidth": 832,
+          "targetHeight": 468,
+          "attachmentBytes": 3557376
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "result": {
+        "id": "m1-pretrip",
+        "stars": {
+          "safety": 3,
+          "efficiency": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 100,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 0
+          },
+          "lastPlayed": 1792708557628
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "shot": "c38-final-native-low-en-normal.png"
+    },
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": true,
+      "proof": {
+        "quality": "low",
+        "assessment": true,
+        "coaching": false,
+        "goal": {
+          "x": 24,
+          "y": 18,
+          "right": 331,
+          "bottom": 43
+        },
+        "clock": {
+          "x": 24,
+          "y": 51,
+          "right": 348,
+          "bottom": 76
+        },
+        "goalFont": 22,
+        "hintVisible": false,
+        "controlsVisible": false,
+        "diagnostics": {
+          "calls": 13,
+          "triangles": 280,
+          "textures": 2,
+          "geometries": 11,
+          "targetWidth": 832,
+          "targetHeight": 468,
+          "attachmentBytes": 3557376
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "result": {
+        "id": "m1-pretrip",
+        "stars": {
+          "safety": 3,
+          "efficiency": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 100,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 0
+          },
+          "lastPlayed": 1792708564875
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792708559990,
+          "pending": false,
+          "at": 1792708564876,
+          "stars": {
+            "safety": 3,
+            "efficiency": 0
+          },
+          "score": 100,
+          "criticals": [],
+          "lessons": []
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "shot": "c38-final-native-low-en-large.png"
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": false,
+      "proof": {
+        "quality": "low",
+        "assessment": false,
+        "coaching": true,
+        "goal": {
+          "x": 24,
+          "y": 18,
+          "right": 277,
+          "bottom": 40
+        },
+        "clock": {
+          "x": 24,
+          "y": 48,
+          "right": 289,
+          "bottom": 70
+        },
+        "goalFont": 18,
+        "hintVisible": true,
+        "controlsVisible": true,
+        "diagnostics": {
+          "calls": 28,
+          "triangles": 642,
+          "textures": 2,
+          "geometries": 11,
+          "targetWidth": 832,
+          "targetHeight": 468,
+          "attachmentBytes": 3557376
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "result": {
+        "id": "m1-pretrip",
+        "stars": {
+          "safety": 3,
+          "efficiency": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 100,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 0
+          },
+          "lastPlayed": 1792708572235
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "shot": "c38-final-native-low-ta-normal.png"
+    },
+    {
+      "quality": "low",
+      "lang": "ta",
+      "large": true,
+      "proof": {
+        "quality": "low",
+        "assessment": true,
+        "coaching": false,
+        "goal": {
+          "x": 24,
+          "y": 18,
+          "right": 333,
+          "bottom": 44
+        },
+        "clock": {
+          "x": 24,
+          "y": 52,
+          "right": 348,
+          "bottom": 78
+        },
+        "goalFont": 22,
+        "hintVisible": false,
+        "controlsVisible": false,
+        "diagnostics": {
+          "calls": 28,
+          "triangles": 642,
+          "textures": 2,
+          "geometries": 11,
+          "targetWidth": 832,
+          "targetHeight": 468,
+          "attachmentBytes": 3557376
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "result": {
+        "id": "m1-pretrip",
+        "stars": {
+          "safety": 3,
+          "efficiency": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 100,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 0
+          },
+          "lastPlayed": 1792708579759
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792708574815,
+          "pending": false,
+          "at": 1792708579763,
+          "stars": {
+            "safety": 3,
+            "efficiency": 0
+          },
+          "score": 100,
+          "criticals": [],
+          "lessons": []
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "shot": "c38-final-native-low-ta-large.png"
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "proof": {
+        "quality": "high",
+        "assessment": false,
+        "coaching": true,
+        "goal": {
+          "x": 24,
+          "y": 18,
+          "right": 275,
+          "bottom": 39
+        },
+        "clock": {
+          "x": 24,
+          "y": 47,
+          "right": 289,
+          "bottom": 68
+        },
+        "goalFont": 18,
+        "hintVisible": true,
+        "controlsVisible": true,
+        "diagnostics": {
+          "calls": 31,
+          "triangles": 1350,
+          "textures": 4,
+          "geometries": 13,
+          "targetWidth": 1280,
+          "targetHeight": 720,
+          "attachmentBytes": 11239424
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "result": {
+        "id": "m1-pretrip",
+        "stars": {
+          "safety": 3,
+          "efficiency": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 100,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 0
+          },
+          "lastPlayed": 1792708598453
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "shot": "c38-final-native-high-en-normal.png"
+    },
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": true,
+      "proof": {
+        "quality": "high",
+        "assessment": true,
+        "coaching": false,
+        "goal": {
+          "x": 24,
+          "y": 18,
+          "right": 331,
+          "bottom": 43
+        },
+        "clock": {
+          "x": 24,
+          "y": 51,
+          "right": 348,
+          "bottom": 76
+        },
+        "goalFont": 22,
+        "hintVisible": false,
+        "controlsVisible": false,
+        "diagnostics": {
+          "calls": 16,
+          "triangles": 802,
+          "textures": 4,
+          "geometries": 13,
+          "targetWidth": 1280,
+          "targetHeight": 720,
+          "attachmentBytes": 11239424
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "result": {
+        "id": "m1-pretrip",
+        "stars": {
+          "safety": 3,
+          "efficiency": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 100,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 0
+          },
+          "lastPlayed": 1792708620821
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792708604125,
+          "pending": false,
+          "at": 1792708620821,
+          "stars": {
+            "safety": 3,
+            "efficiency": 0
+          },
+          "score": 100,
+          "criticals": [],
+          "lessons": []
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "shot": "c38-final-native-high-en-large.png"
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": false,
+      "proof": {
+        "quality": "high",
+        "assessment": false,
+        "coaching": true,
+        "goal": {
+          "x": 24,
+          "y": 18,
+          "right": 277,
+          "bottom": 40
+        },
+        "clock": {
+          "x": 24,
+          "y": 48,
+          "right": 289,
+          "bottom": 70
+        },
+        "goalFont": 18,
+        "hintVisible": true,
+        "controlsVisible": true,
+        "diagnostics": {
+          "calls": 27,
+          "triangles": 3445,
+          "textures": 4,
+          "geometries": 13,
+          "targetWidth": 1280,
+          "targetHeight": 720,
+          "attachmentBytes": 11239424
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "result": {
+        "id": "m1-pretrip",
+        "stars": {
+          "safety": 3,
+          "efficiency": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 100,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 0
+          },
+          "lastPlayed": 1792708641450
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "shot": "c38-final-native-high-ta-normal.png"
+    },
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "proof": {
+        "quality": "high",
+        "assessment": true,
+        "coaching": false,
+        "goal": {
+          "x": 24,
+          "y": 18,
+          "right": 333,
+          "bottom": 44
+        },
+        "clock": {
+          "x": 24,
+          "y": 52,
+          "right": 348,
+          "bottom": 78
+        },
+        "goalFont": 22,
+        "hintVisible": false,
+        "controlsVisible": false,
+        "diagnostics": {
+          "calls": 31,
+          "triangles": 1350,
+          "textures": 4,
+          "geometries": 13,
+          "targetWidth": 1280,
+          "targetHeight": 720,
+          "attachmentBytes": 11239424
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "result": {
+        "id": "m1-pretrip",
+        "stars": {
+          "safety": 3,
+          "efficiency": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 100,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 0
+          },
+          "lastPlayed": 1792708661618
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792708645743,
+          "pending": false,
+          "at": 1792708661618,
+          "stars": {
+            "safety": 3,
+            "efficiency": 0
+          },
+          "score": 100,
+          "criticals": [],
+          "lessons": []
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      },
+      "shot": "c38-final-native-high-ta-large.png"
+    }
+  ],
+  "errors": [],
+  "checks": 176,
+  "error": "TimeoutError: Waiting failed: 120000ms exceeded\n    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:49:34)\n    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)\n    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)\n    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)\n    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)\n    at ready (/workspace/c38-pilot-acceptance/test/fpscenariobrowser.js:6:24)\n    at /workspace/c38-pilot-acceptance/test/fpscenariobrowser.js:31:86"
+}

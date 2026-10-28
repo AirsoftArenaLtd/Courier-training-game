@@ -1,0 +1,184 @@
+
+hashing
+ok   scrypt with its own random salt each time
+ok   the hash record holds no plaintext
+ok   verify: right yes, wrong and empty no
+ok   verify: nothing to compare is a no
+ok   employee IDs: trimmed, any case, a safe set of characters
+ok   cookie: HttpOnly, SameSite=Strict, ends with the browser, Secure over HTTPS
+ok   the session id is read from the cookie, and only a well-formed one
+
+first sign-in
+ok   a trainer creates an account with a temporary password (8s6sg3nqyf)
+ok   no duplicate or malformed IDs
+ok   the accounts file holds the hash, never the password
+ok   the accounts file is readable by the server's user only
+ok   the temporary password signs in to a session that must choose a password
+ok   a new password under 8 characters is refused
+ok   the temporary password cannot be kept
+ok   a very long password is refused
+ok   a new password: a fresh session id, the old one ends
+ok   the temporary password works only once
+ok   their own password signs straight in
+ok   changing a password later needs the current one
+ok   ... and a different new one
+ok   ... and signs out the old session
+
+lockout
+ok   five wrong passwords lock the ID (bad,bad,bad,bad,locked)
+ok   an ID that does not exist answers exactly the same
+ok   the same message and status either way: Too many wrong tries. Try again later, or ask a trainer to reset the password.
+ok   the right password does not open a locked ID
+ok   the trainer sees it locked
+ok   still locked after 14 minutes
+ok   open again after 15 minutes
+
+per-address throttle
+ok   ten wrong tries from one address, then it waits
+ok   only that address waits
+ok   a minute later it is let through
+
+session expiry
+ok   a session used within two hours stays
+ok   two hours unused ends it
+ok   ten hours ends it, however busy
+ok   a temporary-password session lasts 15 minutes
+ok   an unknown session id is nobody
+
+trainer reset and removal
+ok   e1001 locked before the reset
+ok   a reset gives a new temporary password
+ok   the old password stops working
+ok   the reset unlocks the ID, and they must choose a password again
+ok   chosen
+ok   a reset signs the account out everywhere
+ok   other accounts stay signed in
+ok   resetting an ID with no account says so (to the trainer)
+ok   removing an account ends its sessions and sign-in
+
+the file
+ok   accounts survive a restart; sessions do not
+ok   a damaged accounts file stops the server instead of starting with nobody
+
+simultaneous sign-ins
+ok   account ready
+ok   200 at once from one address: 10 password checks, the rest turned away ({"bad":10,"throttled":190})
+ok   at most 4 checks at a time (4)
+ok   that address then waits
+ok   200 at once from 200 addresses: 20 password checks (at most 20), at most 4 at a time, the rest told the server is busy
+ok   busy: 503, "The training server is busy. Try again in a moment."
+ok   afterwards a trainee from another address signs in fine
+ok   ... and so does one whose address was turned away as busy (it was not held against it)
+ok   40 at once at one ID from 40 addresses: 5 password checks, then the ID is locked ({"bad":4,"locked":36})
+ok   an ID that does not exist answers a burst the same way
+
+simultaneous password changes and trainer hashing
+ok   100 changes at once on a temporary session: 1 checks + 1 hashes (at most 20), at most 1 at a time
+ok   exactly one succeeds, the rest are told one is under way ({"ok":1,"pending":99})
+ok   pending: 409, "Your password is already being changed. Try again in a moment."
+ok   the one new password works, and the temporary session is over
+ok   100 changes at once from two sessions of one account: 2 checks + 1 hashes, exactly one succeeds ({"ok":1,"pending":99})
+ok   and every other session of the account ends
+ok   100 guesses at once with one session: 1 checks, no hashes ({"bad":1,"pending":99})
+ok   wrong current passwords lock the account like wrong sign-ins (bad,bad,bad,locked,locked,locked)
+ok   then even the right one waits, here and at sign-in
+ok   100 new accounts at once: 20 hashes (at most 20), at most 4 at a time, the rest busy ({"ok":20,"busy":80})
+ok   only the accounts that were hashed exist
+ok   100 resets at once of 20 accounts: 20 hashes (one per account at most), at most 4 at a time ({"ok":20,"inprogress":80})
+ok   at most one reset per account succeeds, and the password it returned is the one that works (20 accounts)
+ok   a trainer turned away is told the server is busy (503)
+ok   afterwards a reset, the first-sign-in change and a normal change all work
+ok   40 accounts changing at once: 20 checks + 20 hashes in at most 20 turns, at most 4 at a time ({"ok":20,"busy":20})
+ok   a reset while a change is being checked: the change is refused, the reset stands
+
+races: every commit after an await re-checks the account version
+ok   sign-in checked while a reset lands: no session for the old password (bad)
+ok   ... the reset password works and the old one does not
+ok   sign-in checked while the password changes: no session for the old password (bad)
+ok   sign-in checked while the account is removed: no session (bad)
+ok   ... or removed and made again under the same ID: the old password gets no session (bad)
+ok   two resets at once: one succeeds, the other is told one is under way (409) with no hashing (1 hash)
+ok   ... and the password the successful one returned is the one that works
+ok   a reset overtaken by a password change: the reset reports no success and the change stands (inprogress)
+ok   a reset overtaken by a removal: missing, and the account is not brought back
+ok   a change overtaken by a removal: expired, the account stays gone (expired)
+ok   ... or removed and made again: the change does not land on the new account (expired)
+ok   a change overtaken by a reset: expired (expired)
+ok   the same ID created twice at once: one succeeds, the other is turned away (inprogress) with no hashing
+ok   ... and afterwards it exists
+ok   sign-ins whose check fails with an error give back their turn and in-flight count (the next sign-in works)
+ok   a change whose hash fails with an error frees the account for the next change (ok)
+ok   ... and so does a reset
+ok   ... and a new account
+ok   the file matches memory, no temporary files left (none)
+ok   a write that fails: the reset, creation, removal and change all report it and the file is untouched
+ok   ... and nothing changed in memory either (the session and password stand)
+ok   many writes at once: the file always parses and holds every account
+
+stale guesses: a reset or change is never locked by wrong passwords made before it
+ok   five wrong passwords in flight: the account counts as locked meanwhile
+ok   the reset's temporary password signs in while the old guesses are still in flight (ok)
+ok   the old guesses get the usual answer, nothing more (bad)
+ok   ... and they do not lock the reset account
+ok   the fresh temporary password signs in after they finish (ok)
+ok   stale guesses still count against their address (the 11th try: throttled)
+ok   a trainee's new password while five guesses are in flight: not locked when they finish (ok)
+ok   ... and the new password signs in
+ok   a change with four guesses in flight: those four do not count with four later ones (ok)
+ok   ... and the new password signs in
+ok   a wrong current password checked while a reset lands: expired, and not counted (expired)
+ok   with no reset, five wrong passwords at once still lock the account
+
+timing
+ok   an unknown ID takes about as long as a wrong password (73.5 ms vs 118.6 ms)
+ok   timing account made
+
+API with accounts on
+ok   whoami: nobody yet, and the server asks for a sign-in
+ok   ?user= links do not skip the password
+ok   a company sign-in header still names the trainee
+ok   creating an account needs the trainer PIN
+ok   a malformed sign-in body is answered 400 and the server keeps running
+ok   ... and a malformed trainer body too
+ok   a trainer creates an account
+ok   the new account is in the trainee list before any training
+ok   sign-in takes a JSON body only (no cross-site form posts)
+ok   wrong password and unknown ID: the same 401, no cookie
+ok   the temporary password: an HttpOnly, SameSite=Strict session cookie (no Secure over plain HTTP)
+ok   the session id is only in the cookie, never in the body
+ok   whoami: must choose a password first
+ok   no progress until a password is chosen
+ok   the temporary password cannot be kept
+ok   nor one under 8 characters
+ok   a new password: a new session cookie
+ok   the temporary session is over
+ok   whoami: signed in by password, with the name the trainer gave
+ok   progress saves under the employee ID
+ok   and comes back
+ok   the trainer's account list carries no hashes
+ok   a trainer resets the password
+ok   which signs the trainee out
+ok   and they choose a password again
+ok   30 password changes at once over HTTP: exactly one saved, the rest 409 or 401 (1/29/0)
+ok   signing out ends the session and clears the cookie
+ok   five wrong tries lock the ID (401,401,401,401,429,429)
+ok   the right password waits too
+ok   the accounts file is never served
+ok   no password on disk
+ok   removing an account keeps the progress
+
+API with accounts off
+ok   whoami as before
+ok   ?user= links work as before
+ok   no sign-in API
+ok   no accounts file is made
+
+which files are served
+ok   no case, encoding, backslash, short-name or trailing-dot spelling of a private path is a servable file
+ok   the game's own files are still served
+ok   an accounts file inside the served data folder
+ok   none of 98 private-path spellings is served over HTTP
+ok   the game and its files still load
+ok   a link from a served folder to the accounts file is not followed
+
+all sign-in checks passed
