@@ -1,0 +1,35 @@
+{
+  "phase": "failed",
+  "controllerPid": 213297,
+  "jobs": [
+    {
+      "tag": "blocked-low-en",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_BAD": "0"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "blocked-low-en.json": "8c899a71aacdbce87c605559959c5ffe40d027c49b1559e55f8f77c38e1bf748",
+        "blocked-low-en-brief.png": "b61eda3ccd7504862231b49a4c2d47a70e6c3a4973edb9cd17e48b8c299801cb",
+        "blocked-low-en-controls.png": "8c04b676dca5223d63373c5e4c462ec4a452bca4e4476560bcb396c602526f89",
+        "blocked-low-en-failure.png": "80c301d2d2937c663508f216fb4ef042a03552b7f4c99eb881aa963775389a9d",
+        "blocked-low-en-safe-card.png": "a7d7dfec95e32a13f7d48a30875a030126c895bf8ab2cef771378de6ed8b93c5",
+        "blocked-low-en-device.png": "5ac7fe41ded87e265f274f5924f57f583ff15816e940fc58501a5a9fc0280398",
+        "blocked-low-en-access-notice.png": "49ac3ee20a4fcd0dc45591f1a438f27d65a576a3cc137c2058221f0ad57c1dda",
+        "blocked-low-en-card-left.png": "ba911a094254dd4249829ac5f03916353bca3e83085d0b3601a855d6f341d59f"
+      }
+    }
+  ],
+  "startedAt": 1793212036.559083,
+  "serverPid": 213299,
+  "tag": "blocked-low-en",
+  "childPid": 213300,
+  "failure": "Browser job failed: blocked-low-en",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793212179.8710108
+}

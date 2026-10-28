@@ -2,7 +2,7 @@
 """Serial native blocked-drive journeys; frozen inputs and exact owned-process cleanup."""
 from pathlib import Path
 import os,json,hashlib,subprocess,fcntl,time,shutil,psutil
-BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3];OUT=BASE/'blocked-attempt-1';OUT.mkdir(exist_ok=True);os.chdir(ROOT)
+BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3];OUT=BASE/'blocked-attempt-2';OUT.mkdir(exist_ok=True);os.chdir(ROOT)
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 files=[p for name in ['src','data','lib','assets/3d','css'] for p in Path(name).rglob('*') if p.is_file()]+[Path(p) for p in ['test/fpproblemblockedbrowser.js','test/tools/fp-result-capture.js','index.html','first-person.html','assets/art-pack.js']]
 jobs=[{'tag':'blocked-low-en','env':{'QA_GFX':'low','QA_LANG':'en','QA_LARGE':'0','QA_BAD':'0'}},{'tag':'blocked-high-ta-large','env':{'QA_GFX':'high','QA_LANG':'ta','QA_LARGE':'1','QA_BAD':'0'}},{'tag':'blocked-bad-high-ta-large','env':{'QA_GFX':'high','QA_LANG':'ta','QA_LARGE':'1','QA_BAD':'1'}}]

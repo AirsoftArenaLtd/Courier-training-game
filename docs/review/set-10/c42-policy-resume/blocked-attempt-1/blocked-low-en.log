@@ -1,0 +1,4 @@
+Error: Physical target unreachable: secure
+    at focus (/workspace/c42-problem-solving/test/fpproblemblockedbrowser.js:13:207)
+    at async use (/workspace/c42-problem-solving/test/fpproblemblockedbrowser.js:13:266)
+    at async /workspace/c42-problem-solving/test/fpproblemblockedbrowser.js:32:387
