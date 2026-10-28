@@ -1,0 +1,15 @@
+✔ entry held inputs cannot bind; an unassigned button binds only on complete release (2.159247ms)
+✔ axis capture accepts either sign with high intent threshold and whole-controller neutral gate (0.431151ms)
+✔ ambiguous or changed controls require a new neutral gesture (0.55706ms)
+✔ disconnect, same-id slot replacement and identity replacement cannot finish an old gesture (0.501887ms)
+✔ focus loss clears a candidate and missing/throwing APIs stay cancelable (0.413443ms)
+✔ only four slots, eight axes and 32 buttons are inspected and one result object is reused (312.602872ms)
+✔ disposal stops polling hardware and cannot deliver a completed binding (0.459022ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 324.913058

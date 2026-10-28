@@ -1,4 +1,4 @@
-/* Owned 3D controls presentation. Draft bindings belong to this scene until the shared writer contract lands. */
+/* Owned 3D controls presentation; bounded overrides use the existing accessibility writer. */
 window.OTR=window.OTR||{};
 OTR.fpGamepadUI={
  entries:[
@@ -34,13 +34,13 @@ OTR.fpGamepadUI={
  },
  bindings(scene,page=0,back){
   back=back||(()=>this.open(scene));const pages=Math.ceil(this.entries.length/3),again=()=>this.bindings(scene,page,back),g=scene.gamepad;
-  scene.showPanel('Gamepad controls','Changes apply to this 3D session. Keyboard controls stay the same.',[
+  scene.showPanel('Gamepad controls','Your gamepad controls are saved. Keyboard controls stay the same.',[
    ...this.entries.slice(page*3,page*3+3).map(([group,name,label])=>({label:`${this.label(scene,group,name)}: ${OTR.i18n.t(label)}`,action:()=>this.edit(scene,group,name,label,again)})),
    {label:'Next page',action:()=>this.bindings(scene,(page+1)%pages,back)},
    {label:'Stick sensitivity',action:()=>this.deadzone(scene,again)},
    {label:'Restore default gamepad controls',action:()=>{
-    scene.showPanel('Restore default gamepad controls','Reset gamepad controls for this 3D session?',[
-     {label:'Restore defaults',action:()=>{g.session={};g.reset();again();}},
+    scene.showPanel('Restore default gamepad controls','Reset your saved gamepad controls?',[
+     {label:'Restore defaults',action:()=>{if(this.persist(scene,{},again))again();}},
      {label:'Cancel',action:again}
     ],{back:again,accessibleText:true});
    }},
@@ -50,15 +50,22 @@ OTR.fpGamepadUI={
  edit(scene,group,name,label,back){
   scene.showPanel('Change a gamepad control',label,[
    {label:'Choose a new input',action:()=>this.capture(scene,group,name,back)},
-   {label:'Disable this input',action:()=>{this.apply(scene,group,name,-1);back();}},
+   {label:'Disable this input',action:()=>{if(this.apply(scene,group,name,-1,back))back();}},
    {label:'Back',action:back}
   ],{back,accessibleText:true});
  },
- apply(scene,group,name,value){
+ persist(scene,options,back){
+  const prefs=OTR.fpGamepad.preferences(options);back=back||(()=>this.bindings(scene));
+  if(!prefs){scene.showPanel('Gamepad controls','These custom controls are too large to save. Restore unused controls to their defaults and try again.',[{label:'Back',action:back}],{back,accessibleText:true});return false;}
+  const settings=OTR.a11y.settings();if(Object.keys(prefs).length)settings.gamepad=prefs;else delete settings.gamepad;
+  OTR.a11y.save();scene.gamepad.session=null;scene.gamepad.reset();return true;
+ },
+ apply(scene,group,name,value,back){
+  if(!Object.hasOwn(OTR.fpGamepad.defaults[group]||{},name))return false;
   const current=scene.gamepad.bindings()||{};
   const next={...current,axes:{...current.axes},buttons:{...current.buttons}};
   if(value===OTR.fpGamepad.defaults[group][name])delete next[group][name];else next[group][name]=value;
-  scene.gamepad.session=next;scene.gamepad.reset();
+  return this.persist(scene,next,back);
  },
  conflict(scene,group,name,value){
   const entry=this.entries.find(e=>e[0]===group&&e[1]===name);
@@ -75,14 +82,14 @@ OTR.fpGamepadUI={
      {label:'Try again',action:()=>this.capture(scene,group,name,back)},
      {label:'Back',action:back}
     ],{back,accessibleText:true});
-   }else{this.apply(scene,group,name,value);back();}
+   }else if(this.apply(scene,group,name,value,back)){back();}
   });
  },
  deadzone(scene,back){
   const current=scene.gamepad.bindings()?.deadzone??OTR.fpGamepad.defaults.deadzone;
   scene.showPanel('Stick sensitivity',`Ignore stick movement below ${Math.round(current*100)} percent. Choose a higher value if the view or steering moves while the stick is released.`,[
    ...[.1,.18,.3].map(deadzone=>({label:`Ignore movement below ${Math.round(deadzone*100)} percent.`,action:()=>{
-    scene.gamepad.session={...scene.gamepad.bindings(),deadzone};scene.gamepad.reset();this.deadzone(scene,back);
+    if(this.persist(scene,{...scene.gamepad.bindings(),deadzone},back))this.deadzone(scene,back);
    }})),
    {label:'Back',action:back}
   ],{back,accessibleText:true});
