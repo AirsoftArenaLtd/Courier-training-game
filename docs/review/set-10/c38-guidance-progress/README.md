@@ -1,0 +1,5 @@
+# C-38 current guidance and native evidence
+
+Owned runtime `1532980c`, current-pilot candidate `a195d5a3b6f6163c0b78f975df96d943c788477a`: all 231 native scenario checks pass in English/Tamil and normal/larger text on Low/High, with remapped keys, actual results, repeated completion, assessment abandonment, saved-workday isolation and real 2D fallback. Native startup proves merged signal/replay scripts are registered, and enabled saved-workday guidance returns no module hint. All thirteen runner/model cases and four guidance cases pass. Module guidance does not narrate or write workday hints; normal workday behavior is preserved.
+
+All 82 repository suites passed on entry-corrected candidate `7aed62d2`. The only later runtime change is the module guard in `fpguide.js`; current native and four focused guidance cases cover it. Cab/signal/replay/narration and the 24-view module resource gate are still running. C-38 remains doing. Previous failed signal startup is separately retained under `../c38-entrypoint-diagnostic/`. These checks supersede the older 191 native checks for their scope.

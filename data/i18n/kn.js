@@ -4119,7 +4119,25 @@ window.OTR_I18N.kn = {
 "That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ಆ ಇನ್‌ಪುಟ್ ಈಗಾಗಲೇ ಒಂದೇ ಸಮಯದಲ್ಲಿ ಬಳಸುವ ಕ್ರಿಯೆಗೆ ನಿಗದಿಯಾಗಿದೆ. ಬೇರೆ ಇನ್‌ಪುಟ್ ಆಯ್ಕೆಮಾಡಿ ಅಥವಾ ಮೊದಲು ಅದರ ಇನ್ನೊಂದು ಕ್ರಿಯೆಯನ್ನು ಆಫ್ ಮಾಡಿ.",
 "Your gamepad controls are saved. Keyboard controls stay the same.": "ನಿಮ್ಮ ಗೇಮ್‌ಪ್ಯಾಡ್ ನಿಯಂತ್ರಣಗಳನ್ನು ಉಳಿಸಲಾಗಿದೆ. ಕೀಬೋರ್ಡ್ ನಿಯಂತ್ರಣಗಳು ಹಾಗೆಯೇ ಇರುತ್ತವೆ.",
 "Reset your saved gamepad controls?": "ನಿಮ್ಮ ಉಳಿಸಿದ ಗೇಮ್‌ಪ್ಯಾಡ್ ನಿಯಂತ್ರಣಗಳನ್ನು ಮರುಹೊಂದಿಸಬೇಕೆ?",
-"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "ಈ ಕಸ್ಟಮ್ ನಿಯಂತ್ರಣಗಳು ಉಳಿಸಲು ತುಂಬಾ ದೊಡ್ಡದಾಗಿವೆ. ಬಳಸದ ನಿಯಂತ್ರಣಗಳನ್ನು ಡೀಫಾಲ್ಟ್‌ಗೆ ಮರುಸ್ಥಾಪಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "ಈ ಕಸ್ಟಮ್ ನಿಯಂತ್ರಣಗಳು ಉಳಿಸಲು ತುಂಬಾ ದೊಡ್ಡದಾಗಿವೆ. ಬಳಸದ ನಿಯಂತ್ರಣಗಳನ್ನು ಡೀಫಾಲ್ಟ್‌ಗೆ ಮರುಸ್ಥಾಪಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+"This scenario needs 3D graphics.": "ಈ ಸನ್ನಿವೇಶಕ್ಕೆ 3D ಗ್ರಾಫಿಕ್ಸ್ ಬೇಕು.",
+"Begin the scenario.": "ಸನ್ನಿವೇಶ ಆರಂಭಿಸಿ.",
+"Return to the station.": "ಸ್ಟೇಷನ್‌ಗೆ ಹಿಂತಿರುಗಿ.",
+"The headlights are on.": "ಹೆಡ್‌ಲೈಟ್ ಆನ್ ಆಗಿದೆ.",
+"The headlights are off.": "ಹೆಡ್‌ಲೈಟ್ ಆಫ್ ಆಗಿದೆ.",
+"The scenario is paused.": "ಸನ್ನಿವೇಶ ವಿರಾಮದಲ್ಲಿದೆ.",
+"Continue the scenario.": "ಸನ್ನಿವೇಶ ಮುಂದುವರಿಸಿ.",
+"Read the controls.": "ನಿಯಂತ್ರಣಗಳನ್ನು ಓದಿ.",
+"Use the scenario controls.": "ಸನ್ನಿವೇಶದ ನಿಯಂತ್ರಣಗಳನ್ನು ಬಳಸಿ.",
+"Return to the scenario.": "ಸನ್ನಿವೇಶಕ್ಕೆ ಹಿಂತಿರುಗಿ.",
+"The left signal is on.": "ಎಡ ಇಂಡಿಕೇಟರ್ ಆನ್ ಆಗಿದೆ.",
+"The left signal is off.": "ಎಡ ಇಂಡಿಕೇಟರ್ ಆಫ್ ಆಗಿದೆ.",
+"The right signal is on.": "ಬಲ ಇಂಡಿಕೇಟರ್ ಆನ್ ಆಗಿದೆ.",
+"The right signal is off.": "ಬಲ ಇಂಡಿಕೇಟರ್ ಆಫ್ ಆಗಿದೆ.",
+"morning": "ಬೆಳಿಗ್ಗೆ",
+"midday": "ಮಧ್ಯಾಹ್ನ",
+"dusk": "ಸಂಜೆ",
+"night": "ರಾತ್ರಿ"
 },
 "templates": [
 [
@@ -5973,6 +5991,22 @@ window.OTR_I18N.kn = {
 [
 "Ignore movement below {0} percent.",
 "{0} ಶೇಕಡಾಕ್ಕಿಂತ ಕಡಿಮೆ ಚಲನೆಯನ್ನು ನಿರ್ಲಕ್ಷಿಸಿ."
+],
+[
+"Time remaining: {0} seconds.",
+"ಉಳಿದ ಸಮಯ: {0} ಸೆಕೆಂಡು."
+],
+[
+"You have {0} seconds to complete this scenario.",
+"ಈ ಸನ್ನಿವೇಶ ಮುಗಿಸಲು ನಿಮಗೆ {0} ಸೆಕೆಂಡು ಇದೆ."
+],
+[
+"It is {0}.",
+"ದಿನದ ಸಮಯ: {0}."
+],
+[
+"Use {0} to look. Press {1} to select a visible nearby target and {2} to interact. Press {3} to read the scenario goal.",
+"ನೋಡಲು {0} ಬಳಸಿ. ಹತ್ತಿರದ ಕಾಣುವ ಗುರಿಯನ್ನು ಆರಿಸಲು {1} ಮತ್ತು ಕ್ರಿಯೆಗೆ {2} ಒತ್ತಿ. ಸನ್ನಿವೇಶದ ಗುರಿ ಓದಲು {3} ಒತ್ತಿ."
 ]
 ],
 "keep": [

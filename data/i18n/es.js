@@ -4130,7 +4130,25 @@ window.OTR_I18N.es = {
 "That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "Esa entrada ya está asignada a una acción que se usa al mismo tiempo. Elige otra entrada o desactiva primero su otra acción.",
 "Your gamepad controls are saved. Keyboard controls stay the same.": "Tus controles del mando están guardados. Los controles del teclado no cambian.",
 "Reset your saved gamepad controls?": "¿Restablecer los controles del mando que guardaste?",
-"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "Estos controles personalizados son demasiado grandes para guardarlos. Devuelve los controles que no uses a sus valores predeterminados e inténtalo de nuevo."
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "Estos controles personalizados son demasiado grandes para guardarlos. Devuelve los controles que no uses a sus valores predeterminados e inténtalo de nuevo.",
+"This scenario needs 3D graphics.": "Este escenario necesita gráficos 3D.",
+"Begin the scenario.": "Empieza el escenario.",
+"Return to the station.": "Vuelve al centro.",
+"The headlights are on.": "Los faros están encendidos.",
+"The headlights are off.": "Los faros están apagados.",
+"The scenario is paused.": "El escenario está en pausa.",
+"Continue the scenario.": "Continúa el escenario.",
+"Read the controls.": "Lee los controles.",
+"Use the scenario controls.": "Usa los controles del escenario.",
+"Return to the scenario.": "Vuelve al escenario.",
+"The left signal is on.": "El intermitente izquierdo está encendido.",
+"The left signal is off.": "El intermitente izquierdo está apagado.",
+"The right signal is on.": "El intermitente derecho está encendido.",
+"The right signal is off.": "El intermitente derecho está apagado.",
+"morning": "mañana",
+"midday": "mediodía",
+"dusk": "atardecer",
+"night": "noche"
 },
 "templates": [
 [
@@ -5984,6 +6002,22 @@ window.OTR_I18N.es = {
 [
 "Ignore movement below {0} percent.",
 "Ignorar el movimiento por debajo del {0} por ciento."
+],
+[
+"Time remaining: {0} seconds.",
+"Tiempo restante: {0} segundos."
+],
+[
+"You have {0} seconds to complete this scenario.",
+"Tienes {0} segundos para completar este escenario."
+],
+[
+"It is {0}.",
+"Momento del día: {0}."
+],
+[
+"Use {0} to look. Press {1} to select a visible nearby target and {2} to interact. Press {3} to read the scenario goal.",
+"Usa {0} para mirar. Pulsa {1} para elegir un objetivo visible cercano y {2} para interactuar. Pulsa {3} para leer el objetivo del escenario."
 ]
 ],
 "keep": [

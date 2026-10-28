@@ -1,0 +1,26 @@
+{
+  "quality": "low",
+  "runs": [
+    {
+      "lang": "en",
+      "size": "normal",
+      "layout": {
+        "text": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "source": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "want": "The left signal is on. Signal for at least three seconds before moving. Press O to cancel it.",
+        "x": 203.5,
+        "right": 820.5,
+        "y": 594,
+        "bottom": 636,
+        "font": 18,
+        "pointerLock": false
+      }
+    }
+  ],
+  "checks": 8,
+  "errors": [
+    "Cannot read properties of undefined (reading '1')"
+  ],
+  "fixture": "Campaign and road poses are fixtures. Stalk selection, remapped action/shortcut, elapsed lead, acceleration and checkpoint reload use real scene/input paths. No shared save-capacity acceptance is claimed.",
+  "failure": "Error: Waiting failed\n    at <instance_members_initializer> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:24:21)\n    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:30:16)\n    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)\n    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)\n    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)\n    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)\n    at gameLead (/workspace/c38-pilot-acceptance/test/fpsignalbrowser.js:16:32)\n    at /workspace/c38-pilot-acceptance/test/fpsignalbrowser.js:29:11"
+}

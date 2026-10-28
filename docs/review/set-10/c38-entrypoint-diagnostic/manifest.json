@@ -1,0 +1,26 @@
+{
+  "candidate": "1b672d67373604bd79023023937844630f74bc04",
+  "status": "Failed pre-correction diagnostic; excluded from final acceptance",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "379a9910e62cfb0b57ddbd7a37284735e8ee523d07ff698a2cdcd92fe3e0cb45",
+      "bytes": 628
+    },
+    {
+      "file": "b138-low-failure.png",
+      "sha256": "4a8d23174fcf097f15c3d45117e0a8b13d6899a41334cbcd055a04f7ce31e21c",
+      "bytes": 166850
+    },
+    {
+      "file": "b138-low-signal.json",
+      "sha256": "b4536efd7d421b686538fcb01ccb54750cbcdd2011c338f9ecf977aedaa51523",
+      "bytes": 1939
+    },
+    {
+      "file": "c38-final-signals.log",
+      "sha256": "c1e33033eab7bf7472d630a8c806c9a368f03efcdf287c3b5fcf7470fd586997",
+      "bytes": 1029
+    }
+  ]
+}

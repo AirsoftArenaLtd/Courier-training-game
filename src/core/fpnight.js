@@ -14,7 +14,7 @@ OTR.fpNight={
     m.log(id,'driving',ok?'good':'needs',ok?'Used the headlights when visibility required them.':'Moved without headlights when visibility required them.');
     const detail={key,ok};if(m.phase==='route')detail.stop=m.activeStop+1;
     if(!ok)detail.where={x:m.van.x,z:m.van.z,mph:Math.abs(m.van.speed)*2.2369362921};
-    if(OTR.workday)OTR.workday.report('drive.lights',detail);
+    if(OTR.workday)OTR.fpMission.emit(m,'drive.lights',detail);
   },
   tick(m){
     const n=m.nightDrive;if(!n||m.paused)return;

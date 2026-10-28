@@ -1,0 +1,23 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ a button or a legacy timestamp cannot establish a physical mirror check (4.593319ms)
+✔ each actual mirror needs 0.4 continuous seconds and refreshes only its own four-second evidence (3.25415ms)
+✔ looking away, a hidden UI, walking and pause cannot complete a check (1.028314ms)
+✔ partial dwell and completed checks survive a real mission checkpoint without replaying reports (4.4025ms)
+✔ legacy and new mirror checkpoints validate timestamps, dwell and indexes (2.224424ms)
+✔ pulling out requires the current left mirror, independently of the other mirrors (2.210113ms)
+✔ turns use their matching mirror before the move, reject late looks, and count once per manoeuvre (1.40152ms)
+✔ a lane crossing also triggers a check and resumed turn keys cannot collide (35.26107ms)
+✔ mirror housings stay behind the reflective faces on both presets (45.457709ms)
+✔ all complete mirror faces fit the normal forward cab view without granting a gaze check (17.455144ms)
+✔ gaze follows the actual seated camera at a rotated van and still needs a continuous dwell (37.217262ms)
+✔ all three physical mirrors stay on the van and retain the same reflection camera when the head turns (11.102341ms)
+✔ keyboard focus reaches all mirrors, and reflection passes restore cab and van state on foot or in the cab (16.552223ms)
+✔ reflection atlas refreshes all tiles at bounded rates with at most one extra world render per frame (5.698687ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 214.313245

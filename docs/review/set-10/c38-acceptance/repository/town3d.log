@@ -1,0 +1,20 @@
+ok   the buildings and trees are in the 3D town (63 buildings, 11 trees)
+ok   walls and ground shadows are drawn (914 / 2789 drawing commands)
+ok   a roof away from the middle of the screen leans further out, as a tall thing seen from above does
+ok   low graphics: the roofs stay put and no walls are drawn ({"moved":0,"walls":7})
+ok   low graphics: no light map at night (the flat darkening instead)
+ok   no light map by day
+ok   a light map at night (darkness 0.55)
+ok   the headlights light the road ahead (338 → 765)
+ok   rain: puddles, wet roads and ripples ({"puddles":32,"tint":12568018,"ripples":24})
+ok   snow: on the lawns and the roofs ({"lawn":"td_lawn_snow","covers":62})
+ok   fog closes in round the screen
+ok   people walk the sidewalks (23 of 23 moved; child,dog,jogger,walker)
+ok   and stay on them (0 of 102 samples off the sidewalk)
+ok   driving into someone on the sidewalk is hitting a pedestrian ({"hit":true,"modal":true})
+ok   V opens the cab view: three.js loads and draws it, the view from above is off ({"on":true,"three":true,"main":false,"cars":10})
+ok   the windscreen shows the sky (116,170,215)
+ok   V again goes back to the view from above
+ok   no page errors
+
+all town 3D checks passed

@@ -28,7 +28,7 @@ OTR.fpSignal={
     if(m.kind!=='campaign'||!OTR.workday)return;
     const detail={key,ok,stop:m.phase==='route'?m.activeStop+1:undefined};
     if(!ok)detail.where={x:m.van.x,z:m.van.z,mph:Math.abs(m.van.speed)*2.2369362921};
-    OTR.workday.report('drive.signal',detail);
+    OTR.fpMission.emit(m,'drive.signal',detail);
   },
   valid(d,elapsed){
     const c=d.signalClock,t=d.signalTurn;

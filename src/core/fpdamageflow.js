@@ -63,7 +63,7 @@ OTR.fpDamageFlow={
         roof:'The roof of the van has new damage.',wheel:'A wheel on the van has new damage.',mirror:'A mirror on the van has new damage.'}[event.key.split(':')[0]];
     m.log(id,'driving',event.ok?'good':'needs',text);
     m.dayNotice=text;
-    if(OTR.workday)OTR.workday.report(event.type,{key:event.key,stop:m.phase==='route'?m.activeStop+1:undefined,ok:event.ok,
+    if(OTR.workday)OTR.fpMission.emit(m,event.type,{key:event.key,stop:m.phase==='route'?m.activeStop+1:undefined,ok:event.ok,
       where:event.ok?undefined:{x:m.van.x,z:m.van.z,mph:Math.abs(speed)*2.2369362921}});
     return true;
   },

@@ -4119,7 +4119,25 @@ window.OTR_I18N.gu = {
 "That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "આ ઇનપુટ પહેલેથી એક જ સમયે વપરાતી ક્રિયાને સોંપાયેલું છે. બીજું ઇનપુટ પસંદ કરો અથવા પહેલાં તેની બીજી ક્રિયા બંધ કરો.",
 "Your gamepad controls are saved. Keyboard controls stay the same.": "તમારા ગેમપૅડ નિયંત્રણો સાચવેલા છે. કીબોર્ડ નિયંત્રણો એ જ રહે છે.",
 "Reset your saved gamepad controls?": "તમારા સાચવેલા ગેમપૅડ નિયંત્રણો રીસેટ કરવા છે?",
-"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "આ કસ્ટમ નિયંત્રણો સાચવવા માટે ખૂબ મોટા છે. ન વપરાતા નિયંત્રણોને મૂળ પર પાછા લાવો અને ફરી પ્રયાસ કરો."
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "આ કસ્ટમ નિયંત્રણો સાચવવા માટે ખૂબ મોટા છે. ન વપરાતા નિયંત્રણોને મૂળ પર પાછા લાવો અને ફરી પ્રયાસ કરો.",
+"This scenario needs 3D graphics.": "આ પરિસ્થિતિ માટે 3D ગ્રાફિક્સ જોઈએ.",
+"Begin the scenario.": "પરિસ્થિતિ શરૂ કરો.",
+"Return to the station.": "સ્ટેશને પાછા જાઓ.",
+"The headlights are on.": "હેડલાઇટ ચાલુ છે.",
+"The headlights are off.": "હેડલાઇટ બંધ છે.",
+"The scenario is paused.": "પરિસ્થિતિ થોભાવેલી છે.",
+"Continue the scenario.": "પરિસ્થિતિ ચાલુ રાખો.",
+"Read the controls.": "નિયંત્રણો વાંચો.",
+"Use the scenario controls.": "પરિસ્થિતિનાં નિયંત્રણો વાપરો.",
+"Return to the scenario.": "પરિસ્થિતિ પર પાછા જાઓ.",
+"The left signal is on.": "ડાબો ઇન્ડિકેટર ચાલુ છે.",
+"The left signal is off.": "ડાબો ઇન્ડિકેટર બંધ છે.",
+"The right signal is on.": "જમણો ઇન્ડિકેટર ચાલુ છે.",
+"The right signal is off.": "જમણો ઇન્ડિકેટર બંધ છે.",
+"morning": "સવાર",
+"midday": "બપોર",
+"dusk": "સાંજ",
+"night": "રાત"
 },
 "templates": [
 [
@@ -5973,6 +5991,22 @@ window.OTR_I18N.gu = {
 [
 "Ignore movement below {0} percent.",
 "{0} ટકાથી ઓછી હલચલ અવગણો."
+],
+[
+"Time remaining: {0} seconds.",
+"બાકી સમય: {0} સેકન્ડ."
+],
+[
+"You have {0} seconds to complete this scenario.",
+"આ પરિસ્થિતિ પૂરી કરવા તમારી પાસે {0} સેકન્ડ છે."
+],
+[
+"It is {0}.",
+"દિવસનો સમય: {0}."
+],
+[
+"Use {0} to look. Press {1} to select a visible nearby target and {2} to interact. Press {3} to read the scenario goal.",
+"જોવા માટે {0} વાપરો. નજીકનું દેખાતું લક્ષ્ય પસંદ કરવા {1} અને ક્રિયા કરવા {2} દબાવો. પરિસ્થિતિનું લક્ષ્ય વાંચવા {3} દબાવો."
 ]
 ],
 "keep": [

@@ -4119,7 +4119,25 @@ window.OTR_I18N.ml = {
 "That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ആ ഇൻപുട്ട് ഇതിനകം ഒരേ സമയം ഉപയോഗിക്കുന്ന ഒരു പ്രവർത്തനത്തിന് നൽകിയിട്ടുണ്ട്. മറ്റൊരു ഇൻപുട്ട് തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ ആദ്യം അതിന്റെ മറ്റേ പ്രവർത്തനം ഓഫാക്കുക.",
 "Your gamepad controls are saved. Keyboard controls stay the same.": "നിങ്ങളുടെ ഗെയിംപാഡ് നിയന്ത്രണങ്ങൾ സംരക്ഷിച്ചു. കീബോർഡ് നിയന്ത്രണങ്ങൾ മാറില്ല.",
 "Reset your saved gamepad controls?": "സംരക്ഷിച്ച ഗെയിംപാഡ് നിയന്ത്രണങ്ങൾ പുനഃസജ്ജമാക്കണോ?",
-"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "ഈ ഇഷ്ടാനുസൃത നിയന്ത്രണങ്ങൾ സംരക്ഷിക്കാൻ കഴിയാത്തത്ര വലുതാണ്. ഉപയോഗിക്കാത്ത നിയന്ത്രണങ്ങൾ സ്ഥിര നിലയിലേക്ക് മാറ്റി വീണ്ടും ശ്രമിക്കുക."
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "ഈ ഇഷ്ടാനുസൃത നിയന്ത്രണങ്ങൾ സംരക്ഷിക്കാൻ കഴിയാത്തത്ര വലുതാണ്. ഉപയോഗിക്കാത്ത നിയന്ത്രണങ്ങൾ സ്ഥിര നിലയിലേക്ക് മാറ്റി വീണ്ടും ശ്രമിക്കുക.",
+"This scenario needs 3D graphics.": "ഈ സാഹചര്യത്തിന് 3D ഗ്രാഫിക്സ് വേണം.",
+"Begin the scenario.": "സാഹചര്യം ആരംഭിക്കുക.",
+"Return to the station.": "സ്റ്റേഷനിലേക്ക് മടങ്ങുക.",
+"The headlights are on.": "ഹെഡ്‌ലൈറ്റ് ഓണാണ്.",
+"The headlights are off.": "ഹെഡ്‌ലൈറ്റ് ഓഫാണ്.",
+"The scenario is paused.": "സാഹചര്യം നിർത്തിവച്ചിരിക്കുന്നു.",
+"Continue the scenario.": "സാഹചര്യം തുടരുക.",
+"Read the controls.": "നിയന്ത്രണങ്ങൾ വായിക്കുക.",
+"Use the scenario controls.": "സാഹചര്യത്തിന്റെ നിയന്ത്രണങ്ങൾ ഉപയോഗിക്കുക.",
+"Return to the scenario.": "സാഹചര്യത്തിലേക്ക് മടങ്ങുക.",
+"The left signal is on.": "ഇടത് ഇൻഡിക്കേറ്റർ ഓണാണ്.",
+"The left signal is off.": "ഇടത് ഇൻഡിക്കേറ്റർ ഓഫാണ്.",
+"The right signal is on.": "വലത് ഇൻഡിക്കേറ്റർ ഓണാണ്.",
+"The right signal is off.": "വലത് ഇൻഡിക്കേറ്റർ ഓഫാണ്.",
+"morning": "രാവിലെ",
+"midday": "ഉച്ച",
+"dusk": "സന്ധ്യ",
+"night": "രാത്രി"
 },
 "templates": [
 [
@@ -5973,6 +5991,22 @@ window.OTR_I18N.ml = {
 [
 "Ignore movement below {0} percent.",
 "{0} ശതമാനത്തിൽ താഴെയുള്ള ചലനം അവഗണിക്കുക."
+],
+[
+"Time remaining: {0} seconds.",
+"ശേഷിക്കുന്ന സമയം: {0} സെക്കൻഡ്."
+],
+[
+"You have {0} seconds to complete this scenario.",
+"ഈ സാഹചര്യം പൂർത്തിയാക്കാൻ നിങ്ങൾക്ക് {0} സെക്കൻഡ് ഉണ്ട്."
+],
+[
+"It is {0}.",
+"ദിവസത്തിലെ സമയം: {0}."
+],
+[
+"Use {0} to look. Press {1} to select a visible nearby target and {2} to interact. Press {3} to read the scenario goal.",
+"നോക്കാൻ {0} ഉപയോഗിക്കുക. അടുത്തുള്ള കാണാവുന്ന ലക്ഷ്യം തിരഞ്ഞെടുക്കാൻ {1}, പ്രവർത്തിക്കാൻ {2} അമർത്തുക. സാഹചര്യത്തിന്റെ ലക്ഷ്യം വായിക്കാൻ {3} അമർത്തുക."
 ]
 ],
 "keep": [

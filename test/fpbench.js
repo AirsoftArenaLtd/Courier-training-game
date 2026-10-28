@@ -48,7 +48,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   report.renderer=await p.evaluate(()=>{const gl=OTR.game.renderer.gl,e=gl.getExtension('WEBGL_debug_renderer_info');return {name:e?gl.getParameter(e.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),width:gl.drawingBufferWidth,height:gl.drawingBufferHeight};});
   report.actualQuality=await p.evaluate(()=>OTR.gfx.level());
   report.assets=await p.evaluate(()=>OTR.game.scene.getScene('FirstPersonScene').assetBank?.stats||null);
-  const inventory=async()=>p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),geometries=new Set(),materials=new Set(),arrays=new Set();let geometryBytes=0,instanceBytes=0,meshes=0,instances=0,shadowCasters=0;
+  const inventory=async()=>p.evaluate(()=>{const s=OTR.game.scene.getScene(window.otrBenchmarkScene||'FirstPersonScene'),geometries=new Set(),materials=new Set(),arrays=new Set();let geometryBytes=0,instanceBytes=0,meshes=0,instances=0,shadowCasters=0;
    s.view.world.traverse(o=>{if(!o.isMesh)return;meshes++;if(o.castShadow)shadowCasters++;if(o.isInstancedMesh){instances+=o.count;instanceBytes+=o.instanceMatrix.array.byteLength+(o.instanceColor?o.instanceColor.array.byteLength:0);}if(o.material)materials.add(o.material);if(o.geometry&&!geometries.has(o.geometry)){geometries.add(o.geometry);for(const a of [...Object.values(o.geometry.attributes),o.geometry.index].filter(Boolean)){const array=a.array||a.data&&a.data.array;if(array&&!arrays.has(array)){arrays.add(array);geometryBytes+=array.byteLength;}}}});
    return {meshes,instances,geometries:geometries.size,materials:materials.size,geometryBytes,instanceBytes,shadowCasters};});
   const textures=async()=>p.evaluate(()=>{const seen=new Set();let count=0,rgbaBytes=0;for(const texture of Object.values(OTR.game.textures.list))for(const source of texture.source||[]){const key=source.glTexture||source;if(seen.has(key))continue;seen.add(key);count++;const image=source.image,w=image&&(image.naturalWidth||image.videoWidth||image.width)||source.width,h=image&&(image.naturalHeight||image.videoHeight||image.height)||source.height;rgbaBytes+=w*h*4;}return {count,baseLevelRGBABytes:rgbaBytes,withMipmapsUpperBytes:Math.ceil(rgbaBytes*4/3)};});
@@ -56,13 +56,13 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))return;
    await wait(1500);
    const value=await p.evaluate(()=>new Promise(resolve=>{const frames=[],keys=['calls','triangles','textures','geometries','attachmentBytes'],peak={calls:0,triangles:0,textures:0,geometries:0,attachmentBytes:0};let prev=performance.now(),start=prev;const onFrame=()=>{const now=performance.now();frames.push(now-prev);prev=now;
-    const d=OTR.game.scene.getScene('FirstPersonScene').view.diagnostics;
+    const d=OTR.game.scene.getScene(window.otrBenchmarkScene||'FirstPersonScene').view.diagnostics;
     if(d)for(const key of keys)peak[key]=Math.max(peak[key],d[key]);
     if(now-start<10000)return;
     OTR.game.events.off('step',onFrame);frames.sort((a,b)=>a-b);const mean=a=>a.reduce((s,v)=>s+v,0)/a.length,worst=frames.slice(Math.floor(frames.length*.99));
     resolve({frames:frames.length,avgFPS:+(1000/mean(frames)).toFixed(2),low1FPS:+(1000/mean(worst)).toFixed(2),p99ms:+frames[Math.floor(frames.length*.99)].toFixed(2),maxMs:+frames[frames.length-1].toFixed(2),peak,target:d&&{width:d.targetWidth,height:d.targetHeight},contextLost:OTR.game.renderer.gl.isContextLost()});};OTR.game.events.on('step',onFrame);}));
-   value.phaserTextures=await textures();value.worldProfile=await inventory();value.mirrorViews=await p.evaluate(()=>{const v=OTR.game.scene.getScene('FirstPersonScene').view.mirror;return {updates:v.updates,cells:v.cameras&&v.cameras.length,physical:!!v.physical,rearCamera:!!v.rearCamera,reversing:!!v.rearOn};});value.camera=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return {fov:s.view.camera.fov,pose:s.model&&s.model.cameraMotion||null};});
-   if(['damagebridge','damageoverhang','damagereverseclearance'].includes(name))value.clearanceAlert=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene'),b=s.soundCue.getBounds();return {text:s.soundCue.text,visible:s.soundCue.visible&&s.soundCue.alpha>0,reverse:s.view.mirror.rearOn,bounds:{x:b.x,y:b.y,right:b.right,bottom:b.bottom}};});
+   value.phaserTextures=await textures();value.worldProfile=await inventory();value.mirrorViews=await p.evaluate(()=>{const v=OTR.game.scene.getScene(window.otrBenchmarkScene||'FirstPersonScene').view.mirror;return {updates:v.updates,cells:v.cameras&&v.cameras.length,physical:!!v.physical,rearCamera:!!v.rearCamera,reversing:!!v.rearOn};});value.camera=await p.evaluate(()=>{const s=OTR.game.scene.getScene(window.otrBenchmarkScene||'FirstPersonScene');return {fov:s.view.camera.fov,pose:s.model&&s.model.cameraMotion||null};});
+   if(['damagebridge','damageoverhang','damagereverseclearance'].includes(name))value.clearanceAlert=await p.evaluate(()=>{const s=OTR.game.scene.getScene(window.otrBenchmarkScene||'FirstPersonScene'),b=s.soundCue.getBounds();return {text:s.soundCue.text,visible:s.soundCue.visible&&s.soundCue.alpha>0,reverse:s.view.mirror.rearOn,bounds:{x:b.x,y:b.y,right:b.right,bottom:b.bottom}};});
    console.log(TAG+' '+GFX+' '+name+' '+JSON.stringify(value));report.prototype[name]=value;if(process.env.QA_SHOTS==='1')await p.screenshot({path:path.join(OUT,`${TAG}-${GFX}-${name}.png`)});
   };
   const lookAtTarget=async id=>p.evaluate(id=>{const s=OTR.game.scene.getScene('FirstPersonScene');if(!OTR.fpMirrors)return false;s.target=null;for(let n=0;n<32;n++)if(OTR.fpAccess.focus(s)===id){s.notice='';s.refresh();return true;}throw Error('Benchmark target is unreachable: '+id);},id);
@@ -332,6 +332,21 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    if(kind==='ambientmirror')await lookAtTarget(await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScene');return s.art.ambient.selection.slots[0].site.x<s.model.van.x?'mirror-left':'mirror-right';}));
    (report.ambientProof||(report.ambientProof={}))[kind]=proof;report.ambientFixture=true;await sample(kind);
   }
+  }
+  if(process.env.QA_MODULES==='1')for(const kind of ['depot','street','doorstep','cab','cabreverse','cabhandheld']){
+   const name='module'+kind;if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-scenario-fixture'),{piece:kind.startsWith('cab')?'cab':kind,autoFinish:false});
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   await p.evaluate(kind=>{
+    const s=OTR.game.scene.getScene('FirstPersonScenarioScene');window.otrBenchmarkScene='FirstPersonScenarioScene';s.keyboardMode=true;OTR.fpScenario.begin(s.scenarioSession);s.closePanel();
+    s.moduleBefore={checkpoint:JSON.stringify(OTR.fpStore.read()),events:JSON.stringify(OTR.workday.events),workday:JSON.stringify(OTR.save.data.workday||null)};
+    if(kind==='cabreverse')s.model.selectGear(-1);if(kind==='cabhandheld')s.showScanner();s.sync();s.refresh();
+   },kind);await sample(name);
+   const proof=await p.evaluate(()=>{
+    const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=s.model,r=s.scenarioSession,b=m.bounds,before=s.moduleBefore;
+    return {source:'module-controller-fixture',id:r.id,piece:r.definition.piece,phase:r.phase,reverse:!!s.art.rear?.inView,handheld:!!s.handheld.isOpen,
+     bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};
+   });(report.moduleProof||(report.moduleProof={}))[name]=proof;report.moduleFixture=true;
   }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);

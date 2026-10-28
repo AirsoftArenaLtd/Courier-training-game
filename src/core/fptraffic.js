@@ -77,7 +77,7 @@ OTR.fpTraffic = {
   emit(m, type, key, ok, text) {
     const id = `driver:${type}:${key}`; if (m.events[id]) return;
     m.log(id, 'driving', ok ? 'good' : 'needs', text);
-    if (OTR.workday) OTR.workday.report(type, { key, stop: m.phase === 'route' ? m.activeStop + 1 : undefined,
+    if (OTR.workday) OTR.fpMission.emit(m,type, { key, stop: m.phase === 'route' ? m.activeStop + 1 : undefined,
       ok, where: { x: m.van.x, z: m.van.z, mph: Math.abs(m.van.speed) * 2.2369362921 } });
   },
   approach(yaw) { return Math.abs(Math.cos(yaw)) > .7 ? (Math.cos(yaw) > 0 ? 'n' : 's') : (Math.sin(yaw) > 0 ? 'e' : 'w'); },

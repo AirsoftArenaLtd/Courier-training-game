@@ -4120,7 +4120,25 @@ window.OTR_I18N.hi = {
 "That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "यह इनपुट पहले से एक ऐसी क्रिया को दिया गया है जो साथ-साथ इस्तेमाल होती है। दूसरा इनपुट चुनें या पहले उसकी दूसरी क्रिया बंद करें।",
 "Your gamepad controls are saved. Keyboard controls stay the same.": "आपके गेमपैड नियंत्रण सहेजे गए हैं। कीबोर्ड नियंत्रण वही रहते हैं।",
 "Reset your saved gamepad controls?": "अपने सहेजे गए गेमपैड नियंत्रण रीसेट करें?",
-"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "ये कस्टम नियंत्रण सहेजने के लिए बहुत बड़े हैं। जिन नियंत्रणों का उपयोग नहीं होता उन्हें डिफ़ॉल्ट पर वापस लाएँ और फिर से कोशिश करें।"
+"These custom controls are too large to save. Restore unused controls to their defaults and try again.": "ये कस्टम नियंत्रण सहेजने के लिए बहुत बड़े हैं। जिन नियंत्रणों का उपयोग नहीं होता उन्हें डिफ़ॉल्ट पर वापस लाएँ और फिर से कोशिश करें।",
+"This scenario needs 3D graphics.": "इस परिदृश्य के लिए 3D ग्राफ़िक्स चाहिए।",
+"Begin the scenario.": "परिदृश्य शुरू करें।",
+"Return to the station.": "स्टेशन पर वापस जाएँ।",
+"The headlights are on.": "हेडलाइट चालू हैं।",
+"The headlights are off.": "हेडलाइट बंद हैं।",
+"The scenario is paused.": "परिदृश्य रुका हुआ है।",
+"Continue the scenario.": "परिदृश्य जारी रखें।",
+"Read the controls.": "नियंत्रण पढ़ें।",
+"Use the scenario controls.": "परिदृश्य के नियंत्रण इस्तेमाल करें।",
+"Return to the scenario.": "परिदृश्य पर लौटें।",
+"The left signal is on.": "बायाँ इंडिकेटर चालू है।",
+"The left signal is off.": "बायाँ इंडिकेटर बंद है।",
+"The right signal is on.": "दायाँ इंडिकेटर चालू है।",
+"The right signal is off.": "दायाँ इंडिकेटर बंद है।",
+"morning": "सुबह",
+"midday": "दोपहर",
+"dusk": "शाम",
+"night": "रात"
 },
 "templates": [
 [
@@ -5974,6 +5992,22 @@ window.OTR_I18N.hi = {
 [
 "Ignore movement below {0} percent.",
 "{0} प्रतिशत से कम हलचल को अनदेखा करें।"
+],
+[
+"Time remaining: {0} seconds.",
+"बचा समय: {0} सेकंड।"
+],
+[
+"You have {0} seconds to complete this scenario.",
+"इस परिदृश्य को पूरा करने के लिए आपके पास {0} सेकंड हैं।"
+],
+[
+"It is {0}.",
+"दिन का समय: {0}।"
+],
+[
+"Use {0} to look. Press {1} to select a visible nearby target and {2} to interact. Press {3} to read the scenario goal.",
+"देखने के लिए {0} इस्तेमाल करें। पास का कोई दिखता लक्ष्य चुनने के लिए {1} और बातचीत या इस्तेमाल के लिए {2} दबाएँ। परिदृश्य का लक्ष्य पढ़ने के लिए {3} दबाएँ।"
 ]
 ],
 "keep": [

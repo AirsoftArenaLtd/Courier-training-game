@@ -135,7 +135,7 @@ OTR.fpStopFlow={
   fire(m,id,state){
     const result=OTR.fpStops.assessment(state),key=`visit:${result.type}:${id}`;if(m.events[key])return;
     m.log(key,'doorstep',result.ok?'good':'needs',result.ok?'Completed the delivery-point requirements.':'Completed the stop without meeting the delivery-point requirements.');
-    if(OTR.workday)OTR.workday.report(result.type,{key:id,stop:id+1,ok:result.ok,where:result.ok?undefined:{x:m.player.x,z:m.player.z}});
+    if(OTR.workday)OTR.fpMission.emit(m,result.type,{key:id,stop:id+1,ok:result.ok,where:result.ok?undefined:{x:m.player.x,z:m.player.z}});
   },
   resolve(m,id,outcome){
     const a=m._deliverySpecs[id].protocol,d=m.deliveryStops.stops[id];
