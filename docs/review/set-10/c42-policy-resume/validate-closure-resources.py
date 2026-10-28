@@ -2,7 +2,7 @@
 """Eight static closure poses in four original quality profiles, under the shared browser lease."""
 from pathlib import Path
 import os,json,hashlib,subprocess,fcntl,time,shutil,psutil
-BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3];OUT=BASE/'closure-resources-attempt-1';OUT.mkdir(exist_ok=True);os.chdir(ROOT)
+BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3];OUT=BASE/'closure-resources-attempt-2';OUT.mkdir(exist_ok=True);os.chdir(ROOT)
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 files=[p for name in ['src','data','lib','assets/3d','css'] for p in Path(name).rglob('*') if p.is_file()]+[Path(p) for p in ['index.html','first-person.html','assets/art-pack.js','test/fpbench.js','test/fpquality.js','test/tools/fp-problem-route-pose.js','test/tools/fp-problem-route-quality.js']]
 views='closurecab,closuremirror,closurebarrier,closureturn,closurebay,closuredevice,closurecontrols,closurereverse'

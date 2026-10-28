@@ -1,0 +1,55 @@
+{
+  "phase": "complete",
+  "controllerPid": 208565,
+  "jobs": [
+    {
+      "tag": "closure-low-en",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "closure-low-en.json": "c01086fdac80f99a5b51275cef80b45ad34df72d30b9e634053edbe2d913bf07",
+        "closure-low-en-result.png": "68149ed62a285ea4fb3399d765cd3100f56649e527112197d90c8a8e2594064c",
+        "closure-low-en-controls-1.png": "3c78342844496137dd027845c921478a817a6703006b145bcbd00f8e9648b47e",
+        "closure-low-en-brief.png": "e568b815c9f9bb3cec29763c7a556920d2f72dd54941b46d37f7d666ec05863f",
+        "closure-low-en-device.png": "ffd787c94048e047b61e38a17ffb0ab9ab8408bb48310d99dc0d0b4b74f17a16",
+        "closure-low-en-controls-0.png": "2ecdfc278e34b55ba619596cded85b4ab2de8f79ecd4b94750577a088e1b140f",
+        "closure-low-en-controls-2.png": "5c270325736bf62f6c9589da85f33461847fda6889302b1bd66eccef5f43c55d",
+        "closure-low-en-sign-reading.png": "dcd74230d827365f371c33b7945fa69fe69bcee92396f07a05b14c6bff09406c",
+        "closure-low-en-parked.png": "2be8cea0ead735a798c8f95dd9b89444178af944d3f51fba1f4c28d1e25603df"
+      }
+    },
+    {
+      "tag": "closure-high-ta-large",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "closure-high-ta-large-result.png": "60eaf0fe18800a5fd68446c48b7ff9fe568b6fbdf7564293a90653dc47341585",
+        "closure-high-ta-large-sign-reading.png": "60892908885765dde7e7f526b8583aafc315d2c4438a0b513ead7fc94b6ecdf1",
+        "closure-high-ta-large-device.png": "90ed9a3979c50860f93d11f6a9c9ccd66281b4b336c568d0bc93a185c0b7395a",
+        "closure-high-ta-large-controls-1.png": "14d02c0f1fcff9c8f2cd60e9a664c1aa478c500df4c3475852ca5713b9c44711",
+        "closure-high-ta-large-parked.png": "f4d475617148edfe59ba02ee5add0ecb40fa15ac88c95a651540b769a8050f19",
+        "closure-high-ta-large-brief.png": "252c4fa583882ed80a707408c20581438eacbce05bbed11db72737003011d6fd",
+        "closure-high-ta-large-controls-2.png": "430dc389cb008bca9708094ca7e2369d4c3e57c97a447fbb148c72e279938f01",
+        "closure-high-ta-large-controls-0.png": "41462831290419acb0aa13242bd7b08b60558322cdde13b5fd5dd22eb057b172",
+        "closure-high-ta-large.json": "fa04e3de16b3524bb5fd6d7c7ef9d8a726a4a979ff49666bf8743bee09e6fd27"
+      }
+    }
+  ],
+  "startedAt": 1793198827.6595645,
+  "serverPid": 208618,
+  "tag": "closure-high-ta-large",
+  "childPid": 209109,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793201266.4713447
+}
