@@ -1,0 +1,18 @@
+{
+  "base": "9105e301",
+  "packsBefore": 15,
+  "packsAfter": 14,
+  "manifestFiles": 37,
+  "existingCases": 21,
+  "evidence": {
+    "fpambientassets.log": "2ab06b209ff6dd58da49eaf13334b819714c0d2d2706c6227efc1fff9d96a0f4",
+    "credits.log": "b31e6747059b5af89e992b92e52e1def5d8df5ba23b3f0f736cbec563bf627bc",
+    "fpassets.log": "409322668f0d8e73435deac15bf0aab518508d08baa78730ef0ef47fc305a5cb",
+    "byte-equivalence.json": "4091f05fa63db6ebbed97e8f6ec12f611e131221b4475166ebf2456cc6d08437",
+    "checks.json": "49d35e5aec6312fc1961c9ef8de8acc7310948153c11085586b075359d2ac1ab",
+    "assets.log": "bcb00ef6ae75801089c978031b5ce5c8dd10ddfe26d5776e83b569f99225b8b0",
+    "README.md": "3a222f496f2bc2ad3be4cd56082daff651db9b7e5510c306ff07770e814abfe0",
+    "import-reproduction.json": "9633b13c836bc88a495779a46a3566a0b899637097225502ae95c821927da9f6",
+    "credits-sandbox-denied.log": "79a0b2cbcfc069c3cc4ca8c80de0dc4d0f8588c78b65e68d71d29d1ac849147c"
+  }
+}

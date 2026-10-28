@@ -254,9 +254,9 @@
       "use": "ambient-adult-b"
     },
     {
-      "path": "kenney-furniture/models/bench-high.glb",
+      "path": "kenney-furniture-kit/models/bench-high.glb",
       "bytes": 10756,
-      "pack": "kenney-furniture",
+      "pack": "kenney-furniture-kit",
       "quality": "high",
       "use": "town-bench"
     }
