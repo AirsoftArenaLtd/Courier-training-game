@@ -1,0 +1,21 @@
+{
+  "scope": "Completed Low English normal native subset only. High larger Tamil and four resource profiles remain running/queued; no full-matrix acceptance. Blocked model is unloaded and absent from the frozen runtime index.",
+  "sourceRevision": "f9f5b604767998152a664044990d2a053d638baa",
+  "checks": 122,
+  "layouts": 7,
+  "routeGates": 7,
+  "score": 400,
+  "ratios": {
+    "safety": 1,
+    "efficiency": 1
+  },
+  "durable": true,
+  "unchangedFrozenInputs": 560,
+  "checkedHostFonts": 4,
+  "checkedArtifacts": 9,
+  "visualReview": [
+    "Original-size parked cab: complete new goal/time text stays in its panel; physical mirrors and the mounted destination map remain visible.",
+    "Original-size sign reader: full-size title, body and action remain inside the panel with clear separation."
+  ],
+  "processScope": "This completed child exited; the same serial controller now owns the High job. Server cleanup is therefore still pending for the full controller."
+}
