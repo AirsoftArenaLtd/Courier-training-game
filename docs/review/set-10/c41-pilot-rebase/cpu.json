@@ -1,0 +1,117 @@
+{
+  "base": "pilot 3678fba3 via C38 555ce222; latest pilot 51e066b5 changes docs only",
+  "candidate": "92bf4b7ab25af60ccadf3f278b126a3d1d937aca",
+  "priorTip": "b17fac5a",
+  "backupBranch": "codex/c41-before-pilot-oct28",
+  "suites": [
+    {
+      "file": "test/fpcustomergeometry.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcustomerprotocol.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcustomerprotocolscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcustomerscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcustomerstop.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcustomerstopgeometry.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcustomerstopscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcustomerstopworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcustomertalk.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcustomerworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0
+    }
+  ],
+  "sources": {
+    "data/modules.js": "0cf6790447fdf45f0b7043892276411315c8ee402cb49976bb20be64e2197c6c",
+    "src/core/fpaccess.js": "98887524e1b9227f6d51b26ec705d5e62e4f10a03ef58096ab80d3c38d157983",
+    "src/core/fpcustomerprotocol.js": "6a251a43544f021c8569cecaa890ffacd1b92496e38d513552881a5d9fc9d479",
+    "src/core/fpcustomerprotocolcontent.js": "9be15d4dbde0c8dc58e5f00f523fe5e7f2c57c9072d77495bd3e42329542f331",
+    "src/core/fpcustomerprotocolscenario.js": "871ff59bac8f38b18f5cf758cfb741eeb21694b4c2830233e42a918ddd302803",
+    "src/core/fpcustomerprotocolworld.js": "4f949a01cf8296d423bc6a94ea6cbd2f1685204e3ed3864e900f1d9404e35f39",
+    "src/core/fpcustomerscenario.js": "8ec51279e1fb6349f5feb190aeb32c6d387637a7f0d6749e02476feb8876d130",
+    "src/core/fpcustomerstage.js": "f85c4063974983210ac504a25f197b3902e275055b4c4827c5b16d1aa10ef474",
+    "src/core/fpcustomerstop.js": "4f603855542c397a6f92822a463a84fdfe1f3fbe2429a74c8e4be3c8aa8c2abb",
+    "src/core/fpcustomerstopscenario.js": "d610f02698fff1ba04565a523674ec7c9782043d79ba2c0a5f009f3d3fb2d969",
+    "src/core/fpcustomerstopworld.js": "e7d391cb09acc47ab0219a83390615ba5426aa680838f7438433738647be5912",
+    "src/core/fpcustomertalk.js": "aea1c7d30cffbb375a4f50804c8daf0185b166c12942b3bad762ee6a169affbb",
+    "src/core/fpcustomerworld.js": "b40f0580dc47b45308b99e8bf05356d9ca546e0b76ea1c9567e815dd963f897f",
+    "src/core/fpworld.js": "97702fc461943c5ed8aea651ba139766bad5d5d326e53fb136a377fc49338fd1",
+    "src/scenes/FirstPersonScenarioScene.js": "b1ce2dc89548b429eebbe1496ca12424ab2a1fdb564acd52ef10ea22534935c9",
+    "test/fpbench.js": "d6f8a889efedf1cfe2149d1485e5c5cb9c092c3c004971e5edd08c4eacd5a380",
+    "test/fpcustomerbrowser.js": "ed0236226e0a48ad7a8583b32e36cd526543c03750d1b8f36d8780919e1bce9a",
+    "test/fpcustomergeometry.js": "48eb27223524c489f8fce6b3b18378b2f6f047d33c2c97c123941b7e78ee4dbd",
+    "test/fpcustomerprotocol.js": "f52c25fc0b5d118e80c5aea52016aab85bf55604fdc69695579ec464af0ee1c2",
+    "test/fpcustomerprotocolbrowser.js": "02ecc247202d567b155fe547961a342cf9ce9f6857726cd07854620d19c40b3e",
+    "test/fpcustomerprotocolscenario.js": "64c095483352d186dde16472ebea633cc8a190f57a19ba8cd0a3230c97fed225",
+    "test/fpcustomerscenario.js": "c9eefc7887debf590b11cf41352551fae029d5527c4f30ba878525703fe341ee",
+    "test/fpcustomerstop.js": "9e910b492682c8a8e2e840f9e2ddf8518ebf70de6f7b7151e02d1f811e8eaa4c",
+    "test/fpcustomerstopbrowser.js": "32f2585e12d33dc1a9fbcac6346d998e1067507527961425ed10b37508866953",
+    "test/fpcustomerstopgeometry.js": "d3c661d4568b198e81c853e656c23328dfeb84910539cf4b29a9dbce739f2263",
+    "test/fpcustomerstopscenario.js": "ba81698dfb220416a7a345d287ead7465d9341bfbe075aaf2bea959388931409",
+    "test/fpcustomerstopworld.js": "fec9e88c2483165d72f51db37e3028ffcb08b217e67aaf63c8694c52b173ebfd",
+    "test/fpcustomertalk.js": "63906969b64ace7b2b24f70c075cf707038ef650226be772dcd354abfb6b5deb",
+    "test/fpcustomerworld.js": "b632e23de5216f7ce313cfb21169323ae46cb009b6ff77e24e98ebd60dc5faa0",
+    "test/fpscenario.js": "c305d465bdbcb5d7947e3bf2f79dc5b75b3e41a064f4693c787a4f7304933a49",
+    "test/tools/fp-customer-fixture.js": "a695be6c8d83899aba9acad1d307102ea393ddd4d34d31b6bdc9e308f3f19878",
+    "test/tools/fp-customer-quality.js": "e06de32ea65ab4715a1f556017189150a3d232d942e6a2cf3e33243421d65f9d",
+    "test/tools/fp-customerprotocol-quality.js": "29bfccbaad503d0005d0462b4e838afcf701e480e4f6e7bbce74ff3f01eb37a8",
+    "test/tools/fp-customerstop-fixture.js": "db74eb74367bbf2cdc9a141c88a9a8154110a022ed21ddd90ea3b31e9163fe33",
+    "test/tools/fp-customerstop-quality.js": "4abb061ed2847c84ff911040f6cd52efeeb4d74a61d8f795513b35dfbb1a5fc4",
+    "test/tools/fp-font-diagnostic.js": "2c2268d2072e5dc29298b296e9618d36f00f5dd3c48b4e72221587edd7427f08",
+    "test/tools/fp-result-capture.js": "258cb10e46052c769861eff19322b8cba2567d90acd173b1eb3a7ccc08e19707"
+  },
+  "scope": "Current-pilot C41 CPU and changed-JS syntax. Historical native/resource manifests retain their exact source scope; fresh native/resource checks are separate.",
+  "nativeSyntaxAfterCpu": {
+    "test/fpcustomerprotocolbrowser.js": "f414c5c08d7227d3a84c978998947a45e75ecda696fdfcba78be388895540ef7",
+    "test/tools/fp-script-font-proof.js": "2bc22fd6b584c914e9744bd1e775de4a0ae02be799bd78ef65abfc3bdb0d3ba4"
+  },
+  "note": "Runtime/CPU inputs remain identical after the pass. Only native font proof and its runner were changed afterward; both changed-JS syntax checks pass."
+}
