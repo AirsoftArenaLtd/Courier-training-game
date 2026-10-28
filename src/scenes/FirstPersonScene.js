@@ -209,7 +209,7 @@ class FirstPersonScene extends Phaser.Scene {
     const m=this.model;if(!m||!m.near(part))return;const bad=!m.repaired&&m.fault===part;
     const condition=part==='tyres'?(bad?'A bulge is visible in the tire sidewall.':'The tire sidewalls are intact and the tread is visible.'):(bad?'The left headlamp does not illuminate during the light test.':'Both headlamps illuminate during the light test.');
     const choose=decision=>{this.message(m.inspectVan(part,decision));this.checkpoint();this.closePanel();};
-    this.showPanel(part==='tyres'?'Tire inspection':'Light test',condition,[{label:'Mark serviceable',action:()=>choose('ready')},{label:'Request repair',action:()=>choose('repair')},{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
+    this.showPanel(part==='tyres'?'Tire inspection':'Light test',condition,[{label:'Mark serviceable',action:()=>choose('ready')},{label:'Request repair',action:()=>choose('repair')},{label:'Back',action:()=>this.closePanel()}],{accessibleText:!!this.scenarioSession,back:()=>this.closePanel()});
   }
   showDoor(id,entry=false){
     const m=this.model,s=m.stop(id);if(!s||!m.near('door'+id))return;if(s.resolved){this.message('This stop already has a recorded outcome.');return;}

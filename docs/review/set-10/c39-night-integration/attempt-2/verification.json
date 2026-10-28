@@ -1,0 +1,43 @@
+{
+  "status": "partial accepted scopes; larger-text inspection failed",
+  "sourceRevision": "6cb4ac5691ab6bdf49368e7fcadece365b8cbb20",
+  "inputs": 696,
+  "artifacts": 38,
+  "lowNativeChecks": 105,
+  "resourceViews": 28,
+  "profiles": {
+    "night-budget-loaded-low": {
+      "calls": 42,
+      "triangles": 1236,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1850603
+    },
+    "night-budget-loaded-high": {
+      "calls": 55,
+      "triangles": 79455,
+      "textures": 3,
+      "attachmentBytes": 9142272,
+      "phaserBytes": 4899323
+    },
+    "night-budget-accessible-low": {
+      "calls": 42,
+      "triangles": 1236,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1978512
+    },
+    "night-budget-fallback-low": {
+      "calls": 41,
+      "triangles": 958,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1850603
+    }
+  },
+  "highNativeAccepted": false,
+  "highPartialChecks": 67,
+  "highFailure": "The module inherited the legacy light-test panel at 19 px; the larger-text floor is 22 px.",
+  "schoolNativeRun": false,
+  "cleanup": true
+}

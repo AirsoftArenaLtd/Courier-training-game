@@ -1,0 +1,4 @@
+night inspection high ta true
+AssertionError [ERR_ASSERTION]: {"source":"The left headlamp does not illuminate during the light test.","x":152,"y":170,"right":729,"bottom":194,"font":19}
+    at layout (/workspace/c39-route-driving/test/fpnightlessonbrowser.js:16:605)
+    at async /workspace/c39-route-driving/test/fpnightlessonbrowser.js:27:218

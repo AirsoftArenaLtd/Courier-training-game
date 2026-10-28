@@ -1,0 +1,188 @@
+{
+  "phase": "failed",
+  "jobs": [
+    {
+      "tag": "night-low-en",
+      "script": "test/fpnightlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_FONT": "noto"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "night-low-en-low-en-normal-night-encounter.png": "2f51502a9cd003e30eff626a03a0664b9922d192757a0544e14e737b92b1f745",
+        "night-low-en.json": "e2f3be495c24abee2f1588e0808870223447b9034047dcd9ce1f0570832b2a40",
+        "night-low-en-low-en-normal-finish-bay.png": "cbb4c0fe09efa208b04d5ee70fb567e5c0567e1a8d7698283101ae862270a890",
+        "night-low-en-low-en-normal-light-test.png": "8c3476308a34a5ad8895b929052205a3664c473dbccb4176bd82ea66247c3663"
+      }
+    },
+    {
+      "tag": "night-budget-loaded-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "nightlessoninspect,nightlessoncaboff,nightlessoncabon,nightlessonlead,nightlessonfinish,nightlessondevice,nightlessoncycle",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_NIGHTLESSON": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "night-budget-loaded-low-low-nightlessoncycle.png": "b21b3fd8390763ae20c0af1218ea196d0281499c5070529eed9690a4b9d85b62",
+        "night-budget-loaded-low-low-nightlessonfinish.png": "228678343fc7a65cab0020b362b002fe806ebdd64f6bab19b989b8ef4deb2743",
+        "night-budget-loaded-low-low-nightlessoninspect.png": "e51cdb8c85fe9b1ccc9af7c360286c58dc8d792056b13615f7c7356dbb22c275",
+        "night-budget-loaded-low-low-nightlessondevice.png": "b21b3fd8390763ae20c0af1218ea196d0281499c5070529eed9690a4b9d85b62",
+        "night-budget-loaded-low-low-nightlessonlead.png": "6f04398f30bfacd314e41fd6d4aa8f64ff85499f7a00648e3c85aa16e6133bee",
+        "night-budget-loaded-low-low-nightlessoncabon.png": "96cee1cd43672c401b18bf235fa0bb8dbdd06fadbd677696b1786ef9ac9d5c63",
+        "bench-night-budget-loaded-low-low.json": "a00689a45e37c6dba8e28972905d324b58e827bb37718d55ec1588357c7b5fea",
+        "night-budget-loaded-low-low-nightlessoncaboff.png": "5b4ba87342c7dab55dd19af84eac1f82c2270ded5609acf1b1263f68c896c4da"
+      },
+      "peak": {
+        "calls": 42,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1850603
+      }
+    },
+    {
+      "tag": "night-budget-loaded-high",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "nightlessoninspect,nightlessoncaboff,nightlessoncabon,nightlessonlead,nightlessonfinish,nightlessondevice,nightlessoncycle",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_NIGHTLESSON": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "night-budget-loaded-high-high-nightlessonlead.png": "7aea959f1850c01bb79087ff54e6f4e81632dd18a299321f2f0e4b5bbec40e14",
+        "night-budget-loaded-high-high-nightlessoncycle.png": "b45b1158829ce1e5b10a8c3299677dcfc0915119140507a6d77bedd15dd688e9",
+        "night-budget-loaded-high-high-nightlessonfinish.png": "9bd4d4575de5102faaa9aa3deb79ec8c9a671ae81abb9264312c9f22b8c12166",
+        "night-budget-loaded-high-high-nightlessoncaboff.png": "8d0da5e356bc86e8c2a28d405222ad419cf746d8d711e69ac6915484d898adf0",
+        "bench-night-budget-loaded-high-high.json": "3c35ea35e0c3eadf5d70300b1c189f7a8cd7288abb9a77fd0e03002e1557f809",
+        "night-budget-loaded-high-high-nightlessondevice.png": "b45b1158829ce1e5b10a8c3299677dcfc0915119140507a6d77bedd15dd688e9",
+        "night-budget-loaded-high-high-nightlessoncabon.png": "e2bdce75ec5411570e0c8aef2c9554d7ddece67b3e90e1baa63beaeb32616a0c",
+        "night-budget-loaded-high-high-nightlessoninspect.png": "b871b944c8665ce39d84ac351b16d369d7e1a33eb001f82c1ff6661b2111ce25"
+      },
+      "peak": {
+        "calls": 55,
+        "triangles": 79455,
+        "textures": 3,
+        "attachmentBytes": 9142272,
+        "phaserBytes": 4899323
+      }
+    },
+    {
+      "tag": "night-budget-accessible-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "nightlessoninspect,nightlessoncaboff,nightlessoncabon,nightlessonlead,nightlessonfinish,nightlessondevice,nightlessoncycle",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_NIGHTLESSON": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "night-budget-accessible-low-low-nightlessoncycle.png": "b7a3001f0b8655d0b362ad6f4a3185a362a00d7a90cdf90661904fe9afe66b4e",
+        "night-budget-accessible-low-low-nightlessondevice.png": "b7a3001f0b8655d0b362ad6f4a3185a362a00d7a90cdf90661904fe9afe66b4e",
+        "night-budget-accessible-low-low-nightlessonlead.png": "5b3bd8a7f4e89f2052ce9adfe8155977c0d926fdd439cd61d5c6789c6868e8d5",
+        "night-budget-accessible-low-low-nightlessoncaboff.png": "c1ba5778f409e80011338dc55f671f51d76efb066e65c54ef960b99b9d81feb6",
+        "night-budget-accessible-low-low-nightlessoncabon.png": "b6c56e4ef3e802c409b727a34ac7f545fa31cb423f8a56059f84e8bf2f5c89ff",
+        "night-budget-accessible-low-low-nightlessoninspect.png": "f91c83e683d3884c8b110f974443ec5d57e7058b4dcbbef6467bf91def7bc765",
+        "night-budget-accessible-low-low-nightlessonfinish.png": "ba7cc2890f958618c318ee9b14210b3fdfd45d4da917c2708d703c1e298a528e",
+        "bench-night-budget-accessible-low-low.json": "d0b433fba02f7a383a3d99ad3466aa58dc48d2be5d42a817e4243dcbb68870de"
+      },
+      "peak": {
+        "calls": 42,
+        "triangles": 1236,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1978512
+      }
+    },
+    {
+      "tag": "night-budget-fallback-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1",
+        "QA_VIEWS": "nightlessoninspect,nightlessoncaboff,nightlessoncabon,nightlessonlead,nightlessonfinish,nightlessondevice,nightlessoncycle",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_NIGHTLESSON": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "night-budget-fallback-low-low-nightlessondevice.png": "cdd1d88024bcc02070bba486c86903cbc5b095786d1abb719d369ffa57ea2fff",
+        "night-budget-fallback-low-low-nightlessoncaboff.png": "9ec2c5ab7580958878f75289751bf15dfa5e269059ca3d81a0e8ea5c68fd114d",
+        "night-budget-fallback-low-low-nightlessonfinish.png": "f30752ff2dd3b54d9cf0a47219436bd4cc7f522f053a3f5a7f90aaa4fb8039cc",
+        "night-budget-fallback-low-low-nightlessoninspect.png": "2a977fe5aef5ebb4deed035cd026d37e66ec08c315023b348f0dd7a74e220255",
+        "night-budget-fallback-low-low-nightlessonlead.png": "f8b56651fd9d202efa6e69239de598881329146fc2d2d4cbd29afb5644636533",
+        "bench-night-budget-fallback-low-low.json": "7eea3931321e394106525113fdb8f49c14052b9da86ecb7b5e84f749d8cbe83d",
+        "night-budget-fallback-low-low-nightlessoncycle.png": "cdd1d88024bcc02070bba486c86903cbc5b095786d1abb719d369ffa57ea2fff",
+        "night-budget-fallback-low-low-nightlessoncabon.png": "ccdf00285c5e07d6bce58898cb07bde8cf33762a88895de73871547554400367"
+      },
+      "peak": {
+        "calls": 41,
+        "triangles": 958,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1850603
+      }
+    },
+    {
+      "tag": "night-high-ta",
+      "script": "test/fpnightlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_FONT": "noto"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "night-high-ta-failure.png": "7d2a8a0be39d415ead9fe145950a09b8d6001207f6c620eb18e799f3a87fc39f",
+        "night-high-ta.json": "4a8eb1309e93c5021550ece9a48f2a9efd21146fdf3676e12eee7b95fe4e4e64"
+      }
+    }
+  ],
+  "pid": 176720,
+  "startedAt": 1793118928.9053755,
+  "serverPid": 176725,
+  "tag": "night-high-ta",
+  "childPid": 178580,
+  "failure": "Browser job failed: night-high-ta",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793119653.3846598
+}

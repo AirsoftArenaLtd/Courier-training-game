@@ -1,0 +1,52 @@
+{
+  "checks": 67,
+  "runs": [
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "shots": []
+    }
+  ],
+  "errors": [],
+  "fixture": "Test-only optional registry/content directly starts the real adapter; shared A-30 routing is separate. Light inspection, repair choice, walking around the front to the driver door, cab entry, physical mirror/headlight controls, live lead traffic, at least 35 m of actual native driving, braking and final parking/results use production paths. Aim angles locate physical targets without moving the player. After the live night/following encounter and a full stop, one declared pre-bay pose skips the remaining route travel. Native throttle/brake and finish follow. No encounter, timer, verdict, score or result is injected. Unsmoothed real delta and the 0.05-second cap remain. QA_FONT=noto is a review-only font pin.",
+  "failure": "AssertionError [ERR_ASSERTION]: {\"source\":\"The left headlamp does not illuminate during the light test.\",\"x\":152,\"y\":170,\"right\":729,\"bottom\":194,\"font\":19}\n    at layout (/workspace/c39-route-driving/test/fpnightlessonbrowser.js:16:605)\n    at async /workspace/c39-route-driving/test/fpnightlessonbrowser.js:27:218",
+  "cause": null,
+  "state": {
+    "phase": "active",
+    "mode": "walk",
+    "elapsed": 0.4000000000000002,
+    "player": {
+      "x": 5.14,
+      "z": 4.5,
+      "yaw": -1.8938506614175956,
+      "pitch": 0.27715913598772174
+    },
+    "van": {
+      "x": 2.84,
+      "z": 8,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 1,
+      "hand": true,
+      "belt": false,
+      "look": 0,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ]
+    },
+    "travel": 0,
+    "observations": {},
+    "panel": [
+      "Mark serviceable",
+      "Request repair",
+      "Back"
+    ],
+    "held": {}
+  }
+}
