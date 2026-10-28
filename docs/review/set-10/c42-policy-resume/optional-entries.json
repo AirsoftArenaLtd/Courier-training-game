@@ -1,0 +1,22 @@
+{
+  "scope": "Prepared metadata only for the implemented closure adapter. Shared A-30 optional launcher/content support is still separate; native tests use a test-only existing content key. This is not a runtime registry/default change.",
+  "entries": [
+    {
+      "id": "m4-closure",
+      "title": "Follow a road-closure diversion.",
+      "icon": "ic_wheel",
+      "scene3d": "road-closure",
+      "categories": [
+        "safety",
+        "efficiency"
+      ],
+      "optional": true,
+      "blurb": "Follow the sat nav around the closed street and park at the delivery address.",
+      "learn": [
+        "Follow a safe diversion.",
+        "Park the whole van in the marked destination bay."
+      ],
+      "controls": "Use the physical cab controls or their keyboard shortcuts. Read the mounted signs and follow the sat nav."
+    }
+  ]
+}

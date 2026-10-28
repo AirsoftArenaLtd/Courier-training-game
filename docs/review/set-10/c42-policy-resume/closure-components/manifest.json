@@ -1,0 +1,27 @@
+{
+  "scope": "CPU integration at a13ef1ed: five physical closure world/control/motor cases, 23 existing world/scene cases and 14 scenario-shell cases. High uses the explicit CPU glyph fallback; browser font/resource evidence is separate. No native-input or resource-budget acceptance claim.",
+  "cases": {
+    "newClosureIntegration": 5,
+    "existingWorld": 23,
+    "scenarioShell": 14
+  },
+  "sources": {
+    "src/core/fpproblemroute.js": "d8f5f91df3b47bf536f02ab06e44b8254475429dbe62c6a3e8eecc095fd60799",
+    "src/core/fpproblemrouteui.js": "2c1ecd74c8b85172e4bc9cce146d9cbfd03ad90b2beb197cc988a6a6d5b5f9d4",
+    "src/core/fpproblemprotocol.js": "acf1bc8cc332e60aff7829490db3dc20564c2530c87c982c0a4cd50a36a780b4",
+    "src/core/fpworld.js": "1cb5968e384dadd1611a2af025ad028fc78df01fad8e189ba145b1e9dba05717",
+    "src/scenes/FirstPersonScene.js": "0140d190d0e092e48cd61a76b2ada363a550fa45ad4e04773915957578393d02",
+    "src/scenes/FirstPersonScenarioScene.js": "7b7cf218f1f4abd5a7939b80dc6d6f323545e3540562c11556c241ff71901dad",
+    "index.html": "2de03aa371fc8d88221b1b7ed0b92550551bc844c97e1eb8744c233103b3ae34",
+    "test/fpproblemrouteworld.js": "7618157728b66aaee94bf0e5bd5ed098e0f68c8f8946a7f000e5b220ae4e8dd7",
+    "test/tools/fp-problem-route-context.js": "e807ffb1187755b45f7392487fd753d55729d9d3ecad43242e35752e1c4cd48d",
+    "test/tools/fp-problem-context.js": "703a42fda984bb16e96e10c06cb1d39c61f38a32aaa285f27e6c7956c51a2516",
+    "test/fpworld.js": "f028392bbd6a11d85eacd0b3f9ea0c154b1c602c813fe00cf569345b41158159",
+    "test/fpscenario.js": "c305d465bdbcb5d7947e3bf2f79dc5b75b3e41a064f4693c787a4f7304933a49"
+  },
+  "logs": {
+    "docs/review/set-10/c42-policy-resume/closure-components/routeworld.log": "0d81c1d88bc4e27deb3fa0f7ec3a39526e9cb1221f2408b0b8b02e42c14eb52b",
+    "docs/review/set-10/c42-policy-resume/closure-components/fpworld.log": "75be7958631a9eeb88aae7188166a7edfe0253a122aaaabf608ef21e1738007b",
+    "docs/review/set-10/c42-policy-resume/closure-components/fpscenario.log": "ceced9c4f7537cfa75d8f7844750e25e8bd52ce214b6bf507ee689a5e7c01d69"
+  }
+}
