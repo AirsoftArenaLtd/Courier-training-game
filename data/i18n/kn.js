@@ -4085,7 +4085,38 @@ window.OTR_I18N.kn = {
 "Pause the replay.": "ರಿಪ್ಲೇ ನಿಲ್ಲಿಸಿ.",
 "You signaled for at least three seconds before moving.": "ಚಲಿಸುವ ಮೊದಲು ನೀವು ಕನಿಷ್ಠ ಮೂರು ಸೆಕೆಂಡ್ ಸಿಗ್ನಲ್ ಹಾಕಿದಿರಿ.",
 "You moved without signaling in the correct direction for three seconds.": "ಸರಿಯಾದ ದಿಕ್ಕಿಗೆ ಮೂರು ಸೆಕೆಂಡ್ ಸಿಗ್ನಲ್ ಹಾಕದೆ ನೀವು ಚಲಿಸಿದಿರಿ.",
-"cab habit: signal, mirror, belt or lights": "ಕ್ಯಾಬ್ ಅಭ್ಯಾಸ: ಸಿಗ್ನಲ್, ಕನ್ನಡಿ, ಸೀಟ್‌ಬೆಲ್ಟ್ ಅಥವಾ ಹೆಡ್‌ಲೈಟ್"
+"cab habit: signal, mirror, belt or lights": "ಕ್ಯಾಬ್ ಅಭ್ಯಾಸ: ಸಿಗ್ನಲ್, ಕನ್ನಡಿ, ಸೀಟ್‌ಬೆಲ್ಟ್ ಅಥವಾ ಹೆಡ್‌ಲೈಟ್",
+"Gamepad controls": "ಗೇಮ್‌ಪ್ಯಾಡ್ ನಿಯಂತ್ರಣಗಳು",
+"Walk or steer left and right": "ನಡೆಯಿರಿ ಅಥವಾ ಎಡ-ಬಲಕ್ಕೆ ತಿರುಗಿಸಿ",
+"Walk forward and backward": "ಮುಂದೆ ಮತ್ತು ಹಿಂದೆ ನಡೆಯಿರಿ",
+"Look left and right": "ಎಡ ಮತ್ತು ಬಲಕ್ಕೆ ನೋಡಿ",
+"Look up and down": "ಮೇಲೆ ಮತ್ತು ಕೆಳಗೆ ನೋಡಿ",
+"Accelerate": "ವೇಗ ಹೆಚ್ಚಿಸಿ",
+"Brake": "ಬ್ರೇಕ್ ಹಾಕಿ",
+"Interact or scan": "ಇಂಟರಾಕ್ಟ್ ಅಥವಾ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ",
+"Set the parking brake": "ಪಾರ್ಕಿಂಗ್ ಬ್ರೇಕ್ ಹಾಕಿ",
+"Previous menu choice": "ಮೆನುವಿನ ಹಿಂದಿನ ಆಯ್ಕೆ",
+"Next menu choice": "ಮೆನುವಿನ ಮುಂದಿನ ಆಯ್ಕೆ",
+"Disabled": "ಆಫ್",
+"Move and look with the gamepad.": "ಗೇಮ್‌ಪ್ಯಾಡ್‌ನಿಂದ ಚಲಿಸಿ ಮತ್ತು ನೋಡಿ.",
+"Drive with the gamepad.": "ಗೇಮ್‌ಪ್ಯಾಡ್‌ನಿಂದ ಚಾಲನೆ ಮಾಡಿ.",
+"Use the cab controls.": "ಕ್ಯಾಬಿನ್ ನಿಯಂತ್ರಣಗಳನ್ನು ಬಳಸಿ.",
+"Use menus and the handheld.": "ಮೆನುಗಳು ಮತ್ತು ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ ಬಳಸಿ.",
+"Connect a standard gamepad.": "ಒಂದು ಸಾಮಾನ್ಯ ಗೇಮ್‌ಪ್ಯಾಡ್ ಸಂಪರ್ಕಿಸಿ.",
+"Change gamepad controls": "ಗೇಮ್‌ಪ್ಯಾಡ್ ನಿಯಂತ್ರಣಗಳನ್ನು ಬದಲಿಸಿ",
+"Changes apply to this 3D session. Keyboard controls stay the same.": "ಬದಲಾವಣೆಗಳು ಈ 3D ಅವಧಿಗೆ ಮಾತ್ರ. ಕೀಬೋರ್ಡ್ ನಿಯಂತ್ರಣಗಳು ಹಾಗೆಯೇ ಇರುತ್ತವೆ.",
+"Stick sensitivity": "ಸ್ಟಿಕ್ ಸಂವೇದನಶೀಲತೆ",
+"Restore default gamepad controls": "ಗೇಮ್‌ಪ್ಯಾಡ್‌ನ ಡೀಫಾಲ್ಟ್ ನಿಯಂತ್ರಣಗಳನ್ನು ಮರುಸ್ಥಾಪಿಸಿ",
+"Reset gamepad controls for this 3D session?": "ಈ 3D ಅವಧಿಯ ಗೇಮ್‌ಪ್ಯಾಡ್ ನಿಯಂತ್ರಣಗಳನ್ನು ಮರುಹೊಂದಿಸಬೇಕೆ?",
+"Restore defaults": "ಡೀಫಾಲ್ಟ್ ಮರುಸ್ಥಾಪಿಸಿ",
+"Change a gamepad control": "ಗೇಮ್‌ಪ್ಯಾಡ್ ನಿಯಂತ್ರಣವನ್ನು ಬದಲಿಸಿ",
+"Choose a new input": "ಹೊಸ ಇನ್‌ಪುಟ್ ಆಯ್ಕೆಮಾಡಿ",
+"Disable this input": "ಈ ಇನ್‌ಪುಟ್ ಆಫ್ ಮಾಡಿ",
+"Choose a gamepad input": "ಗೇಮ್‌ಪ್ಯಾಡ್ ಇನ್‌ಪುಟ್ ಆಯ್ಕೆಮಾಡಿ",
+"Release all controls, move one stick axis, then release it. Escape cancels.": "ಎಲ್ಲಾ ನಿಯಂತ್ರಣಗಳನ್ನು ಬಿಡಿ, ಒಂದು ಸ್ಟಿಕ್‌ನ ಒಂದು ಅಕ್ಷವನ್ನು ಸರಿಸಿ, ನಂತರ ಬಿಡಿ. Esc ರದ್ದುಮಾಡುತ್ತದೆ.",
+"Release all controls, press one button, then release it. Escape cancels.": "ಎಲ್ಲಾ ನಿಯಂತ್ರಣಗಳನ್ನು ಬಿಡಿ, ಒಂದು ಬಟನ್ ಒತ್ತಿ, ನಂತರ ಬಿಡಿ. Esc ರದ್ದುಮಾಡುತ್ತದೆ.",
+"Choose another gamepad input": "ಬೇರೆ ಗೇಮ್‌ಪ್ಯಾಡ್ ಇನ್‌ಪುಟ್ ಆಯ್ಕೆಮಾಡಿ",
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ಆ ಇನ್‌ಪುಟ್ ಈಗಾಗಲೇ ಒಂದೇ ಸಮಯದಲ್ಲಿ ಬಳಸುವ ಕ್ರಿಯೆಗೆ ನಿಗದಿಯಾಗಿದೆ. ಬೇರೆ ಇನ್‌ಪುಟ್ ಆಯ್ಕೆಮಾಡಿ ಅಥವಾ ಮೊದಲು ಅದರ ಇನ್ನೊಂದು ಕ್ರಿಯೆಯನ್ನು ಆಫ್ ಮಾಡಿ."
 },
 "templates": [
 [
@@ -5903,6 +5934,42 @@ window.OTR_I18N.kn = {
 [
 "The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
 "ಬಲ ಇಂಡಿಕೇಟರ್ ಆನ್ ಆಗಿದೆ. ಚಲಿಸುವ ಮೊದಲು ಕನಿಷ್ಠ ಮೂರು ಸೆಕೆಂಡ್ ಸಿಗ್ನಲ್ ಹಾಕಿ. ಆಫ್ ಮಾಡಲು {0} ಒತ್ತಿ."
+],
+[
+"Axis {0}",
+"ಅಕ್ಷ {0}"
+],
+[
+"Button {0}",
+"ಬಟನ್ {0}"
+],
+[
+"Use {0} and {1} to walk. Use {2} and {3} to look.",
+"ನಡೆಯಲು {0} ಮತ್ತು {1} ಬಳಸಿ. ನೋಡಲು {2} ಮತ್ತು {3} ಬಳಸಿ."
+],
+[
+"Use {0} to steer, {1} to accelerate and {2} to brake. Use {3} to change between drive and reverse while stopped.",
+"ತಿರುಗಿಸಲು {0}, ವೇಗ ಹೆಚ್ಚಿಸಲು {1} ಮತ್ತು ಬ್ರೇಕ್‌ಗೆ {2} ಬಳಸಿ. ನಿಂತಿರುವಾಗ ಡ್ರೈವ್ ಮತ್ತು ರಿವರ್ಸ್ ನಡುವೆ ಬದಲಿಸಲು {3} ಬಳಸಿ."
+],
+[
+"Use {0} for the seatbelt and {1} for the parking brake. Use {2} and {3} for the signals.",
+"ಸೀಟ್‌ಬೆಲ್ಟ್‌ಗೆ {0} ಮತ್ತು ಪಾರ್ಕಿಂಗ್ ಬ್ರೇಕ್‌ಗೆ {1} ಬಳಸಿ. ಇಂಡಿಕೇಟರ್‌ಗಳಿಗೆ {2} ಮತ್ತು {3} ಬಳಸಿ."
+],
+[
+"Use {0} to choose or interact and {1} to go back. Use {2} for the handheld. Hold the interact button to scan while aiming.",
+"ಆಯ್ಕೆಮಾಡಲು ಅಥವಾ ಇಂಟರಾಕ್ಟ್ ಮಾಡಲು {0} ಮತ್ತು ಹಿಂದೆ ಹೋಗಲು {1} ಬಳಸಿ. ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್‌ಗೆ {2} ಬಳಸಿ. ಗುರಿ ಇಡುವಾಗ ಸ್ಕ್ಯಾನ್ ಮಾಡಲು ಇಂಟರಾಕ್ಟ್ ಬಟನ್ ಒತ್ತಿ ಹಿಡಿಯಿರಿ."
+],
+[
+"Press a gamepad button to connect, then release all controls. Use {0} and {1} to choose menu options. Keyboard and mouse controls remain available.",
+"ಸಂಪರ್ಕಿಸಲು ಗೇಮ್‌ಪ್ಯಾಡ್ ಬಟನ್ ಒತ್ತಿ, ನಂತರ ಎಲ್ಲಾ ನಿಯಂತ್ರಣಗಳನ್ನು ಬಿಡಿ. ಮೆನು ಆಯ್ಕೆಗಳಿಗೆ {0} ಮತ್ತು {1} ಬಳಸಿ. ಕೀಬೋರ್ಡ್ ಮತ್ತು ಮೌಸ್ ಕೂಡ ಕೆಲಸ ಮಾಡುತ್ತವೆ."
+],
+[
+"Ignore stick movement below {0} percent. Choose a higher value if the view or steering moves while the stick is released.",
+"{0} ಶೇಕಡಾಕ್ಕಿಂತ ಕಡಿಮೆ ಸ್ಟಿಕ್ ಚಲನೆಯನ್ನು ನಿರ್ಲಕ್ಷಿಸಿ. ಸ್ಟಿಕ್ ಬಿಟ್ಟಾಗಲೂ ದೃಶ್ಯ ಅಥವಾ ಸ್ಟೀರಿಂಗ್ ಚಲಿಸಿದರೆ ಹೆಚ್ಚಿನ ಮೌಲ್ಯ ಆಯ್ಕೆಮಾಡಿ."
+],
+[
+"Ignore movement below {0} percent.",
+"{0} ಶೇಕಡಾಕ್ಕಿಂತ ಕಡಿಮೆ ಚಲನೆಯನ್ನು ನಿರ್ಲಕ್ಷಿಸಿ."
 ]
 ],
 "keep": [

@@ -4096,7 +4096,38 @@ window.OTR_I18N.es = {
 "Pause the replay.": "Pausa la repetición.",
 "You signaled for at least three seconds before moving.": "Señalizaste al menos tres segundos antes de moverte.",
 "You moved without signaling in the correct direction for three seconds.": "Te moviste sin señalizar hacia el lado correcto durante tres segundos.",
-"cab habit: signal, mirror, belt or lights": "hábito en cabina: señal, espejo, cinturón o faros"
+"cab habit: signal, mirror, belt or lights": "hábito en cabina: señal, espejo, cinturón o faros",
+"Gamepad controls": "Controles del mando",
+"Walk or steer left and right": "Caminar o girar a izquierda y derecha",
+"Walk forward and backward": "Caminar hacia delante y hacia atrás",
+"Look left and right": "Mirar a izquierda y derecha",
+"Look up and down": "Mirar arriba y abajo",
+"Accelerate": "Acelerar",
+"Brake": "Frenar",
+"Interact or scan": "Interactuar o escanear",
+"Set the parking brake": "Poner el freno de mano",
+"Previous menu choice": "Opción anterior del menú",
+"Next menu choice": "Opción siguiente del menú",
+"Disabled": "Desactivado",
+"Move and look with the gamepad.": "Muévete y mira con el mando.",
+"Drive with the gamepad.": "Conduce con el mando.",
+"Use the cab controls.": "Usa los controles de la cabina.",
+"Use menus and the handheld.": "Usa los menús y el escáner.",
+"Connect a standard gamepad.": "Conecta un mando estándar.",
+"Change gamepad controls": "Cambiar los controles del mando",
+"Changes apply to this 3D session. Keyboard controls stay the same.": "Los cambios se aplican a esta sesión 3D. Los controles del teclado no cambian.",
+"Stick sensitivity": "Sensibilidad del stick",
+"Restore default gamepad controls": "Restaurar los controles del mando predeterminados",
+"Reset gamepad controls for this 3D session?": "¿Restablecer los controles del mando para esta sesión 3D?",
+"Restore defaults": "Restaurar predeterminados",
+"Change a gamepad control": "Cambiar un control del mando",
+"Choose a new input": "Elige una nueva entrada",
+"Disable this input": "Desactivar esta entrada",
+"Choose a gamepad input": "Elige una entrada del mando",
+"Release all controls, move one stick axis, then release it. Escape cancels.": "Suelta todos los controles, mueve un eje de un stick y suéltalo. Esc cancela.",
+"Release all controls, press one button, then release it. Escape cancels.": "Suelta todos los controles, pulsa un botón y suéltalo. Esc cancela.",
+"Choose another gamepad input": "Elige otra entrada del mando",
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "Esa entrada ya está asignada a una acción que se usa al mismo tiempo. Elige otra entrada o desactiva primero su otra acción."
 },
 "templates": [
 [
@@ -5914,6 +5945,42 @@ window.OTR_I18N.es = {
 [
 "The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
 "La señal derecha está puesta. Señaliza al menos tres segundos antes de moverte. Pulsa {0} para quitarla."
+],
+[
+"Axis {0}",
+"Eje {0}"
+],
+[
+"Button {0}",
+"Botón {0}"
+],
+[
+"Use {0} and {1} to walk. Use {2} and {3} to look.",
+"Usa {0} y {1} para caminar. Usa {2} y {3} para mirar."
+],
+[
+"Use {0} to steer, {1} to accelerate and {2} to brake. Use {3} to change between drive and reverse while stopped.",
+"Usa {0} para girar, {1} para acelerar y {2} para frenar. Usa {3} para cambiar entre marcha adelante y atrás con el vehículo parado."
+],
+[
+"Use {0} for the seatbelt and {1} for the parking brake. Use {2} and {3} for the signals.",
+"Usa {0} para el cinturón y {1} para el freno de mano. Usa {2} y {3} para las señales."
+],
+[
+"Use {0} to choose or interact and {1} to go back. Use {2} for the handheld. Hold the interact button to scan while aiming.",
+"Usa {0} para elegir o interactuar y {1} para volver. Usa {2} para el escáner. Mantén el botón de interactuar para escanear mientras apuntas."
+],
+[
+"Press a gamepad button to connect, then release all controls. Use {0} and {1} to choose menu options. Keyboard and mouse controls remain available.",
+"Pulsa un botón del mando para conectarlo y suelta todos los controles. Usa {0} y {1} para elegir opciones del menú. El teclado y el ratón siguen disponibles."
+],
+[
+"Ignore stick movement below {0} percent. Choose a higher value if the view or steering moves while the stick is released.",
+"Ignorar el movimiento del stick por debajo del {0} por ciento. Elige un valor más alto si la vista o la dirección se mueven con el stick suelto."
+],
+[
+"Ignore movement below {0} percent.",
+"Ignorar el movimiento por debajo del {0} por ciento."
 ]
 ],
 "keep": [

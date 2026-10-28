@@ -4085,7 +4085,38 @@ window.OTR_I18N.ta = {
 "Pause the replay.": "மறுஒளிபரப்பை இடைநிறுத்துங்கள்.",
 "You signaled for at least three seconds before moving.": "நகரும் முன் குறைந்தது மூன்று விநாடிகள் சிக்னல் போட்டீர்கள்.",
 "You moved without signaling in the correct direction for three seconds.": "சரியான திசையில் மூன்று விநாடிகள் சிக்னல் போடாமல் நகர்ந்தீர்கள்.",
-"cab habit: signal, mirror, belt or lights": "கேபின் பழக்கம்: சிக்னல், கண்ணாடி, சீட்பெல்ட் அல்லது முகப்பு விளக்குகள்"
+"cab habit: signal, mirror, belt or lights": "கேபின் பழக்கம்: சிக்னல், கண்ணாடி, சீட்பெல்ட் அல்லது முகப்பு விளக்குகள்",
+"Gamepad controls": "கேம்பேட் கட்டுப்பாடுகள்",
+"Walk or steer left and right": "நடக்கவும் அல்லது இடது வலது திருப்பவும்",
+"Walk forward and backward": "முன்னும் பின்னும் நடக்கவும்",
+"Look left and right": "இடது வலது பார்க்கவும்",
+"Look up and down": "மேலும் கீழும் பார்க்கவும்",
+"Accelerate": "வேகம் கூட்டவும்",
+"Brake": "பிரேக் இடவும்",
+"Interact or scan": "இடைவினை அல்லது ஸ்கேன் செய்யவும்",
+"Set the parking brake": "பார்க்கிங் பிரேக் இடவும்",
+"Previous menu choice": "மெனுவின் முந்தைய தேர்வு",
+"Next menu choice": "மெனுவின் அடுத்த தேர்வு",
+"Disabled": "முடக்கப்பட்டது",
+"Move and look with the gamepad.": "கேம்பேடால் நகரவும் பார்க்கவும்.",
+"Drive with the gamepad.": "கேம்பேடால் ஓட்டவும்.",
+"Use the cab controls.": "கேபின் கட்டுப்பாடுகளைப் பயன்படுத்தவும்.",
+"Use menus and the handheld.": "மெனுக்களையும் ஹேண்ட்ஹெல்ட்டையும் பயன்படுத்தவும்.",
+"Connect a standard gamepad.": "ஒரு சாதாரண கேம்பேடை இணைக்கவும்.",
+"Change gamepad controls": "கேம்பேட் கட்டுப்பாடுகளை மாற்றவும்",
+"Changes apply to this 3D session. Keyboard controls stay the same.": "மாற்றங்கள் இந்த 3D அமர்வுக்கு மட்டும். விசைப்பலகை கட்டுப்பாடுகள் மாறாது.",
+"Stick sensitivity": "ஸ்டிக் உணர்திறன்",
+"Restore default gamepad controls": "கேம்பேடின் இயல்புநிலை கட்டுப்பாடுகளை மீட்டமைக்கவும்",
+"Reset gamepad controls for this 3D session?": "இந்த 3D அமர்வின் கேம்பேட் கட்டுப்பாடுகளை மீட்டமைக்கவா?",
+"Restore defaults": "இயல்புநிலையை மீட்டமை",
+"Change a gamepad control": "ஒரு கேம்பேட் கட்டுப்பாட்டை மாற்றவும்",
+"Choose a new input": "புதிய உள்ளீட்டைத் தேர்ந்தெடுக்கவும்",
+"Disable this input": "இந்த உள்ளீட்டை முடக்கவும்",
+"Choose a gamepad input": "கேம்பேட் உள்ளீட்டைத் தேர்ந்தெடுக்கவும்",
+"Release all controls, move one stick axis, then release it. Escape cancels.": "எல்லா கட்டுப்பாடுகளையும் விடுங்கள், ஒரு ஸ்டிக்கின் ஒரு அச்சை நகர்த்தி, பின் விடுங்கள். Esc ரத்து செய்யும்.",
+"Release all controls, press one button, then release it. Escape cancels.": "எல்லா கட்டுப்பாடுகளையும் விடுங்கள், ஒரு பொத்தானை அழுத்தி, பின் விடுங்கள். Esc ரத்து செய்யும்.",
+"Choose another gamepad input": "வேறு கேம்பேட் உள்ளீட்டைத் தேர்ந்தெடுக்கவும்",
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "அந்த உள்ளீடு ஏற்கனவே ஒரே நேரத்தில் பயன்படும் ஒரு செயலுக்கு ஒதுக்கப்பட்டுள்ளது. வேறு உள்ளீட்டைத் தேர்ந்தெடுக்கவும் அல்லது முதலில் அதன் மற்ற செயலை முடக்கவும்."
 },
 "templates": [
 [
@@ -5903,6 +5934,42 @@ window.OTR_I18N.ta = {
 [
 "The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
 "வலது இண்டிகேட்டர் இயங்குகிறது. நகரும் முன் குறைந்தது மூன்று விநாடிகள் சிக்னல் போடுங்கள். அணைக்க {0} அழுத்துங்கள்."
+],
+[
+"Axis {0}",
+"அச்சு {0}"
+],
+[
+"Button {0}",
+"பொத்தான் {0}"
+],
+[
+"Use {0} and {1} to walk. Use {2} and {3} to look.",
+"நடக்க {0}, {1} பயன்படுத்தவும். பார்க்க {2}, {3} பயன்படுத்தவும்."
+],
+[
+"Use {0} to steer, {1} to accelerate and {2} to brake. Use {3} to change between drive and reverse while stopped.",
+"திருப்ப {0}, வேகம் கூட்ட {1}, பிரேக் இட {2} பயன்படுத்தவும். நின்றிருக்கும்போது டிரைவ், ரிவர்ஸ் இடையே மாற்ற {3} பயன்படுத்தவும்."
+],
+[
+"Use {0} for the seatbelt and {1} for the parking brake. Use {2} and {3} for the signals.",
+"சீட்பெல்ட்டுக்கு {0}, பார்க்கிங் பிரேக்குக்கு {1} பயன்படுத்தவும். இண்டிகேட்டர்களுக்கு {2}, {3} பயன்படுத்தவும்."
+],
+[
+"Use {0} to choose or interact and {1} to go back. Use {2} for the handheld. Hold the interact button to scan while aiming.",
+"தேர்ந்தெடுக்க அல்லது இடைவினை செய்ய {0}, பின் செல்ல {1} பயன்படுத்தவும். ஹேண்ட்ஹெல்ட்டுக்கு {2} பயன்படுத்தவும். குறிவைக்கும்போது ஸ்கேன் செய்ய இடைவினை பொத்தானை அழுத்திப் பிடிக்கவும்."
+],
+[
+"Press a gamepad button to connect, then release all controls. Use {0} and {1} to choose menu options. Keyboard and mouse controls remain available.",
+"இணைக்க ஒரு கேம்பேட் பொத்தானை அழுத்தி, பின் எல்லா கட்டுப்பாடுகளையும் விடுங்கள். மெனு தேர்வுகளுக்கு {0}, {1} பயன்படுத்தவும். விசைப்பலகையும் சுட்டியும் தொடர்ந்து வேலை செய்யும்."
+],
+[
+"Ignore stick movement below {0} percent. Choose a higher value if the view or steering moves while the stick is released.",
+"{0} சதவீதத்துக்குக் குறைவான ஸ்டிக் அசைவைப் புறக்கணிக்கவும். ஸ்டிக் விடப்பட்டிருக்கும்போதும் காட்சி அல்லது ஸ்டீயரிங் நகர்ந்தால் அதிக மதிப்பைத் தேர்ந்தெடுக்கவும்."
+],
+[
+"Ignore movement below {0} percent.",
+"{0} சதவீதத்துக்குக் குறைவான அசைவைப் புறக்கணிக்கவும்."
 ]
 ],
 "keep": [

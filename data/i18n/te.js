@@ -4085,7 +4085,38 @@ window.OTR_I18N.te = {
 "Pause the replay.": "రీప్లేను ఆపండి.",
 "You signaled for at least three seconds before moving.": "కదిలే ముందు మీరు కనీసం మూడు సెకన్లు సిగ్నల్ ఇచ్చారు.",
 "You moved without signaling in the correct direction for three seconds.": "సరైన దిశలో మూడు సెకన్లు సిగ్నల్ ఇవ్వకుండానే మీరు కదిలారు.",
-"cab habit: signal, mirror, belt or lights": "క్యాబ్ అలవాటు: సిగ్నల్, అద్దం, సీట్‌బెల్ట్ లేదా హెడ్‌లైట్లు"
+"cab habit: signal, mirror, belt or lights": "క్యాబ్ అలవాటు: సిగ్నల్, అద్దం, సీట్‌బెల్ట్ లేదా హెడ్‌లైట్లు",
+"Gamepad controls": "గేమ్‌ప్యాడ్ నియంత్రణలు",
+"Walk or steer left and right": "నడవండి లేదా ఎడమ-కుడికి తిప్పండి",
+"Walk forward and backward": "ముందుకు, వెనక్కి నడవండి",
+"Look left and right": "ఎడమ, కుడి చూడండి",
+"Look up and down": "పైకి, కిందకి చూడండి",
+"Accelerate": "వేగం పెంచండి",
+"Brake": "బ్రేక్ వేయండి",
+"Interact or scan": "ఇంటరాక్ట్ లేదా స్కాన్ చేయండి",
+"Set the parking brake": "పార్కింగ్ బ్రేక్ వేయండి",
+"Previous menu choice": "మెనూలో మునుపటి ఎంపిక",
+"Next menu choice": "మెనూలో తదుపరి ఎంపిక",
+"Disabled": "ఆఫ్",
+"Move and look with the gamepad.": "గేమ్‌ప్యాడ్‌తో కదలండి, చూడండి.",
+"Drive with the gamepad.": "గేమ్‌ప్యాడ్‌తో నడపండి.",
+"Use the cab controls.": "క్యాబిన్ నియంత్రణలు ఉపయోగించండి.",
+"Use menus and the handheld.": "మెనూలు, హ్యాండ్‌హెల్డ్ ఉపయోగించండి.",
+"Connect a standard gamepad.": "సాధారణ గేమ్‌ప్యాడ్‌ను కనెక్ట్ చేయండి.",
+"Change gamepad controls": "గేమ్‌ప్యాడ్ నియంత్రణలు మార్చండి",
+"Changes apply to this 3D session. Keyboard controls stay the same.": "మార్పులు ఈ 3D సెషన్‌కు మాత్రమే వర్తిస్తాయి. కీబోర్డ్ నియంత్రణలు అలాగే ఉంటాయి.",
+"Stick sensitivity": "స్టిక్ సున్నితత్వం",
+"Restore default gamepad controls": "గేమ్‌ప్యాడ్ డిఫాల్ట్ నియంత్రణలను పునరుద్ధరించండి",
+"Reset gamepad controls for this 3D session?": "ఈ 3D సెషన్ గేమ్‌ప్యాడ్ నియంత్రణలను రీసెట్ చేయాలా?",
+"Restore defaults": "డిఫాల్ట్‌లను పునరుద్ధరించండి",
+"Change a gamepad control": "గేమ్‌ప్యాడ్ నియంత్రణను మార్చండి",
+"Choose a new input": "కొత్త ఇన్‌పుట్ ఎంచుకోండి",
+"Disable this input": "ఈ ఇన్‌పుట్‌ను ఆఫ్ చేయండి",
+"Choose a gamepad input": "గేమ్‌ప్యాడ్ ఇన్‌పుట్ ఎంచుకోండి",
+"Release all controls, move one stick axis, then release it. Escape cancels.": "అన్ని నియంత్రణలు వదిలి, ఒక స్టిక్ అక్షాన్ని కదిపి, తర్వాత వదలండి. Esc రద్దు చేస్తుంది.",
+"Release all controls, press one button, then release it. Escape cancels.": "అన్ని నియంత్రణలు వదిలి, ఒక బటన్ నొక్కి, తర్వాత వదలండి. Esc రద్దు చేస్తుంది.",
+"Choose another gamepad input": "మరో గేమ్‌ప్యాడ్ ఇన్‌పుట్ ఎంచుకోండి",
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ఆ ఇన్‌పుట్ ఇప్పటికే ఒకే సమయంలో వాడే చర్యకు కేటాయించబడింది. మరో ఇన్‌పుట్ ఎంచుకోండి లేదా ముందుగా దాని ఇతర చర్యను ఆఫ్ చేయండి."
 },
 "templates": [
 [
@@ -5903,6 +5934,42 @@ window.OTR_I18N.te = {
 [
 "The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
 "కుడి ఇండికేటర్ ఆన్‌లో ఉంది. కదిలే ముందు కనీసం మూడు సెకన్లు సిగ్నల్ ఇవ్వండి. ఆపడానికి {0} నొక్కండి."
+],
+[
+"Axis {0}",
+"అక్షం {0}"
+],
+[
+"Button {0}",
+"బటన్ {0}"
+],
+[
+"Use {0} and {1} to walk. Use {2} and {3} to look.",
+"నడవడానికి {0}, {1} ఉపయోగించండి. చూడడానికి {2}, {3} ఉపయోగించండి."
+],
+[
+"Use {0} to steer, {1} to accelerate and {2} to brake. Use {3} to change between drive and reverse while stopped.",
+"తిప్పడానికి {0}, వేగం పెంచడానికి {1}, బ్రేక్‌కు {2} ఉపయోగించండి. ఆగి ఉన్నప్పుడు డ్రైవ్, రివర్స్ మధ్య మార్చడానికి {3} ఉపయోగించండి."
+],
+[
+"Use {0} for the seatbelt and {1} for the parking brake. Use {2} and {3} for the signals.",
+"సీట్‌బెల్ట్‌కు {0}, పార్కింగ్ బ్రేక్‌కు {1} ఉపయోగించండి. ఇండికేటర్లకు {2}, {3} ఉపయోగించండి."
+],
+[
+"Use {0} to choose or interact and {1} to go back. Use {2} for the handheld. Hold the interact button to scan while aiming.",
+"ఎంచుకోవడానికి లేదా ఇంటరాక్ట్ చేయడానికి {0}, వెనక్కి వెళ్లడానికి {1} ఉపయోగించండి. హ్యాండ్‌హెల్డ్‌కు {2} ఉపయోగించండి. గురి పెట్టి స్కాన్ చేయడానికి ఇంటరాక్ట్ బటన్‌ను నొక్కి ఉంచండి."
+],
+[
+"Press a gamepad button to connect, then release all controls. Use {0} and {1} to choose menu options. Keyboard and mouse controls remain available.",
+"కనెక్ట్ చేయడానికి గేమ్‌ప్యాడ్ బటన్ నొక్కి, తర్వాత అన్ని నియంత్రణలు వదలండి. మెనూ ఎంపికలకు {0}, {1} ఉపయోగించండి. కీబోర్డ్, మౌస్ కూడా పనిచేస్తాయి."
+],
+[
+"Ignore stick movement below {0} percent. Choose a higher value if the view or steering moves while the stick is released.",
+"{0} శాతం కంటే తక్కువ స్టిక్ కదలికను పట్టించుకోవద్దు. స్టిక్ వదిలినా దృశ్యం లేదా స్టీరింగ్ కదిలితే ఎక్కువ విలువ ఎంచుకోండి."
+],
+[
+"Ignore movement below {0} percent.",
+"{0} శాతం కంటే తక్కువ కదలికను పట్టించుకోవద్దు."
 ]
 ],
 "keep": [

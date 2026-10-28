@@ -4085,7 +4085,38 @@ window.OTR_I18N.ml = {
 "Pause the replay.": "റീപ്ലേ താൽക്കാലികമായി നിർത്തുക.",
 "You signaled for at least three seconds before moving.": "നീങ്ങും മുമ്പ് നിങ്ങൾ കുറഞ്ഞത് മൂന്ന് സെക്കൻഡ് സിഗ്നൽ ഇട്ടു.",
 "You moved without signaling in the correct direction for three seconds.": "ശരിയായ ദിശയിൽ മൂന്ന് സെക്കൻഡ് സിഗ്നൽ ഇടാതെ നിങ്ങൾ നീങ്ങി.",
-"cab habit: signal, mirror, belt or lights": "ക്യാബ് ശീലം: സിഗ്നൽ, കണ്ണാടി, സീറ്റ്ബെൽറ്റ് അല്ലെങ്കിൽ ഹെഡ്‌ലൈറ്റുകൾ"
+"cab habit: signal, mirror, belt or lights": "ക്യാബ് ശീലം: സിഗ്നൽ, കണ്ണാടി, സീറ്റ്ബെൽറ്റ് അല്ലെങ്കിൽ ഹെഡ്‌ലൈറ്റുകൾ",
+"Gamepad controls": "ഗെയിംപാഡ് നിയന്ത്രണങ്ങൾ",
+"Walk or steer left and right": "നടക്കുക അല്ലെങ്കിൽ ഇടത്തോട്ടും വലത്തോട്ടും തിരിക്കുക",
+"Walk forward and backward": "മുന്നോട്ടും പിന്നോട്ടും നടക്കുക",
+"Look left and right": "ഇടത്തോട്ടും വലത്തോട്ടും നോക്കുക",
+"Look up and down": "മുകളിലേക്കും താഴേക്കും നോക്കുക",
+"Accelerate": "വേഗം കൂട്ടുക",
+"Brake": "ബ്രേക്ക് ചെയ്യുക",
+"Interact or scan": "ഇന്ററാക്ട് അല്ലെങ്കിൽ സ്കാൻ ചെയ്യുക",
+"Set the parking brake": "പാർക്കിംഗ് ബ്രേക്ക് ഇടുക",
+"Previous menu choice": "മെനുവിലെ മുൻ തിരഞ്ഞെടുപ്പ്",
+"Next menu choice": "മെനുവിലെ അടുത്ത തിരഞ്ഞെടുപ്പ്",
+"Disabled": "ഓഫ്",
+"Move and look with the gamepad.": "ഗെയിംപാഡ് കൊണ്ട് നീങ്ങുകയും നോക്കുകയും ചെയ്യുക.",
+"Drive with the gamepad.": "ഗെയിംപാഡ് കൊണ്ട് ഓടിക്കുക.",
+"Use the cab controls.": "ക്യാബിൻ നിയന്ത്രണങ്ങൾ ഉപയോഗിക്കുക.",
+"Use menus and the handheld.": "മെനുകളും ഹാൻഡ്‌ഹെൽഡും ഉപയോഗിക്കുക.",
+"Connect a standard gamepad.": "ഒരു സാധാരണ ഗെയിംപാഡ് ബന്ധിപ്പിക്കുക.",
+"Change gamepad controls": "ഗെയിംപാഡ് നിയന്ത്രണങ്ങൾ മാറ്റുക",
+"Changes apply to this 3D session. Keyboard controls stay the same.": "മാറ്റങ്ങൾ ഈ 3D സെഷന് മാത്രം. കീബോർഡ് നിയന്ത്രണങ്ങൾ മാറില്ല.",
+"Stick sensitivity": "സ്റ്റിക്ക് സംവേദനക്ഷമത",
+"Restore default gamepad controls": "ഗെയിംപാഡിന്റെ സ്ഥിര നിയന്ത്രണങ്ങൾ പുനഃസ്ഥാപിക്കുക",
+"Reset gamepad controls for this 3D session?": "ഈ 3D സെഷനിലെ ഗെയിംപാഡ് നിയന്ത്രണങ്ങൾ പുനഃസജ്ജമാക്കണോ?",
+"Restore defaults": "സ്ഥിര ക്രമീകരണം പുനഃസ്ഥാപിക്കുക",
+"Change a gamepad control": "ഒരു ഗെയിംപാഡ് നിയന്ത്രണം മാറ്റുക",
+"Choose a new input": "പുതിയ ഇൻപുട്ട് തിരഞ്ഞെടുക്കുക",
+"Disable this input": "ഈ ഇൻപുട്ട് ഓഫാക്കുക",
+"Choose a gamepad input": "ഗെയിംപാഡ് ഇൻപുട്ട് തിരഞ്ഞെടുക്കുക",
+"Release all controls, move one stick axis, then release it. Escape cancels.": "എല്ലാ നിയന്ത്രണങ്ങളും വിടുക, ഒരു സ്റ്റിക്കിന്റെ ഒരു അക്ഷം നീക്കുക, പിന്നെ വിടുക. Esc റദ്ദാക്കും.",
+"Release all controls, press one button, then release it. Escape cancels.": "എല്ലാ നിയന്ത്രണങ്ങളും വിടുക, ഒരു ബട്ടൺ അമർത്തുക, പിന്നെ വിടുക. Esc റദ്ദാക്കും.",
+"Choose another gamepad input": "മറ്റൊരു ഗെയിംപാഡ് ഇൻപുട്ട് തിരഞ്ഞെടുക്കുക",
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "ആ ഇൻപുട്ട് ഇതിനകം ഒരേ സമയം ഉപയോഗിക്കുന്ന ഒരു പ്രവർത്തനത്തിന് നൽകിയിട്ടുണ്ട്. മറ്റൊരു ഇൻപുട്ട് തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ ആദ്യം അതിന്റെ മറ്റേ പ്രവർത്തനം ഓഫാക്കുക."
 },
 "templates": [
 [
@@ -5903,6 +5934,42 @@ window.OTR_I18N.ml = {
 [
 "The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
 "വലത് ഇൻഡിക്കേറ്റർ ഓണാണ്. നീങ്ങും മുമ്പ് കുറഞ്ഞത് മൂന്ന് സെക്കൻഡ് സിഗ്നൽ ഇടുക. ഓഫാക്കാൻ {0} അമർത്തുക."
+],
+[
+"Axis {0}",
+"അക്ഷം {0}"
+],
+[
+"Button {0}",
+"ബട്ടൺ {0}"
+],
+[
+"Use {0} and {1} to walk. Use {2} and {3} to look.",
+"നടക്കാൻ {0}, {1} ഉപയോഗിക്കുക. നോക്കാൻ {2}, {3} ഉപയോഗിക്കുക."
+],
+[
+"Use {0} to steer, {1} to accelerate and {2} to brake. Use {3} to change between drive and reverse while stopped.",
+"തിരിക്കാൻ {0}, വേഗം കൂട്ടാൻ {1}, ബ്രേക്കിന് {2} ഉപയോഗിക്കുക. നിർത്തിയിരിക്കുമ്പോൾ ഡ്രൈവിനും റിവേഴ്സിനും ഇടയിൽ മാറാൻ {3} ഉപയോഗിക്കുക."
+],
+[
+"Use {0} for the seatbelt and {1} for the parking brake. Use {2} and {3} for the signals.",
+"സീറ്റ്ബെൽറ്റിന് {0}, പാർക്കിംഗ് ബ്രേക്കിന് {1} ഉപയോഗിക്കുക. ഇൻഡിക്കേറ്ററുകൾക്ക് {2}, {3} ഉപയോഗിക്കുക."
+],
+[
+"Use {0} to choose or interact and {1} to go back. Use {2} for the handheld. Hold the interact button to scan while aiming.",
+"തിരഞ്ഞെടുക്കാനോ ഇന്ററാക്ട് ചെയ്യാനോ {0}, തിരികെ പോകാൻ {1} ഉപയോഗിക്കുക. ഹാൻഡ്‌ഹെൽഡിന് {2} ഉപയോഗിക്കുക. ഉന്നം വയ്ക്കുമ്പോൾ സ്കാൻ ചെയ്യാൻ ഇന്ററാക്ട് ബട്ടൺ അമർത്തിപ്പിടിക്കുക."
+],
+[
+"Press a gamepad button to connect, then release all controls. Use {0} and {1} to choose menu options. Keyboard and mouse controls remain available.",
+"ബന്ധിപ്പിക്കാൻ ഒരു ഗെയിംപാഡ് ബട്ടൺ അമർത്തി, പിന്നെ എല്ലാ നിയന്ത്രണങ്ങളും വിടുക. മെനു ഓപ്ഷനുകൾക്ക് {0}, {1} ഉപയോഗിക്കുക. കീബോർഡും മൗസും തുടർന്നും പ്രവർത്തിക്കും."
+],
+[
+"Ignore stick movement below {0} percent. Choose a higher value if the view or steering moves while the stick is released.",
+"{0} ശതമാനത്തിൽ താഴെയുള്ള സ്റ്റിക്ക് ചലനം അവഗണിക്കുക. സ്റ്റിക്ക് വിട്ടിരിക്കുമ്പോഴും കാഴ്ചയോ സ്റ്റിയറിംഗോ നീങ്ങുന്നെങ്കിൽ ഉയർന്ന മൂല്യം തിരഞ്ഞെടുക്കുക."
+],
+[
+"Ignore movement below {0} percent.",
+"{0} ശതമാനത്തിൽ താഴെയുള്ള ചലനം അവഗണിക്കുക."
 ]
 ],
 "keep": [

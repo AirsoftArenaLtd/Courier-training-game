@@ -4085,7 +4085,38 @@ window.OTR_I18N.gu = {
 "Pause the replay.": "રિપ્લે થોભાવો.",
 "You signaled for at least three seconds before moving.": "આગળ વધતા પહેલાં તમે ઓછામાં ઓછું ત્રણ સેકન્ડ સિગ્નલ આપ્યું.",
 "You moved without signaling in the correct direction for three seconds.": "સાચી દિશામાં ત્રણ સેકન્ડ સિગ્નલ આપ્યા વગર તમે આગળ વધ્યા.",
-"cab habit: signal, mirror, belt or lights": "કેબની ટેવ: સિગ્નલ, અરીસો, સીટબેલ્ટ કે હેડલાઇટ"
+"cab habit: signal, mirror, belt or lights": "કેબની ટેવ: સિગ્નલ, અરીસો, સીટબેલ્ટ કે હેડલાઇટ",
+"Gamepad controls": "ગેમપૅડ નિયંત્રણો",
+"Walk or steer left and right": "ચાલો અથવા ડાબે-જમણે વાળો",
+"Walk forward and backward": "આગળ અને પાછળ ચાલો",
+"Look left and right": "ડાબે અને જમણે જુઓ",
+"Look up and down": "ઉપર અને નીચે જુઓ",
+"Accelerate": "ઝડપ વધારો",
+"Brake": "બ્રેક મારો",
+"Interact or scan": "ઇન્ટરૅક્ટ અથવા સ્કેન કરો",
+"Set the parking brake": "પાર્કિંગ બ્રેક લગાવો",
+"Previous menu choice": "મેનૂનો પાછલો વિકલ્પ",
+"Next menu choice": "મેનૂનો આગલો વિકલ્પ",
+"Disabled": "બંધ",
+"Move and look with the gamepad.": "ગેમપૅડથી ચાલો અને જુઓ.",
+"Drive with the gamepad.": "ગેમપૅડથી ગાડી ચલાવો.",
+"Use the cab controls.": "કેબિનના નિયંત્રણો વાપરો.",
+"Use menus and the handheld.": "મેનૂ અને હૅન્ડહેલ્ડ વાપરો.",
+"Connect a standard gamepad.": "એક સામાન્ય ગેમપૅડ જોડો.",
+"Change gamepad controls": "ગેમપૅડ નિયંત્રણો બદલો",
+"Changes apply to this 3D session. Keyboard controls stay the same.": "ફેરફારો ફક્ત આ 3D સત્રને લાગુ પડે છે. કીબોર્ડ નિયંત્રણો એ જ રહે છે.",
+"Stick sensitivity": "સ્ટિકની સંવેદનશીલતા",
+"Restore default gamepad controls": "ગેમપૅડના મૂળ નિયંત્રણો પાછા લાવો",
+"Reset gamepad controls for this 3D session?": "આ 3D સત્ર માટે ગેમપૅડ નિયંત્રણો રીસેટ કરવા છે?",
+"Restore defaults": "મૂળ સેટિંગ પાછી લાવો",
+"Change a gamepad control": "ગેમપૅડનું એક નિયંત્રણ બદલો",
+"Choose a new input": "નવું ઇનપુટ પસંદ કરો",
+"Disable this input": "આ ઇનપુટ બંધ કરો",
+"Choose a gamepad input": "ગેમપૅડ ઇનપુટ પસંદ કરો",
+"Release all controls, move one stick axis, then release it. Escape cancels.": "બધા નિયંત્રણો છોડો, એક સ્ટિકની એક ધરી હલાવો, પછી છોડો. Esc રદ કરે છે.",
+"Release all controls, press one button, then release it. Escape cancels.": "બધા નિયંત્રણો છોડો, એક બટન દબાવો, પછી છોડો. Esc રદ કરે છે.",
+"Choose another gamepad input": "ગેમપૅડનું બીજું ઇનપુટ પસંદ કરો",
+"That input is already assigned to an action used at the same time. Choose another input or disable its other action first.": "આ ઇનપુટ પહેલેથી એક જ સમયે વપરાતી ક્રિયાને સોંપાયેલું છે. બીજું ઇનપુટ પસંદ કરો અથવા પહેલાં તેની બીજી ક્રિયા બંધ કરો."
 },
 "templates": [
 [
@@ -5903,6 +5934,42 @@ window.OTR_I18N.gu = {
 [
 "The right signal is on. Signal for at least three seconds before moving. Press {0} to cancel it.",
 "જમણો ઇન્ડિકેટર ચાલુ છે. આગળ વધતા પહેલાં ઓછામાં ઓછું ત્રણ સેકન્ડ સિગ્નલ આપો. બંધ કરવા {0} દબાવો."
+],
+[
+"Axis {0}",
+"ધરી {0}"
+],
+[
+"Button {0}",
+"બટન {0}"
+],
+[
+"Use {0} and {1} to walk. Use {2} and {3} to look.",
+"ચાલવા માટે {0} અને {1} વાપરો. જોવા માટે {2} અને {3} વાપરો."
+],
+[
+"Use {0} to steer, {1} to accelerate and {2} to brake. Use {3} to change between drive and reverse while stopped.",
+"વાળવા માટે {0}, ઝડપ વધારવા {1} અને બ્રેક માટે {2} વાપરો. ઊભા હો ત્યારે ડ્રાઇવ અને રિવર્સ વચ્ચે બદલવા {3} વાપરો."
+],
+[
+"Use {0} for the seatbelt and {1} for the parking brake. Use {2} and {3} for the signals.",
+"સીટબેલ્ટ માટે {0} અને પાર્કિંગ બ્રેક માટે {1} વાપરો. ઇન્ડિકેટર માટે {2} અને {3} વાપરો."
+],
+[
+"Use {0} to choose or interact and {1} to go back. Use {2} for the handheld. Hold the interact button to scan while aiming.",
+"પસંદ કરવા અથવા ઇન્ટરૅક્ટ કરવા {0} અને પાછા જવા {1} વાપરો. હૅન્ડહેલ્ડ માટે {2} વાપરો. નિશાન તાકતી વખતે સ્કેન કરવા ઇન્ટરૅક્ટ બટન દબાવી રાખો."
+],
+[
+"Press a gamepad button to connect, then release all controls. Use {0} and {1} to choose menu options. Keyboard and mouse controls remain available.",
+"જોડવા માટે ગેમપૅડનું એક બટન દબાવો, પછી બધા નિયંત્રણો છોડો. મેનૂના વિકલ્પો પસંદ કરવા {0} અને {1} વાપરો. કીબોર્ડ અને માઉસ પણ ચાલુ રહે છે."
+],
+[
+"Ignore stick movement below {0} percent. Choose a higher value if the view or steering moves while the stick is released.",
+"{0} ટકાથી ઓછી સ્ટિકની હલચલ અવગણો. સ્ટિક છોડેલી હોય ત્યારે પણ દૃશ્ય કે સ્ટીયરિંગ હલે તો મોટું મૂલ્ય પસંદ કરો."
+],
+[
+"Ignore movement below {0} percent.",
+"{0} ટકાથી ઓછી હલચલ અવગણો."
 ]
 ],
 "keep": [
