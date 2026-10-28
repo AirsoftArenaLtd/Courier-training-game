@@ -1,4 +1,4 @@
-/* Unloaded blocked-drive model. Registration, physical fixtures and UI follow after closure validation. */
+/* Physical blocked-drive model. Registration, physical fixtures and UI follow after closure validation. */
 window.OTR=window.OTR||{};
 OTR.fpProblemBlocked={
   model({unsafe=true,locked=false}={}){

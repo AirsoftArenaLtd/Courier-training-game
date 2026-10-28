@@ -1,0 +1,62 @@
+{
+  "scope": "Actual shared-world rays, mounted sign batches, card visibility, and affected CPU regressions; no native acceptance claim.",
+  "sourceBase": "e23b59e313f21ccf482144d294472194a86e5296",
+  "sources": {
+    "index.html": "0e8e0c19f84274802c1b8f17c9bb4c9ef0933ab6d5ed53388b293c2a610ded86",
+    "src/core/fpaccess.js": "0b102f115d9bd23a5b34933af1507d10ae25c297e45202ff7ee0f2273b90114d",
+    "src/core/fpproblemblocked.js": "4f8b8e7bb86007430a56052329abff6e609c502e1b7a937bb7a6a2130ea52ac1",
+    "src/core/fpproblemblockedworld.js": "1d3b17153961cec7e326f07015c306872f018ca0c13dcae997e3e94f19529af3",
+    "src/core/fpsignlettering.js": "e7d7f9bd0ef16f15974b53f824889894e04bfa81523088414f7f629f99d6fc35",
+    "src/core/fpsigns.js": "964b52c114f2dd1f695657f3c546459da60b0b4dfdb0afd0afe9017b9d193e93",
+    "src/core/fpworld.js": "50d65700d3298ed9a4a1e79228e76eb62e6b96e2181cc821e4b6b8a219b46c31",
+    "src/scenes/FirstPersonScenarioScene.js": "909ee6b19e21142e2018e45a866e01930f9e519c3974f79f2a8547af79ea2eff",
+    "src/scenes/FirstPersonScene.js": "a93289e50c74f79763933f5a942a5edc737ef27cf460fe72d2c3b9a207ebde62",
+    "test/tools/fp-problem-blocked-context.js": "1491b74cd7c65ba4d2130d8268aa22b398cefaf04560cb76aafe41dfe49b563c"
+  },
+  "suites": [
+    {
+      "file": "test/fpproblemblockedworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemblocked.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemblockedcomponents.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpsigns.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpsignlettering.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0
+    }
+  ],
+  "syntax": [
+    "src/core/fpaccess.js",
+    "src/core/fpproblemblocked.js",
+    "src/core/fpproblemblockedworld.js",
+    "src/core/fpsignlettering.js",
+    "src/core/fpsigns.js",
+    "src/core/fpworld.js",
+    "src/scenes/FirstPersonScenarioScene.js",
+    "src/scenes/FirstPersonScene.js",
+    "test/tools/fp-problem-blocked-context.js",
+    "test/fpproblemblockedworld.js"
+  ]
+}

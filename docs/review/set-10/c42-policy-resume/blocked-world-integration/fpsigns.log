@@ -1,0 +1,32 @@
+✔ signs are derived without changing the mission or its checkpoint (9.996699ms)
+✔ both actual street names appear at every junction after the rotated projection (2.554681ms)
+✔ all four approach signs sit on the right and before their existing stop line (2.634181ms)
+✔ all delivered addresses keep their generated number and actual facade position (112.546092ms)
+✔ later restrictions stay off day one and match their peripheral road segment (4.026389ms)
+✔ Low shares one two-triangle surface and chooses at most five instances in any view (10.024236ms)
+✔ posts stay off every driving lane, including the cross streets at junctions (24.854827ms)
+✔ new signed stops replace the legacy report and older checkpoints retain their type (5.846894ms)
+✔ signed speed and school checks cannot also emit the old speed type; violations survive resume (3.919008ms)
+✔ speed credit waits until the day ends, so an earlier safe leg cannot mask a later violation (3.524152ms)
+✔ no-entry and mid-segment wrong-way mistakes each produce one distinct penalty (2.697806ms)
+✔ depot departure grades available traffic space once (2.498497ms)
+✔ both lanes may travel east on the signed one-way segment without consuming a later lane check (2.857798ms)
+✔ a seen road closure accepts a real detour and rejects contact with its barrier (3.512314ms)
+✔ the signed route marker is validated and restoring a signed day emits nothing (2.17545ms)
+✔ a physical closure collision replaces the generic contact report only on a new signed day (5.737198ms)
+✔ keyboard reading still reaches a visible physical sign when a long label cannot fit (0.178669ms)
+✔ sign shader composition retains existing road-grain and material hooks (0.515457ms)
+✔ the depot give-way face points toward the loading-bay approach (1.059737ms)
+✔ long sign sentences stay readable beside real signal, mirror and navigation bounds (0.283898ms)
+✔ projected sign placement clamps edge labels and rejects a fully blocked screen (0.188644ms)
+✔ a tall sentence uses the clear top margin when its natural anchor would clip (0.09991ms)
+✔ cab sign sentences respect the working dashboard boundary (0.074553ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 215.972693
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

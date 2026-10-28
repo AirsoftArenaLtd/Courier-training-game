@@ -119,6 +119,8 @@ OTR.fpAccess={
     if(id.startsWith('customer-stop-parcel-'))return 'the parcel at this target';
     if(id.startsWith('customer-stop-'))return {'customer-stop-door':'the front door','customer-stop-person':'the person at the door','customer-stop-number':'the mounted house number','customer-stop-trolley':'the hand truck'}[id]||'the nearby doorstep target';
     if(id==='customer-conversation')return 'the nearby conversation point';
+    if(id==='blocked-card')return 'the delivery-card holder';
+    if(id==='blocked-warning')return 'the driveway access notice';
     const m=scene.model;if(id.startsWith('parcel')){const p=m&&m.parcel(id);return p?p.address:'the parcel';}
     if(id.startsWith('door'))return m.stop(id.slice(4)).address;
     if(id.startsWith('visit'))return OTR.fpStopScene.name(m,Number(id.slice(5)));

@@ -77,10 +77,13 @@ OTR.fpSigns = {
     if(m.routePlan.day>=3&&this.enabled(m)){const z=m.town.zs[0],from=m.town.xs[1],to=m.town.xs[2];
       regulatory.push({id:'oneway:edge',kind:'oneway',x:from+half+1,z:z-half-.7,yaw:0,from,to,roadZ:z,street:source.spec.streetsV[0]});
       regulatory.push({id:'noentry:edge',kind:'noentry',x:to-half-1,z:z-half-.7,yaw:-Math.PI/2,from,to,roadZ:z});}
+    if(m.blockedProblem&&OTR.fpProblemBlockedWorld)regulatory.push(...OTR.fpProblemBlockedWorld.signs(m));
     return { streets, stops, numbers, regulatory, limit: m.town.limit, schoolLimit: m.town.schoolLimit,
       school: { from: project(source.vx[school.from], source.hy[school.row]), to: project(source.vx[school.to], source.hy[school.row]) } };
   },
   text(s){
+    if(s.kind==='blocked-access')return s.access==='unsafe'?'The driveway is unsafe. Keep the parcel and record exception UN.':s.access==='locked'?'The site is locked. Keep the parcel and record exception AC.':'The driveway is blocked. Park legally and inspect the public approach.';
+    if(s.kind==='attempt-card')return 'Leave the delivery attempt card in the holder at the public edge.';
     if(s.kind==='signal')return OTR.fpTraffic.signalText(s.aspect||'red');
     if(s.kind==='junction-yield')return 'Give way to traffic before entering the junction.';
     if(s.kind==='street')return `This is ${s.name}.`;
@@ -93,7 +96,7 @@ OTR.fpSigns = {
   build(scene,m,route,add){
     const catalog=this.catalog(m);if(!catalog)return null;
     const T=THREE,entries=[],o=new T.Object3D(),sphere=new T.Sphere(),choices=Array(24).fill(null),distances=new Float64Array(24),high=OTR.gfx.high();
-    const shapes={street:1,stop:2,giveway:3,'junction-yield':3,speed:4,school:5,roadworks:6,oneway:7,noentry:8,number:9,signal:10};
+    const shapes={street:1,stop:2,giveway:3,'junction-yield':3,speed:4,school:5,roadworks:6,oneway:7,noentry:8,number:9,signal:10,'blocked-access':6,'attempt-card':4};
     for(const sign of [...catalog.stops,...catalog.regulatory,...catalog.streets,...catalog.numbers]){
       if(sign.kind==='priority')continue;
       const number=sign.kind==='number',street=sign.kind==='street',yaw=number?-sign.side*Math.PI/2:street?(sign.axis==='x'?Math.PI/2:0): -sign.yaw;
@@ -101,7 +104,7 @@ OTR.fpSigns = {
       o.position.set(sign.x,y,sign.z);o.rotation.set(Math.PI/2,yaw,0,'YXZ');o.scale.set(w,1,h);o.updateMatrix();
       const local=new T.Vector3(sign.x,number?y:h-.32,sign.z),normal=new T.Vector3(Math.sin(yaw),0,Math.cos(yaw));local.addScaledVector(normal,.025);
       const label={parent:route,local,normal,point:new T.Vector3(),max:32,text:this.text(sign)};
-      const colour=number?0xE8E5DC:street?0x185950:sign.kind==='stop'||sign.kind==='noentry'?0xB42E37:sign.kind==='school'||sign.kind==='roadworks'?0xE7B541:0xF2EEE3;
+      const colour=number?0xE8E5DC:street?0x185950:sign.kind==='stop'||sign.kind==='noentry'?0xB42E37:sign.kind==='school'||sign.kind==='roadworks'||sign.kind==='blocked-access'?0xE7B541:0xF2EEE3;
       const radius=Math.hypot(w,h)/2,entry={matrix:o.matrix.clone(),color:new T.Color(colour),hex:colour,flat:true,bounded:true,sign,shape:shapes[sign.kind],label,normal,signChosen:false,mainVisible:false,x:sign.x,z:sign.z,y,radius,sphere:new T.Sphere(new T.Vector3(sign.x,y,sign.z),radius)};entries.push(entry);add(entry);
     }
     return {catalog,entries,limit:high?24:5,choices,

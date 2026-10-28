@@ -1,4 +1,4 @@
-/* Unloaded physical fixtures. Boxes join the existing world batches; signs use its mounted-lettering batch. */
+/* Physical blocked-drive fixtures. Boxes join the existing world batches; signs use its mounted-lettering batch. */
 window.OTR=window.OTR||{};
 OTR.fpProblemBlockedWorld={
   signs(m){

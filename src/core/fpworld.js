@@ -170,7 +170,7 @@ OTR.fpWorld = {
       stopDoors[i]=box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i);
       const delivery=base._deliverySpecs&&base._deliverySpecs[i].protocol;
       if(!delivery||!['locker','reception'].includes(delivery.kind))box(route,s.x-side*0.6,0.4,s.z+1.7,0.65,0.8,0.75,base.routeDay&&base.routeDay.dispatch&&base.routeDay.dispatch.stop===i&&base.routeDay.dispatch.kind==='planter'?grassColour:0x927557);
-      labels.push({parent:route,point:new T.Vector3(s.x-side*0.15,3.2,s.z),text:s.address,address:true,max:30});
+      if(!base.blockedProblem)labels.push({parent:route,point:new T.Vector3(s.x-side*0.15,3.2,s.z),text:s.address,address:true,max:30});
     });
     if (!base.town&&!base.trainingArea) {
       box(route,6,1.2,-24,0.12,2.4,0.12,0x6E737B);
@@ -343,6 +343,7 @@ OTR.fpWorld = {
     const addRoutePlane=entry=>{
       let pool=batches.get(route);if(!pool){pool=new Map();batches.set(route,pool);}if(!pool.has('plane:all'))pool.set('plane:all',[]);pool.get('plane:all').push(entry);
     };
+    const blockedProblem=base.blockedProblem&&OTR.fpProblemBlockedWorld?OTR.fpProblemBlockedWorld.build(route,base,{box,interactions}):null;
     const signs=base.town&&OTR.fpSigns?OTR.fpSigns.build(scene,base,route,addRoutePlane):null;
     const trafficArt=OTR.fpTraffic?OTR.fpTraffic.art(base,addRoutePlane):null;
     const surfaces=OTR.fpMaterials?OTR.fpMaterials.build(scene,weather):null;
@@ -406,7 +407,7 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,pretripArt,hazardLessonArt,drivingLessonArt,lessonBayArt,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,packageLabels,packageSort,packageLift,customer,customerStop,
+    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,pretripArt,hazardLessonArt,drivingLessonArt,lessonBayArt,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,packageLabels,packageSort,packageLift,customer,customerStop,blockedProblem,
       dispose() {
         if(customer)customer.dispose();if(customerStop)customerStop.dispose();if(packageLabels)packageLabels.dispose();if(packageSort)packageSort.dispose();if(packageLift)packageLift.dispose();
         const geometries=new Set();if(pretripArt)pretripArt.dispose();if(hazardLessonArt)hazardLessonArt.dispose();if(drivingLessonArt)drivingLessonArt.dispose();if(lessonBayArt)lessonBayArt.dispose();if(ambient)ambient.dispose();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
@@ -513,6 +514,7 @@ OTR.fpWorld = {
         if(weatherParticles&&model&&!inHub)weatherParticles.sync(model,reduced);
         if(damage&&model&&!inHub)damage.sync(model);
         if(customerStop&&model&&!inHub)customerStop.liftCamera(camera,model);
+        if(blockedProblem&&model&&!inHub)blockedProblem.sync(model,camera,!!reduced);
         for(let i=0;i<walkaroundTargets.length;i++)walkaroundTargets[i].visible=!!model&&!inHub&&OTR.fpWalkaroundFlow.canInspect(model,OTR.fpWalkaroundFlow.targets[i].zone);
         if(pretripArt&&model)pretripArt.sync(model);
         if(hazardLessonArt&&model)hazardLessonArt.sync(model,reduced);
