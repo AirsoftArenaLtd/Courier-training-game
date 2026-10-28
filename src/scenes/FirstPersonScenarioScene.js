@@ -80,6 +80,7 @@ class FirstPersonScenarioScene extends FirstPersonScene {
     }
     return OTR.fpCab.hint(id,m,key);
   }
+  scenarioKey(code){const r=this.scenarioSession;return !!(r&&r.phase==='active'&&r.definition.key&&r.definition.key(r,this,code));}
   cabAction(id){
     const r=this.scenarioSession;if(!r||OTR.fpScenario.coaching(r)){super.cabAction(id);return;}
     // Selected gear and physical switch state remain available to narrated controls in assessments.
