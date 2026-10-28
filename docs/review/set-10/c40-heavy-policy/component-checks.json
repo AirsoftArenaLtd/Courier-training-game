@@ -38,5 +38,10 @@
     "suite": "test/fppackagelabels.js",
     "exit": 0,
     "cases": 6
+  },
+  {
+    "suite": "test/fppackageheavyscenario.js",
+    "exit": 0,
+    "cases": 3
   }
 ]
