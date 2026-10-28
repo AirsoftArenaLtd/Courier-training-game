@@ -1,0 +1,39 @@
+{
+  "sourceRevision": "abc4e7ea2868e659bae5ab1454a5b41e034f2d03",
+  "inputs": 558,
+  "artifacts": 28,
+  "resourceViews": 24,
+  "profiles": {
+    "heavy-budget-loaded-low": {
+      "calls": 35,
+      "triangles": 1160,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1857515
+    },
+    "heavy-budget-loaded-high": {
+      "calls": 37,
+      "triangles": 16290,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 5624326
+    },
+    "heavy-budget-accessible-low": {
+      "calls": 35,
+      "triangles": 1160,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2130390
+    },
+    "heavy-budget-fallback-low": {
+      "calls": 41,
+      "triangles": 1004,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1857515
+    }
+  },
+  "nativeRuntimeInputsIdentical": true,
+  "cleanup": true,
+  "intel60fpsCertified": false
+}
