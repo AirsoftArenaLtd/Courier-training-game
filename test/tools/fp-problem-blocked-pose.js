@@ -2,7 +2,8 @@
 module.exports=({name,stage})=>{
  if(stage==='launch'){
   if(!OTR.registry.get('m4-blocked'))OTR_DATA.modules.find(m=>m.id==='m4').scenarios.push({id:'m4-blocked',module:'m4',title:'Blocked driveway.',blurb:'Inspect access and complete a safe delivery attempt.',categories:['safety','service'],optional:true,scene3d:'blocked-drive',dataKey:'dialogues.m4_recover'});
-  OTR.fpScenario.definitions.get('blocked-drive').model=()=>OTR.fpProblemBlocked.model({unsafe:name!=='blockedgate',locked:name==='blockedgate'});
+  const definition=OTR.fpScenario.definitions.get('blocked-drive');
+  OTR.fpScenario.definitions.set('blocked-drive',Object.freeze({...definition,model:()=>OTR.fpProblemBlocked.model({unsafe:name!=='blockedgate',locked:name==='blockedgate'})}));
   OTR.game.scene.start('FirstPersonScenarioScene',{scenarioId:'m4-blocked'});OTR.game.scene.stop('FirstPersonScene');return;
  }
  const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=s.scenarioSession,m=s.model,b=m.blockedProblem;window.otrBenchmarkScene='FirstPersonScenarioScene';s.keyboardMode=true;OTR.fpScenario.begin(r);s.closePanel();

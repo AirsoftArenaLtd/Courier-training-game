@@ -1,0 +1,145 @@
+{
+  "base": "pilot 3678fba3 via C41 7d68ce44 and C38 555ce222; latest pilot 51e066b5 changes docs only",
+  "candidate": "5d0a2dbe174ccec479e785d9ab51675f4ec0bd80",
+  "priorTip": "52761d67 plus queued supersession fdcf7c10",
+  "backupBranch": "codex/c42-before-pilot-oct28",
+  "suites": [
+    {
+      "file": "test/fpjobrunner.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemblocked.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemblockedcomponents.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemblockedworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemfixtures.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemgeometry.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemprotocol.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemroute.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemrouteworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemstage.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemblockedfixture.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpsigns.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpsignlettering.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcustomerprotocol.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcustomerprotocolscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0
+    }
+  ],
+  "sources": {
+    "data/modules.js": "f3943d7729491cb2edfc81d1feac98897917ff2ae01efa4cdb4e00239fa21b7a",
+    "src/core/fpaccess.js": "d3a378fb6b2cb76bd49c3807c0ba25255c191a08e4f91a12e9f09f7ca78aaa08",
+    "src/core/fpcustomerscenario.js": "e164b4621bca1de8e6b934070f6ffb9edd2ee6dcdb4e80a794ac02476e943a29",
+    "src/core/fpcustomerworld.js": "d5e345b2086f31c0bf281d3f89c909403a4334cc484731fe48de70445f581e25",
+    "src/core/fpmountedwords.js": "256fa361dc895443ce08006832beaafb73781e43401ea000743310b3a9a02de9",
+    "src/core/fpproblemblocked.js": "4f8b8e7bb86007430a56052329abff6e609c502e1b7a937bb7a6a2130ea52ac1",
+    "src/core/fpproblemblockedui.js": "4121286da0996e6e07178d1b495f0f77b3c7a1d2e5ab290a11fac41681a5fa29",
+    "src/core/fpproblemblockedworld.js": "1d3b17153961cec7e326f07015c306872f018ca0c13dcae997e3e94f19529af3",
+    "src/core/fpproblemprotocol.js": "acf1bc8cc332e60aff7829490db3dc20564c2530c87c982c0a4cd50a36a780b4",
+    "src/core/fpproblemroute.js": "50a5850faa029df6b48141dda24faa6f957ba80b92c5629ce4233b7a7b58d5d5",
+    "src/core/fpproblemrouteui.js": "2c1ecd74c8b85172e4bc9cce146d9cbfd03ad90b2beb197cc988a6a6d5b5f9d4",
+    "src/core/fpproblemscenario.js": "e53ea666ad3280b260a22e3ac035914f181d63f9b26e5fec9182ed0508941179",
+    "src/core/fpproblemstage.js": "e7ba12a62421d988518c09d086426ee72e5c0b998adf972ba90296ac22e9362b",
+    "src/core/fpsignlettering.js": "e7d7f9bd0ef16f15974b53f824889894e04bfa81523088414f7f629f99d6fc35",
+    "src/core/fpsigns.js": "91823eac6eb58352b6cef89e9cb8564b1a41a324e62933e344961c5aa2fecac3",
+    "src/core/fpworld.js": "975918ade53bebf42865e0070933b3a59a1770d179d5fee234762642152711b1",
+    "src/scenes/FirstPersonScenarioScene.js": "909ee6b19e21142e2018e45a866e01930f9e519c3974f79f2a8547af79ea2eff",
+    "src/scenes/FirstPersonScene.js": "6c08c7c99fdd4ccf79c7715fd9b405398d77359f5b318a922c7c797afd7907b0",
+    "test/fpbench.js": "2ebd3073621312a95f9dc09faf08f2340cdeb32047cce1da1ef853806f1089b9",
+    "test/fpjobrunner.js": "4eed74b35a1c9da1013b2461a483d29efb081c9878bf8075024a496e93dc2f0f",
+    "test/fpproblemblocked.js": "fd7d1b8c4c99d0eefbc495bc813ef1073fe170a8a08708f8d07d1ed77f444722",
+    "test/fpproblemblockedbrowser.js": "becb561fe75b17ebad7e0bdd3898b9af6b949f89e90692872d4fb828743eb935",
+    "test/fpproblemblockedcomponents.js": "65c48371abaf8267d83a3e7ed667e53e6ef98ad06baee6fda6caba0d1f3949f0",
+    "test/fpproblemblockedworld.js": "928f21da851378c7f3eb8209d652c16aa674c883749968e13716f1549f8c7a28",
+    "test/fpproblembrowser.js": "76587508824a83a69f71bd2060dc6c321119dc7e3687c1e71a5aff7a68805851",
+    "test/fpproblemfixtures.js": "4a6f14ef622d429731032c88f6314debf678b33c2baebec0a41e978e7b4b5d7a",
+    "test/fpproblemgeometry.js": "3a92956dca8e087ba5937b9796711fb93561f49f0f8c54bf73489c93ee327d5a",
+    "test/fpproblemprotocol.js": "df9bdbe3d93cea68d758acaabf2d0408b101d1763efc97c59017d8e6d19bec80",
+    "test/fpproblemroute.js": "36ab926c11a8dc233f274bca40a6719aa84d96c747dbdba0ac7bd7cbfe0a7912",
+    "test/fpproblemroutebrowser.js": "2e7a78fa36b43c29f7b52f9bcd0b294b7330c94b436c9e688418edffc7e43e49",
+    "test/fpproblemrouteworld.js": "035bc13099ff36ec26d7615dfd3571d5b5bb45768e36c1c187b405392642652c",
+    "test/fpproblemscenario.js": "fe9f9e311dbffdaa39a9a1771c79a1d91c1b0d510e6f4ba129d7b4c56a3de42d",
+    "test/fpproblemstage.js": "50ed70f7ca268832e9ce735affee0277139884d7c5f7819e26d01592190856b7",
+    "test/fpproblemworld.js": "ce85dc0fd7b4be7f057667e99ac9d8e7b8941cf89221db515026bc8db008b190",
+    "test/tools/fp-problem-blocked-context.js": "1491b74cd7c65ba4d2130d8268aa22b398cefaf04560cb76aafe41dfe49b563c",
+    "test/tools/fp-problem-blocked-pose.js": "e47eb593ce711fb647ee297d18bc913ef81008b24f46ae0259b95afa9ad6f788",
+    "test/tools/fp-problem-blocked-quality.js": "d1a13f7358b69d6a2bd1110875ee4de9eb09c260119e43d0be3f462d92e41b2a",
+    "test/tools/fp-problem-context.js": "703a42fda984bb16e96e10c06cb1d39c61f38a32aaa285f27e6c7956c51a2516",
+    "test/tools/fp-problem-fixture.js": "149aee8aac5dbe382a16f22a07146ed0aded8e288e62a4161752572af886b3fe",
+    "test/tools/fp-problem-pose.js": "8ab94c70643951475b9b23cc5ef51a826495d70ae17d88c14f8a4a410114fb2a",
+    "test/tools/fp-problem-quality.js": "c3c9253cf0b0fdccb491042205a50eeb32fc5a505e5da4a686389371ad2fd854",
+    "test/tools/fp-problem-route-context.js": "e807ffb1187755b45f7392487fd753d55729d9d3ecad43242e35752e1c4cd48d",
+    "test/tools/fp-problem-route-pose.js": "780f5c8d3cff3784353f559f8e035e29d7f666edb1f70e43d62ee11f322d4d88",
+    "test/tools/fp-problem-route-quality.js": "d9c85663d76dd1c1df3bbca63bf82077cf8f0aa9db0fe24baef2262ffd2c27f1",
+    "test/tools/fp-sequential-jobs.py": "6a8053b13d8a6c882bcccd6de994526acf5640fc57996b0b443ff2980e3da8a5",
+    "test/fpproblemblockedfixture.js": "4a5db0ca6bc611617362f65df624d110e8a51b8850813e66b5b6d33f016bd04e"
+  },
+  "scope": "Current-pilot C42 CPU and syntax. All core suites passed once; only the English text guard was rerun after making its native world-label assertion use the English-source reader. Actual C42/core CPU inputs were unchanged. New resource fixture regression proves that frozen definitions can select an actual locked gate. B2 canonical inputAction and B3 guards retained; prior native/resource manifests keep their original source scopes."
+}

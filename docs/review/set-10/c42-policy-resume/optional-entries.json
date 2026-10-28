@@ -1,5 +1,5 @@
 {
-  "scope": "Prepared metadata only for the implemented closure adapter. Shared A-30 optional launcher/content support is still separate; native tests use a test-only existing content key. This is not a runtime registry/default change.",
+  "scope": "Prepared optional metadata for the two implemented 3D-only adapters. A30 shared flow/content/validation support remains separate: current validation requires scene and dataKey, while assigning the 3D scene as its own 2D fallback would loop on a WebGL loading failure. Browser tests use an explicitly declared descriptor/content fixture. No default or runtime registry change.",
   "entries": [
     {
       "id": "m4-closure",
@@ -17,6 +17,23 @@
         "Park the whole van in the marked destination bay."
       ],
       "controls": "Use the physical cab controls or their keyboard shortcuts. Read the mounted signs and follow the sat nav."
+    },
+    {
+      "id": "m4-blocked",
+      "title": "Complete a blocked-driveway attempt.",
+      "icon": "ic_bulb",
+      "scene3d": "blocked-drive",
+      "categories": [
+        "safety",
+        "service"
+      ],
+      "optional": true,
+      "blurb": "Inspect the driveway from the public edge, keep the parcel secure and record the next attempt.",
+      "learn": [
+        "Choose an exception that matches the actual access.",
+        "Leave a card safely, record retention and book the next attempt."
+      ],
+      "controls": "Use the physical notice, card holder, parcel shelves and cargo restraint. Open the handheld to record the exception and next attempt."
     }
   ]
 }
