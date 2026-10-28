@@ -4137,7 +4137,121 @@ window.OTR_I18N.ml = {
 "morning": "രാവിലെ",
 "midday": "ഉച്ച",
 "dusk": "സന്ധ്യ",
-"night": "രാത്രി"
+"night": "രാത്രി",
+"Follow the sat nav to the next checkpoint.": "സാറ്റ് നാവ് പിന്തുടർന്ന് അടുത്ത ചെക്ക്‌പോയിന്റിലേക്ക് പോകുക.",
+"Stop fully and set the parking brake before recording this checkpoint.": "ഈ ചെക്ക്‌പോയിന്റ് രേഖപ്പെടുത്തുന്നതിനു മുമ്പ് പൂർണമായി നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക.",
+"Pull into the marked checkpoint bay on the correct side of the street.": "തെരുവിന്റെ ശരിയായ വശത്ത് ചെക്ക്‌പോയിന്റിന്റെ അടയാളമിട്ട സ്ഥലത്തേക്ക് വണ്ടി കയറ്റുക.",
+"Straighten the van alongside the curb before recording this checkpoint.": "ഈ ചെക്ക്‌പോയിന്റ് രേഖപ്പെടുത്തുന്നതിനു മുമ്പ് വാൻ നടപ്പാതയുടെ അരികിനോട് ചേർത്ത് നേരെയാക്കുക.",
+"Move the whole van off the curb before recording this checkpoint.": "ഈ ചെക്ക്‌പോയിന്റ് രേഖപ്പെടുത്തുന്നതിനു മുമ്പ് വാൻ മുഴുവൻ നടപ്പാതയിൽ നിന്ന് ഇറക്കുക.",
+"Move closer to the curb before recording this checkpoint.": "ഈ ചെക്ക്‌പോയിന്റ് രേഖപ്പെടുത്തുന്നതിനു മുമ്പ് നടപ്പാതയോട് കൂടുതൽ അടുത്തുവരിക.",
+"Keep the whole van inside the marked bay and clear of the crossing.": "വാൻ മുഴുവൻ അടയാളമിട്ട സ്ഥലത്തിനുള്ളിലും ക്രോസിംഗിൽ നിന്ന് അകലെയും നിർത്തുക.",
+"Keep the whole van clear of buildings and obstacles.": "വാൻ മുഴുവൻ കെട്ടിടങ്ങളിൽ നിന്നും തടസ്സങ്ങളിൽ നിന്നും അകലെ നിർത്തുക.",
+"Wait until the current road hazard has cleared before recording this checkpoint.": "ഈ ചെക്ക്‌പോയിന്റ് രേഖപ്പെടുത്തുന്നതിനു മുമ്പ് റോഡിലെ ഇപ്പോഴത്തെ അപകടം മാറുന്നതുവരെ കാത്തിരിക്കുക.",
+"Drive to all six checkpoints and respond safely to the road hazards.": "ആറ് ചെക്ക്‌പോയിന്റുകളിലേക്കും ഓടിച്ച് റോഡിലെ അപകടങ്ങളോട് സുരക്ഷിതമായി പ്രതികരിക്കുക.",
+"The handheld buzzes in its cradle.": "ഹാൻഡ്‌ഹെൽഡ് അതിന്റെ ഹോൾഡറിൽ വിറയ്ക്കുന്നു.",
+"Visibility is reduced. Turn on the headlights.": "കാഴ്ച കുറവാണ്. ഹെഡ്‌ലൈറ്റുകൾ ഓണാക്കുക.",
+"Use the rear camera and mirrors to reverse slowly. Stop if the path is not clear.": "പതുക്കെ പിന്നോട്ടെടുക്കാൻ റിയർ ക്യാമറയും കണ്ണാടികളും ഉപയോഗിക്കുക. വഴി ഒഴിവല്ലെങ്കിൽ നിർത്തുക.",
+"Read the driving route.": "ഡ്രൈവിംഗ് റൂട്ട് വായിക്കുക.",
+"Record this checkpoint.": "ഈ ചെക്ക്‌പോയിന്റ് രേഖപ്പെടുത്തുക.",
+"Return to the road.": "റോഡിലേക്ക് മടങ്ങുക.",
+" Rain is reducing visibility. Use the headlights and wipers and leave more space.": " മഴ കാഴ്ച കുറയ്ക്കുന്നു. ഹെഡ്‌ലൈറ്റുകളും വൈപ്പറുകളും ഉപയോഗിച്ച് കൂടുതൽ അകലം പാലിക്കുക.",
+"The checkpoint is recorded.": "ചെക്ക്‌പോയിന്റ് രേഖപ്പെടുത്തി.",
+"Continue the driving route.": "ഡ്രൈവിംഗ് റൂട്ട് തുടരുക.",
+"Use the driving controls.": "ഡ്രൈവിംഗ് നിയന്ത്രണങ്ങൾ ഉപയോഗിക്കുക.",
+"Read the cab shortcuts.": "ക്യാബിൻ കുറുക്കുവഴികൾ വായിക്കുക.",
+"Use the cab shortcuts.": "ക്യാബിൻ കുറുക്കുവഴികൾ ഉപയോഗിക്കുക.",
+"Read the checkpoint controls.": "ചെക്ക്‌പോയിന്റ് നിയന്ത്രണങ്ങൾ വായിക്കുക.",
+"Record the driving checkpoints.": "ഡ്രൈവിംഗ് ചെക്ക്‌പോയിന്റുകൾ രേഖപ്പെടുത്തുക.",
+"Watch each road scene and mark the moment a hazard begins to develop.": "ഓരോ റോഡ് ദൃശ്യവും കണ്ട്, അപകടം രൂപപ്പെട്ടുതുടങ്ങുന്ന നിമിഷം അടയാളപ്പെടുത്തുക.",
+"Read the road sign.": "റോഡ് ബോർഡ് വായിക്കുക.",
+"Stop fully before entering the junction.": "ജംഗ്ഷനിലേക്ക് കടക്കുന്നതിനു മുമ്പ് പൂർണമായി നിർത്തുക.",
+"Return to the road scene.": "റോഡ് ദൃശ്യത്തിലേക്ക് മടങ്ങുക.",
+"This road scene has ended. Your response has been recorded.": "ഈ റോഡ് ദൃശ്യം അവസാനിച്ചു. നിങ്ങളുടെ പ്രതികരണം രേഖപ്പെടുത്തി.",
+"This clip is complete.": "ഈ ക്ലിപ്പ് പൂർത്തിയായി.",
+"See the results.": "ഫലങ്ങൾ കാണുക.",
+"Watch the next clip.": "അടുത്ത ക്ലിപ്പ് കാണുക.",
+"Watch for the developing hazard.": "രൂപപ്പെടുന്ന അപകടം ശ്രദ്ധിക്കുക.",
+"Continue watching the clip.": "ക്ലിപ്പ് കാണുന്നത് തുടരുക.",
+"the marked bay beyond the give-way junction": "വഴി കൊടുക്കുക ജംഗ്ഷനപ്പുറമുള്ള അടയാളമിട്ട സ്ഥലം",
+"Park the whole van in the marked bay, facing the same way as the traffic.": "വാൻ മുഴുവൻ അടയാളമിട്ട സ്ഥലത്ത് ഗതാഗതത്തിന്റെ ദിശയിൽ നിർത്തുക.",
+"Keep the whole van inside the painted lines of the marked bay.": "വാൻ മുഴുവൻ അടയാളമിട്ട സ്ഥലത്തെ ചായം പൂശിയ വരകൾക്കുള്ളിൽ നിർത്തുക.",
+"Complete all three junction approaches and park in each marked bay.": "ജംഗ്ഷന്റെ മൂന്ന് സമീപനങ്ങളും പൂർത്തിയാക്കി ഓരോ അടയാളമിട്ട സ്ഥലത്തും നിർത്തുക.",
+"Read the junction route.": "ജംഗ്ഷൻ റൂട്ട് വായിക്കുക.",
+"Drive through the junction on the planned approach before recording this checkpoint.": "ഈ ചെക്ക്‌പോയിന്റ് രേഖപ്പെടുത്തുന്നതിനു മുമ്പ് ആസൂത്രണം ചെയ്ത സമീപനത്തിലൂടെ ജംഗ്ഷൻ കടക്കുക.",
+"Follow the sat nav through the junction to the marked bay.": "സാറ്റ് നാവ് പിന്തുടർന്ന് ജംഗ്ഷനിലൂടെ അടയാളമിട്ട സ്ഥലത്തേക്ക് പോകുക.",
+"Begin the next junction approach.": "ജംഗ്ഷന്റെ അടുത്ത സമീപനം ആരംഭിക്കുക.",
+"Begin the next approach.": "അടുത്ത സമീപനം ആരംഭിക്കുക.",
+"Complete the three junction approaches and park in each marked bay.": "ജംഗ്ഷന്റെ മൂന്ന് സമീപനങ്ങളും പൂർത്തിയാക്കി ഓരോ അടയാളമിട്ട സ്ഥലത്തും നിർത്തുക.",
+"Complete a stop-sign approach, a red-light approach and a give-way approach. Stop behind the stop line, wait for green at a red light and give way to traffic with priority. Each approach starts with the van parked.": "ഒരു സ്റ്റോപ്പ് ബോർഡ് സമീപനം, ഒരു ചുവപ്പ് ലൈറ്റ് സമീപനം, ഒരു വഴി കൊടുക്കുക സമീപനം എന്നിവ പൂർത്തിയാക്കുക. സ്റ്റോപ്പ് ലൈനിനു പിന്നിൽ നിർത്തുക, ചുവപ്പ് ലൈറ്റിൽ പച്ചയ്ക്കായി കാത്തിരിക്കുക, മുൻഗണനയുള്ള ഗതാഗതത്തിന് വഴി കൊടുക്കുക. ഓരോ സമീപനവും നിർത്തിയിട്ട വാനിൽ നിന്ന് ആരംഭിക്കുന്നു.",
+"Read the night route.": "രാത്രി റൂട്ട് വായിക്കുക.",
+"Finish the night run.": "രാത്രി യാത്ര പൂർത്തിയാക്കുക.",
+"Follow the night route behind the lead vehicle, then park the whole van in the marked bay and set the parking brake.": "മുന്നിലുള്ള വാഹനത്തിനു പിന്നിൽ രാത്രി റൂട്ട് പിന്തുടർന്ന്, തുടർന്ന് വാൻ മുഴുവൻ അടയാളമിട്ട സ്ഥലത്ത് നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക.",
+"Use the night-run controls.": "രാത്രി യാത്രയുടെ നിയന്ത്രണങ്ങൾ ഉപയോഗിക്കുക.",
+"Read the finish controls.": "പൂർത്തിയാക്കാനുള്ള നിയന്ത്രണങ്ങൾ വായിക്കുക.",
+"Check the headlights, follow the night route with a safe gap, and park in the marked bay.": "ഹെഡ്‌ലൈറ്റുകൾ പരിശോധിച്ച്, സുരക്ഷിത അകലത്തോടെ രാത്രി റൂട്ട് പിന്തുടർന്ന്, അടയാളമിട്ട സ്ഥലത്ത് നിർത്തുക.",
+"Inspect every part of the parked van and record its condition before signing off.": "നിർത്തിയിട്ട വാനിന്റെ ഓരോ ഭാഗവും പരിശോധിച്ച്, ഒപ്പിടുന്നതിനു മുമ്പ് അതിന്റെ അവസ്ഥ രേഖപ്പെടുത്തുക.",
+"The lamp does not illuminate.": "വിളക്ക് തെളിയുന്നില്ല.",
+"The lamp illuminates.": "വിളക്ക് തെളിയുന്നു.",
+"The lamp is switched off.": "വിളക്ക് ഓഫാണ്.",
+"The tread has not been measured.": "ടയർ ട്രെഡ് അളന്നിട്ടില്ല.",
+"The mechanical test has not been performed.": "യാന്ത്രിക പരിശോധന നടത്തിയിട്ടില്ല.",
+"The horn makes no sound.": "ഹോൺ ശബ്ദിക്കുന്നില്ല.",
+"The horn sounds immediately.": "ഹോൺ ഉടൻ മുഴങ്ങുന്നു.",
+"The pedal continues to sink under steady pressure.": "സ്ഥിരമായ മർദ്ദത്തിൽ പെഡൽ താഴ്ന്നുകൊണ്ടേയിരിക്കുന്നു.",
+"The pedal holds its position under steady pressure.": "സ്ഥിരമായ മർദ്ദത്തിൽ പെഡൽ അതിന്റെ സ്ഥാനത്ത് നിൽക്കുന്നു.",
+"Measure the other half of the tread.": "ട്രെഡിന്റെ മറ്റേ പകുതി അളക്കുക.",
+"Measure the tread.": "ട്രെഡ് അളക്കുക.",
+"Hold the service brake for three seconds.": "സർവീസ് ബ്രേക്ക് മൂന്ന് സെക്കൻഡ് അമർത്തിപ്പിടിക്കുക.",
+"Test this part.": "ഈ ഭാഗം പരീക്ഷിക്കുക.",
+"The horn sounds.": "ഹോൺ മുഴങ്ങുന്നു.",
+"The brake test is running.": "ബ്രേക്ക് പരിശോധന നടക്കുന്നു.",
+"Steady pressure is applied to the service brake.": "സർവീസ് ബ്രേക്കിൽ സ്ഥിരമായ മർദ്ദം നൽകുന്നു.",
+"Release the brake.": "ബ്രേക്ക് വിടുക.",
+"Record this part as serviceable.": "ഈ ഭാഗം ശരിയാണെന്ന് രേഖപ്പെടുത്തുക.",
+"Flag this part as defective.": "ഈ ഭാഗം തകരാറുള്ളതായി അടയാളപ്പെടുത്തുക.",
+"Return to the van.": "വാനിലേക്ക് മടങ്ങുക.",
+"Record the condition.": "അവസ്ഥ രേഖപ്പെടുത്തുക.",
+"Inspect this part.": "ഈ ഭാഗം പരിശോധിക്കുക.",
+"Record this condition.": "ഈ അവസ്ഥ രേഖപ്പെടുത്തുക.",
+"Return to the inspection.": "പരിശോധനയിലേക്ക് മടങ്ങുക.",
+"This part is recorded as serviceable.": "ഈ ഭാഗം ശരിയാണെന്ന് രേഖപ്പെടുത്തിയിട്ടുണ്ട്.",
+"This part is recorded as defective.": "ഈ ഭാഗം തകരാറുള്ളതായി രേഖപ്പെടുത്തിയിട്ടുണ്ട്.",
+"This part has no recorded condition.": "ഈ ഭാഗത്തിന് ഒരു അവസ്ഥയും രേഖപ്പെടുത്തിയിട്ടില്ല.",
+"Review the previous part.": "മുമ്പത്തെ ഭാഗം കാണുക.",
+"Review the next part.": "അടുത്ത ഭാഗം കാണുക.",
+"Sign off the inspection.": "പരിശോധനയിൽ ഒപ്പിടുക.",
+"The inspection is incomplete.": "പരിശോധന പൂർത്തിയായിട്ടില്ല.",
+"Every part needs a recorded condition before sign-off.": "ഒപ്പിടുന്നതിനു മുമ്പ് ഓരോ ഭാഗത്തിനും അവസ്ഥ രേഖപ്പെടുത്തിയിരിക്കണം.",
+"Review the inspection.": "പരിശോധന അവലോകനം ചെയ്യുക.",
+"Use the parked van’s sat nav to sequence every manifest, then accept each route.": "നിർത്തിയിട്ട വാനിന്റെ സാറ്റ് നാവിൽ ഓരോ മാനിഫെസ്റ്റും ക്രമപ്പെടുത്തി, തുടർന്ന് ഓരോ റൂട്ടും സ്വീകരിക്കുക.",
+"Plan the route on the sat nav.": "സാറ്റ് നാവിൽ റൂട്ട് ആസൂത്രണം ചെയ്യുക.",
+"Enter the cab and park the van before planning the route.": "റൂട്ട് ആസൂത്രണം ചെയ്യുന്നതിനു മുമ്പ് ക്യാബിനിൽ കയറി വാൻ നിർത്തുക.",
+"Park the van before using the sat nav.": "സാറ്റ് നാവ് ഉപയോഗിക്കുന്നതിനു മുമ്പ് വാൻ നിർത്തുക.",
+"Read the next dispatch note.": "അടുത്ത ഡിസ്പാച്ച് കുറിപ്പ് വായിക്കുക.",
+"Sequence the stops.": "സ്റ്റോപ്പുകൾ ക്രമപ്പെടുത്തുക.",
+"Read the dispatch notes.": "ഡിസ്പാച്ച് കുറിപ്പുകൾ വായിക്കുക.",
+"This parcel has no timed commitment.": "ഈ പാഴ്സലിന് നിശ്ചിത സമയ വാഗ്ദാനമില്ല.",
+"This stop is not in the route.": "ഈ സ്റ്റോപ്പ് റൂട്ടിലില്ല.",
+"Plan this route.": "ഈ റൂട്ട് ആസൂത്രണം ചെയ്യുക.",
+"Add this stop to the route.": "ഈ സ്റ്റോപ്പ് റൂട്ടിൽ ചേർക്കുക.",
+"Remove this stop from the route.": "ഈ സ്റ്റോപ്പ് റൂട്ടിൽ നിന്ന് നീക്കുക.",
+"Read the next stop.": "അടുത്ത സ്റ്റോപ്പ് വായിക്കുക.",
+"Review the route.": "റൂട്ട് അവലോകനം ചെയ്യുക.",
+"Accept this route.": "ഈ റൂട്ട് സ്വീകരിക്കുക.",
+"Continue sequencing the stops.": "സ്റ്റോപ്പുകൾ ക്രമപ്പെടുത്തുന്നത് തുടരുക.",
+"Clear the route.": "റൂട്ട് മായ്ക്കുക.",
+"Review this route.": "ഈ റൂട്ട് അവലോകനം ചെയ്യുക.",
+"The sat nav shows the route.": "സാറ്റ് നാവ് റൂട്ട് കാണിക്കുന്നു.",
+"The double ring marks the selected stop. The square marks the depot.": "ഇരട്ട വലയം തിരഞ്ഞെടുത്ത സ്റ്റോപ്പ് കാണിക്കുന്നു. ചതുരം ഡിപ്പോ കാണിക്കുന്നു.",
+"Complete the school drive and park in its marked bay.": "സ്കൂൾ യാത്ര പൂർത്തിയാക്കി അതിന്റെ അടയാളമിട്ട സ്ഥലത്ത് നിർത്തുക.",
+"Read the school-zone route.": "സ്കൂൾ മേഖലയുടെ റൂട്ട് വായിക്കുക.",
+"Finish the school drive.": "സ്കൂൾ യാത്ര പൂർത്തിയാക്കുക.",
+"Drive through the school zone and let the bus and children clear before finishing.": "സ്കൂൾ മേഖലയിലൂടെ കടന്ന്, പൂർത്തിയാക്കുന്നതിനു മുമ്പ് ബസും കുട്ടികളും മാറിപ്പോകാൻ അനുവദിക്കുക.",
+"Park the whole van inside the marked finish bay and set the parking brake.": "വാൻ മുഴുവൻ അടയാളമിട്ട പൂർത്തിയാക്കൽ സ്ഥലത്തിനുള്ളിൽ നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക.",
+"Use the school-drive controls.": "സ്കൂൾ യാത്രയുടെ നിയന്ത്രണങ്ങൾ ഉപയോഗിക്കുക.",
+"Drive through the school zone, wait for the bus and children, and park in the marked bay.": "സ്കൂൾ മേഖലയിലൂടെ കടന്ന്, ബസിനും കുട്ടികൾക്കുമായി കാത്തിരുന്ന്, അടയാളമിട്ട സ്ഥലത്ത് നിർത്തുക.",
+"Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.": "പ്രവേശന ബോർഡ് വായിച്ച്, പുറപ്പെടുന്നതിനു മുമ്പ് മുന്നോട്ട് നോക്കുക. സ്കൂൾ മേഖലയുടെ വേഗപരിധി പാലിക്കുക. സ്കൂൾ ബസിന്റെ ചുവപ്പ് ലൈറ്റുകൾ മിന്നുമ്പോൾ അതിനു മുമ്പേ നിർത്തുക. അതിന്റെ ലൈറ്റുകൾ അണഞ്ഞ് കുട്ടികൾ സുരക്ഷിതരാകുന്നതുവരെ കാത്തിരുന്ന്, തുടർന്ന് മുന്നോട്ട് പോകുക.",
+"Read the next instruction page.": "നിർദേശങ്ങളുടെ അടുത്ത പേജ് വായിക്കുക."
 },
 "templates": [
 [
@@ -6007,6 +6121,206 @@ window.OTR_I18N.ml = {
 [
 "Use {0} to look. Press {1} to select a visible nearby target and {2} to interact. Press {3} to read the scenario goal.",
 "നോക്കാൻ {0} ഉപയോഗിക്കുക. അടുത്തുള്ള കാണാവുന്ന ലക്ഷ്യം തിരഞ്ഞെടുക്കാൻ {1}, പ്രവർത്തിക്കാൻ {2} അമർത്തുക. സാഹചര്യത്തിന്റെ ലക്ഷ്യം വായിക്കാൻ {3} അമർത്തുക."
+],
+[
+"Parked at {0}",
+"{0} ൽ നിർത്തിയിട്ടു"
+],
+[
+"Parked at {0} (facing the traffic)",
+"{0} ൽ നിർത്തിയിട്ടു (ഗതാഗതത്തിന്റെ ദിശയിൽ)"
+],
+[
+"Parked at {0} ({1} ft from the kerb)",
+"{0} ൽ നിർത്തിയിട്ടു (നടപ്പാതയിൽ നിന്ന് {1} അടി)"
+],
+[
+"Parked at {0} (at an angle)",
+"{0} ൽ നിർത്തിയിട്ടു (ചരിഞ്ഞ്)"
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt before moving. Look at each physical mirror to check it. Signal for three seconds before moving off or turning.",
+"വേഗം കൂട്ടാൻ {0}, ബ്രേക്കിന് {1}, തിരിക്കാൻ {2}/{3} ഉപയോഗിക്കുക. നീങ്ങുന്നതിനു മുമ്പ് സീറ്റ്ബെൽറ്റ് ഇടുക. ഓരോ യഥാർഥ കണ്ണാടിയും നോക്കി പരിശോധിക്കുക. പുറപ്പെടുന്നതിനോ തിരിയുന്നതിനോ മുമ്പ് മൂന്ന് സെക്കൻഡ് ഇൻഡിക്കേറ്റർ ഇടുക."
+],
+[
+"Look at the shifter or a cab switch and press {0} to use it. Keyboard shortcuts remain available. The rear camera comes on in reverse. Use it and the mirrors to reverse slowly. You can park and make an optional walk-around in a tight space.",
+"ഗിയർ ലിവറിലേക്കോ ക്യാബിൻ സ്വിച്ചിലേക്കോ നോക്കി അത് ഉപയോഗിക്കാൻ {0} അമർത്തുക. കീബോർഡ് കുറുക്കുവഴികളും ലഭ്യമാണ്. റിവേഴ്സിൽ റിയർ ക്യാമറ ഓണാകും. പതുക്കെ പിന്നോട്ടെടുക്കാൻ അതും കണ്ണാടികളും ഉപയോഗിക്കുക. ഇടുങ്ങിയ സ്ഥലത്ത് വാൻ നിർത്തി വേണമെങ്കിൽ ചുറ്റും നടന്ന് പരിശോധിക്കാം."
+],
+[
+"Follow the mounted sat nav to each address. Park the whole van in the marked bay and set the parking brake. Press {0} to record the checkpoint, or select the checkpoint option on the device. Rain begins halfway through the route.",
+"ഘടിപ്പിച്ച സാറ്റ് നാവ് പിന്തുടർന്ന് ഓരോ വിലാസത്തിലേക്കും പോകുക. വാൻ മുഴുവൻ അടയാളമിട്ട സ്ഥലത്ത് നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക. ചെക്ക്‌പോയിന്റ് രേഖപ്പെടുത്താൻ {0} അമർത്തുക, അല്ലെങ്കിൽ ഉപകരണത്തിൽ ചെക്ക്‌പോയിന്റ് ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക. റൂട്ടിന്റെ പകുതിയിൽ മഴ തുടങ്ങും."
+],
+[
+"Press {0} to read the sat nav and checkpoint details.",
+"സാറ്റ് നാവും ചെക്ക്‌പോയിന്റ് വിവരങ്ങളും വായിക്കാൻ {0} അമർത്തുക."
+],
+[
+"Park at this checkpoint and press {0} to record it.",
+"ഈ ചെക്ക്‌പോയിന്റിൽ നിർത്തി അത് രേഖപ്പെടുത്താൻ {0} അമർത്തുക."
+],
+[
+"The van hit an obstacle at {0} mph.",
+"വാൻ {0} mph വേഗത്തിൽ ഒരു തടസ്സത്തിൽ ഇടിച്ചു."
+],
+[
+"Checkpoint {0} of {1} is at {2}.",
+"ചെക്ക്‌പോയിന്റ് {0}/{1} {2} ൽ ആണ്."
+],
+[
+"Checkpoint {0} is complete. Continue to {1}.",
+"ചെക്ക്‌പോയിന്റ് {0} പൂർത്തിയായി. {1} ലേക്ക് തുടരുക."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Look with the mouse or {4}. Press {5} to select a nearby physical cab control and {6} to use it.",
+"വേഗം കൂട്ടാൻ {0}, ബ്രേക്കിന് {1}, തിരിക്കാൻ {2}/{3} ഉപയോഗിക്കുക. മൗസ് അല്ലെങ്കിൽ {4} കൊണ്ട് നോക്കുക. അടുത്തുള്ള യഥാർഥ ക്യാബിൻ നിയന്ത്രണം തിരഞ്ഞെടുക്കാൻ {5}, ഉപയോഗിക്കാൻ {6} അമർത്തുക."
+],
+[
+"Press {0} to set or release the parking brake, {1} for the seatbelt, {2} for drive or reverse, {3}/{4} for the left or right signal, {5} for headlights, and {6} for wipers. Press {7} to look forward.",
+"പാർക്കിംഗ് ബ്രേക്ക് ഇടാനോ വിടാനോ {0}, സീറ്റ്ബെൽറ്റിന് {1}, ഡ്രൈവിനോ റിവേഴ്സിനോ {2}, ഇടത് അല്ലെങ്കിൽ വലത് ഇൻഡിക്കേറ്ററിന് {3}/{4}, ഹെഡ്‌ലൈറ്റുകൾക്ക് {5}, വൈപ്പറുകൾക്ക് {6} അമർത്തുക. മുന്നോട്ട് നോക്കാൻ {7} അമർത്തുക."
+],
+[
+"Follow the mounted sat nav. Press {0} to record a checkpoint after parking, or press {1} for the device. Read a visible road sign with {2}. The rear camera is automatic in reverse. Look at the physical mirrors to check them.",
+"ഘടിപ്പിച്ച സാറ്റ് നാവ് പിന്തുടരുക. നിർത്തിയശേഷം ചെക്ക്‌പോയിന്റ് രേഖപ്പെടുത്താൻ {0} അമർത്തുക, അല്ലെങ്കിൽ ഉപകരണത്തിന് {1} അമർത്തുക. കാണുന്ന റോഡ് ബോർഡ് {2} കൊണ്ട് വായിക്കുക. റിവേഴ്സിൽ റിയർ ക്യാമറ തനിയെ പ്രവർത്തിക്കും. യഥാർഥ കണ്ണാടികൾ നോക്കി പരിശോധിക്കുക."
+],
+[
+"The van drives automatically. Press {0} or click when a hazard starts to develop. Earlier marks inside the response window earn more points. More than {1} marks in one clip score zero. With reduced motion, the cab stays still while the road scene develops.",
+"വാൻ തനിയെ ഓടും. അപകടം രൂപപ്പെട്ടുതുടങ്ങുമ്പോൾ {0} അമർത്തുക അല്ലെങ്കിൽ ക്ലിക്ക് ചെയ്യുക. പ്രതികരണ സമയത്തിനുള്ളിൽ നേരത്തെ ഇടുന്ന അടയാളങ്ങൾക്ക് കൂടുതൽ പോയിന്റ്. ഒരു ക്ലിപ്പിൽ {1} ൽ കൂടുതൽ അടയാളങ്ങൾക്ക് പൂജ്യം. കുറഞ്ഞ ചലന ക്രമീകരണത്തിൽ റോഡ് ദൃശ്യം നീങ്ങുമ്പോൾ ക്യാബിൻ അനങ്ങാതെ നിൽക്കും."
+],
+[
+"Clip {0} of {1}. Press {2} or click when a hazard starts to develop. You have made {3} marks.",
+"ക്ലിപ്പ് {0}/{1}. അപകടം രൂപപ്പെട്ടുതുടങ്ങുമ്പോൾ {2} അമർത്തുക അല്ലെങ്കിൽ ക്ലിക്ക് ചെയ്യുക. നിങ്ങൾ {3} അടയാളങ്ങൾ ഇട്ടു."
+],
+[
+"You scored {0} of 5 points.\n\n{1}",
+"നിങ്ങൾക്ക് 5 ൽ {0} പോയിന്റ് ലഭിച്ചു.\n\n{1}"
+],
+[
+"The van drives automatically. Press {0} or click when a hazard begins to develop.\n\nWith reduced motion, the cab stays still while the road scene develops.",
+"വാൻ തനിയെ ഓടും. അപകടം രൂപപ്പെട്ടുതുടങ്ങുമ്പോൾ {0} അമർത്തുക അല്ലെങ്കിൽ ക്ലിക്ക് ചെയ്യുക.\n\nകുറഞ്ഞ ചലന ക്രമീകരണത്തിൽ റോഡ് ദൃശ്യം നീങ്ങുമ്പോൾ ക്യാബിൻ അനങ്ങാതെ നിൽക്കും."
+],
+[
+"Approach {0} of 3. Follow the sat nav to {1}.",
+"സമീപനം {0}/3. സാറ്റ് നാവ് പിന്തുടർന്ന് {1} ലേക്ക് പോകുക."
+],
+[
+"Approach {0} of 3. Follow the sat nav, then park the whole van in the marked bay and set the parking brake.",
+"സമീപനം {0}/3. സാറ്റ് നാവ് പിന്തുടർന്ന്, തുടർന്ന് വാൻ മുഴുവൻ അടയാളമിട്ട സ്ഥലത്ത് നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt with its physical control or {4}. Look at the physical mirrors and signal for three seconds before moving off.",
+"വേഗം കൂട്ടാൻ {0}, ബ്രേക്കിന് {1}, തിരിക്കാൻ {2}/{3} ഉപയോഗിക്കുക. സീറ്റ്ബെൽറ്റ് അതിന്റെ യഥാർഥ നിയന്ത്രണം അല്ലെങ്കിൽ {4} കൊണ്ട് ഇടുക. പുറപ്പെടുന്നതിനു മുമ്പ് യഥാർഥ കണ്ണാടികൾ നോക്കി മൂന്ന് സെക്കൻഡ് ഇൻഡിക്കേറ്റർ ഇടുക."
+],
+[
+"Follow the mounted sat nav. Park the whole van in the marked bay, facing with traffic, and set the parking brake. Press {0} to record the checkpoint, or use the same action on the device with {1}.",
+"ഘടിപ്പിച്ച സാറ്റ് നാവ് പിന്തുടരുക. വാൻ മുഴുവൻ അടയാളമിട്ട സ്ഥലത്ത് ഗതാഗതത്തിന്റെ ദിശയിൽ നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇടുക. ചെക്ക്‌പോയിന്റ് രേഖപ്പെടുത്താൻ {0} അമർത്തുക, അല്ലെങ്കിൽ ഉപകരണത്തിൽ ഇതേ പ്രവൃത്തി {1} കൊണ്ട് ചെയ്യുക."
+],
+[
+"Press {0} to read the junction route and checkpoint details.",
+"ജംഗ്ഷൻ റൂട്ടും ചെക്ക്‌പോയിന്റ് വിവരങ്ങളും വായിക്കാൻ {0} അമർത്തുക."
+],
+[
+"The finish bay is at {0}.",
+"പൂർത്തിയാക്കൽ സ്ഥലം {0} ൽ ആണ്."
+],
+[
+"Walk with {0}/{1}/{2}/{3} and look with the mouse or {4}. Select a nearby physical target with {5} and use it with {6}. Check the headlights at the front of the van before entering the cab.",
+"{0}/{1}/{2}/{3} കൊണ്ട് നടന്ന്, മൗസ് അല്ലെങ്കിൽ {4} കൊണ്ട് നോക്കുക. അടുത്തുള്ള യഥാർഥ ലക്ഷ്യം {5} കൊണ്ട് തിരഞ്ഞെടുത്ത് {6} കൊണ്ട് ഉപയോഗിക്കുക. ക്യാബിനിൽ കയറുന്നതിനു മുമ്പ് വാനിന്റെ മുൻവശത്തെ ഹെഡ്‌ലൈറ്റുകൾ പരിശോധിക്കുക."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Press {4} for the seatbelt, {5} for the parking brake, {6} for the headlights, and {7}/{8} to signal. Look at the physical mirrors to check them.",
+"വേഗം കൂട്ടാൻ {0}, ബ്രേക്കിന് {1}, തിരിക്കാൻ {2}/{3} ഉപയോഗിക്കുക. സീറ്റ്ബെൽറ്റിന് {4}, പാർക്കിംഗ് ബ്രേക്കിന് {5}, ഹെഡ്‌ലൈറ്റുകൾക്ക് {6}, ഇൻഡിക്കേറ്ററിന് {7}/{8} അമർത്തുക. യഥാർഥ കണ്ണാടികൾ നോക്കി പരിശോധിക്കുക."
+],
+[
+"Follow the mounted sat nav. Keep at least a three-second gap behind the lead vehicle. Drive within the distance the headlights illuminate. Park in the marked finish bay and press {0}, or use the finish option on the device with {1}.",
+"ഘടിപ്പിച്ച സാറ്റ് നാവ് പിന്തുടരുക. മുന്നിലുള്ള വാഹനത്തിൽ നിന്ന് കുറഞ്ഞത് മൂന്ന് സെക്കൻഡ് അകലം പാലിക്കുക. ഹെഡ്‌ലൈറ്റുകൾ വെളിച്ചം വീഴ്ത്തുന്ന ദൂരത്തിനുള്ളിൽ ഓടിക്കുക. അടയാളമിട്ട പൂർത്തിയാക്കൽ സ്ഥലത്ത് നിർത്തി {0} അമർത്തുക, അല്ലെങ്കിൽ ഉപകരണത്തിലെ പൂർത്തിയാക്കൽ ഓപ്ഷൻ {1} കൊണ്ട് ഉപയോഗിക്കുക."
+],
+[
+"Walk to the front of the van. Look at the headlights and press {0} to inspect them. Assess the light test and request a repair if needed. Inspect before the van moves.",
+"വാനിന്റെ മുൻവശത്തേക്ക് നടക്കുക. ഹെഡ്‌ലൈറ്റുകൾ നോക്കി പരിശോധിക്കാൻ {0} അമർത്തുക. ലൈറ്റ് പരിശോധന വിലയിരുത്തി ആവശ്യമെങ്കിൽ അറ്റകുറ്റപ്പണി ആവശ്യപ്പെടുക. വാൻ നീങ്ങുന്നതിനു മുമ്പേ പരിശോധിക്കുക."
+],
+[
+"Enter the cab at the driver door with {0}. Fasten the seatbelt, switch on the headlights with {1} or their physical control, check the mirrors and signal before moving off.",
+"ഡ്രൈവർ വാതിലിൽ {0} അമർത്തി ക്യാബിനിൽ കയറുക. സീറ്റ്ബെൽറ്റ് ഇട്ട്, {1} അല്ലെങ്കിൽ യഥാർഥ നിയന്ത്രണം കൊണ്ട് ഹെഡ്‌ലൈറ്റുകൾ ഓണാക്കി, കണ്ണാടികൾ പരിശോധിച്ച്, പുറപ്പെടുന്നതിനു മുമ്പ് ഇൻഡിക്കേറ്റർ ഇടുക."
+],
+[
+"Follow the sat nav to {0}. Keep at least a three-second gap behind the lead vehicle and drive within the headlight range. Park the whole van in the marked bay and set the parking brake, then press {1} or use the finish option on the device with {2}.",
+"സാറ്റ് നാവ് പിന്തുടർന്ന് {0} ലേക്ക് പോകുക. മുന്നിലുള്ള വാഹനത്തിൽ നിന്ന് കുറഞ്ഞത് മൂന്ന് സെക്കൻഡ് അകലം പാലിച്ച്, ഹെഡ്‌ലൈറ്റുകളുടെ പരിധിക്കുള്ളിൽ ഓടിക്കുക. വാൻ മുഴുവൻ അടയാളമിട്ട സ്ഥലത്ത് നിർത്തി പാർക്കിംഗ് ബ്രേക്ക് ഇട്ട്, തുടർന്ന് {1} അമർത്തുക അല്ലെങ്കിൽ ഉപകരണത്തിലെ പൂർത്തിയാക്കൽ ഓപ്ഷൻ {2} കൊണ്ട് ഉപയോഗിക്കുക."
+],
+[
+"Press {0} to read the night route and finish details.",
+"രാത്രി റൂട്ടും പൂർത്തിയാക്കൽ വിവരങ്ങളും വായിക്കാൻ {0} അമർത്തുക."
+],
+[
+"Inspect the {0}. Press {1} to interact.",
+"പരിശോധിക്കുക: {0}. ഉപയോഗിക്കാൻ {1} അമർത്തുക."
+],
+[
+"The gauge reads {0}/32 inches.",
+"ഗേജ് {0}/32 ഇഞ്ച് കാണിക്കുന്നു."
+],
+[
+"Plan route {0} of {1} on the sat nav.",
+"സാറ്റ് നാവിൽ റൂട്ട് {0}/{1} ആസൂത്രണം ചെയ്യുക."
+],
+[
+"Press {0} to plan the route on the sat nav.",
+"സാറ്റ് നാവിൽ റൂട്ട് ആസൂത്രണം ചെയ്യാൻ {0} അമർത്തുക."
+],
+[
+"Route {0} starts at {1}.\n{2}",
+"റൂട്ട് {0} {1} ൽ ആരംഭിക്കുന്നു.\n{2}"
+],
+[
+"The school zone is active between {0} and {1}. Driving through it adds {2} minutes.",
+"സ്കൂൾ മേഖല {0} മുതൽ {1} വരെ സജീവമാണ്. അതിലൂടെ പോയാൽ {2} മിനിറ്റ് കൂടുതൽ എടുക്കും."
+],
+[
+"The road is closed on {0} between {1} and {2}.",
+"{0} ൽ {1} നും {2} നും ഇടയിൽ റോഡ് അടച്ചിരിക്കുന്നു."
+],
+[
+"Collect the pickup between {0} and {1}.",
+"പിക്കപ്പ് {0} നും {1} നും ഇടയിൽ എടുക്കുക."
+],
+[
+"Deliver this parcel by {0}.",
+"ഈ പാഴ്സൽ {0} നുള്ളിൽ എത്തിക്കുക."
+],
+[
+"The estimated arrival is {0}.",
+"കണക്കാക്കിയ എത്തിച്ചേരൽ {0}."
+],
+[
+"Stop {0} is at {1}.\n{2}\n{3}",
+"സ്റ്റോപ്പ് {0} {1} ൽ ആണ്.\n{2}\n{3}"
+],
+[
+"Route {0} contains {1} of {2} stops.",
+"റൂട്ട് {0} ൽ {2} ൽ {1} സ്റ്റോപ്പുകൾ ഉണ്ട്."
+],
+[
+"\nThe sequence is {0}.",
+"\nക്രമം {0}."
+],
+[
+"\nThe estimated return is {0}.",
+"\nകണക്കാക്കിയ മടക്കം {0}."
+],
+[
+"Follow the mounted sat nav to the finish bay. Press {0} to finish after parking, or use the finish option on the device with {1}. Read a visible road sign with {2}. The rear camera is automatic in reverse. Look at the physical mirrors to check them.",
+"ഘടിപ്പിച്ച സാറ്റ് നാവ് പിന്തുടർന്ന് പൂർത്തിയാക്കൽ സ്ഥലത്തേക്ക് പോകുക. നിർത്തിയശേഷം പൂർത്തിയാക്കാൻ {0} അമർത്തുക, അല്ലെങ്കിൽ ഉപകരണത്തിലെ പൂർത്തിയാക്കൽ ഓപ്ഷൻ {1} കൊണ്ട് ഉപയോഗിക്കുക. കാണുന്ന റോഡ് ബോർഡ് {2} കൊണ്ട് വായിക്കുക. റിവേഴ്സിൽ റിയർ ക്യാമറ തനിയെ പ്രവർത്തിക്കും. യഥാർഥ കണ്ണാടികൾ നോക്കി പരിശോധിക്കുക."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt with its physical control or {4}. Look at the mirrors and signal before moving off.",
+"വേഗം കൂട്ടാൻ {0}, ബ്രേക്കിന് {1}, തിരിക്കാൻ {2}/{3} ഉപയോഗിക്കുക. സീറ്റ്ബെൽറ്റ് അതിന്റെ യഥാർഥ നിയന്ത്രണം അല്ലെങ്കിൽ {4} കൊണ്ട് ഇടുക. പുറപ്പെടുന്നതിനു മുമ്പ് കണ്ണാടികൾ നോക്കി ഇൻഡിക്കേറ്റർ ഇടുക."
+],
+[
+"Follow the sat nav to {0}. Park the whole van in the marked bay, set the parking brake and press {1} to finish. The mounted screen and {2} offer the same finish action. You can read the controls from the pause menu.",
+"സാറ്റ് നാവ് പിന്തുടർന്ന് {0} ലേക്ക് പോകുക. വാൻ മുഴുവൻ അടയാളമിട്ട സ്ഥലത്ത് നിർത്തി, പാർക്കിംഗ് ബ്രേക്ക് ഇട്ട്, പൂർത്തിയാക്കാൻ {1} അമർത്തുക. ഘടിപ്പിച്ച സ്ക്രീനിലും {2} ലും ഇതേ ഓപ്ഷനുണ്ട്. ഇടവേള മെനുവിൽ നിന്ന് നിയന്ത്രണങ്ങൾ വായിക്കാം."
+],
+[
+"Press {0} to read the school route and finish details.",
+"സ്കൂൾ റൂട്ടും പൂർത്തിയാക്കൽ വിവരങ്ങളും വായിക്കാൻ {0} അമർത്തുക."
 ]
 ],
 "keep": [

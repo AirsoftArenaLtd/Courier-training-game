@@ -4148,7 +4148,121 @@ window.OTR_I18N.es = {
 "morning": "mañana",
 "midday": "mediodía",
 "dusk": "atardecer",
-"night": "noche"
+"night": "noche",
+"Follow the sat nav to the next checkpoint.": "Sigue el GPS hasta el siguiente punto de control.",
+"Stop fully and set the parking brake before recording this checkpoint.": "Detente por completo y pon el freno de mano antes de registrar este punto de control.",
+"Pull into the marked checkpoint bay on the correct side of the street.": "Entra en el aparcamiento marcado del punto de control, en el lado correcto de la calle.",
+"Straighten the van alongside the curb before recording this checkpoint.": "Endereza la camioneta junto al bordillo antes de registrar este punto de control.",
+"Move the whole van off the curb before recording this checkpoint.": "Saca toda la camioneta del bordillo antes de registrar este punto de control.",
+"Move closer to the curb before recording this checkpoint.": "Acércate más al bordillo antes de registrar este punto de control.",
+"Keep the whole van inside the marked bay and clear of the crossing.": "Mantén toda la camioneta dentro del espacio marcado y fuera del paso de peatones.",
+"Keep the whole van clear of buildings and obstacles.": "Mantén toda la camioneta lejos de edificios y obstáculos.",
+"Wait until the current road hazard has cleared before recording this checkpoint.": "Espera a que pase el peligro actual de la vía antes de registrar este punto de control.",
+"Drive to all six checkpoints and respond safely to the road hazards.": "Conduce hasta los seis puntos de control y responde con seguridad a los peligros de la vía.",
+"The handheld buzzes in its cradle.": "El Escáner vibra en su soporte.",
+"Visibility is reduced. Turn on the headlights.": "La visibilidad es reducida. Enciende los faros.",
+"Use the rear camera and mirrors to reverse slowly. Stop if the path is not clear.": "Usa la cámara trasera y los espejos para dar marcha atrás despacio. Detente si el camino no está libre.",
+"Read the driving route.": "Lee la ruta de conducción.",
+"Record this checkpoint.": "Registra este punto de control.",
+"Return to the road.": "Vuelve a la carretera.",
+" Rain is reducing visibility. Use the headlights and wipers and leave more space.": " La lluvia reduce la visibilidad. Usa los faros y los limpiaparabrisas y deja más distancia.",
+"The checkpoint is recorded.": "El punto de control está registrado.",
+"Continue the driving route.": "Continúa la ruta de conducción.",
+"Use the driving controls.": "Usa los controles de conducción.",
+"Read the cab shortcuts.": "Lee los atajos de la cabina.",
+"Use the cab shortcuts.": "Usa los atajos de la cabina.",
+"Read the checkpoint controls.": "Lee los controles del punto de control.",
+"Record the driving checkpoints.": "Registra los puntos de control de conducción.",
+"Watch each road scene and mark the moment a hazard begins to develop.": "Mira cada escena de la vía y marca el momento en que empieza a formarse un peligro.",
+"Read the road sign.": "Lee la señal de tráfico.",
+"Stop fully before entering the junction.": "Detente por completo antes de entrar en el cruce.",
+"Return to the road scene.": "Vuelve a la escena de la vía.",
+"This road scene has ended. Your response has been recorded.": "Esta escena de la vía ha terminado. Tu respuesta se ha registrado.",
+"This clip is complete.": "Este clip ha terminado.",
+"See the results.": "Ver los resultados.",
+"Watch the next clip.": "Mira el siguiente clip.",
+"Watch for the developing hazard.": "Atento al peligro que se está formando.",
+"Continue watching the clip.": "Sigue mirando el clip.",
+"the marked bay beyond the give-way junction": "el espacio marcado después del cruce con ceda el paso",
+"Park the whole van in the marked bay, facing the same way as the traffic.": "Aparca toda la camioneta en el espacio marcado, en el mismo sentido que el tráfico.",
+"Keep the whole van inside the painted lines of the marked bay.": "Mantén toda la camioneta dentro de las líneas pintadas del espacio marcado.",
+"Complete all three junction approaches and park in each marked bay.": "Completa las tres aproximaciones al cruce y aparca en cada espacio marcado.",
+"Read the junction route.": "Lee la ruta del cruce.",
+"Drive through the junction on the planned approach before recording this checkpoint.": "Atraviesa el cruce por la aproximación prevista antes de registrar este punto de control.",
+"Follow the sat nav through the junction to the marked bay.": "Sigue el GPS a través del cruce hasta el espacio marcado.",
+"Begin the next junction approach.": "Empieza la siguiente aproximación al cruce.",
+"Begin the next approach.": "Empieza la siguiente aproximación.",
+"Complete the three junction approaches and park in each marked bay.": "Completa las tres aproximaciones al cruce y aparca en cada espacio marcado.",
+"Complete a stop-sign approach, a red-light approach and a give-way approach. Stop behind the stop line, wait for green at a red light and give way to traffic with priority. Each approach starts with the van parked.": "Completa una aproximación con señal de stop, una con semáforo en rojo y una con ceda el paso. Detente detrás de la línea de detención, espera el verde en el semáforo en rojo y cede el paso al tráfico con prioridad. Cada aproximación empieza con la camioneta aparcada.",
+"Read the night route.": "Lee la ruta nocturna.",
+"Finish the night run.": "Termina la ruta nocturna.",
+"Follow the night route behind the lead vehicle, then park the whole van in the marked bay and set the parking brake.": "Sigue la ruta nocturna detrás del vehículo de cabeza y después aparca toda la camioneta en el espacio marcado y pon el freno de mano.",
+"Use the night-run controls.": "Usa los controles de la ruta nocturna.",
+"Read the finish controls.": "Lee los controles para terminar.",
+"Check the headlights, follow the night route with a safe gap, and park in the marked bay.": "Revisa los faros, sigue la ruta nocturna con una distancia segura y aparca en el espacio marcado.",
+"Inspect every part of the parked van and record its condition before signing off.": "Inspecciona cada parte de la camioneta aparcada y registra su estado antes de firmar.",
+"The lamp does not illuminate.": "La luz no se enciende.",
+"The lamp illuminates.": "La luz se enciende.",
+"The lamp is switched off.": "La luz está apagada.",
+"The tread has not been measured.": "No se ha medido el dibujo.",
+"The mechanical test has not been performed.": "No se ha hecho la prueba mecánica.",
+"The horn makes no sound.": "La bocina no suena.",
+"The horn sounds immediately.": "La bocina suena al instante.",
+"The pedal continues to sink under steady pressure.": "El pedal sigue hundiéndose con una presión constante.",
+"The pedal holds its position under steady pressure.": "El pedal mantiene su posición con una presión constante.",
+"Measure the other half of the tread.": "Mide la otra mitad del dibujo.",
+"Measure the tread.": "Mide el dibujo.",
+"Hold the service brake for three seconds.": "Mantén pisado el freno de servicio durante tres segundos.",
+"Test this part.": "Prueba esta parte.",
+"The horn sounds.": "La bocina suena.",
+"The brake test is running.": "La prueba de frenos está en marcha.",
+"Steady pressure is applied to the service brake.": "Se aplica una presión constante al freno de servicio.",
+"Release the brake.": "Suelta el freno.",
+"Record this part as serviceable.": "Registra esta parte como en buen estado.",
+"Flag this part as defective.": "Marca esta parte como defectuosa.",
+"Return to the van.": "Vuelve a la camioneta.",
+"Record the condition.": "Registra el estado.",
+"Inspect this part.": "Inspecciona esta parte.",
+"Record this condition.": "Registra este estado.",
+"Return to the inspection.": "Vuelve a la inspección.",
+"This part is recorded as serviceable.": "Esta parte está registrada como en buen estado.",
+"This part is recorded as defective.": "Esta parte está registrada como defectuosa.",
+"This part has no recorded condition.": "Esta parte no tiene un estado registrado.",
+"Review the previous part.": "Revisa la parte anterior.",
+"Review the next part.": "Revisa la parte siguiente.",
+"Sign off the inspection.": "Firma la inspección.",
+"The inspection is incomplete.": "La inspección está incompleta.",
+"Every part needs a recorded condition before sign-off.": "Cada parte necesita un estado registrado antes de firmar.",
+"Review the inspection.": "Revisa la inspección.",
+"Use the parked van’s sat nav to sequence every manifest, then accept each route.": "Usa el GPS de la camioneta aparcada para ordenar cada manifiesto y después acepta cada ruta.",
+"Plan the route on the sat nav.": "Planifica la ruta en el GPS.",
+"Enter the cab and park the van before planning the route.": "Sube a la cabina y aparca la camioneta antes de planificar la ruta.",
+"Park the van before using the sat nav.": "Aparca la camioneta antes de usar el GPS.",
+"Read the next dispatch note.": "Lee la siguiente nota de despacho.",
+"Sequence the stops.": "Ordena las paradas.",
+"Read the dispatch notes.": "Lee las notas de despacho.",
+"This parcel has no timed commitment.": "Este paquete no tiene una hora comprometida.",
+"This stop is not in the route.": "Esta parada no está en la ruta.",
+"Plan this route.": "Planifica esta ruta.",
+"Add this stop to the route.": "Añade esta parada a la ruta.",
+"Remove this stop from the route.": "Quita esta parada de la ruta.",
+"Read the next stop.": "Lee la siguiente parada.",
+"Review the route.": "Revisa la ruta.",
+"Accept this route.": "Acepta esta ruta.",
+"Continue sequencing the stops.": "Sigue ordenando las paradas.",
+"Clear the route.": "Borra la ruta.",
+"Review this route.": "Revisa esta ruta.",
+"The sat nav shows the route.": "El GPS muestra la ruta.",
+"The double ring marks the selected stop. The square marks the depot.": "El anillo doble marca la parada elegida. El cuadrado marca el centro.",
+"Complete the school drive and park in its marked bay.": "Completa el recorrido escolar y aparca en su espacio marcado.",
+"Read the school-zone route.": "Lee la ruta de la zona escolar.",
+"Finish the school drive.": "Termina el recorrido escolar.",
+"Drive through the school zone and let the bus and children clear before finishing.": "Atraviesa la zona escolar y deja que el autobús y los niños despejen el paso antes de terminar.",
+"Park the whole van inside the marked finish bay and set the parking brake.": "Aparca toda la camioneta dentro del espacio de llegada marcado y pon el freno de mano.",
+"Use the school-drive controls.": "Usa los controles del recorrido escolar.",
+"Drive through the school zone, wait for the bus and children, and park in the marked bay.": "Atraviesa la zona escolar, espera al autobús y a los niños y aparca en el espacio marcado.",
+"Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.": "Lee la señal de entrada y mira al frente antes de arrancar. Respeta el límite de velocidad de la zona escolar. Detente antes del autobús escolar cuando parpadeen sus luces rojas. Espera a que se apaguen y a que los niños estén a salvo antes de continuar.",
+"Read the next instruction page.": "Lee la siguiente página de instrucciones."
 },
 "templates": [
 [
@@ -6018,6 +6132,206 @@ window.OTR_I18N.es = {
 [
 "Use {0} to look. Press {1} to select a visible nearby target and {2} to interact. Press {3} to read the scenario goal.",
 "Usa {0} para mirar. Pulsa {1} para elegir un objetivo visible cercano y {2} para interactuar. Pulsa {3} para leer el objetivo del escenario."
+],
+[
+"Parked at {0}",
+"Aparcado en {0}"
+],
+[
+"Parked at {0} (facing the traffic)",
+"Aparcado en {0} (en el sentido del tráfico)"
+],
+[
+"Parked at {0} ({1} ft from the kerb)",
+"Aparcado en {0} (a {1} pies del bordillo)"
+],
+[
+"Parked at {0} (at an angle)",
+"Aparcado en {0} (en ángulo)"
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt before moving. Look at each physical mirror to check it. Signal for three seconds before moving off or turning.",
+"Usa {0} para acelerar, {1} para frenar y {2}/{3} para girar. Abróchate el cinturón antes de moverte. Mira cada espejo físico para revisarlo. Pon el intermitente tres segundos antes de arrancar o girar."
+],
+[
+"Look at the shifter or a cab switch and press {0} to use it. Keyboard shortcuts remain available. The rear camera comes on in reverse. Use it and the mirrors to reverse slowly. You can park and make an optional walk-around in a tight space.",
+"Mira la palanca de cambios o un interruptor de la cabina y pulsa {0} para usarlo. Los atajos de teclado siguen disponibles. La cámara trasera se enciende en marcha atrás. Úsala junto con los espejos para dar marcha atrás despacio. Puedes aparcar y hacer una revisión opcional alrededor en un espacio estrecho."
+],
+[
+"Follow the mounted sat nav to each address. Park the whole van in the marked bay and set the parking brake. Press {0} to record the checkpoint, or select the checkpoint option on the device. Rain begins halfway through the route.",
+"Sigue el GPS montado hasta cada dirección. Aparca toda la camioneta en el espacio marcado y pon el freno de mano. Pulsa {0} para registrar el punto de control, o elige la opción del punto de control en el dispositivo. A mitad de la ruta empieza a llover."
+],
+[
+"Press {0} to read the sat nav and checkpoint details.",
+"Pulsa {0} para leer el GPS y los detalles del punto de control."
+],
+[
+"Park at this checkpoint and press {0} to record it.",
+"Aparca en este punto de control y pulsa {0} para registrarlo."
+],
+[
+"The van hit an obstacle at {0} mph.",
+"La camioneta chocó con un obstáculo a {0} mph."
+],
+[
+"Checkpoint {0} of {1} is at {2}.",
+"El punto de control {0} de {1} está en {2}."
+],
+[
+"Checkpoint {0} is complete. Continue to {1}.",
+"Punto de control {0} completado. Continúa hacia {1}."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Look with the mouse or {4}. Press {5} to select a nearby physical cab control and {6} to use it.",
+"Usa {0} para acelerar, {1} para frenar y {2}/{3} para girar. Mira con el ratón o con {4}. Pulsa {5} para elegir un control físico cercano de la cabina y {6} para usarlo."
+],
+[
+"Press {0} to set or release the parking brake, {1} for the seatbelt, {2} for drive or reverse, {3}/{4} for the left or right signal, {5} for headlights, and {6} for wipers. Press {7} to look forward.",
+"Pulsa {0} para poner o quitar el freno de mano, {1} para el cinturón, {2} para marcha adelante o atrás, {3}/{4} para el intermitente izquierdo o derecho, {5} para los faros y {6} para los limpiaparabrisas. Pulsa {7} para mirar al frente."
+],
+[
+"Follow the mounted sat nav. Press {0} to record a checkpoint after parking, or press {1} for the device. Read a visible road sign with {2}. The rear camera is automatic in reverse. Look at the physical mirrors to check them.",
+"Sigue el GPS montado. Pulsa {0} para registrar un punto de control después de aparcar, o pulsa {1} para el dispositivo. Lee una señal visible con {2}. La cámara trasera es automática en marcha atrás. Mira los espejos físicos para revisarlos."
+],
+[
+"The van drives automatically. Press {0} or click when a hazard starts to develop. Earlier marks inside the response window earn more points. More than {1} marks in one clip score zero. With reduced motion, the cab stays still while the road scene develops.",
+"La camioneta conduce sola. Pulsa {0} o haz clic cuando empiece a formarse un peligro. Las marcas más tempranas dentro del margen de respuesta dan más puntos. Más de {1} marcas en un clip puntúan cero. Con movimiento reducido, la cabina se queda quieta mientras se desarrolla la escena."
+],
+[
+"Clip {0} of {1}. Press {2} or click when a hazard starts to develop. You have made {3} marks.",
+"Clip {0} de {1}. Pulsa {2} o haz clic cuando empiece a formarse un peligro. Has hecho {3} marcas."
+],
+[
+"You scored {0} of 5 points.\n\n{1}",
+"Has obtenido {0} de 5 puntos.\n\n{1}"
+],
+[
+"The van drives automatically. Press {0} or click when a hazard begins to develop.\n\nWith reduced motion, the cab stays still while the road scene develops.",
+"La camioneta conduce sola. Pulsa {0} o haz clic cuando empiece a formarse un peligro.\n\nCon movimiento reducido, la cabina se queda quieta mientras se desarrolla la escena."
+],
+[
+"Approach {0} of 3. Follow the sat nav to {1}.",
+"Aproximación {0} de 3. Sigue el GPS hasta {1}."
+],
+[
+"Approach {0} of 3. Follow the sat nav, then park the whole van in the marked bay and set the parking brake.",
+"Aproximación {0} de 3. Sigue el GPS y después aparca toda la camioneta en el espacio marcado y pon el freno de mano."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt with its physical control or {4}. Look at the physical mirrors and signal for three seconds before moving off.",
+"Usa {0} para acelerar, {1} para frenar y {2}/{3} para girar. Abróchate el cinturón con su control físico o con {4}. Mira los espejos físicos y pon el intermitente tres segundos antes de arrancar."
+],
+[
+"Follow the mounted sat nav. Park the whole van in the marked bay, facing with traffic, and set the parking brake. Press {0} to record the checkpoint, or use the same action on the device with {1}.",
+"Sigue el GPS montado. Aparca toda la camioneta en el espacio marcado, en el sentido del tráfico, y pon el freno de mano. Pulsa {0} para registrar el punto de control, o usa la misma acción en el dispositivo con {1}."
+],
+[
+"Press {0} to read the junction route and checkpoint details.",
+"Pulsa {0} para leer la ruta del cruce y los detalles del punto de control."
+],
+[
+"The finish bay is at {0}.",
+"El espacio de llegada está en {0}."
+],
+[
+"Walk with {0}/{1}/{2}/{3} and look with the mouse or {4}. Select a nearby physical target with {5} and use it with {6}. Check the headlights at the front of the van before entering the cab.",
+"Camina con {0}/{1}/{2}/{3} y mira con el ratón o con {4}. Elige un objetivo físico cercano con {5} y úsalo con {6}. Revisa los faros en la parte delantera de la camioneta antes de subir a la cabina."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Press {4} for the seatbelt, {5} for the parking brake, {6} for the headlights, and {7}/{8} to signal. Look at the physical mirrors to check them.",
+"Usa {0} para acelerar, {1} para frenar y {2}/{3} para girar. Pulsa {4} para el cinturón, {5} para el freno de mano, {6} para los faros y {7}/{8} para poner el intermitente. Mira los espejos físicos para revisarlos."
+],
+[
+"Follow the mounted sat nav. Keep at least a three-second gap behind the lead vehicle. Drive within the distance the headlights illuminate. Park in the marked finish bay and press {0}, or use the finish option on the device with {1}.",
+"Sigue el GPS montado. Mantén al menos tres segundos de distancia con el vehículo de cabeza. Conduce dentro de la distancia que iluminan los faros. Aparca en el espacio de llegada marcado y pulsa {0}, o usa la opción de terminar en el dispositivo con {1}."
+],
+[
+"Walk to the front of the van. Look at the headlights and press {0} to inspect them. Assess the light test and request a repair if needed. Inspect before the van moves.",
+"Camina hasta la parte delantera de la camioneta. Mira los faros y pulsa {0} para inspeccionarlos. Valora la prueba de luces y pide una reparación si hace falta. Inspecciona antes de que se mueva la camioneta."
+],
+[
+"Enter the cab at the driver door with {0}. Fasten the seatbelt, switch on the headlights with {1} or their physical control, check the mirrors and signal before moving off.",
+"Sube a la cabina por la puerta del conductor con {0}. Abróchate el cinturón, enciende los faros con {1} o con su control físico, revisa los espejos y pon el intermitente antes de arrancar."
+],
+[
+"Follow the sat nav to {0}. Keep at least a three-second gap behind the lead vehicle and drive within the headlight range. Park the whole van in the marked bay and set the parking brake, then press {1} or use the finish option on the device with {2}.",
+"Sigue el GPS hasta {0}. Mantén al menos tres segundos de distancia con el vehículo de cabeza y conduce dentro del alcance de los faros. Aparca toda la camioneta en el espacio marcado y pon el freno de mano; después pulsa {1} o usa la opción de terminar en el dispositivo con {2}."
+],
+[
+"Press {0} to read the night route and finish details.",
+"Pulsa {0} para leer la ruta nocturna y los detalles de llegada."
+],
+[
+"Inspect the {0}. Press {1} to interact.",
+"Inspecciona: {0}. Pulsa {1} para interactuar."
+],
+[
+"The gauge reads {0}/32 inches.",
+"El medidor marca {0}/32 pulgadas."
+],
+[
+"Plan route {0} of {1} on the sat nav.",
+"Planifica la ruta {0} de {1} en el GPS."
+],
+[
+"Press {0} to plan the route on the sat nav.",
+"Pulsa {0} para planificar la ruta en el GPS."
+],
+[
+"Route {0} starts at {1}.\n{2}",
+"La ruta {0} empieza en {1}.\n{2}"
+],
+[
+"The school zone is active between {0} and {1}. Driving through it adds {2} minutes.",
+"La zona escolar está activa entre {0} y {1}. Atravesarla añade {2} minutos."
+],
+[
+"The road is closed on {0} between {1} and {2}.",
+"La calle {0} está cortada entre {1} y {2}."
+],
+[
+"Collect the pickup between {0} and {1}.",
+"Recoge el envío entre {0} y {1}."
+],
+[
+"Deliver this parcel by {0}.",
+"Entrega este paquete antes de {0}."
+],
+[
+"The estimated arrival is {0}.",
+"La llegada estimada es {0}."
+],
+[
+"Stop {0} is at {1}.\n{2}\n{3}",
+"La parada {0} está en {1}.\n{2}\n{3}"
+],
+[
+"Route {0} contains {1} of {2} stops.",
+"La ruta {0} contiene {1} de {2} paradas."
+],
+[
+"\nThe sequence is {0}.",
+"\nEl orden es {0}."
+],
+[
+"\nThe estimated return is {0}.",
+"\nEl regreso estimado es {0}."
+],
+[
+"Follow the mounted sat nav to the finish bay. Press {0} to finish after parking, or use the finish option on the device with {1}. Read a visible road sign with {2}. The rear camera is automatic in reverse. Look at the physical mirrors to check them.",
+"Sigue el GPS montado hasta el espacio de llegada. Pulsa {0} para terminar después de aparcar, o usa la opción de terminar en el dispositivo con {1}. Lee una señal visible con {2}. La cámara trasera es automática en marcha atrás. Mira los espejos físicos para revisarlos."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt with its physical control or {4}. Look at the mirrors and signal before moving off.",
+"Usa {0} para acelerar, {1} para frenar y {2}/{3} para girar. Abróchate el cinturón con su control físico o con {4}. Mira los espejos y pon el intermitente antes de arrancar."
+],
+[
+"Follow the sat nav to {0}. Park the whole van in the marked bay, set the parking brake and press {1} to finish. The mounted screen and {2} offer the same finish action. You can read the controls from the pause menu.",
+"Sigue el GPS hasta {0}. Aparca toda la camioneta en el espacio marcado, pon el freno de mano y pulsa {1} para terminar. La pantalla montada y {2} ofrecen la misma acción de terminar. Puedes leer los controles desde el menú de pausa."
+],
+[
+"Press {0} to read the school route and finish details.",
+"Pulsa {0} para leer la ruta escolar y los detalles de llegada."
 ]
 ],
 "keep": [
