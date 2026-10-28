@@ -1,0 +1,8 @@
+{
+  "phase": "cancelled-for-visual-correction",
+  "jobs": [],
+  "controllerPid": 230567,
+  "startedAt": 1793212995.311005,
+  "reason": "Replace card notice circular red face with the existing rectangular green plate. Duplicate queued controllers stopped by exact PID; no source changed while owned browser children ran.",
+  "cleanupVerified": true
+}

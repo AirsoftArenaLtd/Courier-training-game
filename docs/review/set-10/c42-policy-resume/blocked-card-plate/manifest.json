@@ -1,0 +1,15 @@
+{
+  "scope": "Final card-holder sign uses the existing rectangular green mounted plate and lettering batch. Real full-world picks/card visibility and existing sign regressions pass. No new texture/render pass. Native/resource acceptance at this exact source remains queued; prior cancelled runs are diagnostic only.",
+  "sources": {
+    "src/core/fpsigns.js": "628fc9557f7cc2cea206d9b0e4de2e788b060bf201c5ab380ffea55f508a1948",
+    "src/core/fpsignlettering.js": "e7d7f9bd0ef16f15974b53f824889894e04bfa81523088414f7f629f99d6fc35",
+    "src/core/fpproblemblockedworld.js": "1d3b17153961cec7e326f07015c306872f018ca0c13dcae997e3e94f19529af3",
+    "test/fpproblemblockedworld.js": "928f21da851378c7f3eb8209d652c16aa674c883749968e13716f1549f8c7a28"
+  },
+  "passed": [
+    "node test/fpproblemblockedworld.js",
+    "node test/fpsigns.js",
+    "node --check src/core/fpsigns.js",
+    "git diff --check"
+  ]
+}

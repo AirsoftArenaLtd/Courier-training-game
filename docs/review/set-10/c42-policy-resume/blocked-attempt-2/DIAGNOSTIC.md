@@ -1,0 +1,3 @@
+# Restart before final card-notice style
+
+Visual review found a circular red speed-sign face above the card holder. The final fixture uses the existing rectangular green plate. Attempt 2 was deliberately stopped for that visual correction; it is not acceptance evidence. A failed status assertion in a shell without `set -e` also started duplicate queued controllers, overwriting their plan/status files with the same source hashes at a newer documentation commit. Those exact duplicates and the owned active browser children/server were stopped and cleanup verified. The next attempt has fresh, separate frozen inputs. No runtime source changed while the browser was running.

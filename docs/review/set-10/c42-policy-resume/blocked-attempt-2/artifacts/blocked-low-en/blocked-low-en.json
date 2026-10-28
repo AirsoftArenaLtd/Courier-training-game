@@ -1,0 +1,424 @@
+{
+  "checks": 185,
+  "layouts": [
+    {
+      "name": "brief",
+      "texts": [
+        {
+          "source": "Blocked driveway.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Inspect the access and complete a safe delivery attempt.\n\nAssess the blocked driveway and complete a safe delivery attempt with the parcel secured.\n\nYou have 600 seconds to complete this scenario.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 306
+        },
+        {
+          "source": "1. Begin the scenario.",
+          "font": 18,
+          "scale": 1,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the station.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "early-finish",
+      "texts": [
+        {
+          "source": "Read the blocked-drive information.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Complete the exception, safe card, retained parcel and next-attempt records. Return to the legally parked van with its parcel secured and cargo doors closed.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Return to the stop.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls-0",
+      "texts": [
+        {
+          "source": "Use the blocked-drive controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Use W/A/S/D to walk. Look with the mouse or ←/→/↑/↓. Press O to select a nearby physical target and U to use it.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 18,
+          "scale": 1,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the stop.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls-1",
+      "texts": [
+        {
+          "source": "Use the blocked-drive controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Keep the van on the public road. Read the access notice and inspect the driveway before choosing an exception. The delivery-card holder is at the safe public edge. Keep the parcel secured in the van when access prevents delivery.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 250
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 18,
+          "scale": 1,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the stop.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls-2",
+      "texts": [
+        {
+          "source": "Use the blocked-drive controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Press TAB for the exception, retention and next-attempt records. Use the physical card holder to leave a card. Close the cargo doors and return to the legally parked van before finishing with F or the device.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 18,
+          "scale": 1,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the stop.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "access-notice",
+      "texts": [
+        {
+          "source": "Read the blocked-drive information.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The driveway is unsafe. Keep to the public path.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Return to the stop.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "exception",
+      "texts": [
+        {
+          "source": "Choose an exception code.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Animal, hazard or threat at the address.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Record exception UN.",
+          "font": 18,
+          "scale": 1,
+          "top": 450.5,
+          "bottom": 471.5
+        },
+        {
+          "source": "2. Read the next exception code.",
+          "font": 18,
+          "scale": 1,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "3. Return to the stop.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "safe-card",
+      "texts": [
+        {
+          "source": "Leave the delivery attempt card.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The card holder is outside the blocked driveway.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Leave the card in the holder.",
+          "font": 18,
+          "scale": 1,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the stop.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "unsecured-parcel",
+      "texts": [
+        {
+          "source": "Read the blocked-drive information.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Return to the legally parked van and secure the retained parcel with the cargo doors closed.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Return to the stop.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    }
+  ],
+  "shots": [
+    "blocked-low-en-brief.png",
+    "blocked-low-en-controls.png",
+    "blocked-low-en-access-notice.png",
+    "blocked-low-en-device.png",
+    "blocked-low-en-safe-card.png",
+    "blocked-low-en-card-left.png"
+  ],
+  "walks": [
+    {
+      "x": 46.75000000000001,
+      "z": 15.016666666666671,
+      "steps": 36
+    },
+    {
+      "x": 50.1,
+      "z": 15.016666666666671,
+      "steps": 42
+    },
+    {
+      "x": 50.1,
+      "z": 16.61666666666667,
+      "steps": 26
+    },
+    {
+      "x": 50.1,
+      "z": 15.016666666666671,
+      "steps": 28
+    },
+    {
+      "x": 46.75000000000001,
+      "z": 15.016666666666671,
+      "steps": 43
+    },
+    {
+      "x": 46.75000000000001,
+      "z": 17.716666666666672,
+      "steps": 36
+    },
+    {
+      "x": 46.75000000000001,
+      "z": 24.91666666666667,
+      "steps": 88
+    },
+    {
+      "x": 49.550000000000004,
+      "z": 24.91666666666667,
+      "steps": 37
+    },
+    {
+      "x": 48.550000000000004,
+      "z": 24.41666666666667,
+      "steps": 37
+    },
+    {
+      "x": 48.550000000000004,
+      "z": 21.31666666666667,
+      "steps": 22
+    },
+    {
+      "x": 48.550000000000004,
+      "z": 23.81666666666667,
+      "steps": 34
+    },
+    {
+      "x": 48.550000000000004,
+      "z": 24.41666666666667,
+      "steps": 41
+    }
+  ],
+  "errors": [],
+  "gfx": "low",
+  "lang": "en",
+  "large": false,
+  "bad": false,
+  "scope": "Real remapped target/action keys, voluntary walking, notice/card rays, cargo retrieval/replacement/restraint/doors, cab entry, records and result/reload. Only optional descriptor, durable profile/workday and explicit access/font settings are fixtures; no pose, parcel, protocol, timer or score writes.",
+  "progress": {
+    "kind": "walk",
+    "x": 48.550000000000004,
+    "z": 24.41666666666667,
+    "player": {
+      "x": 48.55815526542572,
+      "z": 23.628775752041495,
+      "yaw": -0.004763250086242144,
+      "pitch": 0.46081004551376836
+    },
+    "elapsed": 27.79805666666693
+  },
+  "device": {
+    "top": 92,
+    "bottom": 544,
+    "texts": [
+      {
+        "scale": 1,
+        "top": 104.5,
+        "bottom": 123.5
+      },
+      {
+        "scale": 1,
+        "top": 106.5,
+        "bottom": 121.5
+      },
+      {
+        "scale": 1,
+        "top": 520.5,
+        "bottom": 535.5
+      },
+      {
+        "scale": 1,
+        "top": 150,
+        "bottom": 167
+      }
+    ],
+    "buttons": [
+      {
+        "font": 15,
+        "scale": 1,
+        "top": 338.5,
+        "bottom": 432.5
+      },
+      {
+        "font": 15,
+        "scale": 1,
+        "top": 390.5,
+        "bottom": 484.5
+      },
+      {
+        "font": 15,
+        "scale": 1,
+        "top": 442.5,
+        "bottom": 536.5
+      }
+    ]
+  },
+  "failure": "TargetCloseError: Protocol error (Page.captureScreenshot): Target closed\n    at CallbackRegistry.clear (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:82:36)\n    at CdpCDPSession.onClosed (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:115:25)\n    at #onClose (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Connection.js:190:21)\n    at WebSocket.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/node/NodeWebSocketTransport.js:48:30)\n    at callListener (/workspace/Courier-training-game/test/node_modules/ws/lib/event-target.js:290:14)\n    at WebSocket.onClose (/workspace/Courier-training-game/test/node_modules/ws/lib/event-target.js:220:9)\n    at WebSocket.emit (node:events:509:28)\n    at WebSocket.emitClose (/workspace/Courier-training-game/test/node_modules/ws/lib/websocket.js:279:10)\n    at Socket.socketOnClose (/workspace/Courier-training-game/test/node_modules/ws/lib/websocket.js:1360:15)\n    at Socket.emit (node:events:509:28)",
+  "state": null
+}
