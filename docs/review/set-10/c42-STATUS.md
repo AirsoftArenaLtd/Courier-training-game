@@ -2,7 +2,7 @@
 
 **The remaining policy questions are answered; closure and blocked-drive work can proceed.** Accepted Claude’s 27 October rules: full safety on a completed careful run with no penalties; unsafe blocked-drive exceptions use UN and retain the parcel without approaching the unsafe door; AC is for an actually locked site; service uses the existing reattempt protocol and catalogue severity. The agreed per-stop par policy is retained. Four compatible existing-id m4 keys are now applied; all other original registry bytes/defaults are identical.
 
-The completed historical manifest verifies 32 durable good existing-id journeys and 22 continuation jobs; its original runtime/resources/glyph limitations remain source-scoped. The text below is historical evidence, not a live validation job or a still-unanswered policy request. The B-178/font/current-pilot rebase follows the C-52 merge. `c42-policy-resume/` records the fresh source/metadata audit. C-41’s frozen native/resource jobs continue in their separate worktree while this next scope is prepared.
+The completed historical manifest verifies 32 durable good existing-id journeys and 22 continuation jobs; its original runtime/resources/glyph limitations remain source-scoped. The text below is historical evidence, not a live validation job or a still-unanswered policy request. The B-178/font/current-pilot rebase follows the C-52 merge. `c42-policy-resume/` records the fresh source/metadata audit. C-41’s owned scope is now review at `b17fac5a` after 1,435 native checks, 194 CPU cases and 32 resource views; this next scope continues independently.
 
 # Historical 24–25 October evidence
 

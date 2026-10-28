@@ -1,0 +1,20 @@
+✔ authored pars gain only the agreed grace, and original stop data stays byte-identical (1.771926ms)
+✔ a careful completed reroute tests full safety, uses the existing route check and keeps the exact time row (1.948001ms)
+✔ route gates require ordered actual travel, then parking at the destination (0.535399ms)
+✔ shared time bands and labels remain exact at all boundaries, without a second timing implementation (3.149275ms)
+✔ contact keeps the catalogue critical/severity and cannot be averaged away by a correct reroute (0.406924ms)
+✔ a failed route observation stays failed after later correct observations (0.374095ms)
+✔ an unsafe blocked drive requires UN and actual parcel security at the van; AC is reserved for locked access (0.468207ms)
+✔ a safe alternative approach requires reaching the physical door before a not-available exception (0.227583ms)
+✔ a reattempt requires a real card point, retention at the van, the right booking and a secured finish (0.38429ms)
+✔ sidewalk and doorstep hazards retain their existing major, noncritical penalty wording (0.368226ms)
+✔ paused time, unfinished runs, terminal guards and bounded observations cannot invent a result (0.605324ms)
+✔ the isolated policy kernel never writes to a real suspended workday or its save data (0.27783ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26.916911
