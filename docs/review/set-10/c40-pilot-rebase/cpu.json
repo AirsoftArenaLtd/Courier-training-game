@@ -1,0 +1,134 @@
+{
+  "base": "3678fba3 via C38 66f2cda5",
+  "candidate": "89c141c88000009b311e6c3f9fca2ebcbff1b6d1",
+  "priorTip": "c0c50d13",
+  "backupBranch": "codex/c40-before-pilot-oct28",
+  "suites": [
+    {
+      "file": "test/fphud.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackageheavy.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackageheavyscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackagelabels.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackagelabelscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackagelabelworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackagelift.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackageliftbay.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackageliftgeometry.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackageliftscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackageliftworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackagesort.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackagesortscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fppackagesortworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0
+    }
+  ],
+  "sources": {
+    "data/modules.js": "90e978e361287c4d26f26d38212050d92d6f67db09d621a3a11c3271f38702f4",
+    "src/core/fpaccess.js": "b11e87cf3f349f81a2e0552d8876c66e37eb656005ccfa8137da4d4fb0dfc787",
+    "src/core/fphud.js": "c2f528cd30ed595e1fca985a100c0919d6c4741b83e4523b5fd12f91b6b430ea",
+    "src/core/fppackageheavy.js": "f8feef7f8d1481dd6319c687b05bae7539d17d35c9136c1c12a4e77bde2ad90e",
+    "src/core/fppackageheavyscenario.js": "6776a98ea4fef3c3dada1810ffa30de63cb53344e37a0ec376be2c45d098f9d3",
+    "src/core/fppackagelabels.js": "d78a25ff8c857a8d577f8540d7ab6e8806b9cc2c675845aa3752cdaa8bd96bd5",
+    "src/core/fppackagelabelscenario.js": "c257948bf71c326d48ad24aff1dcba16f7beeece1e9e087d75360200b147f07a",
+    "src/core/fppackagelabelworld.js": "7e2efbd1a1a89613038d9165d56efc3fddc23e545b46b665b688004a92f93fce",
+    "src/core/fppackagelift.js": "c951851be051346154a20ea51435e5003b5380c04df36b1191a63d4be997a1f5",
+    "src/core/fppackageliftbay.js": "ec76dea8802a4a0426d1d1c5dff514c5925e852c8aeb066b9df68a894d23fe4b",
+    "src/core/fppackageliftscenario.js": "dcae678fd4c6b616a7e537ac166daacfb316dbb9da73f6b7345a530450ad4520",
+    "src/core/fppackageliftworld.js": "392c28270ae0e2793ed31f387de941c426d26527e4b6e5337496e3ec266d672c",
+    "src/core/fppackagesort.js": "48decbae861b9b3ec311d7307ce203f689ae253ee8f39702daaea4aa38a5fa20",
+    "src/core/fppackagesortscenario.js": "9f12d210d5134ba735edfa3a64690db4985ea1026fb0efd70c4c480cc435100c",
+    "src/core/fppackagesortworld.js": "356625d68faacb94e16c0bc9fce1da8bacb1be662def225b5b665cc9f7e8b348",
+    "src/core/fpscenario.js": "f45c916b79d86a4387c05434d76b8864dc0c0a6b60aa0785cafbb10fc141b8b1",
+    "src/core/fpworld.js": "8455880827bd135a7cb48aa49d1cc0e5ff3961127d73f4eebef336f85bc11c0f",
+    "src/scenes/FirstPersonScenarioScene.js": "d8b1c3a8b032dae263c8eabb803a510ddaafe9f502e68f7c3b5beadc68a88c3c",
+    "test/fpbench.js": "8d33b747f2f5de3bc691e53426712295a84155ac434e7185ae7d5a4dfad9f189",
+    "test/fphud.js": "b256592a755b81efd525a83d1be2b5ae5c5249d1f1514cc5443013c7a572336e",
+    "test/fppackageheavy.js": "3e796e5aa0790bcca4679bb75d6eaa986b3cf314aaeca4368453e513052bf954",
+    "test/fppackageheavybrowser.js": "70a7a0ed6ca64d339b86da3dc115c331f5d24e99e507dd532b06b2f0c136219f",
+    "test/fppackageheavyscenario.js": "7820a0022cdaa5239178213bae13a5f0f8f52aea91a77a4b2e8b3770a6c46268",
+    "test/fppackagelabelboundbrowser.js": "2a8a7956af2ea85f43cc97bb0ccb9c8f2b08dd3d9f7d77fd592ef1c687b4123a",
+    "test/fppackagelabelbrowser.js": "af2fa25eff1ecf48a26fc159d1e73e78a2b0ad23aad58ac6a10917ec1f930c75",
+    "test/fppackagelabels.js": "e1e2dff8537116032f36fb85936511f9d613abe2e76f2713655899aa77265341",
+    "test/fppackagelabelscenario.js": "2552edc28144916e328de4de6999af788357205845a102925fa6ba16b5e83c3e",
+    "test/fppackagelabelworld.js": "db05996975a46a6ed61f5244a6b4802ae58d898b784782838ce5ef7d30df86b5",
+    "test/fppackagelift.js": "1fc52484b916808bb7ee7e47ffc6c465d65c1a98a0fbf0d9e5a2f4f4bfb3091b",
+    "test/fppackageliftbay.js": "99b083e800afb3a67e82392e16ed9e4d8c1d7f5b54db894dff9bc40d8d6c961b",
+    "test/fppackageliftbrowser.js": "b7f7d927bb766f33204ab0be58b2309736d151f7d115d00beaaa7984691527bc",
+    "test/fppackageliftgeometry.js": "74fb88d7053e4e854e4b41f628dfe09aec2375f3e84839e56e3c2bf003bc25c4",
+    "test/fppackageliftscenario.js": "0b7464e79e60640fac5c941f06331c345498390beca6f5c6d472cf6501246dbb",
+    "test/fppackageliftworld.js": "2f6e5aa24aed2b2d27094c44c0b9d22a526c90729004d54c75dff49e9df7f43b",
+    "test/fppackagesort.js": "8daecc3bbfe95c4fe9bb0ac5a98212b9fe11246f2f406578f9aa6c9e8f5d1e98",
+    "test/fppackagesortbrowser.js": "b1c581fcc475fa678e8b6ee70ba395d8126263c2447dfe03633e0d928a92182f",
+    "test/fppackagesortscenario.js": "5eca637e7ec333ec67f22ef854ad38f867d165496b66a0e784a2346d5e453c0a",
+    "test/fppackagesortworld.js": "50c4361d53918616709cee331304bab33916e13cc36a5b07c82feea6d617b163",
+    "test/fpscenario.js": "958245f680c8db69d15c18e90f8e06b62d89db678589c19850894511acc1fb1d",
+    "test/tools/fp-package-heavy-quality.js": "c5f8fb546ebecb2195b8aa66b2b905e57a82d28dabc8bc95ebd009b198592a8d",
+    "test/tools/fp-package-label-quality.js": "57dc9c0700f9dd3fb7064f5cc8d0724868ee09debeba8eb91ea875a1118d8425",
+    "test/tools/fp-package-lift-quality.js": "64bc806ea5b0c084acd1360fb77fef14e8524241eb73cd782966e02f518db2ea",
+    "test/tools/fp-package-sort-quality.js": "25105f1a5c245a9f29ab6ba5398b32c5d4c5d5241d13218a07e77ca5a4e3a3fe"
+  },
+  "scope": "Current-pilot C40 CPU and changed-JS syntax. Historical native/resource manifests retain their source scope; fresh browser checks remain separate."
+}

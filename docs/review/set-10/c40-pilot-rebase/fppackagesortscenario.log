@@ -1,0 +1,16 @@
+✔ the real scan, numbered route and neutral assessment acknowledgement retain the original score (85.872484ms)
+✔ blind and wrong routes, stale inputs and double confirms cannot create extra credit (16.370128ms)
+✔ wave cards wait until the previous belt clears; jam reset requires a stopped belt and nearby ray (13.711069ms)
+✔ a complete five-wave run keeps m2-sort ratios and never changes the suspended workday (14.187249ms)
+✔ conveyor batches cull real instances in each mirror and restore the main buffers exactly (152.459545ms)
+✔ the actual shared result flow preserves legacy stars, attempts and lesson meaning (6.344698ms)
+✔ P selection follows the identity of a visible moving parcel without moving the camera or bypassing occlusion (18.006931ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 326.032515
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
