@@ -27,8 +27,18 @@ OTR.academy = {
       attempts: d.attempts !== undefined ? d.attempts : 1,
       refresherDays: d.refresherDays || 30,
       // the 3D workday's aids (board task A-21): 'auto' starts helpful and fades on later days
-      workday: Object.assign({ assists: 'auto', satnav: 'auto', walkaround: 'optional', night: true, damage: true }, d.workday || {})
+      workday: Object.assign({ assists: 'auto', satnav: 'auto', walkaround: 'optional', night: true, damage: true }, d.workday || {}),
+      // A-30: per module, which version of its scenarios plays ('auto' is 3D where ready, docs/3D-MODULES.md)
+      presentation: Object.assign({}, d.presentation || {})
     };
+  },
+
+  PRESENTATION: ['auto', '3d', '2d'],
+
+  /** The trainer's choice for a scenario's module: 'auto', '3d' or '2d'. */
+  presentationOf(id) {
+    const m = OTR.registry.moduleOf(id), p = this.get().presentation || {};
+    return (m && this.PRESENTATION.indexOf(p[m.id]) >= 0) ? p[m.id] : 'auto';
   },
 
   WORKDAY: { assists: ['auto', 'full', 'light', 'off'], satnav: ['auto', 'full', 'line', 'off'], walkaround: ['optional', 'required'] },
@@ -60,6 +70,10 @@ OTR.academy = {
     if (w && typeof w === 'object') {
       Object.keys(this.WORKDAY).forEach(k => { if (this.WORKDAY[k].indexOf(w[k]) >= 0) d.workday[k] = w[k]; });
       ['night', 'damage'].forEach(k => { if (typeof w[k] === 'boolean') d.workday[k] = w[k]; });
+    }
+    const p = s.presentation;
+    if (p && typeof p === 'object') {
+      OTR.registry.modules().forEach(m => { if (this.PRESENTATION.indexOf(p[m.id]) >= 0) d.presentation[m.id] = p[m.id]; });
     }
     return d;
   },
@@ -209,7 +223,7 @@ OTR.academy = {
 
   /** For the hub, the record and the LMS. */
   summary() {
-    const all = OTR.registry.all();
+    const all = OTR.registry.counted();
     const passed = all.filter(sc => this.status(sc.id) === 'passed').length;
     const attempted = all.filter(sc => this.status(sc.id) !== 'none').length;
     return { total: all.length, passed, attempted, complete: attempted === all.length || passed === all.length, passedAll: passed === all.length };

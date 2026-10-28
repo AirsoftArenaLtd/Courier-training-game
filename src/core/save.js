@@ -542,7 +542,7 @@ OTR.save = {
   reportLms() {
     const I = OTR.identity || {};
     if (I.mode !== 'scorm' || !OTR.registry) return;
-    const all = OTR.registry.all ? OTR.registry.all() : [];
+    const all = OTR.registry.counted ? OTR.registry.counted() : OTR.registry.all ? OTR.registry.all() : [];
     const rep = OTR.academy ? OTR.academy.summary() : null;
     let max = all.length * 9 || 1, got = this.totals().all, complete = !!(rep && rep.complete), passed = !!(rep && rep.passedAll);
     // the 3D workday counts as one more part of the course: its best stars in the score, and the course is complete

@@ -14,6 +14,19 @@ OTR.registry = {
   get(id) {
     return OTR.registry.all().find(s => s.id === id) || null;
   },
+  /** Whether this PC can play a scenario in 3D (the game runs on WebGL). */
+  can3d() {
+    return !!(OTR.game && OTR.game.renderer && OTR.game.renderer.gl);
+  },
+  /**
+   * The scenarios that count towards "every module passed" (the hub, the certificate, the LMS): not the optional ones
+   * (the new 3D-only scenarios until owner question 11 says otherwise), nor a 3D-only one on a PC that cannot run 3D.
+   * webgl: whether to count 3D-only scenarios (the trainer's view of a trainee passes true).
+   */
+  counted(webgl) {
+    const gl = webgl === undefined ? OTR.registry.can3d() : !!webgl;
+    return OTR.registry.all().filter(s => !s.optional && (s.scene || gl));
+  },
   moduleOf(id) {
     return OTR_DATA.modules.find(m => m.scenarios.some(s => s.id === id)) || null;
   },
@@ -34,8 +47,12 @@ OTR.flow = {
   startScenario(scene, id, o) {
     const sc = OTR.registry.get(id);
     if (!sc) return;
-    if (!scene.scene.manager.keys[sc.scene]) {
-      OTR.ui.toast(scene, 'This scenario isn\'t available yet.');
+    // A-30: the 3D or the 2D version, by the trainer's choice for the module, the scenario's default and WebGL
+    const route = OTR.fpScenario
+      ? OTR.fpScenario.resolve(sc, { choice: OTR.academy.presentationOf(id), webgl: OTR.registry.can3d() })
+      : { scene: sc.scene, reason: null };
+    if (!route.scene || !scene.scene.manager.keys[route.scene]) {
+      OTR.ui.toast(scene, route.reason || 'This scenario isn\'t available yet.');
       return;
     }
     if (OTR.drill.active && OTR.drill.active.ids[OTR.drill.active.i] !== id) OTR.drill.active = null;
@@ -43,7 +60,7 @@ OTR.flow = {
     OTR.flow.startedAt = Date.now();                // for the record's "time training"
     if (o && o.assess && !OTR.flow.testId) OTR.academy.begin(id);
     else OTR.academy.assessing = null;
-    OTR.fx.transition(scene, sc.scene, { scenarioId: id });
+    OTR.fx.transition(scene, route.scene, { scenarioId: id });
   },
 
   /**
