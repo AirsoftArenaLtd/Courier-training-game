@@ -1,0 +1,9 @@
+# C-42 policy resume — 28 October 2026
+
+The new isolated `fpProblemProtocol` core implements the confirmed closure and blocked-drive policy without loading or registering another scenario yet. Route gates require ordered moving samples and reject relocation as progress. Completion requires parking at the destination. The closure combines the existing `drive.route` catalogue check with the unchanged StopScene time row at the existing authored par plus 30 seconds; no second timing thresholds or points are authored.
+
+For blocked access, a physically reachable safe door must be approached before NA. Unsafe access accepts UN without requiring an approach to the unsafe door; AC applies only to actually locked access. The existing richer-stop reattempt kernel keeps the card, retention and booking sequence. Parcel security is required at the van for retention and finish. Actual scene adapters will derive these context fields from their geometry and parcel model.
+
+Completed careful runs explicitly test full safety without inventing a positive safety check. Catalogue contact criticals, major sidewalk/doorstep penalties and their labels/lessons remain intact. Wrong route/booking observations stay failed after correction. Unfinished and overflowed runs keep observations but award zero; completed/unfinished runs freeze. Observations are bounded and cannot enter a saved workday.
+
+The 12 new core cases, three existing scenario cases, 18 richer-stop cases and 25 workday cases pass. `core/manifest.json` records source/log hashes. These are CPU/core checks, not physical driving, native/layout/resource or current-pilot acceptance. Existing 32-journey historical module evidence retains its original source scope. Physical adapters are next on this pushed C-41/C-38 stack, with shared optional A-30 support and post-C-52 rebase still separate.
