@@ -1,6 +1,9 @@
 {
-  "phase": "queued",
+  "phase": "running",
   "jobs": [],
   "pid": 189775,
-  "startedAt": 1793174580.4154172
+  "startedAt": 1793174580.4154172,
+  "serverPid": 190586,
+  "tag": "night-high-ta",
+  "childPid": 190587
 }
