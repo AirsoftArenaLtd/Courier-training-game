@@ -1,0 +1,10 @@
+{
+  "changedUnusedProfilerInput": [
+    "test/tools/fp-script-font-proof.js"
+  ],
+  "oldSha256": "2bc22fd6b584c914e9744bd1e775de4a0ae02be799bd78ef65abfc3bdb0d3ba4",
+  "newSha256": "24618613a179492b16b88325142b4107c95e8a5b5060b5cd16fe892e3c874071",
+  "allOtherResourceInputsIdentical": true,
+  "completedEnglishNativePathIdentical": true,
+  "scope": "Only the read-only Tamil probe now forces layout/font readiness. English returns before the changed code. No runtime, geometry, glyph family selection, scoring, timer or native action changes."
+}

@@ -1,0 +1,104 @@
+{
+  "sourceRevision": "6e689faeb0c446b142fd527039d37a41d7f4380c",
+  "scope": "Current-pilot C42 resource gate: 32 blocked-drive views and eight focused closure views, original four profiles/caps, actual adapter geometry/lettering/card/gate/isolation. Native gameplay and Intel FPS remain separate. The unused font-probe helper is about to receive a test-only layout-readiness fix; all production/runtime and actual profiler inputs stay byte identical.",
+  "sources": 808,
+  "artifacts": 48,
+  "views": 40,
+  "profiles": [
+    {
+      "tag": "c42-rebase-blocked-loaded-low",
+      "peak": {
+        "calls": 45,
+        "triangles": 1530,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1958368
+      }
+    },
+    {
+      "tag": "c42-rebase-blocked-loaded-high",
+      "peak": {
+        "calls": 77,
+        "triangles": 99056,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5330096
+      }
+    },
+    {
+      "tag": "c42-rebase-blocked-accessible-low",
+      "peak": {
+        "calls": 45,
+        "triangles": 1530,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2209584
+      }
+    },
+    {
+      "tag": "c42-rebase-blocked-fallback-low",
+      "peak": {
+        "calls": 41,
+        "triangles": 1268,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1958368
+      }
+    },
+    {
+      "tag": "c42-rebase-closure-loaded-low",
+      "peak": {
+        "calls": 40,
+        "triangles": 1102,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1403371
+      }
+    },
+    {
+      "tag": "c42-rebase-closure-loaded-high",
+      "peak": {
+        "calls": 71,
+        "triangles": 135950,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 4145531
+      }
+    },
+    {
+      "tag": "c42-rebase-closure-accessible-low",
+      "peak": {
+        "calls": 40,
+        "triangles": 1102,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1474224
+      }
+    },
+    {
+      "tag": "c42-rebase-closure-fallback-low",
+      "peak": {
+        "calls": 39,
+        "triangles": 906,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1403371
+      }
+    }
+  ],
+  "cleanup": {
+    "controllerPid": {
+      "pid": 245232,
+      "state": "zombie"
+    },
+    "serverPid": {
+      "pid": 259943,
+      "state": "gone"
+    },
+    "childPid": {
+      "pid": 262677,
+      "state": "gone"
+    }
+  },
+  "allPassed": true
+}

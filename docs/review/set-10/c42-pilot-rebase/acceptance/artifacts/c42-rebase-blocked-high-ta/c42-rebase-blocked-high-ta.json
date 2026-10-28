@@ -1,0 +1,72 @@
+{
+  "checks": 1,
+  "layouts": [],
+  "shots": [
+    "c42-rebase-blocked-high-ta-failure.png"
+  ],
+  "walks": [],
+  "errors": [],
+  "gfx": "high",
+  "lang": "ta",
+  "large": true,
+  "bad": false,
+  "scope": "Real remapped target/action keys, voluntary walking, notice/card rays, cargo retrieval/replacement/restraint/doors, cab entry, records and result/reload. Only optional descriptor, durable profile/workday and explicit access settings are fixtures; no pose, parcel, protocol, timer or score writes.",
+  "failure": "AssertionError [ERR_ASSERTION]: Tamil glyphs resolve through the actual game text font.\n    at module.exports (/workspace/c42-problem-solving/test/tools/fp-script-font-proof.js:11:10)\n    at async /workspace/c42-problem-solving/test/fpproblemblockedbrowser.js:20:239",
+  "state": {
+    "phase": "brief",
+    "mode": "cab",
+    "player": {
+      "x": -1,
+      "z": -20,
+      "yaw": 0,
+      "pitch": 0
+    },
+    "van": {
+      "x": 48.550000000000004,
+      "z": 19.41666666666667,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 2,
+      "hand": true,
+      "belt": false,
+      "look": 0
+    },
+    "target": null,
+    "panel": true,
+    "cargo": false,
+    "held": null,
+    "secured": true,
+    "atVan": true,
+    "ready": false,
+    "parcel": {
+      "id": "parcel0",
+      "location": "slot0"
+    },
+    "exception": null,
+    "sequence": {
+      "version": 1,
+      "kind": "reattempt",
+      "parcel": "parcel0",
+      "failed": false,
+      "card": false,
+      "retained": false,
+      "booked": false
+    },
+    "doorReached": false,
+    "hazards": 0,
+    "elapsed": 0,
+    "card": {
+      "x": 50.95,
+      "z": 24.91666666666667,
+      "y": 1.2
+    },
+    "warning": {
+      "x": 51.207499999999996,
+      "z": 16.61666666666667,
+      "w": 0.12,
+      "d": 0.12,
+      "h": 2.7
+    }
+  }
+}
