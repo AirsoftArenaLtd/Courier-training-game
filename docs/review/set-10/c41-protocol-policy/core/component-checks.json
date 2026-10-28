@@ -1,0 +1,114 @@
+{
+  "results": [
+    {
+      "test": "test/fpcustomerprotocol.js",
+      "sha256": "f52c25fc0b5d118e80c5aea52016aab85bf55604fdc69695579ec464af0ee1c2",
+      "exit": 0,
+      "log": "fpcustomerprotocol.log"
+    },
+    {
+      "test": "test/fpcustomerprotocolscenario.js",
+      "sha256": "64c095483352d186dde16472ebea633cc8a190f57a19ba8cd0a3230c97fed225",
+      "exit": 0,
+      "log": "world-buzzer.log"
+    },
+    {
+      "test": "test/fpcustomertalk.js",
+      "sha256": "63906969b64ace7b2b24f70c075cf707038ef650226be772dcd354abfb6b5deb",
+      "exit": 0,
+      "log": "fpcustomertalk.log"
+    },
+    {
+      "test": "test/fpcustomerscenario.js",
+      "sha256": "c9eefc7887debf590b11cf41352551fae029d5527c4f30ba878525703fe341ee",
+      "exit": 0,
+      "log": "fpcustomerscenario.log"
+    },
+    {
+      "test": "test/fpcustomerworld.js",
+      "sha256": "b632e23de5216f7ce313cfb21169323ae46cb009b6ff77e24e98ebd60dc5faa0",
+      "exit": 0,
+      "log": "fpcustomerworld.log"
+    },
+    {
+      "test": "test/fpcustomerstop.js",
+      "sha256": "9e910b492682c8a8e2e840f9e2ddf8518ebf70de6f7b7151e02d1f811e8eaa4c",
+      "exit": 0,
+      "log": "fpcustomerstop.log"
+    },
+    {
+      "test": "test/fpcustomerstopworld.js",
+      "sha256": "fec9e88c2483165d72f51db37e3028ffcb08b217e67aaf63c8694c52b173ebfd",
+      "exit": 0,
+      "log": "fpcustomerstopworld.log"
+    },
+    {
+      "test": "test/fpcustomerstopscenario.js",
+      "sha256": "ba81698dfb220416a7a345d287ead7465d9341bfbe075aaf2bea959388931409",
+      "exit": 0,
+      "log": "fpcustomerstopscenario.log"
+    },
+    {
+      "test": "test/fpstops.js",
+      "sha256": "2b39a261d785e81afa4f2b7261c3d452843e2834039b806a0f5914d886c697af",
+      "exit": 0,
+      "log": "fpstops.log"
+    },
+    {
+      "test": "test/fpstopflow.js",
+      "sha256": "208765a1d82f347f75e6ee8d087c547e4c539aff6544f611f2887a09077a50c1",
+      "exit": 0,
+      "log": "fpstopflow.log"
+    },
+    {
+      "test": "test/fpstopscene.js",
+      "sha256": "ba4aa696ecd77f0f7dab645cb02f873302887ee5b8f7e4d735441cad59be4dad",
+      "exit": 0,
+      "log": "fpstopscene.log"
+    },
+    {
+      "test": "test/fpscenario.js",
+      "sha256": "c305d465bdbcb5d7947e3bf2f79dc5b75b3e41a064f4693c787a4f7304933a49",
+      "exit": 0,
+      "log": "fpscenario.log"
+    },
+    {
+      "test": "test/firstperson.js",
+      "sha256": "efc29a7050fa16f0f4fd94e45a6b72e624bf421662c910a7897a86b686f8b797",
+      "exit": 0,
+      "log": "firstperson.log"
+    },
+    {
+      "test": "test/workday.js",
+      "sha256": "0ad4239d0c04958d455305e481cd96e31e5ec628ac912da4bb477ae21172b5d8",
+      "exit": 0,
+      "log": "workday.log"
+    },
+    {
+      "test": "test/savesize.js",
+      "sha256": "a3fc5a8e208979c7b3b8cc4a0fa84a9c75bc07e54037a6f994a0c17c5e1bc58a",
+      "exit": 0,
+      "log": "savesize.log"
+    },
+    {
+      "test": "test/fpaccess.js",
+      "sha256": "a39ba93ea96674eb0b555528fb09251eeb5fdd2c0ba95808935cda02fe6747df",
+      "exit": 0,
+      "log": "fpaccess.log"
+    },
+    {
+      "test": "test/fpcab.js",
+      "sha256": "19c2f7b314f0e11c6e48b10c9b98d25f8e87501da1046b17e645b563e1bd23f8",
+      "exit": 0,
+      "log": "fpcab.log"
+    },
+    {
+      "test": "test/fpsignlettering.js",
+      "sha256": "dedb6fb52cf07be34817ca6314b2dca2e545c44a8d35cf808597d19c6625b755",
+      "exit": 0,
+      "log": "fpsignlettering.log"
+    }
+  ],
+  "allPassed": true,
+  "cases": 194
+}
