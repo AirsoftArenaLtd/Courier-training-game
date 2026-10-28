@@ -1,0 +1,340 @@
+{
+  "checks": 108,
+  "layouts": [
+    {
+      "label": "brief",
+      "texts": [
+        {
+          "source": "Road closure.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Follow the diversion to the delivery address.\n\nFollow the diversion around the road closure and park in the marked destination bay.\n\nYou have 600 seconds to complete this scenario.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 306
+        },
+        {
+          "source": "1. Begin the scenario.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the station.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "label": "early-finish",
+      "texts": [
+        {
+          "source": "Read the road-closure information.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Follow the diversion on the sat nav, then park the whole van inside the marked destination bay, facing with traffic. Set the parking brake before finishing.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Return to the road.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "label": "controls-0",
+      "texts": [
+        {
+          "source": "Use the diversion controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Use W to accelerate, S to brake, and A/D to steer. Use the mouse or ←/→/↑/↓ to look. Press O to select a nearby cab control and U to use it.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the road.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "label": "controls-1",
+      "texts": [
+        {
+          "source": "Use the diversion controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Press SPACE for the parking brake, B for the seatbelt, and R for drive or reverse. Press Q/C for the signals and V to look forward. Look at the physical mirrors before moving off.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the road.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "label": "controls-2",
+      "texts": [
+        {
+          "source": "Use the diversion controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The road ahead is closed. Follow the mounted sat nav around the closure to 104 Maple Ave. Read a visible sign with J. Park inside the marked bay, facing with traffic. Press F to finish, or use the device with TAB.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the road.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "label": "sign-reading",
+      "texts": [
+        {
+          "source": "Read the physical road sign.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The street is closed. Follow another cross street.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Return to the road.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    }
+  ],
+  "shots": [
+    "closure-low-en-brief.png",
+    "closure-low-en-controls-0.png",
+    "closure-low-en-controls-1.png",
+    "closure-low-en-controls-2.png",
+    "closure-low-en-device.png",
+    "closure-low-en-sign-reading.png"
+  ],
+  "errors": [],
+  "quality": "low",
+  "large": false,
+  "lang": "en",
+  "scope": "Prepared optional descriptor bypasses the outstanding shared launcher/content support. Actual movement, menus, cab controls and finish use keys; no pose, timer, route-gate or verdict assignments.",
+  "device": {
+    "top": 92,
+    "bottom": 544,
+    "texts": [
+      {
+        "source": "Read the diversion.",
+        "scale": 1,
+        "top": 104.5,
+        "bottom": 123.5
+      },
+      {
+        "source": "",
+        "scale": 1,
+        "top": 106.5,
+        "bottom": 121.5
+      },
+      {
+        "source": "⌫ Back",
+        "scale": 1,
+        "top": 520.5,
+        "bottom": 535.5
+      },
+      {
+        "source": "The destination is 104 Maple Ave.",
+        "scale": 1,
+        "top": 150,
+        "bottom": 167
+      }
+    ],
+    "buttons": [
+      {
+        "font": 15,
+        "scale": 1,
+        "top": 390.5,
+        "bottom": 484.5
+      },
+      {
+        "font": 15,
+        "scale": 1,
+        "top": 442.5,
+        "bottom": 536.5
+      }
+    ]
+  },
+  "physical": {
+    "mounted": [
+      {
+        "kind": "roadworks",
+        "words": [
+          4,
+          6
+        ]
+      },
+      {
+        "kind": "roadworks",
+        "words": [
+          4,
+          6
+        ]
+      }
+    ],
+    "floating": false,
+    "fonts": true,
+    "assessment": false
+  },
+  "gates": [
+    {
+      "next": 0,
+      "van": {
+        "x": 42.375,
+        "z": -20.25,
+        "yaw": 3.141592653589793,
+        "speed": 0,
+        "steer": 0,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 1
+      },
+      "elapsed": 1.0884433333333334
+    },
+    {
+      "next": 1,
+      "van": {
+        "x": 42.379117256665424,
+        "z": -20.202030608488368,
+        "yaw": 3.139197656100879,
+        "speed": 0.47698561314621524,
+        "steer": -0.24500000000000008,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 1
+      },
+      "elapsed": 1.2884433333333336
+    },
+    {
+      "next": 2,
+      "van": {
+        "x": 44.02049268491638,
+        "z": -15.559648619665715,
+        "yaw": 2.8204996649616074,
+        "speed": 1.6726403854224525,
+        "steer": -0.58,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 1
+      },
+      "elapsed": 4.488443333333326
+    }
+  ],
+  "failure": "Error: waitForFunction failed: frame got detached.\n    at IsolatedWorld.dispose (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:68:39)\n    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:72:14)\n    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/IsolatedWorld.js:162:45)\n    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:335:87)\n    at #removeFramesRecursively (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:495:45)\n    at #onClientDisconnect (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:85:42)\n    at /workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:69:37\n    at onceHandler (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/EventEmitter.js:95:13)\n    at /workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/third_party/mitt/mitt.js:62:7\n    at Array.map (<anonymous>)",
+  "state": null
+}

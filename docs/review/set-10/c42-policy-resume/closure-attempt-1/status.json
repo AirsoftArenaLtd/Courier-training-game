@@ -1,0 +1,33 @@
+{
+  "phase": "failed",
+  "controllerPid": 207716,
+  "jobs": [
+    {
+      "tag": "closure-low-en",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "closure-low-en.json": "0d753c4570cecb45690ee203f757cd0db05dbc0bd208cfa940ad1e1c01d45a2d",
+        "closure-low-en-controls-1.png": "3c78342844496137dd027845c921478a817a6703006b145bcbd00f8e9648b47e",
+        "closure-low-en-brief.png": "e568b815c9f9bb3cec29763c7a556920d2f72dd54941b46d37f7d666ec05863f",
+        "closure-low-en-device.png": "ffd787c94048e047b61e38a17ffb0ab9ab8408bb48310d99dc0d0b4b74f17a16",
+        "closure-low-en-controls-0.png": "2ecdfc278e34b55ba619596cded85b4ab2de8f79ecd4b94750577a088e1b140f",
+        "closure-low-en-controls-2.png": "5c270325736bf62f6c9589da85f33461847fda6889302b1bd66eccef5f43c55d",
+        "closure-low-en-sign-reading.png": "dcd74230d827365f371c33b7945fa69fe69bcee92396f07a05b14c6bff09406c"
+      }
+    }
+  ],
+  "startedAt": 1793198201.9311483,
+  "serverPid": 207720,
+  "tag": "closure-low-en",
+  "childPid": 207721,
+  "failure": "Browser job failed: closure-low-en",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793198583.2208498
+}

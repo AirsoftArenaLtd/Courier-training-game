@@ -1,0 +1,13 @@
+✔ the canonical mission parcel, legal curb and safe card point define the protocol geometry (13.645548ms)
+✔ the actual cargo slot, held parcel, restraint and closed doors gate UN and retained completion (17.823654ms)
+✔ actual locked access accepts AC while a safe absent site requires an on-foot door approach before NA (104.378228ms)
+✔ actual careless walking into the unsafe approach keeps the major hazard and a corrected booking stays failed (43.262285ms)
+✔ paused/ended states freeze and timeout observations cannot enter the suspended workday (2.187752ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 193.963256
