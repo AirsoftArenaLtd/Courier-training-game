@@ -27,14 +27,15 @@ test('the actual scenario shell keeps contact criticals and unfinished ratios lo
   const r=run.definition.result(run,'timeout');assert.equal(r.score,0);assert.equal(r.ratios.safety,0);assert.equal(r.ratios.efficiency,0);assert.equal(r.log.criticals().length,1);assert.equal(JSON.stringify(O.workday.events),before);assert.equal(run.definition.result(run,'timeout'),r);
  }finally{scene.art.dispose();}
 });
-test('the real vehicle motor can follow every detour gate and park the whole body without a contact',()=>{
- const scene=fixture(),m=scene.model,r=m.roadProblem.state.route,g=m.roadProblem.goal;try{
+test('the real vehicle motor follows every detour gate and parks without contact at four control-sampling intervals',()=>{
+ for(const cadence of [1,3,5,8]){const scene=fixture(),m=scene.model,r=m.roadProblem.state.route,g=m.roadProblem.goal;try{
   Object.assign(m.van,{hand:false,belt:true,gear:1});let parked=false;
   for(let n=0;n<5000;n++){
-   const v=m.van,p=r.points[r.next]||g,last=r.next>=5,dx=(last?g:p).x-v.x,dz=(last?g:p).z-v.z,want=last?Math.atan(dx*.55):Math.atan2(dx,-dz),diff=Math.atan2(Math.sin(want-v.yaw),Math.cos(want-v.yaw)),stop=last&&v.z<g.z-.5;
-   m.step({forward:!stop&&v.speed<1.5,back:stop||v.speed>1.8,left:diff<-.025,right:diff>.025},.05);assert.equal(m.motion.contact,false);
-   if(stop&&v.speed<.1){v.hand=true;parked=true;break;}
+   const v=m.van,p=r.points[r.next]||g,last=r.next>=5,dx=(last?g:p).x-v.x,dz=(last?g:p).z-v.z,want=last?Math.atan(dx*.55):Math.atan2(dx,-dz),diff=Math.atan2(Math.sin(want-v.yaw),Math.cos(want-v.yaw)),predicted=diff-v.speed*Math.tan(v.steer)/3.3*.4,stop=last&&v.z<g.z-.5,target=Math.abs(diff)>.4?.7:1.5;
+   const input={forward:!stop&&v.speed<target,back:stop||v.speed>target+.15,left:predicted<-.035,right:predicted>.035};
+   for(let i=0;i<cadence;i++){m.step(input,.05);assert.equal(m.motion.contact,false);}
+   if(stop&&v.speed<.08){v.hand=true;parked=true;break;}
   }
-  assert.ok(parked);assert.equal(O.fpProblemRoute.ready(m),true);const result=scene.scenarioSession.definition.result(scene.scenarioSession,'complete');assert.equal(result.score,400);assert.equal(result.ratios.safety,1);assert.equal(result.ratios.efficiency,1);assert.equal(result.log.criticals().length,0);
- }finally{scene.art.dispose();}
+  assert.ok(parked);assert.equal(O.fpProblemRoute.ready(m),true);const result=scene.scenarioSession.definition.result(scene.scenarioSession,'complete');if(cadence<=5){assert.equal(result.score,400);assert.equal(result.ratios.efficiency,1);}else assert.ok(result.ratios.efficiency<1,'a slower drive keeps the unchanged shared time rule');assert.equal(result.ratios.safety,1);assert.equal(result.log.criticals().length,0);
+ }finally{scene.art.dispose();}}
 });

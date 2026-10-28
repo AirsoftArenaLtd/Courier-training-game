@@ -38,10 +38,11 @@ const OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c42-clos
   eq(await page.evaluate(()=>OTR.game.scene.getScene('FirstPersonScenarioScene').target),'cab-belt');await key('KeyU');eq((await state()).van.belt,true);await key('KeyV');await key('KeyR');await key('Space');
   report.gates=[];let old=-1,st,parked=false;
   for(let n=0;n<8000;n++){
-   st=await state();assert.equal(st.phase,'active');const v=st.van,p=st.points[st.next]||st.goal,last=st.next>=5,dx=(last?st.goal:p).x-v.x,dz=(last?st.goal:p).z-v.z,want=last?Math.atan(dx*.55):Math.atan2(dx,-dz),diff=Math.atan2(Math.sin(want-v.yaw),Math.cos(want-v.yaw)),stop=last&&v.z<st.goal.z-.5;
+   st=await state();assert.equal(st.phase,'active');assert.equal(st.contacts,0,'Native driving must never contact the curb or barrier.');assert.ok(st.elapsed<550,'The native driver must make progress in game time.');const v=st.van,p=st.points[st.next]||st.goal,last=st.next>=5,dx=(last?st.goal:p).x-v.x,dz=(last?st.goal:p).z-v.z,want=last?Math.atan(dx*.55):Math.atan2(dx,-dz),diff=Math.atan2(Math.sin(want-v.yaw),Math.cos(want-v.yaw)),predicted=diff-v.speed*Math.tan(v.steer)/3.3*.4,stop=last&&v.z<st.goal.z-.5,target=Math.abs(diff)>.4?.7:1.5;
    if(st.next!==old){old=st.next;report.gates.push({next:old,van:v,elapsed:st.elapsed});console.log('gate',old,v.x,v.z,st.elapsed);save();}
    if(stop&&Math.abs(v.speed)<.08){await hold([]);await key('Space');parked=true;break;}
-   const wanted=[];if(!stop&&v.speed<1.5)wanted.push('KeyW');if(stop||v.speed>1.8)wanted.push('KeyS');if(diff<-.025)wanted.push('KeyA');if(diff>.025)wanted.push('KeyD');await hold(wanted);await frames(1);
+   if(n%60===0){report.progress={iteration:n,next:st.next,van:v,elapsed:st.elapsed};save();}
+   const wanted=[];if(!stop&&v.speed<target)wanted.push('KeyW');if(stop||v.speed>target+.15)wanted.push('KeyS');if(predicted<-.035)wanted.push('KeyA');if(predicted>.035)wanted.push('KeyD');await hold(wanted);await frames(0);
   }
   await hold([]);ok(parked,'The motor reaches the destination using native movement keys.');st=await state();eq(st.contacts,0);eq(st.next,st.points.length);eq(st.ready,true);report.parked=st;await shot('parked');
   await key('Tab');await key('Digit1');await ready('ResultsScene');
