@@ -8,6 +8,8 @@ OTR.fpSignLettering={
   },
   lines(s){
     if(s.kind==='street'){const name=s.name.toUpperCase();if(name.length<=9)return [name,''];const at=name.lastIndexOf(' ',9);return [name.slice(0,at>0?at:9),name.slice(at>0?at+1:9)];}
+    if(s.kind==='blocked-access')return [s.access==='unsafe'?'UNSAFE':s.access==='locked'?'LOCKED':'BLOCKED','ACCESS'];
+    if(s.kind==='attempt-card')return ['DELIVERY','CARD'];
     if(s.kind==='number')return [String(s.number),''];
     if(s.kind==='speed')return [String(s.limit),'MPH'];
     if(s.kind==='school')return ['SCHOOL',String(s.limit)+' MPH'];

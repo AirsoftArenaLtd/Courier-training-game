@@ -1,0 +1,15 @@
+✔ component menus require the actual card pose and exception, then finish through the original kernel (9.003041ms)
+✔ wrong booking stays failed after correction and menu actions from abandoned runs cannot mutate a new state (4.75673ms)
+✔ the component consumes unrelated completion targets and checks the selected physical target before opening a card menu (5.195722ms)
+✔ all component controls and exception descriptions use bounded pages and remapped physical controls (1.856038ms)
+✔ physical component rays reach the mounted holder and notice from walkable safe poses, with stable paper buffers (5.670117ms)
+✔ locked access has a physical gate and the mounted sign describes the actual access variant (3.570342ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 66.270492
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

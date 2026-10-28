@@ -444,6 +444,8 @@ class FirstPersonScene extends Phaser.Scene {
     else if(id&&id.startsWith('door'))hint=m.stop(id.slice(4)).address+' · '+`${k('KeyE')} attempts delivery.`;else if(m.heldId)hint='Choose an empty cargo shelf, or approach the correct delivery point.';
     if(id&&id.startsWith('visit'))hint=`Press ${k('KeyE')} to use the delivery controls.`;
     if(mode==='cab'&&!(id&&(id.startsWith('cab-')||id.startsWith('mirror-')))&&m.routeDay&&!m.parked()&&!(m.driving&&OTR.fpDriving.hint(m))&&OTR.fpDay.active(m))hint=OTR.fpDay.driveText(m);
+    const interaction=this.interactionHint?this.interactionHint(id,m,k('KeyE')):null;
+    this.physicalAffordance=!!interaction;if(interaction)hint=interaction;
     if(OTR.fpGuide){const guide=OTR.fpGuide.hint(this,id);if(guide)hint=guide;}
     if(this.notice&&this.time.now<this.noticeUntil)hint=this.notice;
     if(aiming)hint=this.handheld.focusId?`Barcode in sight · Hold ${k('Space')} or left click to scan`:'Aim at the barcode, or pick up the parcel to bring its label closer.';
