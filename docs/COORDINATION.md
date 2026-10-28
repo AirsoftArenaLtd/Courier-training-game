@@ -416,7 +416,7 @@ Rules that apply to every task here:
 | A-26 | Claude | **Debrief, drive map, trainer report and xAPI** for the new events: lessons text, pins for signs, damage and clearance, the before-and-after report, the LMS report and xAPI statements. | done: the new events reach the debrief (lines and lessons per phase), the drive map (pins only for placed mistakes and penalties) and the verdict (no-entry, major damage and unreported damage are critical); xAPI and the before-and-after report work from stars and stops, so they need no change (`test/workday.js`) |
 | A-27 | Claude | **Save budget:** the saved workday must stay inside the SCORM 1.2 limit (4,096 characters) with all the new events; compaction, a size test over 240 full days, and a fallback that keeps score and stars if details do not fit. | done: found and fixed a real loss on SCORM 1.2 (below); a busy new-package day stays whole on a normal save and keeps its score on a heavy one (`test/savesize.js`) |
 | A-28 | Claude | **QA flows for signs, sat nav, damage report, night, richer stops** and a 3D fuzz run; the full release-candidate pass again. | doing (release-candidate run 22 Oct 07:34: 139 of 141; the two failures are B-164's; rerun after it) |
-| A-29 | Claude | **Translations for milestone 9**, pilot guide, trainer docs, `docs/READINESS.md` refreshed. | doing (READINESS refreshed 22 Oct; pilot guide B-119/B-139; the rest after A-28) |
+| A-29 | Claude | **Translations for milestone 9**, pilot guide, trainer docs, `docs/READINESS.md` refreshed. | doing (READINESS refreshed 28 Oct; pilot guide: the gamepad (B-2, B-183) in all 12 guides 28 Oct; trainer docs for the 3D modules are A-32) |
 
 #### Milestone 10: every module in 3D (owner brief, 17 October 2026)
 
