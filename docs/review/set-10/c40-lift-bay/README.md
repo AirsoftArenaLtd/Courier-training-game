@@ -58,10 +58,8 @@ never rewritten. Raw `.log.gz` files and `raw-node-logs.tar.gz` archives preserv
 line-end whitespace. `manifest.json` records the actual commands' source scopes.
 
 `registry-lift.patch` proposes only `scene3d: 'package-lift-bay'` for existing
-`m2-lift`, preserving the id, categories, content, 2D fallback and default. Claude
-owns that shared change under A-30.
+`m2-lift`, preserving the id, categories, content, 2D fallback and default. Claude authorized this existing-id key on 27 October; it is now applied without changing the other registry fields.
 
-The optional `m2-heavy` remains pending the Claude inbox question about its posted
-solo limit and critical trigger. Whole-task current-pilot/default-workday
+Claude confirmed the optional `m2-heavy` policy on 27 October: 50 lb (23 kg), critical when a solo load leaves the floor. Its new core is in `../c40-heavy-policy/`; this five-load acceptance retains its historical source scope. Whole-task current-pilot/default-workday
 acceptance and existing Intel measurement O-1 are also outstanding. Current
 catalogue checks do not translate the new English sentences.

@@ -1,0 +1,18 @@
+✔ heavy practice copies its two loads without changing the original five-load lesson (3.654428ms)
+✔ a solo grip is not critical; actual rising above the posted limit is critical once (11.080709ms)
+✔ 50 lb itself is allowed while any greater physical solo load triggers the policy (5.882962ms)
+✔ a team lift waits for the actual helper before gripping and records safe physical form (1.892146ms)
+✔ equipment must be taken, pushed to the pallet and explicitly unloaded before advancing (0.822021ms)
+✔ equipment and team completion keep one isolated 1000-point result with bounded observations (6.135844ms)
+✔ unfinished handling keeps earned observations and criticals but gives no completion result (0.82785ms)
+✔ solo awkward handling and uncontrolled release cannot receive full method or placement checks (1.045189ms)
+✔ a reachable but distant, partly bent grip loses both close-grip and knee checks (5.820709ms)
+✔ a later correct team load never removes the earlier over-limit critical (4.627126ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 99.908933
