@@ -1,0 +1,11 @@
+{
+  "base": "fafac942",
+  "authorizedExistingIDKeys": {
+    "m2-sort": "package-sort-belt",
+    "m2-lift": "package-lift-bay",
+    "m2-labels": "package-label-station"
+  },
+  "otherRegistryFieldsChanged": false,
+  "baselineSHA256": "607fc93f01d1e4737747af35bfb66e59c916e10739c9466ee8aa53576fcac93d",
+  "modifiedSHA256": "90e978e361287c4d26f26d38212050d92d6f67db09d621a3a11c3271f38702f4"
+}
