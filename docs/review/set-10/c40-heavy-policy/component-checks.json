@@ -1,0 +1,42 @@
+[
+  {
+    "suite": "test/fppackageheavy.js",
+    "exit": 0,
+    "cases": 10
+  },
+  {
+    "suite": "test/fppackagelift.js",
+    "exit": 0,
+    "cases": 5
+  },
+  {
+    "suite": "test/fppackageliftbay.js",
+    "exit": 0,
+    "cases": 4
+  },
+  {
+    "suite": "test/fppackageliftworld.js",
+    "exit": 0,
+    "cases": 4
+  },
+  {
+    "suite": "test/fppackageliftscenario.js",
+    "exit": 0,
+    "cases": 5
+  },
+  {
+    "suite": "test/fpscenario.js",
+    "exit": 0,
+    "cases": 14
+  },
+  {
+    "suite": "test/fppackagesort.js",
+    "exit": 0,
+    "cases": 5
+  },
+  {
+    "suite": "test/fppackagelabels.js",
+    "exit": 0,
+    "cases": 6
+  }
+]

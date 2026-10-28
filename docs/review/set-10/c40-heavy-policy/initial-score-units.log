@@ -1,0 +1,39 @@
+✔ heavy practice copies its two loads without changing the original five-load lesson (2.189325ms)
+✔ a solo grip is not critical; actual rising above the posted limit is critical once (3.101847ms)
+✔ 50 lb itself is allowed while any greater physical solo load triggers the policy (6.22699ms)
+✔ a team lift waits for the actual helper before gripping and records safe physical form (5.461574ms)
+✔ equipment must be taken, pushed to the pallet and explicitly unloaded before advancing (0.50994ms)
+✖ equipment and team completion keep one isolated 1000-point result with bounded observations (1.88829ms)
+✔ unfinished handling keeps earned observations and criticals but gives no completion result (0.562769ms)
+✔ solo awkward handling and uncontrolled release cannot receive full method or placement checks (0.819567ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26.782124
+
+✖ failing tests:
+
+test at test/fppackageheavy.js:26:1
+✖ equipment and team completion keep one isolated 1000-point result with bounded observations (1.88829ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  100000 !== 1000
+  
+      at TestContext.<anonymous> (/workspace/c40-package-handling/test/fppackageheavy.js:27:231)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 100000,
+    expected: 1000,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
