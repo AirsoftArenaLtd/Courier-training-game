@@ -1,0 +1,8 @@
+{
+  "phase": "superseded-before-start-font-probe",
+  "controllerPid": 251023,
+  "jobs": [],
+  "startedAt": 1793217390.7018497,
+  "noChildrenStarted": true,
+  "reason": "Fresh plan will capture the corrected read-only font probe after current C42 resource inputs finish. No job had started."
+}
