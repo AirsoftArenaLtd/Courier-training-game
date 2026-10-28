@@ -1,0 +1,39 @@
+{
+  "sourceRevision": "ce2085a6538a04d6ba1bb0ad8d1923c8ad791861",
+  "inputs": 556,
+  "artifacts": 17,
+  "nativeChecks": 593,
+  "layouts": 35,
+  "runs": [
+    {
+      "tag": "heavy-low-en-safe",
+      "checks": 190,
+      "layouts": 12,
+      "unsafe": false,
+      "larger": false
+    },
+    {
+      "tag": "heavy-high-ta-safe",
+      "checks": 192,
+      "layouts": 12,
+      "unsafe": false,
+      "larger": true
+    },
+    {
+      "tag": "heavy-low-en-unsafe",
+      "checks": 110,
+      "layouts": 6,
+      "unsafe": true,
+      "larger": false
+    },
+    {
+      "tag": "heavy-high-ta-unsafe",
+      "checks": 101,
+      "layouts": 5,
+      "unsafe": true,
+      "larger": true
+    }
+  ],
+  "cleanup": true,
+  "scope": "Actual native safe/unsafe workflows on existing C-40/C-38 stack. New words await shared translations; optional shared launcher, current-pilot rebase and resource acceptance are separate."
+}

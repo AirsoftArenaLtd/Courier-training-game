@@ -410,6 +410,34 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
     },name);(report.packageLiftProof||(report.packageLiftProof={}))[name]=proof;report.packageLiftFixture=true;await sample(name);
    }
   }
+  if(process.env.QA_PACKAGE_HEAVY==='1'){
+   await p.evaluate(async()=>{
+    const old=OTR.game.scene.getScenes(true).find(s=>s.sys.settings.key!=='BootScene');old?.closePanel?.(false);old?.releaseMouse?.();
+    if(old)await new Promise(resolve=>{old.events.once('shutdown',resolve);OTR.game.scene.stop(old.sys.settings.key);});
+    OTR.registry.modules().find(m=>m.id==='m2').scenarios.push({id:'m2-heavy',title:'Handle heavy and awkward loads.',icon:'ic_lift',scene3d:'heavy-load-bay',dataKey:'lifting',optional:true,categories:['safety','efficiency'],blurb:'The posted solo lifting limit is 50 lb (23 kg). Use help or equipment for heavier or awkward loads.'});
+    OTR.academy.assessing=null;OTR.game.scene.start('FirstPersonScenarioScene',{scenarioId:'m2-heavy'});
+   });
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:180000});
+   for(const name of ['heavyassess','heavygrip','heavyteam','heavytruck','heavycritical','heavystatus']){
+    if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+    const proof=await p.evaluate(name=>{
+     const scene=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=scene.scenarioSession,s=scene.model.packageLift,H=OTR.fpPackageHeavy,B=OTR.fpPackageLiftBay,U=OTR.fpPackageHeavyUI;
+     window.otrBenchmarkScene='FirstPersonScenarioScene';scene.keyboardMode=true;
+     if(!scene.heavyBefore)scene.heavyBefore={checkpoint:JSON.stringify(OTR.fpStore.read()),events:JSON.stringify(OTR.workday.events),workday:JSON.stringify(OTR.save.data.workday||null)};
+     if(scene.handheld.isOpen)scene.handheld.close(false);scene.closePanel(false);OTR.fpScenario.begin(r);
+     // Explicit representative resource poses; native tests independently prove all movement/critical gates.
+     s.phase='verdict';s.index=name==='heavyteam'?0:-1;s.health=100;s.score=0;s.qualities=[];s.mistakes=[];s.result=null;
+     s.heavy.active=null;s.heavy.completed=0;s.heavy.result=null;s.heavy.log=new OTR.ScoreLog();H.next(s);
+     if(name==='heavygrip'||name==='heavycritical'){H.choose(s,2);s.pose.x=640;s.pose.squat=1;H.grip(s);if(name==='heavycritical'){s.pose.squat=0;H.step(s,{},.05);r.definition.update(r,scene);}}
+     if(name==='heavyteam'){H.choose(s,0);H.requestHelper(s);s.pose.x=640;s.pose.squat=1;H.grip(s);s.pose.squat=0;H.step(s,{left:true},.05);r.definition.update(r,scene);}
+     if(name==='heavytruck'){H.choose(s,0);s.pose.x=s.bay.sourceX+80;H.takeHandle(s);while(s.bay.transport<.5)H.step(s,{left:true},.05);}
+     B.project(s);Object.assign(scene.model.player,{x:s.bay.body.x,z:s.bay.body.z});OTR.fpPackageLiftScenario.faceLoad(scene);scene.sync();
+     if(name==='heavyassess')U.assess(scene);if(name==='heavystatus')U.reading(scene);
+     scene.model.paused=true;scene.refresh();const before=scene.heavyBefore,a=scene.art.packageLift;
+     return {source:'physical-heavy-resource-poses',id:r.id,registered:r.definition===OTR.fpScenario.definitions.get('heavy-load-bay'),name,loads:s.content.lifts.length,canonical:s.content.lifts[s.index]===s.lift,weight:s.lift.weight,mode:s.bay.mode,held:s.pose.hold,helperReady:s.bay.helperReady,pushing:s.bay.pushing,transport:s.bay.transport,completed:s.heavy.completed,critical:s.heavy.log.criticals().length,targets:scene.art.interactions.filter(t=>t.parent===a.root).length,batches:a.batches.length,bounded:!scene.model.blocked(s.bay.body.x,s.bay.body.z),panel:!!scene.panel,handheld:scene.handheld.isOpen,checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};
+    },name);(report.heavyProof||(report.heavyProof={}))[name]=proof;report.heavyFixture=true;await sample(name);
+   }
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));
