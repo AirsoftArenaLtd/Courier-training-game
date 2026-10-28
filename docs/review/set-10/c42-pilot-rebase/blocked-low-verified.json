@@ -1,0 +1,75 @@
+{
+  "sourceRevision": "6e689faeb0c446b142fd527039d37a41d7f4380c",
+  "scope": "Completed Low English real-key blocked-drive run: actual public warning/card, secured cargo/restraint, valid exception/retention/booking, safety and service, durable isolated reload. High stopped at the off-screen font probe before gameplay; no runtime or completed Low path changes are required for its measurement fix. Remaining native/resource scopes remain separate.",
+  "checks": 241,
+  "layouts": 11,
+  "result": {
+    "id": "m4-blocked",
+    "stars": {
+      "safety": 3,
+      "service": 3
+    },
+    "result": {
+      "score": 200,
+      "ratios": {
+        "safety": 1,
+        "service": 1
+      },
+      "untested": [],
+      "log": {
+        "items": [
+          {
+            "cat": "service",
+            "got": 2,
+            "max": 2,
+            "label": "Handled a failed delivery correctly",
+            "good": true,
+            "partial": false,
+            "lesson": "Leave the card, record why, keep the parcel safe and book the next attempt.",
+            "feedback": null,
+            "group": "m4-blocked",
+            "kind": "check",
+            "critical": false,
+            "at": 1793218752838,
+            "where": null,
+            "type": "stop.reattempt"
+          }
+        ],
+        "group": "m4-blocked"
+      },
+      "lessons": [],
+      "stats": {
+        "completed": true,
+        "seconds": 36,
+        "par": 160,
+        "route": null,
+        "doorReached": false,
+        "exception": "UN",
+        "attempt": {
+          "type": "stop.reattempt",
+          "complete": true,
+          "ok": true,
+          "failed": false
+        }
+      }
+    },
+    "record": {
+      "plays": 1,
+      "bestScore": 200,
+      "bestStars": {
+        "safety": 3,
+        "efficiency": 0,
+        "service": 3
+      },
+      "lastPlayed": 1793218752839
+    }
+  },
+  "fontProof": {
+    "lang": "en",
+    "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "override": null
+  },
+  "artifacts": 10,
+  "allPassedSubset": true
+}

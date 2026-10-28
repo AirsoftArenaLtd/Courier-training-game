@@ -1,0 +1,10 @@
+AssertionError [ERR_ASSERTION]: Tamil glyphs resolve through the actual game text font.
+    at module.exports (/workspace/c42-problem-solving/test/tools/fp-script-font-proof.js:11:10)
+    at async /workspace/c42-problem-solving/test/fpproblemblockedbrowser.js:20:239 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

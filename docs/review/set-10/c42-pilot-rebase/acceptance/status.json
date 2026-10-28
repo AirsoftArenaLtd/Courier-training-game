@@ -1,0 +1,52 @@
+{
+  "phase": "failed",
+  "controllerPid": 245231,
+  "jobs": [
+    {
+      "tag": "c42-rebase-blocked-low",
+      "script": "test/fpproblemblockedbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c42-rebase-blocked-low-device.png": "29d57321f79c76d28d7bdb9177aaf4e1566e5829362bd5acce04b42e718d67ed",
+        "c42-rebase-blocked-low.json": "f27154c31d67e6ebc4b4df44e1974b3e4cd4ee1d95e80047cbf9d2d93feecb96",
+        "c42-rebase-blocked-low-access-notice.png": "12616989922aa0b96dc6d3730fcaa7f6a789fe843169c938737ec5d3d9283efa",
+        "c42-rebase-blocked-low-booking.png": "204be4aecbbab12b0b81f2284cad1e9100ee5456323205cdd82440d2fe8d3ab7",
+        "c42-rebase-blocked-low-brief.png": "265b670c1ed8f5d525f409071250fd291439182a78306a12bcdd6e96c6e6d8ea",
+        "c42-rebase-blocked-low-card-left.png": "782dfd03d6d870421480d04000408e0ab3cdf8e9180ce57d49a1820f9fe7d2a4",
+        "c42-rebase-blocked-low-safe-card.png": "845acdb02f4c1cdd4771604f7629da3d79485c3ee650dcb0f60d65053bbce566",
+        "c42-rebase-blocked-low-controls.png": "7161912474b8aea902dc91fba3ac64ace966c9acb7fc3719f5909c6759b6c50a",
+        "c42-rebase-blocked-low-result.png": "65cc09d4bcef4334baf1e5584dc3bf371049157f587f86bea10a5fa7b0b7aa15",
+        "c42-rebase-blocked-low-cargo-secured.png": "322b66c3691cbc20f0a5bb75d859de8e63615283b52670405cc5f6997660c966"
+      }
+    },
+    {
+      "tag": "c42-rebase-blocked-high-ta",
+      "script": "test/fpproblemblockedbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "c42-rebase-blocked-high-ta.json": "7f91d51cd506f0b4cb4dccd698227e5ee7169610fb24252e639526802d95a501",
+        "c42-rebase-blocked-high-ta-failure.png": "155b96faecc360a662f58d0e0b473dd8d07ca94df65890958097989f36fb3870"
+      }
+    }
+  ],
+  "startedAt": 1793216486.6334615,
+  "serverPid": 259041,
+  "tag": "c42-rebase-blocked-high-ta",
+  "childPid": 259577,
+  "failure": "Browser job failed: c42-rebase-blocked-high-ta",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793218787.7746627
+}
