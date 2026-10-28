@@ -1,0 +1,8 @@
+{
+  "review": "Inspected full-size High/Tamil larger inspection, night finish device and school reverse-bay captures. Inspection text is readable with all choices inside the panel; night device body/choices/footer are separated; school HUD/physical selector/rear camera remain readable. New module sentences still use English fallback until the shared translation pass. Existing bright night lower-cab lighting pool is visible and is not certified as finished lighting art.",
+  "files": {
+    "attempt-4/artifacts/night-high-ta/night-high-ta-high-ta-large-light-test.png": "bfd9660811d65e5b778faa3712cb0da519752a1093b7710f8018e706f8c0048f",
+    "attempt-4/artifacts/night-high-ta/night-high-ta-high-ta-large-finish-bay.png": "63a7c12fafd4767c906a5ac406217f7fab3ef9dbbd33a311e6e6d86942d8005c",
+    "attempt-4/artifacts/school-paint-high-ta/school-paint-high-ta-high-ta-large-reverse-bay.png": "6367f01db128d3e5403f8cda72f3a37960996202616eebabc1f0bd330db6f4a9"
+  }
+}

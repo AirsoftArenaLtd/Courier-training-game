@@ -1,9 +1,203 @@
 {
-  "phase": "running",
-  "jobs": [],
+  "phase": "complete",
+  "jobs": [
+    {
+      "tag": "night-high-ta",
+      "script": "test/fpnightlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_FONT": "noto"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "night-high-ta-high-ta-large-night-encounter.png": "a43a381ff8105ccf22e16c7f05bf96ea02c56d28fce82a96f3bb845de6631db5",
+        "night-high-ta-high-ta-large-finish-bay.png": "63a7c12fafd4767c906a5ac406217f7fab3ef9dbbd33a311e6e6d86942d8005c",
+        "night-high-ta-high-ta-large-light-test.png": "bfd9660811d65e5b778faa3712cb0da519752a1093b7710f8018e706f8c0048f",
+        "night-high-ta.json": "ac2079e2bc660d30aec62569862822f1821039467ac978dc258b7cab88234d9b"
+      }
+    },
+    {
+      "tag": "night-low-en",
+      "script": "test/fpnightlessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_FONT": "noto"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "night-low-en-low-en-normal-night-encounter.png": "4626d1395c6573303f55d4d8f11e4a44bab03be381fda2305bfd82216abbc1ee",
+        "night-low-en.json": "d603f0a2cd6846801477f29d5acd8565956cfdf767f704f04524f004cb5d19a6",
+        "night-low-en-low-en-normal-finish-bay.png": "28fa866139885b7cd8160596ff96cb7c99ade0844878ba09785eed2c6f49da05",
+        "night-low-en-low-en-normal-light-test.png": "8c3476308a34a5ad8895b929052205a3664c473dbccb4176bd82ea66247c3663"
+      }
+    },
+    {
+      "tag": "night-budget-loaded-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "nightlessoninspect",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_NIGHTLESSON": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "night-budget-loaded-low-low-nightlessoninspect.png": "e51cdb8c85fe9b1ccc9af7c360286c58dc8d792056b13615f7c7356dbb22c275",
+        "bench-night-budget-loaded-low-low.json": "4d6802fb71acf36976075f097c1e02a215faadb58ceb00e429d40ec783a11a49"
+      },
+      "peak": {
+        "calls": 36,
+        "triangles": 914,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1372294
+      }
+    },
+    {
+      "tag": "night-budget-loaded-high",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "nightlessoninspect",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_NIGHTLESSON": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "bench-night-budget-loaded-high-high.json": "f719b25a125a4bc9d67981cce1864fcc1c542c607559ad1b52b33e89db0db1bb",
+        "night-budget-loaded-high-high-nightlessoninspect.png": "b871b944c8665ce39d84ac351b16d369d7e1a33eb001f82c1ff6661b2111ce25"
+      },
+      "peak": {
+        "calls": 45,
+        "triangles": 51992,
+        "textures": 3,
+        "attachmentBytes": 9142272,
+        "phaserBytes": 4020550
+      }
+    },
+    {
+      "tag": "night-budget-accessible-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "nightlessoninspect",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_NIGHTLESSON": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "night-budget-accessible-low-low-nightlessoninspect.png": "8da3b6d4495205cc6cb1d9bfe0a7ce131ca58153d504aa9a0b42f8c52d625533",
+        "bench-night-budget-accessible-low-low.json": "303730b8d310b08b46cd25de300bcb832e093b515ec6177e59f1baa144c6f6b9"
+      },
+      "peak": {
+        "calls": 36,
+        "triangles": 914,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1450139
+      }
+    },
+    {
+      "tag": "night-budget-fallback-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1",
+        "QA_VIEWS": "nightlessoninspect",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_NIGHTLESSON": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "night-budget-fallback-low-low-nightlessoninspect.png": "2a977fe5aef5ebb4deed035cd026d37e66ec08c315023b348f0dd7a74e220255",
+        "bench-night-budget-fallback-low-low.json": "f66ad89928c380591e7adabcc2fa9442a80aa816bb97cb35626c75780cc52d7b"
+      },
+      "peak": {
+        "calls": 38,
+        "triangles": 630,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1372294
+      }
+    },
+    {
+      "tag": "school-paint-low-en",
+      "script": "test/fpschoollessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_FONT": "noto"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "school-paint-low-en-low-en-normal-bus-stop.png": "ee32fadbd89ec716a681fa46881a198e487fceaf895c995624e742dfdc14d8e4",
+        "school-paint-low-en-low-en-normal-children.png": "3c932f360506616b60492c89a4a7725b32125e41ee235283589e3ea3feb0b394",
+        "school-paint-low-en.json": "5de0423899b34b8ec39e29a5a5900714a44cb6750013cbbf97c5514ba434ac01",
+        "school-paint-low-en-low-en-normal-reverse-bay.png": "3d9963dc43faba40cf5b7251884fda02dacd1cc5c7180b38e045576de1c9dbeb",
+        "school-paint-low-en-low-en-normal-mounted-route.png": "2183b89972d8580ee85574e2bf5d863583d624c00a5d70441ea41d9e4a860396"
+      }
+    },
+    {
+      "tag": "school-paint-high-ta",
+      "script": "test/fpschoollessonbrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_FONT": "noto"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "school-paint-high-ta.json": "3a3858938c3368e97db6fff1042bd120d2ddc1f8ced9b4647997261d724edb09",
+        "school-paint-high-ta-high-ta-large-reverse-bay.png": "6367f01db128d3e5403f8cda72f3a37960996202616eebabc1f0bd330db6f4a9",
+        "school-paint-high-ta-high-ta-large-mounted-route.png": "42f399e0a4e1ca353a48ed5a3f3a4dc0bc695d44b89cc06623bfb7fe4d7f5289",
+        "school-paint-high-ta-high-ta-large-bus-stop.png": "fcf9c00a9513e19b36f5e3d8682e31362a597d5193efcd967434cfde8472b223",
+        "school-paint-high-ta-high-ta-large-children.png": "5b1e908a3f14f9957bc117d2c11a82865fa383596cea7cc9d8eba47d0f49d324"
+      }
+    }
+  ],
   "pid": 189775,
   "startedAt": 1793174580.4154172,
   "serverPid": 190586,
-  "tag": "night-high-ta",
-  "childPid": 190587
+  "tag": "school-paint-high-ta",
+  "childPid": 193776,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793176468.732085
 }

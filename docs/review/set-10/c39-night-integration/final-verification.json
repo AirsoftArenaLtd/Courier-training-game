@@ -1,0 +1,195 @@
+{
+  "sourceRevision": "ac5350cdd1972baa78d7e30fef6c604a684b067d",
+  "inputs": 696,
+  "artifacts": 26,
+  "nativeChecks": 407,
+  "nightNativeChecks": 210,
+  "schoolNativeChecks": 197,
+  "inspectionResourceViews": 4,
+  "profiles": {
+    "night-budget-loaded-low": {
+      "calls": 36,
+      "triangles": 914,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1372294
+    },
+    "night-budget-loaded-high": {
+      "calls": 45,
+      "triangles": 51992,
+      "textures": 3,
+      "attachmentBytes": 9142272,
+      "phaserBytes": 4020550
+    },
+    "night-budget-accessible-low": {
+      "calls": 36,
+      "triangles": 914,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1450139
+    },
+    "night-budget-fallback-low": {
+      "calls": 38,
+      "triangles": 630,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1372294
+    }
+  },
+  "runs": [
+    {
+      "tag": "night-high-ta",
+      "checks": 105,
+      "quality": "high",
+      "language": "ta",
+      "larger": true,
+      "encounter": {
+        "travel": 36.230769307342435,
+        "following": true,
+        "failed": false,
+        "required": true,
+        "lightsFailed": false,
+        "inspected": true
+      },
+      "result": {
+        "id": "m1-night",
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 700,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1793175451104
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1793175112423,
+          "pending": false,
+          "at": 1793175451105,
+          "stars": {
+            "safety": 3,
+            "efficiency": 3
+          },
+          "score": 700,
+          "criticals": [],
+          "lessons": []
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    },
+    {
+      "tag": "night-low-en",
+      "checks": 105,
+      "quality": "low",
+      "language": "en",
+      "larger": false,
+      "encounter": {
+        "travel": 36.10541917979734,
+        "following": true,
+        "failed": false,
+        "required": true,
+        "lightsFailed": false,
+        "inspected": true
+      },
+      "result": {
+        "id": "m1-night",
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 700,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1793175560883
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    },
+    {
+      "tag": "school-paint-low-en",
+      "checks": 104,
+      "quality": "low",
+      "language": "en",
+      "larger": false,
+      "encounter": null,
+      "result": {
+        "id": "m1-school",
+        "stars": {
+          "safety": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 400,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 0
+          },
+          "lastPlayed": 1793175891679
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    },
+    {
+      "tag": "school-paint-high-ta",
+      "checks": 93,
+      "quality": "high",
+      "language": "ta",
+      "larger": true,
+      "encounter": null,
+      "result": {
+        "id": "m1-school",
+        "stars": {
+          "safety": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 400,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 0
+          },
+          "lastPlayed": 1793176457614
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1793175897345,
+          "pending": false,
+          "at": 1793176457614,
+          "stars": {
+            "safety": 3
+          },
+          "score": 400,
+          "criticals": [],
+          "lessons": []
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    }
+  ],
+  "cleanup": true,
+  "intel60fpsCertified": false,
+  "scope": "Existing C-38 stack; shared optional registry/launcher not certified. Earlier 28 night resource views retain their attempt-2 source scope; this run rechecks all four affected inspection views."
+}
