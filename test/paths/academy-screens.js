@@ -106,8 +106,10 @@ module.exports = async (page, ctx) => {
   await clickIcon(page, 'HubScene', 'ic_gear');
   await clickText(page, 'HubScene', /^Access$/);
   await active('AccessScene');
-  await clickBeside(page, 'AccessScene', /^Larger text$/, /^Off$/);
-  await active('AccessScene');                                          // it restarts at the new size
+  if (!(await ctx.eval('OTR.a11y.large'))) {                           // a QA_A11Y=large run has it on already (B-186)
+    await clickBeside(page, 'AccessScene', /^Larger text$/, /^Off$/);
+    await active('AccessScene');                                        // it restarts at the new size
+  }
   if (!(await ctx.eval('OTR.a11y.large'))) throw new Error('Larger text did not turn on');
   await clickBeside(page, 'AccessScene', /^Check mirrors$/, /^Change$/);
   await page.keyboard.press('KeyN');
@@ -131,6 +133,8 @@ module.exports = async (page, ctx) => {
   await active('QuizScene');
   await clickBeside(page, 'QuizScene', /^Customer Interaction$/, /^Start/);
   await active('QuizScene');
+  // the quiz restarts the scene with its questions; at a few fps that comes a little after the click (B-186)
+  if (!(await ctx.until(`!!(OTR.game.scene.getScene('QuizScene').mod || {}).id`, 10000))) throw new Error('the quiz did not start');
   const mid = await ctx.eval(`OTR.game.scene.getScene('QuizScene').mod.id`);
   for (let i = 0; i < 5; i++) {
     await wait(400);
