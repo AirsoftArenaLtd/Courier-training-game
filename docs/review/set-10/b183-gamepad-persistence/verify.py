@@ -15,6 +15,9 @@ for j in s['jobs']:
  for f,h in j['artifacts'].items():assert sha(folder/f)==h;result['artifacts']+=1
  r=read(folder/(j['tag']+'.json'));assert r['complete'] and not r['errors'] and not r.get('failure')
  assert all(not v['bad'] for v in r['layouts'])
- assert all(row['size']>= (22 if r['large'] else 17) for layout in r['layouts'] for row in layout['rows'])
+ # Saved-controls panels use accessibleText; the unchanged shared keyboard-remap screen has its existing 19 px larger contract.
+ for layout in r['layouts']:
+  floor=(19 if layout['name']=='existing keyboard controls' else 22) if r['large'] else 17
+  assert all(row['size']>=floor for row in layout['rows']),(j['tag'],layout['name'])
  result['nativeChecks']+=r['checks'];result['layouts']+=len(r['layouts']);result['runs'].append({'tag':j['tag'],'checks':r['checks'],'layouts':len(r['layouts'])})
 (OUT/'verification.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))

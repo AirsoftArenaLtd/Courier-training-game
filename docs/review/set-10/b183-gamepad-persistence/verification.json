@@ -1,0 +1,21 @@
+{
+  "sourceRevision": "4cae68c7b7863cea16eb6f7b340675a1b50b1125",
+  "inputs": 662,
+  "artifacts": 18,
+  "nativeChecks": 220,
+  "layouts": 44,
+  "runs": [
+    {
+      "tag": "saved-remap-low-en",
+      "checks": 110,
+      "layouts": 22
+    },
+    {
+      "tag": "saved-remap-high-ta",
+      "checks": 110,
+      "layouts": 22
+    }
+  ],
+  "cleanup": true,
+  "translations": "Three revised body sentences await the shared catalogue; English fallback is explicit."
+}
