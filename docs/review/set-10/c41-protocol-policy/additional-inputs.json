@@ -1,0 +1,18 @@
+{
+  "scope": "Supplemental loaded stylesheet and packed 2D artwork fingerprints. The original plans list src/data/lib/assets/3d and HTML/actual test runner. CSS and the packed artwork are independently checked against the same frozen runtime commit, unchanged in this branch since that commit; all finish-time verification repeats that byte comparison. No new runtime or test edit. Host installed font choice is an explicit fixture, not portable font acceptance.",
+  "capturedAt": 1793191548.209244,
+  "sources": {
+    "css/style.css": {
+      "sha256": "a4fcb51f45a16cf98398fbf4062b86c9a849258d2c6b3595114964530cae5e4f",
+      "frozenRevision": "69817c13",
+      "matchesFrozenRevision": true,
+      "mtimeNs": 1792821155656136450
+    },
+    "assets/art-pack.js": {
+      "sha256": "0c445d671ac5224ec0c18e977bd3f79db77a3ab560ecdd673957503810911acc",
+      "frozenRevision": "69817c13",
+      "matchesFrozenRevision": true,
+      "mtimeNs": 1792821155644136574
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "quality": "high",
+  "lang": "ta",
+  "large": true,
+  "kind": "intercom",
+  "bad": false,
+  "checks": 61,
+  "layouts": [
+    {
+      "name": "brief",
+      "rows": [
+        {
+          "source": "Customer protocol practice",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Complete the customer protocol and return to the parked van.\n\nComplete the customer protocol, record the handover and return to the parked van.\n\nYou have 480 seconds to complete this scenario.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 331
+        },
+        {
+          "source": "1. Begin the scenario.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the station.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "controls 0",
+      "rows": [
+        {
+          "source": "Use the protocol controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Use W/A/S/D to walk. Press O to face a nearby physical target, then U to interact. The van stays parked during this scenario.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 232
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "controls 1",
+      "rows": [
+        {
+          "source": "Use the protocol controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Use the cargo doors to take and scan the parcel. Close the cargo doors before returning to the cab. Face the intercom, entrance, reception desk or locker to use its controls.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 232
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "controls 2",
+      "rows": [
+        {
+          "source": "Use the protocol controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Press TAB to read the stop details or open the locker camera. While using the camera, frame the actual closed compartment, then press U to capture it. Pause, handheld and control pages stop the scenario clocks.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 265
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    }
+  ],
+  "shots": [],
+  "errors": [],
+  "scope": "Real persistent profile and suspended workday plus the prepared optional descriptor are setup fixtures. Walking, cargo, parcel, scanning, intercom, reception, signature, locker, camera, climbing and finish use real keyboard controls and physical rays. No subsequent pose, clock, score, verdict or completion writes. The explicit Tamil font is a local fixture on this pre-rebase stack; new sentences await translations. Shared optional launcher/current-pilot/font integration and resource checks are separate.",
+  "failure": {
+    "message": "waitForFunction failed: frame got detached.",
+    "stack": "Error: waitForFunction failed: frame got detached.\n    at IsolatedWorld.dispose (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:68:39)\n    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:72:14)\n    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/IsolatedWorld.js:162:45)\n    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:335:87)\n    at #removeFramesRecursively (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:495:45)\n    at #onClientDisconnect (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:85:42)\n    at /workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:69:37\n    at onceHandler (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/EventEmitter.js:95:13)\n    at /workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/third_party/mitt/mitt.js:62:7\n    at Array.map (<anonymous>)"
+  }
+}

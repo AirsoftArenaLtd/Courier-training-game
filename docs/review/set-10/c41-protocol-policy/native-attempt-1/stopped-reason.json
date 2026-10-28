@@ -1,0 +1,17 @@
+{
+  "reason": "Intercom lacked a live readiness/buzzer cue. Initial completed cases are diagnostic only; runtime will change and the full native matrix will be rerun.",
+  "ownedPids": [
+    200764,
+    200782,
+    200784,
+    200809,
+    201060,
+    200821,
+    200851,
+    200860,
+    200867,
+    200880,
+    200806,
+    200752
+  ]
+}

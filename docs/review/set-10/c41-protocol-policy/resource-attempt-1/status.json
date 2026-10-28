@@ -1,0 +1,10 @@
+{
+  "phase": "stopped-before-running",
+  "jobs": [],
+  "pid": 200196,
+  "startedAt": 1793191058.9925041,
+  "reason": "Add a visible/audible intercom readiness cue before accepting the new runtime.",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793191241.6271546
+}
