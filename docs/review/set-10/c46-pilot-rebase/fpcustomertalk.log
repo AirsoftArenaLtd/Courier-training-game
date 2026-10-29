@@ -1,0 +1,15 @@
+{"endings":730,"comparisons":9192,"timeouts":12}
+✔ all reachable paths preserve the actual 2D transitions, flags, score lines, criticals and result scale (1055.589641ms)
+✔ the decision timer begins after the reading and pauses with the world or handheld (0.526755ms)
+✔ assessment has the same scoring but exposes no per-answer feedback (1.446321ms)
+✔ repeated questions keep the worse check and retain an earlier critical mistake (0.28565ms)
+✔ invalid or repeated actions never complete an unfinished dialogue or change outside state (1.132178ms)
+✔ a completed conversation stays terminal and preserves the suspended course and workday (0.742019ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1074.884405

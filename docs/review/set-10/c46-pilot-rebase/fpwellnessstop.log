@@ -1,0 +1,19 @@
+{"hazardCases":64}
+{"heatRateCases":48}
+{"evaluationCases":432}
+{"completeGoodScores":{"m8-steps":7500,"m8-dog":6700,"m8-heat":6900}}
+✔ every authored hazard keeps actual source dimensions, fall thresholds, careful recovery and irreversible loaded falls (35.780015ms)
+✔ heat rates match the actual source in the cab, sun, shade and indoors while moving/carrying, and pause is inert (70.184415ms)
+✔ water and AC use the original delayed callbacks and costs, and invalid or paused actions cannot complete (3.908388ms)
+✔ heat warning/rearm and collapse keep the actual critical and omit stop-time credit after collapse (5.045594ms)
+✔ every stop retains source delivery/exception/hazard/heat scoring, original groups and pars (175.40867ms)
+✔ next-stop recovery and final result match the actual original nextStop rule without course/workday writes (3.329554ms)
+✔ all three complete good sets retain source final scales, full ratios and three distinct stop groups (13.599944ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 326.486634

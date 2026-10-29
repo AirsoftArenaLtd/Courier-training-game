@@ -1,0 +1,12 @@
+{
+  "existingIds": [
+    "m8-steps",
+    "m8-dog",
+    "m8-heat",
+    "m8-incident"
+  ],
+  "onlyFourScene3dLines": true,
+  "allOtherBytesIdentical": true,
+  "parentSha256": "3a69bcff16eab140443b0078781867bd1c31eb1db1558b3090774c4e10811266",
+  "candidateSha256": "9337d29e8cc6ecd1a88e0aadf81dd6355a2f036e19f5ce93c656ceddcaff4833"
+}

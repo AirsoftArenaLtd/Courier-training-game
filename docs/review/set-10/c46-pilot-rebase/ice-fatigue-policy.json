@@ -1,0 +1,18 @@
+{
+  "scope": "Unloaded local policy kernels only. Ten meaningful CPU tests include the actual walking motor at 30/60/120/144 Hz, sticky slip/weather failures, physical rail proximity, whole turned van parking, fixed active clock, 60/120-second boundaries, break timing/interruption, noncritical major severity, incomplete results and cache/isolation. Not a playable or rendered ice/fatigue handoff.",
+  "policy": "Claude Inbox answers 27 October; 30-second fixed warning and 30-second required break are local scenario defaults, the latter matching existing fpDay.rest duration. Deadline is 60 seconds, driving after 120 is major/noncritical; break maximum is twice the required time.",
+  "sources": {
+    "src/core/fpicefatigue.js": "799093aa2cd217db945fbb9b3b86306fa3cad43d57e53c2dcadb269cd5039525",
+    "test/fpicefatigue.js": "50e23965c5afff5a2b095894dd132866ed27b2f982032fdbb5b4bf2848c835c4"
+  },
+  "testLogSha256": "f0a94e104aa4feaecd29e73a83f68d14db83da32a9ae3f3eca4f430bb90191fe",
+  "tests": 10,
+  "allPassed": true,
+  "loadedByIndex": false,
+  "remaining": [
+    "physical ice/grit/handrail and safe-parking/break controls",
+    "real drive.weather module adapter",
+    "native gameplay/accessibility and resource evidence",
+    "current-source original-ID/reverse native integration"
+  ]
+}
