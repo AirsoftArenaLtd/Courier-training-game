@@ -1,5 +1,5 @@
 {
-  "status": "six native captures inspected at original resolution; resource gate pending",
+  "status": "nine original-size captures inspected; native and all 60 resource views complete",
   "captures": [
     {
       "path": "native-complete/artifacts/c45-c39-intl-high-ta/c45-c39-intl-high-ta-high-ta-large-intl-invoice-10.png",
@@ -54,6 +54,33 @@
         720
       ],
       "notes": "The correct dangerous-goods result shows passed assessment and six of six stars. Actual larger Tamil result feedback, progress and bottom actions fit."
+    },
+    {
+      "path": "acceptance/artifacts/c45-c39-pickup-resources/c45-c39-pickup-resources-loaded-high-high-pickupcart.png",
+      "sha256": "e0008241ae5508ae68ffe45605a8187c7f232a5b840e6935f173f47a6d02822f",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The High cart has physical parcel lettering, six staged parcels, a shipped animated shipper behind the counter and bounded shadows. Foreground labels and bottom keyboard help are readable; the objective fits its header."
+    },
+    {
+      "path": "acceptance/artifacts/c45-c39-pickup-resources/c45-c39-pickup-resources-loaded-high-high-pickupexception.png",
+      "sha256": "d34d34b9bbd5ad8c01d02e05228053cba73d2a47a9dfceb213b110322503b0f2",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The physical RECEIPT placard remains separate from the handheld. The refused-pieces summary, finish action and Back fit the device; no text is clipped."
+    },
+    {
+      "path": "acceptance/artifacts/c45-c39-pickup-resources/c45-c39-pickup-resources-loaded-high-high-pickuprefusal.png",
+      "sha256": "faafaa4f1ab03411972d1e54b3547e5132eedfc896e8e7b711a28d675666d4eb",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The dangerous-goods refusal category, explanatory text and all three keyboard actions fit the modal; physical parcels and shipper remain visible behind it."
     }
   ],
   "limitations": [
