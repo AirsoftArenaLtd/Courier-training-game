@@ -1,0 +1,8 @@
+/* Recheck saved captures with the original quality checker; no browser. */
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{PROFILES,checkReport}=require('../../../../test/fpquality'),base=__dirname,folder=path.join(base,'acceptance/artifacts/b44v-top-label-resources'),summary=JSON.parse(fs.readFileSync(path.join(folder,'b44v-top-label-resources-quality.json')));assert.equal(summary.sourceRevision,'67a0d6d4169ef0a220b3aec25d68f4de0bc9a4ea');assert.equal(summary.profiles.length,4);const profiles=[];
+for(const [i,p] of PROFILES.entries()){
+ const item=summary.profiles[i];assert.equal(item.id,p.id);assert.equal(item.exit,0);const r=JSON.parse(fs.readFileSync(path.join(folder,item.report))),peak=checkReport(r,{...p,views:'loadtop'},'b44v-top-label-resources-'+p.id),q=r.loadingProof.loadtop,b=r.loadingLabelProjection;assert.deepEqual(peak,item.peak);
+ assert.ok(r.loadingFixture);assert.equal(q.id,'m6-load');assert.equal(q.slots,21);assert.equal(q.parcels,12);assert.equal(q.gazeTarget,'loading-parcel-l2');assert.ok(q.inkFacesClear&&q.viewedLabelPrinted&&q.canonical&&q.bounded&&q.checkpointUnchanged&&q.eventsUnchanged&&q.workdayUnchanged);assert.equal(q.assetVan,!p.fallback);assert.equal(q.cargoOpen,true);assert.equal(q.held,null);assert.equal(q.inkTextures,0);
+ assert.equal(b.target,'loading-parcel-l2');assert.ok(b.printed&&b.legalFooting&&b.quads>0);assert.equal(b.clipped,0);assert.equal(b.width,1280);assert.equal(b.height,720);assert.equal(b.font,p.quality==='high');assert.ok(b.bounds.left>=32&&b.bounds.right<=1248&&b.bounds.top>=112&&b.bounds.bottom<=622);assert.deepEqual(b,item.projection);profiles.push({id:p.id,views:1,peak,projection:b});
+}
+console.log(JSON.stringify({views:4,profiles}));

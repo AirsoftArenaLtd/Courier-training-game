@@ -1,0 +1,35 @@
+{
+  "phase": "complete",
+  "controllerPid": 362864,
+  "jobs": [
+    {
+      "tag": "b44v-top-label-resources",
+      "script": "test/tools/fp-loading-pose-quality.js",
+      "env": {},
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b44v-top-label-resources-loaded-high-high-loadtop.png": "b2824cfb8ff57b87d86f653ab364b4fc30c74376bb8f6f1b62999884498323c1",
+        "b44v-top-label-resources-accessible-low.log": "c721c74d01711d596c1057ad28e8e07310f912249e403e24537343001a83550a",
+        "b44v-top-label-resources-loaded-low-low-loadtop.png": "a2075ec3088f5e91f98f24923e0967faa85fdb3d5833cafa5b28164b9a805fe5",
+        "b44v-top-label-resources-quality.json": "fe5670f02a2ea4d2e86f3680e8dfde82db593e8bae1e7f2dfe8d59cbbded9c70",
+        "bench-b44v-top-label-resources-loaded-high-high.json": "6046732e6383499cce375e0ae73c615db9e31c13a4a53919bfc27c8cc3885ed7",
+        "bench-b44v-top-label-resources-accessible-low-low.json": "d9162945a4699b514924fa772708c1206565f5df4358172fd9b2ef81f97e8bbb",
+        "b44v-top-label-resources-loaded-high.log": "4d356b713d5799acd2caa031b0806248f5a4f8a9981841432ee19f5b2b7b0366",
+        "b44v-top-label-resources-fallback-low-low-loadtop.png": "55272bcf1dbcb018decc62ec851c3982bbd35c241bcc41761376a6eb9052a5dd",
+        "b44v-top-label-resources-fallback-low.log": "683098e5a02c55ed6f3c6b68527fed64b9deb5f2e408364008c7b5de0b851339",
+        "b44v-top-label-resources-loaded-low.log": "042025ad6817c5062349cf6905cdada1d8b65a9e547ec01af6700b95bd300c6d",
+        "bench-b44v-top-label-resources-loaded-low-low.json": "3186c7693b633d7b3c8881e56ee6564b8a730da60fe3f85c886bc84462b6d56f",
+        "bench-b44v-top-label-resources-fallback-low-low.json": "7e9b96afdc8d13ae9dafcac8c8f04ca40e006f85f8254807086acb54e57d9fd3",
+        "b44v-top-label-resources-accessible-low-low-loadtop.png": "b24bb34d5cdb09fc20aec6ef9fe066ebd162bd3b81f226fb7a1d9f034213b6a0"
+      }
+    }
+  ],
+  "startedAt": 1793294954.3431265,
+  "serverPid": 369634,
+  "tag": "b44v-top-label-resources",
+  "childPid": 369635,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793300464.8340752
+}

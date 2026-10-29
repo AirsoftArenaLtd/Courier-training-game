@@ -1,0 +1,222 @@
+{
+  "tag": "b44v-top-label-resources-fallback-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "assetFailure": "missing-model-files",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 0,
+    "failed": 14,
+    "fallbacks": 0,
+    "bytes": 0,
+    "decodedBytes": 0,
+    "errors": [
+      {
+        "path": "kenney-city-starter/models/garage-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-c-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/tree-small-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/fence-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-commercial/models/building-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/road-straight-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/light-curved-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/sedan-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/delivery-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/resident-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/resident-low.glb",
+        "reason": "Asset could not load"
+      }
+    ]
+  },
+  "prototype": {
+    "loadtop": {
+      "frames": 104,
+      "avgFPS": 10.36,
+      "low1FPS": 4.86,
+      "p99ms": 203.1,
+      "maxMs": 208.7,
+      "peak": {
+        "calls": 45,
+        "triangles": 2020,
+        "textures": 2,
+        "geometries": 12,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 90,
+        "baseLevelRGBABytes": 1158764,
+        "withMipmapsUpperBytes": 1545019
+      },
+      "worldProfile": {
+        "meshes": 145,
+        "instances": 300,
+        "geometries": 29,
+        "materials": 47,
+        "geometryBytes": 9048,
+        "instanceBytes": 917248,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          36,
+          35,
+          35,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 3.2,
+          "y": 1.65,
+          "z": 11.6,
+          "yaw": -0.5234432025921468,
+          "pitch": 0.24724298840579584,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "loadingProof": {
+    "loadtop": {
+      "source": "loading-static-render-fixture",
+      "inkFacesClear": true,
+      "gazeTarget": "loading-parcel-l2",
+      "viewedLabelPrinted": true,
+      "printedParcelIds": [
+        "l2"
+      ],
+      "cargoFit": {
+        "floor": 0.6,
+        "bottom": 0.66,
+        "mid": 1.34,
+        "top": 2.04,
+        "side": 0.8,
+        "depth": 0.86,
+        "sections": {
+          "A": 1.85,
+          "B": 0.75,
+          "C": -0.35
+        }
+      },
+      "id": "m6-load",
+      "piece": "depot",
+      "phase": "active",
+      "moduleMode": "load",
+      "taskPhase": "active",
+      "slots": 21,
+      "parcels": 12,
+      "highInk": false,
+      "inkTextures": 0,
+      "assetVan": false,
+      "doorOpening": 1,
+      "canonical": true,
+      "bounded": true,
+      "cargoOpen": true,
+      "held": null,
+      "strapped": false,
+      "round": null,
+      "hint": null,
+      "handheld": false,
+      "panel": false,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "loadingFixture": true,
+  "loadingLabelProjection": {
+    "target": "loading-parcel-l2",
+    "printed": true,
+    "font": false,
+    "legalFooting": true,
+    "quads": 69,
+    "clipped": 0,
+    "width": 1280,
+    "height": 720,
+    "bounds": {
+      "left": 627.4257427835411,
+      "right": 654.8877235317452,
+      "top": 336.55587880514366,
+      "bottom": 369.19651492696926
+    }
+  },
+  "phaserTextures": {
+    "count": 90,
+    "baseLevelRGBABytes": 1158764,
+    "withMipmapsUpperBytes": 1545019
+  },
+  "phaserTexturesPeak": {
+    "count": 90,
+    "baseLevelRGBABytes": 1158764,
+    "withMipmapsUpperBytes": 1545019
+  },
+  "missingViews": [],
+  "errors": []
+}

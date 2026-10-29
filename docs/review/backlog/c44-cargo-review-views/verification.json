@@ -1,0 +1,140 @@
+{
+  "scope": "Static cargo review-pose polish only; production bytes match accepted C44. Native gameplay remains in the separate completed C44 cohort; Intel O1 is separate.",
+  "sourceRevision": "67a0d6d4169ef0a220b3aec25d68f4de0bc9a4ea",
+  "planSha256": "3a07cd2669ea28c935d5abd11f0df05c8fcf0b89f5351c37b206923482e29b5e",
+  "sourceCount": 937,
+  "hostFontCount": 4,
+  "allInputHashesVerified": true,
+  "productionDifferencesFromParent": [],
+  "parent": "80bf9f94",
+  "cpuLogsVerified": 3,
+  "artifactCount": 13,
+  "resourceViews": 4,
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "views": 1,
+      "peak": {
+        "calls": 41,
+        "triangles": 2152,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1545019
+      },
+      "projection": {
+        "target": "loading-parcel-l2",
+        "printed": true,
+        "font": false,
+        "legalFooting": true,
+        "quads": 69,
+        "clipped": 0,
+        "width": 1280,
+        "height": 720,
+        "bounds": {
+          "left": 626.6913270147875,
+          "right": 655.6822090640538,
+          "top": 335.3544507315775,
+          "bottom": 371.85897961784315
+        }
+      }
+    },
+    {
+      "id": "loaded-high",
+      "views": 1,
+      "peak": {
+        "calls": 63,
+        "triangles": 52331,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 4712123
+      },
+      "projection": {
+        "target": "loading-parcel-l2",
+        "printed": true,
+        "font": true,
+        "legalFooting": true,
+        "quads": 637,
+        "clipped": 0,
+        "width": 1280,
+        "height": 720,
+        "bounds": {
+          "left": 630.7178700047585,
+          "right": 654.2988056760329,
+          "top": 335.72501952243425,
+          "bottom": 388.4407450243405
+        }
+      }
+    },
+    {
+      "id": "accessible-low",
+      "views": 1,
+      "peak": {
+        "calls": 41,
+        "triangles": 2152,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1756139
+      },
+      "projection": {
+        "target": "loading-parcel-l2",
+        "printed": true,
+        "font": false,
+        "legalFooting": true,
+        "quads": 69,
+        "clipped": 0,
+        "width": 1280,
+        "height": 720,
+        "bounds": {
+          "left": 626.6913270147875,
+          "right": 655.6822090640538,
+          "top": 335.3544507315775,
+          "bottom": 371.85897961784315
+        }
+      }
+    },
+    {
+      "id": "fallback-low",
+      "views": 1,
+      "peak": {
+        "calls": 45,
+        "triangles": 2020,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1545019
+      },
+      "projection": {
+        "target": "loading-parcel-l2",
+        "printed": true,
+        "font": false,
+        "legalFooting": true,
+        "quads": 69,
+        "clipped": 0,
+        "width": 1280,
+        "height": 720,
+        "bounds": {
+          "left": 627.4257427835411,
+          "right": 654.8877235317452,
+          "top": 336.55587880514366,
+          "bottom": 369.19651492696926
+        }
+      }
+    }
+  ],
+  "perViewLedger": [],
+  "visualReadings": 4,
+  "cleanup": {
+    "controllerPid": {
+      "pid": 362864,
+      "status": "zombie"
+    },
+    "serverPid": {
+      "pid": 369634,
+      "status": "gone"
+    },
+    "childPid": {
+      "pid": 369635,
+      "status": "gone"
+    }
+  },
+  "allPassed": true
+}

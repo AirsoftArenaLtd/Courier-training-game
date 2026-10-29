@@ -1,7 +1,16 @@
-# Cargo top-shelf review framing
+# Cargo top-shelf review pose
 
-Doing on `codex/c44-cargo-review-views`, stacked on C44 review `80bf9f94`. Its historical `loadtop` benchmark used a fixed inside-rack position and upward pitch; the fitted-floor eye correction made the capture roof-heavy and clipped the label. The static fixture now stands in a clear rear approach and aims at the actual l2 top-label face from the actual camera eye. Native gameplay, all production runtime/data/assets/entrypoints, and every original resource ceiling are unchanged.
+Ready for review on `codex/c44-cargo-review-views`, stacked on accepted C44 branch `80bf9f94`. All production runtime, data, assets and entrypoints are byte-identical to that parent. Only the static `loadtop` fixture and its read-only benchmark observations change.
 
-Three CPU suites and five changed-JS syntax checks pass. Four new geometry cases cover Low/High, loaded/fallback: legal footing, the real unoccluded parcel ray, every printed glyph quad inside the free screen area, all twelve staged placements and stored-workday/event/checkpoint immutability. The same four cases fail on the old pose (`before.log`). [Source and log audit](source-audit.json).
+The fixture now approaches from clear rear footing (x 3.2, z 11.6) and aims at the actual l2 parcel face from the fitted standing eye. The former roof-heavy view is retained in C44's source-scoped evidence. Four CPU projection/ray cases and the existing loading scenario/world suites pass; all four pre-change cases failed. All four original browser profiles now prove legal footing, the actual unoccluded `loading-parcel-l2` gaze, visible printed face and zero clipped physical glyph quads. High uses the actual loaded font. Checkpoint, reports and workday stay unchanged.
 
-A targeted serialized browser gate captures only the changed `loadtop` view in the four original resource profiles. A read-only probe after sampling measures the actual font geometry projection and requires the real parcel target, legal footing, full label in frame and unchanged storage/events. This adds no work to the measured samples or production frame loop. **Actual captures and resource acceptance remain pending.** The completed parent C44 six-journey/56-view evidence keeps its original poses and source; no full native rerun or owner Intel O1 claim is made here.
+All four original-size captures were inspected: the top label and shelf marker fit without roof occlusion, with readable headers/help. The parcel label is small at this wide static review distance. Closer native label reading/reach remains covered by C44's separate six-journey acceptance; this change claims static framing only.
+
+| Profile | Calls | Triangles | Three textures | Attachment bytes | Phaser estimate |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| loaded Low | 41 | 2152 | 2 | 3557376 | 1545019 |
+| loaded High | 63 | 52331 | 4 | 11239424 | 4712123 |
+| accessible Low | 41 | 2152 | 2 | 3557376 | 1756139 |
+| fallback Low | 45 | 2020 | 2 | 3557376 | 1545019 |
+
+[verification.json](verification.json) rechecks all 937 frozen inputs, four fonts, three CPU logs, thirteen artifacts, unchanged original ceilings and cleanup. Repeat `python3 docs/review/backlog/c44-cargo-review-views/verify.py` without a browser. [visual-review.json](visual-review.json) records the four image hashes/readings. No production camera change, new native gameplay claim, new text or Intel O1 acceptance.

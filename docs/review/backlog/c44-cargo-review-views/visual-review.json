@@ -1,0 +1,41 @@
+{
+  "scope": "Four original-size static views; no new native gameplay or laptop FPS claim.",
+  "captures": [
+    {
+      "path": "acceptance/artifacts/b44v-top-label-resources/b44v-top-label-resources-loaded-low-low-loadtop.png",
+      "sha256": "a2075ec3088f5e91f98f24923e0967faa85fdb3d5833cafa5b28164b9a805fe5",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "loaded-low: legal rear approach frames the complete top parcel ink face and its shelf marker without roof occlusion. The target is under the crosshair; the header and help fit. The label is small at this wide static review distance; native closer reading/reach belongs to accepted C44."
+    },
+    {
+      "path": "acceptance/artifacts/b44v-top-label-resources/b44v-top-label-resources-loaded-high-high-loadtop.png",
+      "sha256": "b2824cfb8ff57b87d86f653ab364b4fc30c74376bb8f6f1b62999884498323c1",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "loaded-high: legal rear approach frames the complete top parcel ink face and its shelf marker without roof occlusion. The target is under the crosshair; the header and help fit. The label is small at this wide static review distance; native closer reading/reach belongs to accepted C44."
+    },
+    {
+      "path": "acceptance/artifacts/b44v-top-label-resources/b44v-top-label-resources-accessible-low-low-loadtop.png",
+      "sha256": "b24bb34d5cdb09fc20aec6ef9fe066ebd162bd3b81f226fb7a1d9f034213b6a0",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "accessible-low: legal rear approach frames the complete top parcel ink face and its shelf marker without roof occlusion. The target is under the crosshair; the header and help fit. The label is small at this wide static review distance; native closer reading/reach belongs to accepted C44."
+    },
+    {
+      "path": "acceptance/artifacts/b44v-top-label-resources/b44v-top-label-resources-fallback-low-low-loadtop.png",
+      "sha256": "55272bcf1dbcb018decc62ec851c3982bbd35c241bcc41761376a6eb9052a5dd",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "fallback-low: legal rear approach frames the complete top parcel ink face and its shelf marker without roof occlusion. The target is under the crosshair; the header and help fit. The label is small at this wide static review distance; native closer reading/reach belongs to accepted C44."
+    }
+  ]
+}
