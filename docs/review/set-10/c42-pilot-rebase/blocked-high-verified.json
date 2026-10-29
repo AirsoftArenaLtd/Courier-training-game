@@ -1,0 +1,113 @@
+{
+  "scope": "Completed High Tamil larger-text good blocked-drive journey only; full continuation and other cleanup remain active. Completed Low/resource scopes remain separately verified. No A31 complete translation or Intel FPS claim.",
+  "sourceRevision": "684ab4ef67f553a1c386bdc3407ef180debdbb97",
+  "sourceCount": 808,
+  "hostFonts": {
+    "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf": "89c3c497f618fdaa0b2d1e98fef93582f28c71debd2c4a8cdf41f190ced2909d",
+    "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf": "e83493c945848ecd4a9ad0f6d19164541a0d3e23a9c952304a00a46e00272ac5",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Regular.ttf": "a7bb7f92f165479af2f0556c4fd669b74c5959f464f603e18389b532f4d07a71",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Bold.ttf": "7ef7071ba2fad67dcae397dc7f5bfd4dbce69d86cdc453c2cc4abe640df0b442"
+  },
+  "sourceHashesVerified": true,
+  "checks": 245,
+  "layouts": 11,
+  "score": 200,
+  "ratios": {
+    "safety": 1,
+    "service": 1
+  },
+  "durable": true,
+  "actualTamilFonts": [
+    {
+      "familyName": "Noto Sans Tamil",
+      "postScriptName": "NotoSansTamil-Bold",
+      "isCustomFont": false,
+      "glyphCount": 28
+    }
+  ],
+  "finishedState": {
+    "phase": "active",
+    "mode": "cab",
+    "player": {
+      "x": 46.742120737771685,
+      "z": 17.94143774144901,
+      "yaw": 1.1511168864548982,
+      "pitch": 0
+    },
+    "van": {
+      "x": 48.550000000000004,
+      "z": 19.41666666666667,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 2,
+      "hand": true,
+      "belt": false,
+      "look": 0,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ]
+    },
+    "target": null,
+    "panel": false,
+    "cargo": false,
+    "held": null,
+    "secured": true,
+    "atVan": true,
+    "ready": true,
+    "parcel": {
+      "id": "parcel0",
+      "location": "slot0"
+    },
+    "exception": "UN",
+    "sequence": {
+      "version": 1,
+      "kind": "reattempt",
+      "parcel": "parcel0",
+      "failed": false,
+      "card": true,
+      "retained": true,
+      "booked": true
+    },
+    "doorReached": false,
+    "hazards": 0,
+    "elapsed": 36.11507333333052,
+    "card": {
+      "x": 50.95,
+      "z": 24.91666666666667,
+      "y": 1.2
+    },
+    "warning": {
+      "x": 51.207499999999996,
+      "z": 16.61666666666667,
+      "w": 0.12,
+      "d": 0.12,
+      "h": 2.7
+    }
+  },
+  "artifacts": {
+    "c42-uifix-blocked-high-ta-booking.png": "3dbbe391461cb6970be56d624a62e90272df60bdaafdd6d9492e4c7539c96dfe",
+    "c42-uifix-blocked-high-ta-device.png": "c4331a78ecffaea3ce50c501898c3aa175d2cbde8526cfc0fe9a000b8178789b",
+    "c42-uifix-blocked-high-ta-controls.png": "2a880d86caef1aa43afdde12246d48174def88e9b331e550e6d5d33f47f4f7a3",
+    "c42-uifix-blocked-high-ta-card-left.png": "ce56e6f2972aeb0eb7c56e5763dfe88a6fc8a04e66ab478a861a8c29e0c11d0a",
+    "c42-uifix-blocked-high-ta-result.png": "efca12fda9c55c3f1801fa93fce2e9e5bfe6f4d192cc0b447b054f55dbba2522",
+    "c42-uifix-blocked-high-ta.json": "5b7a81debbd995335cec13142bce1f557faa0cae15d591618f21ee85aff86d00",
+    "c42-uifix-blocked-high-ta-safe-card.png": "f215fb6c88a2302c6d6aba6730a8e24095b47e8d5b1ad6e9e8711d7b93dceaa0",
+    "c42-uifix-blocked-high-ta-access-notice.png": "c49db90c6aa32faae16a47fbb118516d7a59442b90e877743cb776a9bac430fb",
+    "c42-uifix-blocked-high-ta-brief.png": "155b96faecc360a662f58d0e0b473dd8d07ca94df65890958097989f36fb3870",
+    "c42-uifix-blocked-high-ta-cargo-secured.png": "7d9be912e2ddda79242e5b36348a95200ed9408cf9bb1ef9fa0b30d567d55763"
+  },
+  "visualReview": {
+    "resolution": "original",
+    "views": [
+      "booking",
+      "card-left",
+      "result"
+    ],
+    "findings": "Booking and device menus fit, the card is physically left at the public edge, Tamil result glyphs are visible. New scenario text remains English/mixed pending A31."
+  }
+}
