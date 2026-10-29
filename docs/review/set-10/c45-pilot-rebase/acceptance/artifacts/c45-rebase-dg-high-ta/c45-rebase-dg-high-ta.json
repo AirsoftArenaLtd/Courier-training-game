@@ -1,0 +1,872 @@
+{
+  "checks": 762,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "dg",
+      "shots": [
+        "c45-rebase-dg-high-ta-high-ta-large-dg-brief.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-controls-0.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-controls-1.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-controls-2.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-controls-3.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-handheld.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-reply.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-counted-cart.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-count-decision.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-label-g1.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-inspection-g1.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-label-g2.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-inspection-g2.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-refusal-g2.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-label-g3.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-inspection-g3.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-label-g4.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-inspection-g4.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-refusal-g4.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-receipt.png",
+        "c45-rebase-dg-high-ta-high-ta-large-dg-result.png"
+      ],
+      "fontProof": {
+        "lang": "ta",
+        "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null,
+        "layout": {
+          "width": 793.21875,
+          "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+        },
+        "platformFonts": [
+          {
+            "familyName": "Noto Sans Tamil",
+            "postScriptName": "NotoSansTamil-Bold",
+            "isCustomFont": false,
+            "glyphCount": 28
+          }
+        ]
+      },
+      "observation": {
+        "talk": [
+          {
+            "node": "d1",
+            "text": "\"Solvent is a dangerous good. Without the right marks and declaration I can't take it. Let me show you what it needs.\"",
+            "grade": "good"
+          }
+        ],
+        "counts": [
+          {
+            "ids": [
+              "g1",
+              "g2",
+              "g3",
+              "g4"
+            ],
+            "choice": 0
+          }
+        ],
+        "flags": [],
+        "decisions": [
+          {
+            "id": "g1",
+            "accept": true,
+            "reason": null
+          },
+          {
+            "id": "g2",
+            "accept": false,
+            "reason": "DG"
+          },
+          {
+            "id": "g3",
+            "accept": true,
+            "reason": null
+          },
+          {
+            "id": "g4",
+            "accept": false,
+            "reason": "DG"
+          }
+        ],
+        "elapsed": 41.41575333333174
+      },
+      "original": {
+        "result": {
+          "score": 1700,
+          "ratios": {
+            "safety": 1,
+            "service": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "safety",
+                "got": 3,
+                "max": 3,
+                "label": "Responded to an undeclared hazard",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Firm, specific and helpful. The shipper learns how to ship it properly next time.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Responded to an undeclared hazard",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Firm, specific and helpful. The shipper learns how to ship it properly next time.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Counted every piece waiting (4 of 4)",
+                "good": true,
+                "partial": false,
+                "lesson": "Count every piece yourself. Your signature on the manifest says you did.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Reconciled the piece count with the manifest",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Accepted 4 Science Park",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Plain lab consumables, properly labeled.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Refused 19 Foundry Rd",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The shipper described flammable solvent. With no hazard marks or declaration it cannot be accepted.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Accepted 4 Science Park",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Properly marked and declared dangerous goods, packed for transport.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Refused 66 Kiln St",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Lithium batteries have their own marking and handling rules. Undeclared and unmarked means refused.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              }
+            ]
+          },
+          "lessons": [
+            "What the shipper says the contents are has to match the marks and paperwork on the box.",
+            "Batteries, flammables, aerosols and pressurised items all have declaration and marking rules.",
+            "Never accept \"it's only a small amount\". Undeclared dangerous goods get refused, every time."
+          ],
+          "stats": {
+            "log": {
+              "items": [
+                {
+                  "cat": "safety",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Responded to an undeclared hazard",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Firm, specific and helpful. The shipper learns how to ship it properly next time.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Responded to an undeclared hazard",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Firm, specific and helpful. The shipper learns how to ship it properly next time.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Counted every piece waiting (4 of 4)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Count every piece yourself. Your signature on the manifest says you did.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Reconciled the piece count with the manifest",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Accepted 4 Science Park",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Plain lab consumables, properly labeled.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused 19 Foundry Rd",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The shipper described flammable solvent. With no hazard marks or declaration it cannot be accepted.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Accepted 4 Science Park",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Properly marked and declared dangerous goods, packed for transport.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused 66 Kiln St",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Lithium batteries have their own marking and handling rules. Undeclared and unmarked means refused.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                }
+              ]
+            }
+          }
+        },
+        "stars": {
+          "safety": 3,
+          "service": 3
+        }
+      },
+      "result": {
+        "id": "m7-dg",
+        "result": {
+          "score": 1700,
+          "ratios": {
+            "safety": 1,
+            "service": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "safety",
+                "got": 3,
+                "max": 3,
+                "label": "Responded to an undeclared hazard",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Firm, specific and helpful. The shipper learns how to ship it properly next time.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793237855812,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Responded to an undeclared hazard",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Firm, specific and helpful. The shipper learns how to ship it properly next time.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793237855812,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Counted every piece waiting (4 of 4)",
+                "good": true,
+                "partial": false,
+                "lesson": "Count every piece yourself. Your signature on the manifest says you did.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793238098731,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Reconciled the piece count with the manifest",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793238098731,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Accepted 4 Science Park",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Plain lab consumables, properly labeled.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793238203881,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Refused 19 Foundry Rd",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "The shipper described flammable solvent. With no hazard marks or declaration it cannot be accepted.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793238243721,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793238243721,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Accepted 4 Science Park",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Properly marked and declared dangerous goods, packed for transport.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793238271529,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Refused 66 Kiln St",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Lithium batteries have their own marking and handling rules. Undeclared and unmarked means refused.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793238319786,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Gave the right refusal reason",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793238319786,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "What the shipper says the contents are has to match the marks and paperwork on the box.",
+            "Batteries, flammables, aerosols and pressurised items all have declaration and marking rules.",
+            "Never accept \"it's only a small amount\". Undeclared dangerous goods get refused, every time."
+          ],
+          "stats": {
+            "log": {
+              "items": [
+                {
+                  "cat": "safety",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Responded to an undeclared hazard",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Firm, specific and helpful. The shipper learns how to ship it properly next time.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793237855812,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Responded to an undeclared hazard",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Firm, specific and helpful. The shipper learns how to ship it properly next time.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793237855812,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Counted every piece waiting (4 of 4)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Count every piece yourself. Your signature on the manifest says you did.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793238098731,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Reconciled the piece count with the manifest",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793238098731,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Accepted 4 Science Park",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Plain lab consumables, properly labeled.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793238203881,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused 19 Foundry Rd",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "The shipper described flammable solvent. With no hazard marks or declaration it cannot be accepted.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793238243721,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793238243721,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Accepted 4 Science Park",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Properly marked and declared dangerous goods, packed for transport.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793238271529,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Refused 66 Kiln St",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Lithium batteries have their own marking and handling rules. Undeclared and unmarked means refused.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793238319786,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Gave the right refusal reason",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793238319786,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 41
+          }
+        },
+        "stars": {
+          "safety": 3,
+          "service": 3
+        },
+        "verdict": {
+          "untested": [],
+          "criticals": [],
+          "takeaways": [
+            {
+              "text": "What the shipper says the contents are has to match the marks and paperwork on the box.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "Batteries, flammables, aerosols and pressurised items all have declaration and marking rules.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "Never accept \"it's only a small amount\". Undeclared dangerous goods get refused, every time.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            }
+          ],
+          "mistakes": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1700,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 3
+          },
+          "lastPlayed": 1793238397218
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1793237729528,
+          "pending": false,
+          "at": 1793238397219,
+          "stars": {
+            "safety": 3,
+            "service": 3
+          },
+          "score": 1700,
+          "criticals": [],
+          "lessons": [
+            "What the shipper says the contents are has to match the marks and paperwork on the box.",
+            "Batteries, flammables, aerosols and pressurised items all have declaration and marking rules.",
+            "Never accept \"it's only a small amount\". Undeclared dangerous goods get refused, every time."
+          ]
+        },
+        "elapsed": 41.41575333333174,
+        "runElapsed": 41.41575333333174,
+        "passStars": {
+          "safety": 2,
+          "efficiency": 2,
+          "service": 2
+        }
+      },
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      },
+      "durable": true,
+      "reload": {
+        "record": {
+          "plays": 1,
+          "bestScore": 1700,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 3
+          },
+          "lastPlayed": 1793238397218
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1793237729528,
+          "pending": false,
+          "at": 1793238397219,
+          "stars": {
+            "safety": 3,
+            "service": 3
+          },
+          "score": 1700,
+          "criticals": [],
+          "lessons": [
+            "What the shipper says the contents are has to match the marks and paperwork on the box.",
+            "Batteries, flammables, aerosols and pressurised items all have declaration and marking rules.",
+            "Never accept \"it's only a small amount\". Undeclared dangerous goods get refused, every time."
+          ]
+        },
+        "scene": "PickupScene",
+        "default3d": false,
+        "scene3d": "pickup-counter"
+      }
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "0e80e176d509b8e0e80000de5c424f00547e4312",
+  "uncommittedRuntime": false,
+  "protocolSha256": "39bec01f674d695005be4a11b2e807f6d54189e2048966098bf9dc467b9ed791",
+  "sourceFiles": {
+    "index.html": "f40d538fa3a96777ca06089e7511918bc4e0b4bf5fe9bb0df5c4dfbb6af905e7",
+    "src/core/fppickup.js": "051c7e3b85e769d38a223d8fb3b30ba379a15f3e2ccfb12a6c48a01ba497422c",
+    "src/core/fppickupworld.js": "bdaab60750a670f5d49f11eb4e96c555d12531ecc739f1de178f34b98ca5761c",
+    "src/core/fppickupscenario.js": "3813f0c8be74b6672767171f73cb2083b455dc7419ab391841d22c154b800d06",
+    "src/core/fpworld.js": "f60060fe5527ca2d1d184b26d11cb968bdfe55a6b387e7b90858bec868a71df0",
+    "src/core/fpaccess.js": "31f9938bf798418daafd56c69d3c58c92364da29c355a61c7a5ef92e3c91dc41",
+    "src/core/fpscenario.js": "48083c650b55c7d9f995bd63daba4f09dd1de47991d3276e3d395c82ee1598ff",
+    "src/core/fpcustomertalk.js": "aea1c7d30cffbb375a4f50804c8daf0185b166c12942b3bad762ee6a169affbb",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/scenes/FirstPersonScenarioScene.js": "f61750a439c871ecccbf375493cecc7d2e32ca1f15c6193e17c21ef5b9e3f03a",
+    "src/scenes/BaseScenarioScene.js": "7249bc0ebbf84ca584186ddb90979ebaea7c54791cc08aff5939609f2b016135",
+    "src/scenes/m7/PickupScene.js": "ef84a99f9d095989746d5ae1d53804610a9e83e9dd4596684413b12de1be8309",
+    "data/m7_pickups.js": "a6032594d50f824cebb5487c99b42682406c2d0b2e9027d83aad53799cbbd644",
+    "data/modules.js": "3a69bcff16eab140443b0078781867bd1c31eb1db1558b3090774c4e10811266",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "test/tools/fp-pickup-original.js": "558aba91db98bbc8aefb000cb7cf1c5857e19ce1da279e9b86a0aca9fe3be0e7",
+    "test/tools/fp-loading-walk.js": "fa935591d7988b722cb678a844abafbb01177bd1ae73b5e8bea95d6a275324ab",
+    "test/tools/fp-result-capture.js": "258cb10e46052c769861eff19322b8cba2567d90acd173b1eb3a7ccc08e19707"
+  },
+  "scope": "Only initial existing-id registration, identity/accessibility preferences and a real suspended workday are fixtures. All movement, focus/rays, conversations, counting, paperwork, inspection, refusals, receipt, pause and completion use real keys. No native position, clock, callback, score, result or assessment-completion fixtures. Actual original source callbacks independently replay the observed decisions. Tamil font/translation readiness remains separate.",
+  "complete": true
+}
