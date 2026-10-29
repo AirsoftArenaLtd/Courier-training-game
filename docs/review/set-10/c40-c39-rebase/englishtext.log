@@ -1,4 +1,4 @@
-✔ no browser suite compares a text object with an English game string (17.301016ms)
+✔ no browser suite compares a text object with an English game string (4.038195ms)
 ℹ tests 1
 ℹ suites 0
 ℹ pass 1
@@ -6,4 +6,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 22.857443
+ℹ duration_ms 9.333397

@@ -1,9 +1,8 @@
-Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
-✔ the station and every input position lie inside the real depot, with no wall or prop overlap (48.055507ms)
-✔ physical orientation alone never grants evidence; the real active update observes a clear face (8.620761ms)
-✔ module completion preserves the original identity, full score scale, local log and suspended workday (24.837681ms)
-✔ assessment omits the guide and feedback; the original 2D scenario remains the default and fallback (6.392004ms)
-✔ turn controls require the front operator position and acknowledge unavailable inputs without grading (5.853769ms)
+✔ the station and every input position lie inside the real depot, with no wall or prop overlap (48.554157ms)
+✔ physical orientation alone never grants evidence; the real active update observes a clear face (8.716384ms)
+✔ module completion preserves the original identity, full score scale, local log and suspended workday (24.784054ms)
+✔ assessment omits the guide and feedback; the original 2D scenario remains the default and fallback (6.304855ms)
+✔ turn controls require the front operator position and acknowledge unavailable inputs without grading (6.679762ms)
 ℹ tests 5
 ℹ suites 0
 ℹ pass 5
@@ -11,4 +10,5 @@ Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 105.491625
+ℹ duration_ms 106.881233
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

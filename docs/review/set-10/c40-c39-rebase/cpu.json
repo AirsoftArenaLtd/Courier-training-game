@@ -1,84 +1,84 @@
 {
   "sourceAudit": "source-audit.json",
-  "base": "5ac9bd74",
-  "candidate": "cca4ffa30d680a8bcf84e841d3b1628f1500e603",
+  "base": "ee328d1802162555c19a1d95dd692774666f14d9",
+  "candidate": "20dc1cbcf6d85efe6edec9178d1e333e3c2cf668",
   "suites": [
     {
       "file": "test/fphud.js",
       "exit": 0,
-      "seconds": 0.06,
+      "seconds": 0.05,
       "log": "fphud.log"
     },
     {
       "file": "test/fppackageheavy.js",
       "exit": 0,
-      "seconds": 0.1,
+      "seconds": 0.06,
       "log": "fppackageheavy.log"
     },
     {
       "file": "test/fppackageheavyscenario.js",
       "exit": 0,
-      "seconds": 0.18,
+      "seconds": 0.12,
       "log": "fppackageheavyscenario.log"
     },
     {
       "file": "test/fppackagelabels.js",
       "exit": 0,
-      "seconds": 0.08,
+      "seconds": 0.09,
       "log": "fppackagelabels.log"
     },
     {
       "file": "test/fppackagelabelscenario.js",
       "exit": 0,
-      "seconds": 0.17,
+      "seconds": 0.18,
       "log": "fppackagelabelscenario.log"
     },
     {
       "file": "test/fppackagelabelworld.js",
       "exit": 0,
-      "seconds": 0.15,
+      "seconds": 0.18,
       "log": "fppackagelabelworld.log"
     },
     {
       "file": "test/fppackagelift.js",
       "exit": 0,
-      "seconds": 0.14,
+      "seconds": 0.13,
       "log": "fppackagelift.log"
     },
     {
       "file": "test/fppackageliftbay.js",
       "exit": 0,
-      "seconds": 0.13,
+      "seconds": 0.15,
       "log": "fppackageliftbay.log"
     },
     {
       "file": "test/fppackageliftgeometry.js",
       "exit": 0,
-      "seconds": 1.31,
+      "seconds": 1.36,
       "log": "fppackageliftgeometry.log"
     },
     {
       "file": "test/fppackageliftscenario.js",
       "exit": 0,
-      "seconds": 0.18,
+      "seconds": 0.17,
       "log": "fppackageliftscenario.log"
     },
     {
       "file": "test/fppackageliftworld.js",
       "exit": 0,
-      "seconds": 0.12,
+      "seconds": 0.13,
       "log": "fppackageliftworld.log"
     },
     {
       "file": "test/fppackagesort.js",
       "exit": 0,
-      "seconds": 0.16,
+      "seconds": 0.14,
       "log": "fppackagesort.log"
     },
     {
       "file": "test/fppackagesortscenario.js",
       "exit": 0,
-      "seconds": 0.19,
+      "seconds": 0.23,
       "log": "fppackagesortscenario.log"
     },
     {
@@ -90,13 +90,13 @@
     {
       "file": "test/fpscenario.js",
       "exit": 0,
-      "seconds": 0.11,
+      "seconds": 0.12,
       "log": "fpscenario.log"
     },
     {
       "file": "test/fpcontext.js",
       "exit": 0,
-      "seconds": 0.05,
+      "seconds": 0.06,
       "log": "fpcontext.log"
     },
     {
@@ -108,7 +108,7 @@
     {
       "file": "test/fpworld.js",
       "exit": 0,
-      "seconds": 0.63,
+      "seconds": 0.59,
       "log": "fpworld.log"
     },
     {
@@ -120,13 +120,13 @@
     {
       "file": "test/englishtext.js",
       "exit": 0,
-      "seconds": 0.06,
+      "seconds": 0.04,
       "log": "englishtext.log"
     },
     {
       "file": "test/fppretrip.js",
       "exit": 0,
-      "seconds": 0.11,
+      "seconds": 0.1,
       "log": "fppretrip.log"
     },
     {
@@ -138,32 +138,38 @@
     {
       "file": "test/fphazardlesson.js",
       "exit": 0,
-      "seconds": 0.15,
+      "seconds": 0.13,
       "log": "fphazardlesson.log"
     },
     {
       "file": "test/fpdrivinglesson.js",
       "exit": 0,
-      "seconds": 0.74,
+      "seconds": 0.68,
       "log": "fpdrivinglesson.log"
     },
     {
       "file": "test/fpjunctionlesson.js",
       "exit": 0,
-      "seconds": 5.06,
+      "seconds": 4.97,
       "log": "fpjunctionlesson.log"
     },
     {
       "file": "test/fpschoollesson.js",
       "exit": 0,
-      "seconds": 2.82,
+      "seconds": 3.0,
       "log": "fpschoollesson.log"
     },
     {
       "file": "test/fpnightlesson.js",
       "exit": 0,
-      "seconds": 9.99,
+      "seconds": 10.07,
       "log": "fpnightlesson.log"
+    },
+    {
+      "file": "test/scenario3d.js",
+      "exit": 0,
+      "seconds": 0.06,
+      "log": "scenario3d.log"
     }
   ],
   "allPassed": true

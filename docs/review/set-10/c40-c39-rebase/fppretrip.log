@@ -1,13 +1,12 @@
-Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
-✔ all 21 original items have a physical target and run state is fresh without modifying content (2.634693ms)
-✔ remote, moving, wrong-side and carrying inspections cannot be recorded (0.31378ms)
-✔ inner and outer tread readings follow the actual defect and do not disclose a verdict (0.467887ms)
-✔ lamps require the actual headlights or right stalk, with no remote switch shortcut in the record (0.235941ms)
-✔ mechanical tests gate verdicts, a sinking brake needs its full hold and revisiting retests it (1.806044ms)
-✔ the actual 2D scorer and 3D adapter agree across defects, false flags and time boundaries (10.126493ms)
-✔ unfinished inspections cannot sign off and timeout keeps unrecorded defects critical (0.360882ms)
-✔ inspection proxies and cab equipment fit the bounded Low world and clean up without new textures (17.633945ms)
-✔ neutral remapped interaction prompts identify parts without disclosing their condition (0.347051ms)
+✔ all 21 original items have a physical target and run state is fresh without modifying content (2.445821ms)
+✔ remote, moving, wrong-side and carrying inspections cannot be recorded (0.315295ms)
+✔ inner and outer tread readings follow the actual defect and do not disclose a verdict (0.359733ms)
+✔ lamps require the actual headlights or right stalk, with no remote switch shortcut in the record (1.081022ms)
+✔ mechanical tests gate verdicts, a sinking brake needs its full hold and revisiting retests it (0.309827ms)
+✔ the actual 2D scorer and 3D adapter agree across defects, false flags and time boundaries (8.022528ms)
+✔ unfinished inspections cannot sign off and timeout keeps unrecorded defects critical (0.330239ms)
+✔ inspection proxies and cab equipment fit the bounded Low world and clean up without new textures (14.803814ms)
+✔ neutral remapped interaction prompts identify parts without disclosing their condition (0.372713ms)
 ℹ tests 9
 ℹ suites 0
 ℹ pass 9
@@ -15,4 +14,5 @@ Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 40.391896
+ℹ duration_ms 33.756359
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

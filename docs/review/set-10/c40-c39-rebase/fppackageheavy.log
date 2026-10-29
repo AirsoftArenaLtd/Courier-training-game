@@ -1,13 +1,13 @@
-✔ heavy practice copies its two loads without changing the original five-load lesson (5.895202ms)
-✔ a solo grip is not critical; actual rising above the posted limit is critical once (2.757808ms)
-✔ 50 lb itself is allowed while any greater physical solo load triggers the policy (2.965202ms)
-✔ a team lift waits for the actual helper before gripping and records safe physical form (5.487203ms)
-✔ equipment must be taken, pushed to the pallet and explicitly unloaded before advancing (0.691468ms)
-✔ equipment and team completion keep one isolated 1000-point result with bounded observations (1.36654ms)
-✔ unfinished handling keeps earned observations and criticals but gives no completion result (0.635723ms)
-✔ solo awkward handling and uncontrolled release cannot receive full method or placement checks (0.8122ms)
-✔ a reachable but distant, partly bent grip loses both close-grip and knee checks (1.407612ms)
-✔ a later correct team load never removes the earlier over-limit critical (2.413657ms)
+✔ heavy practice copies its two loads without changing the original five-load lesson (3.223204ms)
+✔ a solo grip is not critical; actual rising above the posted limit is critical once (1.837573ms)
+✔ 50 lb itself is allowed while any greater physical solo load triggers the policy (2.270517ms)
+✔ a team lift waits for the actual helper before gripping and records safe physical form (1.253933ms)
+✔ equipment must be taken, pushed to the pallet and explicitly unloaded before advancing (0.495347ms)
+✔ equipment and team completion keep one isolated 1000-point result with bounded observations (1.343858ms)
+✔ unfinished handling keeps earned observations and criticals but gives no completion result (0.647096ms)
+✔ solo awkward handling and uncontrolled release cannot receive full method or placement checks (0.610501ms)
+✔ a reachable but distant, partly bent grip loses both close-grip and knee checks (1.017405ms)
+✔ a later correct team load never removes the earlier over-limit critical (2.272129ms)
 ℹ tests 10
 ℹ suites 0
 ℹ pass 10
@@ -15,4 +15,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 33.182805
+ℹ duration_ms 22.410431

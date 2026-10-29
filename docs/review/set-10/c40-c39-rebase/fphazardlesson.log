@@ -1,13 +1,12 @@
-Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
-✔ all five original clips retain their content and fresh per-run state without new checkpoint fields (2.18774ms)
-✔ 100 actual 2D score-clip comparisons preserve inclusive timing, first valid response, early misses and spam (8.614728ms)
-✔ scripted scene time freezes during menus and the ordinary driving controls do not change the clip (0.513626ms)
-✔ all five early responses produce the original 2500-point same-id safety result exactly once (0.462087ms)
-✔ press storage is bounded while too many responses still invalidate the whole clip (0.343306ms)
-✔ reduced motion keeps the camera still with identical cue states and response windows (0.661613ms)
-✔ expiring clips retain all five safety checks without a workday report or free completion marks (0.316114ms)
-✔ all five procedural fallback cue pools stay within the Low budget and dispose with the world (26.464625ms)
-✔ Low and High fallback clues clear the physical cab before, during and after development (39.460049ms)
+✔ all five original clips retain their content and fresh per-run state without new checkpoint fields (2.018557ms)
+✔ 100 actual 2D score-clip comparisons preserve inclusive timing, first valid response, early misses and spam (6.905553ms)
+✔ scripted scene time freezes during menus and the ordinary driving controls do not change the clip (0.439413ms)
+✔ all five early responses produce the original 2500-point same-id safety result exactly once (0.52355ms)
+✔ press storage is bounded while too many responses still invalidate the whole clip (0.297439ms)
+✔ reduced motion keeps the camera still with identical cue states and response windows (0.541347ms)
+✔ expiring clips retain all five safety checks without a workday report or free completion marks (0.257198ms)
+✔ all five procedural fallback cue pools stay within the Low budget and dispose with the world (19.018445ms)
+✔ Low and High fallback clues clear the physical cab before, during and after development (28.591634ms)
 ℹ tests 9
 ℹ suites 0
 ℹ pass 9
@@ -15,4 +14,5 @@ Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 86.28341
+ℹ duration_ms 64.531029
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

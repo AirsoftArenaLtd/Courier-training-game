@@ -1,8 +1,7 @@
-Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
-✔ sixteen parcels use fixed buffers, three visible batches and no image maps (113.579608ms)
-✔ stable routing keys follow active waves, and the real rays reach every active physical key (7.752148ms)
-✔ furniture and operator access fit the real depot without intersecting its existing props (1.067113ms)
-✔ disposing a conveyor releases owned resources exactly once and preserves a shared cube (1.740465ms)
+✔ sixteen parcels use fixed buffers, three visible batches and no image maps (109.580679ms)
+✔ stable routing keys follow active waves, and the real rays reach every active physical key (8.62681ms)
+✔ furniture and operator access fit the real depot without intersecting its existing props (1.266252ms)
+✔ disposing a conveyor releases owned resources exactly once and preserves a shared cube (2.003694ms)
 ℹ tests 4
 ℹ suites 0
 ℹ pass 4
@@ -10,4 +9,5 @@ Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 129.87213
+ℹ duration_ms 127.829994
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

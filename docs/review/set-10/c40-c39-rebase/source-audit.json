@@ -1,6 +1,6 @@
 {
-  "targetPilot": "5ac9bd7431205f5ba7c71c0e59dc4edcb9b99a91",
-  "rebasedTip": "cca4ffa30d680a8bcf84e841d3b1628f1500e603",
+  "targetPilot": "ee328d1802162555c19a1d95dd692774666f14d9",
+  "rebasedTip": "20dc1cbcf6d85efe6edec9178d1e333e3c2cf668",
   "backup": "codex/c40-before-c39-oct29",
   "allPilotScriptImportsRetainedInOrder": true,
   "pilotLessonFilesUnchanged": [
@@ -72,7 +72,8 @@
     "test/tools/fp-package-heavy-quality.js",
     "test/tools/fp-package-label-quality.js",
     "test/tools/fp-package-lift-quality.js",
-    "test/tools/fp-package-sort-quality.js"
+    "test/tools/fp-package-sort-quality.js",
+    "test/tools/fp-script-font-proof.js"
   ],
   "scope": "Source audit only; new C39-cohort native/resource acceptance remains pending. Historical C40 checks stay attached to their original sources. The heavy browser test now observes shipped B178 fonts instead of pinning the family; these two test-only files pass syntax separately.",
   "additionalTestOnlyChanges": [

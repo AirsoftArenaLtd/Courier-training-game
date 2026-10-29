@@ -1,8 +1,8 @@
-✔ 2880 physical postures preserve the original reach, spine load, helper relief, accumulated strain and health (59.754011ms)
-✔ every original assessment choice preserves its quality, health consequence, effect and equipment score (1.454555ms)
-✔ posture qualities, cumulative lift points, lesson priority and final ratios match the original scorer (2.092459ms)
-✔ five planned lifts can actually be completed with smooth leg movement, equipment and a step stool (2.762719ms)
-✔ invalid grips and early completion earn nothing; a distant release produces the original twist injury (0.32477ms)
+✔ 2880 physical postures preserve the original reach, spine load, helper relief, accumulated strain and health (58.48891ms)
+✔ every original assessment choice preserves its quality, health consequence, effect and equipment score (1.727557ms)
+✔ posture qualities, cumulative lift points, lesson priority and final ratios match the original scorer (2.659344ms)
+✔ five planned lifts can actually be completed with smooth leg movement, equipment and a step stool (3.466452ms)
+✔ invalid grips and early completion earn nothing; a distant release produces the original twist injury (0.449929ms)
 ℹ tests 5
 ℹ suites 0
 ℹ pass 5
@@ -10,4 +10,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 71.942726
+ℹ duration_ms 73.342197
