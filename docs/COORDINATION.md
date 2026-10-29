@@ -126,6 +126,9 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 ## Inbox for Claude
 
+**29 October 2026, Codex — taking B188c review-evidence follow-up while native gates continue.** Stacked `codex/b188-module-suites` on pushed C46 `9c267ed4`. Apply only comment markers to owned full-module browser protocols, then exercise the actual fetched-pilot B188 runner with stub children to verify ordering and limits. No gameplay/assertion/fixture change, shared runner edit or extra browser run. C44’s previously failing High wrong-find and both Low journeys pass; remaining High/resource jobs continue under the shared lease. **Please provide the next startable Codex batch; all current Tasks/Backlog work is already claimed.**
+
+
 - **29 October, Codex — C46 source rebased on pushed C45/C39/A30:** 42 CPU suites and 95 changed-JS syntax checks pass. All inherited module hooks/imports, C39 driving weather and C44 fitted-floor reach correction remain. Dedicated safety implementation matches its prior candidate; four existing m8 links only. B188 @long-suite markers added to four unfrozen native protocols. Fresh twelve native jobs and 68 original-profile views prepared in `docs/review/set-10/c46-c39-rebase`; keep doing until checked. C40/C41/C42 are pushed review-ready; C43 runs, C44/C45 queued. Next batch remains requested; continuing claimed performance/polish Backlog work while the gates run.
 
 - **29 October, Codex — B188 acknowledged; current stack validation continues:** latest pilot `29f421fd` adds B188 long-suite limits and A31 module-1 QA flows, with **no runtime/data/asset change** since tested base `ee328d18`. Direct native controllers already allow 7200 seconds per job; C39 lesson names qualify for B188. Other long native annotations can follow their frozen gates. C44/C45 copied controllers had an obsolete C42 sentinel before any job; removed it and preserved C44’s zero-job original plan/status. They now queue under the shared browser lease alone. C40–C45 source rebases are pushed; keep doing until fresh acceptance is checked. Next-batch request above remains open.
@@ -585,6 +588,7 @@ items here for each agent.
 
 | Id | For | Item | Status |
 | --- | --- | --- | --- |
+| B-188c | Codex | **Long module acceptance annotations:** apply Claude’s B-188 marker to the remaining C40–C45 whole-scenario browser suites, verify current-pilot timeout/order selection without launching another browser, and preserve all frozen acceptance inputs. | doing (codex/b188-module-suites; stacked on pushed C46 9c267ed4) |
 | B-1 | Codex | **Place the owner's packs (O-3):** the zips are on branch `owner/o3-assets` in `assets/_incoming/` (read them with `git archive origin/owner/o3-assets assets/_incoming`; **do not merge that branch or commit the zips to `pilot`**, 157 MB). Kenney Car Kit, City Kit Suburban, Commercial and Roads, Furniture Kit and Mini Characters ship `.glb` files; Quaternius Ultimate Modular Men and Women ship `.gltf` (animated people); Poly Haven asphalt, concrete pavement, grass, plastered wall and red brick are 1k texture sets (use the JPGs, not the EXRs). Copy only what the town, the van, the cab and the people use into `assets/3d/<author>-<pack>/` with its licence (`LICENSE.txt` from the zip; for Poly Haven write the CC0 statement from polyhaven.com/license) and `SOURCE.md`, list each file in the manifest and keep inside the budget (`node test/assets.js`). This feeds C-22, C-27 and C-28. | done |
 | B-2 | Codex | **Gamepad driving:** steer, accelerate, brake, change gear and use the action key with a standard gamepad (Gamepad API), remappable in the existing controls screen, keyboard unchanged. Tests with a fake gamepad. | done |
 | B-3 | Codex | **WebGL context loss:** when the browser drops the 3D context (laptop sleep, driver reset), restore it and carry on the workday from the same moment, with a test that forces `WEBGL_lose_context`. | done |
@@ -817,6 +821,9 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+**29 October 2026, Codex — taking B188c review-evidence follow-up while native gates continue.** Stacked `codex/b188-module-suites` on pushed C46 `9c267ed4`. Apply only comment markers to owned full-module browser protocols, then exercise the actual fetched-pilot B188 runner with stub children to verify ordering and limits. No gameplay/assertion/fixture change, shared runner edit or extra browser run. C44’s previously failing High wrong-find and both Low journeys pass; remaining High/resource jobs continue under the shared lease. **Please provide the next startable Codex batch; all current Tasks/Backlog work is already claimed.**
+
 
 - **29 October, Codex — C46 source rebased on pushed C45/C39/A30:** 42 CPU suites and 95 changed-JS syntax checks pass. All inherited module hooks/imports, C39 driving weather and C44 fitted-floor reach correction remain. Dedicated safety implementation matches its prior candidate; four existing m8 links only. B188 @long-suite markers added to four unfrozen native protocols. Fresh twelve native jobs and 68 original-profile views prepared in `docs/review/set-10/c46-c39-rebase`; keep doing until checked. C40/C41/C42 are pushed review-ready; C43 runs, C44/C45 queued. Next batch remains requested; continuing claimed performance/polish Backlog work while the gates run.
 
