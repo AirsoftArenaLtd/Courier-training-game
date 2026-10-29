@@ -1,0 +1,31 @@
+{
+  "phase": "failed",
+  "controllerPid": 310221,
+  "jobs": [
+    {
+      "tag": "c40-c39-sort-diagnostic",
+      "script": "test/fppackagesortbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_DURABLE": "1"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-sort-diagnostic.json": "15d6cd799cb45ec5d725e17d05b4d7f9b558466389295d779c26e82e5cd9972d",
+        "c40-c39-sort-diagnostic-failure.png": "fe73ba595b6c8f10987bed04521de27911b12beb4c08bec7e92f4eca3a20b236",
+        "c40-c39-sort-diagnostic-low-en-normal-label.png": "517d70f1eb26cd1ccefe7ba72efe58a744c145990b31ebb232d92f752bf93061"
+      }
+    }
+  ],
+  "startedAt": 1793263556.499583,
+  "serverPid": 310223,
+  "tag": "c40-c39-sort-diagnostic",
+  "childPid": 310224,
+  "failure": "Browser job failed: c40-c39-sort-diagnostic",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793263593.5301483
+}

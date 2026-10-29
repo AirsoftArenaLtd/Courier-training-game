@@ -1,0 +1,22 @@
+low en normal
+focus-proof {"id":"sort-parcel-1","target":"sort-parcel-1","ray":"sort-parcel-1","focus":"sort-parcel-1","visible":true,"packages":[{"id":1,"position":578.8496274385228}],"camera":{"x":-10,"y":1.65,"z":16.4},"player":{"x":-10,"z":16.4,"yaw":0.048810495962004964,"pitch":0.22786970506714813}}
+focus-proof {"id":"sort-bin-R1","target":"sort-bin-R1","ray":"sort-bin-R1","focus":null,"visible":false,"packages":[{"id":1,"position":595.162498180203}],"camera":{"x":-10,"y":1.65,"z":16.4},"player":{"x":-10,"z":16.4,"yaw":-1.0832012008718839,"pitch":0.325335953006521}}
+focus-proof {"id":"sort-parcel-2","target":"sort-parcel-2","ray":"sort-parcel-2","focus":"sort-parcel-2","visible":true,"packages":[{"id":2,"position":631.6260623850789}],"camera":{"x":-10,"y":1.65,"z":16.4},"player":{"x":-10,"z":16.4,"yaw":0.14501139797476012,"pitch":0.22581865930428632}}
+focus-proof {"id":"sort-bin-PRI","target":"sort-bin-PRI","ray":"sort-bin-PRI","focus":null,"visible":false,"packages":[{"id":2,"position":757.5752584903777}],"camera":{"x":-10,"y":1.65,"z":16.4},"player":{"x":-10,"z":16.4,"yaw":0,"pitch":0.6240230529767578}}
+focus-proof {"id":"sort-jam","target":"sort-jam","ray":"sort-jam","focus":null,"visible":false,"packages":[{"id":3,"position":573.145355790589}],"camera":{"x":-7.4,"y":1.65,"z":16.4},"player":{"x":-7.4,"z":16.4,"yaw":-0.22347660114063345,"pitch":0.5293764567111223}}
+focus-proof {"id":"sort-parcel-3","target":"sort-parcel-3","ray":"sort-parcel-3","focus":null,"visible":false,"packages":[{"id":3,"position":755.2021517953497}],"camera":{"x":-10,"y":1.65,"z":16.4},"player":{"x":-10,"z":16.4,"yaw":0.47240132797421636,"pitch":0.20387341740919043}}
+focus-proof {"id":"sort-bin-EXC","target":"sort-bin-EXC","ray":"sort-bin-EXC","focus":null,"visible":false,"packages":[{"id":3,"position":931.1996608167116}],"camera":{"x":-10,"y":1.65,"z":16.4},"player":{"x":-10,"z":16.4,"yaw":0.5611634122883536,"pitch":0.5474326282317387}}
+focus-proof {"id":"sort-parcel-4","target":"sort-parcel-4","ray":"sort-parcel-4","focus":null,"visible":false,"packages":[{"id":4,"position":751.0999427737207}],"camera":{"x":-10,"y":1.65,"z":16.4},"player":{"x":-10,"z":16.4,"yaw":0.45748416043447,"pitch":0.20536216900250992}}
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+
+false !== true
+
+    at check (/workspace/c40-package-handling/test/fppackagesortbrowser.js:8:122)
+    at /workspace/c40-package-handling/test/fppackagesortbrowser.js:29:5 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

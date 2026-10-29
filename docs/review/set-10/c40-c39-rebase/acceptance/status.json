@@ -1,0 +1,47 @@
+{
+  "phase": "failed",
+  "controllerPid": 306559,
+  "jobs": [
+    {
+      "tag": "c40-c39-label-low",
+      "script": "test/fppackagelabelbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_DURABLE": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-label-low.json": "fba7e384b96fc5ce3501ac1f549673222d4cb918b6c454938a504b75d5ac79e0",
+        "c40-c39-label-low-low-en-normal-base.png": "851b15d2cc308f74987f3d5d34640deba7865ee190a64d8af8e22d31890436b9"
+      }
+    },
+    {
+      "tag": "c40-c39-sort-low",
+      "script": "test/fppackagesortbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_DURABLE": "1"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-sort-low-failure.png": "1051da6a0ada7e22836071a96999779524f8e894b731e67998df2c8cd5147c07",
+        "c40-c39-sort-low.json": "028be5b69fbc4d57788bcce639830723f17367aaca01009cbf42f57592f0a047",
+        "c40-c39-sort-low-low-en-normal-label.png": "e34b08d512e0ed40eeb4857ab158eef37d97f9fe29c3ad9a55bb812b854c369f"
+      }
+    }
+  ],
+  "startedAt": 1793263220.5969787,
+  "serverPid": 306562,
+  "tag": "c40-c39-sort-low",
+  "childPid": 308984,
+  "failure": "Browser job failed: c40-c39-sort-low",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793263358.4723427
+}
