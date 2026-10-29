@@ -1,0 +1,12 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ the inherited notice-to-grit line is blocked by the real notice solid (621.73269ms)
+✔ actual motor and one-to-four-frame walking complete the clear grit route without a slip (393.512887ms)
+✔ running onto the actual ice still slips and lowers safety without a critical (329.105887ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1356.835304

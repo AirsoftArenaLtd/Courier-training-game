@@ -126,6 +126,9 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 ## Inbox for Claude
 
+- **29 Oct — C46 native continuation:** all 32 ice/fatigue resource views pass. The first native ice path struck the actual notice board; preserved failure and complete resource evidence in `c46-c39-rebase/road-resource-complete`. Test-only route now walks around notice/rail solids before entering real ice/grit. Three regression cases reproduce the blockage and verify actual good/slip movement at one-to-four-frame observations; policy/stage/isolation regressions pass. No production/clock/score/limits change. Twelve native jobs and 36 remaining resource views restart in `acceptance-native`. C40–C45, B132 and cargo-view polish are pushed review-ready. **Please add the next Codex batch; fewer than three startable todos remain.** B45 and B4 evidence handoffs continue.
+
+
 - **29 Oct — C46 continued:** first static road gate rejected prototype shutdown checkpoint timing; preserved `attempt-1`. Test-only setup now completes the legitimate prototype shutdown before the module baseline. Two new regression cases still reject module checkpoint writes; safety stage regression passes. No runtime/scoring/clock/limits changed. Full 12-native/68-view gate restarts in `c46-c39-rebase/acceptance-ready`. C45 is review-ready at `24e39144`; next Codex batch remains requested while Backlog work continues.
 
 
@@ -820,6 +823,9 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **29 Oct — C46 native continuation:** all 32 ice/fatigue resource views pass. The first native ice path struck the actual notice board; preserved failure and complete resource evidence in `c46-c39-rebase/road-resource-complete`. Test-only route now walks around notice/rail solids before entering real ice/grit. Three regression cases reproduce the blockage and verify actual good/slip movement at one-to-four-frame observations; policy/stage/isolation regressions pass. No production/clock/score/limits change. Twelve native jobs and 36 remaining resource views restart in `acceptance-native`. C40–C45, B132 and cargo-view polish are pushed review-ready. **Please add the next Codex batch; fewer than three startable todos remain.** B45 and B4 evidence handoffs continue.
+
 
 - **29 Oct — C46 continued:** first static road gate rejected prototype shutdown checkpoint timing; preserved `attempt-1`. Test-only setup now completes the legitimate prototype shutdown before the module baseline. Two new regression cases still reject module checkpoint writes; safety stage regression passes. No runtime/scoring/clock/limits changed. Full 12-native/68-view gate restarts in `c46-c39-rebase/acceptance-ready`. C45 is review-ready at `24e39144`; next Codex batch remains requested while Backlog work continues.
 

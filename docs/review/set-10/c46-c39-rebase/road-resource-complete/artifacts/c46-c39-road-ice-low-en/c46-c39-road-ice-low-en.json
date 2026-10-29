@@ -1,0 +1,425 @@
+{
+  "kind": "ice",
+  "gfx": "low",
+  "lang": "en",
+  "large": false,
+  "bad": "",
+  "checks": 3179,
+  "layouts": [
+    {
+      "name": "brief",
+      "texts": [
+        {
+          "source": "Slips on Ice",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Complete the physical road-safety task.\n\nDrive below 8 mph to the marked bay, then cross the icy approach using the gritted path or handrail.\n\nYou have 300 seconds to complete this scenario.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 306
+        },
+        {
+          "source": "1. Begin the scenario.",
+          "font": 18,
+          "scale": 1,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the station.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "early-finish",
+      "texts": [
+        {
+          "source": "Read the road-safety information.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Drive to the marked bay, secure the van, then complete the icy approach on foot.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Return to the scenario.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls-0",
+      "texts": [
+        {
+          "source": "Use the road-safety controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Use W to accelerate, S to brake and A/D to steer. Select a physical cab control with O, then use it with U. Look with the mouse or ←/→/↑/↓.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 18,
+          "scale": 1,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the scenario.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls-1",
+      "texts": [
+        {
+          "source": "Use the road-safety controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Look in the mirrors before moving off. Use B for the seatbelt, SPACE for the parking brake and the physical gear selector for P, D or R. Park the whole van inside the marked curbside bay, in P with the parking brake on.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 18,
+          "scale": 1,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the scenario.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls-2",
+      "texts": [
+        {
+          "source": "Use the road-safety controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Ice reduces grip. Keep below 8 mph and leave six seconds behind traffic. Hold SHIFT for short, careful steps on bare ice. Use the brown gritted strip or face the handrail and press U to hold it. The walk ends beside the house.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 250
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 18,
+          "scale": 1,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the scenario.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "controls-3",
+      "texts": [
+        {
+          "source": "Use the road-safety controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Open the handheld with TAB. Menus and the pause screen stop both clocks. Close the handheld during the break so active scenario time can pass. Press F to finish when the physical task is complete.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 18,
+          "scale": 1,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the scenario.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "device-before-drive",
+      "device": {
+        "top": 92,
+        "bottom": 544,
+        "buttons": [
+          {
+            "top": 414.5,
+            "bottom": 460.5,
+            "labelTop": 430,
+            "labelBottom": 447,
+            "font": 15,
+            "scale": 1
+          },
+          {
+            "top": 466.5,
+            "bottom": 512.5,
+            "labelTop": 482,
+            "labelBottom": 499,
+            "font": 15,
+            "scale": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "physical-notice",
+      "texts": [
+        {
+          "source": "Read the road-safety information.",
+          "font": 27,
+          "scale": 1,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Ice on the approach. Use short, careful steps. Keep to the brown gritted path or use the handrail.",
+          "font": 19,
+          "scale": 1,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Return to the scenario.",
+          "font": 18,
+          "scale": 1,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    }
+  ],
+  "shots": [
+    "c46-c39-road-ice-low-en-brief.png",
+    "c46-c39-road-ice-low-en-device-before-drive.png",
+    "c46-c39-road-ice-low-en-parked.png",
+    "c46-c39-road-ice-low-en-physical-notice.png",
+    "c46-c39-road-ice-low-en-failure.png"
+  ],
+  "walks": [
+    {
+      "x": 2.3,
+      "z": -38.4,
+      "careful": true
+    },
+    {
+      "x": 6.2,
+      "z": -38.4,
+      "careful": true
+    },
+    {
+      "x": 5.8,
+      "z": -38.4,
+      "careful": true
+    }
+  ],
+  "errors": [],
+  "scope": "Prepared optional descriptor/access preferences and a real durable suspended workday only. All driving, parking, ray selection, careful walking, grit, warning, break timing and completion use actual keys. No pose, speed, clock, scoring, verdict or completion writes.",
+  "fontProof": {
+    "lang": "en",
+    "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "override": null
+  },
+  "progress": {
+    "kind": "walk",
+    "x": 5.8,
+    "z": -41.35,
+    "state": {
+      "phase": "active",
+      "panel": false,
+      "mode": "walk",
+      "target": "wellness-road-notice",
+      "kind": "ice",
+      "van": {
+        "x": 4.152072510299731,
+        "z": -34.32069657534334,
+        "yaw": 0.0061174576787768695,
+        "speed": 0,
+        "steer": 0,
+        "gear": 2,
+        "hand": true,
+        "belt": false,
+        "look": -0.7075416738545197,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 2
+      },
+      "player": {
+        "x": 5.824355139810932,
+        "z": -38.64787340784402,
+        "yaw": 0.030853201493323656,
+        "pitch": 0.17046500349089183
+      },
+      "park": {
+        "x": 4.1,
+        "z": -34,
+        "w": 2.7,
+        "d": 8.4
+      },
+      "elapsed": 158.75999999999257,
+      "time": 158.76000000000187,
+      "ready": false,
+      "weather": true,
+      "slipped": false,
+      "gritDistance": 0,
+      "railDistance": 0
+    }
+  },
+  "parked": {
+    "phase": "active",
+    "panel": false,
+    "mode": "cab",
+    "target": "cab-park",
+    "kind": "ice",
+    "van": {
+      "x": 4.152072510299731,
+      "z": -34.32069657534334,
+      "yaw": 0.006117457678776772,
+      "speed": 0,
+      "steer": 0,
+      "gear": 2,
+      "hand": true,
+      "belt": true,
+      "look": 0.36005935748600715,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ],
+      "shifts": 2
+    },
+    "player": {
+      "x": 1.7,
+      "z": -8,
+      "yaw": 0,
+      "pitch": 0.18148615405657698
+    },
+    "park": {
+      "x": 4.1,
+      "z": -34,
+      "w": 2.7,
+      "d": 8.4
+    },
+    "elapsed": 19.909999999999403,
+    "time": 19.91000000000015,
+    "ready": false,
+    "weather": true,
+    "slipped": false,
+    "gritDistance": 0,
+    "railDistance": 0
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: Actual walking reaches the physical waypoint.\n    at ok (/workspace/c46-safety-wellness/test/fpicefatiguebrowser.js:8:532)\n    at walk (/workspace/c46-safety-wellness/test/fpicefatiguebrowser.js:17:623)\n    at async /workspace/c46-safety-wellness/test/fpicefatiguebrowser.js:28:290",
+  "state": {
+    "phase": "active",
+    "panel": false,
+    "mode": "walk",
+    "target": "wellness-road-notice",
+    "kind": "ice",
+    "van": {
+      "x": 4.152072510299731,
+      "z": -34.32069657534334,
+      "yaw": 0.0061174576787768695,
+      "speed": 0,
+      "steer": 0,
+      "gear": 2,
+      "hand": true,
+      "belt": false,
+      "look": -0.7075416738545197,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ],
+      "shifts": 2
+    },
+    "player": {
+      "x": 5.771802656851675,
+      "z": -38.64787340784402,
+      "yaw": -0.04914679850667636,
+      "pitch": 0.17046500349089183
+    },
+    "park": {
+      "x": 4.1,
+      "z": -34,
+      "w": 2.7,
+      "d": 8.4
+    },
+    "elapsed": 163.10999999998862,
+    "time": 163.11000000000286,
+    "ready": false,
+    "weather": true,
+    "slipped": false,
+    "gritDistance": 0,
+    "railDistance": 0
+  }
+}

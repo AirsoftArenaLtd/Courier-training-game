@@ -1,0 +1,38 @@
+{
+  "runtimeParent": "6f19805d",
+  "runtimeDifferences": [],
+  "retainedRoadResourceViews": 32,
+  "retainedSource": "6f19805d873d65abe5347c4312b236abad0ab730",
+  "retainedResourceArtifacts": 41,
+  "originalFailure": "road-resource-complete/status.json",
+  "cause": "The direct x5.8 line hits the notice solid at z -38.65. The new route walks outside both solid ends, then crosses the actual ice and grit.",
+  "regressions": {
+    "oldRouteReproducedBlocked": true,
+    "goodRouteFrameBatches": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "slipRouteFrameBatches": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "realMotorDriveAndExit": true,
+    "goodFullSafetyAndBadNoncriticalSlip": true
+  },
+  "logHashes": {
+    "native-route-policy.log": "4cd0c3a3360e7034b27eb83af1f50a5acec1a58b8ac58892832b42ca15a25913",
+    "native-route-fixture.log": "e75adcffebf33bc3fdecbc8de3f5dca2b0fae915e638bdf01e2bf1f45722c3d6",
+    "native-route-stage.log": "b2d544fead099f69d033d087458117cef3df48dc602dde6894a4da2d501ace51",
+    "native-route-regression.log": "1af9ed1121d588a046bbc0acb55a2e7dd1096c3899fabdb9e536d6db8e4b3987"
+  },
+  "testSourceHashes": {
+    "test/fpicefatiguebrowser.js": "3c338f43513c9b0ffb2a728a1036275ca6aa73ad7d70b9a7dfcc443a225ca3d9",
+    "test/fpwellnessroadwalk.js": "d217f305605ece76609c9ae63664cf293ccb55b4898ff18e4bd8bb800f433bc5",
+    "test/tools/fp-wellness-road-walk.js": "009877e3c16024701479d12caf93379c782463742132739406f753e2458ca41a",
+    "test/tools/fp-wellness-ice-route.js": "20c1d2f134239c27664f9cb0b07b2372963e58e0aa07602fbdaed0ca3903da75"
+  }
+}

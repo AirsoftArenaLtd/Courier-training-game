@@ -1,0 +1,86 @@
+{
+  "phase": "failed",
+  "controllerPid": 374097,
+  "jobs": [
+    {
+      "tag": "c46-c39-road-resources",
+      "script": "test/tools/fp-wellness-road-quality.js",
+      "env": {
+        "QA_FPS_FLOOR": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "bench-c46-c39-road-resources-accessible-low-low.json": "af1a11ab3bda6d109ddc4eae4a5be8792835d0f5443e2e3fc21d0a82d1e03b17",
+        "c46-c39-road-resources-loaded-low-low-fatiguewarning.png": "b51a9e2a93033254d439a0760bb72c61d84b96f542c91c28c14ed3048af1a9f1",
+        "c46-c39-road-resources-loaded-low-low-fatiguepark.png": "2d28301e9b47e7794ee49ec7d443f141c1378e49bdcc0e3b1efc3563fbde15f9",
+        "c46-c39-road-resources-loaded-high-high-fatiguewarning.png": "9bb4c49b67b62f5e60843ea94fc87ca27a51a3e20f07208a7042ae660ed8e0b6",
+        "c46-c39-road-resources-accessible-low-low-icenotice.png": "6d8b1dd9345194a34cb59e273201bbb034e88e793b1c1a5e900b25dedeacda50",
+        "bench-c46-c39-road-resources-loaded-high-high.json": "505c94b7009fb12313ad14385706f499154de531bcb38bf6277173a6b172d739",
+        "c46-c39-road-resources-fallback-low-low-fatiguebreak.png": "ed169b4cf87ad70de5580573ebae69524491003cd891942a9fdb679e164490e6",
+        "c46-c39-road-resources-fallback-low-low-icecab.png": "87affd46c18ba1818309187953c045845287a635eddef7318b327178fa46a452",
+        "c46-c39-road-resources-loaded-high-high-fatiguepark.png": "1e7e5dc86214ae8c0dc2057bc74b6f840f276c4f3fd52bb933f49c24f88c820b",
+        "c46-c39-road-resources-loaded-high-high-icecab.png": "0af47a03799978b8755f1a9374c51acbbb6dcfa568ba8ac7735674edd663c2f2",
+        "bench-c46-c39-road-resources-loaded-low-low.json": "07102118729f6267458ee8dcf1042e213189647f6ddb02321f865349de7b55bd",
+        "c46-c39-road-resources-accessible-low-low-fatiguepark.png": "cb81cab3a56cc4e07bcff848e60a70dbb04679322201d899f3b78b2e8d5d3314",
+        "bench-c46-c39-road-resources-fallback-low-low.json": "d4ddaf9972244dfb7b109dbf8056ab1072c6640b335955a4a6a84cf0a6664f39",
+        "c46-c39-road-resources-fallback-low-low-fatiguecab.png": "83349121fded714ca95a6fdeef19c8a7dbe657bb090dc4eca6f6f01e4d1e160b",
+        "c46-c39-road-resources-accessible-low-low-fatiguewarning.png": "e33a92f6eeb52f577632bee3f0c3f68195dcac165b3b3af8d5299c3d69a5e253",
+        "c46-c39-road-resources-loaded-low-low-icegrit.png": "4edd19e707e1fa092890585ad8bdf5222f548e877ddb99064d434dfa7acaec62",
+        "c46-c39-road-resources-fallback-low.log": "07ac8c1862168457ee12ea7ef791f8399d0fd65e52c5cb9a69108bfa2cc17045",
+        "c46-c39-road-resources-fallback-low-low-icegrit.png": "caba7d39db8fd2b1a41051412cb813422ddc616971f5ebb6801afe1669ca63d7",
+        "c46-c39-road-resources-loaded-low-low-icecab.png": "6b1a11ed210d9d03eefda863a5ff2fa10ed0ddabec6f4d34dab2dd62ce0ecef2",
+        "c46-c39-road-resources-loaded-low-low-fatiguecab.png": "0115aa3ae1b3642e2ccf9793af09b0dbf1f58f684faef0b8da0537f94b7b1297",
+        "c46-c39-road-resources-accessible-low-low-icecab.png": "e213cace8644937221f7fb67ade5b9f0583c27f1f9be2e10c203c2d380f1ccaa",
+        "c46-c39-road-resources-loaded-high-high-icenotice.png": "3caad158076e2859bdb5385c5d59665a2d1ecae86649cddbe4d17102812678e1",
+        "c46-c39-road-resources-loaded-high-high-fatiguebreak.png": "ee2b6e0d3d259daff4520b80da710a0cc7cda9ebc4d9cffd7a4fc4bd64aaac64",
+        "c46-c39-road-resources-fallback-low-low-icenotice.png": "888ddd16016442cd5c00ce06d0f27dbcf555c8d3339e934316e8cd212666875c",
+        "c46-c39-road-resources-fallback-low-low-fatiguepark.png": "eca303a7623d567334e931b6bc37d8f86c37cfb2f003bb22e14e793d640d0db6",
+        "c46-c39-road-resources-fallback-low-low-fatiguewarning.png": "d94d25b9ef1bf9c688136903f0d51294a31262ab1b3d7048b41b4fa907b9c1e3",
+        "c46-c39-road-resources-loaded-low.log": "dcdc73952eb6af5d7a36f6711e2c6d1756747653cfb10b91408ef1b7a50de398",
+        "c46-c39-road-resources-accessible-low-low-icerail.png": "b9ebf7a91e44e400f51137b4a861674ad8246ab920871a92ab7730e5c0080228",
+        "c46-c39-road-resources-loaded-high-high-fatiguecab.png": "c0f8af41217298400dab80bd4d02c01d3f27837a568a16b8368fccfac8a7c7ea",
+        "c46-c39-road-resources-accessible-low.log": "3a200a2960082edc5927b3973716523ec9cbc82beca3a38287ec08577a610111",
+        "c46-c39-road-resources-loaded-high-high-icerail.png": "f1f5faf0f2405836941eaaf89f8ccff02a475637ed013b1fb76978c995f94349",
+        "c46-c39-road-resources-loaded-low-low-fatiguebreak.png": "54ba389946d7fe4db4402896e305b2869fb23b36c0bfa518e16e2a99b90f5117",
+        "c46-c39-road-resources-loaded-low-low-icerail.png": "c11cad4bc1d8e7f3f8678b168a27721c6debe0efaa77d43f1147a23be01768ba",
+        "c46-c39-road-resources-loaded-high.log": "9ef86bbbfccb8752cc5287d917ac61c7f88c9f79198a9c26ba011cabfbdb4646",
+        "c46-c39-road-resources-fallback-low-low-icerail.png": "f470428e21e4b53cb7259218f3b5dcdabe24abd4fd7c3b5ce56674dd5964fa56",
+        "c46-c39-road-resources-accessible-low-low-icegrit.png": "e63e9f63f67befab47d5101814175eed66581ac33501e340f55265455501ab8e",
+        "c46-c39-road-resources-quality.json": "8b352f04fb2efd07e9dd9f6a2959088c9c99f7dee500c8944fce7751e12b37dd",
+        "c46-c39-road-resources-accessible-low-low-fatiguecab.png": "83875c1309f0061a149aa183333d4ecc6cafb6bccd7c4531715b633f8c8bc4cc",
+        "c46-c39-road-resources-accessible-low-low-fatiguebreak.png": "2445713057d329fb79e6cce2b71e28e38b0f14ad90c6a60c3503f1e830693e0a",
+        "c46-c39-road-resources-loaded-low-low-icenotice.png": "34ab0a6370d1e28829914868e11d5a57f91a45dde00f248eefece78e15cc7ea9",
+        "c46-c39-road-resources-loaded-high-high-icegrit.png": "99a556c23998c5941f7377f09f513a0d99d0d0ba4eec3f3bd1e9446507617a06"
+      }
+    },
+    {
+      "tag": "c46-c39-road-ice-low-en",
+      "script": "test/fpicefatiguebrowser.js",
+      "env": {
+        "QA_KIND": "ice",
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "c46-c39-road-ice-low-en-failure.png": "e8a939b4ac67d0af3213d0402519723f5cd659fd432cf2ff579176ad850092ae",
+        "c46-c39-road-ice-low-en-physical-notice.png": "a60b06088233be68c6b68493bc5ca6b13fca8a894f35dd04a6d0b1f8bed4ac67",
+        "c46-c39-road-ice-low-en-parked.png": "41954d87c1c9cf60f6ad1468473fecca938da89492bd6db5c1e5f69d3d687a1b",
+        "c46-c39-road-ice-low-en.json": "8327f06f05c7c4fabfe00e3a1b79ba42c78ec803d756391ddf264ef50527f322",
+        "c46-c39-road-ice-low-en-brief.png": "d4f4b9f1617c5968dabea0ad026581464c82b799638c40e13f47c95ab9bd6730",
+        "c46-c39-road-ice-low-en-device-before-drive.png": "1143eedeb374b475cbc1adf574d8bec9fa1446ea1a9e96e85b9061075a47c7a3"
+      }
+    }
+  ],
+  "startedAt": 1793301918.4794695,
+  "serverPid": 374099,
+  "tag": "c46-c39-road-ice-low-en",
+  "childPid": 377476,
+  "failure": "Browser job failed: c46-c39-road-ice-low-en",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793302934.8836608
+}

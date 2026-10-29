@@ -1,0 +1,11 @@
+AssertionError [ERR_ASSERTION]: Actual walking reaches the physical waypoint.
+    at ok (/workspace/c46-safety-wellness/test/fpicefatiguebrowser.js:8:532)
+    at walk (/workspace/c46-safety-wellness/test/fpicefatiguebrowser.js:17:623)
+    at async /workspace/c46-safety-wellness/test/fpicefatiguebrowser.js:28:290 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
