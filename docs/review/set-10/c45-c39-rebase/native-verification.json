@@ -1,0 +1,168 @@
+{
+  "scope": "Completed native jobs only; full resource acceptance remains separate.",
+  "nativeJobs": [
+    {
+      "tag": "c45-c39-business-low-en",
+      "checks": 857,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "business",
+      "variant": "good",
+      "score": 2300,
+      "stars": {
+        "service": 3,
+        "efficiency": 3
+      },
+      "criticals": 0,
+      "assessmentPassed": null,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c45-c39-intl-low-en",
+      "checks": 987,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "intl",
+      "variant": "good",
+      "score": 1800,
+      "stars": {
+        "service": 3,
+        "efficiency": 3
+      },
+      "criticals": 0,
+      "assessmentPassed": null,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c45-c39-dg-low-en",
+      "checks": 754,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "dg",
+      "variant": "good",
+      "score": 1700,
+      "stars": {
+        "safety": 3,
+        "service": 3
+      },
+      "criticals": 0,
+      "assessmentPassed": null,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c45-c39-business-high-ta",
+      "checks": 865,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "business",
+      "variant": "good",
+      "score": 2300,
+      "stars": {
+        "service": 3,
+        "efficiency": 3
+      },
+      "criticals": 0,
+      "assessmentPassed": true,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c45-c39-intl-high-ta",
+      "checks": 977,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "intl",
+      "variant": "good",
+      "score": 1800,
+      "stars": {
+        "service": 3,
+        "efficiency": 3
+      },
+      "criticals": 0,
+      "assessmentPassed": true,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c45-c39-dg-high-ta",
+      "checks": 782,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "dg",
+      "variant": "good",
+      "score": 1700,
+      "stars": {
+        "safety": 3,
+        "service": 3
+      },
+      "criticals": 0,
+      "assessmentPassed": true,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c45-c39-bad-business-high-ta",
+      "checks": 1120,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "business",
+      "variant": "bad-business",
+      "score": 1400,
+      "stars": {
+        "service": 1,
+        "efficiency": 2
+      },
+      "criticals": 0,
+      "assessmentPassed": false,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c45-c39-bad-docs-high-ta",
+      "checks": 691,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "intl",
+      "variant": "bad-docs",
+      "score": 500,
+      "stars": {
+        "service": 1,
+        "efficiency": 0
+      },
+      "criticals": 2,
+      "assessmentPassed": false,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c45-c39-bad-call-high-ta",
+      "checks": 611,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "dg",
+      "variant": "bad-call",
+      "score": 400,
+      "stars": {
+        "safety": 0,
+        "service": 1
+      },
+      "criticals": 4,
+      "assessmentPassed": false,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    }
+  ],
+  "nativeChecks": 7644
+}

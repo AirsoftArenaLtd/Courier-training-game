@@ -1,0 +1,63 @@
+{
+  "status": "six native captures inspected at original resolution; resource gate pending",
+  "captures": [
+    {
+      "path": "native-complete/artifacts/c45-c39-intl-high-ta/c45-c39-intl-high-ta-high-ta-large-intl-invoice-10.png",
+      "sha256": "f2a486622956e39f99b4b169d6d8be5a1bb25078137839ffe2a2a876be47ca72",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The last commercial-invoice line, its marked-for-correction state and all three choices fit the larger-text panel. Newly introduced invoice wording is still English/mixed Tamil pending A31."
+    },
+    {
+      "path": "native-complete/artifacts/c45-c39-dg-high-ta/c45-c39-dg-high-ta-high-ta-large-dg-receipt.png",
+      "sha256": "85f31e3564269661962991d4d691eb52bbf1d37ce46ed23017eade8f85f10464",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The actual High shipper/counter/shadow and physical RECEIPT label are visible. The larger receipt title wraps to two lines; accepted/refused counts, signer, finish action and Back fit the handheld. M7 copy remains partly English pending A31."
+    },
+    {
+      "path": "native-complete/artifacts/c45-c39-bad-docs-high-ta/c45-c39-bad-docs-high-ta-high-ta-large-intl-result.png",
+      "sha256": "41546ca2db6093e6bea6a7b9b21d5be90d69c5853506e3176ab0af31be7775e9",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The dangerous paperwork outcome displays failed assessment, service one/efficiency zero and both critical feedback items. Actual Tamil glyphs, feedback, progress and bottom actions fit. One new same-invoice feedback line remains English pending A31."
+    },
+    {
+      "path": "native-complete/artifacts/c45-c39-business-low-en/c45-c39-business-low-en-low-en-normal-business-receipt.png",
+      "sha256": "e2265a3f903edc3ba50a0bbc8e1ad86f1f89799e4fc122d9eb95345b8a315da5",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Low physical receipt sign and the original lightweight counter/shipper art remain visible. Receipt counts, signer, finish action and Back fit inside the device."
+    },
+    {
+      "path": "native-complete/artifacts/c45-c39-bad-call-high-ta/c45-c39-bad-call-high-ta-high-ta-large-dg-result.png",
+      "sha256": "2131e4830006f3da51bb4da2c4f4a25380393314cb5ddd715dce305ed049b243",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The harmful dangerous-goods call shows failed assessment, safety zero/service one, and retained critical feedback in Tamil with an English Critical prefix. Actual Tamil heading/glyphs and both bottom actions fit. Broader new M7 prompt/feedback copy still needs A31."
+    },
+    {
+      "path": "native-complete/artifacts/c45-c39-dg-high-ta/c45-c39-dg-high-ta-high-ta-large-dg-result.png",
+      "sha256": "bfca5f49cb3572b9dbcafa26e25eb2ff46f5f66fa62bbf3abf9a3de11170ebca",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The correct dangerous-goods result shows passed assessment and six of six stars. Actual larger Tamil result feedback, progress and bottom actions fit."
+    }
+  ],
+  "limitations": [
+    "New M7 prompt/feedback text remains partly English pending A31.",
+    "Cloud software rendering cannot certify owner Intel O1."
+  ]
+}
