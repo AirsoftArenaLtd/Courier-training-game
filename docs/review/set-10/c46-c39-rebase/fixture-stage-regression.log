@@ -1,0 +1,16 @@
+✔ both optional models retain the real road/cab and restore their own starts after scenario-shell setup (2.591046ms)
+✔ the actual motor reaches both curbside bays at five input rates without a pose or clock shortcut (1144.83641ms)
+✔ a parked relocation cannot invent an ice-weather observation; a real safe motor drive does supply it (24.810697ms)
+✔ unsafe real driving reaches the catalogue weather sink once and cannot be repaired by later parking (8.280528ms)
+✔ the visible handrail is solid, has an actual ray target, and its mounted notice is readable from the public path (43.697016ms)
+✔ physical and panel guards reject remote/stale rail actions and repeated completion (0.471389ms)
+✔ the complete vehicle footprint stays on the public road and ice completion still requires its legal parking (14.851334ms)
+✔ fatigue warnings and actual rest time pause with the mission and never add time to it (140.223745ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1396.262642

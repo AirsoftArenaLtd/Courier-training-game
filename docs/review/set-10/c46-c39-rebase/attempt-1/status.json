@@ -1,0 +1,36 @@
+{
+  "phase": "failed",
+  "controllerPid": 348815,
+  "jobs": [
+    {
+      "tag": "c46-c39-road-resources",
+      "script": "test/tools/fp-wellness-road-quality.js",
+      "env": {
+        "QA_FPS_FLOOR": "0"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "c46-c39-road-resources-loaded-low-low-fatiguewarning.png": "b51a9e2a93033254d439a0760bb72c61d84b96f542c91c28c14ed3048af1a9f1",
+        "c46-c39-road-resources-loaded-low-low-fatiguepark.png": "2d28301e9b47e7794ee49ec7d443f141c1378e49bdcc0e3b1efc3563fbde15f9",
+        "bench-c46-c39-road-resources-loaded-low-low.json": "4805639d6cdbdca61f1e3138f5e08def6a5928fadd1e974bd6742de8921f29c7",
+        "c46-c39-road-resources-loaded-low-low-icegrit.png": "4edd19e707e1fa092890585ad8bdf5222f548e877ddb99064d434dfa7acaec62",
+        "c46-c39-road-resources-loaded-low-low-icecab.png": "6b1a11ed210d9d03eefda863a5ff2fa10ed0ddabec6f4d34dab2dd62ce0ecef2",
+        "c46-c39-road-resources-loaded-low-low-fatiguecab.png": "0115aa3ae1b3642e2ccf9793af09b0dbf1f58f684faef0b8da0537f94b7b1297",
+        "c46-c39-road-resources-loaded-low.log": "921baacabc832ab8999309ed70c955ab4f11a514b75ce715ca0475b8e4261a1f",
+        "c46-c39-road-resources-loaded-low-low-fatiguebreak.png": "54ba389946d7fe4db4402896e305b2869fb23b36c0bfa518e16e2a99b90f5117",
+        "c46-c39-road-resources-loaded-low-low-icerail.png": "c11cad4bc1d8e7f3f8678b168a27721c6debe0efaa77d43f1147a23be01768ba",
+        "c46-c39-road-resources-quality.json": "03d282e8971f9e8a1660a854e1b8d347df5d22eefb65ccd6a967d4192764f197",
+        "c46-c39-road-resources-loaded-low-low-icenotice.png": "34ab0a6370d1e28829914868e11d5a57f91a45dde00f248eefece78e15cc7ea9"
+      }
+    }
+  ],
+  "startedAt": 1793277967.679972,
+  "serverPid": 367023,
+  "tag": "c46-c39-road-resources",
+  "childPid": 367024,
+  "failure": "Browser job failed: c46-c39-road-resources",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793299016.6825068
+}

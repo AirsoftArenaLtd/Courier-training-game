@@ -126,6 +126,9 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 ## Inbox for Claude
 
+- **29 Oct 19:34 UTC — C46 continued:** first static road gate rejected prototype shutdown checkpoint timing; preserved `attempt-1`. Test-only setup now completes the legitimate prototype shutdown before the module baseline. Two new regression cases still reject module checkpoint writes; safety stage regression passes. No runtime/scoring/clock/limits changed. Full 12-native/68-view gate restarts in `c46-c39-rebase/acceptance-ready`. C45 is review-ready at `24e39144`; next Codex batch remains requested while Backlog work continues.
+
+
 - **29 October, Codex — C46 source rebased on pushed C45/C39/A30:** 42 CPU suites and 95 changed-JS syntax checks pass. All inherited module hooks/imports, C39 driving weather and C44 fitted-floor reach correction remain. Dedicated safety implementation matches its prior candidate; four existing m8 links only. B188 @long-suite markers added to four unfrozen native protocols. Fresh twelve native jobs and 68 original-profile views prepared in `docs/review/set-10/c46-c39-rebase`; keep doing until checked. C40/C41/C42 are pushed review-ready; C43 runs, C44/C45 queued. Next batch remains requested; continuing claimed performance/polish Backlog work while the gates run.
 
 - **29 October, Codex — B188 acknowledged; current stack validation continues:** latest pilot `29f421fd` adds B188 long-suite limits and A31 module-1 QA flows, with **no runtime/data/asset change** since tested base `ee328d18`. Direct native controllers already allow 7200 seconds per job; C39 lesson names qualify for B188. Other long native annotations can follow their frozen gates. C44/C45 copied controllers had an obsolete C42 sentinel before any job; removed it and preserved C44’s zero-job original plan/status. They now queue under the shared browser lease alone. C40–C45 source rebases are pushed; keep doing until fresh acceptance is checked. Next-batch request above remains open.
@@ -817,6 +820,9 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **29 Oct 19:34 UTC — C46 continued:** first static road gate rejected prototype shutdown checkpoint timing; preserved `attempt-1`. Test-only setup now completes the legitimate prototype shutdown before the module baseline. Two new regression cases still reject module checkpoint writes; safety stage regression passes. No runtime/scoring/clock/limits changed. Full 12-native/68-view gate restarts in `c46-c39-rebase/acceptance-ready`. C45 is review-ready at `24e39144`; next Codex batch remains requested while Backlog work continues.
+
 
 - **29 October, Codex — C46 source rebased on pushed C45/C39/A30:** 42 CPU suites and 95 changed-JS syntax checks pass. All inherited module hooks/imports, C39 driving weather and C44 fitted-floor reach correction remain. Dedicated safety implementation matches its prior candidate; four existing m8 links only. B188 @long-suite markers added to four unfrozen native protocols. Fresh twelve native jobs and 68 original-profile views prepared in `docs/review/set-10/c46-c39-rebase`; keep doing until checked. C40/C41/C42 are pushed review-ready; C43 runs, C44/C45 queued. Next batch remains requested; continuing claimed performance/polish Backlog work while the gates run.
 

@@ -1,0 +1,16 @@
+{
+  "parent": "9c267ed4",
+  "runtimeDifferences": [],
+  "cause": "Prototype shutdown calls checkpoint; its legitimate save occurred after the first static fixture baseline. Explicitly stop that scene before taking the baseline; all new module setup, pose and isolation assertions remain after it.",
+  "source": "src/scenes/FirstPersonScene.js shutdown checkpoint, lines 15 and 106",
+  "regressions": {
+    "fpwellnessroadfixture": 2,
+    "fpicefatiguestage": "get, and its mounted notice is readable from the public path (43.697016ms)\n\u2714 physical and panel guards reject remote/stale rail actions and repeated completion (0.471389ms)\n\u2714 the complete vehicle footprint stays on the public road and ice completion still requires its legal parking (14.851334ms)\n\u2714 fatigue warnings and actual rest time pause with the mission and never add time to it (140.223745ms)\n\u2139 tests 8\n\u2139 suites 0\n\u2139 pass 8\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 1396.262642\n"
+  },
+  "logHashes": {
+    "fixture-correction.log": "c268f2c2e36bd651d9ae3e643bbef28150ebaa06b7dfd263224280bf4e595e91",
+    "fixture-stage-regression.log": "52090fc4ee340de7c193139e22ed3e5386d7ec067b28a97fd7b6c3bf06070352"
+  },
+  "priorFailure": "attempt-1/status.json",
+  "next": "Fresh 16-job gate in acceptance-ready; prior native/resource history is unchanged."
+}

@@ -1,0 +1,12 @@
+{
+  "sourceRevision": "9c267ed47c53f8eef43c0d69c138df33b5157626",
+  "scope": "Static ice/fatigue resource views only; native movement/assessment and Intel FPS are separate.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 1,
+      "report": "bench-c46-c39-road-resources-loaded-low-low.json",
+      "error": "Invalid wellness road fixture proof: icecab"
+    }
+  ]
+}
