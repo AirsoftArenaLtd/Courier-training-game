@@ -1,0 +1,20 @@
+✔ key help follows the actual workday, including later-day resumes (0.992003ms)
+✔ routine prompts fade after a reading interval and a new target restores them (0.160222ms)
+✔ long translated prompts have bounded reading time, without repeat resets (0.11275ms)
+✔ reduced motion never interpolates prompt opacity (0.158039ms)
+✔ active warnings remain fully visible after ordinary prompt expiry (0.137738ms)
+✔ cab destinations follow the active stop and return phase without writes (0.219042ms)
+✔ trainer sat-nav off and selecting reverse both hide the route screen (0.161214ms)
+✔ the shared physical screen reads its current navigation or rear-camera content (0.149687ms)
+✔ live safety alerts remain independent of the selected physical control (0.606138ms)
+✔ a low-clearance alert survives routine camera notices without hiding another safety alert (3.735309ms)
+✔ cyclist and school warnings reach the live cab caption without opening the handheld (0.320276ms)
+✔ module-specific physical controls replace the generic walking hint only for that module (0.202757ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.004903

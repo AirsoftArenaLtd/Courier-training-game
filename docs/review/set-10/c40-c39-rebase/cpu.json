@@ -1,0 +1,170 @@
+{
+  "sourceAudit": "source-audit.json",
+  "base": "5ac9bd74",
+  "candidate": "cca4ffa30d680a8bcf84e841d3b1628f1500e603",
+  "suites": [
+    {
+      "file": "test/fphud.js",
+      "exit": 0,
+      "seconds": 0.06,
+      "log": "fphud.log"
+    },
+    {
+      "file": "test/fppackageheavy.js",
+      "exit": 0,
+      "seconds": 0.1,
+      "log": "fppackageheavy.log"
+    },
+    {
+      "file": "test/fppackageheavyscenario.js",
+      "exit": 0,
+      "seconds": 0.18,
+      "log": "fppackageheavyscenario.log"
+    },
+    {
+      "file": "test/fppackagelabels.js",
+      "exit": 0,
+      "seconds": 0.08,
+      "log": "fppackagelabels.log"
+    },
+    {
+      "file": "test/fppackagelabelscenario.js",
+      "exit": 0,
+      "seconds": 0.17,
+      "log": "fppackagelabelscenario.log"
+    },
+    {
+      "file": "test/fppackagelabelworld.js",
+      "exit": 0,
+      "seconds": 0.15,
+      "log": "fppackagelabelworld.log"
+    },
+    {
+      "file": "test/fppackagelift.js",
+      "exit": 0,
+      "seconds": 0.14,
+      "log": "fppackagelift.log"
+    },
+    {
+      "file": "test/fppackageliftbay.js",
+      "exit": 0,
+      "seconds": 0.13,
+      "log": "fppackageliftbay.log"
+    },
+    {
+      "file": "test/fppackageliftgeometry.js",
+      "exit": 0,
+      "seconds": 1.31,
+      "log": "fppackageliftgeometry.log"
+    },
+    {
+      "file": "test/fppackageliftscenario.js",
+      "exit": 0,
+      "seconds": 0.18,
+      "log": "fppackageliftscenario.log"
+    },
+    {
+      "file": "test/fppackageliftworld.js",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "fppackageliftworld.log"
+    },
+    {
+      "file": "test/fppackagesort.js",
+      "exit": 0,
+      "seconds": 0.16,
+      "log": "fppackagesort.log"
+    },
+    {
+      "file": "test/fppackagesortscenario.js",
+      "exit": 0,
+      "seconds": 0.19,
+      "log": "fppackagesortscenario.log"
+    },
+    {
+      "file": "test/fppackagesortworld.js",
+      "exit": 0,
+      "seconds": 0.19,
+      "log": "fppackagesortworld.log"
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0,
+      "seconds": 0.11,
+      "log": "fpscenario.log"
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0,
+      "seconds": 0.05,
+      "log": "fpcontext.log"
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0,
+      "seconds": 0.19,
+      "log": "fpgamepad.log"
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0,
+      "seconds": 0.63,
+      "log": "fpworld.log"
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0,
+      "seconds": 0.1,
+      "log": "fpaccess.log"
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0,
+      "seconds": 0.06,
+      "log": "englishtext.log"
+    },
+    {
+      "file": "test/fppretrip.js",
+      "exit": 0,
+      "seconds": 0.11,
+      "log": "fppretrip.log"
+    },
+    {
+      "file": "test/fproutelesson.js",
+      "exit": 0,
+      "seconds": 0.18,
+      "log": "fproutelesson.log"
+    },
+    {
+      "file": "test/fphazardlesson.js",
+      "exit": 0,
+      "seconds": 0.15,
+      "log": "fphazardlesson.log"
+    },
+    {
+      "file": "test/fpdrivinglesson.js",
+      "exit": 0,
+      "seconds": 0.74,
+      "log": "fpdrivinglesson.log"
+    },
+    {
+      "file": "test/fpjunctionlesson.js",
+      "exit": 0,
+      "seconds": 5.06,
+      "log": "fpjunctionlesson.log"
+    },
+    {
+      "file": "test/fpschoollesson.js",
+      "exit": 0,
+      "seconds": 2.82,
+      "log": "fpschoollesson.log"
+    },
+    {
+      "file": "test/fpnightlesson.js",
+      "exit": 0,
+      "seconds": 9.99,
+      "log": "fpnightlesson.log"
+    }
+  ],
+  "allPassed": true
+}
