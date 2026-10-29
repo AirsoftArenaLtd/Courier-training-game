@@ -1,0 +1,121 @@
+{
+  "checks": 1067,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "items": [
+        {
+          "index": 0,
+          "station": "upright",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.3449066666666676,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 1,
+          "station": "fragile",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.950000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 2,
+          "station": "dry",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.950000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 3,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.800000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 4,
+          "station": "upright",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.800000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 5,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.800000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 6,
+          "station": "isolate",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.800000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 7,
+          "station": "isolate",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.800000000000001,
+          "speed": 1,
+          "points": 350
+        },
+        {
+          "index": 8,
+          "station": "hazmat",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 1.850000000000001,
+          "speed": 1,
+          "points": 350
+        }
+      ],
+      "shots": [
+        "c40-rebase-label-low-low-en-normal-base.png"
+      ],
+      "result": {
+        "id": "m2-labels",
+        "record": {
+          "plays": 1,
+          "bestScore": 3150,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1793245616829
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Physical label inspection only; C-40 sorting, lifting and heavy items remain in progress.",
+  "complete": true
+}
