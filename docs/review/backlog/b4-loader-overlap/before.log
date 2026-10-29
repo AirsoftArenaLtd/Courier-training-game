@@ -1,0 +1,100 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+✔ the real vendored loader selects Low and High and parses the bundled CC0 variants (172.400599ms)
+✔ two repeated models share geometry and material, fit their existing footprint and remain visible after compaction (6.815918ms)
+✔ missing, truncated and wrong-size files retain the procedural fallback without blocking completion (6.923034ms)
+✔ High can fall back to the Low variant, while Low never fetches High (8.789083ms)
+✔ unlisted paths, duplicate variants and byte budgets fail before an asset request (19.688755ms)
+✔ external GLB buffers/images, unsupported compression and oversized decoded arrays never reach the parser (35.7306ms)
+✔ embedded images keep the 1k/2k dimension limits and the two-megabyte encoded texture budget (6.227897ms)
+✔ an unavailable loader, a network timeout and external cancellation all return safely (23.921248ms)
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+✔ late decoder completion after cancellation releases geometry and material exactly once (6.858207ms)
+✔ a missing real High van is counted as a recovered model fallback (480.992613ms)
+✖ the required loader starts while model bytes are still in flight after manifest validation (9.418251ms)
+✖ a failed speculative script request still permits the original per-model loader retry (5.66477ms)
+✔ invalid and image-only manifests do not start a glTF script request (9.612334ms)
+✖ cancellation during overlapping script and model transfer returns an empty bank without waiting for the script (6.156271ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 11
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1112.113867
+
+✖ failing tests:
+
+test at test/fpassets.js:88:1
+✖ the required loader starts while model bytes are still in flight after manifest validation (9.418251ms)
+  AssertionError [ERR_ASSERTION]: the script must overlap the first model transfer
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/workspace/b4-loader-overlap/test/fpassets.js:95:35)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/fpassets.js:98:1
+✖ a failed speculative script request still permits the original per-model loader retry (5.66477ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/workspace/b4-loader-overlap/test/fpassets.js:102:13)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/fpassets.js:115:1
+✖ cancellation during overlapping script and model transfer returns an empty bank without waiting for the script (6.156271ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/workspace/b4-loader-overlap/test/fpassets.js:122:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,48 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+✔ the real vendored loader selects Low and High and parses the bundled CC0 variants (101.081249ms)
+✔ two repeated models share geometry and material, fit their existing footprint and remain visible after compaction (7.590721ms)
+✔ missing, truncated and wrong-size files retain the procedural fallback without blocking completion (12.169765ms)
+✔ High can fall back to the Low variant, while Low never fetches High (12.695572ms)
+✔ unlisted paths, duplicate variants and byte budgets fail before an asset request (9.689778ms)
+✔ external GLB buffers/images, unsupported compression and oversized decoded arrays never reach the parser (20.633713ms)
+✔ embedded images keep the 1k/2k dimension limits and the two-megabyte encoded texture budget (36.527834ms)
+✔ an unavailable loader, a network timeout and external cancellation all return safely (29.847221ms)
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+✔ late decoder completion after cancellation releases geometry and material exactly once (8.773427ms)
+✔ a missing real High van is counted as a recovered model fallback (580.166268ms)
+✔ the required loader starts while model bytes are still in flight after manifest validation (3.40566ms)
+✔ a failed speculative script request still permits the original per-model loader retry (4.154363ms)
+✔ invalid and image-only manifests do not start a glTF script request (3.387311ms)
+✔ cancellation during overlapping script and model transfer returns an empty bank without waiting for the script (1.461269ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 992.700095

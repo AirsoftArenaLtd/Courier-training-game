@@ -83,3 +83,41 @@ test('late decoder completion after cancellation releases geometry and material 
 test('a missing real High van is counted as a recovered model fallback',async()=>{
  const {F}=context(),bank=await F.preload({high:true,fetch:url=>url.endsWith('/delivery-high.glb')?Promise.resolve(new Response('',{status:404})):assetLocal(url)});assert.equal(bank.models.size,18);assert.equal(bank.textures.size,5);assert.equal(bank.stats.loaded,23);assert.equal(bank.stats.failed,0);assert.equal(bank.stats.fallbacks,1);assert.ok(bank.models.has('van-exterior'));assert.ok(bank.stats.errors.some(e=>e.path.endsWith('/delivery-high.glb')));bank.dispose();
 });
+
+const deferredAsset=()=>{let resolve;const promise=new Promise(done=>{resolve=done;});return {promise,resolve};};
+test('the required loader starts while model bytes are still in flight after manifest validation',async()=>{
+ const {F}=context(),transfer=deferredAsset(),started=deferredAsset(),script=deferredAsset();let loaderCalls=0;
+ F.loader=()=>{loaderCalls++;return script.promise;};
+ const pending=F.preload({fetch:async url=>{
+  if(url.endsWith('manifest.json'))return local(url);
+  started.resolve();await transfer.promise;return local(url);
+ }});
+ try{await started.promise;assert.equal(loaderCalls,1,'the script must overlap the first model transfer');}
+ finally{transfer.resolve();script.resolve();const bank=await pending;assert.equal(bank.stats.loaded,1);bank.dispose();}
+});
+test('a failed speculative script request still permits the original per-model loader retry',async()=>{
+ const {F}=context();let loaderCalls=0;
+ F.loader=async()=>{if(++loaderCalls===1)throw Error('transient script failure');};
+ const bank=await F.preload({fetch:local});
+ try{assert.equal(bank.stats.loaded,1);assert.equal(bank.stats.failed,0);assert.equal(loaderCalls,2);}
+ finally{bank.dispose();}
+});
+test('invalid and image-only manifests do not start a glTF script request',async()=>{
+ for(const imageOnly of [false,true]){
+  const {F}=context();let loaderCalls=0;F.loader=async()=>{loaderCalls++;};
+  const source=JSON.parse(fs.readFileSync(path.join(root,'assets/3d/manifest.json')));
+  const selected=imageOnly?{version:1,files:source.files.filter(f=>f.use==='surface-asphalt')}:{version:0,files:source.files};
+  const bank=await F.preload({high:true,fetch:url=>url.endsWith('manifest.json')?Promise.resolve(new Response(JSON.stringify(selected))):assetLocal(url)});
+  try{assert.equal(loaderCalls,0);assert.equal(bank.stats.loaded,imageOnly?1:0);assert.equal(bank.textures.size,imageOnly?1:0);}
+  finally{bank.dispose();}
+ }
+});
+test('cancellation during overlapping script and model transfer returns an empty bank without waiting for the script',async()=>{
+ const {F}=context(),script=deferredAsset(),started=deferredAsset(),controller=new AbortController();let loaderCalls=0;
+ F.loader=()=>{loaderCalls++;return script.promise;};
+ const pending=F.preload({signal:controller.signal,fetch:(url,{signal})=>url.endsWith('manifest.json')?local(url):new Promise((resolve,reject)=>{
+  started.resolve();signal.addEventListener('abort',()=>reject(Error('cancelled transfer')),{once:true});
+ })});
+ await started.promise;controller.abort();const bank=await pending;script.resolve();
+ assert.equal(loaderCalls,1);assert.equal(bank.models.size,0);assert.equal(bank.stats.loaded,0);assert.equal(bank.add(new THREE.Group(),'town-garage',[{}]),null);bank.dispose();
+});

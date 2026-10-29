@@ -1,0 +1,35 @@
+{
+  "suites": [
+    {
+      "file": "test/fpassets.js",
+      "exit": 0,
+      "seconds": 1.05,
+      "log": "fpassets.log"
+    },
+    {
+      "file": "test/fpstartup.js",
+      "exit": 0,
+      "seconds": 0.29,
+      "log": "fpstartup.log"
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0,
+      "seconds": 0.38,
+      "log": "fpcontext.log"
+    },
+    {
+      "file": "test/fpfirstframeprobe.js",
+      "exit": 0,
+      "seconds": 0.29,
+      "log": "fpfirstframeprobe.log"
+    },
+    {
+      "file": "test/assets.js",
+      "exit": 0,
+      "seconds": 0.3,
+      "log": "assets.log"
+    }
+  ],
+  "scope": "Actual asset parser, startup/recovery/probe and shipped asset policy; no browser or timing improvement claim."
+}

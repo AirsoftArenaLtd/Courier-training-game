@@ -99,6 +99,8 @@ OTR.fpAssets={
     try{
       progress();const manifest=JSON.parse(new TextDecoder().decode(await F.read('assets/3d/manifest.json',256*1024,signal,fetcher)));
       if(manifest.version!==1)throw Error('Unsupported asset manifest');const jobs=F.manifest(manifest.files,high);total=Math.max(1,jobs.length);fractions.length=jobs.length;fractions.fill(0);progress();let index=0;
+      // Overlap the required local script with model transfer; workers keep their normal await and retry.
+      if(!signal.aborted&&jobs.some(job=>job.candidates.some(f=>f.ext==='glb')))Promise.resolve().then(()=>F.loader()).catch(()=>{});
       const worker=async()=>{while(index<jobs.length&&!signal.aborted){const at=index++,job=jobs[at];let loaded=false;
         for(const f of job.candidates){try{
           if(signal.aborted)break;

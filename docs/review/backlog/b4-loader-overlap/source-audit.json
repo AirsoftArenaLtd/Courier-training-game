@@ -1,0 +1,26 @@
+{
+  "parent": "96f1fe6640ab87234435fdce7b43a9979832f223",
+  "changedSources": [
+    "src/core/fpassets.js",
+    "test/fpassets.js"
+  ],
+  "runtimeChanges": [
+    "src/core/fpassets.js"
+  ],
+  "allOtherRuntimeDataAssetsAndProtocolsIdentical": true,
+  "sourceHashes": {
+    "src/core/fpassets.js": "45036e1bbdc866d19929b80744e7e01172b1e7b91b9143b7bf35cb392e565789",
+    "test/fpassets.js": "45ce373fab1f3304c9f9d711ea863da3c83717acd77364a9cace5f47a53334f2"
+  },
+  "cpuLogs": {
+    "fpassets.log": "2d6ee356bba08e7163795ffa6eabfad59bd5b3a3e4817059c52c4c07f3ba19e9",
+    "fpstartup.log": "2296c5f639567fbbce19cbb552a5857a3f346b41edf332b1a0910e4ac221664b",
+    "fpcontext.log": "4da4635124f2cb59981b647c5c7c1731147576c1ef8d9aa3d88b4f688370ffc1",
+    "fpfirstframeprobe.log": "de74fb2c0a5a5603a4d0feb85d2be02cacf5a93939877f13fbed3a5bb92a408f",
+    "assets.log": "0bd94f29ef4e44d915d0bb3d36cf41d7780760407a044fcdb25ed981a1e3e230"
+  },
+  "expectedPreChangeFailures": 3,
+  "currentAssetTests": 14,
+  "currentNewAssetTests": 4,
+  "scope": "Required local-script scheduling only; existing validation, per-model await/retry, full asset selection, bank ownership and artwork remain. No measured improvement claimed."
+}
