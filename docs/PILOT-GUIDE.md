@@ -55,6 +55,11 @@ narration speaks, so no one needs to hear it to play. If a PC struggles with the
 different button or change the stick sensitivity; their choices are saved with their progress. The keyboard and mouse
 keep working.
 
+**7. Modules in 3D.** Some training modules can also be played in the 3D world: Route & Driving so far, more as they are
+finished. **Settings → Trainer → 3D workday aids… → Modules in 3D…** chooses for each module **Where ready** (the 3D
+version once it has passed its checks, otherwise 2D; the default), **3D** or **2D**; press **Save rules** afterwards. A
+PC without 3D graphics always plays 2D. Stars, records and the certificate are the same either way.
+
 ## A first session (about an hour)
 
 | Time | What | Notes |

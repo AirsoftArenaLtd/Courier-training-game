@@ -38,6 +38,12 @@ toutes les commandes. **Esc → Commandes et aide → Commandes de la manette** 
 stagiaire d'en changer n'importe lequel ou de régler la sensibilité des sticks ; ses choix sont enregistrés avec sa
 progression. Le clavier et la souris continuent de fonctionner.
 
+**7. Modules en 3D.** Certains modules de formation se jouent aussi dans le monde 3D : pour l'instant Route et conduite,
+d'autres à mesure qu'ils sont prêts. **Réglages → Formateur → Aides de la journée 3D… → Modules en 3D…** choisit pour
+chaque module **Dès que prêt** (la version 3D une fois ses vérifications réussies, sinon la 2D ; c'est le réglage par
+défaut), **3D** ou **2D** ; appuyez ensuite sur **Enregistrer les règles**. Un PC sans graphismes 3D joue toujours en
+2D. Les étoiles, les dossiers et le certificat sont les mêmes dans les deux cas.
+
 ## Une première séance (environ une heure)
 
 | Durée | Contenu | Remarques |

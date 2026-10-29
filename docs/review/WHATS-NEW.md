@@ -1,8 +1,20 @@
-# What is new since your visual review (21 October), as of 28 October
+# What is new since your visual review (21 October), as of 29 October
 
 One page for the owner: what changed in `pilot` between your High preview (21 October) and now, and the quickest way to
 see each part. Every link below opens the 3D workday from the hub on a review profile of its own, so your own progress
 is not touched (add it after `index.html` in the address, then press Start workday).
+
+## New on 29 October: Route & Driving in 3D (about 15 minutes)
+
+Module 1's scenarios now have 3D versions (C-39): the pre-trip walk round the real van, route planning on the sat nav,
+the town drive with its hazards and parking, the hazard clips, and three new drives (junctions and lights, a school zone,
+a night run). Trainees still get the 2D scenes until you say otherwise (question 12 on the board).
+
+To try them: **Settings → Trainer → 3D workday aids… → Modules in 3D… → Route & Driving → 3D**, press Save rules, then
+open any Route & Driving scenario from the hub. Stars and records are the same as in 2D. The three new drives join the
+module's card on the hub once 3D is the default for it.
+
+Answer question 12 (Route & Driving in 3D by default?) when you have tried it; until then it stays 2D.
 
 ## New since 22 October (about 10 minutes)
 

@@ -37,6 +37,12 @@ controles. **Esc → Controles y guía → Controles del mando** muestra qué ha
 cualquiera de ellos o la sensibilidad de los sticks; lo que elija se guarda con su progreso. El teclado y el ratón
 siguen funcionando.
 
+**7. Módulos en 3D.** Algunos módulos de formación también se pueden jugar en el mundo 3D: por ahora Ruta y conducción,
+y más a medida que se terminen. **Configuración → Capacitador → Ayudas de la jornada 3D… → Módulos en 3D…** elige para
+cada módulo **Cuando esté listo** (la versión 3D una vez superadas sus comprobaciones; si no, 2D; es la opción por
+defecto), **3D** o **2D**; después pulsa **Guardar reglas**. Un PC sin gráficos 3D siempre usa 2D. Las estrellas, los
+registros y el certificado son iguales en ambos casos.
+
 ## Una primera sesión (alrededor de una hora)
 
 | Tiempo | Qué | Notas |
