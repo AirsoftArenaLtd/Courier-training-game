@@ -1,0 +1,11 @@
+{
+  "priorState": {
+    "phase": "queued",
+    "controllerPid": 230139,
+    "jobs": [],
+    "startedAt": 1793212893.3753254
+  },
+  "planSha256": "efea45ddbb101a48e4679e53ad96470c222a3fb409ffe2fbd3bf1a03c9b16c5b",
+  "reason": "Resume the in-progress C42 final checks first; no child/job had started. Runtime sources and queued job lists are unchanged.",
+  "oldControllerStopped": true
+}

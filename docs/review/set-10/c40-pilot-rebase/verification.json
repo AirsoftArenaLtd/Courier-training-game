@@ -1,0 +1,456 @@
+{
+  "scope": "Completed C40 current-pilot-stack rebase gate. Nine heterogeneous native jobs: Low completion, High label layout and sort/lift assessment abandonment, plus safe heavy handling and actual unsafe solo-rise/abandonment. Staged sort fixtures and optional heavy descriptor are explicit; not nine equivalent full-course successes. Shared optional launcher/A31 integration and Intel FPS remain separate.",
+  "nativeSourceRevision": "2471550c144128553641b3c10a695de34db1acf6",
+  "resourceSourceRevision": "55bf072ae4a1b871f2d007b8f63e5748a0cb78f7",
+  "nativePlanSha256": "6dd991f644088df0eb1e4602d553b510dc89dc18de592173e5e1e2f29de35fdc",
+  "resourcePlanSha256": "0058b446c9508504f72cd825bb5c7e85ff73602490f21eccc3212a20cfc73510",
+  "sourceCount": 774,
+  "hostFonts": {
+    "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf": "89c3c497f618fdaa0b2d1e98fef93582f28c71debd2c4a8cdf41f190ced2909d",
+    "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf": "e83493c945848ecd4a9ad0f6d19164541a0d3e23a9c952304a00a46e00272ac5",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Regular.ttf": "a7bb7f92f165479af2f0556c4fd669b74c5959f464f603e18389b532f4d07a71",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Bold.ttf": "7ef7071ba2fad67dcae397dc7f5bfd4dbce69d86cdc453c2cc4abe640df0b442"
+  },
+  "allInputHashesVerified": true,
+  "cpuSuites": 20,
+  "nativeChecks": 2636,
+  "nativeJobs": [
+    {
+      "tag": "c40-rebase-label-low",
+      "checks": 1067,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "items": 9,
+      "stages": 0,
+      "result": {
+        "id": "m2-labels",
+        "record": {
+          "plays": 1,
+          "bestScore": 3150,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1793245616829
+        }
+      },
+      "assessment": null,
+      "durable": null,
+      "scope": "Physical label inspection only; C-40 sorting, lifting and heavy items remain in progress."
+    },
+    {
+      "tag": "c40-rebase-sort-low",
+      "checks": 263,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "items": 0,
+      "stages": 5,
+      "result": {
+        "id": "m2-sort",
+        "score": 600,
+        "ratios": {
+          "efficiency": 1,
+          "safety": 1
+        },
+        "stars": {
+          "efficiency": 3,
+          "safety": 3
+        },
+        "untested": [],
+        "record": {
+          "plays": 1,
+          "bestScore": 600,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1793245662738
+        }
+      },
+      "assessment": null,
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      },
+      "scope": "Staged one-parcel-per-wave fixture and wave-end times; real remapped keys, ray selection, scan/read/route confirmations, timers and assessment abandonment. Full conveyor timing/model parity is tested in Node."
+    },
+    {
+      "tag": "c40-rebase-lift-low",
+      "checks": 299,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "items": 0,
+      "stages": 5,
+      "result": {
+        "id": "m2-lift",
+        "result": {
+          "score": 1000,
+          "ratios": {
+            "safety": 1,
+            "efficiency": 1
+          },
+          "lessons": [
+            "Textbook lifting! Close, knees bent, back straight, smooth, pivot \u2014 every single time."
+          ],
+          "mistakes": 0,
+          "summary": "Your back health is 100 out of 100. Your lifting technique is 100 percent.",
+          "stats": {
+            "health": 100,
+            "avg": 1,
+            "seconds": 29
+          },
+          "log": null
+        },
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1000,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1793245729218
+        }
+      },
+      "assessment": null,
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      },
+      "scope": "Five real-key practice loads; four real-key assessment loads plus a shelf grip followed by actual abandonment. Existing m2-lift is explicitly routed to the proposed adapter. Durable real workday journal and checkpoint are compared and reloaded. No posture, load, timer or verdict fixtures."
+    },
+    {
+      "tag": "c40-rebase-heavy-low",
+      "checks": 190,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "items": 0,
+      "stages": 0,
+      "result": {
+        "id": "m2-heavy",
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1000,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1793245764642
+        }
+      },
+      "assessment": null,
+      "durable": null,
+      "scope": "A real persistent profile and suspended workday plus a declared optional descriptor start the real registered heavy adapter. Every subsequent load decision, helper call, hand-truck movement/unload, posture, grip/rise/pivot/release, finish or abandon uses actual keyboard and nearest physical target controls. No subsequent pose, clock, score, verdict or observation writes. Shared optional launcher is not certified; new body strings still await translations."
+    },
+    {
+      "tag": "c40-rebase-label-high",
+      "checks": 103,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "items": 1,
+      "stages": 0,
+      "result": {},
+      "assessment": null,
+      "durable": null,
+      "scope": "Physical label inspection only; C-40 sorting, lifting and heavy items remain in progress."
+    },
+    {
+      "tag": "c40-rebase-sort-high",
+      "checks": 130,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "items": 0,
+      "stages": 2,
+      "result": {},
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793245839228,
+        "pending": false,
+        "abandoned": true,
+        "at": 1793245898900
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      },
+      "scope": "Staged one-parcel-per-wave fixture and wave-end times; real remapped keys, ray selection, scan/read/route confirmations, timers and assessment abandonment. Full conveyor timing/model parity is tested in Node."
+    },
+    {
+      "tag": "c40-rebase-lift-high",
+      "checks": 291,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "items": 0,
+      "stages": 4,
+      "result": {},
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793245919116,
+        "pending": false,
+        "abandoned": true,
+        "at": 1793246238637
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      },
+      "scope": "Five real-key practice loads; four real-key assessment loads plus a shelf grip followed by actual abandonment. Existing m2-lift is explicitly routed to the proposed adapter. Durable real workday journal and checkpoint are compared and reloaded. No posture, load, timer or verdict fixtures."
+    },
+    {
+      "tag": "c40-rebase-heavy-high",
+      "checks": 192,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "items": 0,
+      "stages": 0,
+      "result": {
+        "id": "m2-heavy",
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1000,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1793246410980
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1793246253734,
+          "pending": false,
+          "at": 1793246410980,
+          "stars": {
+            "safety": 3,
+            "efficiency": 3
+          },
+          "score": 1000,
+          "criticals": [],
+          "lessons": []
+        }
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": true,
+        "startedAt": 1793246253734,
+        "pending": false,
+        "at": 1793246410980,
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "score": 1000,
+        "criticals": [],
+        "lessons": []
+      },
+      "durable": null,
+      "scope": "A real persistent profile and suspended workday plus a declared optional descriptor start the real registered heavy adapter. Every subsequent load decision, helper call, hand-truck movement/unload, posture, grip/rise/pivot/release, finish or abandon uses actual keyboard and nearest physical target controls. No subsequent pose, clock, score, verdict or observation writes. Shared optional launcher is not certified; new body strings still await translations."
+    },
+    {
+      "tag": "c40-rebase-heavy-unsafe-high",
+      "checks": 101,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "items": 0,
+      "stages": 0,
+      "result": {
+        "assessment": {
+          "attempts": 1,
+          "passed": false,
+          "startedAt": 1793246425621,
+          "pending": false,
+          "abandoned": true,
+          "at": 1793246496813
+        }
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793246425621,
+        "pending": false,
+        "abandoned": true,
+        "at": 1793246496813
+      },
+      "durable": null,
+      "scope": "A real persistent profile and suspended workday plus a declared optional descriptor start the real registered heavy adapter. Every subsequent load decision, helper call, hand-truck movement/unload, posture, grip/rise/pivot/release, finish or abandon uses actual keyboard and nearest physical target controls. No subsequent pose, clock, score, verdict or observation writes. Shared optional launcher is not certified; new body strings still await translations."
+    }
+  ],
+  "resourceViews": 24,
+  "resourceProfiles": [
+    {
+      "tag": "c40-rebase-heavy-budget-loaded-low",
+      "views": 6,
+      "peak": {
+        "calls": 35,
+        "triangles": 1160,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1857515
+      }
+    },
+    {
+      "tag": "c40-rebase-heavy-budget-loaded-high",
+      "views": 6,
+      "peak": {
+        "calls": 37,
+        "triangles": 16290,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5624326
+      }
+    },
+    {
+      "tag": "c40-rebase-heavy-budget-accessible-low",
+      "views": 6,
+      "peak": {
+        "calls": 35,
+        "triangles": 1160,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2130390
+      }
+    },
+    {
+      "tag": "c40-rebase-heavy-budget-fallback-low",
+      "views": 6,
+      "peak": {
+        "calls": 41,
+        "triangles": 1004,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1857515
+      }
+    }
+  ],
+  "registryProof": {
+    "parent": "66f2cda5",
+    "scene3dLinks": 3,
+    "allOtherBytesIdentical": true
+  },
+  "artifactCount": 61,
+  "artifacts": {
+    "acceptance/artifacts/c40-rebase-label-low/c40-rebase-label-low.json": "2d3f36fb2ca89966231c92a2427bdb5ec574367278faa1762d0f138bbd7ce861",
+    "acceptance/artifacts/c40-rebase-label-low/c40-rebase-label-low-low-en-normal-base.png": "851b15d2cc308f74987f3d5d34640deba7865ee190a64d8af8e22d31890436b9",
+    "acceptance/artifacts/c40-rebase-sort-low/c40-rebase-sort-low.json": "3ee2173b8ccbe3be17e1a4991a99f32d7e4476e44234709dff860c930fa4e01d",
+    "acceptance/artifacts/c40-rebase-sort-low/c40-rebase-sort-low-low-en-normal-label.png": "e9ace536ee35ab040e26ce229e421be25de15e06231e36cd4366d56753d198db",
+    "acceptance/artifacts/c40-rebase-lift-low/c40-rebase-lift-low-low-en-normal-load4.png": "2b52ea52b9d2c46d4d069f9f69d339f6c631f77e46e8c5e821ac6bb1bbeb0a4a",
+    "acceptance/artifacts/c40-rebase-lift-low/c40-rebase-lift-low-low-en-normal-load1.png": "e69b6a90b0096d81bfd1c93d26261b40fc607a185365bf0d84db9ddd3149d956",
+    "acceptance/artifacts/c40-rebase-lift-low/c40-rebase-lift-low-low-en-normal-load5.png": "3e334dd21ebd85164af0d081d6aa41168431aa9a893087171b50383a4f457284",
+    "acceptance/artifacts/c40-rebase-lift-low/c40-rebase-lift-low.json": "1fe9656e025131949c9a4e963cd20f2b6c1b0bea302a0c184d0caa4732729796",
+    "acceptance/artifacts/c40-rebase-lift-low/c40-rebase-lift-low-low-en-normal-load2.png": "bf2b4a181c1525e3dc1426172f6d6712d760d49cfb2ba46dd1e9af8d6c255123",
+    "acceptance/artifacts/c40-rebase-lift-low/c40-rebase-lift-low-low-en-normal-load3.png": "1f9056ade1a3efd2945593b96ce16fcd5c667dff0a8f2aec0498e80458090834",
+    "acceptance/artifacts/c40-rebase-heavy-low/c40-rebase-heavy-low-load-0.png": "65f81564d4b7d979a04fb36d78108096a6e96cd6dc5776ef1cc98aaf591dbac8",
+    "acceptance/artifacts/c40-rebase-heavy-low/c40-rebase-heavy-low-load-1.png": "c1f25909af9a9415e05d6315c42819651557963d0291756b6c0fdac33cc2876b",
+    "acceptance/artifacts/c40-rebase-heavy-low/c40-rebase-heavy-low.json": "e2d5ac22e012362121d9490f1b55b308f323480eee6534028fd9a5c3a99dc6f2",
+    "acceptance/artifacts/c40-rebase-heavy-low/c40-rebase-heavy-low-policy.png": "7b8d340c74760627e150203b7c29f2948449ee60fb2bb516c2f438172f1861f6",
+    "acceptance/artifacts/c40-rebase-heavy-low/c40-rebase-heavy-low-reading.png": "2cfa5fb04c6c8abb5404daa84bd9c73e46bebca8a43b8f92feb9c69296030954",
+    "acceptance/artifacts/c40-rebase-label-high/c40-rebase-label-high-high-ta-large-base.png": "547da960523fc4a97b31c78d5e67d9e198abd0fa8d751ea0e8db20cdfc030893",
+    "acceptance/artifacts/c40-rebase-label-high/c40-rebase-label-high.json": "e33e17918d9744c8b70d257ce04b2383ad6396d9e07fd810f683b70c65e1f818",
+    "acceptance/artifacts/c40-rebase-sort-high/c40-rebase-sort-high-high-ta-large-label.png": "0ba8b1ba4a9cb45c43e00368fa2e367431690fffa0abbdeacf88f24850daed70",
+    "acceptance/artifacts/c40-rebase-sort-high/c40-rebase-sort-high.json": "885da037d27ba6f29014b0590a2f0ff3fc7517faa1f30d9ed7547bd996f937e5",
+    "acceptance/artifacts/c40-rebase-lift-high/c40-rebase-lift-high-high-ta-large-platform.png": "74ff4372c036eea2a0b9544082a7a9192c19f35f2793b41ef5a17a2bf5f5d885",
+    "acceptance/artifacts/c40-rebase-lift-high/c40-rebase-lift-high.json": "e59e44c6c3995379c3cd6ea65d40adda734aea35a41f3af7a26c3629f9bc0713",
+    "acceptance/artifacts/c40-rebase-lift-high/c40-rebase-lift-high-high-ta-large-load4.png": "9649244a16ebd62179a2d0802d0d14919ea2c8fef68f7dec0f5dc009394a19c9",
+    "acceptance/artifacts/c40-rebase-lift-high/c40-rebase-lift-high-high-ta-large-load1.png": "750677d1657dc1641c08d9123262d19676d75d4ccd1f6b4890a2960df6cec456",
+    "acceptance/artifacts/c40-rebase-lift-high/c40-rebase-lift-high-high-ta-large-load2.png": "7d10515478850d65a11ad546170bf4c6feccac28a1f4cac3078666388c723b88",
+    "acceptance/artifacts/c40-rebase-lift-high/c40-rebase-lift-high-high-ta-large-load3.png": "534a3634dbc7a1e50f7a5d172afc12c67891463d63047b09dba3c5c3accb6032",
+    "acceptance/artifacts/c40-rebase-heavy-high/c40-rebase-heavy-high-policy.png": "bec52de3af5ecc794d516d7cd153647a4f56cc9f1f53f949c6bdfcd91d378caf",
+    "acceptance/artifacts/c40-rebase-heavy-high/c40-rebase-heavy-high-reading.png": "be022acf5e61b680aee607bf2ce76d273ed92cce9268af80c4bc46b320634673",
+    "acceptance/artifacts/c40-rebase-heavy-high/c40-rebase-heavy-high.json": "1df0065bfdf3c2ad56d3bd386598377470e3e74f9b3572dced226ded1932aa73",
+    "acceptance/artifacts/c40-rebase-heavy-high/c40-rebase-heavy-high-load-0.png": "d59801c3a431b328ffa82897fd9776441c1192f215bb0342d7b1daa965eb0301",
+    "acceptance/artifacts/c40-rebase-heavy-high/c40-rebase-heavy-high-load-1.png": "b47346e1913cf1f6cff82e1a524798641d9783ab8703d07bf7fbe81108ae6f23",
+    "acceptance/artifacts/c40-rebase-heavy-unsafe-high/c40-rebase-heavy-unsafe-high-reading.png": "be022acf5e61b680aee607bf2ce76d273ed92cce9268af80c4bc46b320634673",
+    "acceptance/artifacts/c40-rebase-heavy-unsafe-high/c40-rebase-heavy-unsafe-high-policy.png": "bec52de3af5ecc794d516d7cd153647a4f56cc9f1f53f949c6bdfcd91d378caf",
+    "acceptance/artifacts/c40-rebase-heavy-unsafe-high/c40-rebase-heavy-unsafe-high.json": "9998caba5110db0d3af5408909f6911cc5fceffb25902717a9c7567f59600984",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-low/c40-rebase-heavy-budget-loaded-low-low-heavytruck.png": "dd4aee9a33dca73e3ecc016ef5733256a650f432d9b664a4728e3aa5939734fd",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-low/bench-c40-rebase-heavy-budget-loaded-low-low.json": "4147af3ee327f4f06bb6f4b65204086bc4a972a8dbb7e76254915fc0d6b2dad1",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-low/c40-rebase-heavy-budget-loaded-low-low-heavyassess.png": "d7f23650c9af8c8b3dfa2792b6fd0a541d91b2e145967aae7e60a7f00f225d26",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-low/c40-rebase-heavy-budget-loaded-low-low-heavycritical.png": "58291aad29127827b3d27b3aaca016acde3321110f1d12ac6524f7e2b6c0e5a6",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-low/c40-rebase-heavy-budget-loaded-low-low-heavystatus.png": "b153fcc47f060c49d85c11de15134bd02607f4501650e5747731d433a4461358",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-low/c40-rebase-heavy-budget-loaded-low-low-heavygrip.png": "386f5359f854900382f4fb94bfb18e2a686c855487504a0fb24330ecf682af3f",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-low/c40-rebase-heavy-budget-loaded-low-low-heavyteam.png": "ad9187a0b4c75e87dbdfab0a39ebadccb8a56b63c835666a29d81161b361293b",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-high/c40-rebase-heavy-budget-loaded-high-high-heavystatus.png": "50f13743886bca2f7be7d1551bfeb837567868a2fbd705aee7fe11f875e1b33a",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-high/c40-rebase-heavy-budget-loaded-high-high-heavyassess.png": "36d5840d66ad708d688961e2ed5ae224a9c43a9e5c71adc9e9eed9ab97a6d8a7",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-high/c40-rebase-heavy-budget-loaded-high-high-heavyteam.png": "6b09c809f1bc57f9e42b47e8147ceb4e568aa88f709dbae31f9e4c6c39917b7e",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-high/c40-rebase-heavy-budget-loaded-high-high-heavygrip.png": "3ff400cf44dad08e7a336b3d06d17852b5764958d313c6128a2f15265885b9f1",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-high/bench-c40-rebase-heavy-budget-loaded-high-high.json": "ea800e668e568500fcff05491c5d9857532c62137c187fc90d292f270d3eebbb",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-high/c40-rebase-heavy-budget-loaded-high-high-heavytruck.png": "0c1bbe2df01b086a4e932f39d14654d2279172495ae02bc19278a4640bada228",
+    "resources/artifacts/c40-rebase-heavy-budget-loaded-high/c40-rebase-heavy-budget-loaded-high-high-heavycritical.png": "2255a84538936042c652c21292f38aa14a81519217a50f0257bff34044606b22",
+    "resources/artifacts/c40-rebase-heavy-budget-accessible-low/c40-rebase-heavy-budget-accessible-low-low-heavycritical.png": "bacfcf514959112e7779dd26ddce757fc3b6ea8b4975e3b4f08fc0e1443328c6",
+    "resources/artifacts/c40-rebase-heavy-budget-accessible-low/c40-rebase-heavy-budget-accessible-low-low-heavytruck.png": "a888596e178c710df3bf812a55d1fe38be2e3a0aeb75bfb4a84ac03e55bf5037",
+    "resources/artifacts/c40-rebase-heavy-budget-accessible-low/c40-rebase-heavy-budget-accessible-low-low-heavygrip.png": "9bb8a27a261a9d16f2daaf695dccb3c4e435403f4e3eb78bcd4f063d6142c519",
+    "resources/artifacts/c40-rebase-heavy-budget-accessible-low/c40-rebase-heavy-budget-accessible-low-low-heavyteam.png": "b0d834e627cc7510f2cffe765ae9b63f02cb59a5feb9513ae9eb05dcadd416a0",
+    "resources/artifacts/c40-rebase-heavy-budget-accessible-low/bench-c40-rebase-heavy-budget-accessible-low-low.json": "eb174fa09291be5feafc4c35e5603d6bdeaf67db977253a4a18cfd9e6d632ca3",
+    "resources/artifacts/c40-rebase-heavy-budget-accessible-low/c40-rebase-heavy-budget-accessible-low-low-heavyassess.png": "c1054bd109a30597ccd0022fae9690b31d62babe6f09ae13c6bbcdf4a179b871",
+    "resources/artifacts/c40-rebase-heavy-budget-accessible-low/c40-rebase-heavy-budget-accessible-low-low-heavystatus.png": "9069f65aa877a547d56e6a2dafe610429357332e062c77dcc97c19ac9d1bc523",
+    "resources/artifacts/c40-rebase-heavy-budget-fallback-low/c40-rebase-heavy-budget-fallback-low-low-heavygrip.png": "a6a6fff78c274c36e25f446b3960fec6f5e11e57d9d31538bc82387599c0b4fe",
+    "resources/artifacts/c40-rebase-heavy-budget-fallback-low/c40-rebase-heavy-budget-fallback-low-low-heavytruck.png": "dd4aee9a33dca73e3ecc016ef5733256a650f432d9b664a4728e3aa5939734fd",
+    "resources/artifacts/c40-rebase-heavy-budget-fallback-low/c40-rebase-heavy-budget-fallback-low-low-heavycritical.png": "9dc928ed8b2d18ef36aadcbf892e8a0860059d2173132b2b4f3c1fc93cecd5d8",
+    "resources/artifacts/c40-rebase-heavy-budget-fallback-low/bench-c40-rebase-heavy-budget-fallback-low-low.json": "57c2bef69fdb0d733856a7143e2511db388d405e30113c05c3c3ce2a82d5d8d9",
+    "resources/artifacts/c40-rebase-heavy-budget-fallback-low/c40-rebase-heavy-budget-fallback-low-low-heavystatus.png": "7c7e59dddee195595c1ec72345bdfcdb5bf6c869b8b92743c51440936f4536cd",
+    "resources/artifacts/c40-rebase-heavy-budget-fallback-low/c40-rebase-heavy-budget-fallback-low-low-heavyassess.png": "30d5e2b66c58667f3a1855f2940eb2030523e7761ba12f6f08380bbc60a5c835",
+    "resources/artifacts/c40-rebase-heavy-budget-fallback-low/c40-rebase-heavy-budget-fallback-low-low-heavyteam.png": "a3f68e288a1f57a04f35db80d97e9f3c23d6f393e51543da384dc45abf56a4dd"
+  },
+  "cleanup": {
+    "acceptance-controller": {
+      "pid": 276614,
+      "status": "zombie"
+    },
+    "acceptance-server": {
+      "pid": 290741,
+      "status": "gone"
+    },
+    "acceptance-child": {
+      "pid": 293565,
+      "status": "gone"
+    },
+    "resources-controller": {
+      "pid": 245234,
+      "status": "zombie"
+    },
+    "resources-server": {
+      "pid": 255741,
+      "status": "gone"
+    },
+    "resources-child": {
+      "pid": 257229,
+      "status": "gone"
+    }
+  },
+  "visualReview": {
+    "resolution": "original 1280x720",
+    "views": [
+      "High heavy status reading",
+      "High pushed hand truck"
+    ],
+    "finding": "Status policy, choices and Back fit without overlap; load, hand truck and pallet are visible. New heavy text remains English pending A31."
+  },
+  "allPassed": true
+}

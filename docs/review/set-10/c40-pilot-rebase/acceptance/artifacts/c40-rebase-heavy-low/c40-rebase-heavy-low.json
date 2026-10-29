@@ -1,0 +1,440 @@
+{
+  "quality": "low",
+  "lang": "en",
+  "large": false,
+  "unsafe": false,
+  "checks": 190,
+  "layouts": [
+    {
+      "name": "brief",
+      "rows": [
+        {
+          "source": "Handle heavy and awkward loads.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The posted solo lifting limit is 50 lb (23 kg). Use help or equipment for heavier or awkward loads.\n\nMove heavy or awkward loads safely.\n\nYou have 480 seconds to complete this scenario.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 306
+        },
+        {
+          "source": "1. Begin the scenario.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the station.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "posted policy",
+      "rows": [
+        {
+          "source": "Handle heavy and awkward loads.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The posted solo lifting limit is 50 lb (23 kg). Use help or equipment for heavier or awkward loads.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Read the lifting controls.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Continue handling the load.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "posture controls",
+      "rows": [
+        {
+          "source": "Use the lifting bay controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Select the load with O and press U to choose how to move it. Hold D to step closer. Hold S to bend your knees and W to stand up. Look at the load and press U to grip or release it. Holding A pivots your feet and steps toward the pallet. Look with the arrow keys or mouse.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 250
+        },
+        {
+          "source": "1. Read the team and equipment controls.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Continue handling the load.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "equipment controls",
+      "rows": [
+        {
+          "source": "Use the lifting bay controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Use the coworker call button before starting a team lift. For a hand truck, step beside its handle with D and press U to take the handle. Hold A to move the truck to the pallet. Use its handle again to unload it. The platform keeps you at the right height for the shelf load until you grip it.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 250
+        },
+        {
+          "source": "1. Read the posture controls.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Continue handling the load.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "load choice 0",
+      "rows": [
+        {
+          "source": "Choose how to move this load.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The posted solo lifting limit is 50 lb (23 kg). Use help or equipment for heavier or awkward loads.\n\nA 95 lb crate marked HEAVY. It needs to go across the floor to the pallet.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 250
+        },
+        {
+          "source": "1. Use the hand truck to move this load.",
+          "scale": 1,
+          "font": 18,
+          "top": 450.5,
+          "bottom": 471.5
+        },
+        {
+          "source": "2. Ask a coworker to help with this load.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "3. Lift the heavy crate without help.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "method acknowledgement",
+      "rows": [
+        {
+          "source": "Continue the lifting practice.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The hand truck is ready. Step beside its handle and take it before moving the load.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Continue handling the load.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "unload instruction",
+      "rows": [
+        {
+          "source": "Continue the lifting practice.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The hand truck is at the pallet. Use its handle to unload the load.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Continue handling the load.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "verdict 0",
+      "rows": [
+        {
+          "source": "The load has been handled.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The posted solo lifting limit is 50 lb (23 kg). Use help or equipment for heavier or awkward loads.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Handle the next load.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "load choice 1",
+      "rows": [
+        {
+          "source": "Choose how to move this load.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The posted solo lifting limit is 50 lb (23 kg). Use help or equipment for heavier or awkward loads.\n\nA 6-foot flat-pack box. Not very heavy, but long and hard to balance.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 250
+        },
+        {
+          "source": "1. Ask a coworker to hold the other end.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Lift the long box without a coworker.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "method acknowledgement",
+      "rows": [
+        {
+          "source": "Continue the lifting practice.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The team lift is waiting for your coworker. Use the call button at the gauge stand.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Continue handling the load.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "helper ready",
+      "rows": [
+        {
+          "source": "Continue the lifting practice.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Your coworker is ready to lift with you.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Continue handling the load.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "name": "verdict 1",
+      "rows": [
+        {
+          "source": "The load has been handled.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The posted solo lifting limit is 50 lb (23 kg). Use help or equipment for heavier or awkward loads.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Finish the lifting practice.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    }
+  ],
+  "shots": [
+    "c40-rebase-heavy-low-policy.png",
+    "c40-rebase-heavy-low-reading.png",
+    "c40-rebase-heavy-low-load-0.png",
+    "c40-rebase-heavy-low-load-1.png"
+  ],
+  "errors": [],
+  "scope": "A real persistent profile and suspended workday plus a declared optional descriptor start the real registered heavy adapter. Every subsequent load decision, helper call, hand-truck movement/unload, posture, grip/rise/pivot/release, finish or abandon uses actual keyboard and nearest physical target controls. No subsequent pose, clock, score, verdict or observation writes. Shared optional launcher is not certified; new body strings still await translations.",
+  "reading": {
+    "lines": [
+      "The posted solo lifting limit is 50 lb (23 kg).",
+      "This load weighs 95 pounds."
+    ],
+    "rows": [
+      {
+        "source": "Read the lifting bay status.",
+        "top": 104.5,
+        "bottom": 123.5,
+        "scale": 1
+      },
+      {
+        "source": "⌫ Back",
+        "top": 520.5,
+        "bottom": 535.5,
+        "scale": 1
+      },
+      {
+        "source": "The posted solo lifting limit is 50 lb (23 kg).",
+        "top": 150,
+        "bottom": 186,
+        "scale": 1
+      },
+      {
+        "source": "This load weighs 95 pounds.",
+        "top": 192,
+        "bottom": 209,
+        "scale": 1
+      }
+    ],
+    "top": 92,
+    "bottom": 544,
+    "buttons": [
+      {
+        "top": 414.5,
+        "bottom": 460.5
+      },
+      {
+        "top": 466.5,
+        "bottom": 512.5
+      }
+    ]
+  },
+  "result": {
+    "id": "m2-heavy",
+    "stars": {
+      "safety": 3,
+      "efficiency": 3
+    },
+    "record": {
+      "plays": 1,
+      "bestScore": 1000,
+      "bestStars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 0
+      },
+      "lastPlayed": 1793245764642
+    }
+  },
+  "complete": true
+}

@@ -1,0 +1,28 @@
+{
+  "checks": 103,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "items": [
+        {
+          "index": 0,
+          "station": "upright",
+          "ok": true,
+          "blind": false,
+          "unseen": [],
+          "time": 0.9065566666666935,
+          "speed": 1,
+          "points": 350
+        }
+      ],
+      "shots": [
+        "c40-rebase-label-high-high-ta-large-base.png"
+      ]
+    }
+  ],
+  "errors": [],
+  "scope": "Physical label inspection only; C-40 sorting, lifting and heavy items remain in progress.",
+  "complete": true
+}
