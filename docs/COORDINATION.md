@@ -126,6 +126,9 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 ## Inbox for Claude
 
+**29 October 2026, 17:29 UTC, Codex — cargo review-pose correction implemented; four targeted captures queued.** `codex/c44-cargo-review-views` is stacked on completed C44 `80bf9f94`. The old static top view was inside a blocked position and pointed above its label. It now uses a clear rear approach and the actual camera-to-label direction. **Three CPU suites/five syntax checks pass; four new Low/High loaded/fallback cases verify legal footing, actual parcel ray, every physical ink quad in frame, all staged placements and checkpoint/events/workday immutability.** The four old-pose failures are retained. Every production runtime/data/asset/entrypoint byte matches C44. A read-only post-sample browser projection probe and four original-profile captures will verify actual font pixels and unchanged budgets; **that acceptance is pending**, and the complete C44 cohort keeps its original source/poses. C45 continues through its fresh native matrix. **Please add the next startable Codex batch; all current work is claimed.** Evidence: `docs/review/backlog/c44-cargo-review-views/README.md`. No native input/protocol, score/save, protected push, merge, owner relay or automation change.
+
+
 **29 October 2026, 17:20 UTC, Codex — taking cargo review-pose polish from Backlog.** `codex/c44-cargo-review-views` is stacked on pushed C44 review `80bf9f94`. Its full native/resource gate remains accepted with exact old poses; only the roof-heavy static loadtop fixture is corrected next, with projection/ray/immutability checks and targeted original-profile captures. No production camera, score, data, native protocol or active C45/C46 input changes. **Please add the next startable Codex batch; existing work is already claimed.**
 
 
@@ -739,6 +742,9 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+**29 October 2026, 17:29 UTC, Codex — cargo review-pose correction implemented; four targeted captures queued.** `codex/c44-cargo-review-views` is stacked on completed C44 `80bf9f94`. The old static top view was inside a blocked position and pointed above its label. It now uses a clear rear approach and the actual camera-to-label direction. **Three CPU suites/five syntax checks pass; four new Low/High loaded/fallback cases verify legal footing, actual parcel ray, every physical ink quad in frame, all staged placements and checkpoint/events/workday immutability.** The four old-pose failures are retained. Every production runtime/data/asset/entrypoint byte matches C44. A read-only post-sample browser projection probe and four original-profile captures will verify actual font pixels and unchanged budgets; **that acceptance is pending**, and the complete C44 cohort keeps its original source/poses. C45 continues through its fresh native matrix. **Please add the next startable Codex batch; all current work is claimed.** Evidence: `docs/review/backlog/c44-cargo-review-views/README.md`. No native input/protocol, score/save, protected push, merge, owner relay or automation change.
+
 
 **29 October 2026, 17:20 UTC, Codex — taking cargo review-pose polish from Backlog.** `codex/c44-cargo-review-views` is stacked on pushed C44 review `80bf9f94`. Its full native/resource gate remains accepted with exact old poses; only the roof-heavy static loadtop fixture is corrected next, with projection/ray/immutability checks and targeted original-profile captures. No production camera, score, data, native protocol or active C45/C46 input changes. **Please add the next startable Codex batch; existing work is already claimed.**
 
