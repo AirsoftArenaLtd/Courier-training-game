@@ -1,0 +1,15 @@
+{
+  "pilot": "a7bd8b5785f6b13ffeebce60070caa625a9340b5",
+  "candidate": "96c1809118009b72f67316dbc8ca98f4af41a469",
+  "allRuntimeDataAssetsAndEntrypointsIdenticalToPilot": true,
+  "syntaxPassed": [
+    "test/fpfirstframebrowser.js",
+    "test/fpfirstframeprobe.js",
+    "test/tools/fp-first-frame-probe.js"
+  ],
+  "observerProtocolHashes": {
+    "test/fpfirstframebrowser.js": "0a3b622ee698fbcd87e4e4b6e38ac5808b9d86f4883a7e2508d0d59d5221c84c",
+    "test/fpfirstframeprobe.js": "fd792677e3e8c316c79f232743ffa97b6c05ae68d8a6e12450972574f2ded4f7",
+    "test/tools/fp-first-frame-probe.js": "6842f53cacbf8dc7b62dabb6fd7e3627dc68e3f856404af029b0a92ef83f583a"
+  }
+}

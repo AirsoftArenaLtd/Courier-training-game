@@ -1,0 +1,12 @@
+{
+  "scope": "Read-only observer tests on the unchanged current-pilot runtime. No startup improvement measured yet.",
+  "suites": [
+    {
+      "file": "test/fpfirstframeprobe.js",
+      "exit": 0,
+      "cases": 3,
+      "seconds": 0.2,
+      "log": "probe-unit.log"
+    }
+  ]
+}
