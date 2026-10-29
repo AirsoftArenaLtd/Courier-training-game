@@ -1,0 +1,83 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+✔ parking practice at Dispatch opens its own menu instead of a workday completion (0.972329ms)
+✔ render diagnostics count world, mirror and composite once per frame without accumulating (5.560459ms)
+✔ depot parcels and vehicle inspection/entry points can be reached with real raycasts (63.365429ms)
+✔ all six empty shelf positions and the restraint are selectable from the cargo aisle (9.085512ms)
+✔ loaded parcel raycasts follow the parked van rotation and obey the closed door (5.860262ms)
+✔ all customer doors are outside the house occluder and reachable from the path (5.570604ms)
+✔ hub stations are pickable and inactive route interactions are invisible (4.325744ms)
+✔ the uploaded High desks share three stable instance batches and preserve exact station rays and counter occluders (572.512182ms)
+✔ Low never requests the High furniture, and a missing High desk keeps all original station targets (341.062152ms)
+✔ low graphics retains identical parcel, door and vehicle interaction targets (7.19059ms)
+✔ the sprung body dives and rolls without tilting the tyres, and reduced motion removes both (37.820099ms)
+✔ turning the head moves the view without carrying the dashboard or changing the saved mission (2.785077ms)
+✔ reduced motion clears even the last fractional degree of speed zoom (6.642013ms)
+✔ walkaround front and mirror marks leave the headlights directly reachable (12.583607ms)
+✔ three physical mirrors remain live without a button and reflection visibility restores exactly (4.033422ms)
+✔ inspection refreshes the raycast rather than opening a formerly aimed-at parcel (0.319363ms)
+✔ a carried package can still be put back on its empty depot table without another target (0.642901ms)
+✔ scanner reads the barcode face, not the back of a box or through a closed door (3.850416ms)
+✔ a carried parcel is raised for scanning and keeps its actual identity (3.432895ms)
+✔ low graphics keeps barcode scanning on cargo shelves (2.237159ms)
+✔ legacy parcel visibility keeps its original range when compacting render instances (6.719609ms)
+✔ saving practice preserves a separate suspended workday (0.884246ms)
+✔ scene transition saves before swapping models and ignores duplicate requests (0.212732ms)
+✔ both hub-workday exit choices checkpoint then pause without entering the prototype hub (0.193382ms)
+✔ successful hub workday dispatch hands the numbered summary to results and clears its checkpoint (0.698946ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1109.75818

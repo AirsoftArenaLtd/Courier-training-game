@@ -1,6 +1,33 @@
 /* Scene-owned town art. Generated lots, solids, doors and reports remain the mission's. */
 window.OTR=window.OTR||{};
 OTR.fpTown={
+  deliveryFronts(scene,m,parent,paint){
+    if(!OTR.gfx.high()||!m.town||m.trainingArea||!paint)return null;
+    const bank=scene.assetBank,source=bank?.models?.get('town-house');
+    if(!source||source.animated)return null;
+    const T=THREE,choices=[],placements=[],byStop=new Map();
+    for(const [i,s] of m.stops.entries()){
+      const lot=m.town.lots.find(l=>l.id===s.lotId),side=s.side||1;
+      // The symmetric source entrance fits ordinary houses. Other building/door layouts keep their exact art.
+      if(!lot||lot.h>5||lot.h<3.5||lot.w<4||lot.d<5||Math.abs(s.x-(lot.x-side*(lot.w/2+.08)))>.01||Math.abs(s.z-lot.z)>.01)continue;
+      const c={stop:i,lotId:lot.id,x:lot.x,z:lot.z,house:true,available:true,selected:false,distance:0,details:[]};
+      choices.push(c);byStop.set(i,c);placements.push({x:lot.x,z:lot.z,w:lot.d,h:lot.h,d:lot.w,yaw:-side*Math.PI/2});
+    }
+    if(!placements.length)return null;
+    const group=bank.add(parent,'town-house',placements);if(!group)return null;
+    for(const batch of group.userData.batches){
+      batch.mesh.material=paint;batch.mesh.geometry.computeBoundingSphere();batch.mesh.count=0;batch.mesh.visible=false;
+      batch.entries.forEach((entry,i)=>{entry.town=choices[i];entry.sphere=batch.mesh.geometry.boundingSphere.clone().applyMatrix4(entry.matrix);});
+    }
+    const order=choices.slice(),compare=(a,b)=>a.distance-b.distance||a.stop-b.stop;
+    return {group,choices,byStop,placements,limit:2,use:'town-house',
+      select(x,z){
+        for(const c of choices){c.selected=false;c.distance=(c.x-x)**2+(c.z-z)**2;}
+        order.sort(compare);for(let i=0;i<Math.min(this.limit,order.length)&&order[i].distance<95*95;i++)order[i].selected=true;
+        for(const c of choices)for(const entry of c.details)entry.visible=c.selected;
+      }
+    };
+  },
   build(scene,m,parent,box,material){
     if(!m.town)return null;
     const T=THREE,high=OTR.gfx.high(),bank=scene.assetBank,groups=[],choices=[],order=[],batches=[];
