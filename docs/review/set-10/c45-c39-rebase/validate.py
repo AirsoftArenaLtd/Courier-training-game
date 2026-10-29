@@ -11,8 +11,6 @@ plan={'sourceRevision':subprocess.check_output(['git','rev-parse','HEAD'],text=T
 (OUT/'plan.json').write_text(json.dumps(plan,indent=2)+'\n');state={'phase':'queued','controllerPid':os.getpid(),'jobs':[],'startedAt':time.time()}
 def save(): (OUT/'status.json').write_text(json.dumps(state,indent=2)+'\n')
 save()
-state['phase']='waiting-for-c42';save()
-while not Path('/workspace/otr-c42-release-validation').exists():time.sleep(2)
 with open('/workspace/.otr-browser-validation.lock','a') as lease:
  fcntl.flock(lease,fcntl.LOCK_EX);server=None
  try:

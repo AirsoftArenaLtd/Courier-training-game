@@ -48,5 +48,10 @@
     "test/tools/fp-pickup-original.js",
     "test/tools/fp-pickup-pose.js",
     "test/tools/fp-pickup-quality.js"
-  ]
+  ],
+  "latestPilotUpdate": {
+    "revision": "29f421fd48a4d06c2f63edda07b175efa2418ba9",
+    "onlyDocsAndQAFilesSinceRuntimeBase": "ee328d18",
+    "runtimeDataAssetsUnchanged": true
+  }
 }
