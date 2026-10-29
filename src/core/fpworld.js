@@ -485,6 +485,12 @@ OTR.fpWorld = {
             const local=OTR.fpMission.local(v,p),inside=m.cargoOpen&&Math.abs(local.x)<0.75&&local.z>-0.8&&local.z<2.6;
             camera.position.set(p.x,inside?2.15:1.65,p.z);camera.rotation.set(-p.pitch,-p.yaw,0,'YXZ');
           }
+          // Imported cargo floors differ in height. Keep the standing eye above
+          // this module's fitted floor so shelf edges cannot hide flat parcels.
+          if(loading&&m.mode!=='cab'&&m.cargoOpen){
+            const dx=p.x-v.x,dz=p.z-v.z,c=Math.cos(v.yaw),s=Math.sin(v.yaw),x=c*dx+s*dz,z=-s*dx+c*dz;
+            if(Math.abs(x)<.75&&z>-.8&&z<2.6){camera.position.y=loading.fit.floor+1.65;if(cameraRig){camera.updateMatrix();dash.matrix.copy(camera.matrix).invert().multiply(cabAnchor.matrix);}}
+          }
           if(m.packageLift?.lift){const body=m.packageLift.bay.body;camera.position.set(body.x,body.eye,body.z);if(m.cameraMotion){m.cameraMotion.x=body.x;m.cameraMotion.y=body.eye;m.cameraMotion.z=body.z;}camera.rotation.set(-p.pitch,-p.yaw,0,'YXZ');if(cameraRig){camera.updateMatrix();dash.matrix.copy(camera.matrix).invert().multiply(cabAnchor.matrix);}}
           m.traffic.forEach((c,i)=>{cars[i].visible=m.kind==='campaign';cars[i].position.set(c.x,0,c.z);cars[i].rotation.y=-c.yaw;});
           person.visible=m.kind==='campaign';person.position.set(m.crossing.x,0,m.crossing.z);

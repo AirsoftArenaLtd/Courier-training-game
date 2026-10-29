@@ -1,0 +1,467 @@
+{
+  "scope": "CPU-only actual imported vans, original four completed pulls, legal aisle points, real P focus and ray; no browser or movement claim.",
+  "rows": [
+    {
+      "high": false,
+      "fit": {
+        "floor": 0.63,
+        "bottom": 1.07,
+        "mid": 1.6600000000000001,
+        "top": 2.25,
+        "side": 0.7214000082015991,
+        "depth": 0.74,
+        "sections": {
+          "A": 2,
+          "B": 1.2,
+          "C": 0.4
+        },
+        "wheelCap": 1.17,
+        "capVertices": 0
+      },
+      "parcel": {
+        "x": 3.561400008201599,
+        "y": 2.29,
+        "z": 9.2,
+        "size": "env",
+        "slot": "B-top-1"
+      },
+      "poses": [
+        {
+          "dx": 0,
+          "z": 9.3,
+          "selected": false,
+          "ray": "loading-slot-A-bottom-0"
+        },
+        {
+          "dx": -0.2,
+          "z": 9.3,
+          "selected": false,
+          "ray": "loading-slot-A-bottom-0"
+        },
+        {
+          "dx": 0.2,
+          "z": 9.3,
+          "selected": false,
+          "ray": "loading-parcel-f11"
+        },
+        {
+          "dx": 0,
+          "z": 9.4,
+          "selected": false,
+          "ray": "loading-slot-A-bottom-0"
+        },
+        {
+          "dx": -0.2,
+          "z": 9.4,
+          "selected": false,
+          "ray": "loading-slot-A-bottom-0"
+        },
+        {
+          "dx": 0.2,
+          "z": 9.4,
+          "selected": false,
+          "ray": "loading-parcel-f11"
+        },
+        {
+          "dx": 0,
+          "z": 9.5,
+          "selected": false,
+          "ray": "loading-slot-A-top-1"
+        },
+        {
+          "dx": -0.2,
+          "z": 9.5,
+          "selected": false,
+          "ray": "loading-slot-B-top-1"
+        },
+        {
+          "dx": 0.2,
+          "z": 9.5,
+          "selected": false,
+          "ray": "loading-slot-A-bottom-0"
+        },
+        {
+          "dx": 0,
+          "z": 9.6,
+          "selected": false,
+          "ray": "loading-slot-A-top-1"
+        },
+        {
+          "dx": -0.2,
+          "z": 9.6,
+          "selected": false,
+          "ray": "loading-slot-C-top-0"
+        },
+        {
+          "dx": 0.2,
+          "z": 9.6,
+          "selected": false,
+          "ray": "loading-slot-B-mid-0"
+        },
+        {
+          "dx": 0,
+          "z": 9.7,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": -0.2,
+          "z": 9.7,
+          "selected": false,
+          "ray": "loading-slot-B-mid-0"
+        },
+        {
+          "dx": 0.2,
+          "z": 9.7,
+          "selected": false,
+          "ray": "loading-slot-A-bottom-0"
+        },
+        {
+          "dx": 0,
+          "z": 9.7872516667,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": -0.2,
+          "z": 9.7872516667,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": 0.2,
+          "z": 9.7872516667,
+          "selected": false,
+          "ray": "loading-slot-B-bottom-1"
+        },
+        {
+          "dx": 0,
+          "z": 9.9,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": -0.2,
+          "z": 9.9,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": 0.2,
+          "z": 9.9,
+          "selected": false,
+          "ray": "loading-slot-B-bottom-1"
+        },
+        {
+          "dx": 0,
+          "z": 10,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": -0.2,
+          "z": 10,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": 0.2,
+          "z": 10,
+          "selected": false,
+          "ray": "loading-slot-A-mid-1"
+        },
+        {
+          "dx": 0,
+          "z": 10.2,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": -0.2,
+          "z": 10.2,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": 0.2,
+          "z": 10.2,
+          "selected": false,
+          "ray": "loading-slot-A-mid-1"
+        },
+        {
+          "dx": 0,
+          "z": 10.4,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": -0.2,
+          "z": 10.4,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": 0.2,
+          "z": 10.4,
+          "selected": false,
+          "ray": "loading-slot-A-mid-1"
+        },
+        {
+          "dx": 0,
+          "z": 10.6,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": -0.2,
+          "z": 10.6,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": 0.2,
+          "z": 10.6,
+          "selected": false,
+          "ray": "loading-slot-A-mid-1"
+        },
+        {
+          "dx": -0.4,
+          "z": 10.6,
+          "selected": true,
+          "ray": "loading-parcel-f9"
+        },
+        {
+          "dx": 0.4,
+          "z": 10.6,
+          "selected": false,
+          "ray": "loading-slot-B-mid-1"
+        },
+        {
+          "dx": 0,
+          "z": 10.8,
+          "selected": false,
+          "ray": "loading-slot-A-top-0"
+        },
+        {
+          "dx": -0.2,
+          "z": 10.8,
+          "selected": false,
+          "ray": "loading-slot-A-top-0"
+        },
+        {
+          "dx": 0.2,
+          "z": 10.8,
+          "selected": false,
+          "ray": "loading-slot-A-mid-1"
+        },
+        {
+          "dx": -0.4,
+          "z": 10.8,
+          "selected": false,
+          "ray": "loading-slot-B-top-0"
+        },
+        {
+          "dx": 0.4,
+          "z": 10.8,
+          "selected": false,
+          "ray": "loading-slot-B-top-0"
+        },
+        {
+          "dx": 0,
+          "z": 11,
+          "selected": false,
+          "ray": "loading-slot-haz"
+        },
+        {
+          "dx": -0.2,
+          "z": 11,
+          "selected": false,
+          "ray": "loading-parcel-f12"
+        },
+        {
+          "dx": 0.2,
+          "z": 11,
+          "selected": false,
+          "ray": "loading-parcel-f12"
+        },
+        {
+          "dx": -0.4,
+          "z": 11,
+          "selected": false,
+          "ray": "loading-slot-A-mid-0"
+        },
+        {
+          "dx": 0.4,
+          "z": 11,
+          "selected": false,
+          "ray": "loading-parcel-f12"
+        }
+      ]
+    },
+    {
+      "high": true,
+      "fit": {
+        "floor": 0.98,
+        "bottom": 1.2,
+        "mid": 1.79,
+        "top": 2.38,
+        "side": 0.5269999957084656,
+        "depth": 0.74,
+        "sections": {
+          "A": 2,
+          "B": 1.2,
+          "C": 0.4
+        },
+        "wheelCap": 1.17,
+        "capVertices": 27
+      },
+      "parcel": {
+        "x": 3.3669999957084653,
+        "y": 2.42,
+        "z": 9.2,
+        "size": "env",
+        "slot": "B-top-1"
+      },
+      "poses": [
+        {
+          "dx": 0,
+          "z": 9.3,
+          "selected": false,
+          "ray": "loading-slot-A-bottom-0"
+        },
+        {
+          "dx": 0,
+          "z": 9.4,
+          "selected": false,
+          "ray": "loading-slot-A-bottom-0"
+        },
+        {
+          "dx": 0,
+          "z": 9.5,
+          "selected": false,
+          "ray": "loading-slot-B-top-1"
+        },
+        {
+          "dx": 0,
+          "z": 9.6,
+          "selected": false,
+          "ray": "loading-slot-A-top-1"
+        },
+        {
+          "dx": 0,
+          "z": 9.7,
+          "selected": false,
+          "ray": "loading-slot-C-top-0"
+        },
+        {
+          "dx": 0,
+          "z": 9.7872516667,
+          "selected": false,
+          "ray": "loading-slot-C-top-0"
+        },
+        {
+          "dx": 0,
+          "z": 9.9,
+          "selected": false,
+          "ray": "loading-slot-A-mid-1"
+        },
+        {
+          "dx": 0,
+          "z": 10,
+          "selected": false,
+          "ray": "loading-slot-A-mid-1"
+        },
+        {
+          "dx": 0,
+          "z": 10.2,
+          "selected": false,
+          "ray": "loading-slot-B-mid-0"
+        },
+        {
+          "dx": 0,
+          "z": 10.4,
+          "selected": false,
+          "ray": "loading-slot-A-top-0"
+        },
+        {
+          "dx": 0,
+          "z": 10.6,
+          "selected": false,
+          "ray": "loading-slot-A-top-0"
+        },
+        {
+          "dx": -0.2,
+          "z": 10.6,
+          "selected": false,
+          "ray": "loading-slot-A-top-0"
+        },
+        {
+          "dx": 0.2,
+          "z": 10.6,
+          "selected": false,
+          "ray": "loading-slot-A-mid-1"
+        },
+        {
+          "dx": 0,
+          "z": 10.8,
+          "selected": false,
+          "ray": "loading-slot-A-top-0"
+        },
+        {
+          "dx": -0.2,
+          "z": 10.8,
+          "selected": false,
+          "ray": "loading-slot-A-mid-1"
+        },
+        {
+          "dx": 0.2,
+          "z": 10.8,
+          "selected": false,
+          "ray": "loading-slot-A-top-0"
+        },
+        {
+          "dx": -0.4,
+          "z": 10.8,
+          "selected": false,
+          "ray": "loading-slot-B-bottom-0"
+        },
+        {
+          "dx": 0.4,
+          "z": 10.8,
+          "selected": false,
+          "ray": "loading-parcel-f12"
+        },
+        {
+          "dx": 0,
+          "z": 11,
+          "selected": false,
+          "ray": "loading-slot-B-top-0"
+        },
+        {
+          "dx": -0.2,
+          "z": 11,
+          "selected": false,
+          "ray": "loading-slot-haz"
+        },
+        {
+          "dx": 0.2,
+          "z": 11,
+          "selected": false,
+          "ray": "loading-slot-C-mid-0"
+        },
+        {
+          "dx": -0.4,
+          "z": 11,
+          "selected": false,
+          "ray": "loading-slot-A-bottom-1"
+        },
+        {
+          "dx": 0.4,
+          "z": 11,
+          "selected": false,
+          "ray": "loading-slot-haz"
+        }
+      ]
+    }
+  ]
+}

@@ -7,7 +7,7 @@ test('module entry keeps both original ids, pars, categories, defaults and isola
 });
 test('real keys/motor paths open the cargo doors and reach all 21 empty physical markers without entering solids',()=>{
  const scene=fixture();try{walk(scene,scene.model.van.x,scene.model.van.z+3.7);use(scene,'cargo');assert.equal(scene.model.cargoOpen,true);walk(scene,scene.model.van.x,scene.model.van.z+1.85);
-  for(const slot of scene.art.loading.slots){const z=slot.slot.level==='floor'?slot.target.position.z+.95:slot.z+(slot.slot.level==='bottom'?.75:0);walk(scene,scene.model.van.x,z);aim(scene,'loading-slot-'+slot.id);}
+  for(const slot of scene.art.loading.slots){const z=slot.slot.level==='floor'?slot.target.position.z+.95:slot.z+(slot.slot.level==='top'?0:.85);walk(scene,scene.model.van.x,z);aim(scene,'loading-slot-'+slot.id);}
   const m=scene.model;assert.equal(m.blocked(m.van.x-.8,m.van.z+.75),true);assert.equal(m.blocked(scene.art.loading.cart.x,scene.art.loading.cart.z),true);
   walk(scene,m.van.x,m.van.z+1.5);m.player.yaw=Math.PI/2;for(let n=0;n<300;n++)m.step({forward:true},.025);assert.ok(m.player.x<=m.van.x+.32,'the player cannot walk through the shelves');
  }finally{scene.art.dispose();}
@@ -39,7 +39,7 @@ test('all twelve packages can be physically loaded from the cart, strapped and c
  O.workday={events:[{type:'brief.read',key:'suspended'}],report(){assert.fail('A module sent a workday event');}};const outside=JSON.stringify(O.workday.events);
  try{use(scene,'cargo');for(const [id,slotId]of Object.entries(plan)){
   const b=scene.art.loading.parcels.find(b=>b.data.id===id),side=cart.x+(b.index%3===0?-1.35:1.35);walk(scene,m.van.x,m.van.z+3.8);walk(scene,side,m.van.z+3.8);walk(scene,side,b.z);use(scene,'loading-parcel-'+id);scene.panel.choices[0].action();assert.equal(s.held,id);
-  walk(scene,side,m.van.z+3.8);walk(scene,m.van.x,m.van.z+3.8);const slot=slots.get(slotId),z=slot.slot.level==='floor'?slot.target.position.z+.95:slot.z+(slot.slot.level==='bottom'?.75:0);walk(scene,m.van.x,z);use(scene,'loading-slot-'+slotId);scene.panel.choices[0].action();assert.equal(s.held,null);assert.equal(K.parcel(s,id).slotRef.id,slotId);scene.closePanel();
+  walk(scene,side,m.van.z+3.8);walk(scene,m.van.x,m.van.z+3.8);const slot=slots.get(slotId),z=slot.slot.level==='floor'?slot.target.position.z+.95:slot.z+(slot.slot.level==='top'?0:.85);walk(scene,m.van.x,z);use(scene,'loading-slot-'+slotId);scene.panel.choices[0].action();assert.equal(s.held,null);assert.equal(K.parcel(s,id).slotRef.id,slotId);scene.closePanel();
  }
  walk(scene,m.van.x,m.van.z+3.5);use(scene,'loading-restraints');scene.panel.choices[0].action();assert.equal(s.strapped,true);use(scene,'loading-restraints');scene.panel.choices[1].action();assert.equal(s.phase,'report');assert.equal(scene.panel.title,'Review the load.');scene.panel.choices.at(-1).action();assert.equal(scene.completed.id,'m6-load');assert.equal(scene.completed.result.score,2100);assert.deepEqual(plain(scene.completed.result.ratios),{safety:1,efficiency:1});assert.equal(JSON.stringify(O.workday.events),outside);assert.ok(s.elapsed<=210);console.log(JSON.stringify({physicalLoadSeconds:s.elapsed,placements:Object.keys(plan).length}));
  }finally{scene.art.dispose();}
@@ -87,7 +87,7 @@ test('both imported vans support all fitted positions below their roof and keep 
   const scene=f.fixture('m6-load',{bank}),m=scene.model,a=scene.art.loading;
   try{
    f.use(scene,'cargo');f.walk(scene,m.van.x,m.van.z+1.8);
-   for(const slot of a.slots){const z=slot.slot.level==='floor'?slot.target.position.z+.95:slot.z+(slot.slot.level==='bottom'?.75:0);f.walk(scene,m.van.x,z);f.aim(scene,'loading-slot-'+slot.id);}
+   for(const slot of a.slots){const z=slot.slot.level==='floor'?slot.target.position.z+.95:slot.z+(slot.slot.level==='top'?0:.85);f.walk(scene,m.van.x,z);f.aim(scene,'loading-slot-'+slot.id);}
    assert.equal(m.blocked(m.van.x,m.van.z+1.2),false);assert.equal(m.blocked(m.van.x+a.fit.side,m.van.z+1.2),true);
    const ray=new f.THREE.Raycaster(),v=scene.art.actors.vehicle.mesh;scene.view.world.updateMatrixWorld(true);
    for(const slot of a.slots){const x=slot.x,z=slot.z;ray.set(new f.THREE.Vector3(x,1.5,z),new f.THREE.Vector3(0,-1,0));const floor=ray.intersectObject(v,false)[0];assert.ok(floor&&slot.y>=floor.point.y+.005,slot.id+' stays above the actual exterior support');ray.set(new f.THREE.Vector3(x,slot.y+.01,z),new f.THREE.Vector3(0,1,0));const ceiling=ray.intersectObject(v,false)[0];assert.ok(ceiling&&slot.y+.48<ceiling.point.y,slot.id+' leaves room for the tallest original package');}
@@ -111,11 +111,27 @@ test('Low prints the label under the actual unit-address gaze instead of a neare
  const {install,local}=require('./tools/fpassets-context');
  for(const loaded of [false,true]){
   const f=require('./tools/fp-loading-context')();f.O.gfx={high:()=>false};const bank=loaded?await install(f.c).preload({high:false,fetch:local}):null,scene=f.fixture('m6-find',{bank}),m=scene.model,a=scene.art.loading;
-  try{f.use(scene,'cargo');const parcel=a.parcels.find(p=>p.data.id==='f10');Object.assign(m.player,{x:2.84,z:9.7,yaw:Math.atan2(parcel.x-2.84,-(parcel.z-9.7)),pitch:loaded?.12:Math.atan2(2.15-parcel.y,Math.hypot(parcel.x-2.84,parcel.z-9.7))});scene.target=null;scene.sync();const arrays=a.batches.map(b=>b.mesh.instanceMatrix.array);
+  try{f.use(scene,'cargo');const parcel=a.parcels.find(p=>p.data.id==='f10');Object.assign(m.player,{x:2.84,z:9.7,yaw:Math.atan2(parcel.x-2.84,-(parcel.z-9.7)),pitch:0});scene.target=null;scene.sync();m.player.pitch=Math.atan2(scene.view.camera.position.y-parcel.y,Math.hypot(parcel.x-2.84,parcel.z-9.7));scene.sync();const arrays=a.batches.map(b=>b.mesh.instanceMatrix.array);
    assert.equal(scene.art.pick(),'loading-parcel-f10');scene.target=scene.art.pick();scene.sync();assert.deepEqual(plain(a.parcels.filter(p=>p.printVisible).map(p=>p.data.id)),['f10']);assert.equal(parcel.data.unit,'3B');
    for(let i=0;i<80;i++){if(f.O.fpAccess.focus(scene)==='loading-parcel-f10')break;}scene.sync();assert.equal(scene.art.pick(),'loading-parcel-f10');assert.equal(parcel.printVisible,true);
    m.loadingCoaching=true;m.loading.hint={kind:'shown',id:'f6'};scene.sync();assert.equal(parcel.printVisible,true,'the actual viewed label takes priority over assistance on another parcel');
    for(let i=0;i<arrays.length;i++)assert.equal(a.batches[i].mesh.instanceMatrix.array,arrays[i],'gaze selection reuses the fixed ink buffers');assert.equal(a.parcels.filter(p=>p.printVisible).length,1);
   }finally{scene.art.dispose();if(bank)bank.dispose();}
+ }
+});
+
+test('the fitted cargo floor gives a standing eye height and an unobscured top-shelf envelope label',async()=>{
+ const {install,local}=require('./tools/fpassets-context');
+ for(const high of [false,true]){
+  const f=require('./tools/fp-loading-context')();f.O.gfx={high:()=>high};const bank=await install(f.c).preload({high,fetch:local}),scene=f.fixture('m6-find',{bank}),m=scene.model;
+  try{
+   f.use(scene,'cargo');for(const id of ['f1','f4','f6','f10']){f.K.pick(m.loading,id);for(let n=0;n<14;n++)f.K.step(m.loading,.05,true);}
+   Object.assign(m.player,{x:m.van.x,z:9.787251666666608,yaw:0,pitch:0});scene.target=null;scene.sync();assert.equal(m.blocked(m.player.x,m.player.z),false,'the original failed viewpoint remains legal');
+   assert.ok(Math.abs(scene.view.camera.position.y-scene.art.loading.fit.floor-1.65)<1e-9,'standing height is measured from the actual fitted floor');
+   let selected=false;for(let n=0;n<80;n++)if(f.O.fpAccess.focus(scene)==='loading-parcel-f9'){selected=true;break;}
+   assert.ok(selected,(high?'High':'Low')+' real P selection reaches the envelope after four pulls');assert.equal(scene.art.pick(),'loading-parcel-f9');scene.sync();assert.ok(scene.art.loading.parcels.find(p=>p.data.id==='f9').printVisible,'the selected envelope has physical label ink');
+   // The world override is limited to walking inside this module's open cargo.
+   Object.assign(m.player,{x:m.van.x,z:m.van.z+4,yaw:0,pitch:0});scene.target=null;scene.sync();assert.equal(scene.view.camera.position.y,1.65);
+  }finally{scene.art.dispose();bank.dispose();}
  }
 });
