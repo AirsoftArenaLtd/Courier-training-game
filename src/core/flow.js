@@ -27,15 +27,21 @@ OTR.registry = {
     const gl = webgl === undefined ? OTR.registry.can3d() : !!webgl;
     return OTR.registry.all().filter(s => !s.optional && (s.scene || gl));
   },
+  /** A module's scenarios as the hub lists them: a 3D-only one shows once A-31's QA sets its default3d (A-30). */
+  listed(m) {
+    return m.scenarios.filter(s => s.scene || s.default3d);
+  },
   moduleOf(id) {
     return OTR_DATA.modules.find(m => m.scenarios.some(s => s.id === id)) || null;
   },
   content(sc) {
-    return OTR.util.getPath(OTR_DATA, sc.dataKey);
+    // a 3D-only scenario keeps its content in its set piece and has no dataKey (A-30)
+    return sc && sc.dataKey ? OTR.util.getPath(OTR_DATA, sc.dataKey) : null;
   },
   maxStars() {
     // every scenario's categories, plus the best route day's three
-    return OTR.registry.all().reduce((n, s) => n + s.categories.length * 3, 0) + OTR.scoring.CATS.length * 3;
+    // (not the optional 3D-only scenarios, A-30: they are not on the hub yet and never hold back the course)
+    return OTR.registry.all().filter(s => !s.optional).reduce((n, s) => n + s.categories.length * 3, 0) + OTR.scoring.CATS.length * 3;
   }
 };
 

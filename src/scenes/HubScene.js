@@ -18,7 +18,7 @@ class HubScene extends Phaser.Scene {
     // (a brand-new hire starts at the top; SHELL-18)
     this.fresh = !Object.keys(OTR.save.data.scenarios).length && !(OTR.save.data.route && OTR.save.data.route.days);
     OTR.drill.active = null;                             // back at the station: any drill in progress is over
-    this.nextUp = OTR.registry.all().find(sc => !this.passed(sc)) || null;
+    this.nextUp = OTR.registry.modules().reduce((a, m) => a.concat(OTR.registry.listed(m)), []).find(sc => !this.passed(sc)) || null;
     this.focusables = [];
 
     this.buildHeader();
@@ -248,18 +248,19 @@ class HubScene extends Phaser.Scene {
       panel.add(OTR.txt(this, -pw / 2 + 48, -ph / 2 + 32, m.subtitle || '', 13, 'rgba(255,255,255,0.9)', { ox: 0, bold: false, fit: pw - 112 }));
 
       // module star total
-      const best = m.scenarios.reduce((n, sc) => n + OTR.save.starSum(OTR.save.bestStars(sc.id)), 0);
-      const max = m.scenarios.reduce((n, sc) => n + sc.categories.length * 3, 0);
+      const list = OTR.registry.listed(m);
+      const best = list.reduce((n, sc) => n + OTR.save.starSum(OTR.save.bestStars(sc.id)), 0);
+      const max = list.reduce((n, sc) => n + sc.categories.length * 3, 0);
       panel.add(this.add.image(pw / 2 - 52, -ph / 2 + 22, 'star_gold').setDisplaySize(16, 16));
       panel.add(OTR.txt(this, pw / 2 - 40, -ph / 2 + 22, `${best}/${max}`, 13, '#ffffff', { ox: 0, weight: '900' }));
 
       // modules with four scenarios (Safety & Wellness) start their rows higher and space them closer, in the same
       // type as every other card (they used to shrink it; SHELL-19)
-      const n = m.scenarios.length;
+      const n = list.length;
       const pitch = n > 3 ? 35 : 44;
       const rowH = n > 3 ? 33 : 40;
       const first = n > 3 ? 64 : 68;
-      m.scenarios.forEach((sc, j) => {
+      list.forEach((sc, j) => {
         const row = this.scenarioRow(sc, m, 0, -ph / 2 + first + j * pitch, pw - 20, rowH);
         panel.add(row);
         this.focusables.push(row);

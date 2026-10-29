@@ -4251,7 +4251,24 @@ window.OTR_I18N.te = {
 "Use the school-drive controls.": "స్కూల్ ప్రయాణ నియంత్రణలను ఉపయోగించండి.",
 "Drive through the school zone, wait for the bus and children, and park in the marked bay.": "స్కూల్ జోన్ గుండా వెళ్ళి, బస్సు, పిల్లల కోసం ఆగి, గుర్తు స్థలంలో నిలపండి.",
 "Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.": "ప్రవేశ గుర్తును చదివి, బయలుదేరే ముందు ముందుకు చూడండి. స్కూల్ జోన్ వేగ పరిమితిలో ఉండండి. స్కూల్ బస్సు ఎరుపు లైట్లు మెరుస్తున్నప్పుడు దానికి ముందే ఆగండి. దాని లైట్లు ఆగిపోయి పిల్లలు సురక్షితంగా దాటే వరకు ఆగి, తర్వాత కొనసాగండి.",
-"Read the next instruction page.": "తదుపరి సూచనల పేజీ చదవండి."
+"Read the next instruction page.": "తదుపరి సూచనల పేజీ చదవండి.",
+"Junctions and Lights": "జంక్షన్లు మరియు సిగ్నల్ లైట్లు",
+"Three approaches in the 3D town: a stop sign, a red light and a give-way junction. Stop at the line, wait for green, give way to traffic with priority, then park in the marked bay.": "3D నగరంలో మూడు మార్గాలు: ఒక స్టాప్ గుర్తు, ఒక ఎరుపు లైటు, ఒక దారి ఇవ్వండి జంక్షన్. గీత వద్ద ఆగండి, ఆకుపచ్చ కోసం ఆగండి, ప్రాధాన్యం ఉన్న ట్రాఫిక్‌కు దారి ఇవ్వండి, తర్వాత గుర్తు స్థలంలో వ్యాన్ నిలపండి.",
+"Stopping fully behind the stop line": "స్టాప్ గీత వెనుక పూర్తిగా ఆగడం",
+"Waiting for green at a red light": "ఎరుపు లైటు వద్ద ఆకుపచ్చ కోసం ఆగడం",
+"Giving way to traffic with priority": "ప్రాధాన్యం ఉన్న ట్రాఫిక్‌కు దారి ఇవ్వడం",
+"Mirrors and a signal before every move": "ప్రతి కదలికకు ముందు అద్దాలు మరియు ఇండికేటర్",
+"W accelerate · S brake · A D steer · Q C signal left/right · B belt · SPACE parking brake · L lights · arrows look · E use a cab control · F record · Tab the handheld · J read a sign": "W వేగం · S బ్రేక్ · A D తిప్పండి · Q C ఎడమ/కుడి ఇండికేటర్ · B బెల్ట్ · SPACE పార్కింగ్ బ్రేక్ · L లైట్లు · బాణాలు చూడండి · E క్యాబిన్ నియంత్రణ · F నమోదు · Tab హ్యాండ్‌హెల్డ్ · J గుర్తు చదవండి",
+"School Zone": "స్కూల్ జోన్",
+"Drive through the school zone in the 3D town. Keep to its speed limit, stop for the school bus while its red lights flash, and wait for the children before you move on.": "3D నగరంలో స్కూల్ జోన్ గుండా వెళ్ళండి. దాని వేగ పరిమితిలో ఉండండి, స్కూల్ బస్సు ఎరుపు లైట్లు మెరుస్తున్నప్పుడు ఆగండి, ముందుకు వెళ్ళే ముందు పిల్లల కోసం ఆగండి.",
+"The school-zone speed limit": "స్కూల్ జోన్ వేగ పరిమితి",
+"Stopping for a school bus with flashing red lights": "మెరుస్తున్న ఎరుపు లైట్ల స్కూల్ బస్సు కోసం ఆగడం",
+"Waiting until the children are clear": "పిల్లలు సురక్షితంగా దాటే వరకు ఆగడం",
+"Night Run": "రాత్రి ప్రయాణం",
+"Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "బయలుదేరే ముందు హెడ్‌లైట్లు తనిఖీ చేసి, మరో వాహనం వెనుక రాత్రి రూట్‌ను అనుసరించండి. సురక్షిత దూరం ఉంచండి, హెడ్‌లైట్లు చూపించే దూరంలోనే నడపండి, గుర్తు స్థలంలో వ్యాన్ నిలపండి.",
+"Checking the headlights before a night drive": "రాత్రి ప్రయాణానికి ముందు హెడ్‌లైట్లు తనిఖీ చేయడం",
+"A three-second gap behind the vehicle ahead": "ముందు వాహనం నుంచి మూడు సెకన్ల దూరం",
+"Driving within the reach of your headlights": "హెడ్‌లైట్ల పరిధిలో నడపడం"
 },
 "templates": [
 [

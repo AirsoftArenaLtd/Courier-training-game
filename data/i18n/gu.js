@@ -4251,7 +4251,24 @@ window.OTR_I18N.gu = {
 "Use the school-drive controls.": "શાળાની સફરનાં નિયંત્રણો વાપરો.",
 "Drive through the school zone, wait for the bus and children, and park in the marked bay.": "શાળા વિસ્તારમાંથી પસાર થાઓ, બસ અને બાળકોની રાહ જુઓ અને નિશાનીવાળી જગ્યામાં વૅન ઊભી કરો.",
 "Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.": "પ્રવેશનું ચિહ્ન વાંચો, પછી નીકળતા પહેલાં આગળ જુઓ. શાળા વિસ્તારની ઝડપ મર્યાદામાં રહો. શાળાની બસની લાલ લાઇટ ઝબકે ત્યારે તેની પહેલાં અટકો. તેની લાઇટ બંધ થાય અને બાળકો સલામત થાય ત્યાં સુધી રાહ જુઓ, પછી આગળ વધો.",
-"Read the next instruction page.": "સૂચનાઓનું આગલું પાનું વાંચો."
+"Read the next instruction page.": "સૂચનાઓનું આગલું પાનું વાંચો.",
+"Junctions and Lights": "ચોક અને ટ્રાફિક લાઇટ",
+"Three approaches in the 3D town: a stop sign, a red light and a give-way junction. Stop at the line, wait for green, give way to traffic with priority, then park in the marked bay.": "3D શહેરમાં ત્રણ માર્ગ: સ્ટોપ ચિહ્ન, લાલ લાઇટ અને રસ્તો આપો વાળો ચોક. રેખા પર અટકો, લીલીની રાહ જુઓ, અગ્રતાવાળા ટ્રાફિકને રસ્તો આપો, પછી નિશાનીવાળી જગ્યામાં વૅન ઊભી કરો.",
+"Stopping fully behind the stop line": "સ્ટોપ લાઇનની પાછળ પૂરેપૂરા અટકવું",
+"Waiting for green at a red light": "લાલ લાઇટ પર લીલીની રાહ જોવી",
+"Giving way to traffic with priority": "અગ્રતાવાળા ટ્રાફિકને રસ્તો આપવો",
+"Mirrors and a signal before every move": "દરેક હલચલ પહેલાં અરીસા અને ઇન્ડિકેટર",
+"W accelerate · S brake · A D steer · Q C signal left/right · B belt · SPACE parking brake · L lights · arrows look · E use a cab control · F record · Tab the handheld · J read a sign": "W ઝડપ · S બ્રેક · A D વાળવું · Q C ડાબો/જમણો ઇન્ડિકેટર · B બેલ્ટ · SPACE પાર્કિંગ બ્રેક · L લાઇટ · તીર જોવું · E કેબિન નિયંત્રણ · F નોંધો · Tab હૅન્ડહેલ્ડ · J ચિહ્ન વાંચો",
+"School Zone": "શાળા વિસ્તાર",
+"Drive through the school zone in the 3D town. Keep to its speed limit, stop for the school bus while its red lights flash, and wait for the children before you move on.": "3D શહેરમાં શાળા વિસ્તારમાંથી પસાર થાઓ. તેની ઝડપ મર્યાદામાં રહો, શાળાની બસની લાલ લાઇટ ઝબકે ત્યારે અટકો અને આગળ વધતા પહેલાં બાળકોની રાહ જુઓ.",
+"The school-zone speed limit": "શાળા વિસ્તારની ઝડપ મર્યાદા",
+"Stopping for a school bus with flashing red lights": "ઝબકતી લાલ લાઇટવાળી શાળાની બસ માટે અટકવું",
+"Waiting until the children are clear": "બાળકો સલામત થાય ત્યાં સુધી રાહ જોવી",
+"Night Run": "રાતની સફર",
+"Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "નીકળતા પહેલાં હેડલાઇટ તપાસો, પછી બીજા વાહનની પાછળ રાતના રૂટ પર ચાલો. સલામત અંતર રાખો, હેડલાઇટ જેટલું બતાવે તેટલામાં ચલાવો અને નિશાનીવાળી જગ્યામાં વૅન ઊભી કરો.",
+"Checking the headlights before a night drive": "રાતની સફર પહેલાં હેડલાઇટ તપાસવી",
+"A three-second gap behind the vehicle ahead": "આગળના વાહનથી ત્રણ સેકન્ડનું અંતર",
+"Driving within the reach of your headlights": "હેડલાઇટની પહોંચમાં ચલાવવું"
 },
 "templates": [
 [

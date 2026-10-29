@@ -4252,7 +4252,24 @@ window.OTR_I18N.fr = {
 "Use the school-drive controls.": "Utiliser les commandes du trajet scolaire.",
 "Drive through the school zone, wait for the bus and children, and park in the marked bay.": "Traversez la zone scolaire, attendez le bus et les enfants, puis garez-vous dans l'emplacement marqué.",
 "Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.": "Lisez le panneau d'entrée, puis regardez devant vous avant de démarrer. Respectez la limitation de vitesse de la zone scolaire. Arrêtez-vous avant le bus scolaire quand ses feux rouges clignotent. Attendez qu'ils s'éteignent et que les enfants soient en sécurité avant de repartir.",
-"Read the next instruction page.": "Lire la page d'instructions suivante."
+"Read the next instruction page.": "Lire la page d'instructions suivante.",
+"Junctions and Lights": "Carrefours et feux",
+"Three approaches in the 3D town: a stop sign, a red light and a give-way junction. Stop at the line, wait for green, give way to traffic with priority, then park in the marked bay.": "Trois approches dans la ville 3D : un stop, un feu rouge et un carrefour avec cédez-le-passage. Arrêtez-vous à la ligne, attendez le vert, cédez le passage à la circulation prioritaire, puis garez-vous dans l'emplacement marqué.",
+"Stopping fully behind the stop line": "S'arrêter complètement derrière la ligne d'arrêt",
+"Waiting for green at a red light": "Attendre le vert à un feu rouge",
+"Giving way to traffic with priority": "Céder le passage à la circulation prioritaire",
+"Mirrors and a signal before every move": "Rétroviseurs et clignotant avant chaque manœuvre",
+"W accelerate · S brake · A D steer · Q C signal left/right · B belt · SPACE parking brake · L lights · arrows look · E use a cab control · F record · Tab the handheld · J read a sign": "W accélérer · S freiner · A D tourner · Q C clignotant gauche/droit · B ceinture · ESPACE frein à main · L phares · flèches regarder · E utiliser une commande de la cabine · F enregistrer · Tab le Terminal · J lire un panneau",
+"School Zone": "Zone scolaire",
+"Drive through the school zone in the 3D town. Keep to its speed limit, stop for the school bus while its red lights flash, and wait for the children before you move on.": "Traversez la zone scolaire de la ville 3D. Respectez sa limitation de vitesse, arrêtez-vous pour le bus scolaire tant que ses feux rouges clignotent et attendez les enfants avant de repartir.",
+"The school-zone speed limit": "La limitation de vitesse de la zone scolaire",
+"Stopping for a school bus with flashing red lights": "S'arrêter pour un bus scolaire aux feux rouges clignotants",
+"Waiting until the children are clear": "Attendre que les enfants soient en sécurité",
+"Night Run": "Trajet de nuit",
+"Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "Vérifiez les phares avant de partir, puis suivez l'itinéraire de nuit derrière un autre véhicule. Gardez une distance de sécurité, roulez dans ce qu'éclairent vos phares et garez-vous dans l'emplacement marqué.",
+"Checking the headlights before a night drive": "Vérifier les phares avant de rouler de nuit",
+"A three-second gap behind the vehicle ahead": "Trois secondes d'écart derrière le véhicule de devant",
+"Driving within the reach of your headlights": "Rouler dans la portée de vos phares"
 },
 "templates": [
 [

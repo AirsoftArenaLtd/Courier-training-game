@@ -4262,7 +4262,24 @@ window.OTR_I18N.es = {
 "Use the school-drive controls.": "Usa los controles del recorrido escolar.",
 "Drive through the school zone, wait for the bus and children, and park in the marked bay.": "Atraviesa la zona escolar, espera al autobús y a los niños y aparca en el espacio marcado.",
 "Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.": "Lee la señal de entrada y mira al frente antes de arrancar. Respeta el límite de velocidad de la zona escolar. Detente antes del autobús escolar cuando parpadeen sus luces rojas. Espera a que se apaguen y a que los niños estén a salvo antes de continuar.",
-"Read the next instruction page.": "Lee la siguiente página de instrucciones."
+"Read the next instruction page.": "Lee la siguiente página de instrucciones.",
+"Junctions and Lights": "Cruces y semáforos",
+"Three approaches in the 3D town: a stop sign, a red light and a give-way junction. Stop at the line, wait for green, give way to traffic with priority, then park in the marked bay.": "Tres aproximaciones en la ciudad 3D: una señal de stop, un semáforo en rojo y un cruce con ceda el paso. Detente en la línea, espera el verde, cede el paso al tráfico con prioridad y aparca en el espacio marcado.",
+"Stopping fully behind the stop line": "Detenerse por completo detrás de la línea de detención",
+"Waiting for green at a red light": "Esperar el verde en un semáforo en rojo",
+"Giving way to traffic with priority": "Ceder el paso al tráfico con prioridad",
+"Mirrors and a signal before every move": "Espejos e intermitente antes de cada maniobra",
+"W accelerate · S brake · A D steer · Q C signal left/right · B belt · SPACE parking brake · L lights · arrows look · E use a cab control · F record · Tab the handheld · J read a sign": "W acelerar · S frenar · A D girar · Q C intermitente izquierdo/derecho · B cinturón · ESPACIO freno de mano · L luces · flechas mirar · E usar un control de la cabina · F registrar · Tab el Escáner · J leer una señal",
+"School Zone": "Zona escolar",
+"Drive through the school zone in the 3D town. Keep to its speed limit, stop for the school bus while its red lights flash, and wait for the children before you move on.": "Atraviesa la zona escolar de la ciudad 3D. Respeta su límite de velocidad, detente ante el autobús escolar mientras parpadean sus luces rojas y espera a los niños antes de seguir.",
+"The school-zone speed limit": "El límite de velocidad de la zona escolar",
+"Stopping for a school bus with flashing red lights": "Detenerse ante un autobús escolar con las luces rojas parpadeando",
+"Waiting until the children are clear": "Esperar hasta que los niños estén a salvo",
+"Night Run": "Ruta nocturna",
+"Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "Revisa los faros antes de salir y sigue la ruta nocturna detrás de otro vehículo. Mantén una distancia segura, conduce dentro de lo que iluminan tus faros y aparca en el espacio marcado.",
+"Checking the headlights before a night drive": "Revisar los faros antes de conducir de noche",
+"A three-second gap behind the vehicle ahead": "Tres segundos de distancia con el vehículo de delante",
+"Driving within the reach of your headlights": "Conducir dentro del alcance de tus faros"
 },
 "templates": [
 [

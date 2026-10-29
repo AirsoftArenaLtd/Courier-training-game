@@ -12,9 +12,11 @@ OTR.validate = {
       (m.scenarios || []).forEach(sc => {
         if (ids[sc.id]) errors.push(`Duplicate scenario id "${sc.id}"`);
         ids[sc.id] = true;
-        if (sceneKeys && sceneKeys.indexOf(sc.scene) < 0) errors.push(`${sc.id}: scene "${sc.scene}" is not registered`);
-        const content = sc.dataKey.split('.').reduce((o, k) => (o == null ? undefined : o[k]), DATA);
-        if (!content) errors.push(`${sc.id}: dataKey "${sc.dataKey}" not found`);
+        // A-30: a 3D-only scenario has a scene3d set piece and no 2D scene or dataKey (docs/3D-MODULES.md)
+        if (!sc.scene && !sc.scene3d) errors.push(`${sc.id}: no scene and no scene3d`);
+        if (sc.scene && sceneKeys && sceneKeys.indexOf(sc.scene) < 0) errors.push(`${sc.id}: scene "${sc.scene}" is not registered`);
+        const content = sc.dataKey ? sc.dataKey.split('.').reduce((o, k) => (o == null ? undefined : o[k]), DATA) : null;
+        if (sc.scene && !content) errors.push(`${sc.id}: dataKey "${sc.dataKey}" not found`);
         (sc.categories || []).forEach(c => {
           if (!DATA.config.categories[c]) errors.push(`${sc.id}: unknown category "${c}"`);
         });
