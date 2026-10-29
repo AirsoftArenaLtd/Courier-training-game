@@ -1,0 +1,290 @@
+{
+  "phase": "complete",
+  "controllerPid": 313878,
+  "jobs": [
+    {
+      "tag": "c40-c39-continued-sort-low",
+      "script": "test/fppackagesortbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_DURABLE": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-continued-sort-low.json": "7d1f2df945a241340aea31939df7183e9ece7e053738924a33e90cdd68d4639e",
+        "c40-c39-continued-sort-low-low-en-normal-label.png": "ecdb29dd5afa19316ea60261c46ccd0d77e6d80e06dab1a3ded4737c0b040461"
+      }
+    },
+    {
+      "tag": "c40-c39-continued-lift-low",
+      "script": "test/fppackageliftbrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal",
+        "QA_DURABLE": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-continued-lift-low-low-en-normal-load2.png": "bf2b4a181c1525e3dc1426172f6d6712d760d49cfb2ba46dd1e9af8d6c255123",
+        "c40-c39-continued-lift-low-low-en-normal-load4.png": "2b52ea52b9d2c46d4d069f9f69d339f6c631f77e46e8c5e821ac6bb1bbeb0a4a",
+        "c40-c39-continued-lift-low-low-en-normal-load3.png": "751201bf54231c1815225271ac4652c49510d4dbfaf46a0ccd97e39114aed7ca",
+        "c40-c39-continued-lift-low.json": "d411cbc24268829ab2dbc8dc32d06e1c93bd44b0f2e00c34fe1947811fee1374",
+        "c40-c39-continued-lift-low-low-en-normal-load1.png": "460c67fcb0d3a10978056a189bfbf9a7ac372cce325350d820eb9c936557541d",
+        "c40-c39-continued-lift-low-low-en-normal-load5.png": "3e334dd21ebd85164af0d081d6aa41168431aa9a893087171b50383a4f457284"
+      }
+    },
+    {
+      "tag": "c40-c39-continued-heavy-low",
+      "script": "test/fppackageheavybrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-continued-heavy-low-load-1.png": "d3bf6e6045d8bae5c26157c8d088ff9954d363cc4958f85997be75f3b724bb48",
+        "c40-c39-continued-heavy-low.json": "541166fa5905c4ebaa9f33aa5c01382050ee2641edbcf46b6b43d506f73a3087",
+        "c40-c39-continued-heavy-low-policy.png": "7b8d340c74760627e150203b7c29f2948449ee60fb2bb516c2f438172f1861f6",
+        "c40-c39-continued-heavy-low-reading.png": "2cfa5fb04c6c8abb5404daa84bd9c73e46bebca8a43b8f92feb9c69296030954",
+        "c40-c39-continued-heavy-low-load-0.png": "3ca494bc73db49f90f7ebe4298938a73ce08c6b171fc9b84e555f44fd45e2660"
+      }
+    },
+    {
+      "tag": "c40-c39-continued-label-high",
+      "script": "test/fppackagelabelbrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_DURABLE": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-continued-label-high.json": "250574297ea177a2867c4801bc9fe03a7662d5a808249b116f9c42b2b41a3ce1",
+        "c40-c39-continued-label-high-high-ta-large-base.png": "ba7b7f98086cc6ba18e89f6b5d40cc004701f1e54ad528959769605062d1bd86"
+      }
+    },
+    {
+      "tag": "c40-c39-continued-sort-high",
+      "script": "test/fppackagesortbrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_DURABLE": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-continued-sort-high.json": "b805edadfde05dc2524b090f31d504172947c60c19f9fa32fe9ad14ada8e7fa8",
+        "c40-c39-continued-sort-high-high-ta-large-label.png": "84349eed3d6529232fc67a89ce3c6fd4a967b77f7bb0456ca8374329434e1425"
+      }
+    },
+    {
+      "tag": "c40-c39-continued-lift-high",
+      "script": "test/fppackageliftbrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large",
+        "QA_DURABLE": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-continued-lift-high-high-ta-large-load2.png": "783ceaf177385c421ec3d378a00ba5331504496d567aae3390715bbe6c48dc00",
+        "c40-c39-continued-lift-high-high-ta-large-platform.png": "722f93aff2459c49c233fec95690ada24f757e59ee5f369d68164ca53b139cea",
+        "c40-c39-continued-lift-high-high-ta-large-load4.png": "3f55a1a6f270c8fe5524c32ea08b353295a446da9df705231ab990edcc1cfd66",
+        "c40-c39-continued-lift-high-high-ta-large-load3.png": "9994953c87d0317f8af3036e77a981771a6f58c1112e0ca88fddd2169290ce1a",
+        "c40-c39-continued-lift-high-high-ta-large-load1.png": "e6dea98b6b6b305f05526af5aa393cc4343f9f5b25dfb4a1214db56b3240a98b",
+        "c40-c39-continued-lift-high.json": "b5aa8f420eac4fe045bb14dd9d97223664b152e714f24e7f24cf2144ecf534cc"
+      }
+    },
+    {
+      "tag": "c40-c39-continued-heavy-high",
+      "script": "test/fppackageheavybrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-continued-heavy-high-reading.png": "be022acf5e61b680aee607bf2ce76d273ed92cce9268af80c4bc46b320634673",
+        "c40-c39-continued-heavy-high-policy.png": "bec52de3af5ecc794d516d7cd153647a4f56cc9f1f53f949c6bdfcd91d378caf",
+        "c40-c39-continued-heavy-high.json": "e1140170a443134b20c194cc7db980a238f689b31d4efe97e9b0a091f7fe4bb4",
+        "c40-c39-continued-heavy-high-load-0.png": "7b3ec8ea01da242f90563b460a8170b4e67f6889a91ff2a6a5f76e281063c52c",
+        "c40-c39-continued-heavy-high-load-1.png": "65992ce9be7bbbe30f1ac75c449934063c0a5c8de48d4a773e4d7ed24b265597"
+      }
+    },
+    {
+      "tag": "c40-c39-continued-heavy-unsafe-high",
+      "script": "test/fppackageheavybrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_UNSAFE": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-continued-heavy-unsafe-high.json": "dd523143c1571eb36837e88dacac56c73ad3ff363a3202edf036f69ebc2d7f56",
+        "c40-c39-continued-heavy-unsafe-high-policy.png": "bec52de3af5ecc794d516d7cd153647a4f56cc9f1f53f949c6bdfcd91d378caf",
+        "c40-c39-continued-heavy-unsafe-high-reading.png": "be022acf5e61b680aee607bf2ce76d273ed92cce9268af80c4bc46b320634673"
+      }
+    },
+    {
+      "tag": "c40-c39-continued-heavy-budget-loaded-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "heavyassess,heavygrip,heavyteam,heavytruck,heavycritical,heavystatus",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_PACKAGE_HEAVY": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "bench-c40-c39-continued-heavy-budget-loaded-low-low.json": "9a02578411e1c62a5f2d4993513d0a4b309ab8b91783bb41326b34c60beb2dd5",
+        "c40-c39-continued-heavy-budget-loaded-low-low-heavyteam.png": "ad9187a0b4c75e87dbdfab0a39ebadccb8a56b63c835666a29d81161b361293b",
+        "c40-c39-continued-heavy-budget-loaded-low-low-heavycritical.png": "58291aad29127827b3d27b3aaca016acde3321110f1d12ac6524f7e2b6c0e5a6",
+        "c40-c39-continued-heavy-budget-loaded-low-low-heavytruck.png": "dd4aee9a33dca73e3ecc016ef5733256a650f432d9b664a4728e3aa5939734fd",
+        "c40-c39-continued-heavy-budget-loaded-low-low-heavyassess.png": "d7f23650c9af8c8b3dfa2792b6fd0a541d91b2e145967aae7e60a7f00f225d26",
+        "c40-c39-continued-heavy-budget-loaded-low-low-heavystatus.png": "b153fcc47f060c49d85c11de15134bd02607f4501650e5747731d433a4461358",
+        "c40-c39-continued-heavy-budget-loaded-low-low-heavygrip.png": "386f5359f854900382f4fb94bfb18e2a686c855487504a0fb24330ecf682af3f"
+      },
+      "peak": {
+        "calls": 35,
+        "triangles": 1160,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1857515
+      }
+    },
+    {
+      "tag": "c40-c39-continued-heavy-budget-loaded-high",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "heavyassess,heavygrip,heavyteam,heavytruck,heavycritical,heavystatus",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_PACKAGE_HEAVY": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-continued-heavy-budget-loaded-high-high-heavyassess.png": "36d5840d66ad708d688961e2ed5ae224a9c43a9e5c71adc9e9eed9ab97a6d8a7",
+        "c40-c39-continued-heavy-budget-loaded-high-high-heavygrip.png": "3ff400cf44dad08e7a336b3d06d17852b5764958d313c6128a2f15265885b9f1",
+        "c40-c39-continued-heavy-budget-loaded-high-high-heavytruck.png": "0c1bbe2df01b086a4e932f39d14654d2279172495ae02bc19278a4640bada228",
+        "c40-c39-continued-heavy-budget-loaded-high-high-heavystatus.png": "50f13743886bca2f7be7d1551bfeb837567868a2fbd705aee7fe11f875e1b33a",
+        "bench-c40-c39-continued-heavy-budget-loaded-high-high.json": "5d7f96aba0ddb688c8936fc91b7f378a766d446567acf722de02f9de0510bb65",
+        "c40-c39-continued-heavy-budget-loaded-high-high-heavyteam.png": "6b09c809f1bc57f9e42b47e8147ceb4e568aa88f709dbae31f9e4c6c39917b7e",
+        "c40-c39-continued-heavy-budget-loaded-high-high-heavycritical.png": "2255a84538936042c652c21292f38aa14a81519217a50f0257bff34044606b22"
+      },
+      "peak": {
+        "calls": 37,
+        "triangles": 16290,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5624326
+      }
+    },
+    {
+      "tag": "c40-c39-continued-heavy-budget-accessible-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "heavyassess,heavygrip,heavyteam,heavytruck,heavycritical,heavystatus",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_PACKAGE_HEAVY": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-continued-heavy-budget-accessible-low-low-heavytruck.png": "a888596e178c710df3bf812a55d1fe38be2e3a0aeb75bfb4a84ac03e55bf5037",
+        "c40-c39-continued-heavy-budget-accessible-low-low-heavyassess.png": "c1054bd109a30597ccd0022fae9690b31d62babe6f09ae13c6bbcdf4a179b871",
+        "c40-c39-continued-heavy-budget-accessible-low-low-heavystatus.png": "9069f65aa877a547d56e6a2dafe610429357332e062c77dcc97c19ac9d1bc523",
+        "c40-c39-continued-heavy-budget-accessible-low-low-heavyteam.png": "b0d834e627cc7510f2cffe765ae9b63f02cb59a5feb9513ae9eb05dcadd416a0",
+        "c40-c39-continued-heavy-budget-accessible-low-low-heavygrip.png": "9bb8a27a261a9d16f2daaf695dccb3c4e435403f4e3eb78bcd4f063d6142c519",
+        "bench-c40-c39-continued-heavy-budget-accessible-low-low.json": "786ae8d1cc12120e3e64ebe52267f9a30b55ab82b14c0dd45e2aef7c1e77f72d",
+        "c40-c39-continued-heavy-budget-accessible-low-low-heavycritical.png": "bacfcf514959112e7779dd26ddce757fc3b6ea8b4975e3b4f08fc0e1443328c6"
+      },
+      "peak": {
+        "calls": 35,
+        "triangles": 1160,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2130390
+      }
+    },
+    {
+      "tag": "c40-c39-continued-heavy-budget-fallback-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1",
+        "QA_VIEWS": "heavyassess,heavygrip,heavyteam,heavytruck,heavycritical,heavystatus",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_PACKAGE_HEAVY": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c40-c39-continued-heavy-budget-fallback-low-low-heavystatus.png": "7c7e59dddee195595c1ec72345bdfcdb5bf6c869b8b92743c51440936f4536cd",
+        "c40-c39-continued-heavy-budget-fallback-low-low-heavycritical.png": "9dc928ed8b2d18ef36aadcbf892e8a0860059d2173132b2b4f3c1fc93cecd5d8",
+        "bench-c40-c39-continued-heavy-budget-fallback-low-low.json": "e2a2f4f865e275a98178e9010bd874bed6d6ec50163097c600b3f98ae1e60f1b",
+        "c40-c39-continued-heavy-budget-fallback-low-low-heavytruck.png": "dd4aee9a33dca73e3ecc016ef5733256a650f432d9b664a4728e3aa5939734fd",
+        "c40-c39-continued-heavy-budget-fallback-low-low-heavygrip.png": "a6a6fff78c274c36e25f446b3960fec6f5e11e57d9d31538bc82387599c0b4fe",
+        "c40-c39-continued-heavy-budget-fallback-low-low-heavyteam.png": "a3f68e288a1f57a04f35db80d97e9f3c23d6f393e51543da384dc45abf56a4dd",
+        "c40-c39-continued-heavy-budget-fallback-low-low-heavyassess.png": "30d5e2b66c58667f3a1855f2940eb2030523e7761ba12f6f08380bbc60a5c835"
+      },
+      "peak": {
+        "calls": 41,
+        "triangles": 1004,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1857515
+      }
+    }
+  ],
+  "startedAt": 1793263847.3355124,
+  "serverPid": 325891,
+  "tag": "c40-c39-continued-heavy-budget-fallback-low",
+  "childPid": 330062,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793269601.4188476
+}

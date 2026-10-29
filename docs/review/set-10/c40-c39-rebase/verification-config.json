@@ -1,0 +1,85 @@
+{
+  "cohorts": [
+    {
+      "directory": "docs/review/set-10/c40-c39-rebase/acceptance",
+      "onlyTags": [
+        "c40-c39-label-low"
+      ],
+      "allowedOldTestDifferences": [
+        "test/fppackagesortbrowser.js"
+      ]
+    },
+    {
+      "directory": "docs/review/set-10/c40-c39-continuation/acceptance"
+    }
+  ],
+  "nativeJobs": 9,
+  "resourceViews": 24,
+  "resourceTool": "fp-package-heavy-quality",
+  "resourceMethod": "checkHeavy",
+  "registryBase": "ee328d18",
+  "registryPattern": ", scene3d: 'package-(?:sort-belt|lift-bay|label-station)'",
+  "scope": "C40 accepted current C39/A30 runtime: first label job retained at e8f46073; remaining eight native jobs and all heavy resources at caaf186d differ only in the declared test viewpoint. Failed sort attempts are excluded and preserved. Original native fixture/abandonment scopes remain; A31 and Intel O1 separate.",
+  "nativePolicies": [
+    {
+      "suffix": "label-low",
+      "score": 3150,
+      "items": 9
+    },
+    {
+      "suffix": "sort-low",
+      "score": 600,
+      "stages": 5
+    },
+    {
+      "suffix": "lift-low",
+      "score": 1000,
+      "stages": 5
+    },
+    {
+      "suffix": "heavy-low",
+      "score": 1000
+    },
+    {
+      "suffix": "label-high",
+      "score": null,
+      "items": 1
+    },
+    {
+      "suffix": "sort-high",
+      "score": null,
+      "stages": 2,
+      "assessmentPassed": false,
+      "abandoned": true
+    },
+    {
+      "suffix": "lift-high",
+      "score": null,
+      "stages": 4,
+      "assessmentPassed": false,
+      "abandoned": true
+    },
+    {
+      "suffix": "heavy-high",
+      "score": 1000,
+      "assessmentPassed": true
+    },
+    {
+      "suffix": "heavy-unsafe-high",
+      "score": null,
+      "assessmentPassed": false,
+      "abandoned": true,
+      "unsafeLift": true
+    }
+  ],
+  "visualReview": [
+    {
+      "file": "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-high/c40-c39-continued-heavy-high-reading.png",
+      "note": "Original-size High reading: the posted 50 lb/23 kg limit and actual 95 lb load fit the handheld above full-sized controls. Local worker/van geometry is visible; new copy remains for A31."
+    },
+    {
+      "file": "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-high/c40-c39-continued-heavy-high-load-1.png",
+      "note": "Original-size High neutral assessment completion panel: text/buttons fit without answer findings."
+    }
+  ]
+}

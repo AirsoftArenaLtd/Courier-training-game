@@ -1,0 +1,163 @@
+{
+  "checks": 291,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "stages": [
+        {
+          "index": 0,
+          "score": 200,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 1,
+          "score": 400,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 2,
+          "score": 600,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        },
+        {
+          "index": 3,
+          "score": 800,
+          "health": 100,
+          "mode": "shown-verdict",
+          "qualities": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "mistakes": []
+        }
+      ],
+      "shots": [
+        "c40-c39-continued-lift-high-high-ta-large-load1.png",
+        "c40-c39-continued-lift-high-high-ta-large-load2.png",
+        "c40-c39-continued-lift-high-high-ta-large-load3.png",
+        "c40-c39-continued-lift-high-high-ta-large-load4.png",
+        "c40-c39-continued-lift-high-high-ta-large-platform.png"
+      ],
+      "reading": {
+        "open": true,
+        "lines": [
+          "This load weighs 12 pounds.",
+          "Your back health is 100 out of 100.",
+          "Your knees are 0 percent bent."
+        ],
+        "time": [
+          0.13328666666666567,
+          0.13328666666666567
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 412.5,
+            "bottom": 458.5,
+            "font": 17,
+            "scale": 1
+          },
+          {
+            "top": 464.5,
+            "bottom": 510.5,
+            "font": 17,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the lifting bay status.",
+            "scale": 1,
+            "top": 103,
+            "bottom": 125
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "This load weighs 12 pounds.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 171
+          },
+          {
+            "source": "Your back health is 100 out of 100.",
+            "scale": 1,
+            "top": 177,
+            "bottom": 198
+          },
+          {
+            "source": "Your knees are 0 percent bent.",
+            "scale": 1,
+            "top": 204,
+            "bottom": 225
+          }
+        ]
+      },
+      "unfinishedShelf": {
+        "phase": "carry",
+        "score": 800,
+        "health": 100,
+        "held": true
+      },
+      "assessment": {
+        "attempts": 1,
+        "passed": false,
+        "startedAt": 1793268537309,
+        "pending": false,
+        "abandoned": true,
+        "at": 1793268861112
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Five real-key practice loads; four real-key assessment loads plus a shelf grip followed by actual abandonment. Existing m2-lift is explicitly routed to the proposed adapter. Durable real workday journal and checkpoint are compared and reloaded. No posture, load, timer or verdict fixtures.",
+  "complete": true
+}

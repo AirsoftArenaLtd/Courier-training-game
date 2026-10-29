@@ -1,0 +1,270 @@
+{
+  "quality": "high",
+  "lang": "ta",
+  "large": true,
+  "unsafe": true,
+  "checks": 101,
+  "layouts": [
+    {
+      "name": "brief",
+      "rows": [
+        {
+          "source": "Handle heavy and awkward loads.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "The posted solo lifting limit is 50 lb (23 kg). Use help or equipment for heavier or awkward loads.\n\nMove heavy or awkward loads safely.\n\nYou have 480 seconds to complete this scenario.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 364
+        },
+        {
+          "source": "1. சூழலைத் தொடங்கு.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. நிலையத்துக்குத் திரும்பு.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "posted policy",
+      "rows": [
+        {
+          "source": "Handle heavy and awkward loads.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "The posted solo lifting limit is 50 lb (23 kg). Use help or equipment for heavier or awkward loads.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 232
+        },
+        {
+          "source": "1. Read the lifting controls.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Continue handling the load.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "posture controls",
+      "rows": [
+        {
+          "source": "Use the lifting bay controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Select the load with O and press U to choose how to move it. Hold D to step closer. Hold S to bend your knees and W to stand up. Look at the load and press U to grip or release it. Holding A pivots your feet and steps toward the pallet. Look with the arrow keys or mouse.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 298
+        },
+        {
+          "source": "1. Read the team and equipment controls.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Continue handling the load.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "equipment controls",
+      "rows": [
+        {
+          "source": "Use the lifting bay controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Use the coworker call button before starting a team lift. For a hand truck, step beside its handle with D and press U to take the handle. Hold A to move the truck to the pallet. Use its handle again to unload it. The platform keeps you at the right height for the shelf load until you grip it.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 298
+        },
+        {
+          "source": "1. Read the posture controls.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Continue handling the load.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "load choice 0",
+      "rows": [
+        {
+          "source": "Choose how to move this load.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "The posted solo lifting limit is 50 lb (23 kg). Use help or equipment for heavier or awkward loads.\n\nA 95 lb crate marked HEAVY. It needs to go across the floor to the pallet.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 331
+        },
+        {
+          "source": "1. Use the hand truck to move this load.",
+          "scale": 1,
+          "font": 22,
+          "top": 448,
+          "bottom": 474
+        },
+        {
+          "source": "2. Ask a coworker to help with this load.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "3. Lift the heavy crate without help.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    }
+  ],
+  "shots": [
+    "c40-c39-continued-heavy-unsafe-high-policy.png",
+    "c40-c39-continued-heavy-unsafe-high-reading.png"
+  ],
+  "errors": [],
+  "scope": "A real persistent profile and suspended workday plus a declared optional descriptor start the real registered heavy adapter. Every subsequent load decision, helper call, hand-truck movement/unload, posture, grip/rise/pivot/release, finish or abandon uses actual keyboard and nearest physical target controls. No subsequent pose, clock, score, verdict or observation writes. The shipped B178 language font selection is observed without an override; the glyph probe is read-only. Shared optional launcher is not certified; new body strings still await translations.",
+  "fontProof": {
+    "lang": "ta",
+    "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "override": null,
+    "layout": {
+      "width": 793.21875,
+      "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    "platformFonts": [
+      {
+        "familyName": "Noto Sans Tamil",
+        "postScriptName": "NotoSansTamil-Bold",
+        "isCustomFont": false,
+        "glyphCount": 28
+      }
+    ]
+  },
+  "reading": {
+    "lines": [
+      "The posted solo lifting limit is 50 lb (23 kg).",
+      "This load weighs 95 pounds."
+    ],
+    "rows": [
+      {
+        "source": "Read the lifting bay status.",
+        "top": 103,
+        "bottom": 125,
+        "scale": 1
+      },
+      {
+        "source": "⌫ Back",
+        "top": 518.5,
+        "bottom": 537.5,
+        "scale": 1
+      },
+      {
+        "source": "The posted solo lifting limit is 50 lb (23 kg).",
+        "top": 150,
+        "bottom": 194,
+        "scale": 1
+      },
+      {
+        "source": "This load weighs 95 pounds.",
+        "top": 200,
+        "bottom": 221,
+        "scale": 1
+      }
+    ],
+    "top": 92,
+    "bottom": 544,
+    "buttons": [
+      {
+        "top": 412.5,
+        "bottom": 458.5
+      },
+      {
+        "top": 464.5,
+        "bottom": 510.5
+      }
+    ]
+  },
+  "critical": {
+    "mode": "posture",
+    "index": 0,
+    "held": true,
+    "raised": true,
+    "critical": 1,
+    "recorded": false,
+    "completed": 0,
+    "weight": 95
+  },
+  "result": {
+    "assessment": {
+      "attempts": 1,
+      "passed": false,
+      "startedAt": 1793269091193,
+      "pending": false,
+      "abandoned": true,
+      "at": 1793269161610
+    }
+  },
+  "complete": true
+}

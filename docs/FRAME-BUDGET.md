@@ -571,3 +571,6 @@ Pilot `c9e02e87` is now combined at `6040d70d`, retaining C-36 and B-114. All 11
 required cases and the current catalogue pass. The native/shared repeat and
 expanded 207-view gate are running on `5627336f`; no result is claimed for that
 combined gate yet. No ceiling changed. Native Intel 60 fps remains O-1.
+
+
+**C40 after C39/A30 (29 October 2026, accepted sources e8f46073, caaf186d):** 28 focused CPU suites, 2,636 assertions across 9 explicitly scoped native jobs and 24 resource views pass. All original profile/cap checks replay independently; inputs/fonts/artifacts and owned cleanup verified in `docs/review/set-10/c40-c39-rebase/verification.json`. Exact native fixture/abandonment scopes and every profile peak are in that folder’s README. This supersedes no historical source scope and makes no Intel FPS claim (O1).

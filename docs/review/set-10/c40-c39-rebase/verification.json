@@ -1,0 +1,533 @@
+{
+  "scope": "C40 accepted current C39/A30 runtime: first label job retained at e8f46073; remaining eight native jobs and all heavy resources at caaf186d differ only in the declared test viewpoint. Failed sort attempts are excluded and preserved. Original native fixture/abandonment scopes remain; A31 and Intel O1 separate.",
+  "cohorts": [
+    {
+      "sourceRevision": "e8f4607387db36e8ec851c02f5171c9a060890fa",
+      "plan": "docs/review/set-10/c40-c39-rebase/acceptance/plan.json",
+      "planSha256": "c254d44896aaa343f048dd8afe1addd0baa07414501f55ca38d0db712cc52ec3",
+      "sourceCount": 836,
+      "acceptedTags": [
+        "c40-c39-label-low"
+      ],
+      "excludedJobs": [
+        "c40-c39-sort-low"
+      ],
+      "oldTestDifferences": [
+        "test/fppackagesortbrowser.js"
+      ]
+    },
+    {
+      "sourceRevision": "caaf186dd08e2451c24a371704b905f70e5341ce",
+      "plan": "docs/review/set-10/c40-c39-continuation/acceptance/plan.json",
+      "planSha256": "d334ce87eaf0e9b34d105d7e784786a4b595a1be5567ea27790fcca835ff69ae",
+      "sourceCount": 836,
+      "acceptedTags": [
+        "c40-c39-continued-sort-low",
+        "c40-c39-continued-lift-low",
+        "c40-c39-continued-heavy-low",
+        "c40-c39-continued-label-high",
+        "c40-c39-continued-sort-high",
+        "c40-c39-continued-lift-high",
+        "c40-c39-continued-heavy-high",
+        "c40-c39-continued-heavy-unsafe-high",
+        "c40-c39-continued-heavy-budget-loaded-low",
+        "c40-c39-continued-heavy-budget-loaded-high",
+        "c40-c39-continued-heavy-budget-accessible-low",
+        "c40-c39-continued-heavy-budget-fallback-low"
+      ],
+      "excludedJobs": [],
+      "oldTestDifferences": []
+    }
+  ],
+  "liveInputCount": 836,
+  "hostFonts": {
+    "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf": "89c3c497f618fdaa0b2d1e98fef93582f28c71debd2c4a8cdf41f190ced2909d",
+    "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf": "e83493c945848ecd4a9ad0f6d19164541a0d3e23a9c952304a00a46e00272ac5",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Regular.ttf": "a7bb7f92f165479af2f0556c4fd669b74c5959f464f603e18389b532f4d07a71",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Bold.ttf": "7ef7071ba2fad67dcae397dc7f5bfd4dbce69d86cdc453c2cc4abe640df0b442"
+  },
+  "allInputHashesVerified": true,
+  "cpuSuites": 28,
+  "cpuLogHashes": {
+    "fphud.log": "06d1ef409c48303e8b7747af575e23309387070c3cc208798f8abaee70c9ff16",
+    "fppackageheavy.log": "7a4c5392d1ab53c86f091d14178bd50d4941a3588d080a27a67bf41b2715a3be",
+    "fppackageheavyscenario.log": "aef6ef5930fadc86083473ece2982795545876319f62f1da395f4abb3cb3e79a",
+    "fppackagelabels.log": "36193c673552007d36ac8696716d7b643806536c204c3f0964c5a9fbd71a72eb",
+    "fppackagelabelscenario.log": "666cfc26216d729817af1b0aa2014f407f82c1e633f95f319024b94633da3240",
+    "fppackagelabelworld.log": "6dd05b4b7bc71afeb346d0ebb76e5eb5b8583efed125df6289d6c86c479bf7a7",
+    "fppackagelift.log": "242351da70a019e84717c661e6adef6f7bd1d70750ab5f02cdab83545f64e4ab",
+    "fppackageliftbay.log": "b419d451648f91936614956390d259a6b26725d664aaddfc430781d634504432",
+    "fppackageliftgeometry.log": "e10fd65e19916be3b2c0648318ea5da86c6b4050f77d087ac075f861764cd065",
+    "fppackageliftscenario.log": "4caf2f53b939553b823200cff5a40c6e38cc932db9e7417cbcf918ef66afd7b6",
+    "fppackageliftworld.log": "70866218cced687f3491e868c59a3504ba9e961809777e3795df63a7c1b67199",
+    "fppackagesort.log": "c1c00c2d876635133aa28ff776c7ba6cd9b552476b14d24a933dbcd9a369acfe",
+    "fppackagesortscenario.log": "408965f772d951b71dfe063d9a90d54b60b4fdbb4e80b9dae253ddc9ce0b5513",
+    "fppackagesortworld.log": "385b987d8f5b957aa8667fd69c2cd0ef6e93f0ac2d94b3c00bd81411152cbe81",
+    "fpscenario.log": "7094ed8c232c7682d688f19f53e225bbbf49e96aadad82efc23c242b46e7a368",
+    "fpcontext.log": "485eee043f05b67ca367a767d6f180b3ffa89ddcd99a7bbf23baff13e8fd0371",
+    "fpgamepad.log": "dfc4ec0fb31c3871b2beef83ee5cd6a61edc7a11589b8f560134550dee917373",
+    "fpworld.log": "b0a9473b436245dd26b224f1640e398b8523fbeadf6485a3c6ee8e5810f35e5f",
+    "fpaccess.log": "eb1eb541ad92f172afb8b49e8712ccc82a1bd8069ca305dc338fd29004c3fc2e",
+    "englishtext.log": "d56059b221576f657bf39edf0697fdf2d0d80acccbf331b8e52334fbc3e679cf",
+    "fppretrip.log": "02d6bed72101d9ab3ecc3a919cea52455a5f3307acf9064ef4227b9ce516c590",
+    "fproutelesson.log": "32e506db8fa06d2b4dfa15053b6457d0299f9274a3064c130ee65e666a3db19f",
+    "fphazardlesson.log": "b33adaf0af4b312e4237d72fe247b0b92b426251b04e0b1866783ac2bb072beb",
+    "fpdrivinglesson.log": "789ba74ec9eede97a31094c6039f8cad88a9cc6fefa4ea36d110047a337e321c",
+    "fpjunctionlesson.log": "d245b9ac1119f309b13c855ddc21e44e4626059d5d9d88a37d392ebe6e0481a7",
+    "fpschoollesson.log": "c1f1c366d8c07430db78c323a09a034e32e974e1eb93d3f738339a9e848486c6",
+    "fpnightlesson.log": "3bf4daee93ef1f9129f9812d372f9bf800b16ae17c1f9824659488ebbbd9488c",
+    "scenario3d.log": "6a462abdf442c8a5b7cf916981ad513e6c232c353de6c966c282fba75639225e"
+  },
+  "nativeChecks": 2636,
+  "nativeJobs": [
+    {
+      "tag": "c40-c39-label-low",
+      "checks": 1067,
+      "scope": "Physical label inspection only; C-40 sorting, lifting and heavy items remain in progress.",
+      "outcomes": [
+        {
+          "quality": "low",
+          "lang": "en",
+          "large": false,
+          "score": 3150,
+          "stars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "assessment": null,
+          "durable": null,
+          "fontProof": null,
+          "stages": 0,
+          "items": 9
+        }
+      ],
+      "report": "docs/review/set-10/c40-c39-rebase/acceptance/artifacts/c40-c39-label-low/c40-c39-label-low.json"
+    },
+    {
+      "tag": "c40-c39-continued-sort-low",
+      "checks": 263,
+      "scope": "Staged one-parcel-per-wave fixture and wave-end times; real remapped keys, ray selection, scan/read/route confirmations, timers and assessment abandonment. Full conveyor timing/model parity is tested in Node.",
+      "outcomes": [
+        {
+          "quality": "low",
+          "lang": "en",
+          "large": false,
+          "score": 600,
+          "stars": {
+            "efficiency": 3,
+            "safety": 3
+          },
+          "assessment": null,
+          "durable": {
+            "stored": true,
+            "reloaded": true
+          },
+          "fontProof": null,
+          "stages": 5,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-sort-low/c40-c39-continued-sort-low.json"
+    },
+    {
+      "tag": "c40-c39-continued-lift-low",
+      "checks": 299,
+      "scope": "Five real-key practice loads; four real-key assessment loads plus a shelf grip followed by actual abandonment. Existing m2-lift is explicitly routed to the proposed adapter. Durable real workday journal and checkpoint are compared and reloaded. No posture, load, timer or verdict fixtures.",
+      "outcomes": [
+        {
+          "quality": "low",
+          "lang": "en",
+          "large": false,
+          "score": 1000,
+          "stars": {
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": null,
+          "durable": {
+            "stored": true,
+            "reloaded": true
+          },
+          "fontProof": null,
+          "stages": 5,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-low/c40-c39-continued-lift-low.json"
+    },
+    {
+      "tag": "c40-c39-continued-heavy-low",
+      "checks": 190,
+      "scope": "A real persistent profile and suspended workday plus a declared optional descriptor start the real registered heavy adapter. Every subsequent load decision, helper call, hand-truck movement/unload, posture, grip/rise/pivot/release, finish or abandon uses actual keyboard and nearest physical target controls. No subsequent pose, clock, score, verdict or observation writes. The shipped B178 language font selection is observed without an override; the glyph probe is read-only. Shared optional launcher is not certified; new body strings still await translations.",
+      "outcomes": [
+        {
+          "quality": "low",
+          "lang": "en",
+          "large": false,
+          "score": 1000,
+          "stars": {
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": null,
+          "durable": null,
+          "fontProof": {
+            "lang": "en",
+            "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-low/c40-c39-continued-heavy-low.json"
+    },
+    {
+      "tag": "c40-c39-continued-label-high",
+      "checks": 103,
+      "scope": "Physical label inspection only; C-40 sorting, lifting and heavy items remain in progress.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": null,
+          "stars": null,
+          "assessment": null,
+          "durable": null,
+          "fontProof": null,
+          "stages": 0,
+          "items": 1
+        }
+      ],
+      "report": "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-label-high/c40-c39-continued-label-high.json"
+    },
+    {
+      "tag": "c40-c39-continued-sort-high",
+      "checks": 130,
+      "scope": "Staged one-parcel-per-wave fixture and wave-end times; real remapped keys, ray selection, scan/read/route confirmations, timers and assessment abandonment. Full conveyor timing/model parity is tested in Node.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": null,
+          "stars": null,
+          "assessment": {
+            "attempts": 1,
+            "passed": false,
+            "startedAt": 1793268445989,
+            "pending": false,
+            "abandoned": true,
+            "at": 1793268513005
+          },
+          "durable": {
+            "stored": true,
+            "reloaded": true
+          },
+          "fontProof": null,
+          "stages": 2,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-sort-high/c40-c39-continued-sort-high.json"
+    },
+    {
+      "tag": "c40-c39-continued-lift-high",
+      "checks": 291,
+      "scope": "Five real-key practice loads; four real-key assessment loads plus a shelf grip followed by actual abandonment. Existing m2-lift is explicitly routed to the proposed adapter. Durable real workday journal and checkpoint are compared and reloaded. No posture, load, timer or verdict fixtures.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": null,
+          "stars": null,
+          "assessment": {
+            "attempts": 1,
+            "passed": false,
+            "startedAt": 1793268537309,
+            "pending": false,
+            "abandoned": true,
+            "at": 1793268861112
+          },
+          "durable": {
+            "stored": true,
+            "reloaded": true
+          },
+          "fontProof": null,
+          "stages": 4,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-high/c40-c39-continued-lift-high.json"
+    },
+    {
+      "tag": "c40-c39-continued-heavy-high",
+      "checks": 192,
+      "scope": "A real persistent profile and suspended workday plus a declared optional descriptor start the real registered heavy adapter. Every subsequent load decision, helper call, hand-truck movement/unload, posture, grip/rise/pivot/release, finish or abandon uses actual keyboard and nearest physical target controls. No subsequent pose, clock, score, verdict or observation writes. The shipped B178 language font selection is observed without an override; the glyph probe is read-only. Shared optional launcher is not certified; new body strings still await translations.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": 1000,
+          "stars": {
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": {
+            "attempts": 1,
+            "passed": true,
+            "startedAt": 1793268881409,
+            "pending": false,
+            "at": 1793269064526,
+            "stars": {
+              "safety": 3,
+              "efficiency": 3
+            },
+            "score": 1000,
+            "criticals": [],
+            "lessons": []
+          },
+          "durable": null,
+          "fontProof": {
+            "lang": "ta",
+            "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null,
+            "layout": {
+              "width": 793.21875,
+              "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+            },
+            "platformFonts": [
+              {
+                "familyName": "Noto Sans Tamil",
+                "postScriptName": "NotoSansTamil-Bold",
+                "isCustomFont": false,
+                "glyphCount": 28
+              }
+            ]
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-high/c40-c39-continued-heavy-high.json"
+    },
+    {
+      "tag": "c40-c39-continued-heavy-unsafe-high",
+      "checks": 101,
+      "scope": "A real persistent profile and suspended workday plus a declared optional descriptor start the real registered heavy adapter. Every subsequent load decision, helper call, hand-truck movement/unload, posture, grip/rise/pivot/release, finish or abandon uses actual keyboard and nearest physical target controls. No subsequent pose, clock, score, verdict or observation writes. The shipped B178 language font selection is observed without an override; the glyph probe is read-only. Shared optional launcher is not certified; new body strings still await translations.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": null,
+          "stars": null,
+          "assessment": {
+            "attempts": 1,
+            "passed": false,
+            "startedAt": 1793269091193,
+            "pending": false,
+            "abandoned": true,
+            "at": 1793269161610
+          },
+          "durable": null,
+          "fontProof": {
+            "lang": "ta",
+            "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null,
+            "layout": {
+              "width": 793.21875,
+              "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+            },
+            "platformFonts": [
+              {
+                "familyName": "Noto Sans Tamil",
+                "postScriptName": "NotoSansTamil-Bold",
+                "isCustomFont": false,
+                "glyphCount": 28
+              }
+            ]
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-unsafe-high/c40-c39-continued-heavy-unsafe-high.json"
+    }
+  ],
+  "resourceViews": 24,
+  "resources": [
+    {
+      "tag": "c40-c39-continued-heavy-budget-loaded-low",
+      "profile": {
+        "id": "c40-c39-continued-heavy-budget-loaded-low",
+        "quality": "low",
+        "accessibility": "",
+        "fallback": false,
+        "views": "heavyassess,heavygrip,heavyteam,heavytruck,heavycritical,heavystatus"
+      },
+      "views": 6,
+      "peak": {
+        "calls": 35,
+        "triangles": 1160,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1857515
+      }
+    },
+    {
+      "tag": "c40-c39-continued-heavy-budget-loaded-high",
+      "profile": {
+        "id": "c40-c39-continued-heavy-budget-loaded-high",
+        "quality": "high",
+        "accessibility": "",
+        "fallback": false,
+        "views": "heavyassess,heavygrip,heavyteam,heavytruck,heavycritical,heavystatus"
+      },
+      "views": 6,
+      "peak": {
+        "calls": 37,
+        "triangles": 16290,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5624326
+      }
+    },
+    {
+      "tag": "c40-c39-continued-heavy-budget-accessible-low",
+      "profile": {
+        "id": "c40-c39-continued-heavy-budget-accessible-low",
+        "quality": "low",
+        "accessibility": "large,colour,reduced",
+        "fallback": false,
+        "views": "heavyassess,heavygrip,heavyteam,heavytruck,heavycritical,heavystatus"
+      },
+      "views": 6,
+      "peak": {
+        "calls": 35,
+        "triangles": 1160,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2130390
+      }
+    },
+    {
+      "tag": "c40-c39-continued-heavy-budget-fallback-low",
+      "profile": {
+        "id": "c40-c39-continued-heavy-budget-fallback-low",
+        "quality": "low",
+        "accessibility": "",
+        "fallback": true,
+        "views": "heavyassess,heavygrip,heavyteam,heavytruck,heavycritical,heavystatus"
+      },
+      "views": 6,
+      "peak": {
+        "calls": 41,
+        "triangles": 1004,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1857515
+      }
+    }
+  ],
+  "registryProof": {
+    "base": "ee328d18",
+    "onlyApprovedLinks": true
+  },
+  "artifactCount": 61,
+  "artifacts": {
+    "docs/review/set-10/c40-c39-rebase/acceptance/artifacts/c40-c39-label-low/c40-c39-label-low.json": "fba7e384b96fc5ce3501ac1f549673222d4cb918b6c454938a504b75d5ac79e0",
+    "docs/review/set-10/c40-c39-rebase/acceptance/artifacts/c40-c39-label-low/c40-c39-label-low-low-en-normal-base.png": "851b15d2cc308f74987f3d5d34640deba7865ee190a64d8af8e22d31890436b9",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-sort-low/c40-c39-continued-sort-low.json": "7d1f2df945a241340aea31939df7183e9ece7e053738924a33e90cdd68d4639e",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-sort-low/c40-c39-continued-sort-low-low-en-normal-label.png": "ecdb29dd5afa19316ea60261c46ccd0d77e6d80e06dab1a3ded4737c0b040461",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-low/c40-c39-continued-lift-low-low-en-normal-load2.png": "bf2b4a181c1525e3dc1426172f6d6712d760d49cfb2ba46dd1e9af8d6c255123",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-low/c40-c39-continued-lift-low-low-en-normal-load4.png": "2b52ea52b9d2c46d4d069f9f69d339f6c631f77e46e8c5e821ac6bb1bbeb0a4a",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-low/c40-c39-continued-lift-low-low-en-normal-load3.png": "751201bf54231c1815225271ac4652c49510d4dbfaf46a0ccd97e39114aed7ca",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-low/c40-c39-continued-lift-low.json": "d411cbc24268829ab2dbc8dc32d06e1c93bd44b0f2e00c34fe1947811fee1374",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-low/c40-c39-continued-lift-low-low-en-normal-load1.png": "460c67fcb0d3a10978056a189bfbf9a7ac372cce325350d820eb9c936557541d",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-low/c40-c39-continued-lift-low-low-en-normal-load5.png": "3e334dd21ebd85164af0d081d6aa41168431aa9a893087171b50383a4f457284",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-low/c40-c39-continued-heavy-low-load-1.png": "d3bf6e6045d8bae5c26157c8d088ff9954d363cc4958f85997be75f3b724bb48",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-low/c40-c39-continued-heavy-low.json": "541166fa5905c4ebaa9f33aa5c01382050ee2641edbcf46b6b43d506f73a3087",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-low/c40-c39-continued-heavy-low-policy.png": "7b8d340c74760627e150203b7c29f2948449ee60fb2bb516c2f438172f1861f6",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-low/c40-c39-continued-heavy-low-reading.png": "2cfa5fb04c6c8abb5404daa84bd9c73e46bebca8a43b8f92feb9c69296030954",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-low/c40-c39-continued-heavy-low-load-0.png": "3ca494bc73db49f90f7ebe4298938a73ce08c6b171fc9b84e555f44fd45e2660",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-label-high/c40-c39-continued-label-high.json": "250574297ea177a2867c4801bc9fe03a7662d5a808249b116f9c42b2b41a3ce1",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-label-high/c40-c39-continued-label-high-high-ta-large-base.png": "ba7b7f98086cc6ba18e89f6b5d40cc004701f1e54ad528959769605062d1bd86",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-sort-high/c40-c39-continued-sort-high.json": "b805edadfde05dc2524b090f31d504172947c60c19f9fa32fe9ad14ada8e7fa8",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-sort-high/c40-c39-continued-sort-high-high-ta-large-label.png": "84349eed3d6529232fc67a89ce3c6fd4a967b77f7bb0456ca8374329434e1425",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-high/c40-c39-continued-lift-high-high-ta-large-load2.png": "783ceaf177385c421ec3d378a00ba5331504496d567aae3390715bbe6c48dc00",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-high/c40-c39-continued-lift-high-high-ta-large-platform.png": "722f93aff2459c49c233fec95690ada24f757e59ee5f369d68164ca53b139cea",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-high/c40-c39-continued-lift-high-high-ta-large-load4.png": "3f55a1a6f270c8fe5524c32ea08b353295a446da9df705231ab990edcc1cfd66",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-high/c40-c39-continued-lift-high-high-ta-large-load3.png": "9994953c87d0317f8af3036e77a981771a6f58c1112e0ca88fddd2169290ce1a",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-high/c40-c39-continued-lift-high-high-ta-large-load1.png": "e6dea98b6b6b305f05526af5aa393cc4343f9f5b25dfb4a1214db56b3240a98b",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-lift-high/c40-c39-continued-lift-high.json": "b5aa8f420eac4fe045bb14dd9d97223664b152e714f24e7f24cf2144ecf534cc",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-high/c40-c39-continued-heavy-high-reading.png": "be022acf5e61b680aee607bf2ce76d273ed92cce9268af80c4bc46b320634673",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-high/c40-c39-continued-heavy-high-policy.png": "bec52de3af5ecc794d516d7cd153647a4f56cc9f1f53f949c6bdfcd91d378caf",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-high/c40-c39-continued-heavy-high.json": "e1140170a443134b20c194cc7db980a238f689b31d4efe97e9b0a091f7fe4bb4",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-high/c40-c39-continued-heavy-high-load-0.png": "7b3ec8ea01da242f90563b460a8170b4e67f6889a91ff2a6a5f76e281063c52c",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-high/c40-c39-continued-heavy-high-load-1.png": "65992ce9be7bbbe30f1ac75c449934063c0a5c8de48d4a773e4d7ed24b265597",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-unsafe-high/c40-c39-continued-heavy-unsafe-high.json": "dd523143c1571eb36837e88dacac56c73ad3ff363a3202edf036f69ebc2d7f56",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-unsafe-high/c40-c39-continued-heavy-unsafe-high-policy.png": "bec52de3af5ecc794d516d7cd153647a4f56cc9f1f53f949c6bdfcd91d378caf",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-unsafe-high/c40-c39-continued-heavy-unsafe-high-reading.png": "be022acf5e61b680aee607bf2ce76d273ed92cce9268af80c4bc46b320634673",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-low/bench-c40-c39-continued-heavy-budget-loaded-low-low.json": "9a02578411e1c62a5f2d4993513d0a4b309ab8b91783bb41326b34c60beb2dd5",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-low/c40-c39-continued-heavy-budget-loaded-low-low-heavyteam.png": "ad9187a0b4c75e87dbdfab0a39ebadccb8a56b63c835666a29d81161b361293b",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-low/c40-c39-continued-heavy-budget-loaded-low-low-heavycritical.png": "58291aad29127827b3d27b3aaca016acde3321110f1d12ac6524f7e2b6c0e5a6",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-low/c40-c39-continued-heavy-budget-loaded-low-low-heavytruck.png": "dd4aee9a33dca73e3ecc016ef5733256a650f432d9b664a4728e3aa5939734fd",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-low/c40-c39-continued-heavy-budget-loaded-low-low-heavyassess.png": "d7f23650c9af8c8b3dfa2792b6fd0a541d91b2e145967aae7e60a7f00f225d26",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-low/c40-c39-continued-heavy-budget-loaded-low-low-heavystatus.png": "b153fcc47f060c49d85c11de15134bd02607f4501650e5747731d433a4461358",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-low/c40-c39-continued-heavy-budget-loaded-low-low-heavygrip.png": "386f5359f854900382f4fb94bfb18e2a686c855487504a0fb24330ecf682af3f",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-high/c40-c39-continued-heavy-budget-loaded-high-high-heavyassess.png": "36d5840d66ad708d688961e2ed5ae224a9c43a9e5c71adc9e9eed9ab97a6d8a7",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-high/c40-c39-continued-heavy-budget-loaded-high-high-heavygrip.png": "3ff400cf44dad08e7a336b3d06d17852b5764958d313c6128a2f15265885b9f1",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-high/c40-c39-continued-heavy-budget-loaded-high-high-heavytruck.png": "0c1bbe2df01b086a4e932f39d14654d2279172495ae02bc19278a4640bada228",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-high/c40-c39-continued-heavy-budget-loaded-high-high-heavystatus.png": "50f13743886bca2f7be7d1551bfeb837567868a2fbd705aee7fe11f875e1b33a",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-high/bench-c40-c39-continued-heavy-budget-loaded-high-high.json": "5d7f96aba0ddb688c8936fc91b7f378a766d446567acf722de02f9de0510bb65",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-high/c40-c39-continued-heavy-budget-loaded-high-high-heavyteam.png": "6b09c809f1bc57f9e42b47e8147ceb4e568aa88f709dbae31f9e4c6c39917b7e",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-loaded-high/c40-c39-continued-heavy-budget-loaded-high-high-heavycritical.png": "2255a84538936042c652c21292f38aa14a81519217a50f0257bff34044606b22",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-accessible-low/c40-c39-continued-heavy-budget-accessible-low-low-heavytruck.png": "a888596e178c710df3bf812a55d1fe38be2e3a0aeb75bfb4a84ac03e55bf5037",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-accessible-low/c40-c39-continued-heavy-budget-accessible-low-low-heavyassess.png": "c1054bd109a30597ccd0022fae9690b31d62babe6f09ae13c6bbcdf4a179b871",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-accessible-low/c40-c39-continued-heavy-budget-accessible-low-low-heavystatus.png": "9069f65aa877a547d56e6a2dafe610429357332e062c77dcc97c19ac9d1bc523",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-accessible-low/c40-c39-continued-heavy-budget-accessible-low-low-heavyteam.png": "b0d834e627cc7510f2cffe765ae9b63f02cb59a5feb9513ae9eb05dcadd416a0",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-accessible-low/c40-c39-continued-heavy-budget-accessible-low-low-heavygrip.png": "9bb8a27a261a9d16f2daaf695dccb3c4e435403f4e3eb78bcd4f063d6142c519",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-accessible-low/bench-c40-c39-continued-heavy-budget-accessible-low-low.json": "786ae8d1cc12120e3e64ebe52267f9a30b55ab82b14c0dd45e2aef7c1e77f72d",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-accessible-low/c40-c39-continued-heavy-budget-accessible-low-low-heavycritical.png": "bacfcf514959112e7779dd26ddce757fc3b6ea8b4975e3b4f08fc0e1443328c6",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-fallback-low/c40-c39-continued-heavy-budget-fallback-low-low-heavystatus.png": "7c7e59dddee195595c1ec72345bdfcdb5bf6c869b8b92743c51440936f4536cd",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-fallback-low/c40-c39-continued-heavy-budget-fallback-low-low-heavycritical.png": "9dc928ed8b2d18ef36aadcbf892e8a0860059d2173132b2b4f3c1fc93cecd5d8",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-fallback-low/bench-c40-c39-continued-heavy-budget-fallback-low-low.json": "e2a2f4f865e275a98178e9010bd874bed6d6ec50163097c600b3f98ae1e60f1b",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-fallback-low/c40-c39-continued-heavy-budget-fallback-low-low-heavytruck.png": "dd4aee9a33dca73e3ecc016ef5733256a650f432d9b664a4728e3aa5939734fd",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-fallback-low/c40-c39-continued-heavy-budget-fallback-low-low-heavygrip.png": "a6a6fff78c274c36e25f446b3960fec6f5e11e57d9d31538bc82387599c0b4fe",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-fallback-low/c40-c39-continued-heavy-budget-fallback-low-low-heavyteam.png": "a3f68e288a1f57a04f35db80d97e9f3c23d6f393e51543da384dc45abf56a4dd",
+    "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-budget-fallback-low/c40-c39-continued-heavy-budget-fallback-low-low-heavyassess.png": "30d5e2b66c58667f3a1855f2940eb2030523e7761ba12f6f08380bbc60a5c835"
+  },
+  "cleanup": [
+    {
+      "directory": "docs/review/set-10/c40-c39-rebase/acceptance",
+      "serverExited": true,
+      "leaseReleased": true,
+      "ownedPidsGoneOrZombie": true
+    },
+    {
+      "directory": "docs/review/set-10/c40-c39-continuation/acceptance",
+      "serverExited": true,
+      "leaseReleased": true,
+      "ownedPidsGoneOrZombie": true
+    }
+  ],
+  "visualReview": [
+    {
+      "file": "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-high/c40-c39-continued-heavy-high-reading.png",
+      "note": "Original-size High reading: the posted 50 lb/23 kg limit and actual 95 lb load fit the handheld above full-sized controls. Local worker/van geometry is visible; new copy remains for A31."
+    },
+    {
+      "file": "docs/review/set-10/c40-c39-continuation/acceptance/artifacts/c40-c39-continued-heavy-high/c40-c39-continued-heavy-high-load-1.png",
+      "note": "Original-size High neutral assessment completion panel: text/buttons fit without answer findings."
+    }
+  ],
+  "allPassed": true
+}
