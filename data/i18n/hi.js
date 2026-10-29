@@ -4252,7 +4252,24 @@ window.OTR_I18N.hi = {
 "Use the school-drive controls.": "स्कूल ड्राइव के नियंत्रण इस्तेमाल करें।",
 "Drive through the school zone, wait for the bus and children, and park in the marked bay.": "स्कूल ज़ोन से गुज़रें, बस और बच्चों का इंतज़ार करें और चिह्नित जगह में वैन खड़ी करें।",
 "Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.": "प्रवेश का संकेत पढ़ें, फिर चलने से पहले आगे देखें। स्कूल ज़ोन की गति सीमा में रहें। स्कूल बस की लाल बत्तियाँ चमकें तो उससे पहले रुकें। उसकी बत्तियाँ बंद होने और बच्चों के सुरक्षित निकल जाने तक रुकें, फिर आगे बढ़ें।",
-"Read the next instruction page.": "निर्देशों का अगला पेज पढ़ें।"
+"Read the next instruction page.": "निर्देशों का अगला पेज पढ़ें।",
+"Junctions and Lights": "चौराहे और ट्रैफ़िक लाइट",
+"Three approaches in the 3D town: a stop sign, a red light and a give-way junction. Stop at the line, wait for green, give way to traffic with priority, then park in the marked bay.": "3D शहर में तीन रास्ते: एक स्टॉप साइन, एक लाल बत्ती और एक रास्ता देने वाला चौराहा। रेखा पर रुकें, हरी बत्ती का इंतज़ार करें, प्राथमिकता वाले ट्रैफ़िक को रास्ता दें, फिर चिह्नित जगह में वैन खड़ी करें।",
+"Stopping fully behind the stop line": "स्टॉप लाइन के पीछे पूरी तरह रुकना",
+"Waiting for green at a red light": "लाल बत्ती पर हरी बत्ती का इंतज़ार करना",
+"Giving way to traffic with priority": "प्राथमिकता वाले ट्रैफ़िक को रास्ता देना",
+"Mirrors and a signal before every move": "हर कदम से पहले शीशे और इंडिकेटर",
+"W accelerate · S brake · A D steer · Q C signal left/right · B belt · SPACE parking brake · L lights · arrows look · E use a cab control · F record · Tab the handheld · J read a sign": "W तेज़ · S ब्रेक · A D मोड़ना · Q C बायाँ/दायाँ इंडिकेटर · B बेल्ट · SPACE पार्किंग ब्रेक · L लाइट · तीर देखना · E केबिन का नियंत्रण · F दर्ज करें · Tab हैंडहेल्ड · J संकेत पढ़ें",
+"School Zone": "स्कूल ज़ोन",
+"Drive through the school zone in the 3D town. Keep to its speed limit, stop for the school bus while its red lights flash, and wait for the children before you move on.": "3D शहर में स्कूल ज़ोन से गुज़रें। उसकी गति सीमा में रहें, स्कूल बस की लाल बत्तियाँ चमकें तो रुकें और आगे बढ़ने से पहले बच्चों का इंतज़ार करें।",
+"The school-zone speed limit": "स्कूल ज़ोन की गति सीमा",
+"Stopping for a school bus with flashing red lights": "चमकती लाल बत्तियों वाली स्कूल बस के लिए रुकना",
+"Waiting until the children are clear": "बच्चों के सुरक्षित निकल जाने तक इंतज़ार करना",
+"Night Run": "रात की ड्राइव",
+"Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "निकलने से पहले हेडलाइट जाँचें, फिर किसी दूसरे वाहन के पीछे रात का रूट चलें। सुरक्षित दूरी रखें, हेडलाइट जितना दिखाती है उतने में चलें और चिह्नित जगह में वैन खड़ी करें।",
+"Checking the headlights before a night drive": "रात की ड्राइव से पहले हेडलाइट जाँचना",
+"A three-second gap behind the vehicle ahead": "आगे वाले वाहन से तीन सेकंड की दूरी",
+"Driving within the reach of your headlights": "हेडलाइट की पहुँच के भीतर चलाना"
 },
 "templates": [
 [

@@ -4251,7 +4251,24 @@ window.OTR_I18N.ta = {
 "Use the school-drive controls.": "பள்ளிப் பயணக் கட்டுப்பாடுகளைப் பயன்படுத்துங்கள்.",
 "Drive through the school zone, wait for the bus and children, and park in the marked bay.": "பள்ளி மண்டலத்தைக் கடந்து, பேருந்துக்கும் குழந்தைகளுக்கும் காத்திருந்து, குறிக்கப்பட்ட இடத்தில் நிறுத்துங்கள்.",
 "Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.": "நுழைவுப் பலகையைப் படித்து, புறப்படும் முன் முன்னால் பாருங்கள். பள்ளி மண்டல வேக வரம்பைக் கடைப்பிடியுங்கள். பள்ளிப் பேருந்தின் சிவப்பு விளக்குகள் மின்னும்போது அதற்கு முன்பே நில்லுங்கள். அதன் விளக்குகள் அணைந்து குழந்தைகள் பாதுகாப்பாக விலகும் வரை காத்திருந்து, பிறகு தொடருங்கள்.",
-"Read the next instruction page.": "அடுத்த அறிவுறுத்தல் பக்கத்தைப் படியுங்கள்."
+"Read the next instruction page.": "அடுத்த அறிவுறுத்தல் பக்கத்தைப் படியுங்கள்.",
+"Junctions and Lights": "சந்திப்புகளும் விளக்குகளும்",
+"Three approaches in the 3D town: a stop sign, a red light and a give-way junction. Stop at the line, wait for green, give way to traffic with priority, then park in the marked bay.": "3D நகரில் மூன்று அணுகுமுறைகள்: நிறுத்தப் பலகை, சிவப்பு விளக்கு, வழிவிடு சந்திப்பு. கோட்டில் நில்லுங்கள், பச்சைக்குக் காத்திருங்கள், முன்னுரிமை உள்ள போக்குவரத்துக்கு வழிவிடுங்கள், பிறகு குறிக்கப்பட்ட இடத்தில் வேனை நிறுத்துங்கள்.",
+"Stopping fully behind the stop line": "நிறுத்தக் கோட்டுக்குப் பின்னால் முழுமையாக நிற்பது",
+"Waiting for green at a red light": "சிவப்பு விளக்கில் பச்சைக்குக் காத்திருப்பது",
+"Giving way to traffic with priority": "முன்னுரிமை உள்ள போக்குவரத்துக்கு வழிவிடுவது",
+"Mirrors and a signal before every move": "ஒவ்வொரு நகர்வுக்கும் முன் கண்ணாடிகளும் இண்டிகேட்டரும்",
+"W accelerate · S brake · A D steer · Q C signal left/right · B belt · SPACE parking brake · L lights · arrows look · E use a cab control · F record · Tab the handheld · J read a sign": "W வேகம் · S பிரேக் · A D திருப்பு · Q C இடது/வலது இண்டிகேட்டர் · B பெல்ட் · SPACE பார்க்கிங் பிரேக் · L விளக்குகள் · அம்புகள் பார் · E கேபின் கட்டுப்பாடு · F பதிவு · Tab ஹேண்ட்ஹெல்ட் · J பலகை படி",
+"School Zone": "பள்ளி மண்டலம்",
+"Drive through the school zone in the 3D town. Keep to its speed limit, stop for the school bus while its red lights flash, and wait for the children before you move on.": "3D நகரில் பள்ளி மண்டலத்தைக் கடந்து செல்லுங்கள். அதன் வேக வரம்பைக் கடைப்பிடியுங்கள், பள்ளிப் பேருந்தின் சிவப்பு விளக்குகள் மின்னும்போது நில்லுங்கள், தொடரும் முன் குழந்தைகளுக்குக் காத்திருங்கள்.",
+"The school-zone speed limit": "பள்ளி மண்டல வேக வரம்பு",
+"Stopping for a school bus with flashing red lights": "மின்னும் சிவப்பு விளக்குகளுடன் உள்ள பள்ளிப் பேருந்துக்கு நிற்பது",
+"Waiting until the children are clear": "குழந்தைகள் பாதுகாப்பாக விலகும் வரை காத்திருப்பது",
+"Night Run": "இரவுப் பயணம்",
+"Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "புறப்படும் முன் முகப்பு விளக்குகளைச் சோதித்து, மற்றொரு வாகனத்தின் பின்னால் இரவு வழித்தடத்தைப் பின்பற்றுங்கள். பாதுகாப்பான இடைவெளி வைத்து, முகப்பு விளக்குகள் காட்டும் தூரத்துக்குள் ஓட்டி, குறிக்கப்பட்ட இடத்தில் வேனை நிறுத்துங்கள்.",
+"Checking the headlights before a night drive": "இரவுப் பயணத்துக்கு முன் முகப்பு விளக்குகளைச் சோதிப்பது",
+"A three-second gap behind the vehicle ahead": "முன்னால் செல்லும் வாகனத்திலிருந்து மூன்று வினாடி இடைவெளி",
+"Driving within the reach of your headlights": "முகப்பு விளக்குகளின் எல்லைக்குள் ஓட்டுவது"
 },
 "templates": [
 [

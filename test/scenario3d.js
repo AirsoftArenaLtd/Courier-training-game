@@ -37,6 +37,7 @@ const scene = (keys) => ({ scene: { manager: { keys: Object.fromEntries((keys ||
 const sceneKeys = () => OTR.registry.all().map(s => s.scene).filter(Boolean).concat('FirstPersonScenarioScene');
 
 test('every scenario with a 3D version keeps its 2D id, categories and star thresholds', () => {
+  assert.deepEqual(plain(OTR.registry.all().filter(s => !s.scene).map(s => s.id)), ['m1-junctions', 'm1-school', 'm1-night'], 'C-39\'s 3D-only scenarios');
   const all = OTR.registry.all();
   for (const id of Object.keys(BEFORE)) assert.ok(OTR.registry.get(id), `${id} is still a scenario`);
   for (const sc of all.filter(s => s.scene3d)) {
@@ -89,8 +90,8 @@ test('a 3D-only scenario on a PC without WebGL says so, and is left out of "ever
     fresh(); OTR.flow.startScenario(scene(sceneKeys()), 'm1-a30only');
     assert.equal(OTR.transitions.length, 0, 'nothing starts');
     assert.deepEqual(plain(OTR.toasts), ['This scenario needs 3D graphics.']);
-    const all = OTR.registry.all().length;
-    assert.equal(OTR.registry.counted().length, all - 1, 'without WebGL it does not count');
+    const all = OTR.registry.all().filter(s => !s.optional).length;   // the optional 3D-only scenarios never count
+    assert.equal(OTR.registry.counted().length, all - 1 - OTR.registry.all().filter(s => !s.optional && !s.scene && s !== only).length, 'without WebGL it does not count');
     assert.equal(OTR.registry.counted(true).length, all, 'with WebGL (and in the trainer\'s view) it counts');
     only.optional = true;
     assert.equal(OTR.registry.counted(true).length, all - 1, 'an optional scenario never counts');
@@ -107,7 +108,7 @@ test('passing every counted scenario completes the course, with optional ones le
     const assess = OTR.save.data.assess = OTR.save.data.assess || {};
     for (const sc of OTR.registry.counted()) assess[sc.id] = { passed: true, attempts: 1, at: 1 };
     const s = OTR.academy.summary();
-    assert.equal(s.total, OTR.registry.all().length - 1);
+    assert.equal(s.total, OTR.registry.all().filter(x => !x.optional).length);
     assert.equal(s.passedAll, true, 'the optional scenario does not hold the course back');
   } finally { m.scenarios.pop(); }
 });
@@ -122,4 +123,12 @@ test('a 3D result and a 2D result of the same scenario land in the same record',
   assert.equal(rec.bestScore, 650, 'and their scores compare on the same scale');
   assert.equal(Object.keys(OTR.save.data.scenarios).length, 1, 'no second record for the 3D version');
   assert.equal(OTR.transitions.filter(t => t.key === 'ResultsScene').length, 2, 'both show the same results screen');
+});
+
+test('the hub lists a 3D-only scenario only once A-31\'s QA sets its default3d', () => {
+  const m = OTR.registry.modules().find(x => x.id === 'm1'), night = OTR.registry.get('m1-night');
+  assert.deepEqual(plain(OTR.registry.listed(m).map(s => s.id)), ['m1-pretrip', 'm1-route', 'm1-driving', 'm1-spot']);
+  night.default3d = true;
+  try { assert.ok(OTR.registry.listed(m).some(s => s.id === 'm1-night'), 'listed once QA sets default3d'); }
+  finally { delete night.default3d; }
 });

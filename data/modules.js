@@ -61,6 +61,41 @@ OTR_DATA.modules = [
         blurb: 'Five short clips from the driver\'s seat. Something starts to happen in each one: press the moment you see it coming, not when it is already in front of you.',
         learn: ['Reading the clue before the hazard', 'Children, reversing cars and opening doors', 'Pedestrians who aren\'t looking', 'Cars that won\'t stop'],
         controls: 'SPACE or click when you see a hazard developing · ENTER for the next clip'
+      },
+      // A-30: 3D-only scenarios from C-39 (docs/3D-MODULES.md). No 2D scene: a PC without WebGL shows "needs 3D", and
+      // optional: true leaves them out of "every module passed" until owner question 11 is answered
+      {
+        id: 'm1-junctions',
+        title: 'Junctions and Lights',
+        icon: 'ic_wheel',
+        scene3d: 'junction-approaches',
+        optional: true,
+        categories: ['safety', 'efficiency'],
+        blurb: 'Three approaches in the 3D town: a stop sign, a red light and a give-way junction. Stop at the line, wait for green, give way to traffic with priority, then park in the marked bay.',
+        learn: ['Stopping fully behind the stop line', 'Waiting for green at a red light', 'Giving way to traffic with priority', 'Mirrors and a signal before every move'],
+        controls: 'W accelerate · S brake · A D steer · Q C signal left/right · B belt · SPACE parking brake · L lights · arrows look · E use a cab control · F record · Tab the handheld · J read a sign'
+      },
+      {
+        id: 'm1-school',
+        title: 'School Zone',
+        icon: 'ic_flag',
+        scene3d: 'school-zone-drive',
+        optional: true,
+        categories: ['safety'],
+        blurb: 'Drive through the school zone in the 3D town. Keep to its speed limit, stop for the school bus while its red lights flash, and wait for the children before you move on.',
+        learn: ['The school-zone speed limit', 'Stopping for a school bus with flashing red lights', 'Waiting until the children are clear'],
+        controls: 'W accelerate · S brake · A D steer · Q C signal left/right · B belt · SPACE parking brake · L lights · arrows look · E use a cab control · F record · Tab the handheld · J read a sign'
+      },
+      {
+        id: 'm1-night',
+        title: 'Night Run',
+        icon: 'ic_van',
+        scene3d: 'night-route-drive',
+        optional: true,
+        categories: ['safety', 'efficiency'],
+        blurb: 'Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.',
+        learn: ['Checking the headlights before a night drive', 'A three-second gap behind the vehicle ahead', 'Driving within the reach of your headlights'],
+        controls: 'W accelerate · S brake · A D steer · Q C signal left/right · B belt · SPACE parking brake · L lights · arrows look · E use a cab control · F record · Tab the handheld · J read a sign'
       }
     ]
   },

@@ -4251,7 +4251,24 @@ window.OTR_I18N.ml = {
 "Use the school-drive controls.": "സ്കൂൾ യാത്രയുടെ നിയന്ത്രണങ്ങൾ ഉപയോഗിക്കുക.",
 "Drive through the school zone, wait for the bus and children, and park in the marked bay.": "സ്കൂൾ മേഖലയിലൂടെ കടന്ന്, ബസിനും കുട്ടികൾക്കുമായി കാത്തിരുന്ന്, അടയാളമിട്ട സ്ഥലത്ത് നിർത്തുക.",
 "Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.": "പ്രവേശന ബോർഡ് വായിച്ച്, പുറപ്പെടുന്നതിനു മുമ്പ് മുന്നോട്ട് നോക്കുക. സ്കൂൾ മേഖലയുടെ വേഗപരിധി പാലിക്കുക. സ്കൂൾ ബസിന്റെ ചുവപ്പ് ലൈറ്റുകൾ മിന്നുമ്പോൾ അതിനു മുമ്പേ നിർത്തുക. അതിന്റെ ലൈറ്റുകൾ അണഞ്ഞ് കുട്ടികൾ സുരക്ഷിതരാകുന്നതുവരെ കാത്തിരുന്ന്, തുടർന്ന് മുന്നോട്ട് പോകുക.",
-"Read the next instruction page.": "നിർദേശങ്ങളുടെ അടുത്ത പേജ് വായിക്കുക."
+"Read the next instruction page.": "നിർദേശങ്ങളുടെ അടുത്ത പേജ് വായിക്കുക.",
+"Junctions and Lights": "ജംഗ്ഷനുകളും ട്രാഫിക് ലൈറ്റുകളും",
+"Three approaches in the 3D town: a stop sign, a red light and a give-way junction. Stop at the line, wait for green, give way to traffic with priority, then park in the marked bay.": "3D നഗരത്തിൽ മൂന്ന് സമീപനങ്ങൾ: ഒരു സ്റ്റോപ്പ് ബോർഡ്, ഒരു ചുവപ്പ് ലൈറ്റ്, ഒരു വഴി കൊടുക്കുക ജംഗ്ഷൻ. വരയിൽ നിർത്തുക, പച്ചയ്ക്കായി കാത്തിരിക്കുക, മുൻഗണനയുള്ള ഗതാഗതത്തിന് വഴി കൊടുക്കുക, തുടർന്ന് അടയാളമിട്ട സ്ഥലത്ത് വാൻ നിർത്തുക.",
+"Stopping fully behind the stop line": "സ്റ്റോപ്പ് ലൈനിനു പിന്നിൽ പൂർണമായി നിർത്തുക",
+"Waiting for green at a red light": "ചുവപ്പ് ലൈറ്റിൽ പച്ചയ്ക്കായി കാത്തിരിക്കുക",
+"Giving way to traffic with priority": "മുൻഗണനയുള്ള ഗതാഗതത്തിന് വഴി കൊടുക്കുക",
+"Mirrors and a signal before every move": "ഓരോ നീക്കത്തിനു മുമ്പും കണ്ണാടികളും ഇൻഡിക്കേറ്ററും",
+"W accelerate · S brake · A D steer · Q C signal left/right · B belt · SPACE parking brake · L lights · arrows look · E use a cab control · F record · Tab the handheld · J read a sign": "W വേഗം · S ബ്രേക്ക് · A D തിരിക്കുക · Q C ഇടത്/വലത് ഇൻഡിക്കേറ്റർ · B ബെൽറ്റ് · SPACE പാർക്കിംഗ് ബ്രേക്ക് · L ലൈറ്റ് · അമ്പുകൾ നോക്കുക · E ക്യാബിൻ നിയന്ത്രണം · F രേഖപ്പെടുത്തുക · Tab ഹാൻഡ്‌ഹെൽഡ് · J ബോർഡ് വായിക്കുക",
+"School Zone": "സ്കൂൾ മേഖല",
+"Drive through the school zone in the 3D town. Keep to its speed limit, stop for the school bus while its red lights flash, and wait for the children before you move on.": "3D നഗരത്തിലെ സ്കൂൾ മേഖലയിലൂടെ ഓടിക്കുക. അതിന്റെ വേഗപരിധി പാലിക്കുക, സ്കൂൾ ബസിന്റെ ചുവപ്പ് ലൈറ്റുകൾ മിന്നുമ്പോൾ നിർത്തുക, മുന്നോട്ട് പോകുന്നതിനു മുമ്പ് കുട്ടികൾക്കായി കാത്തിരിക്കുക.",
+"The school-zone speed limit": "സ്കൂൾ മേഖലയുടെ വേഗപരിധി",
+"Stopping for a school bus with flashing red lights": "മിന്നുന്ന ചുവപ്പ് ലൈറ്റുള്ള സ്കൂൾ ബസിനായി നിർത്തുക",
+"Waiting until the children are clear": "കുട്ടികൾ സുരക്ഷിതരാകുന്നതുവരെ കാത്തിരിക്കുക",
+"Night Run": "രാത്രി യാത്ര",
+"Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "പുറപ്പെടുന്നതിനു മുമ്പ് ഹെഡ്‌ലൈറ്റുകൾ പരിശോധിച്ച്, മറ്റൊരു വാഹനത്തിനു പിന്നിൽ രാത്രി റൂട്ട് പിന്തുടരുക. സുരക്ഷിത അകലം പാലിക്കുക, ഹെഡ്‌ലൈറ്റുകൾ കാണിക്കുന്നതിനുള്ളിൽ ഓടിക്കുക, അടയാളമിട്ട സ്ഥലത്ത് വാൻ നിർത്തുക.",
+"Checking the headlights before a night drive": "രാത്രി യാത്രയ്ക്കു മുമ്പ് ഹെഡ്‌ലൈറ്റുകൾ പരിശോധിക്കുക",
+"A three-second gap behind the vehicle ahead": "മുന്നിലുള്ള വാഹനത്തിൽ നിന്ന് മൂന്ന് സെക്കൻഡ് അകലം",
+"Driving within the reach of your headlights": "ഹെഡ്‌ലൈറ്റുകളുടെ പരിധിക്കുള്ളിൽ ഓടിക്കുക"
 },
 "templates": [
 [
