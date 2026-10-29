@@ -1,0 +1,338 @@
+{
+  "scope": "Owned C42 current-pilot-stack acceptance. Six successful native journeys combine two immutable test-probe versions with byte-identical production inputs. Failed attempts are archived and excluded. Optional registry descriptors remain prepared for the separate shared content/validator gate.",
+  "head": "2e34e5481607e75e539d2eb6ad5c6f790e2ae29f",
+  "cpuSuites": 22,
+  "nativeChecks": 2433,
+  "nativeJobs": [
+    {
+      "tag": "c42-rebase-blocked-low",
+      "checks": 241,
+      "layoutRows": 11,
+      "modes": 0
+    },
+    {
+      "tag": "c42-uifix-blocked-high-ta",
+      "checks": 245,
+      "layoutRows": 11,
+      "modes": 0
+    },
+    {
+      "tag": "c42-uifix-blocked-bad-high-ta",
+      "checks": 257,
+      "layoutRows": 12,
+      "modes": 0
+    },
+    {
+      "tag": "c42-uifix-closure-low",
+      "checks": 122,
+      "layoutRows": 6,
+      "modes": 0
+    },
+    {
+      "tag": "c42-uifix-recovery-low",
+      "checks": 773,
+      "layoutRows": 0,
+      "modes": 1
+    },
+    {
+      "tag": "c42-uifix-storm-high-ta",
+      "checks": 795,
+      "layoutRows": 0,
+      "modes": 1
+    }
+  ],
+  "resourceViews": 40,
+  "resourceProfiles": [
+    {
+      "tag": "c42-rebase-blocked-loaded-low",
+      "peak": {
+        "calls": 45,
+        "triangles": 1530,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1958368
+      }
+    },
+    {
+      "tag": "c42-rebase-blocked-loaded-high",
+      "peak": {
+        "calls": 77,
+        "triangles": 99056,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5330096
+      }
+    },
+    {
+      "tag": "c42-rebase-blocked-accessible-low",
+      "peak": {
+        "calls": 45,
+        "triangles": 1530,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2209584
+      }
+    },
+    {
+      "tag": "c42-rebase-blocked-fallback-low",
+      "peak": {
+        "calls": 41,
+        "triangles": 1268,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1958368
+      }
+    },
+    {
+      "tag": "c42-rebase-closure-loaded-low",
+      "peak": {
+        "calls": 40,
+        "triangles": 1102,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1403371
+      }
+    },
+    {
+      "tag": "c42-rebase-closure-loaded-high",
+      "peak": {
+        "calls": 71,
+        "triangles": 135950,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 4145531
+      }
+    },
+    {
+      "tag": "c42-rebase-closure-accessible-low",
+      "peak": {
+        "calls": 40,
+        "triangles": 1102,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1474224
+      }
+    },
+    {
+      "tag": "c42-rebase-closure-fallback-low",
+      "peak": {
+        "calls": 39,
+        "triangles": 906,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1403371
+      }
+    }
+  ],
+  "gateSources": [
+    {
+      "gate": "acceptance",
+      "revision": "6e689faeb0c446b142fd527039d37a41d7f4380c",
+      "planSha256": "b694a54acde69f0ea14b86830d051e652acb2e1a3d72493ecad9bb20cc0b7cb1",
+      "inputCount": 808,
+      "testOnlyDifferencesFromCurrent": [
+        "test/tools/fp-script-font-proof.js",
+        "test/fpproblemblockedbrowser.js"
+      ],
+      "allProductionInputsIdentical": true
+    },
+    {
+      "gate": "native-ui-retry",
+      "revision": "684ab4ef67f553a1c386bdc3407ef180debdbb97",
+      "planSha256": "daadddc416d72a09a12258b893541baa95b4c70ff25708e1b18d18240e426cd8",
+      "inputCount": 808,
+      "testOnlyDifferencesFromCurrent": [],
+      "allProductionInputsIdentical": true
+    },
+    {
+      "gate": "resources",
+      "revision": "6e689faeb0c446b142fd527039d37a41d7f4380c",
+      "planSha256": "1b288c820e2400ce99645d540d1b3f2b3f26c5a8e0da58bd5dae5449ed8157cc",
+      "inputCount": 808,
+      "testOnlyDifferencesFromCurrent": [
+        "test/fpproblemblockedbrowser.js",
+        "test/tools/fp-script-font-proof.js"
+      ],
+      "allProductionInputsIdentical": true
+    }
+  ],
+  "artifactCount": 124,
+  "artifactHashes": {
+    "acceptance/artifacts/c42-rebase-blocked-low/c42-rebase-blocked-low-device.png": "29d57321f79c76d28d7bdb9177aaf4e1566e5829362bd5acce04b42e718d67ed",
+    "acceptance/artifacts/c42-rebase-blocked-low/c42-rebase-blocked-low.json": "f27154c31d67e6ebc4b4df44e1974b3e4cd4ee1d95e80047cbf9d2d93feecb96",
+    "acceptance/artifacts/c42-rebase-blocked-low/c42-rebase-blocked-low-access-notice.png": "12616989922aa0b96dc6d3730fcaa7f6a789fe843169c938737ec5d3d9283efa",
+    "acceptance/artifacts/c42-rebase-blocked-low/c42-rebase-blocked-low-booking.png": "204be4aecbbab12b0b81f2284cad1e9100ee5456323205cdd82440d2fe8d3ab7",
+    "acceptance/artifacts/c42-rebase-blocked-low/c42-rebase-blocked-low-brief.png": "265b670c1ed8f5d525f409071250fd291439182a78306a12bcdd6e96c6e6d8ea",
+    "acceptance/artifacts/c42-rebase-blocked-low/c42-rebase-blocked-low-card-left.png": "782dfd03d6d870421480d04000408e0ab3cdf8e9180ce57d49a1820f9fe7d2a4",
+    "acceptance/artifacts/c42-rebase-blocked-low/c42-rebase-blocked-low-safe-card.png": "845acdb02f4c1cdd4771604f7629da3d79485c3ee650dcb0f60d65053bbce566",
+    "acceptance/artifacts/c42-rebase-blocked-low/c42-rebase-blocked-low-controls.png": "7161912474b8aea902dc91fba3ac64ace966c9acb7fc3719f5909c6759b6c50a",
+    "acceptance/artifacts/c42-rebase-blocked-low/c42-rebase-blocked-low-result.png": "65cc09d4bcef4334baf1e5584dc3bf371049157f587f86bea10a5fa7b0b7aa15",
+    "acceptance/artifacts/c42-rebase-blocked-low/c42-rebase-blocked-low-cargo-secured.png": "322b66c3691cbc20f0a5bb75d859de8e63615283b52670405cc5f6997660c966",
+    "native-ui-retry/artifacts/c42-uifix-blocked-high-ta/c42-uifix-blocked-high-ta-booking.png": "3dbbe391461cb6970be56d624a62e90272df60bdaafdd6d9492e4c7539c96dfe",
+    "native-ui-retry/artifacts/c42-uifix-blocked-high-ta/c42-uifix-blocked-high-ta-device.png": "c4331a78ecffaea3ce50c501898c3aa175d2cbde8526cfc0fe9a000b8178789b",
+    "native-ui-retry/artifacts/c42-uifix-blocked-high-ta/c42-uifix-blocked-high-ta-controls.png": "2a880d86caef1aa43afdde12246d48174def88e9b331e550e6d5d33f47f4f7a3",
+    "native-ui-retry/artifacts/c42-uifix-blocked-high-ta/c42-uifix-blocked-high-ta-card-left.png": "ce56e6f2972aeb0eb7c56e5763dfe88a6fc8a04e66ab478a861a8c29e0c11d0a",
+    "native-ui-retry/artifacts/c42-uifix-blocked-high-ta/c42-uifix-blocked-high-ta-result.png": "efca12fda9c55c3f1801fa93fce2e9e5bfe6f4d192cc0b447b054f55dbba2522",
+    "native-ui-retry/artifacts/c42-uifix-blocked-high-ta/c42-uifix-blocked-high-ta.json": "5b7a81debbd995335cec13142bce1f557faa0cae15d591618f21ee85aff86d00",
+    "native-ui-retry/artifacts/c42-uifix-blocked-high-ta/c42-uifix-blocked-high-ta-safe-card.png": "f215fb6c88a2302c6d6aba6730a8e24095b47e8d5b1ad6e9e8711d7b93dceaa0",
+    "native-ui-retry/artifacts/c42-uifix-blocked-high-ta/c42-uifix-blocked-high-ta-access-notice.png": "c49db90c6aa32faae16a47fbb118516d7a59442b90e877743cb776a9bac430fb",
+    "native-ui-retry/artifacts/c42-uifix-blocked-high-ta/c42-uifix-blocked-high-ta-brief.png": "155b96faecc360a662f58d0e0b473dd8d07ca94df65890958097989f36fb3870",
+    "native-ui-retry/artifacts/c42-uifix-blocked-high-ta/c42-uifix-blocked-high-ta-cargo-secured.png": "7d9be912e2ddda79242e5b36348a95200ed9408cf9bb1ef9fa0b30d567d55763",
+    "native-ui-retry/artifacts/c42-uifix-blocked-bad-high-ta/c42-uifix-blocked-bad-high-ta-device.png": "c4331a78ecffaea3ce50c501898c3aa175d2cbde8526cfc0fe9a000b8178789b",
+    "native-ui-retry/artifacts/c42-uifix-blocked-bad-high-ta/c42-uifix-blocked-bad-high-ta-booking.png": "3dbbe391461cb6970be56d624a62e90272df60bdaafdd6d9492e4c7539c96dfe",
+    "native-ui-retry/artifacts/c42-uifix-blocked-bad-high-ta/c42-uifix-blocked-bad-high-ta-card-left.png": "085b7aac1a74b1ddcb389e3f8507da909ebbd2d43456cf648e8e22ac3f4c1bd1",
+    "native-ui-retry/artifacts/c42-uifix-blocked-bad-high-ta/c42-uifix-blocked-bad-high-ta-access-notice.png": "164c11ce85337b86d3f89495652f60f1309939d88517cc5cb3ef7b59bcc825be",
+    "native-ui-retry/artifacts/c42-uifix-blocked-bad-high-ta/c42-uifix-blocked-bad-high-ta-safe-card.png": "674b940ab0ea9ba5b46a696c34fd0391a2716a7c0fa78be5159160bf563ad20c",
+    "native-ui-retry/artifacts/c42-uifix-blocked-bad-high-ta/c42-uifix-blocked-bad-high-ta-controls.png": "2a880d86caef1aa43afdde12246d48174def88e9b331e550e6d5d33f47f4f7a3",
+    "native-ui-retry/artifacts/c42-uifix-blocked-bad-high-ta/c42-uifix-blocked-bad-high-ta-result.png": "d8d709dbc9d5d5c23d16ce4891a2773cce5408daa160e744784bcfe801574261",
+    "native-ui-retry/artifacts/c42-uifix-blocked-bad-high-ta/c42-uifix-blocked-bad-high-ta-cargo-secured.png": "32400d71b4a09502497628238cb11b042351ca943ccc9f34e9d5b0a459b4ac7b",
+    "native-ui-retry/artifacts/c42-uifix-blocked-bad-high-ta/c42-uifix-blocked-bad-high-ta.json": "17c612b67346cc35e1427f59fffcf6321b79a7c4b1763251c0d11c256947c22a",
+    "native-ui-retry/artifacts/c42-uifix-blocked-bad-high-ta/c42-uifix-blocked-bad-high-ta-brief.png": "155b96faecc360a662f58d0e0b473dd8d07ca94df65890958097989f36fb3870",
+    "native-ui-retry/artifacts/c42-uifix-closure-low/c42-uifix-closure-low-sign-reading.png": "fbb909a24255e4a8290ef7bd63ad0b7a3da9a1e54b4ce65f2ad8301b0110ad4f",
+    "native-ui-retry/artifacts/c42-uifix-closure-low/c42-uifix-closure-low-controls-2.png": "b8bed3b2aa8f5b70b78493e4c1a38220a2bf5583eeaaa741216cebf5fa047f7a",
+    "native-ui-retry/artifacts/c42-uifix-closure-low/c42-uifix-closure-low-device.png": "92b68933fe307e236a3ff05699674d74d3c49278ff88b25158be6182a1ced7c8",
+    "native-ui-retry/artifacts/c42-uifix-closure-low/c42-uifix-closure-low-controls-0.png": "63467c1122fffdd52abc8cbaed047ea59b9e0effd8baa1ab84a7de46ebd19c78",
+    "native-ui-retry/artifacts/c42-uifix-closure-low/c42-uifix-closure-low-brief.png": "9f3b0e1d310b022b32f82143caf9a33ca17901cdd73f98e667039c6f7af1a1a3",
+    "native-ui-retry/artifacts/c42-uifix-closure-low/c42-uifix-closure-low-parked.png": "036b393e5ae017c06f77f9525473768dadff97e3e1c52945d088052e197b7926",
+    "native-ui-retry/artifacts/c42-uifix-closure-low/c42-uifix-closure-low-result.png": "d0e07d91f01d0fc147ea5a48194d5a5970911505a6703bab2ee64a9f530e9590",
+    "native-ui-retry/artifacts/c42-uifix-closure-low/c42-uifix-closure-low.json": "522ed7fa51becbebf42f0f743b881ee1c7ae240ebb07d7ff30078d84d0ae1ee9",
+    "native-ui-retry/artifacts/c42-uifix-closure-low/c42-uifix-closure-low-controls-1.png": "c488c1c914d3b8e34a09061039e0a6debecb7edf11958b2b21a3be0c19c75309",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-result.png": "e9428a562c02699d42bf5e35f404ee3c95f6963a5972df5cce9209fbb81aa075",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-handheld.png": "12dc28d88f4b21c6c79e2752ce9e4562db3ea78ca745531e188ebfc8e89eb6a3",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-reply-n2.png": "e9c57b789e906abe7f1e973dd647a6ca4f04084198f439d596edd9f5af3d7535",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-ending.png": "b135aeafd1d926804946524d68ea6bdc7e355ffdc960e3afc38b7406643e6e57",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-physical.png": "8097f812ccde9e4063cfca876b5f90357fba4b17f2d267832d5251279922673d",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-reply-n7.png": "f2b7868464394bf8de2f91907e5d8cefaa57f04da8514abba05c8d2b1cf4e9a3",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-controls-2.png": "f4a900e10615b27b1bbf5440283b693f8b1f2f05edd1a6316b29bfd6d7224c95",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-arrival-3-other.png": "a0d28aef2061b761e5d4508ba39a772a446b7b301d9633fdfdfb7e9da6936e76",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-reply-n0.png": "7b45e062d0f2d99bedbace83cc112cb36cef442a40ad8d3dfe2e843124ec5ae2",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-address-reading.png": "3618f9b5eb25a4616046be5bb30b2827d453ea5be5345da0f35f33a295de1aaf",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-arrival-2-cargo.png": "3208e48a18ec920d2226a63e43c256792911057f6c08acc5349ddd2fd7a4de92",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-controls-0.png": "b652d5e38a31af73d3cf5cfac05ed087fc83af8f97b565104cd42fd79d47f3ec",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-reply-n5.png": "52ba38593b068aff6792f0d4058a88612883d48f1683c6952c7e25d29e6d7a59",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low.json": "28c0a3cfdab264af8bc661ab0a611286dc56740f74370cb38416e856777c1aae",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-controls-1.png": "8f7d650db0feed8be4ee96b0a49ecfaacf71f77d4fe5054d9bb17d860b78bc5e",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-reply-n3.png": "4d1556aa5827665d8f200d372ada0481279be508b3ba12caa962b68729f10888",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-controls-3.png": "19851475d78d94fa34504e2b72b94acff411829f01ae8cec35e6e2b3e01a33dc",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-arrival-4-cab.png": "59efeb3750738e24eea3a5a3f3f4a0c9d9fc7a0f62310a460919702a9552f103",
+    "native-ui-retry/artifacts/c42-uifix-recovery-low/c42-uifix-recovery-low-low-en-normal-recover-arrival-1-house.png": "3fc4be5a5cc1faff753a920d9059a9b59899920a548c5f2295895de33a6eb243",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-result.png": "bd4f1457a373124b6b3f051b4c13dde5d2668cb5761bfcce23056b3464700828",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-reply-n6.png": "ea6c1915ce8b7c1c5b080c44b6153f4fad1f438962ce1972b2f9eb561fda33d1",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-physical.png": "2a67a303934d90b9ef2370c9f3e278055350c001eddb533489012d664054c0b6",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-controls-3.png": "9b9c5da7a948c8b7a3f5435af173ab69403b3a35a49c55c6f1fecdc0d13cfe64",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta.json": "ab8f4e957a8bebc5ca21127b5ed8a4d00a9698f5fcca60638b6fec21a555fd22",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-arrival-2-cab.png": "b6bfc4d117bcf9eb088f16c0a151a3b88b4be0ab38a36b9189a7d92adfbfd3ea",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-address-reading.png": "b7666bf1e1093300d40c2e2804061d504c10159aeb693905bcf2b503bcc84f90",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-handheld.png": "955c42f6e6185083d27222c9863830872a84eb0c3c5ad40246c83fd814e4c8b9",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-arrival-1-gate.png": "bbfbe8cf087e5b6cff0375539b204995cd9e3c37d860bdb79992df60d65cd00b",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-reply-n3.png": "542fcae1a20ead1eedb3d6d77e320ed0134be9c7ee33886097b381f5d717579f",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-controls-1.png": "700913590a8b929ee130b50faff25095c9650c6bd319e4d4df23b93910ecbf9d",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-ending.png": "b4ada8671d9db6c80f8f41f8cd4cc21e2e1036d5bf539db56736a696f43c3db4",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-reply-n2.png": "fdaa2cb791090575c273ea968edaaafbeee0d9b6d80ee1007efaf292a018d178",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-reply-n4.png": "3a722783c496e630f53bbb6eabc2b38f8379584d6b6592d52c65170da549e6e4",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-reply-n5.png": "dd085b9093190b47279013a2bbc51da57164e6f362747c1e88cff1befae4a150",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-controls-2.png": "e5cfbd61461dbe769d3e5e287301ce86eb732ac0b4c810947d96d01bfcf8656d",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-controls-0.png": "fa3d69163d770857b7cfbb32f1b724204317b404e3d5d1855c296d1d7fd5365f",
+    "native-ui-retry/artifacts/c42-uifix-storm-high-ta/c42-uifix-storm-high-ta-high-ta-large-storm-reply-n0.png": "e5e9b75c4d8ae81e16e348f20b1d0c6e35914d74db2a71c0a47bb8b4624eceb3",
+    "resources/artifacts/c42-rebase-blocked-loaded-low/c42-rebase-blocked-loaded-low-low-blockeddevice.png": "29d57321f79c76d28d7bdb9177aaf4e1566e5829362bd5acce04b42e718d67ed",
+    "resources/artifacts/c42-rebase-blocked-loaded-low/c42-rebase-blocked-loaded-low-low-blockedcab.png": "9f3a3e35a8815f2a93c4d99e6f3d27dc8a60956c338c77e241f5a3541a0cb777",
+    "resources/artifacts/c42-rebase-blocked-loaded-low/bench-c42-rebase-blocked-loaded-low-low.json": "ff89bd4b8209a39d0120d6e1a3f45073755621a0f8a1ead5933d76f8b10eea7c",
+    "resources/artifacts/c42-rebase-blocked-loaded-low/c42-rebase-blocked-loaded-low-low-blockedgate.png": "9f508b47184afbee8a9d74cd6a894b59e30da1788106ae59b908198b571c5638",
+    "resources/artifacts/c42-rebase-blocked-loaded-low/c42-rebase-blocked-loaded-low-low-blockedcard.png": "ecb28320cd1378fe4519f84c59e4a5bcd4e56f09cdb5ee7761fe05b11f21ea41",
+    "resources/artifacts/c42-rebase-blocked-loaded-low/c42-rebase-blocked-loaded-low-low-blockedcargo.png": "112d9bf4cf52b51a8689b1eca7674883879629041674790aff3a30d46d727d66",
+    "resources/artifacts/c42-rebase-blocked-loaded-low/c42-rebase-blocked-loaded-low-low-blockednotice.png": "0f6d83c145281cece8b69b3472c7b31a66d2b90bcd3807ce1a6e4a95b2c0f138",
+    "resources/artifacts/c42-rebase-blocked-loaded-low/c42-rebase-blocked-loaded-low-low-blockedcontrols.png": "7161912474b8aea902dc91fba3ac64ace966c9acb7fc3719f5909c6759b6c50a",
+    "resources/artifacts/c42-rebase-blocked-loaded-low/c42-rebase-blocked-loaded-low-low-blockedcar.png": "fb85b88c9ef98e87ab60b4afed1acb4c0564c52938da56de8288e6362f3efbf5",
+    "resources/artifacts/c42-rebase-blocked-loaded-high/c42-rebase-blocked-loaded-high-high-blockedcar.png": "60415c3337b0cd518994d52c793da4290cb24e93ae6780e5ae60870cd358ca3f",
+    "resources/artifacts/c42-rebase-blocked-loaded-high/c42-rebase-blocked-loaded-high-high-blockeddevice.png": "b56b44f18251581d4488bd13b716dca7acf03de2f025430d36cab211de88f52f",
+    "resources/artifacts/c42-rebase-blocked-loaded-high/c42-rebase-blocked-loaded-high-high-blockedcontrols.png": "a63f300115891ffdbd3f37dfcfa2ff0d4732221afc50afe1dad44c3baa4bf526",
+    "resources/artifacts/c42-rebase-blocked-loaded-high/c42-rebase-blocked-loaded-high-high-blockedcab.png": "4ffd6f7d8d5b32a9ba7f282a287bac2fab94743925c19fb9ff4263ce5b6c3884",
+    "resources/artifacts/c42-rebase-blocked-loaded-high/c42-rebase-blocked-loaded-high-high-blockednotice.png": "17addeead4f52e9d36917e3bdd8216a457c0c0c55b7a4b7e4723e6f360cd828b",
+    "resources/artifacts/c42-rebase-blocked-loaded-high/bench-c42-rebase-blocked-loaded-high-high.json": "33954de899f3e1d023a5362b8c7ae38fcd96c7de0e33a95294d3e9cde339e19f",
+    "resources/artifacts/c42-rebase-blocked-loaded-high/c42-rebase-blocked-loaded-high-high-blockedcard.png": "3f186603bffa04a9363460fc7f10b1d7320cc81a519ea13e78b43a98ed91982a",
+    "resources/artifacts/c42-rebase-blocked-loaded-high/c42-rebase-blocked-loaded-high-high-blockedcargo.png": "bddeb3ac32d654ed04134f79ac2d3b8d69ed249f3ccdfcca2896644a06dfd840",
+    "resources/artifacts/c42-rebase-blocked-loaded-high/c42-rebase-blocked-loaded-high-high-blockedgate.png": "e61ce65db7d99bac430d506e097d53f88db7259aca3bceafbaa6a7048820112a",
+    "resources/artifacts/c42-rebase-blocked-accessible-low/c42-rebase-blocked-accessible-low-low-blockedcar.png": "9a0f659c90da7a1cc00f702acb4865f1dbee8f291db4fc6d5c7b1385d7d678ba",
+    "resources/artifacts/c42-rebase-blocked-accessible-low/c42-rebase-blocked-accessible-low-low-blockedgate.png": "93edbbaed887313e7cee4bf01b530369f34456c01ac1c5a682f8a485038e2468",
+    "resources/artifacts/c42-rebase-blocked-accessible-low/bench-c42-rebase-blocked-accessible-low-low.json": "2c4c8fdc18ee37fc3aaf185d190d3cc1198e90409d827c065c8615c6487cb965",
+    "resources/artifacts/c42-rebase-blocked-accessible-low/c42-rebase-blocked-accessible-low-low-blockedcargo.png": "5d77e710bfb8129e95a0c88cbcd294dd491e046b43e64a5507684f72606ada05",
+    "resources/artifacts/c42-rebase-blocked-accessible-low/c42-rebase-blocked-accessible-low-low-blockeddevice.png": "493ef1baf1958e650515e937502caa36a2fd64576a7ac3b438ff20e88b7bf7bf",
+    "resources/artifacts/c42-rebase-blocked-accessible-low/c42-rebase-blocked-accessible-low-low-blockedcard.png": "c9cc085ff94101c93842a1d54540b49d1ae211a956b15107ae05e36bd0363eba",
+    "resources/artifacts/c42-rebase-blocked-accessible-low/c42-rebase-blocked-accessible-low-low-blockedcontrols.png": "901db8c4a96e82a12fc3bb1a4ded15b7602ad3529c6b152c51a35a89a6644681",
+    "resources/artifacts/c42-rebase-blocked-accessible-low/c42-rebase-blocked-accessible-low-low-blockedcab.png": "0559baea98b0554547dd855cf013582dd64e040b1118320ee31a382178571d36",
+    "resources/artifacts/c42-rebase-blocked-accessible-low/c42-rebase-blocked-accessible-low-low-blockednotice.png": "05e6dc96e8d429a285e6149ef5ae893629d97e7ffdb1650ca7b344937d5af5e6",
+    "resources/artifacts/c42-rebase-blocked-fallback-low/c42-rebase-blocked-fallback-low-low-blockedcontrols.png": "790f10ad5d063b90431cdcbe0bdacdb90b0d882df80dd2b584713637bc2dd852",
+    "resources/artifacts/c42-rebase-blocked-fallback-low/c42-rebase-blocked-fallback-low-low-blockedcargo.png": "2d4bc1f3b0b14d07fc266b6884f31eceab782acfba1d1be0851a8cb22362509e",
+    "resources/artifacts/c42-rebase-blocked-fallback-low/c42-rebase-blocked-fallback-low-low-blockeddevice.png": "12421cb0a896e356e3379eb0b93a30a9d87a9a0724a811f7fc381db25e9513c9",
+    "resources/artifacts/c42-rebase-blocked-fallback-low/c42-rebase-blocked-fallback-low-low-blockednotice.png": "dcf7bb72542244f5f1e99f9ba574af513446af89348021e9c0e7229c5c49113e",
+    "resources/artifacts/c42-rebase-blocked-fallback-low/c42-rebase-blocked-fallback-low-low-blockedcab.png": "640c767d7c19a638772f45bbc2f995ec86e3bfbad1d98569debecf10f65b633b",
+    "resources/artifacts/c42-rebase-blocked-fallback-low/c42-rebase-blocked-fallback-low-low-blockedgate.png": "12635131c8b5099a79e5334c8d05e59a674d024a7dbd44ead7ea4ec73a464717",
+    "resources/artifacts/c42-rebase-blocked-fallback-low/c42-rebase-blocked-fallback-low-low-blockedcar.png": "790278991991e1cae08c22cc0dc9313308ee13ed487ac7c713d3677b9166a41b",
+    "resources/artifacts/c42-rebase-blocked-fallback-low/bench-c42-rebase-blocked-fallback-low-low.json": "c508d7a949d2ea57c4f4f83845ce65d9d0dcd5d91b5b62c74c11d9ce784baec4",
+    "resources/artifacts/c42-rebase-blocked-fallback-low/c42-rebase-blocked-fallback-low-low-blockedcard.png": "32344ec712c20828eed2f17594e243134fde76c0f195b8129c713f4ff3739299",
+    "resources/artifacts/c42-rebase-closure-loaded-low/bench-c42-rebase-closure-loaded-low-low.json": "ce0aa14dd6f4037dc610d1c65e24b3600c58f614fbba41be11048fa268572217",
+    "resources/artifacts/c42-rebase-closure-loaded-low/c42-rebase-closure-loaded-low-low-closurebarrier.png": "563739b5c263c5c50f54525c1f707d7a6b7fe31e89c6e600ad1f55ffbeefdef0",
+    "resources/artifacts/c42-rebase-closure-loaded-low/c42-rebase-closure-loaded-low-low-closurebay.png": "3690dfd0b03b5c847a162db295a423a4673a83ea7c6ed09a4edd8d74a3541c81",
+    "resources/artifacts/c42-rebase-closure-loaded-high/c42-rebase-closure-loaded-high-high-closurebarrier.png": "15fd2bef13bec1eb872f8c1b2b1dd3b89ad330522180ae2c2ed2d2f75a2d2c71",
+    "resources/artifacts/c42-rebase-closure-loaded-high/bench-c42-rebase-closure-loaded-high-high.json": "00ed0d79ff87eb231b6abb319cbc3da7e6a68e366649f8b415b4af115f0118d7",
+    "resources/artifacts/c42-rebase-closure-loaded-high/c42-rebase-closure-loaded-high-high-closurebay.png": "21652807e34a82d9a99222162a5fe64271bc5a33fd557daffacca5f9f76e41be",
+    "resources/artifacts/c42-rebase-closure-accessible-low/bench-c42-rebase-closure-accessible-low-low.json": "33d28012eb3365324f4bd9861089e1460c9c941332cf2c7fa9c2d6f3d339cf3b",
+    "resources/artifacts/c42-rebase-closure-accessible-low/c42-rebase-closure-accessible-low-low-closurebarrier.png": "244a252f27817a354f203018aa4762285d361a8682f2a87cdbf44833af11b434",
+    "resources/artifacts/c42-rebase-closure-accessible-low/c42-rebase-closure-accessible-low-low-closurebay.png": "bc05f1a96c725c8d9d0152c3f31e41f89948c4b417c2fe90fc32d80a8c7db50b",
+    "resources/artifacts/c42-rebase-closure-fallback-low/c42-rebase-closure-fallback-low-low-closurebarrier.png": "e2119f0b9501df8fc15a1b2c537e4e39f7431ec941f359f73cea16867fff45ba",
+    "resources/artifacts/c42-rebase-closure-fallback-low/bench-c42-rebase-closure-fallback-low-low.json": "5e3e28aeae314263861a3d1e144b820f143fe03160251d492a9a7d3d6ff4dd6e",
+    "resources/artifacts/c42-rebase-closure-fallback-low/c42-rebase-closure-fallback-low-low-closurebay.png": "7b2483c43ebc1c52fb4e95f44b144d76d2611299cd6c6b00fccf91408fded11e"
+  },
+  "cleanup": {
+    "acceptance": {
+      "controllerPid": {
+        "pid": 245231,
+        "state": "zombie"
+      },
+      "childPid": {
+        "pid": 259577,
+        "state": "gone"
+      },
+      "serverPid": {
+        "pid": 259041,
+        "state": "gone"
+      }
+    },
+    "native-ui-retry": {
+      "controllerPid": {
+        "pid": 264675,
+        "state": "zombie"
+      },
+      "childPid": {
+        "pid": 276155,
+        "state": "gone"
+      },
+      "serverPid": {
+        "pid": 264680,
+        "state": "gone"
+      }
+    },
+    "resources": {
+      "controllerPid": {
+        "pid": 245232,
+        "state": "zombie"
+      },
+      "childPid": {
+        "pid": 262677,
+        "state": "gone"
+      },
+      "serverPid": {
+        "pid": 259943,
+        "state": "gone"
+      }
+    }
+  },
+  "hostFontCount": 4,
+  "allPassed": true,
+  "limitations": [
+    "New optional descriptors still require shared 3D-only content/validation support; A30 launcher is merged separately.",
+    "New text is English/mixed until A31 translations; no all-language readiness claim.",
+    "Cloud software-rendered FPS does not certify Intel O1.",
+    "Earlier complete existing-id and High closure matrices retain their own historical source scopes."
+  ]
+}
