@@ -1,0 +1,21 @@
+✔ direct new workday, normal motion constructs only its actual world (28.373864ms)
+✔ direct new workday, reduced motion constructs only its actual world (37.978107ms)
+✔ direct resume, normal motion constructs only its actual world (6.483954ms)
+✔ direct resume, reduced motion constructs only its actual world (5.674672ms)
+✔ a physical module builds its isolated world and briefing once without campaign writes (2.358409ms)
+✔ the explicit prototype still opens its hub and disposes that world on a later native launch (9.63625ms)
+✔ shutdown during asset loading aborts the request and disposes its late bank without building (2.250276ms)
+✔ loss after preload waits for renderer recovery before any world or inputs are created (5.632159ms)
+✔ shutdown while waiting for post-load recovery releases the bank and cannot enter a scene (1.354043ms)
+✔ an inactive scene cannot continue past the script or logo boundary (6.44148ms)
+✔ the Low preload and missing-model fallback still feed the first actual world (1.259701ms)
+✔ the High preload and missing-model fallback still feed the first actual world (0.925646ms)
+✔ script or asset rejection retains the existing startup failure path (6.370573ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 131.882414

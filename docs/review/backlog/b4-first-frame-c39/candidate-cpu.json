@@ -1,0 +1,41 @@
+{
+  "candidate": "d28945d05e30382168e8d5323a4139bfa9e2cb34",
+  "baseline": "f60d22540492fc510d88b6869873fe81703ac3ad",
+  "suites": [
+    {
+      "file": "test/fpstartup.js",
+      "exit": 0,
+      "seconds": 0.3,
+      "log": "fpstartup.log",
+      "cases": 13
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0,
+      "seconds": 0.15,
+      "log": "fpcontext.log",
+      "cases": 8
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0,
+      "seconds": 0.24,
+      "log": "fpscenario.log",
+      "cases": 13
+    },
+    {
+      "file": "test/fpbranding.js",
+      "exit": 0,
+      "seconds": 0.2,
+      "log": "fpbranding.log",
+      "cases": 4
+    },
+    {
+      "file": "test/fpfirstframeprobe.js",
+      "exit": 0,
+      "seconds": 0.1,
+      "log": "fpfirstframeprobe.log",
+      "cases": 3
+    }
+  ]
+}

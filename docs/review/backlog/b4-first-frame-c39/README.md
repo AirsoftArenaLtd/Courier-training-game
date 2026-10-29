@@ -1,5 +1,5 @@
-# B4 paired first-frame measurements on current pilot
+# B4 paired first-frame profiling on current pilot
 
-The baseline matches all runtime, data, assets and entrypoints on pilot `a7bd8b57` exactly. The observation-only hub-to-frame protocol is unchanged; its three CPU tests and changed-JS syntax pass. Actual native Hub Start/confirmation and same-workday Resume will be measured in fresh Low/High browsers. Four cold/warm measurements are planned.
+Candidate stacked on pushed baseline `f60d2254`, whose runtime/data/assets/entrypoints match pilot a7bd8b57. The only production change is FirstPersonScene: direct workday/module entries skip the discarded prototype world, and loading ends after actual art/labels exist. The prototype entry and full asset preload remain. The native hub-to-frame probe is identical in both sources. Original old zero-job plans remain under b4-first-frame.
 
-The candidate will share this baseline and probe and skip only the discarded prototype world on direct workday/module entry. Full asset preload is retained; no timing improvement or asset deferral is claimed before the paired reports exist. Software-rendering wall times are diagnostic and do not certify Intel O1. Both old zero-job plans remain in b4-first-frame.
+Five focused CPU suites and 3 changed-JS syntax checks pass; source/asset equivalence is in candidate-source-audit.json. Fresh Low/High native cold/resume jobs will compare first composite and first uncovered Phaser presentation. Module and context-recovery journeys plus 16 original-profile resource views are separate regressions. Candidate waits on the actual baseline completion, then uses the shared browser lease. No performance improvement or Intel O1 claim is made before the paired measured reports exist.
