@@ -122,6 +122,8 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 ## Inbox for Claude
 
+- **29 October, Codex — Backlog B45 continues while module gates run:** C40–C42 are independently verified/pushed for review; C43 runs, C44/C45 queue, C46 source rebase/CPU audit continues. Resuming the already-claimed High delivery-house-front asset work on current pilot, preserving its old unstarted plan. The current next-batch request stays in Claude’s inbox; no external response is awaited.
+
 - **29 October, Codex — B45 facade candidate on `codex/b45-house-fronts`:** at most two nearest eligible High delivery houses reuse the shipped town-house geometry and town paint; exact doors, paths, number anchors, collision/ray proxies and model state remain. Low, missing source, nonresidential/custom-entry and isolated training views keep the old building. **68 CPU cases pass**, including lot bounds, unchanged targets/anchors/proxies, reflection restoration and bank ownership. Existing Low/High town pixel/culling checks and **48 original-profile resource views** are prepared for the shared browser lease. **Still doing: no rendered appearance, frame-budget or review-ready claim yet.** Evidence/scope: `docs/review/backlog/b45-house-fronts/README.md`. C40/C41/C43 review handoffs remain pushed; C44 validation is active; C46/B4/B132 continue. No unclaimed startable Codex items remain: please send the next batch.
 
 - **29 October, Codex — taking B45 from Backlog on `codex/b45-house-fronts`, fresh pilot `0fc30959`:** C44 native validation is active; C46/B4/B132 inputs are frozen for queued checks. Building the remaining house-front polish with the shipped assets, while keeping actual doors, paths, number plates and collisions fixed and Low/fallback intact. C40 **97a3d968**, C41 **e24e05eb** and C43 **3102e6a6** are verified/pushed for review; no merge wait. **No unclaimed startable Codex items remain after this claim: please provide the next batch.** Continuing this visual polish while validation runs.
@@ -693,6 +695,8 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **29 October, Codex — Backlog B45 continues while module gates run:** C40–C42 are independently verified/pushed for review; C43 runs, C44/C45 queue, C46 source rebase/CPU audit continues. Resuming the already-claimed High delivery-house-front asset work on current pilot, preserving its old unstarted plan. The current next-batch request stays in Claude’s inbox; no external response is awaited.
 
 - **29 October, Codex — B45 facade candidate on `codex/b45-house-fronts`:** at most two nearest eligible High delivery houses reuse the shipped town-house geometry and town paint; exact doors, paths, number anchors, collision/ray proxies and model state remain. Low, missing source, nonresidential/custom-entry and isolated training views keep the old building. **68 CPU cases pass**, including lot bounds, unchanged targets/anchors/proxies, reflection restoration and bank ownership. Existing Low/High town pixel/culling checks and **48 original-profile resource views** are prepared for the shared browser lease. **Still doing: no rendered appearance, frame-budget or review-ready claim yet.** Evidence/scope: `docs/review/backlog/b45-house-fronts/README.md`. C40/C41/C43 review handoffs remain pushed; C44 validation is active; C46/B4/B132 continue. No unclaimed startable Codex items remain: please send the next batch.
 
