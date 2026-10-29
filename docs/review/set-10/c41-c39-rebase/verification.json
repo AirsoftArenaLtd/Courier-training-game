@@ -1,0 +1,732 @@
+{
+  "scope": "C41 on C40/C39/A30: eleven actual native journeys include authored bad intercom and High doorstep failures; 32 original-profile protocol resources. Optional protocol registry/A31 and Intel O1 remain separate.",
+  "cohorts": [
+    {
+      "sourceRevision": "705e7e567822190f759924d7f443311822503dfd",
+      "plan": "docs/review/set-10/c41-c39-rebase/acceptance/plan.json",
+      "planSha256": "b5cb08210ee45c39b09cebfc017d26d50cb567c00161830c948a440f778a7340",
+      "sourceCount": 867,
+      "acceptedTags": [
+        "c41-c39-intercom-low",
+        "c41-c39-reception-low",
+        "c41-c39-locker-low",
+        "c41-c39-intercom-high",
+        "c41-c39-reception-high",
+        "c41-c39-locker-high",
+        "c41-c39-intercom-bad",
+        "c41-c39-missing-low",
+        "c41-c39-twostops-high-ta",
+        "c41-c39-doorsteps-low",
+        "c41-c39-doorsteps-high-ta",
+        "c41-c39-protocol-budget-loaded-low",
+        "c41-c39-protocol-budget-loaded-high",
+        "c41-c39-protocol-budget-accessible-low",
+        "c41-c39-protocol-budget-fallback-low"
+      ],
+      "excludedJobs": [],
+      "oldTestDifferences": []
+    }
+  ],
+  "liveInputCount": 867,
+  "hostFonts": {
+    "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf": "89c3c497f618fdaa0b2d1e98fef93582f28c71debd2c4a8cdf41f190ced2909d",
+    "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf": "e83493c945848ecd4a9ad0f6d19164541a0d3e23a9c952304a00a46e00272ac5",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Regular.ttf": "a7bb7f92f165479af2f0556c4fd669b74c5959f464f603e18389b532f4d07a71",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Bold.ttf": "7ef7071ba2fad67dcae397dc7f5bfd4dbce69d86cdc453c2cc4abe640df0b442"
+  },
+  "allInputHashesVerified": true,
+  "cpuSuites": 27,
+  "cpuLogHashes": {
+    "fpcustomergeometry.log": "e7088ca4767b031ae0cdd8cb859d9d2fb1bd72328a53e53bcdabd6dc974c0dfc",
+    "fpcustomerprotocol.log": "92379c8f83c6dcdf19f8c438292c3be8cf4217e73e1bd0a32231008038040f7c",
+    "fpcustomerprotocolscenario.log": "db1261502bbf26aa6d97b1c77308440fbf89ec28733ee6c35d795d116aaa54e6",
+    "fpcustomerscenario.log": "34be6a04d1e0077484b71104d21119b089f437e3f6b71382fe0664e41f4bfef4",
+    "fpcustomerstop.log": "05f38e27d50f496483b3376257120ac94544971db16b5790ffe117f260cd2fb4",
+    "fpcustomerstopgeometry.log": "17d6f5181099cbe02987fece7e18a59688a2e06f963ca8498cfae0a882a44fc3",
+    "fpcustomerstopscenario.log": "99725938ec313090385aab3626355fef4abe15363c4d714e347bf1e76735f9c9",
+    "fpcustomerstopworld.log": "107796eddb35c744a7742a484e75cbfe87e679ebe1d9a164848d309fb9c467ea",
+    "fpcustomertalk.log": "1978488a817c246725a8ef54a487c09bc5815482b4669879be9a417c9cd36c5a",
+    "fpcustomerworld.log": "b537deee841c4d7150c97d890c66031a680cea3a4ed54a37d9e7493690ccca17",
+    "fpscenario.log": "d68d1b01845f251e899dfecb77a952225222d0e8603266d36735b7e50a25ceb1",
+    "fpcontext.log": "2457ceb12a4aa77b8809f0a7dfdf043698c0faa514c0f2de2b166c11abac657b",
+    "fpgamepad.log": "8c743d8b976f38799ea00dad6d991b69f626335140f7114ae378b47f0d0728a8",
+    "fpworld.log": "a9e66aa7e1701f0bff1ce5c4f80d5ce3f885ff23d96f2e831bb179a385266b0b",
+    "fpaccess.log": "a26419b3724a754fe4bfd8bdccb78239ec55840e4d1a3185d9883bc7d05b32cd",
+    "englishtext.log": "2e68add554d85be7c9381bae71242c688078a1052391c90ef08ea4e583e5cb40",
+    "fppretrip.log": "6b2e10f693c9e0aca982bb2f6e9dce5aec46850fc4feca251b0a4b27e6952172",
+    "fproutelesson.log": "1cb53f51605297536e28612be0402d167ec109852ee757b2fb1c2208659053f8",
+    "fphazardlesson.log": "d52df320c89ebf54e8188f9a790339ed2de224af4bc7c9768cc4b2a5b520601a",
+    "fpdrivinglesson.log": "1d02919d00dc109dc72d4ba11193427fb12b33aeadbd0429b5db67f4f743f949",
+    "fpjunctionlesson.log": "691143ac19df3cb08b0e9b534b0b2fe8f07c3bde2e15c5d9ff7551da71afb5c5",
+    "fpschoollesson.log": "a40b4b625b344b4f2ce092f3163d590880014e1d4a9d4c1ce87827b103713c7d",
+    "fpnightlesson.log": "5ac3433edf93506aad0f1cc57c0b086f4962e51db7e75cad6eac58485040ea29",
+    "fppackagelabelworld.log": "01f5b94e7b0770c67167c4ede6b2f0aa7de5343b8471c2e27cfde90a23f629a0",
+    "fppackagesortworld.log": "19f095a9e4c6d679e60a9e02f6e3cdb0b8cd46c80ffd59f7d499f3924efa3da3",
+    "fppackageliftworld.log": "8bb69b1947f78aacc356622518a949180433280c6999d16c3bb416a9017ce2d6",
+    "scenario3d.log": "24e2eba0f1e8c1e16baf7909cb2651a36e9652614c0ab3991ceffe744a52137a"
+  },
+  "nativeChecks": 5608,
+  "nativeJobs": [
+    {
+      "tag": "c41-c39-intercom-low",
+      "checks": 203,
+      "scope": "Real persistent profile and suspended workday plus the prepared optional descriptor are setup fixtures. Walking, cargo, parcel, scanning, intercom, reception, signature, locker, camera, climbing and finish use real keyboard controls and physical rays. No subsequent pose, clock, score, verdict or completion writes. This build uses the shipped B-178 language font selection without an override, with an actual Phaser-font glyph-family probe. New sentences await translations; shared optional launcher and resource checks are separate.",
+      "outcomes": [
+        {
+          "quality": "low",
+          "lang": "en",
+          "large": false,
+          "score": 1100,
+          "stars": {
+            "service": 3,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": null,
+          "durable": true,
+          "fontProof": {
+            "lang": "en",
+            "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-intercom-low/c41-c39-intercom-low.json"
+    },
+    {
+      "tag": "c41-c39-reception-low",
+      "checks": 192,
+      "scope": "Real persistent profile and suspended workday plus the prepared optional descriptor are setup fixtures. Walking, cargo, parcel, scanning, intercom, reception, signature, locker, camera, climbing and finish use real keyboard controls and physical rays. No subsequent pose, clock, score, verdict or completion writes. This build uses the shipped B-178 language font selection without an override, with an actual Phaser-font glyph-family probe. New sentences await translations; shared optional launcher and resource checks are separate.",
+      "outcomes": [
+        {
+          "quality": "low",
+          "lang": "en",
+          "large": false,
+          "score": 1100,
+          "stars": {
+            "service": 3,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": null,
+          "durable": true,
+          "fontProof": {
+            "lang": "en",
+            "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-reception-low/c41-c39-reception-low.json"
+    },
+    {
+      "tag": "c41-c39-locker-low",
+      "checks": 205,
+      "scope": "Real persistent profile and suspended workday plus the prepared optional descriptor are setup fixtures. Walking, cargo, parcel, scanning, intercom, reception, signature, locker, camera, climbing and finish use real keyboard controls and physical rays. No subsequent pose, clock, score, verdict or completion writes. This build uses the shipped B-178 language font selection without an override, with an actual Phaser-font glyph-family probe. New sentences await translations; shared optional launcher and resource checks are separate.",
+      "outcomes": [
+        {
+          "quality": "low",
+          "lang": "en",
+          "large": false,
+          "score": 1100,
+          "stars": {
+            "service": 3,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": null,
+          "durable": true,
+          "fontProof": {
+            "lang": "en",
+            "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-locker-low/c41-c39-locker-low.json"
+    },
+    {
+      "tag": "c41-c39-intercom-high",
+      "checks": 206,
+      "scope": "Real persistent profile and suspended workday plus the prepared optional descriptor are setup fixtures. Walking, cargo, parcel, scanning, intercom, reception, signature, locker, camera, climbing and finish use real keyboard controls and physical rays. No subsequent pose, clock, score, verdict or completion writes. This build uses the shipped B-178 language font selection without an override, with an actual Phaser-font glyph-family probe. New sentences await translations; shared optional launcher and resource checks are separate.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": 1100,
+          "stars": {
+            "service": 3,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": {
+            "attempts": 1,
+            "passed": true,
+            "startedAt": 1793263840217,
+            "pending": false,
+            "at": 1793264291013,
+            "stars": {
+              "service": 3,
+              "safety": 3,
+              "efficiency": 3
+            },
+            "score": 1100,
+            "criticals": [],
+            "lessons": []
+          },
+          "durable": true,
+          "fontProof": {
+            "lang": "ta",
+            "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null,
+            "layout": {
+              "width": 793.21875,
+              "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+            },
+            "platformFonts": [
+              {
+                "familyName": "Noto Sans Tamil",
+                "postScriptName": "NotoSansTamil-Bold",
+                "isCustomFont": false,
+                "glyphCount": 28
+              }
+            ]
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-intercom-high/c41-c39-intercom-high.json"
+    },
+    {
+      "tag": "c41-c39-reception-high",
+      "checks": 195,
+      "scope": "Real persistent profile and suspended workday plus the prepared optional descriptor are setup fixtures. Walking, cargo, parcel, scanning, intercom, reception, signature, locker, camera, climbing and finish use real keyboard controls and physical rays. No subsequent pose, clock, score, verdict or completion writes. This build uses the shipped B-178 language font selection without an override, with an actual Phaser-font glyph-family probe. New sentences await translations; shared optional launcher and resource checks are separate.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": 1100,
+          "stars": {
+            "service": 3,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": {
+            "attempts": 1,
+            "passed": true,
+            "startedAt": 1793264311133,
+            "pending": false,
+            "at": 1793264709438,
+            "stars": {
+              "service": 3,
+              "safety": 3,
+              "efficiency": 3
+            },
+            "score": 1100,
+            "criticals": [],
+            "lessons": []
+          },
+          "durable": true,
+          "fontProof": {
+            "lang": "ta",
+            "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null,
+            "layout": {
+              "width": 793.21875,
+              "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+            },
+            "platformFonts": [
+              {
+                "familyName": "Noto Sans Tamil",
+                "postScriptName": "NotoSansTamil-Bold",
+                "isCustomFont": false,
+                "glyphCount": 28
+              }
+            ]
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-reception-high/c41-c39-reception-high.json"
+    },
+    {
+      "tag": "c41-c39-locker-high",
+      "checks": 208,
+      "scope": "Real persistent profile and suspended workday plus the prepared optional descriptor are setup fixtures. Walking, cargo, parcel, scanning, intercom, reception, signature, locker, camera, climbing and finish use real keyboard controls and physical rays. No subsequent pose, clock, score, verdict or completion writes. This build uses the shipped B-178 language font selection without an override, with an actual Phaser-font glyph-family probe. New sentences await translations; shared optional launcher and resource checks are separate.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": 1100,
+          "stars": {
+            "service": 3,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": {
+            "attempts": 1,
+            "passed": true,
+            "startedAt": 1793264727908,
+            "pending": false,
+            "at": 1793265151086,
+            "stars": {
+              "service": 3,
+              "safety": 3,
+              "efficiency": 3
+            },
+            "score": 1100,
+            "criticals": [],
+            "lessons": []
+          },
+          "durable": true,
+          "fontProof": {
+            "lang": "ta",
+            "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null,
+            "layout": {
+              "width": 793.21875,
+              "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+            },
+            "platformFonts": [
+              {
+                "familyName": "Noto Sans Tamil",
+                "postScriptName": "NotoSansTamil-Bold",
+                "isCustomFont": false,
+                "glyphCount": 28
+              }
+            ]
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-locker-high/c41-c39-locker-high.json"
+    },
+    {
+      "tag": "c41-c39-intercom-bad",
+      "checks": 226,
+      "scope": "Real persistent profile and suspended workday plus the prepared optional descriptor are setup fixtures. Walking, cargo, parcel, scanning, intercom, reception, signature, locker, camera, climbing and finish use real keyboard controls and physical rays. No subsequent pose, clock, score, verdict or completion writes. This build uses the shipped B-178 language font selection without an override, with an actual Phaser-font glyph-family probe. New sentences await translations; shared optional launcher and resource checks are separate.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": 900,
+          "stars": {
+            "service": 0,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": {
+            "attempts": 1,
+            "passed": false,
+            "startedAt": 1793265167300,
+            "pending": false,
+            "at": 1793265649888,
+            "stars": {
+              "service": 0,
+              "safety": 3,
+              "efficiency": 3
+            },
+            "score": 900,
+            "criticals": [],
+            "lessons": [
+              "Press the right button, say who you are and what you bring, then wait for the buzz."
+            ]
+          },
+          "durable": true,
+          "fontProof": {
+            "lang": "ta",
+            "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null,
+            "layout": {
+              "width": 793.21875,
+              "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+            },
+            "platformFonts": [
+              {
+                "familyName": "Noto Sans Tamil",
+                "postScriptName": "NotoSansTamil-Bold",
+                "isCustomFont": false,
+                "glyphCount": 28
+              }
+            ]
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-intercom-bad/c41-c39-intercom-bad.json"
+    },
+    {
+      "tag": "c41-c39-missing-low",
+      "checks": 588,
+      "scope": "Ten journeys cover all three existing dialogues, Low/High, English/Tamil and normal/larger text. All reply pages are read before real digit-key decisions. The two-stop route uses real walking keys. Larger text runs use assessments, including an authored signature critical. Existing ids are explicitly routed to the proposed adapter. Real suspended workday journal/checkpoint and scenario/assessment records are reloaded. No position, dialogue-node, timer, score or verdict fixtures.",
+      "outcomes": [
+        {
+          "quality": "low",
+          "lang": "en",
+          "large": false,
+          "score": 1800,
+          "stars": {
+            "service": 3,
+            "efficiency": 3
+          },
+          "assessment": null,
+          "durable": {
+            "stored": true,
+            "reloaded": true
+          },
+          "fontProof": null,
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-missing-low/c41-c39-missing-low.json"
+    },
+    {
+      "tag": "c41-c39-twostops-high-ta",
+      "checks": 896,
+      "scope": "Ten journeys cover all three existing dialogues, Low/High, English/Tamil and normal/larger text. All reply pages are read before real digit-key decisions. The two-stop route uses real walking keys. Larger text runs use assessments, including an authored signature critical. Existing ids are explicitly routed to the proposed adapter. Real suspended workday journal/checkpoint and scenario/assessment records are reloaded. No position, dialogue-node, timer, score or verdict fixtures.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": 2500,
+          "stars": {
+            "service": 3,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": {
+            "attempts": 1,
+            "passed": true,
+            "startedAt": 1793265703813,
+            "pending": false,
+            "at": 1793265965209,
+            "stars": {
+              "service": 3,
+              "safety": 3,
+              "efficiency": 3
+            },
+            "score": 2500,
+            "criticals": [],
+            "lessons": [
+              "Business stops: be patient with busy staff, deliver to the designated receiving point, and follow building rules.",
+              "Aggressive dog: don't run, stay calm, keep an object between you and the dog, and back away slowly.",
+              "Never re-enter a yard with a loose dog \u2014 ask the owner to secure it, and note the hazard for future deliveries."
+            ]
+          },
+          "durable": {
+            "stored": true,
+            "reloaded": true
+          },
+          "fontProof": null,
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-twostops-high-ta/c41-c39-twostops-high-ta.json"
+    },
+    {
+      "tag": "c41-c39-doorsteps-low",
+      "checks": 1341,
+      "scope": "Only existing-id registration and a real suspended workday are fixtures. All movement, aiming, parcels, replies, signatures and tag attachment use real keys. No position, node, timer, signature completion, score or verdict fixtures. Larger Tamil assessments choose the authored neighbor critical.",
+      "outcomes": [
+        {
+          "quality": "low",
+          "lang": "en",
+          "large": false,
+          "score": 6400,
+          "stars": {
+            "service": 3,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": null,
+          "durable": true,
+          "fontProof": null,
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low.json"
+    },
+    {
+      "tag": "c41-c39-doorsteps-high-ta",
+      "checks": 1348,
+      "scope": "Only existing-id registration and a real suspended workday are fixtures. All movement, aiming, parcels, replies, signatures and tag attachment use real keys. No position, node, timer, signature completion, score or verdict fixtures. Larger Tamil assessments choose the authored neighbor critical.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": 5800,
+          "stars": {
+            "service": 1,
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": {
+            "attempts": 1,
+            "passed": false,
+            "startedAt": 1793266263684,
+            "pending": false,
+            "at": 1793267642487,
+            "stars": {
+              "service": 1,
+              "safety": 3,
+              "efficiency": 3
+            },
+            "score": 5800,
+            "criticals": [
+              "Kept a signature package from someone who isn't the customer"
+            ],
+            "lessons": [
+              "Never hand a signature-required package to someone who isn't the recipient, however helpful they seem.",
+              "An upset customer calms down faster when you acknowledge the problem first and then say what you can do.",
+              "A language barrier is solved with the label, pointing and the handheld's screen, not by talking louder.",
+              "A signature-required package goes only to the person who can sign for it. A helpful neighbor is still not the customer.",
+              "Heavy packages go on the hand truck (or get a second person): don't carry what you can wheel."
+            ]
+          },
+          "durable": true,
+          "fontProof": null,
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta.json"
+    }
+  ],
+  "resourceViews": 32,
+  "resources": [
+    {
+      "tag": "c41-c39-protocol-budget-loaded-low",
+      "profile": {
+        "id": "c41-c39-protocol-budget-loaded-low",
+        "quality": "low",
+        "accessibility": "",
+        "fallback": false,
+        "views": "protocolintercom,protocolreception,protocolsignature,protocollockeropen,protocollockerclosed,protocolcamera,protocolstatus,protocolreport"
+      },
+      "views": 8,
+      "peak": {
+        "calls": 28,
+        "triangles": 1146,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2063622
+      }
+    },
+    {
+      "tag": "c41-c39-protocol-budget-loaded-high",
+      "profile": {
+        "id": "c41-c39-protocol-budget-loaded-high",
+        "quality": "high",
+        "accessibility": "",
+        "fallback": false,
+        "views": "protocolintercom,protocolreception,protocolsignature,protocollockeropen,protocollockerclosed,protocolcamera,protocolstatus,protocolreport"
+      },
+      "views": 8,
+      "peak": {
+        "calls": 43,
+        "triangles": 28936,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5500646
+      }
+    },
+    {
+      "tag": "c41-c39-protocol-budget-accessible-low",
+      "profile": {
+        "id": "c41-c39-protocol-budget-accessible-low",
+        "quality": "low",
+        "accessibility": "large,colour,reduced",
+        "fallback": false,
+        "views": "protocolintercom,protocolreception,protocolsignature,protocollockeropen,protocollockerclosed,protocolcamera,protocolstatus,protocolreport"
+      },
+      "views": 8,
+      "peak": {
+        "calls": 28,
+        "triangles": 1146,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2187072
+      }
+    },
+    {
+      "tag": "c41-c39-protocol-budget-fallback-low",
+      "profile": {
+        "id": "c41-c39-protocol-budget-fallback-low",
+        "quality": "low",
+        "accessibility": "",
+        "fallback": true,
+        "views": "protocolintercom,protocolreception,protocolsignature,protocollockeropen,protocollockerclosed,protocolcamera,protocolstatus,protocolreport"
+      },
+      "views": 8,
+      "peak": {
+        "calls": 31,
+        "triangles": 942,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2063622
+      }
+    }
+  ],
+  "registryProof": {
+    "base": "e8f46073",
+    "onlyApprovedLinks": true
+  },
+  "artifactCount": 110,
+  "artifacts": {
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-intercom-low/c41-c39-intercom-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-intercom-low/c41-c39-intercom-low-intercom.png": "3b46050fe1701e0e6979e158e599c2b45c96c51a63440d43a58f2669c8d178df",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-intercom-low/c41-c39-intercom-low.json": "6045c0f80c8f6332e6c0c41884146446f899b288725fe3dcd66c51e676e15582",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-reception-low/c41-c39-reception-low.json": "a02d11d50df1ac253ad305ed137977fbc45505c3be7db11ddc5ce8627cf53081",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-reception-low/c41-c39-reception-low-reception.png": "0f1bbf3a0a133efc72ef471489bed197eca0c93fa1a30926490b075af94c646d",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-reception-low/c41-c39-reception-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-locker-low/c41-c39-locker-low-camera-frame.png": "ea70b746ca9cb930ae21831112f0b93114668946c6b5f3ec39363726af04ecbc",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-locker-low/c41-c39-locker-low.json": "1c34aa0b227cf4731afd10e0d31d42ad592bd17835d79d1b7fa87c1716a7ae9b",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-locker-low/c41-c39-locker-low-camera-device.png": "ebd00e5144ac9ccea5270948972a4d487bc8c344904dbbb1866b6deed01f1f6c",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-locker-low/c41-c39-locker-low-locker.png": "749d4287a1ecc732101b3ec87e76dd818a02790da82453a1a04463cc15026b5c",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-locker-low/c41-c39-locker-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-intercom-high/c41-c39-intercom-high-intercom.png": "aaca5422cf8603fd71217b41e5ee5d6765aa17fa7cf295afbcd8e021f2a598d0",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-intercom-high/c41-c39-intercom-high-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-intercom-high/c41-c39-intercom-high.json": "cc042ff9db6a467f2ccb508318ff72d1e67a50fd45a5f1d25b56e35d21137284",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-reception-high/c41-c39-reception-high-reception.png": "0a0e5a7b423ddb704872caba071773d11030d4bac164b2cffbf0e6436b0bc36d",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-reception-high/c41-c39-reception-high-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-reception-high/c41-c39-reception-high.json": "cd3880b92409c7c692fead398b1a8dcb7ef5a778d51af4c04cc5ea49c3e4cfb6",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-locker-high/c41-c39-locker-high-camera-frame.png": "b2c05fe49d6531b9ec1637781f21c5774dbf1ff37e24965a0220a0a83d2e22eb",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-locker-high/c41-c39-locker-high-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-locker-high/c41-c39-locker-high-camera-device.png": "b67d2c7a66a429f6875880f7881ff3aeda964cbbd72461986c9c8547000eeca0",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-locker-high/c41-c39-locker-high-locker.png": "fe35a8f1c853966bce233d2fcaadd901d9b959d5c17e21e825628d910e37041e",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-locker-high/c41-c39-locker-high.json": "1a9fc38ae98ae7f8a376a30e282012cccd8f8ec7bc3422f51f3a1df9d2b7c5bf",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-intercom-bad/c41-c39-intercom-bad-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-intercom-bad/c41-c39-intercom-bad.json": "ae786bec0d31b3ab0280eba8d4ccaa539a6d507a1cddbb13ec4c97e3383dc7a4",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-intercom-bad/c41-c39-intercom-bad-intercom.png": "edb46bfc12ffb976421179fcac3d91ee34b77e4cc1a0e6c86c1dfdc6e6319361",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-missing-low/c41-c39-missing-low.json": "cf428a65f9e936049bea3ab8a60af7729ff913f5ed3cf668c27571e188eea2de",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-missing-low/c41-c39-missing-low-low-en-normal-missing-physical.png": "da33afe665fedb54726495cb954254c230ee1abe90c13b78ef3503de2955d775",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-missing-low/c41-c39-missing-low-low-en-normal-missing-result.png": "29776ad350c40b84336d44f3899fdd3850e54da585bc0928b867acb3b4ea3001",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-missing-low/c41-c39-missing-low-low-en-normal-missing-ending.png": "d979dbe4939d97c3679581c16328924aa28d32ea1d07ab2443dbdc01e1cb7ee7",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-twostops-high-ta/c41-c39-twostops-high-ta-high-ta-large-twostops-physical.png": "bb8d07452ca89e90c9d1b0f37786d16ddca9d62926fe924139dd931ce2a02e31",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-twostops-high-ta/c41-c39-twostops-high-ta-high-ta-large-twostops-house.png": "ba647b98e792db1e2a9e0d9999b36fd35a8c1384b757a76ad8acf136e0a75b12",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-twostops-high-ta/c41-c39-twostops-high-ta.json": "22eba6342bc22842aa82c80836a6e532e157cd34a91c6feee243ef8bfa152195",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-twostops-high-ta/c41-c39-twostops-high-ta-high-ta-large-twostops-ending.png": "4997bcf86a56371ded073d0f336c425eb8c30b2c99945e846b88a9e40a0dee76",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-twostops-high-ta/c41-c39-twostops-high-ta-high-ta-large-twostops-result.png": "d45ba0e9078a799811ef5166de9cdaad28633658783ddd79f36ff80eaca1ad0a",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop2-customer.png": "486ffc9917d4e026d537fd4d9770e7f0200cacf078b16e31bd3c5955acb54ffe",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-result.png": "8c1dddb6a0954609461b5f7201e71f7d0f66b149f2e30d45d6ccd00e5ecdf245",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop3-customer.png": "98d042206c80427dfe4afb872908ed88e44183fce9c86ffada43fd0bf8c3162c",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop3-cargo.png": "f76b5baf7569d0f9c253ec1cf29acfc1826b8edff61290b97b50841d71955f38",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop3-report.png": "1a2b1d3900afa9ab6269b1965b813678134ef7750c5388a1930abb5a0e6b1990",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop3-tag.png": "a337d911713eaa7c4710ab2bf22c5861c6a9eee4498be8a9b60cfcc6fc1cd7a0",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop1-reply.png": "4b6eb5cd84582b302e1fab337556d723c5d7a0601c6dcb95c7e22bb196d00194",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop3-reply.png": "246c91d33075f81e91713079682cd4d102441a2fc78b0172fd8b1b250a49ee5e",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop2-report.png": "341b0141d98c35987c4f81f5454dea59eb75910f3f1f56813cca1785125fe843",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop2-cargo.png": "675247ed752ec87c37c14aebb76ddcb0fee0d22bd141d9e357e59886d1599aee",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop1-name.png": "f8fd983e73cd825e8bff1490bb5f16e0384f24d59d7bd58bf73312131620958a",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop1-handheld.png": "f68ffa8168a26e81b8fd2c328dcd7840ba981dadc3b522f17893a6ac120b4813",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop1-customer.png": "b285c8d99ee54c345cc639e700235f1113dc851e272be5f0ab54db3840503ec0",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop2-name.png": "52e3fe5584109c0011a36661a2e98d5303de283df45a893804e93b14d1afd7b3",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop2-reply.png": "3f78b107e917a27c2fc052bef5a915e139a1f73e955fa93ea93eb48fc8b9de15",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low.json": "2f74d516f10a88cffa2d79f3c49d388b2baacea63e35e0a36cddaa5d992ccee3",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop1-cargo.png": "e95fbd65d5d0386ff459aef0803934ef33cd5d4359eda2acc79066b40821a37e",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop1-report.png": "832c306c77dcccd4cbfb3241426d2b810c94d7f81e79ba7f4fb5048bc71e99ba",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop2-handheld.png": "b672a7e7e2e7b2c1d6b5cb08e81ab226b213c1322f5eced7361e7f1ca6fe43e3",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-low/c41-c39-doorsteps-low-low-en-normal-stop3-handheld.png": "070e8014a31f536560232d4cfa39551a0fb97ac872da63c1cd015819f37fe143",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop1-name.png": "6a349f9bfd97de284bed56693c008c4cc77c8ab9de8a19979728a5b896c08d6c",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop2-report.png": "b99bc67bb38baa717cedd2d654c1446464a47f1b21ddad9e58a8097ff0cb23d5",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop3-cargo.png": "395d3f78ed9749584c8efb5a17c8338a69c2ca76fe474bd3a9dfa4b819149238",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop2-cargo.png": "9cefeb6d8074a5300f70dd4901915fe00a459fdd87f9e8847e5a103b9cc91587",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop3-reply.png": "bee0f058c4c10194f05fcb3e4f7ce9f252118d881d2d1d40ca4c3402d97e8057",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop1-report.png": "a90a5576fd010f322013d915a58a1285d8ef6e1ec996b3d6d3e7b33e12efd5fa",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop2-handheld.png": "7f13bc461843f45378cb462e20894e6f5aa818a045eadb01f890cc9b485ca97b",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop1-reply.png": "401927360d016065f8c3bc8583498b2527e9a551391091d03c7b4faa00b74840",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop1-customer.png": "addc139615f254d49dd4c678890fd8511fbf4ecaa32c03e556fed737c41a291d",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop3-handheld.png": "7a5c0a1780eba5d03dd1ae74c9d1b16c5a29b50b48706f56844c14e71d45812d",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop1-handheld.png": "4b4b07ab38917708c14de8068538f7fa32d75429acf7b4881a236fc8af0b1db0",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop3-tag.png": "5e1236cf8dac30e37ad6e9c9605421751c66868d2578d4fd09d42dbd23b838ae",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop3-customer.png": "813ae9246822b391f3937c496acfc50ddd54c4cde4dcc86a7803dda87e8ec1d2",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop3-report.png": "cf88da7b0782fe1438d04e70446a1efffe926b875cffdabd27f17e33275220f3",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop2-name.png": "7ad163b5fb72f759277111392c2ab808e1566458804e1b9b35bf190fcc85f705",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop1-cargo.png": "8443d723bb656746e0b368e1d2f3bfef3e42ce5fbffffeb584e50b003cddbfbb",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-result.png": "42172a0103ba83f5920670962a0755bb2471da29b8e4f65fd4451215b55cb4fa",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop2-customer.png": "e6360a0cc85eba5b34515e27e038f514f40e5f4668c663270ddffda484810aa2",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta.json": "424b5e2f72184410f227ff005a65d44e3c0a4985ed5b1e7aada26c9cce14d4a7",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-stop2-reply.png": "9b8cbc116bd537bdc1fd4da4b9c9fcbd557e24ca8be191cee62aec84f2501dc5",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-low/c41-c39-protocol-budget-loaded-low-low-protocolintercom.png": "908118b0ee49512d609907d221112fef5326d10e1fbf71978cbede418453edc5",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-low/c41-c39-protocol-budget-loaded-low-low-protocolstatus.png": "4a9e9fd327ce93eec2bb622129af90f990e468a8b9a691ab5fde7948469bd4df",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-low/c41-c39-protocol-budget-loaded-low-low-protocolreport.png": "6a9cbb9face1518579ffb48f98c11b6f9cf2e4a2bf28414ba879cb547acbfef8",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-low/c41-c39-protocol-budget-loaded-low-low-protocollockerclosed.png": "8e22e04c4a6ab51845dde874e4fff1b29dbd060766c5863a614fdce5fdc3e9cb",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-low/c41-c39-protocol-budget-loaded-low-low-protocollockeropen.png": "1a14721f0ff778ea80668c270a21bc93db82b6fb589708e5978ef560f777c4b1",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-low/c41-c39-protocol-budget-loaded-low-low-protocolsignature.png": "cd80978ffe64f7f8c16f6f30cc3512afc8a7b193faddf74e06c4cd064d056a92",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-low/bench-c41-c39-protocol-budget-loaded-low-low.json": "c21af7c98bae2407b40b757d0548993f5d36239699856ae3f2fc46300941a147",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-low/c41-c39-protocol-budget-loaded-low-low-protocolcamera.png": "ed17ea2d2bb0c90cec339387899cd0ae95b9ffe499c5a71909ae3f1e91e47d19",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-low/c41-c39-protocol-budget-loaded-low-low-protocolreception.png": "c8d47bc4d05caf362ac12eb71939751c0ff317b543ffb0a92e565adbb1a219fe",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-high/c41-c39-protocol-budget-loaded-high-high-protocolintercom.png": "305bec60a58f2da9fb1959bcc7d09ea2c2d2139b5c180b28a6100ead72fb6ad1",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-high/bench-c41-c39-protocol-budget-loaded-high-high.json": "4efad279e2a1ec0944bc9a498415a0465a0dabbbdff378253a81f81626a70c0f",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-high/c41-c39-protocol-budget-loaded-high-high-protocollockeropen.png": "9bbc0d3ffd7a4bd05a3a2ba4ad7b4f823cae5cd7a9736991e24fe6c25bdd1bb9",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-high/c41-c39-protocol-budget-loaded-high-high-protocolstatus.png": "126618d907c3530dc1133a3daa6037d84c0c3dce72074d2cb59075e2e9247509",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-high/c41-c39-protocol-budget-loaded-high-high-protocolreport.png": "325bda6b6a164eaf4980cef4efd71beb3ce230c6f2ce6c434b859710647b540b",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-high/c41-c39-protocol-budget-loaded-high-high-protocollockerclosed.png": "25a9fae00b35af4df2e531ad3074627a982784da9be69add7501ab84b9395da2",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-high/c41-c39-protocol-budget-loaded-high-high-protocolreception.png": "b0ad7df1641a8609ef38d0f90673b510c04b2272e7254c564d6077fce89003a3",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-high/c41-c39-protocol-budget-loaded-high-high-protocolcamera.png": "16573d364b588196aae268a6d7ec5444cd27b6d7c7849373703bc692deddd9a1",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-loaded-high/c41-c39-protocol-budget-loaded-high-high-protocolsignature.png": "2f2bf1463bc3ee7cc550afcd2e204e0a4da0c09844e02e78d5c77d51b9ed9d0a",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-accessible-low/c41-c39-protocol-budget-accessible-low-low-protocolcamera.png": "2917be9549759c63bbcccc4a180c853e150d20261c6c92f79ac6a2e5c7a1c3b1",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-accessible-low/c41-c39-protocol-budget-accessible-low-low-protocolreception.png": "7a690a3569ccf5df3b99886ec76d43fd713430e511ae78d14eccc9d51f585ff8",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-accessible-low/c41-c39-protocol-budget-accessible-low-low-protocolintercom.png": "9425152f3bc6d3ea06230fc99235f3a96f29e41c1f372063cc81b2b696136664",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-accessible-low/bench-c41-c39-protocol-budget-accessible-low-low.json": "2405027a90ac4a6f494ed8a9bcb81a8443b5f2e0ab421d335e34e6e5eef8511c",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-accessible-low/c41-c39-protocol-budget-accessible-low-low-protocolreport.png": "8274664c723735b7a74a129c5fe85b959028615cae1e037cce9ed30e85451d59",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-accessible-low/c41-c39-protocol-budget-accessible-low-low-protocolsignature.png": "734e5aa3d8b6a5d1c3050e0dd7c37dd522089d355410a1dc70c0fd21789da55a",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-accessible-low/c41-c39-protocol-budget-accessible-low-low-protocollockerclosed.png": "84744e4229b97f67b65ed18a22076d6343a3390a6d246f9bac5b204b62c33118",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-accessible-low/c41-c39-protocol-budget-accessible-low-low-protocollockeropen.png": "7bd13a9d37c8a77348c6da805fc2c11a3d56891910a834c27e3b012c34e90c48",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-accessible-low/c41-c39-protocol-budget-accessible-low-low-protocolstatus.png": "9145c28fc3020c7f12bc3e279e78a8ea670ac7780ba982e5f8e21b8d87238577",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-fallback-low/c41-c39-protocol-budget-fallback-low-low-protocolintercom.png": "607eee87d543f59bbaf91cb75238195bdfc6149bf560d0ca24d413fadd88993a",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-fallback-low/c41-c39-protocol-budget-fallback-low-low-protocolstatus.png": "d7da6608de7370bb79afd053cd098afb856c85cc1e9e019a09fb99a63d9b8e44",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-fallback-low/c41-c39-protocol-budget-fallback-low-low-protocollockeropen.png": "eb98c13a3f9f6033faed03d2697ab62f1ea471499185b490984423c6ac2883fb",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-fallback-low/c41-c39-protocol-budget-fallback-low-low-protocolreception.png": "0089e0752ad49ac8a34ab5b16968f91de9b47a86846f62fc5253b51c4ed1e2b8",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-fallback-low/c41-c39-protocol-budget-fallback-low-low-protocolreport.png": "3bafc15c1794f7392246d85c4ec57ec81601495f58f2ff54950650ed6c3750b2",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-fallback-low/c41-c39-protocol-budget-fallback-low-low-protocolsignature.png": "8ae62df85ab50b3b951ad63e6dcbbaa43fad7c31ffce7ef50829691f7d2b42cb",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-fallback-low/c41-c39-protocol-budget-fallback-low-low-protocollockerclosed.png": "196eac01ea0ede3993ed00b716c50d7bced4c35ea41d4e4ef1fdba1fba260b7d",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-fallback-low/c41-c39-protocol-budget-fallback-low-low-protocolcamera.png": "be71b6a3d56fb6450b222cc20e4015905e3d8442873e6c9631232f7f394fea90",
+    "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-protocol-budget-fallback-low/bench-c41-c39-protocol-budget-fallback-low-low.json": "d00bd023178a45339d001f9b055de7e04923a90f9a347dd6312313e0d676b245"
+  },
+  "cleanup": [
+    {
+      "directory": "docs/review/set-10/c41-c39-rebase/acceptance",
+      "serverExited": true,
+      "leaseReleased": true,
+      "ownedPidsGoneOrZombie": true
+    }
+  ],
+  "visualReview": [
+    {
+      "file": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-reception-high/c41-c39-reception-high-reception.png",
+      "note": "Original-size High larger Tamil reception: local resident/building, parcel and counter visible; task/time banner fits with real Tamil glyphs. New protocol copy remains for A31."
+    },
+    {
+      "file": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-result.png",
+      "note": "Original-size High larger Tamil result: authored wrong-neighbor critical, one service star and failed assessment stay readable; result headings, lessons and controls fit."
+    }
+  ],
+  "allPassed": true
+}

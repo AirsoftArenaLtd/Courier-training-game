@@ -1172,3 +1172,6 @@ The unchanged full High lighting pixel test fails identically on unchanged old
 and current pilot (black at 650,403 both off/on); that inherited exception is
 retained, not counted as a pass. No ceiling changed. Cloud SwiftShader cannot
 certify Intel 60 fps (O-1).
+
+
+**C41 after C39/A30 (29 October 2026, accepted sources 705e7e56):** 27 focused CPU suites, 5,608 assertions across 11 explicitly scoped native jobs and 32 resource views pass. All original profile/cap checks replay independently; inputs/fonts/artifacts and owned cleanup verified in `docs/review/set-10/c41-c39-rebase/verification.json`. Exact native fixture/abandonment scopes and every profile peak are in that folder’s README. This supersedes no historical source scope and makes no Intel FPS claim (O1).

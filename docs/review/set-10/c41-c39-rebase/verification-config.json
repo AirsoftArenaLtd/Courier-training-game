@@ -1,0 +1,77 @@
+{
+  "cohorts": [
+    {
+      "directory": "docs/review/set-10/c41-c39-rebase/acceptance"
+    }
+  ],
+  "nativeJobs": 11,
+  "resourceViews": 32,
+  "resourceTool": "fp-customerprotocol-quality",
+  "resourceMethod": "checkProtocol",
+  "registryBase": "e8f46073",
+  "registryPattern": ", scene3d: 'customer-(?:conversation|doorsteps)'",
+  "scope": "C41 on C40/C39/A30: eleven actual native journeys include authored bad intercom and High doorstep failures; 32 original-profile protocol resources. Optional protocol registry/A31 and Intel O1 remain separate.",
+  "nativePolicies": [
+    {
+      "suffix": "intercom-low",
+      "score": 1100
+    },
+    {
+      "suffix": "reception-low",
+      "score": 1100
+    },
+    {
+      "suffix": "locker-low",
+      "score": 1100
+    },
+    {
+      "suffix": "intercom-high",
+      "score": 1100,
+      "assessmentPassed": true
+    },
+    {
+      "suffix": "reception-high",
+      "score": 1100,
+      "assessmentPassed": true
+    },
+    {
+      "suffix": "locker-high",
+      "score": 1100,
+      "assessmentPassed": true
+    },
+    {
+      "suffix": "intercom-bad",
+      "score": 900,
+      "assessmentPassed": false
+    },
+    {
+      "suffix": "missing-low",
+      "score": 1800
+    },
+    {
+      "suffix": "twostops-high-ta",
+      "score": 2500,
+      "assessmentPassed": true
+    },
+    {
+      "suffix": "doorsteps-low",
+      "score": 6400
+    },
+    {
+      "suffix": "doorsteps-high-ta",
+      "score": 5800,
+      "assessmentPassed": false,
+      "assessmentCriticals": 1
+    }
+  ],
+  "visualReview": [
+    {
+      "file": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-reception-high/c41-c39-reception-high-reception.png",
+      "note": "Original-size High larger Tamil reception: local resident/building, parcel and counter visible; task/time banner fits with real Tamil glyphs. New protocol copy remains for A31."
+    },
+    {
+      "file": "docs/review/set-10/c41-c39-rebase/acceptance/artifacts/c41-c39-doorsteps-high-ta/c41-c39-doorsteps-high-ta-high-ta-large-result.png",
+      "note": "Original-size High larger Tamil result: authored wrong-neighbor critical, one service star and failed assessment stay readable; result headings, lessons and controls fit."
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "checks": 588,
+  "modes": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "missing",
+      "shots": [
+        "c41-c39-missing-low-low-en-normal-missing-physical.png",
+        "c41-c39-missing-low-low-en-normal-missing-ending.png",
+        "c41-c39-missing-low-low-en-normal-missing-result.png"
+      ],
+      "nodes": [
+        "n1",
+        "n3",
+        "n4_check",
+        "n6"
+      ],
+      "pages": 10,
+      "walked": false,
+      "handheld": {
+        "open": true,
+        "lines": [
+          "The conversation is at the house farther along this street.",
+          "The conversation point is 2 meters away."
+        ],
+        "time": [
+          0.13330000000000017,
+          0.13330000000000017,
+          null
+        ],
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "choices": [
+          {
+            "top": 414.5,
+            "bottom": 460.5,
+            "font": 15,
+            "scale": 1
+          },
+          {
+            "top": 466.5,
+            "bottom": 512.5,
+            "font": 15,
+            "scale": 1
+          }
+        ],
+        "texts": [
+          {
+            "source": "Read the conversation details.",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 106.5,
+            "bottom": 121.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 520.5,
+            "bottom": 535.5
+          },
+          {
+            "source": "The conversation is at the house farther along this street.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 186
+          },
+          {
+            "source": "The conversation point is 2 meters away.",
+            "scale": 1,
+            "top": 192,
+            "bottom": 209
+          }
+        ]
+      },
+      "result": {
+        "id": "m3-missing",
+        "result": {
+          "score": 1800,
+          "ratios": {
+            "service": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "service",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Acknowledging the frustration (without arguing or admitting fault) is the fastest way to lower the temperature. You showed you care and offered to help.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793265669405,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793265673430,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793265673430,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793265676017,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793265676017,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793265678910,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793265678910,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Acknowledge the frustration first — empathy lowers the temperature before you solve anything.",
+            "Gather facts (delivery details, notes, likely safe spots) before guessing what happened.",
+            "If a package truly can't be located, point the customer to the official support/claims process."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "service",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Acknowledging the frustration (without arguing or admitting fault) is the fastest way to lower the temperature. You showed you care and offered to help.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793265669405,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793265673430,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Facts first. Delivery details often show the exact spot — side door, garage, back porch — and that solves a lot of \"missing\" packages.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793265673430,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793265676017,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "A 60-second look beats a week-long claim. You stayed on the problem until it was solved.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793265676017,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793265678910,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You made the customer feel okay about it AND prevented it happening again. That's service.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793265678910,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 2
+          }
+        },
+        "stars": {
+          "service": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 1800,
+          "bestStars": {
+            "safety": 0,
+            "efficiency": 3,
+            "service": 3
+          },
+          "lastPlayed": 1793265680510
+        }
+      },
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      },
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "Ten journeys cover all three existing dialogues, Low/High, English/Tamil and normal/larger text. All reply pages are read before real digit-key decisions. The two-stop route uses real walking keys. Larger text runs use assessments, including an authored signature critical. Existing ids are explicitly routed to the proposed adapter. Real suspended workday journal/checkpoint and scenario/assessment records are reloaded. No position, dialogue-node, timer, score or verdict fixtures.",
+  "complete": true
+}

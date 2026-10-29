@@ -1,0 +1,374 @@
+{
+  "phase": "complete",
+  "controllerPid": 310594,
+  "jobs": [
+    {
+      "tag": "c41-c39-intercom-low",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_KIND": "intercom"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-intercom-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+        "c41-c39-intercom-low-intercom.png": "3b46050fe1701e0e6979e158e599c2b45c96c51a63440d43a58f2669c8d178df",
+        "c41-c39-intercom-low.json": "6045c0f80c8f6332e6c0c41884146446f899b288725fe3dcd66c51e676e15582"
+      }
+    },
+    {
+      "tag": "c41-c39-reception-low",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_KIND": "reception"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-reception-low.json": "a02d11d50df1ac253ad305ed137977fbc45505c3be7db11ddc5ce8627cf53081",
+        "c41-c39-reception-low-reception.png": "0f1bbf3a0a133efc72ef471489bed197eca0c93fa1a30926490b075af94c646d",
+        "c41-c39-reception-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5"
+      }
+    },
+    {
+      "tag": "c41-c39-locker-low",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0",
+        "QA_KIND": "locker"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-locker-low-camera-frame.png": "ea70b746ca9cb930ae21831112f0b93114668946c6b5f3ec39363726af04ecbc",
+        "c41-c39-locker-low.json": "1c34aa0b227cf4731afd10e0d31d42ad592bd17835d79d1b7fa87c1716a7ae9b",
+        "c41-c39-locker-low-camera-device.png": "ebd00e5144ac9ccea5270948972a4d487bc8c344904dbbb1866b6deed01f1f6c",
+        "c41-c39-locker-low-locker.png": "749d4287a1ecc732101b3ec87e76dd818a02790da82453a1a04463cc15026b5c",
+        "c41-c39-locker-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5"
+      }
+    },
+    {
+      "tag": "c41-c39-intercom-high",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_KIND": "intercom"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-intercom-high-intercom.png": "aaca5422cf8603fd71217b41e5ee5d6765aa17fa7cf295afbcd8e021f2a598d0",
+        "c41-c39-intercom-high-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+        "c41-c39-intercom-high.json": "cc042ff9db6a467f2ccb508318ff72d1e67a50fd45a5f1d25b56e35d21137284"
+      }
+    },
+    {
+      "tag": "c41-c39-reception-high",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_KIND": "reception"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-reception-high-reception.png": "0a0e5a7b423ddb704872caba071773d11030d4bac164b2cffbf0e6436b0bc36d",
+        "c41-c39-reception-high-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+        "c41-c39-reception-high.json": "cd3880b92409c7c692fead398b1a8dcb7ef5a778d51af4c04cc5ea49c3e4cfb6"
+      }
+    },
+    {
+      "tag": "c41-c39-locker-high",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_KIND": "locker"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-locker-high-camera-frame.png": "b2c05fe49d6531b9ec1637781f21c5774dbf1ff37e24965a0220a0a83d2e22eb",
+        "c41-c39-locker-high-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+        "c41-c39-locker-high-camera-device.png": "b67d2c7a66a429f6875880f7881ff3aeda964cbbd72461986c9c8547000eeca0",
+        "c41-c39-locker-high-locker.png": "fe35a8f1c853966bce233d2fcaadd901d9b959d5c17e21e825628d910e37041e",
+        "c41-c39-locker-high.json": "1a9fc38ae98ae7f8a376a30e282012cccd8f8ec7bc3422f51f3a1df9d2b7c5bf"
+      }
+    },
+    {
+      "tag": "c41-c39-intercom-bad",
+      "script": "test/fpcustomerprotocolbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1",
+        "QA_KIND": "intercom",
+        "QA_BAD": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-intercom-bad-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+        "c41-c39-intercom-bad.json": "ae786bec0d31b3ab0280eba8d4ccaa539a6d507a1cddbb13ec4c97e3383dc7a4",
+        "c41-c39-intercom-bad-intercom.png": "edb46bfc12ffb976421179fcac3d91ee34b77e4cc1a0e6c86c1dfdc6e6319361"
+      }
+    },
+    {
+      "tag": "c41-c39-missing-low",
+      "script": "test/fpcustomerbrowser.js",
+      "env": {
+        "QA_CASE": "low-en-normal-missing"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-missing-low.json": "cf428a65f9e936049bea3ab8a60af7729ff913f5ed3cf668c27571e188eea2de",
+        "c41-c39-missing-low-low-en-normal-missing-physical.png": "da33afe665fedb54726495cb954254c230ee1abe90c13b78ef3503de2955d775",
+        "c41-c39-missing-low-low-en-normal-missing-result.png": "29776ad350c40b84336d44f3899fdd3850e54da585bc0928b867acb3b4ea3001",
+        "c41-c39-missing-low-low-en-normal-missing-ending.png": "d979dbe4939d97c3679581c16328924aa28d32ea1d07ab2443dbdc01e1cb7ee7"
+      }
+    },
+    {
+      "tag": "c41-c39-twostops-high-ta",
+      "script": "test/fpcustomerbrowser.js",
+      "env": {
+        "QA_CASE": "high-ta-large-twostops"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-twostops-high-ta-high-ta-large-twostops-physical.png": "bb8d07452ca89e90c9d1b0f37786d16ddca9d62926fe924139dd931ce2a02e31",
+        "c41-c39-twostops-high-ta-high-ta-large-twostops-house.png": "ba647b98e792db1e2a9e0d9999b36fd35a8c1384b757a76ad8acf136e0a75b12",
+        "c41-c39-twostops-high-ta.json": "22eba6342bc22842aa82c80836a6e532e157cd34a91c6feee243ef8bfa152195",
+        "c41-c39-twostops-high-ta-high-ta-large-twostops-ending.png": "4997bcf86a56371ded073d0f336c425eb8c30b2c99945e846b88a9e40a0dee76",
+        "c41-c39-twostops-high-ta-high-ta-large-twostops-result.png": "d45ba0e9078a799811ef5166de9cdaad28633658783ddd79f36ff80eaca1ad0a"
+      }
+    },
+    {
+      "tag": "c41-c39-doorsteps-low",
+      "script": "test/fpcustomerstopbrowser.js",
+      "env": {
+        "QA_CASE": "low-en-normal"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-doorsteps-low-low-en-normal-stop2-customer.png": "486ffc9917d4e026d537fd4d9770e7f0200cacf078b16e31bd3c5955acb54ffe",
+        "c41-c39-doorsteps-low-low-en-normal-result.png": "8c1dddb6a0954609461b5f7201e71f7d0f66b149f2e30d45d6ccd00e5ecdf245",
+        "c41-c39-doorsteps-low-low-en-normal-stop3-customer.png": "98d042206c80427dfe4afb872908ed88e44183fce9c86ffada43fd0bf8c3162c",
+        "c41-c39-doorsteps-low-low-en-normal-stop3-cargo.png": "f76b5baf7569d0f9c253ec1cf29acfc1826b8edff61290b97b50841d71955f38",
+        "c41-c39-doorsteps-low-low-en-normal-stop3-report.png": "1a2b1d3900afa9ab6269b1965b813678134ef7750c5388a1930abb5a0e6b1990",
+        "c41-c39-doorsteps-low-low-en-normal-stop3-tag.png": "a337d911713eaa7c4710ab2bf22c5861c6a9eee4498be8a9b60cfcc6fc1cd7a0",
+        "c41-c39-doorsteps-low-low-en-normal-stop1-reply.png": "4b6eb5cd84582b302e1fab337556d723c5d7a0601c6dcb95c7e22bb196d00194",
+        "c41-c39-doorsteps-low-low-en-normal-stop3-reply.png": "246c91d33075f81e91713079682cd4d102441a2fc78b0172fd8b1b250a49ee5e",
+        "c41-c39-doorsteps-low-low-en-normal-stop2-report.png": "341b0141d98c35987c4f81f5454dea59eb75910f3f1f56813cca1785125fe843",
+        "c41-c39-doorsteps-low-low-en-normal-stop2-cargo.png": "675247ed752ec87c37c14aebb76ddcb0fee0d22bd141d9e357e59886d1599aee",
+        "c41-c39-doorsteps-low-low-en-normal-stop1-name.png": "f8fd983e73cd825e8bff1490bb5f16e0384f24d59d7bd58bf73312131620958a",
+        "c41-c39-doorsteps-low-low-en-normal-stop1-handheld.png": "f68ffa8168a26e81b8fd2c328dcd7840ba981dadc3b522f17893a6ac120b4813",
+        "c41-c39-doorsteps-low-low-en-normal-stop1-customer.png": "b285c8d99ee54c345cc639e700235f1113dc851e272be5f0ab54db3840503ec0",
+        "c41-c39-doorsteps-low-low-en-normal-stop2-name.png": "52e3fe5584109c0011a36661a2e98d5303de283df45a893804e93b14d1afd7b3",
+        "c41-c39-doorsteps-low-low-en-normal-stop2-reply.png": "3f78b107e917a27c2fc052bef5a915e139a1f73e955fa93ea93eb48fc8b9de15",
+        "c41-c39-doorsteps-low.json": "2f74d516f10a88cffa2d79f3c49d388b2baacea63e35e0a36cddaa5d992ccee3",
+        "c41-c39-doorsteps-low-low-en-normal-stop1-cargo.png": "e95fbd65d5d0386ff459aef0803934ef33cd5d4359eda2acc79066b40821a37e",
+        "c41-c39-doorsteps-low-low-en-normal-stop1-report.png": "832c306c77dcccd4cbfb3241426d2b810c94d7f81e79ba7f4fb5048bc71e99ba",
+        "c41-c39-doorsteps-low-low-en-normal-stop2-handheld.png": "b672a7e7e2e7b2c1d6b5cb08e81ab226b213c1322f5eced7361e7f1ca6fe43e3",
+        "c41-c39-doorsteps-low-low-en-normal-stop3-handheld.png": "070e8014a31f536560232d4cfa39551a0fb97ac872da63c1cd015819f37fe143"
+      }
+    },
+    {
+      "tag": "c41-c39-doorsteps-high-ta",
+      "script": "test/fpcustomerstopbrowser.js",
+      "env": {
+        "QA_CASE": "high-ta-large"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop1-name.png": "6a349f9bfd97de284bed56693c008c4cc77c8ab9de8a19979728a5b896c08d6c",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop2-report.png": "b99bc67bb38baa717cedd2d654c1446464a47f1b21ddad9e58a8097ff0cb23d5",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop3-cargo.png": "395d3f78ed9749584c8efb5a17c8338a69c2ca76fe474bd3a9dfa4b819149238",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop2-cargo.png": "9cefeb6d8074a5300f70dd4901915fe00a459fdd87f9e8847e5a103b9cc91587",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop3-reply.png": "bee0f058c4c10194f05fcb3e4f7ce9f252118d881d2d1d40ca4c3402d97e8057",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop1-report.png": "a90a5576fd010f322013d915a58a1285d8ef6e1ec996b3d6d3e7b33e12efd5fa",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop2-handheld.png": "7f13bc461843f45378cb462e20894e6f5aa818a045eadb01f890cc9b485ca97b",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop1-reply.png": "401927360d016065f8c3bc8583498b2527e9a551391091d03c7b4faa00b74840",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop1-customer.png": "addc139615f254d49dd4c678890fd8511fbf4ecaa32c03e556fed737c41a291d",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop3-handheld.png": "7a5c0a1780eba5d03dd1ae74c9d1b16c5a29b50b48706f56844c14e71d45812d",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop1-handheld.png": "4b4b07ab38917708c14de8068538f7fa32d75429acf7b4881a236fc8af0b1db0",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop3-tag.png": "5e1236cf8dac30e37ad6e9c9605421751c66868d2578d4fd09d42dbd23b838ae",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop3-customer.png": "813ae9246822b391f3937c496acfc50ddd54c4cde4dcc86a7803dda87e8ec1d2",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop3-report.png": "cf88da7b0782fe1438d04e70446a1efffe926b875cffdabd27f17e33275220f3",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop2-name.png": "7ad163b5fb72f759277111392c2ab808e1566458804e1b9b35bf190fcc85f705",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop1-cargo.png": "8443d723bb656746e0b368e1d2f3bfef3e42ce5fbffffeb584e50b003cddbfbb",
+        "c41-c39-doorsteps-high-ta-high-ta-large-result.png": "42172a0103ba83f5920670962a0755bb2471da29b8e4f65fd4451215b55cb4fa",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop2-customer.png": "e6360a0cc85eba5b34515e27e038f514f40e5f4668c663270ddffda484810aa2",
+        "c41-c39-doorsteps-high-ta.json": "424b5e2f72184410f227ff005a65d44e3c0a4985ed5b1e7aada26c9cce14d4a7",
+        "c41-c39-doorsteps-high-ta-high-ta-large-stop2-reply.png": "9b8cbc116bd537bdc1fd4da4b9c9fcbd557e24ca8be191cee62aec84f2501dc5"
+      }
+    },
+    {
+      "tag": "c41-c39-protocol-budget-loaded-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "protocolintercom,protocolreception,protocolsignature,protocollockeropen,protocollockerclosed,protocolcamera,protocolstatus,protocolreport",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_CUSTOMER_PROTOCOLS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-protocol-budget-loaded-low-low-protocolintercom.png": "908118b0ee49512d609907d221112fef5326d10e1fbf71978cbede418453edc5",
+        "c41-c39-protocol-budget-loaded-low-low-protocolstatus.png": "4a9e9fd327ce93eec2bb622129af90f990e468a8b9a691ab5fde7948469bd4df",
+        "c41-c39-protocol-budget-loaded-low-low-protocolreport.png": "6a9cbb9face1518579ffb48f98c11b6f9cf2e4a2bf28414ba879cb547acbfef8",
+        "c41-c39-protocol-budget-loaded-low-low-protocollockerclosed.png": "8e22e04c4a6ab51845dde874e4fff1b29dbd060766c5863a614fdce5fdc3e9cb",
+        "c41-c39-protocol-budget-loaded-low-low-protocollockeropen.png": "1a14721f0ff778ea80668c270a21bc93db82b6fb589708e5978ef560f777c4b1",
+        "c41-c39-protocol-budget-loaded-low-low-protocolsignature.png": "cd80978ffe64f7f8c16f6f30cc3512afc8a7b193faddf74e06c4cd064d056a92",
+        "bench-c41-c39-protocol-budget-loaded-low-low.json": "c21af7c98bae2407b40b757d0548993f5d36239699856ae3f2fc46300941a147",
+        "c41-c39-protocol-budget-loaded-low-low-protocolcamera.png": "ed17ea2d2bb0c90cec339387899cd0ae95b9ffe499c5a71909ae3f1e91e47d19",
+        "c41-c39-protocol-budget-loaded-low-low-protocolreception.png": "c8d47bc4d05caf362ac12eb71939751c0ff317b543ffb0a92e565adbb1a219fe"
+      },
+      "peak": {
+        "calls": 28,
+        "triangles": 1146,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2063622
+      }
+    },
+    {
+      "tag": "c41-c39-protocol-budget-loaded-high",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "protocolintercom,protocolreception,protocolsignature,protocollockeropen,protocollockerclosed,protocolcamera,protocolstatus,protocolreport",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_CUSTOMER_PROTOCOLS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-protocol-budget-loaded-high-high-protocolintercom.png": "305bec60a58f2da9fb1959bcc7d09ea2c2d2139b5c180b28a6100ead72fb6ad1",
+        "bench-c41-c39-protocol-budget-loaded-high-high.json": "4efad279e2a1ec0944bc9a498415a0465a0dabbbdff378253a81f81626a70c0f",
+        "c41-c39-protocol-budget-loaded-high-high-protocollockeropen.png": "9bbc0d3ffd7a4bd05a3a2ba4ad7b4f823cae5cd7a9736991e24fe6c25bdd1bb9",
+        "c41-c39-protocol-budget-loaded-high-high-protocolstatus.png": "126618d907c3530dc1133a3daa6037d84c0c3dce72074d2cb59075e2e9247509",
+        "c41-c39-protocol-budget-loaded-high-high-protocolreport.png": "325bda6b6a164eaf4980cef4efd71beb3ce230c6f2ce6c434b859710647b540b",
+        "c41-c39-protocol-budget-loaded-high-high-protocollockerclosed.png": "25a9fae00b35af4df2e531ad3074627a982784da9be69add7501ab84b9395da2",
+        "c41-c39-protocol-budget-loaded-high-high-protocolreception.png": "b0ad7df1641a8609ef38d0f90673b510c04b2272e7254c564d6077fce89003a3",
+        "c41-c39-protocol-budget-loaded-high-high-protocolcamera.png": "16573d364b588196aae268a6d7ec5444cd27b6d7c7849373703bc692deddd9a1",
+        "c41-c39-protocol-budget-loaded-high-high-protocolsignature.png": "2f2bf1463bc3ee7cc550afcd2e204e0a4da0c09844e02e78d5c77d51b9ed9d0a"
+      },
+      "peak": {
+        "calls": 43,
+        "triangles": 28936,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5500646
+      }
+    },
+    {
+      "tag": "c41-c39-protocol-budget-accessible-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "protocolintercom,protocolreception,protocolsignature,protocollockeropen,protocollockerclosed,protocolcamera,protocolstatus,protocolreport",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_CUSTOMER_PROTOCOLS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-protocol-budget-accessible-low-low-protocolcamera.png": "2917be9549759c63bbcccc4a180c853e150d20261c6c92f79ac6a2e5c7a1c3b1",
+        "c41-c39-protocol-budget-accessible-low-low-protocolreception.png": "7a690a3569ccf5df3b99886ec76d43fd713430e511ae78d14eccc9d51f585ff8",
+        "c41-c39-protocol-budget-accessible-low-low-protocolintercom.png": "9425152f3bc6d3ea06230fc99235f3a96f29e41c1f372063cc81b2b696136664",
+        "bench-c41-c39-protocol-budget-accessible-low-low.json": "2405027a90ac4a6f494ed8a9bcb81a8443b5f2e0ab421d335e34e6e5eef8511c",
+        "c41-c39-protocol-budget-accessible-low-low-protocolreport.png": "8274664c723735b7a74a129c5fe85b959028615cae1e037cce9ed30e85451d59",
+        "c41-c39-protocol-budget-accessible-low-low-protocolsignature.png": "734e5aa3d8b6a5d1c3050e0dd7c37dd522089d355410a1dc70c0fd21789da55a",
+        "c41-c39-protocol-budget-accessible-low-low-protocollockerclosed.png": "84744e4229b97f67b65ed18a22076d6343a3390a6d246f9bac5b204b62c33118",
+        "c41-c39-protocol-budget-accessible-low-low-protocollockeropen.png": "7bd13a9d37c8a77348c6da805fc2c11a3d56891910a834c27e3b012c34e90c48",
+        "c41-c39-protocol-budget-accessible-low-low-protocolstatus.png": "9145c28fc3020c7f12bc3e279e78a8ea670ac7780ba982e5f8e21b8d87238577"
+      },
+      "peak": {
+        "calls": 28,
+        "triangles": 1146,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2187072
+      }
+    },
+    {
+      "tag": "c41-c39-protocol-budget-fallback-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1",
+        "QA_VIEWS": "protocolintercom,protocolreception,protocolsignature,protocollockeropen,protocollockerclosed,protocolcamera,protocolstatus,protocolreport",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_CUSTOMER_PROTOCOLS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-c39-protocol-budget-fallback-low-low-protocolintercom.png": "607eee87d543f59bbaf91cb75238195bdfc6149bf560d0ca24d413fadd88993a",
+        "c41-c39-protocol-budget-fallback-low-low-protocolstatus.png": "d7da6608de7370bb79afd053cd098afb856c85cc1e9e019a09fb99a63d9b8e44",
+        "c41-c39-protocol-budget-fallback-low-low-protocollockeropen.png": "eb98c13a3f9f6033faed03d2697ab62f1ea471499185b490984423c6ac2883fb",
+        "c41-c39-protocol-budget-fallback-low-low-protocolreception.png": "0089e0752ad49ac8a34ab5b16968f91de9b47a86846f62fc5253b51c4ed1e2b8",
+        "c41-c39-protocol-budget-fallback-low-low-protocolreport.png": "3bafc15c1794f7392246d85c4ec57ec81601495f58f2ff54950650ed6c3750b2",
+        "c41-c39-protocol-budget-fallback-low-low-protocolsignature.png": "8ae62df85ab50b3b951ad63e6dcbbaa43fad7c31ffce7ef50829691f7d2b42cb",
+        "c41-c39-protocol-budget-fallback-low-low-protocollockerclosed.png": "196eac01ea0ede3993ed00b716c50d7bced4c35ea41d4e4ef1fdba1fba260b7d",
+        "c41-c39-protocol-budget-fallback-low-low-protocolcamera.png": "be71b6a3d56fb6450b222cc20e4015905e3d8442873e6c9631232f7f394fea90",
+        "bench-c41-c39-protocol-budget-fallback-low-low.json": "d00bd023178a45339d001f9b055de7e04923a90f9a347dd6312313e0d676b245"
+      },
+      "peak": {
+        "calls": 31,
+        "triangles": 942,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2063622
+      }
+    }
+  ],
+  "startedAt": 1793263575.991317,
+  "serverPid": 310748,
+  "tag": "c41-c39-protocol-budget-fallback-low",
+  "childPid": 325519,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793268204.1057231
+}
