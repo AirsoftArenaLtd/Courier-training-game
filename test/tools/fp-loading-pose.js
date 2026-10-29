@@ -9,7 +9,11 @@ module.exports=view=>{
   for(const [id,slot]of Object.entries(plan)){K.take(s,id);K.place(s,slot);}
  }
  if(view==='loadcart')Object.assign(m.player,{x:-1.16,z:12.3,yaw:0,pitch:.45});
- if(view==='loadtop')Object.assign(m.player,{x:2.84,z:9.85,yaw:-Math.PI/2,pitch:-.25});
+ if(view==='loadtop'){
+  Object.assign(m.player,{x:3.2,z:11.6,yaw:-Math.PI/2,pitch:0});scene.sync();
+  const p=scene.art.loading.parcels.find(p=>p.data.id==='l2'),face=p.body.localToWorld(new THREE.Vector3().copy(p.body.userData.fpFocusPoint));
+  m.player.yaw=Math.atan2(face.x-m.player.x,-(face.z-m.player.z));m.player.pitch=Math.atan2(scene.view.camera.position.y-face.y,Math.hypot(face.x-m.player.x,face.z-m.player.z));
+ }
  if(view==='loadbottom')Object.assign(m.player,{x:2.84,z:10.7,yaw:-.75,pitch:.6});
  if(view==='loadcarried'){K.take(s,'l1');Object.assign(m.player,{x:2.84,z:9.85,yaw:0,pitch:.15});}
  if(view==='loadstrapped')K.strap(s);

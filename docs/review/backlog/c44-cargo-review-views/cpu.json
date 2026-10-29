@@ -1,0 +1,23 @@
+{
+  "suites": [
+    {
+      "file": "test/fploadingposes.js",
+      "exit": 0,
+      "seconds": 0.93,
+      "log": "fploadingposes.log"
+    },
+    {
+      "file": "test/fploadingscenario.js",
+      "exit": 0,
+      "seconds": 6.56,
+      "log": "fploadingscenario.log"
+    },
+    {
+      "file": "test/fploadingworld.js",
+      "exit": 0,
+      "seconds": 0.93,
+      "log": "fploadingworld.log"
+    }
+  ],
+  "scope": "CPU geometry/rays and original scenario regressions; browser capture and compositor/resource gates remain separate."
+}

@@ -1,0 +1,101 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+✖ Low fallback top-shelf pose selects and frames every printed glyph (94.72678ms)
+✖ Low loaded top-shelf pose selects and frames every printed glyph (90.384276ms)
+✖ High fallback top-shelf pose selects and frames every printed glyph (69.819659ms)
+✖ High loaded top-shelf pose selects and frames every printed glyph (103.466261ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 690.818955
+
+✖ failing tests:
+
+test at test/fploadingposes.js:18:65
+✖ Low fallback top-shelf pose selects and frames every printed glyph (94.72678ms)
+  AssertionError [ERR_ASSERTION]: the camera must use the unobstructed printed top package
+  + actual - expected
+  
+  + null
+  - 'loading-parcel-l2'
+  
+      at TestContext.<anonymous> (/workspace/c44-cargo-review-views/test/fploadingposes.js:26:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'loading-parcel-l2',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/fploadingposes.js:18:65
+✖ Low loaded top-shelf pose selects and frames every printed glyph (90.384276ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (/workspace/c44-cargo-review-views/test/fploadingposes.js:27:49)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/fploadingposes.js:18:65
+✖ High fallback top-shelf pose selects and frames every printed glyph (69.819659ms)
+  AssertionError [ERR_ASSERTION]: the camera must use the unobstructed printed top package
+  + actual - expected
+  
+  + null
+  - 'loading-parcel-l2'
+  
+      at TestContext.<anonymous> (/workspace/c44-cargo-review-views/test/fploadingposes.js:26:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'loading-parcel-l2',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/fploadingposes.js:18:65
+✖ High loaded top-shelf pose selects and frames every printed glyph (103.466261ms)
+  AssertionError [ERR_ASSERTION]: the camera must use the unobstructed printed top package
+  + actual - expected
+  
+  + null
+  - 'loading-parcel-l2'
+  
+      at TestContext.<anonymous> (/workspace/c44-cargo-review-views/test/fploadingposes.js:26:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'loading-parcel-l2',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,19 @@
+{
+  "parent": "80bf9f94166ad342e6e74166af3cf9af89cd2bda",
+  "allProductionRuntimeDataAssetsAndEntrypointsIdentical": true,
+  "changedTestSources": {
+    "test/fpbench.js": "979c9c286b76d1738d38debb5347fe1720ad775d095e296222e87032c7f77d7f",
+    "test/fploadingposes.js": "a127868a7c5635d56500a2126c15d24a3e1a69058565a6094e57ff08d2544c2a",
+    "test/tools/fp-loading-pose.js": "dd9e08066b956cdec5887f596f4df755f1f7417003f3241107ac146413c51db5",
+    "test/tools/fp-loading-projection.js": "dbd9a15c54964d4d1f23322b271e98b9e1e35c13c67f0da78b1ac3bd1ccf8ce5",
+    "test/tools/fp-loading-pose-quality.js": "12f438bba655d00fadf347139d371c646936085fb25ddea74e8b57acb3c1969c"
+  },
+  "cpuLogs": {
+    "fploadingposes.log": "08f8e512a74feb3635fff1485845a2715415da7ef5c088b940d1494c73ef0084",
+    "fploadingscenario.log": "c138567179ad34964b5062608213466108837ea3a20e1de57b4066a3fbbaaf87",
+    "fploadingworld.log": "328b67679ef30959883201aa09e198cafbbfd7c6d4635b6a034baa1f9cac3ee2"
+  },
+  "expectedPreChangeFailures": 4,
+  "projectionCases": 4,
+  "proof": "The actual static fixture must use legal footing and a real unobstructed parcel ray. Every physical ink quad must project within the free screen area for Low/High, loaded/fallback. Stored checkpoint, events and workday remain unchanged. Actual font pixels/resources await browser proof."
+}

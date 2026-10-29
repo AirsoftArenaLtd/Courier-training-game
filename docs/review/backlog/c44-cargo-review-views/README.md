@@ -1,3 +1,7 @@
-# Cargo review-pose polish
+# Cargo top-shelf review framing
 
-Doing, stacked on C44 review `80bf9f94`. Correct the static top-shelf capture’s obsolete upward pitch after the fitted-floor eye fix. Production runtime/native controls and original graphics profiles remain unchanged. CPU projection/ray/immutability evidence and targeted captures follow.
+Doing on `codex/c44-cargo-review-views`, stacked on C44 review `80bf9f94`. Its historical `loadtop` benchmark used a fixed inside-rack position and upward pitch; the fitted-floor eye correction made the capture roof-heavy and clipped the label. The static fixture now stands in a clear rear approach and aims at the actual l2 top-label face from the actual camera eye. Native gameplay, all production runtime/data/assets/entrypoints, and every original resource ceiling are unchanged.
+
+Three CPU suites and five changed-JS syntax checks pass. Four new geometry cases cover Low/High, loaded/fallback: legal footing, the real unoccluded parcel ray, every printed glyph quad inside the free screen area, all twelve staged placements and stored-workday/event/checkpoint immutability. The same four cases fail on the old pose (`before.log`). [Source and log audit](source-audit.json).
+
+A targeted serialized browser gate captures only the changed `loadtop` view in the four original resource profiles. A read-only probe after sampling measures the actual font geometry projection and requires the real parcel target, legal footing, full label in frame and unchanged storage/events. This adds no work to the measured samples or production frame loop. **Actual captures and resource acceptance remain pending.** The completed parent C44 six-journey/56-view evidence keeps its original poses and source; no full native rerun or owner Intel O1 claim is made here.
