@@ -2,7 +2,7 @@
 class FirstPersonScene extends Phaser.Scene {
   constructor(key='FirstPersonScene') { super(key); }
   create(data) {
-    Object.assign(this,{view:null,model:null,assetBank:null,area:'hub',panel:null,handheld:null,external:false,target:null,lastAim:0,lastSave:0,transitioning:false,notice:'',noticeUntil:0,ui:{},hints:null,guideTarget:null,guideText:'',guideUntil:0,soundCaption:'',soundSource:null,lightSource:null,saved:true,loading:true});
+    Object.assign(this,{view:null,model:null,art:null,labels:null,assetBank:null,area:'hub',panel:null,handheld:null,external:false,target:null,lastAim:0,lastSave:0,transitioning:false,notice:'',noticeUntil:0,ui:{},hints:null,guideTarget:null,guideText:'',guideUntil:0,soundCaption:'',soundSource:null,lightSource:null,saved:true,loading:true});
     this.cabVoice=null;this.hubWorkday=!!(data&&data.workday);
     this.held=Object.create(null);this.progress=OTR.fpStore.read();
     if(this.hubWorkday&&!data.workday.resume){this.progress.campaign=null;this.write();}
@@ -24,12 +24,15 @@ class FirstPersonScene extends Phaser.Scene {
         if(this.loadingToken!==token)return;bar.clear();bar.fillStyle(0x42556A);bar.fillRect(24,84,600,8);bar.fillStyle(0xEBC889);bar.fillRect(24,84,600*ratio,8);
       }});
       if(!await recovery.ready()||!this.sys.isActive()||this.loadingToken!==token){bank.dispose();return;}this.assetBank=bank;bar.destroy();
-      this.view=OTR.world3d.create(this);this.art=OTR.fpWorld.build(this);
+      this.view=OTR.world3d.create(this);
+      // Direct entries build their real world below. The prototype hub is only used by its own entry.
+      if(!this.scenarioSession&&!this.hubWorkday)this.art=OTR.fpWorld.build(this);
       this.handheld=new OTR.fpHandheld(this);
-      this.labels=OTR.fpBrand.labels(this);
-      this.installInput();this.loading=false;this.sync();
+      if(this.art)this.labels=OTR.fpBrand.labels(this);
+      this.installInput();
       if(this.scenarioSession){this.beginScenario();return;}
       if(this.hubWorkday){this.launch('campaign');return;}
+      this.loading=false;this.sync();
       if(!this.progress.welcomed)this.showPanel('Welcome to On The Route',
         `Move with ${OTR.fpAccess.key('KeyW')}/${OTR.fpAccess.key('KeyA')}/${OTR.fpAccess.key('KeyS')}/${OTR.fpAccess.key('KeyD')} and look with ${OTR.fpAccess.lookKeys()} or the mouse. Press ${OTR.fpAccess.key('KeyP')} to select a visible nearby target, then ${OTR.fpAccess.key('KeyE')} to interact.\n\nChoose a workday or cargo practice from the hub menu. Press ${OTR.fpAccess.key('KeyH')} for Controls and guidance. Your progress is saved on this device.`,
         [{label:'Enter the hub',action:()=>{this.progress.welcomed=true;this.write();this.closePanel();}}]);
@@ -139,6 +142,7 @@ class FirstPersonScene extends Phaser.Scene {
     if(this.art)this.art.dispose();
     this.art=OTR.fpWorld.build(this,this.model);
     this.labels=OTR.fpBrand.labels(this);
+    this.loading=false;
   }
   toHub(){
     if(this.hubWorkday){this.checkpoint();this.closePanel(false);this.releaseMouse();OTR.workday.pause(this);return;}
