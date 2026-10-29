@@ -1,0 +1,56 @@
+{
+  "scope": "Isolated B4 candidate CPU/factory-boundary checks only. Browser baseline and candidate acceptance pending; no timing or Intel FPS improvement claim.",
+  "base": "40fe78ada64fc60ece98796cd6dcbf8889cf83ac",
+  "runtimeFiles": [
+    "src/scenes/FirstPersonScene.js"
+  ],
+  "cases": 38,
+  "suites": [
+    {
+      "file": "test/fpstartup.js",
+      "cases": 13,
+      "log": "candidate/fpstartup.log",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcontext.js",
+      "cases": 8,
+      "log": "candidate/fpcontext.log",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscenario.js",
+      "cases": 13,
+      "log": "candidate/fpscenario.log",
+      "exit": 0
+    },
+    {
+      "file": "test/fpbranding.js",
+      "cases": 4,
+      "log": "candidate/fpbranding.log",
+      "exit": 0
+    }
+  ],
+  "sources": {
+    "src/scenes/FirstPersonScene.js": "97c544935e310a0e9b7ba36eab7d1774139c97f12877cf9a47dabc674d1fc782",
+    "test/fpstartup.js": "3e705b8b9f9b89932bbd26e7f226dbe7693b54c89af23e398d9dd139df80ba2f",
+    "test/fpcontext.js": "59323d7d34d90eb6fad4ce485dbb905f4a7c8a722e74f96fe878f1e34d1337ee",
+    "test/fpscenario.js": "63a22e359eb73d3b1aa744f2ea444408a487a4009d1d0ba96a032def5d879e72",
+    "test/fpbranding.js": "f570d29fd43e06a414685b1370d72cff16c4767c4f782b5471d92dcc25433916",
+    "test/fpfirstframebrowser.js": "0a3b622ee698fbcd87e4e4b6e38ac5808b9d86f4883a7e2508d0d59d5221c84c",
+    "test/tools/fp-first-frame-probe.js": "6842f53cacbf8dc7b62dabb6fd7e3627dc68e3f856404af029b0a92ef83f583a",
+    "test/tools/fp-startup-quality.js": "2ab559483d5b1f35d577928b1a41d6804aac03cb4c6a9968b192660e1395661d"
+  },
+  "logs": {
+    "candidate/fpstartup.log": "c6028474f63b59e09b54217829e453c8ccd9b252511922e8107e1f785e07a9af",
+    "candidate/fpcontext.log": "a62fabb983c2b0af84ee8c0ebce9443dd1ee679a3c2be0494c816ba6e6145605",
+    "candidate/fpscenario.log": "99bb6570f53140f357a0fea61a795971ef3fea091ea3f21e9a0711731419468a",
+    "candidate/fpbranding.log": "8d4eb6429aeca55ce3f51213bb71879ab7c5d2b53788dbd845bd99aeb9025da5"
+  },
+  "syntax": {
+    "src/scenes/FirstPersonScene.js": 0,
+    "test/fpstartup.js": 0,
+    "test/tools/fp-startup-quality.js": 0,
+    "validate-candidate.py": "compile() passed without writing pycache"
+  }
+}
