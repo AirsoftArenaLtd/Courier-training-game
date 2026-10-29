@@ -1,0 +1,5 @@
+# Native exception selection diagnostic
+
+The High/Tamil run passed the real font proof (Noto Sans Tamil Bold, 28 glyphs), actual walking and notice/device layouts, then failed after 116 checks while searching English in pretranslated panel labels. `FirstPersonScene.showPanel` calls `i18n.t(choice.label)` before creating each Text, so `i18n.src(Text)` is already translated. The original `panel.choices` remains available for a read-only, language-independent match. The corrected protocol reads that original label and still uses actual Digit2/Digit1 keys; no callback, model, clock, scoring or result is written.
+
+The failed report/captures retain their own source scope in `native-font-retry`. Five remaining jobs continue in `native-ui-retry`. Completed Low blocked-drive gameplay and all 40 resource views remain verified; all product inputs are byte-identical. Original-size failure/device captures were inspected: real Tamil glyphs are visible and menu/device labels fit. Shared translation coverage remains A31.

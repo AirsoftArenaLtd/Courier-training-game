@@ -1,0 +1,33 @@
+{
+  "phase": "failed",
+  "controllerPid": 263255,
+  "jobs": [
+    {
+      "tag": "c42-fontfix-blocked-high-ta",
+      "script": "test/fpproblemblockedbrowser.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_LANG": "ta",
+        "QA_LARGE": "1"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "c42-fontfix-blocked-high-ta-brief.png": "155b96faecc360a662f58d0e0b473dd8d07ca94df65890958097989f36fb3870",
+        "c42-fontfix-blocked-high-ta-device.png": "c4331a78ecffaea3ce50c501898c3aa175d2cbde8526cfc0fe9a000b8178789b",
+        "c42-fontfix-blocked-high-ta-access-notice.png": "1ebf4570d36c481d90649939d1633133bed3b7a77b8faa44e5ebf57d633fecca",
+        "c42-fontfix-blocked-high-ta.json": "390bcf6fcda8871a7afbe91d419c4b6afe92edc6124d68bbb5d7035aaeb01d2c",
+        "c42-fontfix-blocked-high-ta-controls.png": "2a880d86caef1aa43afdde12246d48174def88e9b331e550e6d5d33f47f4f7a3",
+        "c42-fontfix-blocked-high-ta-failure.png": "2a6eeea83816b4e6e909242c7d4cc4cbe98ce20d6b666da2bd6c62c645490352"
+      }
+    }
+  ],
+  "startedAt": 1793219667.760407,
+  "serverPid": 263260,
+  "tag": "c42-fontfix-blocked-high-ta",
+  "childPid": 263261,
+  "failure": "Browser job failed: c42-fontfix-blocked-high-ta",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793219964.323565
+}
