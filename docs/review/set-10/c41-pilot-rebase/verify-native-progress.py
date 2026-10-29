@@ -17,11 +17,15 @@ for folder,job in selected:
   p=where/name;assert sha(p)==digest,str(p);artifacts[str(p.relative_to(BASE))]=digest
  d=load(where/(job['tag']+'.json'));assert d['complete'] and not d['errors']
  m=d['modes'][0] if 'modes' in d else d;assert m['durable'];result=m['result'];font=m.get('fontProof')
+ if isinstance(m['durable'],dict):assert m['durable']['stored'] and m['durable']['reloaded']
  if font:
   assert font['override'] is None
   if m['lang']=='ta':assert any(p['postScriptName']=='NotoSansTamil-Bold' and p['glyphCount']>=28 for p in font['platformFonts'])
  assessment=result.get('assessment')
- if assessment is not None:assert assessment['passed']==('intercom-bad' not in job['tag'])
+ if assessment is not None:
+  authoredFailure='intercom-bad' in job['tag'] or 'doorsteps-high-ta' in job['tag']
+  assert assessment['passed']==(not authoredFailure)
+  if 'doorsteps-high-ta' in job['tag']:assert result['stars']['service']==1 and len(assessment['criticals'])==1
  jobs.append({'tag':job['tag'],'checks':d['checks'],'quality':m['quality'],'lang':m['lang'],'large':m['large'],'score':result['result']['score'],'stars':result['stars'],'assessmentPassed':assessment and assessment['passed'],'durable':m['durable'],'fontProof':font})
 result={'scope':'Completed C41 native subsets only. Native continuation or resource gates may still be active; no complete cleanup, full-resource or review-ready claim. Three retained Low protocols share byte-identical production with the corrected offscreen-font-probe continuation. Actual Tamil glyph proof applies to protocol runs; original-id native regressions do not collect this probe.','sourceRevision':plan['sourceRevision'],'retainedSourceRevision':old['sourceRevision'],'retainedInputDifference':changed,'planSha256':sha(BASE/'native-font-retry/plan.json'),'sourceCount':len(plan['sources']),'hostFonts':plan['hostFonts'],'allInputHashesVerified':True,'nativeJobs':jobs,'nativeChecks':sum(j['checks'] for j in jobs),'artifactCount':len(artifacts),'artifacts':artifacts,'continuationPhaseAtVerification':state['phase'],'completedContinuationJobs':len(state['jobs']),'plannedContinuationJobs':len(plan['jobs']),'allPassedSubset':True}
 (BASE/'native-progress-verified.json').write_text(json.dumps(result,indent=2)+'\n')

@@ -1,0 +1,157 @@
+{
+  "phase": "complete",
+  "jobs": [
+    {
+      "tag": "c41-fontfix-protocol-budget-loaded-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "protocolintercom,protocolreception,protocolsignature,protocollockeropen,protocollockerclosed,protocolcamera,protocolstatus,protocolreport",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_CUSTOMER_PROTOCOLS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-fontfix-protocol-budget-loaded-low-low-protocollockerclosed.png": "8e22e04c4a6ab51845dde874e4fff1b29dbd060766c5863a614fdce5fdc3e9cb",
+        "c41-fontfix-protocol-budget-loaded-low-low-protocollockeropen.png": "1a14721f0ff778ea80668c270a21bc93db82b6fb589708e5978ef560f777c4b1",
+        "c41-fontfix-protocol-budget-loaded-low-low-protocolreport.png": "6a9cbb9face1518579ffb48f98c11b6f9cf2e4a2bf28414ba879cb547acbfef8",
+        "c41-fontfix-protocol-budget-loaded-low-low-protocolstatus.png": "4a9e9fd327ce93eec2bb622129af90f990e468a8b9a691ab5fde7948469bd4df",
+        "c41-fontfix-protocol-budget-loaded-low-low-protocolintercom.png": "908118b0ee49512d609907d221112fef5326d10e1fbf71978cbede418453edc5",
+        "c41-fontfix-protocol-budget-loaded-low-low-protocolreception.png": "c8d47bc4d05caf362ac12eb71939751c0ff317b543ffb0a92e565adbb1a219fe",
+        "bench-c41-fontfix-protocol-budget-loaded-low-low.json": "8824ffd2401c1d2233a8ec7a39a16d78c4497b0ad1238a507f6e4fcb2b0a8f7d",
+        "c41-fontfix-protocol-budget-loaded-low-low-protocolcamera.png": "ed17ea2d2bb0c90cec339387899cd0ae95b9ffe499c5a71909ae3f1e91e47d19",
+        "c41-fontfix-protocol-budget-loaded-low-low-protocolsignature.png": "cd80978ffe64f7f8c16f6f30cc3512afc8a7b193faddf74e06c4cd064d056a92"
+      },
+      "peak": {
+        "calls": 28,
+        "triangles": 1146,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2063622
+      }
+    },
+    {
+      "tag": "c41-fontfix-protocol-budget-loaded-high",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "high",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "protocolintercom,protocolreception,protocolsignature,protocollockeropen,protocollockerclosed,protocolcamera,protocolstatus,protocolreport",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_CUSTOMER_PROTOCOLS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-fontfix-protocol-budget-loaded-high-high-protocolintercom.png": "305bec60a58f2da9fb1959bcc7d09ea2c2d2139b5c180b28a6100ead72fb6ad1",
+        "c41-fontfix-protocol-budget-loaded-high-high-protocollockerclosed.png": "25a9fae00b35af4df2e531ad3074627a982784da9be69add7501ab84b9395da2",
+        "c41-fontfix-protocol-budget-loaded-high-high-protocolcamera.png": "16573d364b588196aae268a6d7ec5444cd27b6d7c7849373703bc692deddd9a1",
+        "bench-c41-fontfix-protocol-budget-loaded-high-high.json": "59c96147453d943b5e9cfd521eba933b631b3542dd742a841ae12998eb436ef6",
+        "c41-fontfix-protocol-budget-loaded-high-high-protocolstatus.png": "126618d907c3530dc1133a3daa6037d84c0c3dce72074d2cb59075e2e9247509",
+        "c41-fontfix-protocol-budget-loaded-high-high-protocolsignature.png": "2f2bf1463bc3ee7cc550afcd2e204e0a4da0c09844e02e78d5c77d51b9ed9d0a",
+        "c41-fontfix-protocol-budget-loaded-high-high-protocolreport.png": "325bda6b6a164eaf4980cef4efd71beb3ce230c6f2ce6c434b859710647b540b",
+        "c41-fontfix-protocol-budget-loaded-high-high-protocollockeropen.png": "9bbc0d3ffd7a4bd05a3a2ba4ad7b4f823cae5cd7a9736991e24fe6c25bdd1bb9",
+        "c41-fontfix-protocol-budget-loaded-high-high-protocolreception.png": "b0ad7df1641a8609ef38d0f90673b510c04b2272e7254c564d6077fce89003a3"
+      },
+      "peak": {
+        "calls": 43,
+        "triangles": 28936,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5500646
+      }
+    },
+    {
+      "tag": "c41-fontfix-protocol-budget-accessible-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "large,colour,reduced",
+        "QA_FALLBACK": "0",
+        "QA_VIEWS": "protocolintercom,protocolreception,protocolsignature,protocollockeropen,protocollockerclosed,protocolcamera,protocolstatus,protocolreport",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_CUSTOMER_PROTOCOLS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-fontfix-protocol-budget-accessible-low-low-protocolsignature.png": "734e5aa3d8b6a5d1c3050e0dd7c37dd522089d355410a1dc70c0fd21789da55a",
+        "bench-c41-fontfix-protocol-budget-accessible-low-low.json": "f836f32ba097f0a7f0f1b7639c75ccfe99692b411da741207616d32ddcd7e4cd",
+        "c41-fontfix-protocol-budget-accessible-low-low-protocolintercom.png": "9425152f3bc6d3ea06230fc99235f3a96f29e41c1f372063cc81b2b696136664",
+        "c41-fontfix-protocol-budget-accessible-low-low-protocolcamera.png": "2917be9549759c63bbcccc4a180c853e150d20261c6c92f79ac6a2e5c7a1c3b1",
+        "c41-fontfix-protocol-budget-accessible-low-low-protocollockerclosed.png": "84744e4229b97f67b65ed18a22076d6343a3390a6d246f9bac5b204b62c33118",
+        "c41-fontfix-protocol-budget-accessible-low-low-protocolreport.png": "8274664c723735b7a74a129c5fe85b959028615cae1e037cce9ed30e85451d59",
+        "c41-fontfix-protocol-budget-accessible-low-low-protocollockeropen.png": "7bd13a9d37c8a77348c6da805fc2c11a3d56891910a834c27e3b012c34e90c48",
+        "c41-fontfix-protocol-budget-accessible-low-low-protocolstatus.png": "9145c28fc3020c7f12bc3e279e78a8ea670ac7780ba982e5f8e21b8d87238577",
+        "c41-fontfix-protocol-budget-accessible-low-low-protocolreception.png": "7a690a3569ccf5df3b99886ec76d43fd713430e511ae78d14eccc9d51f585ff8"
+      },
+      "peak": {
+        "calls": 28,
+        "triangles": 1146,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2187072
+      }
+    },
+    {
+      "tag": "c41-fontfix-protocol-budget-fallback-low",
+      "script": "test/fpbench.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_A11Y": "",
+        "QA_FALLBACK": "1",
+        "QA_VIEWS": "protocolintercom,protocolreception,protocolsignature,protocollockeropen,protocollockerclosed,protocolcamera,protocolstatus,protocolreport",
+        "QA_PROTOTYPE_ONLY": "1",
+        "QA_FPS_FLOOR": "0",
+        "QA_SOUND": "1",
+        "QA_MIRROR_PROBE": "1",
+        "QA_CUSTOMER_PROTOCOLS": "1",
+        "QA_SHOTS": "1"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c41-fontfix-protocol-budget-fallback-low-low-protocolreception.png": "0089e0752ad49ac8a34ab5b16968f91de9b47a86846f62fc5253b51c4ed1e2b8",
+        "c41-fontfix-protocol-budget-fallback-low-low-protocolintercom.png": "607eee87d543f59bbaf91cb75238195bdfc6149bf560d0ca24d413fadd88993a",
+        "bench-c41-fontfix-protocol-budget-fallback-low-low.json": "650e2ed632204e2e8be905cf8f9075599b05df0277e8e60983ed926eece54a48",
+        "c41-fontfix-protocol-budget-fallback-low-low-protocolreport.png": "3bafc15c1794f7392246d85c4ec57ec81601495f58f2ff54950650ed6c3750b2",
+        "c41-fontfix-protocol-budget-fallback-low-low-protocolstatus.png": "d7da6608de7370bb79afd053cd098afb856c85cc1e9e019a09fb99a63d9b8e44",
+        "c41-fontfix-protocol-budget-fallback-low-low-protocollockerclosed.png": "196eac01ea0ede3993ed00b716c50d7bced4c35ea41d4e4ef1fdba1fba260b7d",
+        "c41-fontfix-protocol-budget-fallback-low-low-protocolsignature.png": "8ae62df85ab50b3b951ad63e6dcbbaa43fad7c31ffce7ef50829691f7d2b42cb",
+        "c41-fontfix-protocol-budget-fallback-low-low-protocollockeropen.png": "eb98c13a3f9f6033faed03d2697ab62f1ea471499185b490984423c6ac2883fb",
+        "c41-fontfix-protocol-budget-fallback-low-low-protocolcamera.png": "be71b6a3d56fb6450b222cc20e4015905e3d8442873e6c9631232f7f394fea90"
+      },
+      "peak": {
+        "calls": 31,
+        "triangles": 942,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2063622
+      }
+    }
+  ],
+  "pid": 262657,
+  "startedAt": 1793219501.987005,
+  "serverPid": 289332,
+  "tag": "c41-fontfix-protocol-budget-fallback-low",
+  "childPid": 290404,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793245513.9112818
+}
