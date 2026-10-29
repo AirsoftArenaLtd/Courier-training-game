@@ -1,0 +1,21 @@
+{
+  "candidateRevision": "0a70929abc9f27f543215ad3f5a39075affd1729",
+  "status": "Failed assertion-name diagnostic; superseded by isolated unchanged shared guard at final source",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "882d08ee6d6b3eeef53b7b54ab5e397ac543b48fd243b3ac74ec6559e4267bb6",
+      "bytes": 761
+    },
+    {
+      "file": "c39-pretrip-final-repository.log",
+      "sha256": "8e4fd87275f260e893957c12a151173613c9d55f0ac385e6051033c1cb096127",
+      "bytes": 3539
+    },
+    {
+      "file": "englishtext.log",
+      "sha256": "6bca4b1bced431fd9480fa2c3a9ad1dee95fb528de3dc00cef2d3ca1c82d1347",
+      "bytes": 1111
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+✔ a profile requires actual frames for every named view and its requested quality (3.331897ms)
+✔ resource overflow, lost contexts and page errors fail the integrated gate (0.36626ms)
+✔ a fallback profile must really fail every selected model without loading any (0.624049ms)
+✔ High has explicit separate ceilings while the original Low ceilings remain (0.257499ms)
+✔ accessibility and running sound cannot be silently omitted from the fixture (0.309536ms)
+✔ a blank physical mirror cannot pass on resource counters alone (0.518293ms)
+✔ module counters require the requested real set-piece, boundaries and unchanged workday state (0.638781ms)
+✔ radio and night counters need actual route, caption, visibility and reduced-motion proofs (0.617859ms)
+✔ healthy profiles reject a recovered fallback and reports missing the fallback counter (0.297929ms)
+✔ navigation views must name their versioned campaign fixture (0.225843ms)
+✔ damage views require the located damage, cargo and physical clearance fixture (0.262166ms)
+✔ clearance views require a lasting readable warning and the reverse view also requires its camera (1.644522ms)
+✔ richer-stop counters need physical control, custody and native-schedule proofs (0.31937ms)
+✔ traffic views require the combined versioned traffic and navigation fixture (0.12898ms)
+✔ walkaround views require the opted-in model and seven non-rendered physical targets (0.776273ms)
+✔ ambient views require visible bounded people, the correct source variant and a restorable day (1.013112ms)
+✔ pre-trip views require the real registered adapter, all targets, bounded canvas reuse and isolated saves (0.428331ms)
+✔ route views require the registered planner, bounded panels, all twenty stop edits and unchanged workday state (0.54301ms)
+✔ hazard clips require actual cue sightlines, timing, model sources and isolated same-id scoring (1.318472ms)
+✔ controllable-driving resources require all hazards and bays without changing the full workday scope (3.126103ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24.937322

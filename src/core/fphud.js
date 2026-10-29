@@ -17,7 +17,7 @@ OTR.fpHud={
     return m.phase==='return'?'Return to the depot.':`Drive to ${m.stop(m.activeStop).address}.`;
   },
   navigationAllowed(m){return !!m&&m.mode==='cab'&&m.van.gear!==-1&&(!m.workdayRules||m.workdayRules.satnav!=='off');},
-  screenHint(m){if(m.van.gear===-1)return OTR.fpRear.hint(m);if(m.trainingArea&&!m.town&&m.moduleGoal)return m.moduleGoal;if(OTR.fpNav&&m.kind==='campaign'&&m.town)return OTR.fpNav.aid(m)==='full'?OTR.fpNav.instruction(m):OTR.fpNav.aid(m)==='off'?'The trainer has turned navigation off.':this.destination(m);return this.destination(m);},
+  screenHint(m){if(m.van.gear===-1)return OTR.fpRear.hint(m);if(m.routeLesson)return OTR.fpRouteLesson.instruction(m);if(m.trainingArea&&!m.town&&m.moduleGoal)return m.moduleGoal;if(OTR.fpNav&&m.kind==='campaign'&&m.town)return OTR.fpNav.aid(m)==='full'?OTR.fpNav.instruction(m):OTR.fpNav.aid(m)==='off'?'The trainer has turned navigation off.':this.destination(m);return this.destination(m);},
   alert(s){
     if(s.scenarioSession&&OTR.fpScenario&&!OTR.fpScenario.coaching(s.scenarioSession))return '';
     const m=s.model;if(!m)return '';
@@ -50,11 +50,17 @@ OTR.fpHud={
     const large=OTR.fpAccess.settings().large,w=large?240:230,text=this.screenHint(m);
     if(s.navText.text!==(OTR.i18n?OTR.i18n.t(text):text))s.navText.setText(text);
     if(s.hud.navWidth!==w){s.hud.navWidth=w;s.navText.setWordWrapWidth(w-24);}s.navText.setPosition(0,0);
-    const mapHeight=m.town?88:0,h=s.navText.height+mapHeight+20;
+    const mapHeight=m.town||m.routeLesson?88:0,h=s.navText.height+mapHeight+20;
     // A screen may leave the view as the trainee looks around; never pin it over a mirror.
     if(p.x-w/2<12||p.x+w/2>1268||p.y+h/2>700||p.y-h/2<20){s.navRoot.setVisible(false);return;}
     s.navRoot.setPosition(p.x,p.y-h/2);s.navBack.setDisplaySize(w,h);
-    const g=s.navMap;g.clear();if(!m.town)return;
+    const g=s.navMap;
+    if(m.routeLesson){
+      const stamp=m.routeLesson.revision+'|'+s.navText.height+'|'+w;
+      if(s.hud.lessonMap!==stamp){g.clear();OTR.fpRouteLessonUI.map(g,m.routeLesson,{x:-w/2+12,y:s.navText.height+6,w:w-24,h:mapHeight});s.hud.lessonMap=stamp;}
+      return;
+    }
+    g.clear();if(!m.town)return;
     const b=m.bounds,left=-w/2+12,top=s.navText.height+6,mw=w-24;
     const scale=mapHeight/70,cx=m.van.x+Math.sin(m.van.yaw)*15,cz=m.van.z-Math.cos(m.van.yaw)*15;
     const x=v=>(v-cx)*scale,y=v=>top+mapHeight/2+(v-cz)*scale;

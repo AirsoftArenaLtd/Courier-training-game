@@ -1,0 +1,208 @@
+{
+  "tag": "night-budget-fallback-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "assetFailure": "missing-model-files",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 0,
+    "failed": 14,
+    "fallbacks": 0,
+    "bytes": 0,
+    "decodedBytes": 0,
+    "errors": [
+      {
+        "path": "kenney-city-starter/models/garage-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-c-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/tree-small-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/fence-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-commercial/models/building-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/road-straight-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/light-curved-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/sedan-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/delivery-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/resident-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/resident-low.glb",
+        "reason": "Asset could not load"
+      }
+    ]
+  },
+  "prototype": {
+    "nightlessoninspect": {
+      "frames": 56,
+      "avgFPS": 5.52,
+      "low1FPS": 2.46,
+      "p99ms": 406.8,
+      "maxMs": 406.8,
+      "peak": {
+        "calls": 38,
+        "triangles": 630,
+        "textures": 2,
+        "geometries": 9,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 96,
+        "baseLevelRGBABytes": 1029220,
+        "withMipmapsUpperBytes": 1372294
+      },
+      "worldProfile": {
+        "meshes": 98,
+        "instances": 115,
+        "geometries": 15,
+        "materials": 42,
+        "geometryBytes": 22172,
+        "instanceBytes": 53372,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          20,
+          19,
+          19,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 5.14,
+          "y": 1.65,
+          "z": 4.5,
+          "yaw": -1.8860110265456076,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "nightLessonProof": {
+    "nightlessoninspect": {
+      "source": "registered-night-adapter",
+      "id": "m1-night",
+      "key": "night-route-drive",
+      "name": "nightlessoninspect",
+      "optional": true,
+      "night": true,
+      "headlights": false,
+      "lightCaption": "It is night. Switch on the headlights before moving.",
+      "fogFar": 30,
+      "inspectionPanel": true,
+      "inspectionNear": true,
+      "mode": "walk",
+      "leadVisible": true,
+      "leadHeld": true,
+      "leadSame": true,
+      "traffic": true,
+      "navigation": true,
+      "stops": 1,
+      "logItems": 0,
+      "observations": 0,
+      "travel": 0,
+      "started": false,
+      "followingSeen": false,
+      "finished": false,
+      "reduced": false,
+      "device": false,
+      "deviceVisits": 0,
+      "parking": false,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "nightLessonFixture": true,
+  "phaserTextures": {
+    "count": 96,
+    "baseLevelRGBABytes": 1029220,
+    "withMipmapsUpperBytes": 1372294
+  },
+  "phaserTexturesPeak": {
+    "count": 96,
+    "baseLevelRGBABytes": 1029220,
+    "withMipmapsUpperBytes": 1372294
+  },
+  "missingViews": [],
+  "errors": []
+}

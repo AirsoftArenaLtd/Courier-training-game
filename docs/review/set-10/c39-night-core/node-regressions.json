@@ -1,0 +1,22 @@
+[
+  {
+    "file": "test/fpworld.js",
+    "pass": 23
+  },
+  {
+    "file": "test/fplessonbays.js",
+    "pass": 3
+  },
+  {
+    "file": "test/fpschoollesson.js",
+    "pass": 10
+  },
+  {
+    "file": "test/workday.js",
+    "pass": 25
+  },
+  {
+    "file": "test/savesize.js",
+    "pass": 21
+  }
+]

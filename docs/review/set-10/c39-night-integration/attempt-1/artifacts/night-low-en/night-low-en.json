@@ -1,0 +1,18 @@
+{
+  "checks": 78,
+  "runs": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "shots": [
+        "night-low-en-low-en-normal-light-test.png"
+      ]
+    }
+  ],
+  "errors": [],
+  "fixture": "Test-only optional registry/content directly starts the real adapter; shared A-30 routing is separate. Light inspection, repair choice, walking around the front to the driver door, cab entry, physical mirror/headlight controls, live lead traffic, at least 35 m of actual native driving, braking and final parking/results use production paths. Aim angles locate physical targets without moving the player. After the live night/following encounter and a full stop, one declared pre-bay pose skips the remaining route travel. Native throttle/brake and finish follow. No encounter, timer, verdict, score or result is injected. Unsmoothed real delta and the 0.05-second cap remain. QA_FONT=noto is a review-only font pin.",
+  "failure": "Error: waitForFunction failed: frame got detached.\n    at IsolatedWorld.dispose (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:68:39)\n    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:72:14)\n    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/IsolatedWorld.js:162:45)\n    at [Symbol.dispose] (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:335:87)\n    at #removeFramesRecursively (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:495:45)\n    at #onClientDisconnect (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:85:42)\n    at /workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:69:37\n    at onceHandler (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/EventEmitter.js:95:13)\n    at /workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/third_party/mitt/mitt.js:62:7\n    at Array.map (<anonymous>)",
+  "cause": null,
+  "state": null
+}

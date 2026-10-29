@@ -1,0 +1,13 @@
+{
+  "scope": "Fresh extractor with and without only fpjunctionlesson.js; output redirected to /tmp. Shared catalogue and dictionaries are untouched.",
+  "strings": [
+    "The junction course has already finished.",
+    "Record the current approach before starting another.",
+    "The junction approach has no safe finish bay.",
+    "The junction layout no longer matches the course.",
+    "the marked bay beyond the give-way junction",
+    "Park the whole van in the marked bay, facing the same way as the traffic.",
+    "Complete all three junction approaches and park in each marked bay."
+  ],
+  "templates": []
+}

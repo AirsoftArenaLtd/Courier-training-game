@@ -1,0 +1,120 @@
+{
+  "checks": 108,
+  "runs": [
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "shots": [
+        "junction-high-ta-large-high-ta-large-mounted-route.png",
+        "junction-high-ta-large-high-ta-large-bay-0.png"
+      ],
+      "rounds": [
+        {
+          "index": 0,
+          "observations": {
+            "drive.mirrors": {
+              "ok": true,
+              "where": {
+                "x": 1.7,
+                "z": -44.77278650631366,
+                "mph": 0.7358910070425787
+              }
+            },
+            "drive.signal": {
+              "ok": true
+            },
+            "drive.sign-stop": {
+              "ok": true,
+              "where": {
+                "x": 1.7,
+                "z": -49.340048863576925,
+                "mph": 9.608609483783413
+              }
+            }
+          },
+          "travel": 15.76295048126105,
+          "elapsed": 8.466800000000049,
+          "parking": {
+            "ready": true,
+            "reason": "",
+            "instances": 4,
+            "axis": "z",
+            "texture": false,
+            "elapsed": 10.133499999999989,
+            "modelElapsed": 10.133499999999943
+          }
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "fixture": "Test-only optional registry descriptor/content directly starts the production adapter; shared A-30 routing is not certified. Unsmooothed real Phaser delta retains the original 0.05-second cap. All control encounters, mirror/signal checks, movement, braking, round transitions, finish actions and results are live. After each real junction encounter and at least 12 m of actual travel, an explicit stopped pose skips remaining travel to just behind that round’s finish bay. Native acceleration/braking/parking and the real finish gate follow. Aim poses point at rendered controls; no observation, judgement, travel counter, timer, score or result is injected. QA_FONT=noto pins the installed script font for layout review only.",
+  "failure": "TimeoutError: Waiting failed: 180000ms exceeded\n    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:49:34)\n    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)\n    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)\n    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)\n    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)\n    at /workspace/c39-route-driving/test/fpjunctionlessonbrowser.js:29:25",
+  "state": {
+    "phase": "active",
+    "index": 1,
+    "model": {
+      "x": 46.7,
+      "z": 0.25,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 1,
+      "hand": true,
+      "belt": true,
+      "look": 0,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ]
+    },
+    "state": {
+      "index": 1,
+      "control": {
+        "x": 45,
+        "z": -12.25,
+        "stopped": false,
+        "passed": false,
+        "redSeen": false,
+        "redStopped": false,
+        "approach": "",
+        "index": 6,
+        "id": "signal:1:1",
+        "offset": 0,
+        "kind": "signal"
+      },
+      "start": {
+        "x": 46.7,
+        "z": 0.25,
+        "yaw": 0,
+        "speed": 0,
+        "steer": 0,
+        "gear": 1,
+        "hand": true,
+        "belt": false,
+        "look": 0
+      },
+      "bounds": {
+        "x0": -17,
+        "x1": 156,
+        "z0": -168.25,
+        "z1": 53.75
+      },
+      "observations": {},
+      "travel": 0,
+      "crossed": false,
+      "recorded": false,
+      "parking": {
+        "ok": false,
+        "reason": ""
+      },
+      "attached": true
+    },
+    "elapsed": 9.983200000000037,
+    "held": {}
+  }
+}

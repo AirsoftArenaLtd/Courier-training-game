@@ -1,0 +1,313 @@
+{
+  "tag": "c39-bus-colour-fallback-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "assetFailure": "missing-model-files",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 0,
+    "failed": 14,
+    "fallbacks": 0,
+    "bytes": 0,
+    "decodedBytes": 0,
+    "errors": [
+      {
+        "path": "kenney-city-starter/models/garage-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-c-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/tree-small-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/fence-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-commercial/models/building-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/road-straight-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/light-curved-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/sedan-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/delivery-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/resident-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/resident-low.glb",
+        "reason": "Asset could not load"
+      }
+    ]
+  },
+  "prototype": {
+    "drillbusclue": {
+      "frames": 62,
+      "avgFPS": 6.19,
+      "low1FPS": 3.13,
+      "p99ms": 319.3,
+      "maxMs": 319.3,
+      "peak": {
+        "calls": 46,
+        "triangles": 1620,
+        "textures": 2,
+        "geometries": 16,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 96,
+        "baseLevelRGBABytes": 1155864,
+        "withMipmapsUpperBytes": 1541152
+      },
+      "worldProfile": {
+        "meshes": 128,
+        "instances": 367,
+        "geometries": 22,
+        "materials": 53,
+        "geometryBytes": 24868,
+        "instanceBytes": 70012,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          21,
+          21,
+          20,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76.3875,
+        "pose": {
+          "x": 43.125,
+          "y": 2.4,
+          "z": -40.53333333333334,
+          "yaw": 3.141592653589793,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76.3875,
+          "baseX": 43.125,
+          "baseZ": -40.53333333333334,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "drillbusafter": {
+      "frames": 69,
+      "avgFPS": 6.89,
+      "low1FPS": 3.19,
+      "p99ms": 313.2,
+      "maxMs": 313.2,
+      "peak": {
+        "calls": 44,
+        "triangles": 1604,
+        "textures": 2,
+        "geometries": 15,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 96,
+        "baseLevelRGBABytes": 1155864,
+        "withMipmapsUpperBytes": 1541152
+      },
+      "worldProfile": {
+        "meshes": 128,
+        "instances": 367,
+        "geometries": 22,
+        "materials": 53,
+        "geometryBytes": 24868,
+        "instanceBytes": 70012,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          24,
+          24,
+          23,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76.3875,
+        "pose": {
+          "x": 43.125,
+          "y": 2.4,
+          "z": -40.53333333333334,
+          "yaw": 3.141592653589793,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76.3875,
+          "baseX": 43.125,
+          "baseZ": -40.53333333333334,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "drivingLessonProof": {
+    "drillbusclue": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "bus",
+      "stage": "clue",
+      "index": 5,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "bus",
+      "hazardTime": 1.0000000000000007,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": false,
+      "loadedPerson": false,
+      "reduced": false,
+      "weather": "rain",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": -0.19881531619739412,
+        "y": -0.12234788689070401,
+        "z": 0.9837693758128985,
+        "hit": "Mesh",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "drillbusafter": {
+      "source": "registered-driving-adapter",
+      "id": "m1-driving",
+      "key": "driving-town-drill",
+      "kind": "bus",
+      "stage": "after",
+      "index": 5,
+      "stops": 6,
+      "navigation": true,
+      "traffic": true,
+      "signs": true,
+      "day": 3,
+      "hazardActive": true,
+      "hazardKind": "bus",
+      "hazardTime": 2.99999999999998,
+      "hazardJudged": false,
+      "logItems": 0,
+      "results": 0,
+      "loadedCar": false,
+      "loadedPerson": false,
+      "reduced": false,
+      "weather": "rain",
+      "device": false,
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": -0.19881531619739412,
+        "y": -0.12234788689070401,
+        "z": 0.9837693758128985,
+        "hit": "Mesh",
+        "blocker": null
+      },
+      "marking": {
+        "instances": 4,
+        "stop": true,
+        "visible": true,
+        "texture": false
+      },
+      "parking": null,
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "drivingLessonFixture": true,
+  "phaserTextures": {
+    "count": 96,
+    "baseLevelRGBABytes": 1155864,
+    "withMipmapsUpperBytes": 1541152
+  },
+  "phaserTexturesPeak": {
+    "count": 96,
+    "baseLevelRGBABytes": 1155864,
+    "withMipmapsUpperBytes": 1541152
+  },
+  "missingViews": [],
+  "errors": []
+}

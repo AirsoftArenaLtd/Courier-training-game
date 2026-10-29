@@ -73,9 +73,10 @@ class FirstPersonScene extends Phaser.Scene {
     const root=this.add.container(0,0).setDepth(100);
     this.panel={root,choices,index:0,preserveGaze:!!options.preserveGaze,type:options.inspect?'inspect':'normal',buttons:[],back:options.back||null};this.releaseMouse();
     root.add(this.add.rectangle(640,360,1280,720,0x101A25,options.inspect?0.27:0.7));
-    const cx=options.inspect?958:640,w=options.inspect?570:1040;
+    const sidePanel=options.inspect||options.diagram;
+    const cx=sidePanel?958:640,w=sidePanel?570:1040;
     root.add(this.add.rectangle(cx,360,w,544,0x263545,0.98));root.add(OTR.txt(this,cx,127,title,textSize(27),'#EBC889',{fit:w-60}));
-    const columns=choices.length>4&&!options.inspect?2:1,rows=Math.ceil(choices.length/columns),heights=Array(rows).fill(46),items=[];
+    const columns=choices.length>4&&!sidePanel?2:1,rows=Math.ceil(choices.length/columns),heights=Array(rows).fill(46),items=[];
     const text=OTR.txt(this,cx-w/2+32,170,body,textSize(19),'#ffffff',{ox:0,oy:0,wrap:w-64,bold:false,lineSpacing:4});root.add(text);
     choices.forEach((choice,i)=>{
       const bw=(w-80)/columns-12,x=cx+(columns===1?0:(i%2?1:-1)*(bw+20)/2);
@@ -208,7 +209,7 @@ class FirstPersonScene extends Phaser.Scene {
     const m=this.model;if(!m||!m.near(part))return;const bad=!m.repaired&&m.fault===part;
     const condition=part==='tyres'?(bad?'A bulge is visible in the tire sidewall.':'The tire sidewalls are intact and the tread is visible.'):(bad?'The left headlamp does not illuminate during the light test.':'Both headlamps illuminate during the light test.');
     const choose=decision=>{this.message(m.inspectVan(part,decision));this.checkpoint();this.closePanel();};
-    this.showPanel(part==='tyres'?'Tire inspection':'Light test',condition,[{label:'Mark serviceable',action:()=>choose('ready')},{label:'Request repair',action:()=>choose('repair')},{label:'Back',action:()=>this.closePanel()}],{back:()=>this.closePanel()});
+    this.showPanel(part==='tyres'?'Tire inspection':'Light test',condition,[{label:'Mark serviceable',action:()=>choose('ready')},{label:'Request repair',action:()=>choose('repair')},{label:'Back',action:()=>this.closePanel()}],{accessibleText:!!this.scenarioSession,back:()=>this.closePanel()});
   }
   showDoor(id,entry=false){
     const m=this.model,s=m.stop(id);if(!s||!m.near('door'+id))return;if(s.resolved){this.message('This stop already has a recorded outcome.');return;}
@@ -361,7 +362,9 @@ class FirstPersonScene extends Phaser.Scene {
       if(/^Arrow/.test(code)||code==='Tab'){this.panel.index=(this.panel.index+(code==='ArrowUp'||code==='ArrowLeft'||code==='Tab'&&shiftKey?-1:1)+this.panel.choices.length)%this.panel.choices.length;this.highlight(true);return;}
       if(code==='Enter')this.choose(this.panel.index);return;
     }
-    if(code==='Escape'||code==='KeyH'){this.showPause();return;}if(code==='KeyE'||code==='Enter'){this.interact();return;}
+    if(code==='Escape'||code==='KeyH'){this.showPause();return;}
+    if(this.scenarioKey&&this.scenarioKey(code))return;
+    if(code==='KeyE'||code==='Enter'){this.interact();return;}
     if(code==='Tab'){this.showScanner();return;}if(code==='KeyF'){this.showParcel();return;}
     if(code==='KeyG'&&this.model&&this.model.mode==='walk'){this.showGoal();return;}
     if(code==='KeyP'){OTR.fpAccess.focus(this);return;}
@@ -442,6 +445,7 @@ class FirstPersonScene extends Phaser.Scene {
     else if(id&&id.startsWith('door'))hint=m.stop(id.slice(4)).address+' · '+`${k('KeyE')} attempts delivery.`;else if(m.heldId)hint='Choose an empty cargo shelf, or approach the correct delivery point.';
     if(id&&id.startsWith('visit'))hint=`Press ${k('KeyE')} to use the delivery controls.`;
     if(mode==='cab'&&!(id&&(id.startsWith('cab-')||id.startsWith('mirror-')))&&m.routeDay&&!m.parked()&&!(m.driving&&OTR.fpDriving.hint(m))&&OTR.fpDay.active(m))hint=OTR.fpDay.driveText(m);
+    const interaction=this.interactionHint?this.interactionHint(id,m,k('KeyE')):null;this.physicalAffordance=!!interaction;if(interaction)hint=interaction;
     if(OTR.fpGuide){const guide=OTR.fpGuide.hint(this,id);if(guide)hint=guide;}
     if(this.notice&&this.time.now<this.noticeUntil)hint=this.notice;
     if(aiming)hint=this.handheld.focusId?`Barcode in sight · Hold ${k('Space')} or left click to scan`:'Aim at the barcode, or pick up the parcel to bring its label closer.';

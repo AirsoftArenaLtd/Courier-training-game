@@ -1,0 +1,22 @@
+✔ readiness, trainer choice and actual WebGL availability resolve to the same scenario id (3.940088ms)
+✔ data identities, content, thresholds and registries are never rewritten by the runner (0.70877ms)
+✔ the clock starts after the brief and stops during pause, loading and handheld use (0.614848ms)
+✔ practice and assessment hide coaching independently and quitting never refunds an attempt (1.997616ms)
+✔ assessed physical signal state is readable without giving the three-second rule (7.526403ms)
+✔ assessment captions omit live driving coaching while practice retains it (0.782051ms)
+✔ completion delivers the adapter scale, log and same scenario id exactly once (0.594518ms)
+✔ timeouts use the scenario result policy and invalid results never reach records (1.354425ms)
+✔ the real mission, gear, signal and driving controllers cannot report into a suspended workday (1.905576ms)
+✔ repeated physical reports are deduplicated locally and are ignored outside an active session (0.428527ms)
+✔ all four set-pieces have physical boundaries and no module field enters a checkpoint (1.345411ms)
+✔ normal workday reports still use the existing scoring contract and resume without a module sink (5.132999ms)
+✔ bounded depot, street, doorstep and cab builds retain reachable targets under Low geometry limits (105.976281ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 193.945767
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

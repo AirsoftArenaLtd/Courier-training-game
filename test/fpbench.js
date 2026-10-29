@@ -348,6 +348,87 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
      bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};
    });(report.moduleProof||(report.moduleProof={}))[name]=proof;report.moduleFixture=true;
   }
+  if(process.env.QA_PRETRIP==='1')for(const name of ['pretripwalk','pretripfront','pretriprear','pretripcab','pretriptire','pretripbrake','pretriprecords','pretripcycle']){
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-pretrip-fixture'));
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   await p.evaluate(name=>{
+    const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=s.model;window.otrBenchmarkScene='FirstPersonScenarioScene';s.keyboardMode=true;OTR.fpScenario.begin(s.scenarioSession);s.closePanel();
+    const pose=id=>{s.closePanel();const a=m.pretripLesson.locations[id],v=a[3];m.mode=v==='cab'?'cab':'walk';if(v!=='cab')Object.assign(m.player,OTR.fp.local(m.van,v==='driver'?-2.25:v==='passenger'?2.25:a[0],v==='front'?Math.min(-3.85,a[2]-1):v==='rear'?Math.max(3.85,a[2]+1):a[2]));m.paused=false;m.player.pitch=0;s.sync();const o=s.art.pretripArt.targets.find(o=>o.userData.interaction==='pretrip-'+id),point=o.getWorldPosition(new THREE.Vector3()),eye=s.view.camera.position;const heading=Math.atan2(point.x-eye.x,-(point.z-eye.z));if(v==='cab')m.van.look=heading-m.van.yaw;else m.player.yaw=heading;m.player.pitch=Math.atan2(eye.y-point.y,Math.hypot(point.x-eye.x,point.z-eye.z));s.sync();};
+    pose(name==='pretripfront'?'windshield':name==='pretriprear'?'rear_door':name==='pretripcab'||name==='pretripbrake'?'brake_pedal':'tire_front_p');
+    if(name==='pretriptire'){OTR.fpPretrip.inspect(m,'tire_front_p');OTR.fpPretrip.measure(m,'tire_front_p');OTR.fpPretripUI.inspect(s,'tire_front_p',true);}
+    if(name==='pretripbrake'){OTR.fpPretrip.inspect(m,'brake_pedal');OTR.fpPretrip.press(m,'brake_pedal',3);OTR.fpPretripUI.inspect(s,'brake_pedal',true);}
+    if(name==='pretriprecords')s.showScanner();
+    if(name==='pretripcycle')for(const it of m.pretripLesson.content.items){pose(it.id);OTR.fpPretripUI.inspect(s,it.id);if(Object.keys(s.game.textures.list).filter(k=>k.startsWith('fp-pretrip-')).length!==1)throw Error('The inspection canvas did not stay bounded.');}
+    s.sync();s.refresh();
+   },name);await sample(name);
+   const proof=await p.evaluate(()=>{const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=s.scenarioSession,m=s.model,b=m.bounds,before=window.pretripBenchmarkBefore;return {source:'registered-pretrip-adapter',id:r.id,key:r.scenario.scene3d,targets:s.art.pretripArt.targets.length,visited:m.pretripLesson.visited.size,canvases:Object.keys(s.game.textures.list).filter(k=>k.startsWith('fp-pretrip-')).length,bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};});
+   (report.pretripProof||(report.pretripProof={}))[name]=proof;report.pretripFixture=true;
+  }
+  if(process.env.QA_ROUTELESSON==='1')for(const name of ['lessonroutecab','lessonroutebrief','lessonrouteedit','lessonroutereview','lessonroutecycle','lessonroutereverse']){
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-route-lesson-fixture'));
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   await p.evaluate(name=>{
+    const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=s.model,A=OTR.fpRouteLesson,state=m.routeLesson;window.otrBenchmarkScene='FirstPersonScenarioScene';s.keyboardMode=true;OTR.fpScenario.begin(s.scenarioSession);s.closePanel();
+    if(name==='lessonroutebrief')OTR.fpRouteLessonUI.brief(s);
+    if(name==='lessonrouteedit')OTR.fpRouteLessonUI.show(s);
+    if(name==='lessonroutereview'){A.round(state,2);state.order=state.planner.optimal.order.slice().reverse();state.revision++;OTR.fpRouteLessonUI.review(s);}
+    if(name==='lessonroutecycle'){state.mapVisits=0;for(let i=0;i<3;i++){A.round(state,i);for(let id=1;id<=state.planner.stops.length;id++){A.toggle(m,id);OTR.fpRouteLessonUI.show(s,id-1);state.mapVisits++;}}}
+    if(name==='lessonroutereverse')m.selectGear(-1);s.sync();s.refresh();
+   },name);await sample(name);
+   const proof=await p.evaluate(()=>{
+    const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),r=s.scenarioSession,m=s.model,state=m.routeLesson,b=m.bounds,before=window.routeLessonBenchmarkBefore;
+    return {source:'registered-route-adapter',id:r.id,key:r.scenario.scene3d,manifests:state.content.rounds.length,stops:state.planner.stops.length,mapVisits:state.mapVisits||0,reverse:!!s.art.rear?.inView,logItems:r.log.items.length,panels:s.children.list.filter(x=>x.type==='Container'&&x.depth===100).length,previousCheckpointSaved:before.previousCheckpointSaved,
+     bounded:m.blocked(b.x0-1,b.z0)&&m.blocked(b.x1+1,b.z1),checkpointUnchanged:before.checkpoint===JSON.stringify(OTR.fpStore.read()),eventsUnchanged:before.events===JSON.stringify(OTR.workday.events),workdayUnchanged:before.workday===JSON.stringify(OTR.save.data.workday||null)};
+   });(report.routeLessonProof||(report.routeLessonProof={}))[name]=proof;report.routeLessonFixture=true;
+  }
+  if(process.env.QA_HAZARDLESSON==='1')for(const kind of ['ball','reversing','phone','door','runner'])for(const stage of ['before','clue','after']){
+   const name='clip'+kind+stage;if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-hazard-lesson-fixture'));
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   await p.evaluate(({kind,stage})=>{
+    const s=OTR.game.scene.getScene('FirstPersonScenarioScene'),m=s.model,A=OTR.fpHazardLesson;window.otrBenchmarkScene='FirstPersonScenarioScene';s.keyboardMode=true;OTR.fpScenario.begin(s.scenarioSession);s.closePanel();
+    A.reset(m,m.hazardLesson.content.clips.findIndex(c=>c.kind===kind));m.hazardLesson.time=m.hazardLesson.clip.at+({before:-.1,clue:.15,after:1.8}[stage]);A.pose(m);
+    // A disclosed frozen-pose resource fixture. No marks, verdicts, score or Results are injected.
+    m.paused=true;s.sync();s.refresh();s.view.world.updateMatrixWorld(true);s.view.camera.updateMatrixWorld(true);
+   },{kind,stage});await sample(name);
+   const proof=await p.evaluate(require('./tools/fp-hazard-lesson-proof'),stage);(report.hazardLessonProof||(report.hazardLessonProof={}))[name]=proof;report.hazardLessonFixture=true;
+  }
+  if(process.env.QA_DRIVINGLESSON==='1')for(const spec of [
+   ...['phone','ball','door','water','crosswalk','bus'].flatMap(kind=>['clue','after'].map(stage=>({kind,stage,name:'drill'+kind+stage}))),
+   ...Array.from({length:6},(_,index)=>({kind:'parking',stage:'bay',index,name:'drillparking'+index}))
+  ]){
+   const {name,...view}=spec;if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-driving-lesson-fixture'));
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   await p.evaluate(require('./tools/fp-driving-lesson-view'),view);await sample(name);
+   const proof=await p.evaluate(require('./tools/fp-driving-lesson-proof'),view);(report.drivingLessonProof||(report.drivingLessonProof={}))[name]=proof;report.drivingLessonFixture=true;
+  }
+  if(process.env.QA_SCHOOLLESSON==='1')for(const name of require('./fpquality').SCHOOLLESSON_VIEWS.split(',')){
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-school-lesson-fixture'));
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   await p.evaluate(require('./tools/fp-school-lesson-view'),name);await sample(name);
+   const proof=await p.evaluate(require('./tools/fp-school-lesson-proof'),name);(report.schoolLessonProof||(report.schoolLessonProof={}))[name]=proof;report.schoolLessonFixture=true;
+  }
+  if(process.env.QA_JUNCTIONLESSON==='1')for(const name of require('./fpquality').JUNCTIONLESSON_VIEWS.split(',')){
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   // Declare the initial round before model creation; no completed rounds or observations are injected.
+   const index=/[012]$/.test(name)?Number(name.slice(-1)):2;
+   await p.evaluate(index=>{const J=OTR.fpJunctionLesson,create=J.create;J.create=function(){J.create=create;const course=create.call(J);course.index=index;return course;};},index);
+   await p.evaluate(require('./tools/fp-junction-lesson-fixture'));
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   await p.evaluate(require('./tools/fp-junction-lesson-view'),name);await sample(name);
+   const proof=await p.evaluate(require('./tools/fp-junction-lesson-proof'),name);(report.junctionLessonProof||(report.junctionLessonProof={}))[name]=proof;report.junctionLessonFixture=true;
+  }
+  if(process.env.QA_NIGHTLESSON==='1')for(const name of require('./fpquality').NIGHTLESSON_VIEWS.split(',')){
+   if(process.env.QA_VIEWS&&!process.env.QA_VIEWS.split(',').includes(name))continue;
+   await p.evaluate(require('./tools/fp-night-lesson-fixture'));
+   await p.waitForFunction(()=>OTR.game.scene.isActive('FirstPersonScenarioScene')&&!OTR.game.scene.getScene('FirstPersonScenarioScene').loading,{timeout:120000});
+   await p.evaluate(require('./tools/fp-night-lesson-view'),name);await sample(name);
+   const proof=await p.evaluate(require('./tools/fp-night-lesson-proof'),name);(report.nightLessonProof||(report.nightLessonProof={}))[name]=proof;report.nightLessonFixture=true;
+  }
   report.phaserTextures=await textures();
   report.phaserTexturesPeak=Object.values(report.prototype).reduce((a,v)=>v.phaserTextures.withMipmapsUpperBytes>a.withMipmapsUpperBytes?v.phaserTextures:a,report.phaserTextures);
   report.missingViews=(process.env.QA_VIEWS||'').split(',').filter(name=>name&&!Object.hasOwn(report.prototype,name));

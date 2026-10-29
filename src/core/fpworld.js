@@ -55,7 +55,7 @@ OTR.fpWorld = {
     box(hub,0,0.025,3,2.2,0.04,3,brand.primary);
 
     const base = model || OTR.fpMission.create('campaign',1);
-    const weather=base.routeDay?base.routeDay.weather:'clear',wet=weather==='rain'||weather==='storm',snow=weather==='snow';
+    const weather=base.routeDay?base.routeDay.weather:base.drivingLesson?base.routePlan.weather:'clear',wet=weather==='rain'||weather==='storm',snow=weather==='snow';
     const roadColour=weather==='ice'?0x718D9A:wet?0x3D4951:snow?0x7B8994:0x4B5058,grassColour=wet?0x6A806C:snow?0xE0E5E4:0x789069,roofColour=snow?0xC5CFD3:0x65626B;
     const sky=weather==='fog'?0xB8C3C8:weather==='ice'?0xC7D4DD:weather==='storm'?0x778697:weather==='rain'?0x9DAFBE:snow?0xD4DDE2:weather==='heat'?0xDFC8A4:weather==='cloudy'?0xB5C5CE:0xA7C7DE;
     if(world.background)world.background.setHex(sky);if(world.fog)world.fog.color.setHex(sky);
@@ -271,6 +271,7 @@ OTR.fpWorld = {
       for(let i=0;i<2;i++)wheels.setMatrixAt(i,new T.Matrix4().makeTranslation(0,.34,i?-.65:.65));trafficBike.add(wheels);
     }
     const person=new T.Group();route.add(person);
+    person.name='traffic:school-children-fallback';
     const schoolChildren=base.trafficControl&&base.routePlan.day>=3?2:0;
     for(let i=0;i<(schoolChildren||1);i++){
       const z=i*1.1;box(person,0,1.1,z,.45,.75,.25,i?0x6B88A7:0xBD9155);box(person,0,1.65,z,.3,.32,.3,0xB68F72);
@@ -304,7 +305,7 @@ OTR.fpWorld = {
     const deliveryArt=OTR.fpStopScene?OTR.fpStopScene.build(base,route,box,labels):null;
     let bus=null,emergency=null,busLamps=null,emergencyLamps=null;
     if(base.driving){
-      bus=new T.Group();route.add(bus);
+      bus=new T.Group();bus.name='traffic:school-bus';route.add(bus);
       box(bus,0,1.45,0,2.4,2.6,7.6,0xE4B64A,null,true);
       for(const x of [-1.21,1.21]){
         for(const z of [-2.4,-0.8,0.8,2.4])box(bus,x,2,z,0.04,0.7,1.05,0x343B46);
@@ -367,6 +368,10 @@ OTR.fpWorld = {
     // Keep the retained cargo proxy behind the imported closed door's inspection surface.
     if(base.walkaround&&walkDoor){cargoDoor.position.z=walkDoor.g.boundingBox.max.z-.04;cargoDoor.updateMatrix();}
 
+    const pretripArt=base.pretripLesson&&OTR.fpPretripWorld?OTR.fpPretripWorld.build(scene,base,{van,chassis,cab,actors,cube,box}):null;
+    const hazardLessonArt=base.hazardLesson&&OTR.fpHazardLessonWorld?OTR.fpHazardLessonWorld.build(scene,base,route,cube):null;
+    const drivingLessonArt=base.drivingLesson&&OTR.fpDrivingLessonWorld?OTR.fpDrivingLessonWorld.build(scene,base,route,cube):null;
+    const lessonBayArt=(base.drivingLesson||base.schoolLesson||base.junctionLesson||base.nightLesson)&&OTR.fpLessonBays?OTR.fpLessonBays.build(route,cube,base):null;
     const walkaroundTargets=base.walkaround?OTR.fpWalkaroundFlow.targets.map(t=>{
       const wheel=t.zone==='wheel'&&walkWheel,roof=t.zone==='roof'&&damage&&damage.roofSurface,parent=t.zone==='wheel'?van:chassis;
       const mesh=box(parent,wheel?wheel.g.boundingBox.min.x-.008:roof?roof.x:t.x,wheel?wheel.center.y:roof?roof.y:t.y,wheel?wheel.center.z:t.zone==='front'&&walkFront!==null?walkFront:t.zone==='rear'&&walkDoor?walkDoor.g.boundingBox.max.z+.008:t.z,t.w,t.h,t.d,0x4A4A46,'wear-'+t.zone);
@@ -374,7 +379,11 @@ OTR.fpWorld = {
     }):[];
     // Imported surfaces may lie inside the retained procedural pick shell (roof and wheel arches).
     // Only a visible, proximity-guarded wear target may pass that shell; other controls retain it.
-    const walkShell=base.walkaround&&walkVehicle?new Set(exterior.filter(o=>occluders.includes(o))):null;
+    const walkShell=(base.walkaround||base.pretripLesson)&&walkVehicle?new Set(exterior.filter(o=>occluders.includes(o))):null;
+    const pretripShell=pretripArt?new Set([...occluders,...interactions].filter(o=>{
+      if((o.userData.interaction||'').startsWith('pretrip-'))return false;
+      for(let p=o.parent;p;p=p.parent)if(p===van||p===cab.root)return true;return false;
+    })):null;
     const ray=new T.Raycaster();ray.far=2.65;ray.layers.enable(1);
     const labelRay=new T.Raycaster(), direction=new T.Vector3(), scanNormal=new T.Vector3(), scanPoint=new T.Vector3(), scanRotation=new T.Quaternion();
     labelRay.layers.enable(1);let residentMask=-1;
@@ -384,9 +393,9 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
+    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,pretripArt,hazardLessonArt,drivingLessonArt,lessonBayArt,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
       dispose() {
-        const geometries=new Set();if(ambient)ambient.dispose();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
+        const geometries=new Set();if(pretripArt)pretripArt.dispose();if(hazardLessonArt)hazardLessonArt.dispose();if(drivingLessonArt)drivingLessonArt.dispose();if(lessonBayArt)lessonBayArt.dispose();if(ambient)ambient.dispose();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset&&!o.geometry.userData.otrSurfaceOwned)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
         geometries.add(cube);geometries.add(plane);geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());if(signLettering)signLettering.dispose();if(surfaces)surfaces.dispose();
       },
@@ -485,6 +494,10 @@ OTR.fpWorld = {
         if(weatherParticles&&model&&!inHub)weatherParticles.sync(model,reduced);
         if(damage&&model&&!inHub)damage.sync(model);
         for(let i=0;i<walkaroundTargets.length;i++)walkaroundTargets[i].visible=!!model&&!inHub&&OTR.fpWalkaroundFlow.canInspect(model,OTR.fpWalkaroundFlow.targets[i].zone);
+        if(pretripArt&&model)pretripArt.sync(model);
+        if(hazardLessonArt&&model)hazardLessonArt.sync(model,reduced);
+        if(drivingLessonArt&&model)drivingLessonArt.sync(model,reduced);
+        if(lessonBayArt&&model)lessonBayArt.sync(model);
         world.updateMatrixWorld(true);
         if(model&&!inHub){
           reflectFrustum.setFromProjectionMatrix(reflectMatrix.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));
@@ -502,7 +515,12 @@ OTR.fpWorld = {
         ray.setFromCamera({x:0,y:0},camera);let hit=cast(ray,scanObjects)[0];
         if(walkShell&&hit&&walkShell.has(hit.object))for(const candidate of hits){
           if(walkShell.has(candidate.object))continue;
-          if((candidate.object.userData.interaction||'').startsWith('wear-'))hit=candidate;break;
+          if((candidate.object.userData.interaction||'').startsWith('wear-')||(candidate.object.userData.interaction||'').startsWith('pretrip-'))hit=candidate;break;
+        }
+        // A valid nearby inspection may pass its own retained van pick shell, never a wall or another face.
+        if(pretripShell&&hit&&pretripShell.has(hit.object))for(const candidate of hits){
+          if(pretripShell.has(candidate.object))continue;
+          if((candidate.object.userData.interaction||'').startsWith('pretrip-'))hit=candidate;break;
         }
         return hit?hit.object.userData.interaction||null:null;
       },

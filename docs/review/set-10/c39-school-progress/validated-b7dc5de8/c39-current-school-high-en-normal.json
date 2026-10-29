@@ -1,0 +1,80 @@
+{
+  "checks": 104,
+  "runs": [
+    {
+      "quality": "high",
+      "lang": "en",
+      "large": false,
+      "shots": [
+        "c39-current-school-high-en-normal-high-en-normal-mounted-route.png",
+        "c39-current-school-high-en-normal-high-en-normal-bus-stop.png",
+        "c39-current-school-high-en-normal-high-en-normal-children.png",
+        "c39-current-school-high-en-normal-high-en-normal-reverse-bay.png"
+      ],
+      "bus": {
+        "state": "leaving",
+        "seen": true,
+        "checks": 1,
+        "right": 2,
+        "passed": 0,
+        "log": {
+          "items": [
+            {
+              "cat": "safety",
+              "got": 2,
+              "max": 2,
+              "label": "Stopped for a school bus with its lights flashing",
+              "good": true,
+              "partial": false,
+              "lesson": "Stop for a school bus with its red lights flashing, in both directions, until the lights go off.",
+              "feedback": null,
+              "group": "drive",
+              "kind": "check",
+              "critical": false,
+              "at": 1792776349947,
+              "where": {
+                "x": 92.625,
+                "z": 40.25068168968056,
+                "mph": 0
+              }
+            }
+          ]
+        }
+      },
+      "crossing": {
+        "seen": true,
+        "state": "resolved",
+        "contact": 0
+      },
+      "parking": {
+        "ready": true,
+        "rear": true,
+        "updates": 83,
+        "marking": 4,
+        "wholeBay": true
+      },
+      "result": {
+        "id": "m1-school",
+        "stars": {
+          "safety": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 400,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 0
+          },
+          "lastPlayed": 1792776740650
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    }
+  ],
+  "errors": [],
+  "fixture": "A browser-only optional m1-school registry entry exercises the real registered adapter. Phaser uses unsmoothed real delta with the unchanged 0.05-second motor/session cap. The actual motor spawns the live bus and native braking earns its check. A stopped approach pose replaces travel to the crossing; actual controller time and children progress are never shortened. A pre-bay pose replaces travel to the finish; native throttle/brake, automatic camera and finish controls complete parking. No encounter flag, judgement, score, result or saved record is injected. Camera aiming poses locate actual rendered controls; the native action key still uses the real raycast.",
+  "complete": true
+}

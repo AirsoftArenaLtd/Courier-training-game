@@ -1,0 +1,293 @@
+{
+  "checks": 184,
+  "runs": [
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "stops": [
+        {
+          "result": {
+            "hazard": {
+              "id": "phone",
+              "ok": true
+            },
+            "checkpoint": 0,
+            "diagnostics": {
+              "calls": 77,
+              "triangles": 68648,
+              "textures": 4,
+              "geometries": 24,
+              "targetWidth": 1280,
+              "targetHeight": 720,
+              "attachmentBytes": 11239424
+            },
+            "coaching": false
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6199999999999997,
+              "skew": 0,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 78,
+            "seconds": 0.0875,
+            "violations": {},
+            "signal": 0,
+            "timing": {
+              "gameSeconds": 7.51649999999959,
+              "frames": 157,
+              "wallMs": 149087
+            }
+          }
+        },
+        {
+          "result": {
+            "hazard": {
+              "id": "ball",
+              "ok": true
+            },
+            "checkpoint": 1,
+            "diagnostics": {
+              "calls": 54,
+              "triangles": 71523,
+              "textures": 4,
+              "geometries": 27,
+              "targetWidth": 1280,
+              "targetHeight": 720,
+              "attachmentBytes": 11239424
+            },
+            "coaching": false
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6199999999999997,
+              "skew": 0,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 136,
+            "seconds": 0.0875,
+            "violations": {},
+            "signal": 0,
+            "timing": {
+              "gameSeconds": 5.1498999999998425,
+              "frames": 109,
+              "wallMs": 106595
+            }
+          }
+        },
+        {
+          "result": {
+            "hazard": {
+              "id": "door",
+              "ok": true
+            },
+            "checkpoint": 2,
+            "diagnostics": {
+              "calls": 45,
+              "triangles": 43743,
+              "textures": 4,
+              "geometries": 27,
+              "targetWidth": 1280,
+              "targetHeight": 720,
+              "attachmentBytes": 11239424
+            },
+            "coaching": false
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6199999999999997,
+              "skew": 0,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 198,
+            "seconds": 0.0875,
+            "violations": {},
+            "signal": 0,
+            "timing": {
+              "gameSeconds": 5.150000000000922,
+              "frames": 111,
+              "wallMs": 100149
+            }
+          }
+        },
+        {
+          "result": {
+            "hazard": {
+              "id": "water",
+              "ok": true
+            },
+            "checkpoint": 3,
+            "diagnostics": {
+              "calls": 51,
+              "triangles": 46698,
+              "textures": 4,
+              "geometries": 27,
+              "targetWidth": 1280,
+              "targetHeight": 720,
+              "attachmentBytes": 11239424
+            },
+            "coaching": false
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6200000000000025,
+              "skew": 1.2246467991473532e-16,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 84,
+            "seconds": 0.0875,
+            "violations": {},
+            "signal": 0,
+            "timing": {
+              "gameSeconds": 7.5500000000015675,
+              "frames": 160,
+              "wallMs": 176091
+            }
+          }
+        },
+        {
+          "result": {
+            "hazard": {
+              "id": "crosswalk",
+              "ok": true
+            },
+            "checkpoint": 4,
+            "diagnostics": {
+              "calls": 60,
+              "triangles": 89087,
+              "textures": 4,
+              "geometries": 29,
+              "targetWidth": 1280,
+              "targetHeight": 720,
+              "attachmentBytes": 11239424
+            },
+            "coaching": false
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6200000000000025,
+              "skew": 1.2246467991473532e-16,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 143,
+            "seconds": 0.0875,
+            "violations": {},
+            "signal": 0,
+            "timing": {
+              "gameSeconds": 5.133300000001611,
+              "frames": 112,
+              "wallMs": 128235
+            }
+          }
+        },
+        {
+          "result": {
+            "hazard": {
+              "id": "bus",
+              "ok": true
+            },
+            "checkpoint": 5,
+            "diagnostics": {
+              "calls": 79,
+              "triangles": 154418,
+              "textures": 4,
+              "geometries": 32,
+              "targetWidth": 1280,
+              "targetHeight": 720,
+              "attachmentBytes": 11239424
+            },
+            "coaching": false
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6200000000000025,
+              "skew": 1.2246467991473532e-16,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 204,
+            "seconds": 0.0875,
+            "violations": {},
+            "signal": 0,
+            "timing": {
+              "gameSeconds": 5.099700000001306,
+              "frames": 105,
+              "wallMs": 124730
+            }
+          }
+        }
+      ],
+      "shots": [
+        "c39-driving-bounded-high-ta-large-high-ta-large-hazard-0.png",
+        "c39-driving-bounded-high-ta-large-high-ta-large-park-0.png",
+        "c39-driving-bounded-high-ta-large-high-ta-large-hazard-1.png",
+        "c39-driving-bounded-high-ta-large-high-ta-large-park-1.png",
+        "c39-driving-bounded-high-ta-large-high-ta-large-hazard-2.png",
+        "c39-driving-bounded-high-ta-large-high-ta-large-park-2.png",
+        "c39-driving-bounded-high-ta-large-high-ta-large-hazard-3.png",
+        "c39-driving-bounded-high-ta-large-high-ta-large-park-3.png",
+        "c39-driving-bounded-high-ta-large-high-ta-large-hazard-4.png",
+        "c39-driving-bounded-high-ta-large-high-ta-large-park-4.png",
+        "c39-driving-bounded-high-ta-large-high-ta-large-hazard-5.png",
+        "c39-driving-bounded-high-ta-large-high-ta-large-park-5.png"
+      ],
+      "result": {
+        "id": "m1-driving",
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 4300,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1792787391738
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1792786020592,
+          "pending": false,
+          "at": 1792787391738,
+          "stars": {
+            "safety": 3,
+            "efficiency": 3
+          },
+          "score": 4300,
+          "criticals": [],
+          "lessons": [
+            "Calm, defensive and decisive the whole way. That is what a good route looks like."
+          ]
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    }
+  ],
+  "errors": [],
+  "fixture": "The existing m1-driving id temporarily receives scene3d. Phaser reads unsmoothed real frame deltas; both the production motor and session retain their unchanged 0.05-second cap. Approach and pre-bay positions replace travel between exercises; only the unscored junction observation cache is reset at those pose changes, never a score or recorded violation. Hazard and checkpoint verdicts, scores, results and records are never injected. The native throttle, brake, shifter, mirror gaze, signals and record controls drive every response and parking action. A non-scoring timeline jump to ten seconds shortens only the crosswalk wait outside the first ordinary Low English run.",
+  "complete": true
+}

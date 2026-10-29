@@ -1,0 +1,10 @@
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -38,6 +38,7 @@
+       },
+       {
+         id: 'm1-driving',
++        scene3d: 'driving-town-drill',
+         title: 'Road Hazards',
+         icon: 'ic_wheel',
+         scene: 'DrivingScene',

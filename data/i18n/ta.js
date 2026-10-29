@@ -4137,7 +4137,121 @@ window.OTR_I18N.ta = {
 "morning": "காலை",
 "midday": "நண்பகல்",
 "dusk": "அந்தி",
-"night": "இரவு"
+"night": "இரவு",
+"Follow the sat nav to the next checkpoint.": "வழிகாட்டியைப் பின்பற்றி அடுத்த சோதனைப் புள்ளிக்குச் செல்லுங்கள்.",
+"Stop fully and set the parking brake before recording this checkpoint.": "இந்தச் சோதனைப் புள்ளியைப் பதிவு செய்யும் முன் முழுமையாக நின்று பார்க்கிங் பிரேக் போடுங்கள்.",
+"Pull into the marked checkpoint bay on the correct side of the street.": "தெருவின் சரியான பக்கத்தில் சோதனைப் புள்ளியின் குறிக்கப்பட்ட இடத்தில் வண்டியை நிறுத்துங்கள்.",
+"Straighten the van alongside the curb before recording this checkpoint.": "இந்தச் சோதனைப் புள்ளியைப் பதிவு செய்யும் முன் வேனை நடைபாதை ஓரத்தில் நேராக்குங்கள்.",
+"Move the whole van off the curb before recording this checkpoint.": "இந்தச் சோதனைப் புள்ளியைப் பதிவு செய்யும் முன் முழு வேனையும் நடைபாதையிலிருந்து இறக்குங்கள்.",
+"Move closer to the curb before recording this checkpoint.": "இந்தச் சோதனைப் புள்ளியைப் பதிவு செய்யும் முன் நடைபாதைக்கு இன்னும் அருகில் வாருங்கள்.",
+"Keep the whole van inside the marked bay and clear of the crossing.": "முழு வேனையும் குறிக்கப்பட்ட இடத்துக்குள்ளும் கடவையிலிருந்து விலகியும் வையுங்கள்.",
+"Keep the whole van clear of buildings and obstacles.": "முழு வேனையும் கட்டடங்கள் மற்றும் தடைகளிலிருந்து விலகி வையுங்கள்.",
+"Wait until the current road hazard has cleared before recording this checkpoint.": "இந்தச் சோதனைப் புள்ளியைப் பதிவு செய்யும் முன் சாலையின் தற்போதைய அபாயம் நீங்கும் வரை காத்திருங்கள்.",
+"Drive to all six checkpoints and respond safely to the road hazards.": "ஆறு சோதனைப் புள்ளிகளுக்கும் ஓட்டிச் சென்று சாலை அபாயங்களுக்குப் பாதுகாப்பாகச் செயல்படுங்கள்.",
+"The handheld buzzes in its cradle.": "ஹேண்ட்ஹெல்ட் அதன் தாங்கியில் அதிர்கிறது.",
+"Visibility is reduced. Turn on the headlights.": "தெரிவுநிலை குறைவு. முகப்பு விளக்குகளை இயக்குங்கள்.",
+"Use the rear camera and mirrors to reverse slowly. Stop if the path is not clear.": "மெதுவாகப் பின்னோக்கிச் செல்ல ரியர் கேமராவையும் கண்ணாடிகளையும் பயன்படுத்துங்கள். பாதை தெளிவாக இல்லையென்றால் நில்லுங்கள்.",
+"Read the driving route.": "ஓட்டும் வழித்தடத்தைப் படியுங்கள்.",
+"Record this checkpoint.": "இந்தச் சோதனைப் புள்ளியைப் பதிவு செய்யுங்கள்.",
+"Return to the road.": "சாலைக்குத் திரும்புங்கள்.",
+" Rain is reducing visibility. Use the headlights and wipers and leave more space.": " மழையால் தெரிவுநிலை குறைகிறது. முகப்பு விளக்குகளையும் வைப்பர்களையும் பயன்படுத்தி, அதிக இடைவெளி விடுங்கள்.",
+"The checkpoint is recorded.": "சோதனைப் புள்ளி பதிவாகிவிட்டது.",
+"Continue the driving route.": "ஓட்டும் வழித்தடத்தைத் தொடருங்கள்.",
+"Use the driving controls.": "ஓட்டும் கட்டுப்பாடுகளைப் பயன்படுத்துங்கள்.",
+"Read the cab shortcuts.": "கேபின் குறுக்குவழிகளைப் படியுங்கள்.",
+"Use the cab shortcuts.": "கேபின் குறுக்குவழிகளைப் பயன்படுத்துங்கள்.",
+"Read the checkpoint controls.": "சோதனைப் புள்ளிக் கட்டுப்பாடுகளைப் படியுங்கள்.",
+"Record the driving checkpoints.": "ஓட்டும் சோதனைப் புள்ளிகளைப் பதிவு செய்யுங்கள்.",
+"Watch each road scene and mark the moment a hazard begins to develop.": "ஒவ்வொரு சாலைக் காட்சியையும் பார்த்து, அபாயம் உருவாகத் தொடங்கும் கணத்தைக் குறியுங்கள்.",
+"Read the road sign.": "சாலைப் பலகையைப் படியுங்கள்.",
+"Stop fully before entering the junction.": "சந்திப்புக்குள் நுழையும் முன் முழுமையாக நில்லுங்கள்.",
+"Return to the road scene.": "சாலைக் காட்சிக்குத் திரும்புங்கள்.",
+"This road scene has ended. Your response has been recorded.": "இந்தச் சாலைக் காட்சி முடிந்தது. உங்கள் பதில் பதிவாகிவிட்டது.",
+"This clip is complete.": "இந்தக் கிளிப் முடிந்தது.",
+"See the results.": "முடிவுகளைப் பாருங்கள்.",
+"Watch the next clip.": "அடுத்த கிளிப்பைப் பாருங்கள்.",
+"Watch for the developing hazard.": "உருவாகும் அபாயத்தைக் கவனியுங்கள்.",
+"Continue watching the clip.": "கிளிப்பைத் தொடர்ந்து பாருங்கள்.",
+"the marked bay beyond the give-way junction": "வழிவிடு சந்திப்புக்கு அப்பால் உள்ள குறிக்கப்பட்ட இடம்",
+"Park the whole van in the marked bay, facing the same way as the traffic.": "முழு வேனையும் குறிக்கப்பட்ட இடத்தில் போக்குவரத்தின் திசையில் நிறுத்துங்கள்.",
+"Keep the whole van inside the painted lines of the marked bay.": "முழு வேனையும் குறிக்கப்பட்ட இடத்தின் வண்ணக் கோடுகளுக்குள் வையுங்கள்.",
+"Complete all three junction approaches and park in each marked bay.": "சந்திப்பின் மூன்று அணுகுமுறைகளையும் முடித்து, ஒவ்வொரு குறிக்கப்பட்ட இடத்திலும் நிறுத்துங்கள்.",
+"Read the junction route.": "சந்திப்பு வழித்தடத்தைப் படியுங்கள்.",
+"Drive through the junction on the planned approach before recording this checkpoint.": "இந்தச் சோதனைப் புள்ளியைப் பதிவு செய்யும் முன் திட்டமிட்ட அணுகுமுறையில் சந்திப்பைக் கடந்து செல்லுங்கள்.",
+"Follow the sat nav through the junction to the marked bay.": "வழிகாட்டியைப் பின்பற்றிச் சந்திப்பு வழியாகக் குறிக்கப்பட்ட இடத்துக்குச் செல்லுங்கள்.",
+"Begin the next junction approach.": "சந்திப்பின் அடுத்த அணுகுமுறையைத் தொடங்குங்கள்.",
+"Begin the next approach.": "அடுத்த அணுகுமுறையைத் தொடங்குங்கள்.",
+"Complete the three junction approaches and park in each marked bay.": "சந்திப்பின் மூன்று அணுகுமுறைகளையும் முடித்து, ஒவ்வொரு குறிக்கப்பட்ட இடத்திலும் நிறுத்துங்கள்.",
+"Complete a stop-sign approach, a red-light approach and a give-way approach. Stop behind the stop line, wait for green at a red light and give way to traffic with priority. Each approach starts with the van parked.": "நிறுத்தப் பலகை அணுகுமுறை, சிவப்பு விளக்கு அணுகுமுறை, வழிவிடு அணுகுமுறை ஆகியவற்றை முடியுங்கள். நிறுத்தக் கோட்டுக்குப் பின்னால் நில்லுங்கள், சிவப்பு விளக்கில் பச்சைக்குக் காத்திருங்கள், முன்னுரிமை உள்ள போக்குவரத்துக்கு வழிவிடுங்கள். ஒவ்வொரு அணுகுமுறையும் நிறுத்தப்பட்ட வேனுடன் தொடங்கும்.",
+"Read the night route.": "இரவு வழித்தடத்தைப் படியுங்கள்.",
+"Finish the night run.": "இரவுப் பயணத்தை முடியுங்கள்.",
+"Follow the night route behind the lead vehicle, then park the whole van in the marked bay and set the parking brake.": "முன்னால் செல்லும் வாகனத்தின் பின்னால் இரவு வழித்தடத்தைப் பின்பற்றி, பிறகு முழு வேனையும் குறிக்கப்பட்ட இடத்தில் நிறுத்தி பார்க்கிங் பிரேக் போடுங்கள்.",
+"Use the night-run controls.": "இரவுப் பயணக் கட்டுப்பாடுகளைப் பயன்படுத்துங்கள்.",
+"Read the finish controls.": "முடிக்கும் கட்டுப்பாடுகளைப் படியுங்கள்.",
+"Check the headlights, follow the night route with a safe gap, and park in the marked bay.": "முகப்பு விளக்குகளைச் சோதித்து, பாதுகாப்பான இடைவெளியுடன் இரவு வழித்தடத்தைப் பின்பற்றி, குறிக்கப்பட்ட இடத்தில் நிறுத்துங்கள்.",
+"Inspect every part of the parked van and record its condition before signing off.": "நிறுத்தப்பட்ட வேனின் ஒவ்வொரு பகுதியையும் சோதித்து, கையொப்பமிடும் முன் அதன் நிலையைப் பதிவு செய்யுங்கள்.",
+"The lamp does not illuminate.": "விளக்கு எரியவில்லை.",
+"The lamp illuminates.": "விளக்கு எரிகிறது.",
+"The lamp is switched off.": "விளக்கு அணைக்கப்பட்டுள்ளது.",
+"The tread has not been measured.": "டயர் ட்ரெட் அளக்கப்படவில்லை.",
+"The mechanical test has not been performed.": "இயந்திரச் சோதனை செய்யப்படவில்லை.",
+"The horn makes no sound.": "ஹார்ன் ஒலிக்கவில்லை.",
+"The horn sounds immediately.": "ஹார்ன் உடனே ஒலிக்கிறது.",
+"The pedal continues to sink under steady pressure.": "நிலையான அழுத்தத்தில் பெடல் தொடர்ந்து கீழே இறங்குகிறது.",
+"The pedal holds its position under steady pressure.": "நிலையான அழுத்தத்தில் பெடல் தன் இடத்தில் நிற்கிறது.",
+"Measure the other half of the tread.": "ட்ரெட்டின் மறு பாதியை அளவிடுங்கள்.",
+"Measure the tread.": "ட்ரெட்டை அளவிடுங்கள்.",
+"Hold the service brake for three seconds.": "சர்வீஸ் பிரேக்கை மூன்று வினாடிகள் அழுத்திப் பிடியுங்கள்.",
+"Test this part.": "இந்தப் பகுதியைச் சோதியுங்கள்.",
+"The horn sounds.": "ஹார்ன் ஒலிக்கிறது.",
+"The brake test is running.": "பிரேக் சோதனை நடக்கிறது.",
+"Steady pressure is applied to the service brake.": "சர்வீஸ் பிரேக்கில் நிலையான அழுத்தம் கொடுக்கப்படுகிறது.",
+"Release the brake.": "பிரேக்கை விடுங்கள்.",
+"Record this part as serviceable.": "இந்தப் பகுதியைச் சரியானது எனப் பதிவு செய்யுங்கள்.",
+"Flag this part as defective.": "இந்தப் பகுதியைக் குறைபாடுள்ளது எனக் குறியுங்கள்.",
+"Return to the van.": "வேனுக்குத் திரும்புங்கள்.",
+"Record the condition.": "நிலையைப் பதிவு செய்யுங்கள்.",
+"Inspect this part.": "இந்தப் பகுதியைச் சோதியுங்கள்.",
+"Record this condition.": "இந்த நிலையைப் பதிவு செய்யுங்கள்.",
+"Return to the inspection.": "சோதனைக்குத் திரும்புங்கள்.",
+"This part is recorded as serviceable.": "இந்தப் பகுதி சரியானது எனப் பதிவாகியுள்ளது.",
+"This part is recorded as defective.": "இந்தப் பகுதி குறைபாடுள்ளது எனப் பதிவாகியுள்ளது.",
+"This part has no recorded condition.": "இந்தப் பகுதிக்கு நிலை எதுவும் பதிவாகவில்லை.",
+"Review the previous part.": "முந்தைய பகுதியைப் பாருங்கள்.",
+"Review the next part.": "அடுத்த பகுதியைப் பாருங்கள்.",
+"Sign off the inspection.": "சோதனையில் கையொப்பமிடுங்கள்.",
+"The inspection is incomplete.": "சோதனை முழுமையடையவில்லை.",
+"Every part needs a recorded condition before sign-off.": "கையொப்பமிடும் முன் ஒவ்வொரு பகுதிக்கும் நிலை பதிவாகியிருக்க வேண்டும்.",
+"Review the inspection.": "சோதனையை மறுபார்வை செய்யுங்கள்.",
+"Use the parked van’s sat nav to sequence every manifest, then accept each route.": "நிறுத்தப்பட்ட வேனின் வழிகாட்டியில் ஒவ்வொரு மேனிஃபெஸ்ட்டையும் வரிசைப்படுத்தி, பிறகு ஒவ்வொரு வழித்தடத்தையும் ஏற்றுக்கொள்ளுங்கள்.",
+"Plan the route on the sat nav.": "வழிகாட்டியில் வழித்தடத்தைத் திட்டமிடுங்கள்.",
+"Enter the cab and park the van before planning the route.": "வழித்தடத்தைத் திட்டமிடும் முன் கேபினில் ஏறி வேனை நிறுத்துங்கள்.",
+"Park the van before using the sat nav.": "வழிகாட்டியைப் பயன்படுத்தும் முன் வேனை நிறுத்துங்கள்.",
+"Read the next dispatch note.": "அடுத்த அனுப்புதல் குறிப்பைப் படியுங்கள்.",
+"Sequence the stops.": "நிறுத்தங்களை வரிசைப்படுத்துங்கள்.",
+"Read the dispatch notes.": "அனுப்புதல் குறிப்புகளைப் படியுங்கள்.",
+"This parcel has no timed commitment.": "இந்தப் பார்சலுக்குக் குறிப்பிட்ட நேரக் கெடு இல்லை.",
+"This stop is not in the route.": "இந்த நிறுத்தம் வழித்தடத்தில் இல்லை.",
+"Plan this route.": "இந்த வழித்தடத்தைத் திட்டமிடுங்கள்.",
+"Add this stop to the route.": "இந்த நிறுத்தத்தை வழித்தடத்தில் சேருங்கள்.",
+"Remove this stop from the route.": "இந்த நிறுத்தத்தை வழித்தடத்திலிருந்து நீக்குங்கள்.",
+"Read the next stop.": "அடுத்த நிறுத்தத்தைப் படியுங்கள்.",
+"Review the route.": "வழித்தடத்தை மறுபார்வை செய்யுங்கள்.",
+"Accept this route.": "இந்த வழித்தடத்தை ஏற்றுக்கொள்ளுங்கள்.",
+"Continue sequencing the stops.": "நிறுத்தங்களை வரிசைப்படுத்துவதைத் தொடருங்கள்.",
+"Clear the route.": "வழித்தடத்தை அழியுங்கள்.",
+"Review this route.": "இந்த வழித்தடத்தை மறுபார்வை செய்யுங்கள்.",
+"The sat nav shows the route.": "வழிகாட்டி வழித்தடத்தைக் காட்டுகிறது.",
+"The double ring marks the selected stop. The square marks the depot.": "இரட்டை வளையம் தேர்ந்தெடுத்த நிறுத்தத்தைக் குறிக்கிறது. சதுரம் டிப்போவைக் குறிக்கிறது.",
+"Complete the school drive and park in its marked bay.": "பள்ளிப் பயணத்தை முடித்து, அதன் குறிக்கப்பட்ட இடத்தில் நிறுத்துங்கள்.",
+"Read the school-zone route.": "பள்ளி மண்டல வழித்தடத்தைப் படியுங்கள்.",
+"Finish the school drive.": "பள்ளிப் பயணத்தை முடியுங்கள்.",
+"Drive through the school zone and let the bus and children clear before finishing.": "பள்ளி மண்டலத்தைக் கடந்து, முடிக்கும் முன் பேருந்தும் குழந்தைகளும் விலகும் வரை விடுங்கள்.",
+"Park the whole van inside the marked finish bay and set the parking brake.": "முழு வேனையும் குறிக்கப்பட்ட முடிவு இடத்துக்குள் நிறுத்தி பார்க்கிங் பிரேக் போடுங்கள்.",
+"Use the school-drive controls.": "பள்ளிப் பயணக் கட்டுப்பாடுகளைப் பயன்படுத்துங்கள்.",
+"Drive through the school zone, wait for the bus and children, and park in the marked bay.": "பள்ளி மண்டலத்தைக் கடந்து, பேருந்துக்கும் குழந்தைகளுக்கும் காத்திருந்து, குறிக்கப்பட்ட இடத்தில் நிறுத்துங்கள்.",
+"Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.": "நுழைவுப் பலகையைப் படித்து, புறப்படும் முன் முன்னால் பாருங்கள். பள்ளி மண்டல வேக வரம்பைக் கடைப்பிடியுங்கள். பள்ளிப் பேருந்தின் சிவப்பு விளக்குகள் மின்னும்போது அதற்கு முன்பே நில்லுங்கள். அதன் விளக்குகள் அணைந்து குழந்தைகள் பாதுகாப்பாக விலகும் வரை காத்திருந்து, பிறகு தொடருங்கள்.",
+"Read the next instruction page.": "அடுத்த அறிவுறுத்தல் பக்கத்தைப் படியுங்கள்."
 },
 "templates": [
 [
@@ -6007,6 +6121,206 @@ window.OTR_I18N.ta = {
 [
 "Use {0} to look. Press {1} to select a visible nearby target and {2} to interact. Press {3} to read the scenario goal.",
 "பார்க்க {0} பயன்படுத்தவும். அருகில் தெரியும் இலக்கைத் தேர்வு செய்ய {1}, செயல்பட {2} அழுத்தவும். சூழலின் இலக்கைப் படிக்க {3} அழுத்தவும்."
+],
+[
+"Parked at {0}",
+"{0} இல் நிறுத்தப்பட்டது"
+],
+[
+"Parked at {0} (facing the traffic)",
+"{0} இல் நிறுத்தப்பட்டது (போக்குவரத்தின் திசையில்)"
+],
+[
+"Parked at {0} ({1} ft from the kerb)",
+"{0} இல் நிறுத்தப்பட்டது (நடைபாதையிலிருந்து {1} அடி)"
+],
+[
+"Parked at {0} (at an angle)",
+"{0} இல் நிறுத்தப்பட்டது (சாய்வாக)"
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt before moving. Look at each physical mirror to check it. Signal for three seconds before moving off or turning.",
+"வேகம் கூட்ட {0}, பிரேக்குக்கு {1}, திருப்ப {2}/{3} பயன்படுத்துங்கள். நகரும் முன் சீட்பெல்ட் அணியுங்கள். ஒவ்வொரு உண்மையான கண்ணாடியையும் பார்த்துச் சோதியுங்கள். புறப்படும் முன் அல்லது திரும்பும் முன் மூன்று வினாடிகள் இண்டிகேட்டர் போடுங்கள்."
+],
+[
+"Look at the shifter or a cab switch and press {0} to use it. Keyboard shortcuts remain available. The rear camera comes on in reverse. Use it and the mirrors to reverse slowly. You can park and make an optional walk-around in a tight space.",
+"கியர் லீவரையோ கேபின் சுவிட்சையோ பார்த்து, அதைப் பயன்படுத்த {0} அழுத்துங்கள். விசைப்பலகைக் குறுக்குவழிகளும் கிடைக்கும். ரிவர்ஸில் ரியர் கேமரா இயங்கும். மெதுவாகப் பின்னோக்கிச் செல்ல அதையும் கண்ணாடிகளையும் பயன்படுத்துங்கள். குறுகிய இடத்தில் வேனை நிறுத்தி, விரும்பினால் சுற்றிப் பார்த்துச் சோதிக்கலாம்."
+],
+[
+"Follow the mounted sat nav to each address. Park the whole van in the marked bay and set the parking brake. Press {0} to record the checkpoint, or select the checkpoint option on the device. Rain begins halfway through the route.",
+"பொருத்தப்பட்ட வழிகாட்டியைப் பின்பற்றி ஒவ்வொரு முகவரிக்கும் செல்லுங்கள். முழு வேனையும் குறிக்கப்பட்ட இடத்தில் நிறுத்தி பார்க்கிங் பிரேக் போடுங்கள். சோதனைப் புள்ளியைப் பதிவு செய்ய {0} அழுத்துங்கள், அல்லது சாதனத்தில் சோதனைப் புள்ளி விருப்பத்தைத் தேர்ந்தெடுங்கள். வழித்தடத்தின் பாதியில் மழை தொடங்கும்."
+],
+[
+"Press {0} to read the sat nav and checkpoint details.",
+"வழிகாட்டியையும் சோதனைப் புள்ளி விவரங்களையும் படிக்க {0} அழுத்துங்கள்."
+],
+[
+"Park at this checkpoint and press {0} to record it.",
+"இந்தச் சோதனைப் புள்ளியில் நிறுத்தி, அதைப் பதிவு செய்ய {0} அழுத்துங்கள்."
+],
+[
+"The van hit an obstacle at {0} mph.",
+"வேன் {0} mph வேகத்தில் ஒரு தடையில் மோதியது."
+],
+[
+"Checkpoint {0} of {1} is at {2}.",
+"சோதனைப் புள்ளி {0}/{1} {2} இல் உள்ளது."
+],
+[
+"Checkpoint {0} is complete. Continue to {1}.",
+"சோதனைப் புள்ளி {0} முடிந்தது. {1} நோக்கித் தொடருங்கள்."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Look with the mouse or {4}. Press {5} to select a nearby physical cab control and {6} to use it.",
+"வேகம் கூட்ட {0}, பிரேக்குக்கு {1}, திருப்ப {2}/{3} பயன்படுத்துங்கள். சுட்டி அல்லது {4} மூலம் பாருங்கள். அருகிலுள்ள உண்மையான கேபின் கட்டுப்பாட்டைத் தேர்ந்தெடுக்க {5}, பயன்படுத்த {6} அழுத்துங்கள்."
+],
+[
+"Press {0} to set or release the parking brake, {1} for the seatbelt, {2} for drive or reverse, {3}/{4} for the left or right signal, {5} for headlights, and {6} for wipers. Press {7} to look forward.",
+"பார்க்கிங் பிரேக்கைப் போட அல்லது விடுவிக்க {0}, சீட்பெல்ட்டுக்கு {1}, டிரைவ் அல்லது ரிவர்ஸுக்கு {2}, இடது அல்லது வலது இண்டிகேட்டருக்கு {3}/{4}, முகப்பு விளக்குகளுக்கு {5}, வைப்பர்களுக்கு {6} அழுத்துங்கள். முன்னால் பார்க்க {7} அழுத்துங்கள்."
+],
+[
+"Follow the mounted sat nav. Press {0} to record a checkpoint after parking, or press {1} for the device. Read a visible road sign with {2}. The rear camera is automatic in reverse. Look at the physical mirrors to check them.",
+"பொருத்தப்பட்ட வழிகாட்டியைப் பின்பற்றுங்கள். நிறுத்திய பிறகு சோதனைப் புள்ளியைப் பதிவு செய்ய {0} அழுத்துங்கள், அல்லது சாதனத்துக்கு {1} அழுத்துங்கள். தெரியும் சாலைப் பலகையை {2} மூலம் படியுங்கள். ரிவர்ஸில் ரியர் கேமரா தானாக இயங்கும். உண்மையான கண்ணாடிகளைப் பார்த்துச் சோதியுங்கள்."
+],
+[
+"The van drives automatically. Press {0} or click when a hazard starts to develop. Earlier marks inside the response window earn more points. More than {1} marks in one clip score zero. With reduced motion, the cab stays still while the road scene develops.",
+"வேன் தானாக ஓடும். அபாயம் உருவாகத் தொடங்கும்போது {0} அழுத்துங்கள் அல்லது கிளிக் செய்யுங்கள். பதில் நேரத்துக்குள் முன்கூட்டியே இடும் குறிகளுக்கு அதிகப் புள்ளிகள். ஒரு கிளிப்பில் {1} குறிகளுக்கு மேல் இட்டால் பூஜ்ஜியம். குறைந்த அசைவு அமைப்பில் சாலைக் காட்சி நகரும்போது கேபின் அசையாமல் இருக்கும்."
+],
+[
+"Clip {0} of {1}. Press {2} or click when a hazard starts to develop. You have made {3} marks.",
+"கிளிப் {0}/{1}. அபாயம் உருவாகத் தொடங்கும்போது {2} அழுத்துங்கள் அல்லது கிளிக் செய்யுங்கள். நீங்கள் {3} குறிகள் இட்டுள்ளீர்கள்."
+],
+[
+"You scored {0} of 5 points.\n\n{1}",
+"5 இல் {0} புள்ளிகள் பெற்றீர்கள்.\n\n{1}"
+],
+[
+"The van drives automatically. Press {0} or click when a hazard begins to develop.\n\nWith reduced motion, the cab stays still while the road scene develops.",
+"வேன் தானாக ஓடும். அபாயம் உருவாகத் தொடங்கும்போது {0} அழுத்துங்கள் அல்லது கிளிக் செய்யுங்கள்.\n\nகுறைந்த அசைவு அமைப்பில் சாலைக் காட்சி நகரும்போது கேபின் அசையாமல் இருக்கும்."
+],
+[
+"Approach {0} of 3. Follow the sat nav to {1}.",
+"அணுகுமுறை {0}/3. வழிகாட்டியைப் பின்பற்றி {1} க்குச் செல்லுங்கள்."
+],
+[
+"Approach {0} of 3. Follow the sat nav, then park the whole van in the marked bay and set the parking brake.",
+"அணுகுமுறை {0}/3. வழிகாட்டியைப் பின்பற்றி, பிறகு முழு வேனையும் குறிக்கப்பட்ட இடத்தில் நிறுத்தி பார்க்கிங் பிரேக் போடுங்கள்."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt with its physical control or {4}. Look at the physical mirrors and signal for three seconds before moving off.",
+"வேகம் கூட்ட {0}, பிரேக்குக்கு {1}, திருப்ப {2}/{3} பயன்படுத்துங்கள். சீட்பெல்ட்டை அதன் உண்மையான கட்டுப்பாடு அல்லது {4} மூலம் அணியுங்கள். புறப்படும் முன் உண்மையான கண்ணாடிகளைப் பார்த்து மூன்று வினாடிகள் இண்டிகேட்டர் போடுங்கள்."
+],
+[
+"Follow the mounted sat nav. Park the whole van in the marked bay, facing with traffic, and set the parking brake. Press {0} to record the checkpoint, or use the same action on the device with {1}.",
+"பொருத்தப்பட்ட வழிகாட்டியைப் பின்பற்றுங்கள். முழு வேனையும் குறிக்கப்பட்ட இடத்தில் போக்குவரத்தின் திசையில் நிறுத்தி பார்க்கிங் பிரேக் போடுங்கள். சோதனைப் புள்ளியைப் பதிவு செய்ய {0} அழுத்துங்கள், அல்லது சாதனத்தில் அதையே {1} மூலம் செய்யுங்கள்."
+],
+[
+"Press {0} to read the junction route and checkpoint details.",
+"சந்திப்பு வழித்தடத்தையும் சோதனைப் புள்ளி விவரங்களையும் படிக்க {0} அழுத்துங்கள்."
+],
+[
+"The finish bay is at {0}.",
+"முடிவு இடம் {0} இல் உள்ளது."
+],
+[
+"Walk with {0}/{1}/{2}/{3} and look with the mouse or {4}. Select a nearby physical target with {5} and use it with {6}. Check the headlights at the front of the van before entering the cab.",
+"{0}/{1}/{2}/{3} மூலம் நடந்து, சுட்டி அல்லது {4} மூலம் பாருங்கள். அருகிலுள்ள உண்மையான இலக்கை {5} மூலம் தேர்ந்தெடுத்து {6} மூலம் பயன்படுத்துங்கள். கேபினில் ஏறும் முன் வேனின் முன்பக்க முகப்பு விளக்குகளைச் சோதியுங்கள்."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Press {4} for the seatbelt, {5} for the parking brake, {6} for the headlights, and {7}/{8} to signal. Look at the physical mirrors to check them.",
+"வேகம் கூட்ட {0}, பிரேக்குக்கு {1}, திருப்ப {2}/{3} பயன்படுத்துங்கள். சீட்பெல்ட்டுக்கு {4}, பார்க்கிங் பிரேக்குக்கு {5}, முகப்பு விளக்குகளுக்கு {6}, இண்டிகேட்டருக்கு {7}/{8} அழுத்துங்கள். உண்மையான கண்ணாடிகளைப் பார்த்துச் சோதியுங்கள்."
+],
+[
+"Follow the mounted sat nav. Keep at least a three-second gap behind the lead vehicle. Drive within the distance the headlights illuminate. Park in the marked finish bay and press {0}, or use the finish option on the device with {1}.",
+"பொருத்தப்பட்ட வழிகாட்டியைப் பின்பற்றுங்கள். முன்னால் செல்லும் வாகனத்திலிருந்து குறைந்தது மூன்று வினாடி இடைவெளி வையுங்கள். முகப்பு விளக்குகள் ஒளிரும் தூரத்துக்குள் ஓட்டுங்கள். குறிக்கப்பட்ட முடிவு இடத்தில் நிறுத்தி {0} அழுத்துங்கள், அல்லது சாதனத்தில் முடிக்கும் விருப்பத்தை {1} மூலம் பயன்படுத்துங்கள்."
+],
+[
+"Walk to the front of the van. Look at the headlights and press {0} to inspect them. Assess the light test and request a repair if needed. Inspect before the van moves.",
+"வேனின் முன்பக்கத்துக்கு நடந்து செல்லுங்கள். முகப்பு விளக்குகளைப் பார்த்து, சோதிக்க {0} அழுத்துங்கள். விளக்குச் சோதனையை மதிப்பிட்டு, தேவைப்பட்டால் பழுதுபார்ப்பைக் கோருங்கள். வேன் நகரும் முன் சோதியுங்கள்."
+],
+[
+"Enter the cab at the driver door with {0}. Fasten the seatbelt, switch on the headlights with {1} or their physical control, check the mirrors and signal before moving off.",
+"ஓட்டுநர் கதவு வழியாக {0} அழுத்தி கேபினில் ஏறுங்கள். சீட்பெல்ட் அணிந்து, {1} அல்லது உண்மையான கட்டுப்பாட்டின் மூலம் முகப்பு விளக்குகளை இயக்கி, கண்ணாடிகளைச் சோதித்து, புறப்படும் முன் இண்டிகேட்டர் போடுங்கள்."
+],
+[
+"Follow the sat nav to {0}. Keep at least a three-second gap behind the lead vehicle and drive within the headlight range. Park the whole van in the marked bay and set the parking brake, then press {1} or use the finish option on the device with {2}.",
+"வழிகாட்டியைப் பின்பற்றி {0} க்குச் செல்லுங்கள். முன்னால் செல்லும் வாகனத்திலிருந்து குறைந்தது மூன்று வினாடி இடைவெளி வைத்து, முகப்பு விளக்குகளின் எல்லைக்குள் ஓட்டுங்கள். முழு வேனையும் குறிக்கப்பட்ட இடத்தில் நிறுத்தி பார்க்கிங் பிரேக் போட்டு, பிறகு {1} அழுத்துங்கள் அல்லது சாதனத்தில் முடிக்கும் விருப்பத்தை {2} மூலம் பயன்படுத்துங்கள்."
+],
+[
+"Press {0} to read the night route and finish details.",
+"இரவு வழித்தடத்தையும் முடிவு விவரங்களையும் படிக்க {0} அழுத்துங்கள்."
+],
+[
+"Inspect the {0}. Press {1} to interact.",
+"சோதியுங்கள்: {0}. பயன்படுத்த {1} அழுத்துங்கள்."
+],
+[
+"The gauge reads {0}/32 inches.",
+"அளவி {0}/32 அங்குலம் காட்டுகிறது."
+],
+[
+"Plan route {0} of {1} on the sat nav.",
+"வழிகாட்டியில் வழித்தடம் {0}/{1} ஐத் திட்டமிடுங்கள்."
+],
+[
+"Press {0} to plan the route on the sat nav.",
+"வழிகாட்டியில் வழித்தடத்தைத் திட்டமிட {0} அழுத்துங்கள்."
+],
+[
+"Route {0} starts at {1}.\n{2}",
+"வழித்தடம் {0} {1} இல் தொடங்குகிறது.\n{2}"
+],
+[
+"The school zone is active between {0} and {1}. Driving through it adds {2} minutes.",
+"பள்ளி மண்டலம் {0} முதல் {1} வரை இயங்கும். அதன் வழியே சென்றால் {2} நிமிடங்கள் கூடும்."
+],
+[
+"The road is closed on {0} between {1} and {2}.",
+"{0} இல் {1} க்கும் {2} க்கும் இடையே சாலை மூடப்பட்டுள்ளது."
+],
+[
+"Collect the pickup between {0} and {1}.",
+"பிக்அப்பை {0} முதல் {1} க்குள் எடுங்கள்."
+],
+[
+"Deliver this parcel by {0}.",
+"இந்தப் பார்சலை {0} க்குள் சேருங்கள்."
+],
+[
+"The estimated arrival is {0}.",
+"மதிப்பிடப்பட்ட வருகை {0}."
+],
+[
+"Stop {0} is at {1}.\n{2}\n{3}",
+"நிறுத்தம் {0} {1} இல் உள்ளது.\n{2}\n{3}"
+],
+[
+"Route {0} contains {1} of {2} stops.",
+"வழித்தடம் {0} இல் {2} இல் {1} நிறுத்தங்கள் உள்ளன."
+],
+[
+"\nThe sequence is {0}.",
+"\nவரிசை {0}."
+],
+[
+"\nThe estimated return is {0}.",
+"\nமதிப்பிடப்பட்ட திரும்புதல் {0}."
+],
+[
+"Follow the mounted sat nav to the finish bay. Press {0} to finish after parking, or use the finish option on the device with {1}. Read a visible road sign with {2}. The rear camera is automatic in reverse. Look at the physical mirrors to check them.",
+"பொருத்தப்பட்ட வழிகாட்டியைப் பின்பற்றி முடிவு இடத்துக்குச் செல்லுங்கள். நிறுத்திய பிறகு முடிக்க {0} அழுத்துங்கள், அல்லது சாதனத்தில் முடிக்கும் விருப்பத்தை {1} மூலம் பயன்படுத்துங்கள். தெரியும் சாலைப் பலகையை {2} மூலம் படியுங்கள். ரிவர்ஸில் ரியர் கேமரா தானாக இயங்கும். உண்மையான கண்ணாடிகளைப் பார்த்துச் சோதியுங்கள்."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt with its physical control or {4}. Look at the mirrors and signal before moving off.",
+"வேகம் கூட்ட {0}, பிரேக்குக்கு {1}, திருப்ப {2}/{3} பயன்படுத்துங்கள். சீட்பெல்ட்டை அதன் உண்மையான கட்டுப்பாடு அல்லது {4} மூலம் அணியுங்கள். புறப்படும் முன் கண்ணாடிகளைப் பார்த்து இண்டிகேட்டர் போடுங்கள்."
+],
+[
+"Follow the sat nav to {0}. Park the whole van in the marked bay, set the parking brake and press {1} to finish. The mounted screen and {2} offer the same finish action. You can read the controls from the pause menu.",
+"வழிகாட்டியைப் பின்பற்றி {0} க்குச் செல்லுங்கள். முழு வேனையும் குறிக்கப்பட்ட இடத்தில் நிறுத்தி, பார்க்கிங் பிரேக் போட்டு, முடிக்க {1} அழுத்துங்கள். பொருத்தப்பட்ட திரையிலும் {2} இலும் இதே விருப்பம் உள்ளது. இடைநிறுத்த மெனுவிலிருந்து கட்டுப்பாடுகளைப் படிக்கலாம்."
+],
+[
+"Press {0} to read the school route and finish details.",
+"பள்ளி வழித்தடத்தையும் முடிவு விவரங்களையும் படிக்க {0} அழுத்துங்கள்."
 ]
 ],
 "keep": [

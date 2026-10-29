@@ -1,0 +1,24 @@
+{
+  "status": "proposed, not applied to the frozen runtime",
+  "base": "7bd4bff6",
+  "before": {
+    "tests": 10,
+    "pass": 7,
+    "fail": 3
+  },
+  "after": {
+    "tests": 10,
+    "pass": 10,
+    "fail": 0
+  },
+  "source": {
+    "before.log": "16e8db01eb095e8b2dcd671efd54f953498d04bf908a35ed5f44c429c37b9255",
+    "after.js": "7a5ca1c25cd7c7dbc07eee1f244669e3898b9ac0a2e5113093de5015b198378b",
+    "school-paint.patch": "10944b67c26e8eda6a4d1b05f5e3862a4db35983931e2e2f64163be214339e6b",
+    "school-paint-regressions.js": "4d4b9cb690d87eaac60ff4503420c5a9cc1c7887c0d86c767316481c26b981e8",
+    "before.js": "c283adaa6636275a37322eba2c86a019a21338e24f9b8cc913357e930a0a30ec",
+    "fpschoollesson.proposed.js": "dbbb3e999c9daccba6357066e83de6d312350ffabf9b126715c294bbf203e28e",
+    "after.log": "9eabfed1b61196b8da07c8e9f1f50827ed62eaa5f2b8dd117473d34c067de3bd"
+  },
+  "scope": "Seven current school cases plus three regressions covering both side edges, both end edges, yawed footprint, reversed parking, a just-inside positive and zero incomplete result with earned observations retained. The after VM replaces only fpschoollesson.js with the proposed source. No runtime file, shared scoring, renderer, timer or native fixture changes."
+}

@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-23",
+  "status": "Proposal only; shared source unchanged",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 892,
+      "sha256": "3f16136c7ffae55e947bdf2ea02403c47631c84e5e6bd10d76ae686acff2ef5e"
+    },
+    {
+      "file": "new-text.json",
+      "bytes": 1686,
+      "sha256": "a38646c998fd9002eb34a4551dd0d30060f6a3074b502b7e2de7c14435fd2851"
+    },
+    {
+      "file": "registry.patch",
+      "bytes": 430,
+      "sha256": "b2b8487a0725d6f28b0921e1d59ee87c7fc2556bc4e76c2f4b1dc4f23e2b3fce"
+    }
+  ]
+}

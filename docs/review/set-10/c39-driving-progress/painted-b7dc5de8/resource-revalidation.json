@@ -1,0 +1,46 @@
+{
+  "views": 72,
+  "source": "b7dc5de8059d4b0e2f55039487cdb696751f120a",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "peak": {
+        "calls": 45,
+        "triangles": 1670,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2105926
+      }
+    },
+    {
+      "id": "loaded-high",
+      "peak": {
+        "calls": 86,
+        "triangles": 185244,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5921222
+      }
+    },
+    {
+      "id": "accessible-low",
+      "peak": {
+        "calls": 45,
+        "triangles": 1670,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2285670
+      }
+    },
+    {
+      "id": "fallback-low",
+      "peak": {
+        "calls": 46,
+        "triangles": 1620,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2105926
+      }
+    }
+  ]
+}

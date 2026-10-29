@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+"""Module inspection readability: serial native and affected resource checks under the browser lease."""
+from pathlib import Path
+import os,json,hashlib,subprocess,fcntl,time,shutil,psutil
+BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3];OUT=BASE/'attempt-4';OUT.mkdir(exist_ok=True);os.chdir(ROOT)
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+files=[p for name in ['src','data','lib','assets/3d'] for p in Path(name).rglob('*') if p.is_file()]+list(Path('test').glob('fp*.js'))+[Path(p) for p in ['index.html','first-person.html','test/tools/fp-junction-lesson-fixture.js','test/tools/fp-junction-lesson-view.js','test/tools/fp-junction-lesson-proof.js','test/tools/fp-night-lesson-fixture.js','test/tools/fp-night-lesson-view.js','test/tools/fp-night-lesson-proof.js','test/tools/fp-school-lesson-fixture.js']]
+jobs=[{'tag':'night-high-ta','script':'test/fpnightlessonbrowser.js','env':{'QA_QUALITIES':'high','QA_LANGS':'ta','QA_SIZES':'large','QA_FONT':'noto'}},{'tag':'night-low-en','script':'test/fpnightlessonbrowser.js','env':{'QA_QUALITIES':'low','QA_LANGS':'en','QA_SIZES':'normal','QA_FONT':'noto'}}]
+views='nightlessoninspect'
+for tag,gfx,a11y,fallback in [('loaded-low','low','','0'),('loaded-high','high','','0'),('accessible-low','low','large,colour,reduced','0'),('fallback-low','low','','1')]:
+ jobs.append({'tag':'night-budget-'+tag,'script':'test/fpbench.js','env':{'QA_GFX':gfx,'QA_A11Y':a11y,'QA_FALLBACK':fallback,'QA_VIEWS':views,'QA_PROTOTYPE_ONLY':'1','QA_FPS_FLOOR':'0','QA_SOUND':'1','QA_MIRROR_PROBE':'1','QA_NIGHTLESSON':'1','QA_SHOTS':'1'}})
+jobs += [{'tag':'school-paint-low-en','script':'test/fpschoollessonbrowser.js','env':{'QA_QUALITIES':'low','QA_LANGS':'en','QA_SIZES':'normal','QA_FONT':'noto'}},{'tag':'school-paint-high-ta','script':'test/fpschoollessonbrowser.js','env':{'QA_QUALITIES':'high','QA_LANGS':'ta','QA_SIZES':'large','QA_FONT':'noto'}}]
+plan={'sourceRevision':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'scope':'Integrated night module with readable module inspection panel and school-only strict paint gate on the existing C-38 stack. The earlier 28 resource views remain at their prior source scope; this attempt reruns all four affected inspection profiles plus both full night and school native flows. The only runtime change since attempt-2 is the module inspection accessibleText option in FirstPersonScene.js. Night native controls use real walking, inspection, cab entry, lead traffic and at least 35 m of actual driving; a declared stopped pre-bay pose skips remaining travel. Shared optional content/launcher support is not certified by the browser-only descriptor. Source, all helper inputs and original budget protocols are frozen. Explicit before-bay poses skip travel, not actual encounters, controls or graded parking. QA_FONT=noto is a review-only font pin. The shared optional launcher is still separate. High native waits have a 900-second wall allowance and a separate 1,200-second browser protocol allowance; real game time and its original 0.05-second cap are untouched. Four original resource ceilings and protocol checks apply.','sources':{str(p):sha(p) for p in sorted(set(files))},'jobs':jobs};(OUT/'plan.json').write_text(json.dumps(plan,indent=2)+'\n')
+state={'phase':'queued','jobs':[],'pid':os.getpid(),'startedAt':time.time()}
+def save(): (OUT/'status.json').write_text(json.dumps(state,indent=2)+'\n')
+save()
+with open('/workspace/.otr-browser-validation.lock','a') as lease:
+ fcntl.flock(lease,fcntl.LOCK_EX);server=None
+ try:
+  server=subprocess.Popen(['python3','-m','http.server','8402','--bind','127.0.0.1'],stdout=open(OUT/'server.log','w'),stderr=subprocess.STDOUT,cwd=ROOT);state['serverPid']=server.pid;time.sleep(.2);assert server.poll() is None
+  for job in jobs:
+   assert all(sha(f)==h for f,h in plan['sources'].items()),'Frozen source changed'
+   tag=job['tag'];state.update(phase='running',tag=tag);save();raw=ROOT/'test/out/fp-review';before={p.name:p.stat().st_mtime_ns for p in raw.glob('*') if p.is_file()}
+   with open(OUT/(tag+'.log'),'w') as log:
+    child=subprocess.Popen(['node',job['script']],env={**os.environ,**job['env'],'QA_BASE':'http://127.0.0.1:8402','QA_BROWSER':'/usr/bin/chromium','QA_TAG':tag},cwd=ROOT,stdout=log,stderr=log);state['childPid']=child.pid;save()
+    try:code=child.wait(timeout=3600)
+    except subprocess.TimeoutExpired:
+     owned=psutil.Process(child.pid).children(recursive=True)+[psutil.Process(child.pid)]
+     for proc in reversed(owned):
+      try:proc.terminate()
+      except psutil.NoSuchProcess:pass
+     _,alive=psutil.wait_procs(owned,timeout=5)
+     for proc in alive:
+      try:proc.kill()
+      except psutil.NoSuchProcess:pass
+     child.wait();code=124
+   folder=OUT/'artifacts'/tag;folder.mkdir(parents=True,exist_ok=True);artifacts={}
+   for p in raw.glob('*'):
+    if p.is_file() and before.get(p.name)!=p.stat().st_mtime_ns:shutil.copyfile(p,folder/p.name);artifacts[p.name]=sha(folder/p.name)
+   changed=[f for f,h in plan['sources'].items() if sha(f)!=h];entry={**job,'exit':code,'changedSources':changed,'artifacts':artifacts};state['jobs'].append(entry);save();assert code==0 and not changed,'Browser job failed: '+tag
+   if job['script']=='test/fpbench.js':
+    env=job['env'];profile={'id':tag,'quality':env['QA_GFX'],'accessibility':env['QA_A11Y'],'fallback':env['QA_FALLBACK']=='1','views':views};report=folder/('bench-'+tag+'-'+env['QA_GFX']+'.json')
+    js="const fs=require('fs'),{checkReport}=require('./test/fpquality');console.log(JSON.stringify(checkReport(JSON.parse(fs.readFileSync(process.argv[1])),JSON.parse(process.argv[2]),process.argv[3])));"
+    p=subprocess.run(['node','-e',js,str(report),json.dumps(profile),tag],cwd=ROOT,capture_output=True,text=True);(OUT/(tag+'-quality.log')).write_text(p.stdout+p.stderr);assert p.returncode==0,'Quality protocol failed: '+tag;entry['peak']=json.loads(p.stdout);save()
+  state['phase']='complete'
+ except Exception as error:state.update(phase='failed',failure=str(error))
+ finally:
+  if server is not None and server.poll() is None:server.terminate();server.wait(timeout=10)
+  state.update(serverExited=server is None or server.poll() is not None,leaseReleased=True,endedAt=time.time());save()

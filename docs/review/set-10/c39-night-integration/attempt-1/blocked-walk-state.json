@@ -1,0 +1,50 @@
+{
+  "reason": "Stopped after the native test showed that the initial out-of-lane van moved under motor clamping and its fixed walking path was blocked by the body.",
+  "state": {
+    "mode": "walk",
+    "elapsed": 59.44950000000516,
+    "player": {
+      "x": -6.047111164514288,
+      "z": 53.509870617538034,
+      "yaw": -3.083512154766966,
+      "pitch": 0
+    },
+    "van": {
+      "x": 2.84,
+      "z": 8,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 1,
+      "hand": true,
+      "belt": false,
+      "look": 0,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ]
+    },
+    "road": 10.5,
+    "driver": {
+      "y": 1.65,
+      "x": 1.69,
+      "z": 6.3
+    },
+    "held": {
+      "KeyW": true
+    },
+    "checks": {
+      "tyres": null,
+      "lights": true
+    },
+    "observations": {
+      "inspect.lights": {
+        "ok": true
+      }
+    }
+  },
+  "subsequentDiagnosis": "The initial movement diagnosis was incorrect: fpRoute.apply starts the parked van at x=2.84, and the 9-case component run confirms it stays stationary. The hard-coded native walking target x=2.2 intersected its body. Only the test path is corrected to use offsets from the actual van; no spawn/motor/clock change."
+}

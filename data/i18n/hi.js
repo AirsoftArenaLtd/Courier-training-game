@@ -4138,7 +4138,121 @@ window.OTR_I18N.hi = {
 "morning": "सुबह",
 "midday": "दोपहर",
 "dusk": "शाम",
-"night": "रात"
+"night": "रात",
+"Follow the sat nav to the next checkpoint.": "जीपीएस के पीछे अगले चेकपॉइंट तक जाएँ।",
+"Stop fully and set the parking brake before recording this checkpoint.": "यह चेकपॉइंट दर्ज करने से पहले पूरी तरह रुकें और पार्किंग ब्रेक लगाएँ।",
+"Pull into the marked checkpoint bay on the correct side of the street.": "सड़क की सही तरफ़ चेकपॉइंट की चिह्नित जगह में गाड़ी लगाएँ।",
+"Straighten the van alongside the curb before recording this checkpoint.": "यह चेकपॉइंट दर्ज करने से पहले वैन को फ़ुटपाथ के किनारे सीधा करें।",
+"Move the whole van off the curb before recording this checkpoint.": "यह चेकपॉइंट दर्ज करने से पहले पूरी वैन को फ़ुटपाथ से उतारें।",
+"Move closer to the curb before recording this checkpoint.": "यह चेकपॉइंट दर्ज करने से पहले फ़ुटपाथ के और पास आएँ।",
+"Keep the whole van inside the marked bay and clear of the crossing.": "पूरी वैन को चिह्नित जगह के अंदर और क्रॉसिंग से दूर रखें।",
+"Keep the whole van clear of buildings and obstacles.": "पूरी वैन को इमारतों और रुकावटों से दूर रखें।",
+"Wait until the current road hazard has cleared before recording this checkpoint.": "यह चेकपॉइंट दर्ज करने से पहले सड़क का मौजूदा खतरा हटने तक रुकें।",
+"Drive to all six checkpoints and respond safely to the road hazards.": "सभी छह चेकपॉइंट तक गाड़ी चलाएँ और सड़क के खतरों पर सुरक्षित तरीके से प्रतिक्रिया दें।",
+"The handheld buzzes in its cradle.": "हैंडहेल्ड अपने होल्डर में कंपन करता है।",
+"Visibility is reduced. Turn on the headlights.": "दृश्यता कम है। हेडलाइट चालू करें।",
+"Use the rear camera and mirrors to reverse slowly. Stop if the path is not clear.": "धीरे पीछे जाने के लिए रियर कैमरा और शीशों का इस्तेमाल करें। रास्ता साफ़ न हो तो रुकें।",
+"Read the driving route.": "ड्राइविंग रूट पढ़ें।",
+"Record this checkpoint.": "यह चेकपॉइंट दर्ज करें।",
+"Return to the road.": "सड़क पर लौटें।",
+" Rain is reducing visibility. Use the headlights and wipers and leave more space.": " बारिश से दृश्यता कम हो रही है। हेडलाइट और वाइपर चलाएँ और ज़्यादा दूरी रखें।",
+"The checkpoint is recorded.": "चेकपॉइंट दर्ज हो गया है।",
+"Continue the driving route.": "ड्राइविंग रूट जारी रखें।",
+"Use the driving controls.": "ड्राइविंग नियंत्रण इस्तेमाल करें।",
+"Read the cab shortcuts.": "केबिन के शॉर्टकट पढ़ें।",
+"Use the cab shortcuts.": "केबिन के शॉर्टकट इस्तेमाल करें।",
+"Read the checkpoint controls.": "चेकपॉइंट के नियंत्रण पढ़ें।",
+"Record the driving checkpoints.": "ड्राइविंग चेकपॉइंट दर्ज करें।",
+"Watch each road scene and mark the moment a hazard begins to develop.": "सड़क का हर दृश्य देखें और वह पल चिह्नित करें जब कोई खतरा बनना शुरू हो।",
+"Read the road sign.": "सड़क का संकेत पढ़ें।",
+"Stop fully before entering the junction.": "चौराहे में जाने से पहले पूरी तरह रुकें।",
+"Return to the road scene.": "सड़क के दृश्य पर लौटें।",
+"This road scene has ended. Your response has been recorded.": "सड़क का यह दृश्य खत्म हो गया है। आपकी प्रतिक्रिया दर्ज हो गई है।",
+"This clip is complete.": "यह क्लिप पूरी हो गई है।",
+"See the results.": "नतीजे देखें।",
+"Watch the next clip.": "अगली क्लिप देखें।",
+"Watch for the developing hazard.": "बनते हुए खतरे पर नज़र रखें।",
+"Continue watching the clip.": "क्लिप देखना जारी रखें।",
+"the marked bay beyond the give-way junction": "रास्ता देने वाले चौराहे के आगे की चिह्नित जगह",
+"Park the whole van in the marked bay, facing the same way as the traffic.": "पूरी वैन को चिह्नित जगह में ट्रैफ़िक की दिशा में खड़ा करें।",
+"Keep the whole van inside the painted lines of the marked bay.": "पूरी वैन को चिह्नित जगह की पेंट की हुई रेखाओं के अंदर रखें।",
+"Complete all three junction approaches and park in each marked bay.": "चौराहे के तीनों रास्ते पूरे करें और हर चिह्नित जगह में वैन खड़ी करें।",
+"Read the junction route.": "चौराहे का रूट पढ़ें।",
+"Drive through the junction on the planned approach before recording this checkpoint.": "यह चेकपॉइंट दर्ज करने से पहले तय रास्ते से चौराहा पार करें।",
+"Follow the sat nav through the junction to the marked bay.": "जीपीएस के पीछे चौराहे से होते हुए चिह्नित जगह तक जाएँ।",
+"Begin the next junction approach.": "चौराहे का अगला रास्ता शुरू करें।",
+"Begin the next approach.": "अगला रास्ता शुरू करें।",
+"Complete the three junction approaches and park in each marked bay.": "चौराहे के तीनों रास्ते पूरे करें और हर चिह्नित जगह में वैन खड़ी करें।",
+"Complete a stop-sign approach, a red-light approach and a give-way approach. Stop behind the stop line, wait for green at a red light and give way to traffic with priority. Each approach starts with the van parked.": "एक स्टॉप साइन वाला रास्ता, एक लाल बत्ती वाला रास्ता और एक रास्ता देने वाला रास्ता पूरा करें। स्टॉप लाइन के पीछे रुकें, लाल बत्ती पर हरी बत्ती का इंतज़ार करें और प्राथमिकता वाले ट्रैफ़िक को रास्ता दें। हर रास्ता खड़ी वैन से शुरू होता है।",
+"Read the night route.": "रात का रूट पढ़ें।",
+"Finish the night run.": "रात की ड्राइव पूरी करें।",
+"Follow the night route behind the lead vehicle, then park the whole van in the marked bay and set the parking brake.": "आगे वाले वाहन के पीछे रात का रूट चलें, फिर पूरी वैन को चिह्नित जगह में खड़ा करें और पार्किंग ब्रेक लगाएँ।",
+"Use the night-run controls.": "रात की ड्राइव के नियंत्रण इस्तेमाल करें।",
+"Read the finish controls.": "पूरा करने के नियंत्रण पढ़ें।",
+"Check the headlights, follow the night route with a safe gap, and park in the marked bay.": "हेडलाइट जाँचें, सुरक्षित दूरी के साथ रात का रूट चलें और चिह्नित जगह में वैन खड़ी करें।",
+"Inspect every part of the parked van and record its condition before signing off.": "खड़ी वैन का हर हिस्सा जाँचें और हस्ताक्षर से पहले उसकी हालत दर्ज करें।",
+"The lamp does not illuminate.": "लैंप नहीं जलता।",
+"The lamp illuminates.": "लैंप जलता है।",
+"The lamp is switched off.": "लैंप बंद है।",
+"The tread has not been measured.": "टायर का ट्रेड नहीं मापा गया है।",
+"The mechanical test has not been performed.": "यांत्रिक जाँच नहीं हुई है।",
+"The horn makes no sound.": "हॉर्न से कोई आवाज़ नहीं आती।",
+"The horn sounds immediately.": "हॉर्न तुरंत बजता है।",
+"The pedal continues to sink under steady pressure.": "लगातार दबाव पर पेडल नीचे धँसता रहता है।",
+"The pedal holds its position under steady pressure.": "लगातार दबाव पर पेडल अपनी जगह पर टिका रहता है।",
+"Measure the other half of the tread.": "ट्रेड का दूसरा आधा हिस्सा मापें।",
+"Measure the tread.": "ट्रेड मापें।",
+"Hold the service brake for three seconds.": "सर्विस ब्रेक को तीन सेकंड तक दबाकर रखें।",
+"Test this part.": "यह हिस्सा जाँचें।",
+"The horn sounds.": "हॉर्न बजता है।",
+"The brake test is running.": "ब्रेक की जाँच चल रही है।",
+"Steady pressure is applied to the service brake.": "सर्विस ब्रेक पर लगातार दबाव दिया जा रहा है।",
+"Release the brake.": "ब्रेक छोड़ें।",
+"Record this part as serviceable.": "इस हिस्से को ठीक के रूप में दर्ज करें।",
+"Flag this part as defective.": "इस हिस्से को खराब के रूप में चिह्नित करें।",
+"Return to the van.": "वैन पर लौटें।",
+"Record the condition.": "हालत दर्ज करें।",
+"Inspect this part.": "यह हिस्सा जाँचें।",
+"Record this condition.": "यह हालत दर्ज करें।",
+"Return to the inspection.": "जाँच पर लौटें।",
+"This part is recorded as serviceable.": "यह हिस्सा ठीक के रूप में दर्ज है।",
+"This part is recorded as defective.": "यह हिस्सा खराब के रूप में दर्ज है।",
+"This part has no recorded condition.": "इस हिस्से की कोई हालत दर्ज नहीं है।",
+"Review the previous part.": "पिछला हिस्सा देखें।",
+"Review the next part.": "अगला हिस्सा देखें।",
+"Sign off the inspection.": "जाँच पर हस्ताक्षर करें।",
+"The inspection is incomplete.": "जाँच अधूरी है।",
+"Every part needs a recorded condition before sign-off.": "हस्ताक्षर से पहले हर हिस्से की हालत दर्ज होनी चाहिए।",
+"Review the inspection.": "जाँच की समीक्षा करें।",
+"Use the parked van’s sat nav to sequence every manifest, then accept each route.": "खड़ी वैन के जीपीएस से हर मैनिफ़ेस्ट का क्रम तय करें, फिर हर रूट स्वीकार करें।",
+"Plan the route on the sat nav.": "जीपीएस पर रूट की योजना बनाएँ।",
+"Enter the cab and park the van before planning the route.": "रूट की योजना बनाने से पहले केबिन में बैठें और वैन खड़ी करें।",
+"Park the van before using the sat nav.": "जीपीएस इस्तेमाल करने से पहले वैन खड़ी करें।",
+"Read the next dispatch note.": "अगला डिस्पैच नोट पढ़ें।",
+"Sequence the stops.": "स्टॉप का क्रम तय करें।",
+"Read the dispatch notes.": "डिस्पैच नोट पढ़ें।",
+"This parcel has no timed commitment.": "इस पार्सल का कोई तय समय नहीं है।",
+"This stop is not in the route.": "यह स्टॉप रूट में नहीं है।",
+"Plan this route.": "इस रूट की योजना बनाएँ।",
+"Add this stop to the route.": "यह स्टॉप रूट में जोड़ें।",
+"Remove this stop from the route.": "यह स्टॉप रूट से हटाएँ।",
+"Read the next stop.": "अगला स्टॉप पढ़ें।",
+"Review the route.": "रूट की समीक्षा करें।",
+"Accept this route.": "यह रूट स्वीकार करें।",
+"Continue sequencing the stops.": "स्टॉप का क्रम तय करना जारी रखें।",
+"Clear the route.": "रूट साफ़ करें।",
+"Review this route.": "इस रूट की समीक्षा करें।",
+"The sat nav shows the route.": "जीपीएस रूट दिखाता है।",
+"The double ring marks the selected stop. The square marks the depot.": "दोहरा घेरा चुने गए स्टॉप को दिखाता है। चौकोर निशान डिपो को दिखाता है।",
+"Complete the school drive and park in its marked bay.": "स्कूल ड्राइव पूरी करें और उसकी चिह्नित जगह में वैन खड़ी करें।",
+"Read the school-zone route.": "स्कूल ज़ोन का रूट पढ़ें।",
+"Finish the school drive.": "स्कूल ड्राइव पूरी करें।",
+"Drive through the school zone and let the bus and children clear before finishing.": "स्कूल ज़ोन से गुज़रें और पूरा करने से पहले बस और बच्चों को निकल जाने दें।",
+"Park the whole van inside the marked finish bay and set the parking brake.": "पूरी वैन को पूरा करने की चिह्नित जगह के अंदर खड़ा करें और पार्किंग ब्रेक लगाएँ।",
+"Use the school-drive controls.": "स्कूल ड्राइव के नियंत्रण इस्तेमाल करें।",
+"Drive through the school zone, wait for the bus and children, and park in the marked bay.": "स्कूल ज़ोन से गुज़रें, बस और बच्चों का इंतज़ार करें और चिह्नित जगह में वैन खड़ी करें।",
+"Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.": "प्रवेश का संकेत पढ़ें, फिर चलने से पहले आगे देखें। स्कूल ज़ोन की गति सीमा में रहें। स्कूल बस की लाल बत्तियाँ चमकें तो उससे पहले रुकें। उसकी बत्तियाँ बंद होने और बच्चों के सुरक्षित निकल जाने तक रुकें, फिर आगे बढ़ें।",
+"Read the next instruction page.": "निर्देशों का अगला पेज पढ़ें।"
 },
 "templates": [
 [
@@ -6008,6 +6122,206 @@ window.OTR_I18N.hi = {
 [
 "Use {0} to look. Press {1} to select a visible nearby target and {2} to interact. Press {3} to read the scenario goal.",
 "देखने के लिए {0} इस्तेमाल करें। पास का कोई दिखता लक्ष्य चुनने के लिए {1} और बातचीत या इस्तेमाल के लिए {2} दबाएँ। परिदृश्य का लक्ष्य पढ़ने के लिए {3} दबाएँ।"
+],
+[
+"Parked at {0}",
+"{0} पर खड़ी"
+],
+[
+"Parked at {0} (facing the traffic)",
+"{0} पर खड़ी (ट्रैफ़िक की दिशा में)"
+],
+[
+"Parked at {0} ({1} ft from the kerb)",
+"{0} पर खड़ी (फ़ुटपाथ से {1} फ़ुट)"
+],
+[
+"Parked at {0} (at an angle)",
+"{0} पर खड़ी (तिरछी)"
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt before moving. Look at each physical mirror to check it. Signal for three seconds before moving off or turning.",
+"तेज़ करने के लिए {0}, ब्रेक के लिए {1} और मोड़ने के लिए {2}/{3} इस्तेमाल करें। चलने से पहले सीट बेल्ट बाँधें। हर असली शीशे को देखकर जाँचें। चलने या मुड़ने से पहले तीन सेकंड इंडिकेटर दें।"
+],
+[
+"Look at the shifter or a cab switch and press {0} to use it. Keyboard shortcuts remain available. The rear camera comes on in reverse. Use it and the mirrors to reverse slowly. You can park and make an optional walk-around in a tight space.",
+"गियर लीवर या केबिन के किसी स्विच को देखें और उसे इस्तेमाल करने के लिए {0} दबाएँ। कीबोर्ड शॉर्टकट भी उपलब्ध रहते हैं। रिवर्स में रियर कैमरा चालू हो जाता है। धीरे पीछे जाने के लिए उसे और शीशों को इस्तेमाल करें। तंग जगह में आप वैन खड़ी करके चाहें तो वैन के चारों ओर जाँच कर सकते हैं।"
+],
+[
+"Follow the mounted sat nav to each address. Park the whole van in the marked bay and set the parking brake. Press {0} to record the checkpoint, or select the checkpoint option on the device. Rain begins halfway through the route.",
+"लगे हुए जीपीएस के पीछे हर पते तक जाएँ। पूरी वैन को चिह्नित जगह में खड़ा करें और पार्किंग ब्रेक लगाएँ। चेकपॉइंट दर्ज करने के लिए {0} दबाएँ, या डिवाइस पर चेकपॉइंट का विकल्प चुनें। रूट के बीच में बारिश शुरू होती है।"
+],
+[
+"Press {0} to read the sat nav and checkpoint details.",
+"जीपीएस और चेकपॉइंट की जानकारी पढ़ने के लिए {0} दबाएँ।"
+],
+[
+"Park at this checkpoint and press {0} to record it.",
+"इस चेकपॉइंट पर वैन खड़ी करें और उसे दर्ज करने के लिए {0} दबाएँ।"
+],
+[
+"The van hit an obstacle at {0} mph.",
+"वैन {0} mph पर एक रुकावट से टकराई।"
+],
+[
+"Checkpoint {0} of {1} is at {2}.",
+"चेकपॉइंट {0}/{1} {2} पर है।"
+],
+[
+"Checkpoint {0} is complete. Continue to {1}.",
+"चेकपॉइंट {0} पूरा हुआ। {1} की ओर बढ़ें।"
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Look with the mouse or {4}. Press {5} to select a nearby physical cab control and {6} to use it.",
+"तेज़ करने के लिए {0}, ब्रेक के लिए {1} और मोड़ने के लिए {2}/{3} इस्तेमाल करें। माउस या {4} से देखें। केबिन का पास का कोई असली नियंत्रण चुनने के लिए {5} और उसे इस्तेमाल करने के लिए {6} दबाएँ।"
+],
+[
+"Press {0} to set or release the parking brake, {1} for the seatbelt, {2} for drive or reverse, {3}/{4} for the left or right signal, {5} for headlights, and {6} for wipers. Press {7} to look forward.",
+"पार्किंग ब्रेक लगाने या छोड़ने के लिए {0}, सीट बेल्ट के लिए {1}, ड्राइव या रिवर्स के लिए {2}, बाएँ या दाएँ इंडिकेटर के लिए {3}/{4}, हेडलाइट के लिए {5} और वाइपर के लिए {6} दबाएँ। आगे देखने के लिए {7} दबाएँ।"
+],
+[
+"Follow the mounted sat nav. Press {0} to record a checkpoint after parking, or press {1} for the device. Read a visible road sign with {2}. The rear camera is automatic in reverse. Look at the physical mirrors to check them.",
+"लगे हुए जीपीएस के पीछे चलें। वैन खड़ी करने के बाद चेकपॉइंट दर्ज करने के लिए {0} दबाएँ, या डिवाइस के लिए {1} दबाएँ। दिखते सड़क संकेत को {2} से पढ़ें। रिवर्स में रियर कैमरा अपने आप चलता है। असली शीशों को देखकर जाँचें।"
+],
+[
+"The van drives automatically. Press {0} or click when a hazard starts to develop. Earlier marks inside the response window earn more points. More than {1} marks in one clip score zero. With reduced motion, the cab stays still while the road scene develops.",
+"वैन अपने आप चलती है। जब कोई खतरा बनना शुरू हो तो {0} दबाएँ या क्लिक करें। प्रतिक्रिया की समय-सीमा में जल्दी लगाए निशान ज़्यादा अंक देते हैं। एक क्लिप में {1} से ज़्यादा निशान पर शून्य अंक मिलते हैं। कम गति वाली सेटिंग में सड़क का दृश्य चलते समय केबिन स्थिर रहता है।"
+],
+[
+"Clip {0} of {1}. Press {2} or click when a hazard starts to develop. You have made {3} marks.",
+"क्लिप {0}/{1}। जब कोई खतरा बनना शुरू हो तो {2} दबाएँ या क्लिक करें। आपने {3} निशान लगाए हैं।"
+],
+[
+"You scored {0} of 5 points.\n\n{1}",
+"आपको 5 में से {0} अंक मिले।\n\n{1}"
+],
+[
+"The van drives automatically. Press {0} or click when a hazard begins to develop.\n\nWith reduced motion, the cab stays still while the road scene develops.",
+"वैन अपने आप चलती है। जब कोई खतरा बनना शुरू हो तो {0} दबाएँ या क्लिक करें।\n\nकम गति वाली सेटिंग में सड़क का दृश्य चलते समय केबिन स्थिर रहता है।"
+],
+[
+"Approach {0} of 3. Follow the sat nav to {1}.",
+"रास्ता {0}/3। जीपीएस के पीछे {1} तक जाएँ।"
+],
+[
+"Approach {0} of 3. Follow the sat nav, then park the whole van in the marked bay and set the parking brake.",
+"रास्ता {0}/3। जीपीएस के पीछे चलें, फिर पूरी वैन को चिह्नित जगह में खड़ा करें और पार्किंग ब्रेक लगाएँ।"
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt with its physical control or {4}. Look at the physical mirrors and signal for three seconds before moving off.",
+"तेज़ करने के लिए {0}, ब्रेक के लिए {1} और मोड़ने के लिए {2}/{3} इस्तेमाल करें। सीट बेल्ट उसके असली नियंत्रण या {4} से बाँधें। चलने से पहले असली शीशे देखें और तीन सेकंड इंडिकेटर दें।"
+],
+[
+"Follow the mounted sat nav. Park the whole van in the marked bay, facing with traffic, and set the parking brake. Press {0} to record the checkpoint, or use the same action on the device with {1}.",
+"लगे हुए जीपीएस के पीछे चलें। पूरी वैन को चिह्नित जगह में ट्रैफ़िक की दिशा में खड़ा करें और पार्किंग ब्रेक लगाएँ। चेकपॉइंट दर्ज करने के लिए {0} दबाएँ, या डिवाइस पर यही काम {1} से करें।"
+],
+[
+"Press {0} to read the junction route and checkpoint details.",
+"चौराहे का रूट और चेकपॉइंट की जानकारी पढ़ने के लिए {0} दबाएँ।"
+],
+[
+"The finish bay is at {0}.",
+"पूरा करने की जगह {0} पर है।"
+],
+[
+"Walk with {0}/{1}/{2}/{3} and look with the mouse or {4}. Select a nearby physical target with {5} and use it with {6}. Check the headlights at the front of the van before entering the cab.",
+"{0}/{1}/{2}/{3} से चलें और माउस या {4} से देखें। पास का कोई असली लक्ष्य {5} से चुनें और {6} से इस्तेमाल करें। केबिन में बैठने से पहले वैन के आगे हेडलाइट जाँचें।"
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Press {4} for the seatbelt, {5} for the parking brake, {6} for the headlights, and {7}/{8} to signal. Look at the physical mirrors to check them.",
+"तेज़ करने के लिए {0}, ब्रेक के लिए {1} और मोड़ने के लिए {2}/{3} इस्तेमाल करें। सीट बेल्ट के लिए {4}, पार्किंग ब्रेक के लिए {5}, हेडलाइट के लिए {6} और इंडिकेटर के लिए {7}/{8} दबाएँ। असली शीशों को देखकर जाँचें।"
+],
+[
+"Follow the mounted sat nav. Keep at least a three-second gap behind the lead vehicle. Drive within the distance the headlights illuminate. Park in the marked finish bay and press {0}, or use the finish option on the device with {1}.",
+"लगे हुए जीपीएस के पीछे चलें। आगे वाले वाहन से कम से कम तीन सेकंड की दूरी रखें। उतनी ही दूरी में चलें जितनी हेडलाइट रोशन करती है। पूरा करने की चिह्नित जगह में वैन खड़ी करें और {0} दबाएँ, या डिवाइस पर पूरा करने का विकल्प {1} से इस्तेमाल करें।"
+],
+[
+"Walk to the front of the van. Look at the headlights and press {0} to inspect them. Assess the light test and request a repair if needed. Inspect before the van moves.",
+"वैन के आगे जाएँ। हेडलाइट देखें और उन्हें जाँचने के लिए {0} दबाएँ। लाइट की जाँच परखें और ज़रूरत हो तो मरम्मत माँगें। वैन चलने से पहले जाँच करें।"
+],
+[
+"Enter the cab at the driver door with {0}. Fasten the seatbelt, switch on the headlights with {1} or their physical control, check the mirrors and signal before moving off.",
+"ड्राइवर के दरवाज़े से {0} दबाकर केबिन में बैठें। सीट बेल्ट बाँधें, {1} या असली नियंत्रण से हेडलाइट चालू करें, शीशे जाँचें और चलने से पहले इंडिकेटर दें।"
+],
+[
+"Follow the sat nav to {0}. Keep at least a three-second gap behind the lead vehicle and drive within the headlight range. Park the whole van in the marked bay and set the parking brake, then press {1} or use the finish option on the device with {2}.",
+"जीपीएस के पीछे {0} तक जाएँ। आगे वाले वाहन से कम से कम तीन सेकंड की दूरी रखें और हेडलाइट की पहुँच के भीतर चलें। पूरी वैन को चिह्नित जगह में खड़ा करें और पार्किंग ब्रेक लगाएँ, फिर {1} दबाएँ या डिवाइस पर पूरा करने का विकल्प {2} से इस्तेमाल करें।"
+],
+[
+"Press {0} to read the night route and finish details.",
+"रात का रूट और पूरा करने की जानकारी पढ़ने के लिए {0} दबाएँ।"
+],
+[
+"Inspect the {0}. Press {1} to interact.",
+"जाँचें: {0}। इस्तेमाल करने के लिए {1} दबाएँ।"
+],
+[
+"The gauge reads {0}/32 inches.",
+"गेज {0}/32 इंच दिखाता है।"
+],
+[
+"Plan route {0} of {1} on the sat nav.",
+"जीपीएस पर रूट {0}/{1} की योजना बनाएँ।"
+],
+[
+"Press {0} to plan the route on the sat nav.",
+"जीपीएस पर रूट की योजना बनाने के लिए {0} दबाएँ।"
+],
+[
+"Route {0} starts at {1}.\n{2}",
+"रूट {0} {1} से शुरू होता है।\n{2}"
+],
+[
+"The school zone is active between {0} and {1}. Driving through it adds {2} minutes.",
+"स्कूल ज़ोन {0} से {1} के बीच सक्रिय है। उससे गुज़रने में {2} मिनट और लगते हैं।"
+],
+[
+"The road is closed on {0} between {1} and {2}.",
+"{0} पर {1} और {2} के बीच सड़क बंद है।"
+],
+[
+"Collect the pickup between {0} and {1}.",
+"पिकअप {0} से {1} के बीच लें।"
+],
+[
+"Deliver this parcel by {0}.",
+"यह पार्सल {0} तक पहुँचाएँ।"
+],
+[
+"The estimated arrival is {0}.",
+"अनुमानित पहुँच {0} है।"
+],
+[
+"Stop {0} is at {1}.\n{2}\n{3}",
+"स्टॉप {0} {1} पर है।\n{2}\n{3}"
+],
+[
+"Route {0} contains {1} of {2} stops.",
+"रूट {0} में {2} में से {1} स्टॉप हैं।"
+],
+[
+"\nThe sequence is {0}.",
+"\nक्रम {0} है।"
+],
+[
+"\nThe estimated return is {0}.",
+"\nअनुमानित वापसी {0} है।"
+],
+[
+"Follow the mounted sat nav to the finish bay. Press {0} to finish after parking, or use the finish option on the device with {1}. Read a visible road sign with {2}. The rear camera is automatic in reverse. Look at the physical mirrors to check them.",
+"लगे हुए जीपीएस के पीछे पूरा करने की जगह तक जाएँ। वैन खड़ी करने के बाद पूरा करने के लिए {0} दबाएँ, या डिवाइस पर पूरा करने का विकल्प {1} से इस्तेमाल करें। दिखते सड़क संकेत को {2} से पढ़ें। रिवर्स में रियर कैमरा अपने आप चलता है। असली शीशों को देखकर जाँचें।"
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt with its physical control or {4}. Look at the mirrors and signal before moving off.",
+"तेज़ करने के लिए {0}, ब्रेक के लिए {1} और मोड़ने के लिए {2}/{3} इस्तेमाल करें। सीट बेल्ट उसके असली नियंत्रण या {4} से बाँधें। चलने से पहले शीशे देखें और इंडिकेटर दें।"
+],
+[
+"Follow the sat nav to {0}. Park the whole van in the marked bay, set the parking brake and press {1} to finish. The mounted screen and {2} offer the same finish action. You can read the controls from the pause menu.",
+"जीपीएस के पीछे {0} तक जाएँ। पूरी वैन को चिह्नित जगह में खड़ा करें, पार्किंग ब्रेक लगाएँ और पूरा करने के लिए {1} दबाएँ। लगी हुई स्क्रीन और {2} पर भी पूरा करने का यही विकल्प है। विराम मेनू से आप नियंत्रण पढ़ सकते हैं।"
+],
+[
+"Press {0} to read the school route and finish details.",
+"स्कूल का रूट और पूरा करने की जानकारी पढ़ने के लिए {0} दबाएँ।"
 ]
 ],
 "keep": [

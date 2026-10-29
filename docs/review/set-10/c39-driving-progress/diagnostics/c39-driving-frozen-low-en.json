@@ -1,0 +1,143 @@
+{
+  "checks": 63,
+  "runs": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "stops": [
+        {
+          "result": {
+            "hazard": {
+              "id": "phone",
+              "ok": true
+            },
+            "checkpoint": 0,
+            "diagnostics": {
+              "calls": 34,
+              "triangles": 926,
+              "textures": 2,
+              "geometries": 16,
+              "targetWidth": 832,
+              "targetHeight": 468,
+              "attachmentBytes": 3557376
+            },
+            "coaching": true
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6199999999999997,
+              "skew": 0,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 76,
+            "seconds": 0.0875,
+            "violations": {},
+            "signal": 0
+          }
+        }
+      ],
+      "shots": [
+        "c39-driving-frozen-low-en-low-en-normal-hazard-0.png",
+        "c39-driving-frozen-low-en-low-en-normal-park-0.png"
+      ]
+    }
+  ],
+  "errors": [],
+  "fixture": "The existing m1-driving id temporarily receives scene3d. Phaser reads unsmoothed real frame deltas; both the production motor and session retain their unchanged 0.05-second cap. Approach and pre-bay positions replace travel between exercises; only the unscored junction observation cache is reset at those pose changes, never a score or recorded violation. Hazard and checkpoint verdicts, scores, results and records are never injected. The native throttle, brake, shifter, mirror gaze, signals and record controls drive every response and parking action. A non-scoring timeline jump to ten seconds shortens only the crosswalk wait outside the first ordinary Low English run.",
+  "failure": "AssertionError [ERR_ASSERTION]: {\"source\":\"Read the driving route.\",\"x\":916,\"y\":62.811126708984375,\"right\":1101,\"bottom\":81.81112670898438,\"size\":16}\n    at layout (/workspace/c39-driving-acceptance/test/fpdrivinglessonbrowser.js:15:536)\n    at async /workspace/c39-driving-acceptance/test/fpdrivinglessonbrowser.js:47:194",
+  "activeState": {
+    "phase": "active",
+    "elapsed": 22.66689999999928,
+    "paused": true,
+    "van": {
+      "x": 3.5500000000000003,
+      "z": -39.75845501825614,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 1,
+      "hand": true,
+      "belt": true,
+      "look": 0.9288454478763251,
+      "mirrors": [
+        1.049899999999999,
+        -100,
+        -100,
+        -1,
+        0
+      ],
+      "shifts": 4
+    },
+    "hazard": {
+      "active": false,
+      "kind": "phone",
+      "t": 14.43329999999961,
+      "ending": 0.39999999999997726,
+      "judged": true,
+      "personVisible": false,
+      "ballVisible": false,
+      "phone": false,
+      "doorReach": 0,
+      "armOut": false,
+      "carBox": {
+        "x": 1000000,
+        "z": 1000000,
+        "w": 1.8,
+        "d": 4.3,
+        "h": 1.5
+      },
+      "busBox": {
+        "x": 1000000,
+        "z": 1000000,
+        "w": 2.6,
+        "d": 12,
+        "h": 3.4
+      },
+      "observation": {
+        "fd": 6.406139907169115,
+        "lat": -0.21499999999999986,
+        "vanLength": 5.4,
+        "mph": 0,
+        "child": false,
+        "arrived": false,
+        "touching": false,
+        "opened": false,
+        "gap": 0,
+        "distance": 0,
+        "brake": true,
+        "steer": 0,
+        "throttle": false,
+        "handheld": false,
+        "armOut": false
+      },
+      "id": "phone",
+      "wait": 0,
+      "hold": 0,
+      "bad": 0,
+      "tIn": 0,
+      "inside": false,
+      "minMph": 0,
+      "reached": true,
+      "x": 2.625,
+      "z": -4,
+      "yaw": 0,
+      "dir": 1,
+      "street": 0,
+      "personX": 0,
+      "personZ": 0,
+      "ballX": 0,
+      "ballZ": 0,
+      "opened": false,
+      "traction": 1,
+      "baseline": 0,
+      "outcome": true
+    },
+    "checkpoint": 0,
+    "violations": {},
+    "held": {}
+  }
+}

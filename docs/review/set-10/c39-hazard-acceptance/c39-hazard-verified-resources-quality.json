@@ -1,0 +1,154 @@
+{
+  "sourceRevision": "58f40e25c0d3b4d830d6563457249b38c98d4826",
+  "scope": "hazard-perception-module",
+  "budgets": {
+    "low": {
+      "calls": 64,
+      "triangles": 2500,
+      "textures": 2,
+      "attachmentBytes": 4194304,
+      "phaserBytes": 4194304
+    },
+    "high": {
+      "calls": 128,
+      "triangles": 300000,
+      "textures": 4,
+      "attachmentBytes": 16777216,
+      "phaserBytes": 16777216
+    }
+  },
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "quality": "low",
+      "views": [
+        "clipballbefore",
+        "clipballclue",
+        "clipballafter",
+        "clipreversingbefore",
+        "clipreversingclue",
+        "clipreversingafter",
+        "clipphonebefore",
+        "clipphoneclue",
+        "clipphoneafter",
+        "clipdoorbefore",
+        "clipdoorclue",
+        "clipdoorafter",
+        "cliprunnerbefore",
+        "cliprunnerclue",
+        "cliprunnerafter"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-hazard-verified-resources-loaded-low-low.json",
+      "exit": 0,
+      "elapsedMs": 248113,
+      "peak": {
+        "calls": 39,
+        "triangles": 2124,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1675563
+      }
+    },
+    {
+      "id": "loaded-high",
+      "quality": "high",
+      "views": [
+        "clipballbefore",
+        "clipballclue",
+        "clipballafter",
+        "clipreversingbefore",
+        "clipreversingclue",
+        "clipreversingafter",
+        "clipphonebefore",
+        "clipphoneclue",
+        "clipphoneafter",
+        "clipdoorbefore",
+        "clipdoorclue",
+        "clipdoorafter",
+        "cliprunnerbefore",
+        "cliprunnerclue",
+        "cliprunnerafter"
+      ],
+      "accessibility": "",
+      "fallback": false,
+      "report": "bench-c39-hazard-verified-resources-loaded-high-high.json",
+      "exit": 0,
+      "elapsedMs": 424819,
+      "peak": {
+        "calls": 52,
+        "triangles": 23165,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5234523
+      }
+    },
+    {
+      "id": "accessible-low",
+      "quality": "low",
+      "views": [
+        "clipballbefore",
+        "clipballclue",
+        "clipballafter",
+        "clipreversingbefore",
+        "clipreversingclue",
+        "clipreversingafter",
+        "clipphonebefore",
+        "clipphoneclue",
+        "clipphoneafter",
+        "clipdoorbefore",
+        "clipdoorclue",
+        "clipdoorafter",
+        "cliprunnerbefore",
+        "cliprunnerclue",
+        "cliprunnerafter"
+      ],
+      "accessibility": "large,colour,reduced",
+      "fallback": false,
+      "report": "bench-c39-hazard-verified-resources-accessible-low-low.json",
+      "exit": 0,
+      "elapsedMs": 254322,
+      "peak": {
+        "calls": 39,
+        "triangles": 2124,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1862646
+      }
+    },
+    {
+      "id": "fallback-low",
+      "quality": "low",
+      "views": [
+        "clipballbefore",
+        "clipballclue",
+        "clipballafter",
+        "clipreversingbefore",
+        "clipreversingclue",
+        "clipreversingafter",
+        "clipphonebefore",
+        "clipphoneclue",
+        "clipphoneafter",
+        "clipdoorbefore",
+        "clipdoorclue",
+        "clipdoorafter",
+        "cliprunnerbefore",
+        "cliprunnerclue",
+        "cliprunnerafter"
+      ],
+      "accessibility": "",
+      "fallback": true,
+      "report": "bench-c39-hazard-verified-resources-fallback-low-low.json",
+      "exit": 0,
+      "elapsedMs": 256280,
+      "peak": {
+        "calls": 41,
+        "triangles": 2172,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1675563
+      }
+    }
+  ]
+}

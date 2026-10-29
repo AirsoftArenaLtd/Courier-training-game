@@ -1,0 +1,43 @@
+ok   en: H opens the hub menu
+ok   en: Tab reaches all 8 choices of the hub menu and comes round again
+ok   en: the arrows move down and back up
+ok   en: the keyboard reaches "Choose a reversing space."
+ok   en: Enter opens the 3 reversing spaces
+ok   en: Escape in the reversing spaces goes back to the hub menu
+ok   en: the keyboard reopens the reversing spaces
+ok   en: the keyboard reaches Back in the reversing spaces
+ok   en: Back goes back to the hub menu
+ok   en: the keyboard reaches Settings
+ok   en: Enter opens Settings (8 choices)
+ok   en: Tab reaches every choice in Settings
+ok   en: Escape in Settings goes back to the hub menu
+ok   en: the keyboard reopens Settings
+ok   en: Back in Settings goes back to the hub menu
+ok   en: Escape closes the menus
+ok   en: the keyboard reaches the workday choice
+ok   en: Escape on the route opens the pause menu
+ok   en: Tab reaches all 7 choices of the pause menu
+ok   en: Escape closes the pause menu
+ok   ta: H opens the hub menu
+ok   ta: Tab reaches all 8 choices of the hub menu and comes round again
+ok   ta: the arrows move down and back up
+ok   ta: the keyboard reaches "Choose a reversing space."
+ok   ta: Enter opens the 3 reversing spaces
+ok   ta: Escape in the reversing spaces goes back to the hub menu
+ok   ta: the keyboard reopens the reversing spaces
+ok   ta: the keyboard reaches Back in the reversing spaces
+ok   ta: Back goes back to the hub menu
+ok   ta: the keyboard reaches Settings
+ok   ta: Enter opens Settings (8 choices)
+ok   ta: Tab reaches every choice in Settings
+ok   ta: Escape in Settings goes back to the hub menu
+ok   ta: the keyboard reopens Settings
+ok   ta: Back in Settings goes back to the hub menu
+ok   ta: Escape closes the menus
+ok   ta: the keyboard reaches the workday choice
+ok   ta: Escape on the route opens the pause menu
+ok   ta: Tab reaches all 7 choices of the pause menu
+ok   ta: Escape closes the pause menu
+ok   no page errors 
+
+41 3D keyboard checks passed

@@ -1,0 +1,41 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+✔ the real vendored loader selects Low and High and parses the bundled CC0 variants (41.656968ms)
+✔ two repeated models share geometry and material, fit their existing footprint and remain visible after compaction (4.629056ms)
+✔ missing, truncated and wrong-size files retain the procedural fallback without blocking completion (6.762961ms)
+✔ High can fall back to the Low variant, while Low never fetches High (6.268402ms)
+✔ unlisted paths, duplicate variants and byte budgets fail before an asset request (6.194573ms)
+✔ external GLB buffers/images, unsupported compression and oversized decoded arrays never reach the parser (8.543837ms)
+✔ embedded images keep the 1k/2k dimension limits and the two-megabyte encoded texture budget (5.052509ms)
+✔ an unavailable loader, a network timeout and external cancellation all return safely (24.411922ms)
+✔ late decoder completion after cancellation releases geometry and material exactly once (4.078173ms)
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+✔ a missing real High van is counted as a recovered model fallback (157.455732ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 273.166025

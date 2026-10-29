@@ -1,0 +1,4 @@
+Working directory: /workspace/c39-school-next
+Frozen source: 39afb81b67836ae6201d89821e46508ff6493f44
+Each listed suite: node test/<suite>
+The completed 49-suite prefix was retained after the transport disconnect; the remaining 36 suites then ran at the same unchanged source.

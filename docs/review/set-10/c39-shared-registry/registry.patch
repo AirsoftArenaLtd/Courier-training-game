@@ -1,0 +1,10 @@
+--- a/data/modules.js
++++ b/data/modules.js
+@@ -19,6 +19,7 @@
+         title: 'Pre-Trip Walkaround',
+         icon: 'ic_clipboard',
+         scene: 'PreTripScene',
++        scene3d: 'pretrip-van',
+         dataKey: 'pretrip',
+         categories: ['safety', 'efficiency'],
+         blurb: 'Before the wheels roll, walk around your truck. Inspect each checkpoint, flag real defects, and don\'t cry wolf over parts that are fine.',

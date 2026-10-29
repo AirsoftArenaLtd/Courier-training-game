@@ -1,0 +1,820 @@
+{
+  "tag": "night-budget-accessible-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "audioContext": "running",
+  "accessibility": [
+    "large",
+    "colour",
+    "reduced"
+  ],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 14,
+    "failed": 0,
+    "fallbacks": 0,
+    "bytes": 824208,
+    "decodedBytes": 354468,
+    "errors": []
+  },
+  "prototype": {
+    "nightlessoninspect": {
+      "frames": 33,
+      "avgFPS": 3.27,
+      "low1FPS": 1.63,
+      "p99ms": 613.5,
+      "maxMs": 613.5,
+      "peak": {
+        "calls": 36,
+        "triangles": 914,
+        "textures": 2,
+        "geometries": 13,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 97,
+        "baseLevelRGBABytes": 1058700,
+        "withMipmapsUpperBytes": 1411600
+      },
+      "worldProfile": {
+        "meshes": 110,
+        "instances": 117,
+        "geometries": 28,
+        "materials": 46,
+        "geometryBytes": 76392,
+        "instanceBytes": 63292,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          13,
+          12,
+          12,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 5.14,
+          "y": 1.65,
+          "z": 4.5,
+          "yaw": -1.8860110265456076,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "nightlessoncaboff": {
+      "frames": 38,
+      "avgFPS": 3.74,
+      "low1FPS": 1.79,
+      "p99ms": 559.4,
+      "maxMs": 559.4,
+      "peak": {
+        "calls": 36,
+        "triangles": 900,
+        "textures": 2,
+        "geometries": 16,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 92,
+        "baseLevelRGBABytes": 1204040,
+        "withMipmapsUpperBytes": 1605387
+      },
+      "worldProfile": {
+        "meshes": 110,
+        "instances": 133,
+        "geometries": 28,
+        "materials": 45,
+        "geometryBytes": 76392,
+        "instanceBytes": 63292,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          13,
+          13,
+          13,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 2.3899999999999997,
+          "y": 2.05,
+          "z": 6.55,
+          "yaw": -0.33029735482925376,
+          "pitch": -0.19349440928940118,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 2.3899999999999997,
+          "baseZ": 6.55,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "nightlessoncabon": {
+      "frames": 37,
+      "avgFPS": 3.65,
+      "low1FPS": 1.83,
+      "p99ms": 545.2,
+      "maxMs": 545.2,
+      "peak": {
+        "calls": 36,
+        "triangles": 900,
+        "textures": 2,
+        "geometries": 16,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 92,
+        "baseLevelRGBABytes": 1285140,
+        "withMipmapsUpperBytes": 1713520
+      },
+      "worldProfile": {
+        "meshes": 110,
+        "instances": 133,
+        "geometries": 28,
+        "materials": 45,
+        "geometryBytes": 76392,
+        "instanceBytes": 63292,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          14,
+          14,
+          13,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 2.3899999999999997,
+          "y": 2.05,
+          "z": 6.55,
+          "yaw": -0.33029735482925376,
+          "pitch": -0.19349440928940118,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 2.3899999999999997,
+          "baseZ": 6.55,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "nightlessonlead": {
+      "frames": 42,
+      "avgFPS": 4.14,
+      "low1FPS": 1.95,
+      "p99ms": 512.9,
+      "maxMs": 512.9,
+      "peak": {
+        "calls": 37,
+        "triangles": 928,
+        "textures": 2,
+        "geometries": 17,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 92,
+        "baseLevelRGBABytes": 1312540,
+        "withMipmapsUpperBytes": 1750054
+      },
+      "worldProfile": {
+        "meshes": 110,
+        "instances": 137,
+        "geometries": 28,
+        "materials": 45,
+        "geometryBytes": 76392,
+        "instanceBytes": 63292,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          12,
+          12,
+          11,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 2.3899999999999997,
+          "y": 2.05,
+          "z": 6.55,
+          "yaw": 0.019953005767142075,
+          "pitch": -0.04209533502151185,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 2.3899999999999997,
+          "baseZ": 6.55,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "nightlessonfinish": {
+      "frames": 36,
+      "avgFPS": 3.6,
+      "low1FPS": 1.84,
+      "p99ms": 544.9,
+      "maxMs": 544.9,
+      "peak": {
+        "calls": 42,
+        "triangles": 1236,
+        "textures": 2,
+        "geometries": 16,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 92,
+        "baseLevelRGBABytes": 1231240,
+        "withMipmapsUpperBytes": 1641654
+      },
+      "worldProfile": {
+        "meshes": 110,
+        "instances": 146,
+        "geometries": 28,
+        "materials": 46,
+        "geometryBytes": 76392,
+        "instanceBytes": 63292,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          13,
+          13,
+          13,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": -1.75,
+          "y": 1.65,
+          "z": -61.150000000000006,
+          "yaw": 0.7853981633974483,
+          "pitch": -0.27318586607392886,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 0,
+          "baseZ": 0,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "nightlessondevice": {
+      "frames": 53,
+      "avgFPS": 5.27,
+      "low1FPS": 2.39,
+      "p99ms": 418.9,
+      "maxMs": 418.9,
+      "peak": {
+        "calls": 36,
+        "triangles": 930,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 100,
+        "baseLevelRGBABytes": 1483884,
+        "withMipmapsUpperBytes": 1978512
+      },
+      "worldProfile": {
+        "meshes": 110,
+        "instances": 136,
+        "geometries": 28,
+        "materials": 45,
+        "geometryBytes": 76392,
+        "instanceBytes": 63292,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          20,
+          20,
+          19,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 3.1,
+          "y": 2.05,
+          "z": -72.03333333333333,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 3.1,
+          "baseZ": -72.03333333333333,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "nightlessoncycle": {
+      "frames": 52,
+      "avgFPS": 5.09,
+      "low1FPS": 1.58,
+      "p99ms": 632,
+      "maxMs": 632,
+      "peak": {
+        "calls": 36,
+        "triangles": 930,
+        "textures": 2,
+        "geometries": 18,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 100,
+        "baseLevelRGBABytes": 1483884,
+        "withMipmapsUpperBytes": 1978512
+      },
+      "worldProfile": {
+        "meshes": 110,
+        "instances": 136,
+        "geometries": 28,
+        "materials": 45,
+        "geometryBytes": 76392,
+        "instanceBytes": 63292,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          20,
+          19,
+          19,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 76,
+        "pose": {
+          "x": 3.1,
+          "y": 2.05,
+          "z": -72.03333333333333,
+          "yaw": 0,
+          "pitch": 0,
+          "roll": 0,
+          "fov": 76,
+          "baseX": 3.1,
+          "baseZ": -72.03333333333333,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "nightLessonProof": {
+    "nightlessoninspect": {
+      "source": "registered-night-adapter",
+      "id": "m1-night",
+      "key": "night-route-drive",
+      "name": "nightlessoninspect",
+      "optional": true,
+      "night": true,
+      "headlights": false,
+      "lightCaption": "It is night. Switch on the headlights before moving.",
+      "fogFar": 30,
+      "inspectionPanel": true,
+      "inspectionNear": true,
+      "mode": "walk",
+      "leadVisible": true,
+      "leadHeld": true,
+      "leadSame": true,
+      "traffic": true,
+      "navigation": true,
+      "stops": 1,
+      "logItems": 0,
+      "observations": 0,
+      "travel": 0,
+      "started": false,
+      "followingSeen": false,
+      "finished": false,
+      "reduced": true,
+      "device": false,
+      "deviceVisits": 0,
+      "parking": false,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "nightlessoncaboff": {
+      "source": "registered-night-adapter",
+      "id": "m1-night",
+      "key": "night-route-drive",
+      "name": "nightlessoncaboff",
+      "optional": true,
+      "night": true,
+      "headlights": false,
+      "lightCaption": "It is night. Switch on the headlights before moving.",
+      "fogFar": 30,
+      "inspectionPanel": false,
+      "inspectionNear": true,
+      "mode": "cab",
+      "leadVisible": true,
+      "leadHeld": true,
+      "leadSame": true,
+      "traffic": true,
+      "navigation": true,
+      "stops": 1,
+      "logItems": 0,
+      "observations": 0,
+      "travel": 0,
+      "started": false,
+      "followingSeen": false,
+      "finished": false,
+      "reduced": true,
+      "device": false,
+      "deviceVisits": 0,
+      "parking": false,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": -1.325012453453605e-17,
+        "y": 9.422310780114525e-17,
+        "z": 0.8947514857591735
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "nightlessoncabon": {
+      "source": "registered-night-adapter",
+      "id": "m1-night",
+      "key": "night-route-drive",
+      "name": "nightlessoncabon",
+      "optional": true,
+      "night": true,
+      "headlights": true,
+      "lightCaption": "It is night. The headlights are on. Drive within the distance they light.",
+      "fogFar": 48,
+      "inspectionPanel": false,
+      "inspectionNear": true,
+      "mode": "cab",
+      "leadVisible": true,
+      "leadHeld": true,
+      "leadSame": true,
+      "traffic": true,
+      "navigation": true,
+      "stops": 1,
+      "logItems": 0,
+      "observations": 0,
+      "travel": 0,
+      "started": false,
+      "followingSeen": false,
+      "finished": false,
+      "reduced": true,
+      "device": false,
+      "deviceVisits": 0,
+      "parking": false,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": -1.325012453453605e-17,
+        "y": 9.422310780114525e-17,
+        "z": 0.8947514857591735
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "nightlessonlead": {
+      "source": "registered-night-adapter",
+      "id": "m1-night",
+      "key": "night-route-drive",
+      "name": "nightlessonlead",
+      "optional": true,
+      "night": true,
+      "headlights": true,
+      "lightCaption": "It is night. The headlights are on. Drive within the distance they light.",
+      "fogFar": 48,
+      "inspectionPanel": false,
+      "inspectionNear": true,
+      "mode": "cab",
+      "leadVisible": true,
+      "leadHeld": true,
+      "leadSame": true,
+      "traffic": true,
+      "navigation": true,
+      "stops": 1,
+      "logItems": 0,
+      "observations": 0,
+      "travel": 0,
+      "started": false,
+      "followingSeen": false,
+      "finished": false,
+      "reduced": true,
+      "device": false,
+      "deviceVisits": 0,
+      "parking": false,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": -1.4163318054342085e-17,
+        "y": -1.2589616048304076e-17,
+        "z": 0.9937984856966923
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "nightlessonfinish": {
+      "source": "registered-night-adapter",
+      "id": "m1-night",
+      "key": "night-route-drive",
+      "name": "nightlessonfinish",
+      "optional": true,
+      "night": true,
+      "headlights": true,
+      "lightCaption": "It is night. The headlights are on. Drive within the distance they light.",
+      "fogFar": 48,
+      "inspectionPanel": false,
+      "inspectionNear": false,
+      "mode": "walk",
+      "leadVisible": true,
+      "leadHeld": true,
+      "leadSame": true,
+      "traffic": true,
+      "navigation": true,
+      "stops": 1,
+      "logItems": 0,
+      "observations": 0,
+      "travel": 0,
+      "started": false,
+      "followingSeen": false,
+      "finished": false,
+      "reduced": true,
+      "device": false,
+      "deviceVisits": 0,
+      "parking": true,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 1.0091095402917084e-15,
+        "y": 0.0024311630757912536,
+        "z": 0.9736292707497916
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "nightlessondevice": {
+      "source": "registered-night-adapter",
+      "id": "m1-night",
+      "key": "night-route-drive",
+      "name": "nightlessondevice",
+      "optional": true,
+      "night": true,
+      "headlights": true,
+      "lightCaption": "It is night. The headlights are on. Drive within the distance they light.",
+      "fogFar": 48,
+      "inspectionPanel": false,
+      "inspectionNear": false,
+      "mode": "cab",
+      "leadVisible": true,
+      "leadHeld": true,
+      "leadSame": true,
+      "traffic": true,
+      "navigation": true,
+      "stops": 1,
+      "logItems": 0,
+      "observations": 0,
+      "travel": 0,
+      "started": false,
+      "followingSeen": false,
+      "finished": false,
+      "reduced": true,
+      "device": true,
+      "deviceVisits": 1,
+      "parking": true,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "nightlessoncycle": {
+      "source": "registered-night-adapter",
+      "id": "m1-night",
+      "key": "night-route-drive",
+      "name": "nightlessoncycle",
+      "optional": true,
+      "night": true,
+      "headlights": true,
+      "lightCaption": "It is night. The headlights are on. Drive within the distance they light.",
+      "fogFar": 48,
+      "inspectionPanel": false,
+      "inspectionNear": false,
+      "mode": "cab",
+      "leadVisible": true,
+      "leadHeld": true,
+      "leadSame": true,
+      "traffic": true,
+      "navigation": true,
+      "stops": 1,
+      "logItems": 0,
+      "observations": 0,
+      "travel": 0,
+      "started": false,
+      "followingSeen": false,
+      "finished": false,
+      "reduced": true,
+      "device": true,
+      "deviceVisits": 20,
+      "parking": true,
+      "marking": {
+        "instances": 4,
+        "visible": true,
+        "stop": true,
+        "texture": false
+      },
+      "cue": {
+        "visible": true,
+        "clear": true,
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "bounded": true,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "nightLessonFixture": true,
+  "phaserTextures": {
+    "count": 100,
+    "baseLevelRGBABytes": 1483884,
+    "withMipmapsUpperBytes": 1978512
+  },
+  "phaserTexturesPeak": {
+    "count": 100,
+    "baseLevelRGBABytes": 1483884,
+    "withMipmapsUpperBytes": 1978512
+  },
+  "missingViews": [],
+  "errors": []
+}

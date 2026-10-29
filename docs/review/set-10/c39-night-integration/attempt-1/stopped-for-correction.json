@@ -1,0 +1,18 @@
+{
+  "reason": "Actual native blocked walk and out-of-lane spawn recorded; restart after an owned spawn/test-path correction. No passing native/resource claim.",
+  "frozenInputsVerified": 696,
+  "exactProcessPids": [
+    176089,
+    176109,
+    176110,
+    176134,
+    176393,
+    176145,
+    176175,
+    176184,
+    176191,
+    176204,
+    176131,
+    176077
+  ]
+}

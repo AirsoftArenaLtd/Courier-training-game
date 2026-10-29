@@ -1,0 +1,46 @@
+{
+  "checks": 105,
+  "runs": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "shots": [
+        "night-low-en-low-en-normal-light-test.png",
+        "night-low-en-low-en-normal-night-encounter.png",
+        "night-low-en-low-en-normal-finish-bay.png"
+      ],
+      "encounter": {
+        "travel": 36.1141059683569,
+        "following": true,
+        "failed": false,
+        "required": true,
+        "lightsFailed": false,
+        "inspected": true
+      },
+      "result": {
+        "id": "m1-night",
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 700,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1793119044531
+        },
+        "checkpoint": "{\"version\":2,\"sequence\":0,\"welcomed\":false,\"campaign\":null,\"practice\":null,\"parking\":null,\"last\":null,\"guidance\":{\"intro\":false,\"seen\":[]}}",
+        "events": "[{\"type\":\"brief.read\",\"key\":\"suspended\",\"ok\":true,\"stop\":null}]",
+        "workday": "null"
+      }
+    }
+  ],
+  "errors": [],
+  "fixture": "Test-only optional registry/content directly starts the real adapter; shared A-30 routing is separate. Light inspection, repair choice, walking around the front to the driver door, cab entry, physical mirror/headlight controls, live lead traffic, at least 35 m of actual native driving, braking and final parking/results use production paths. Aim angles locate physical targets without moving the player. After the live night/following encounter and a full stop, one declared pre-bay pose skips the remaining route travel. Native throttle/brake and finish follow. No encounter, timer, verdict, score or result is injected. Unsmoothed real delta and the 0.05-second cap remain. QA_FONT=noto is a review-only font pin.",
+  "complete": true
+}

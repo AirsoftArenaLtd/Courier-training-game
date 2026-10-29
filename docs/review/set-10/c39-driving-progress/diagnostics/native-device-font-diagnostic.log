@@ -1,0 +1,6 @@
+driving low en normal
+checkpoint 1 hazard
+checkpoint 1 parking
+AssertionError [ERR_ASSERTION]: {"source":"Read the driving route.","x":916,"y":62.811126708984375,"right":1101,"bottom":81.81112670898438,"size":16}
+    at layout (/workspace/c39-driving-acceptance/test/fpdrivinglessonbrowser.js:15:536)
+    at async /workspace/c39-driving-acceptance/test/fpdrivinglessonbrowser.js:47:194

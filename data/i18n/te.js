@@ -4137,7 +4137,121 @@ window.OTR_I18N.te = {
 "morning": "ఉదయం",
 "midday": "మధ్యాహ్నం",
 "dusk": "సంధ్య",
-"night": "రాత్రి"
+"night": "రాత్రి",
+"Follow the sat nav to the next checkpoint.": "నావిగేషన్‌ను అనుసరించి తదుపరి చెక్‌పాయింట్‌కు వెళ్ళండి.",
+"Stop fully and set the parking brake before recording this checkpoint.": "ఈ చెక్‌పాయింట్‌ను నమోదు చేసే ముందు పూర్తిగా ఆగి పార్కింగ్ బ్రేక్ వేయండి.",
+"Pull into the marked checkpoint bay on the correct side of the street.": "వీధిలో సరైన వైపున చెక్‌పాయింట్ గుర్తు ఉన్న స్థలంలోకి బండి తీసుకెళ్ళండి.",
+"Straighten the van alongside the curb before recording this checkpoint.": "ఈ చెక్‌పాయింట్‌ను నమోదు చేసే ముందు వ్యాన్‌ను ఫుట్‌పాత్ అంచు వెంబడి నిటారుగా చేయండి.",
+"Move the whole van off the curb before recording this checkpoint.": "ఈ చెక్‌పాయింట్‌ను నమోదు చేసే ముందు వ్యాన్ మొత్తాన్ని ఫుట్‌పాత్ నుంచి దించండి.",
+"Move closer to the curb before recording this checkpoint.": "ఈ చెక్‌పాయింట్‌ను నమోదు చేసే ముందు ఫుట్‌పాత్‌కు ఇంకా దగ్గరగా రండి.",
+"Keep the whole van inside the marked bay and clear of the crossing.": "వ్యాన్ మొత్తాన్ని గుర్తు ఉన్న స్థలం లోపల, క్రాసింగ్‌కు దూరంగా ఉంచండి.",
+"Keep the whole van clear of buildings and obstacles.": "వ్యాన్ మొత్తాన్ని భవనాలు, అడ్డంకులకు దూరంగా ఉంచండి.",
+"Wait until the current road hazard has cleared before recording this checkpoint.": "ఈ చెక్‌పాయింట్‌ను నమోదు చేసే ముందు రోడ్డుపై ప్రస్తుత ప్రమాదం తొలగే వరకు ఆగండి.",
+"Drive to all six checkpoints and respond safely to the road hazards.": "ఆరు చెక్‌పాయింట్లకూ డ్రైవ్ చేసి, రోడ్డు ప్రమాదాలకు సురక్షితంగా స్పందించండి.",
+"The handheld buzzes in its cradle.": "హ్యాండ్‌హెల్డ్ దాని హోల్డర్‌లో కంపిస్తోంది.",
+"Visibility is reduced. Turn on the headlights.": "కనిపించే దూరం తక్కువగా ఉంది. హెడ్‌లైట్లు ఆన్ చేయండి.",
+"Use the rear camera and mirrors to reverse slowly. Stop if the path is not clear.": "నెమ్మదిగా వెనక్కి వెళ్ళడానికి రియర్ కెమెరా, అద్దాలను ఉపయోగించండి. దారి ఖాళీగా లేకపోతే ఆగండి.",
+"Read the driving route.": "డ్రైవింగ్ రూట్ చదవండి.",
+"Record this checkpoint.": "ఈ చెక్‌పాయింట్‌ను నమోదు చేయండి.",
+"Return to the road.": "రోడ్డుకు తిరిగి వెళ్ళండి.",
+" Rain is reducing visibility. Use the headlights and wipers and leave more space.": " వర్షం వల్ల కనిపించే దూరం తగ్గుతోంది. హెడ్‌లైట్లు, వైపర్లు వాడి, ఎక్కువ దూరం ఉంచండి.",
+"The checkpoint is recorded.": "చెక్‌పాయింట్ నమోదైంది.",
+"Continue the driving route.": "డ్రైవింగ్ రూట్ కొనసాగించండి.",
+"Use the driving controls.": "డ్రైవింగ్ నియంత్రణలను ఉపయోగించండి.",
+"Read the cab shortcuts.": "క్యాబిన్ షార్ట్‌కట్‌లు చదవండి.",
+"Use the cab shortcuts.": "క్యాబిన్ షార్ట్‌కట్‌లు ఉపయోగించండి.",
+"Read the checkpoint controls.": "చెక్‌పాయింట్ నియంత్రణలు చదవండి.",
+"Record the driving checkpoints.": "డ్రైవింగ్ చెక్‌పాయింట్లను నమోదు చేయండి.",
+"Watch each road scene and mark the moment a hazard begins to develop.": "ప్రతి రోడ్డు దృశ్యాన్ని చూసి, ప్రమాదం ఏర్పడటం మొదలయ్యే క్షణాన్ని గుర్తించండి.",
+"Read the road sign.": "రోడ్డు గుర్తును చదవండి.",
+"Stop fully before entering the junction.": "జంక్షన్‌లోకి ప్రవేశించే ముందు పూర్తిగా ఆగండి.",
+"Return to the road scene.": "రోడ్డు దృశ్యానికి తిరిగి వెళ్ళండి.",
+"This road scene has ended. Your response has been recorded.": "ఈ రోడ్డు దృశ్యం ముగిసింది. మీ స్పందన నమోదైంది.",
+"This clip is complete.": "ఈ క్లిప్ పూర్తయింది.",
+"See the results.": "ఫలితాలు చూడండి.",
+"Watch the next clip.": "తదుపరి క్లిప్ చూడండి.",
+"Watch for the developing hazard.": "ఏర్పడుతున్న ప్రమాదాన్ని గమనించండి.",
+"Continue watching the clip.": "క్లిప్ చూడటం కొనసాగించండి.",
+"the marked bay beyond the give-way junction": "దారి ఇవ్వండి జంక్షన్ దాటిన తర్వాత ఉన్న గుర్తు స్థలం",
+"Park the whole van in the marked bay, facing the same way as the traffic.": "వ్యాన్ మొత్తాన్ని గుర్తు ఉన్న స్థలంలో ట్రాఫిక్ దిశలో నిలపండి.",
+"Keep the whole van inside the painted lines of the marked bay.": "వ్యాన్ మొత్తాన్ని గుర్తు ఉన్న స్థలం రంగు గీతల లోపల ఉంచండి.",
+"Complete all three junction approaches and park in each marked bay.": "జంక్షన్ మూడు మార్గాలనూ పూర్తి చేసి, ప్రతి గుర్తు స్థలంలో నిలపండి.",
+"Read the junction route.": "జంక్షన్ రూట్ చదవండి.",
+"Drive through the junction on the planned approach before recording this checkpoint.": "ఈ చెక్‌పాయింట్‌ను నమోదు చేసే ముందు ప్రణాళిక చేసిన మార్గంలో జంక్షన్ దాటండి.",
+"Follow the sat nav through the junction to the marked bay.": "నావిగేషన్‌ను అనుసరించి జంక్షన్ గుండా గుర్తు స్థలానికి వెళ్ళండి.",
+"Begin the next junction approach.": "జంక్షన్ తదుపరి మార్గాన్ని మొదలుపెట్టండి.",
+"Begin the next approach.": "తదుపరి మార్గాన్ని మొదలుపెట్టండి.",
+"Complete the three junction approaches and park in each marked bay.": "జంక్షన్ మూడు మార్గాలనూ పూర్తి చేసి, ప్రతి గుర్తు స్థలంలో నిలపండి.",
+"Complete a stop-sign approach, a red-light approach and a give-way approach. Stop behind the stop line, wait for green at a red light and give way to traffic with priority. Each approach starts with the van parked.": "ఒక స్టాప్ గుర్తు మార్గం, ఒక ఎరుపు లైటు మార్గం, ఒక దారి ఇవ్వండి మార్గం పూర్తి చేయండి. స్టాప్ గీత వెనుక ఆగండి, ఎరుపు లైటు వద్ద ఆకుపచ్చ కోసం ఆగండి, ప్రాధాన్యం ఉన్న ట్రాఫిక్‌కు దారి ఇవ్వండి. ప్రతి మార్గం నిలిపిన వ్యాన్‌తో మొదలవుతుంది.",
+"Read the night route.": "రాత్రి రూట్ చదవండి.",
+"Finish the night run.": "రాత్రి ప్రయాణాన్ని ముగించండి.",
+"Follow the night route behind the lead vehicle, then park the whole van in the marked bay and set the parking brake.": "ముందు వెళ్తున్న వాహనం వెనుక రాత్రి రూట్‌ను అనుసరించి, తర్వాత వ్యాన్ మొత్తాన్ని గుర్తు స్థలంలో నిలిపి పార్కింగ్ బ్రేక్ వేయండి.",
+"Use the night-run controls.": "రాత్రి ప్రయాణ నియంత్రణలను ఉపయోగించండి.",
+"Read the finish controls.": "ముగింపు నియంత్రణలు చదవండి.",
+"Check the headlights, follow the night route with a safe gap, and park in the marked bay.": "హెడ్‌లైట్లు తనిఖీ చేసి, సురక్షిత దూరంతో రాత్రి రూట్‌ను అనుసరించి, గుర్తు స్థలంలో నిలపండి.",
+"Inspect every part of the parked van and record its condition before signing off.": "నిలిపిన వ్యాన్ ప్రతి భాగాన్ని తనిఖీ చేసి, సంతకం చేసే ముందు దాని స్థితిని నమోదు చేయండి.",
+"The lamp does not illuminate.": "దీపం వెలగడం లేదు.",
+"The lamp illuminates.": "దీపం వెలుగుతుంది.",
+"The lamp is switched off.": "దీపం ఆఫ్‌లో ఉంది.",
+"The tread has not been measured.": "టైర్ ట్రెడ్ కొలవలేదు.",
+"The mechanical test has not been performed.": "యాంత్రిక పరీక్ష చేయలేదు.",
+"The horn makes no sound.": "హారన్ మోగడం లేదు.",
+"The horn sounds immediately.": "హారన్ వెంటనే మోగుతుంది.",
+"The pedal continues to sink under steady pressure.": "స్థిరమైన ఒత్తిడిలో పెడల్ కిందికి దిగుతూనే ఉంటుంది.",
+"The pedal holds its position under steady pressure.": "స్థిరమైన ఒత్తిడిలో పెడల్ తన స్థానంలో నిలుస్తుంది.",
+"Measure the other half of the tread.": "ట్రెడ్ మిగతా సగాన్ని కొలవండి.",
+"Measure the tread.": "ట్రెడ్ కొలవండి.",
+"Hold the service brake for three seconds.": "సర్వీస్ బ్రేక్‌ను మూడు సెకన్లు నొక్కి పట్టండి.",
+"Test this part.": "ఈ భాగాన్ని పరీక్షించండి.",
+"The horn sounds.": "హారన్ మోగుతుంది.",
+"The brake test is running.": "బ్రేక్ పరీక్ష జరుగుతోంది.",
+"Steady pressure is applied to the service brake.": "సర్వీస్ బ్రేక్‌పై స్థిరమైన ఒత్తిడి వేస్తున్నారు.",
+"Release the brake.": "బ్రేక్ వదలండి.",
+"Record this part as serviceable.": "ఈ భాగాన్ని సరిగా ఉన్నట్లు నమోదు చేయండి.",
+"Flag this part as defective.": "ఈ భాగాన్ని లోపం ఉన్నట్లు గుర్తించండి.",
+"Return to the van.": "వ్యాన్ వద్దకు తిరిగి వెళ్ళండి.",
+"Record the condition.": "స్థితిని నమోదు చేయండి.",
+"Inspect this part.": "ఈ భాగాన్ని తనిఖీ చేయండి.",
+"Record this condition.": "ఈ స్థితిని నమోదు చేయండి.",
+"Return to the inspection.": "తనిఖీకి తిరిగి వెళ్ళండి.",
+"This part is recorded as serviceable.": "ఈ భాగం సరిగా ఉన్నట్లు నమోదైంది.",
+"This part is recorded as defective.": "ఈ భాగం లోపం ఉన్నట్లు నమోదైంది.",
+"This part has no recorded condition.": "ఈ భాగానికి ఏ స్థితీ నమోదు కాలేదు.",
+"Review the previous part.": "మునుపటి భాగాన్ని చూడండి.",
+"Review the next part.": "తదుపరి భాగాన్ని చూడండి.",
+"Sign off the inspection.": "తనిఖీపై సంతకం చేయండి.",
+"The inspection is incomplete.": "తనిఖీ అసంపూర్తిగా ఉంది.",
+"Every part needs a recorded condition before sign-off.": "సంతకానికి ముందు ప్రతి భాగానికి స్థితి నమోదై ఉండాలి.",
+"Review the inspection.": "తనిఖీని సమీక్షించండి.",
+"Use the parked van’s sat nav to sequence every manifest, then accept each route.": "నిలిపిన వ్యాన్ నావిగేషన్‌లో ప్రతి మ్యానిఫెస్ట్‌ను క్రమంలో పెట్టి, తర్వాత ప్రతి రూట్‌ను అంగీకరించండి.",
+"Plan the route on the sat nav.": "నావిగేషన్‌లో రూట్‌ను ప్రణాళిక చేయండి.",
+"Enter the cab and park the van before planning the route.": "రూట్ ప్రణాళికకు ముందు క్యాబిన్‌లోకి ఎక్కి వ్యాన్‌ను నిలపండి.",
+"Park the van before using the sat nav.": "నావిగేషన్ వాడే ముందు వ్యాన్‌ను నిలపండి.",
+"Read the next dispatch note.": "తదుపరి డిస్పాచ్ నోట్ చదవండి.",
+"Sequence the stops.": "స్టాప్‌లను క్రమంలో పెట్టండి.",
+"Read the dispatch notes.": "డిస్పాచ్ నోట్‌లు చదవండి.",
+"This parcel has no timed commitment.": "ఈ పార్సెల్‌కు నిర్ణీత సమయ గడువు లేదు.",
+"This stop is not in the route.": "ఈ స్టాప్ రూట్‌లో లేదు.",
+"Plan this route.": "ఈ రూట్‌ను ప్రణాళిక చేయండి.",
+"Add this stop to the route.": "ఈ స్టాప్‌ను రూట్‌కు జోడించండి.",
+"Remove this stop from the route.": "ఈ స్టాప్‌ను రూట్ నుంచి తీసివేయండి.",
+"Read the next stop.": "తదుపరి స్టాప్ చదవండి.",
+"Review the route.": "రూట్‌ను సమీక్షించండి.",
+"Accept this route.": "ఈ రూట్‌ను అంగీకరించండి.",
+"Continue sequencing the stops.": "స్టాప్‌లను క్రమంలో పెట్టడం కొనసాగించండి.",
+"Clear the route.": "రూట్‌ను క్లియర్ చేయండి.",
+"Review this route.": "ఈ రూట్‌ను సమీక్షించండి.",
+"The sat nav shows the route.": "నావిగేషన్ రూట్‌ను చూపిస్తుంది.",
+"The double ring marks the selected stop. The square marks the depot.": "రెండు వలయాలు ఎంచుకున్న స్టాప్‌ను సూచిస్తాయి. చతురస్రం డిపోను సూచిస్తుంది.",
+"Complete the school drive and park in its marked bay.": "స్కూల్ ప్రయాణం పూర్తి చేసి, దాని గుర్తు స్థలంలో నిలపండి.",
+"Read the school-zone route.": "స్కూల్ జోన్ రూట్ చదవండి.",
+"Finish the school drive.": "స్కూల్ ప్రయాణాన్ని ముగించండి.",
+"Drive through the school zone and let the bus and children clear before finishing.": "స్కూల్ జోన్ గుండా వెళ్ళి, ముగించే ముందు బస్సు, పిల్లలు దాటిపోనివ్వండి.",
+"Park the whole van inside the marked finish bay and set the parking brake.": "వ్యాన్ మొత్తాన్ని గుర్తు ఉన్న ముగింపు స్థలం లోపల నిలిపి పార్కింగ్ బ్రేక్ వేయండి.",
+"Use the school-drive controls.": "స్కూల్ ప్రయాణ నియంత్రణలను ఉపయోగించండి.",
+"Drive through the school zone, wait for the bus and children, and park in the marked bay.": "స్కూల్ జోన్ గుండా వెళ్ళి, బస్సు, పిల్లల కోసం ఆగి, గుర్తు స్థలంలో నిలపండి.",
+"Read the entry sign, then look forward before moving off. Keep to the school-zone speed limit. Stop before the school bus when its red lights flash. Wait until its lights go off and the children are clear before continuing.": "ప్రవేశ గుర్తును చదివి, బయలుదేరే ముందు ముందుకు చూడండి. స్కూల్ జోన్ వేగ పరిమితిలో ఉండండి. స్కూల్ బస్సు ఎరుపు లైట్లు మెరుస్తున్నప్పుడు దానికి ముందే ఆగండి. దాని లైట్లు ఆగిపోయి పిల్లలు సురక్షితంగా దాటే వరకు ఆగి, తర్వాత కొనసాగండి.",
+"Read the next instruction page.": "తదుపరి సూచనల పేజీ చదవండి."
 },
 "templates": [
 [
@@ -6007,6 +6121,206 @@ window.OTR_I18N.te = {
 [
 "Use {0} to look. Press {1} to select a visible nearby target and {2} to interact. Press {3} to read the scenario goal.",
 "చూడటానికి {0} ఉపయోగించండి. దగ్గర కనిపించే లక్ష్యాన్ని ఎంచుకోవడానికి {1}, పనిచేయడానికి {2} నొక్కండి. సన్నివేశ లక్ష్యాన్ని చదవడానికి {3} నొక్కండి."
+],
+[
+"Parked at {0}",
+"{0} వద్ద నిలిపారు"
+],
+[
+"Parked at {0} (facing the traffic)",
+"{0} వద్ద నిలిపారు (ట్రాఫిక్ దిశలో)"
+],
+[
+"Parked at {0} ({1} ft from the kerb)",
+"{0} వద్ద నిలిపారు (ఫుట్‌పాత్ నుంచి {1} అడుగులు)"
+],
+[
+"Parked at {0} (at an angle)",
+"{0} వద్ద నిలిపారు (వాలుగా)"
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt before moving. Look at each physical mirror to check it. Signal for three seconds before moving off or turning.",
+"వేగం పెంచడానికి {0}, బ్రేక్‌కు {1}, తిప్పడానికి {2}/{3} వాడండి. కదిలే ముందు సీట్‌బెల్ట్ పెట్టుకోండి. ప్రతి నిజమైన అద్దాన్ని చూసి తనిఖీ చేయండి. బయలుదేరే లేదా తిరిగే ముందు మూడు సెకన్లు ఇండికేటర్ వేయండి."
+],
+[
+"Look at the shifter or a cab switch and press {0} to use it. Keyboard shortcuts remain available. The rear camera comes on in reverse. Use it and the mirrors to reverse slowly. You can park and make an optional walk-around in a tight space.",
+"గేర్ లివర్ లేదా క్యాబిన్ స్విచ్ వైపు చూసి, దాన్ని వాడటానికి {0} నొక్కండి. కీబోర్డ్ షార్ట్‌కట్‌లు కూడా పనిచేస్తాయి. రివర్స్‌లో రియర్ కెమెరా ఆన్ అవుతుంది. నెమ్మదిగా వెనక్కి వెళ్ళడానికి దాన్నీ అద్దాలనూ వాడండి. ఇరుకు స్థలంలో వ్యాన్ నిలిపి, కావాలంటే చుట్టూ తిరిగి తనిఖీ చేయవచ్చు."
+],
+[
+"Follow the mounted sat nav to each address. Park the whole van in the marked bay and set the parking brake. Press {0} to record the checkpoint, or select the checkpoint option on the device. Rain begins halfway through the route.",
+"అమర్చిన నావిగేషన్‌ను అనుసరించి ప్రతి చిరునామాకు వెళ్ళండి. వ్యాన్ మొత్తాన్ని గుర్తు స్థలంలో నిలిపి పార్కింగ్ బ్రేక్ వేయండి. చెక్‌పాయింట్ నమోదుకు {0} నొక్కండి, లేదా పరికరంలో చెక్‌పాయింట్ ఎంపికను ఎంచుకోండి. రూట్ మధ్యలో వర్షం మొదలవుతుంది."
+],
+[
+"Press {0} to read the sat nav and checkpoint details.",
+"నావిగేషన్, చెక్‌పాయింట్ వివరాలు చదవడానికి {0} నొక్కండి."
+],
+[
+"Park at this checkpoint and press {0} to record it.",
+"ఈ చెక్‌పాయింట్ వద్ద నిలిపి, దాన్ని నమోదు చేయడానికి {0} నొక్కండి."
+],
+[
+"The van hit an obstacle at {0} mph.",
+"వ్యాన్ {0} mph వేగంతో ఒక అడ్డంకిని ఢీకొట్టింది."
+],
+[
+"Checkpoint {0} of {1} is at {2}.",
+"చెక్‌పాయింట్ {0}/{1} {2} వద్ద ఉంది."
+],
+[
+"Checkpoint {0} is complete. Continue to {1}.",
+"చెక్‌పాయింట్ {0} పూర్తయింది. {1} వైపు కొనసాగండి."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Look with the mouse or {4}. Press {5} to select a nearby physical cab control and {6} to use it.",
+"వేగం పెంచడానికి {0}, బ్రేక్‌కు {1}, తిప్పడానికి {2}/{3} వాడండి. మౌస్ లేదా {4}తో చూడండి. దగ్గరలోని నిజమైన క్యాబిన్ నియంత్రణను ఎంచుకోవడానికి {5}, వాడటానికి {6} నొక్కండి."
+],
+[
+"Press {0} to set or release the parking brake, {1} for the seatbelt, {2} for drive or reverse, {3}/{4} for the left or right signal, {5} for headlights, and {6} for wipers. Press {7} to look forward.",
+"పార్కింగ్ బ్రేక్ వేయడానికి లేదా వదలడానికి {0}, సీట్‌బెల్ట్‌కు {1}, డ్రైవ్ లేదా రివర్స్‌కు {2}, ఎడమ లేదా కుడి ఇండికేటర్‌కు {3}/{4}, హెడ్‌లైట్లకు {5}, వైపర్లకు {6} నొక్కండి. ముందుకు చూడటానికి {7} నొక్కండి."
+],
+[
+"Follow the mounted sat nav. Press {0} to record a checkpoint after parking, or press {1} for the device. Read a visible road sign with {2}. The rear camera is automatic in reverse. Look at the physical mirrors to check them.",
+"అమర్చిన నావిగేషన్‌ను అనుసరించండి. నిలిపిన తర్వాత చెక్‌పాయింట్ నమోదుకు {0} నొక్కండి, లేదా పరికరానికి {1} నొక్కండి. కనిపించే రోడ్డు గుర్తును {2}తో చదవండి. రివర్స్‌లో రియర్ కెమెరా దానంతట అదే పనిచేస్తుంది. నిజమైన అద్దాలను చూసి తనిఖీ చేయండి."
+],
+[
+"The van drives automatically. Press {0} or click when a hazard starts to develop. Earlier marks inside the response window earn more points. More than {1} marks in one clip score zero. With reduced motion, the cab stays still while the road scene develops.",
+"వ్యాన్ దానంతట అదే నడుస్తుంది. ప్రమాదం ఏర్పడటం మొదలైనప్పుడు {0} నొక్కండి లేదా క్లిక్ చేయండి. స్పందన సమయంలో ముందుగా పెట్టిన గుర్తులకు ఎక్కువ పాయింట్లు. ఒక క్లిప్‌లో {1} కంటే ఎక్కువ గుర్తులకు సున్నా. తక్కువ కదలిక సెట్టింగ్‌లో రోడ్డు దృశ్యం సాగుతున్నప్పుడు క్యాబిన్ కదలకుండా ఉంటుంది."
+],
+[
+"Clip {0} of {1}. Press {2} or click when a hazard starts to develop. You have made {3} marks.",
+"క్లిప్ {0}/{1}. ప్రమాదం ఏర్పడటం మొదలైనప్పుడు {2} నొక్కండి లేదా క్లిక్ చేయండి. మీరు {3} గుర్తులు పెట్టారు."
+],
+[
+"You scored {0} of 5 points.\n\n{1}",
+"మీకు 5కు {0} పాయింట్లు వచ్చాయి.\n\n{1}"
+],
+[
+"The van drives automatically. Press {0} or click when a hazard begins to develop.\n\nWith reduced motion, the cab stays still while the road scene develops.",
+"వ్యాన్ దానంతట అదే నడుస్తుంది. ప్రమాదం ఏర్పడటం మొదలైనప్పుడు {0} నొక్కండి లేదా క్లిక్ చేయండి.\n\nతక్కువ కదలిక సెట్టింగ్‌లో రోడ్డు దృశ్యం సాగుతున్నప్పుడు క్యాబిన్ కదలకుండా ఉంటుంది."
+],
+[
+"Approach {0} of 3. Follow the sat nav to {1}.",
+"మార్గం {0}/3. నావిగేషన్‌ను అనుసరించి {1}కు వెళ్ళండి."
+],
+[
+"Approach {0} of 3. Follow the sat nav, then park the whole van in the marked bay and set the parking brake.",
+"మార్గం {0}/3. నావిగేషన్‌ను అనుసరించి, తర్వాత వ్యాన్ మొత్తాన్ని గుర్తు స్థలంలో నిలిపి పార్కింగ్ బ్రేక్ వేయండి."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt with its physical control or {4}. Look at the physical mirrors and signal for three seconds before moving off.",
+"వేగం పెంచడానికి {0}, బ్రేక్‌కు {1}, తిప్పడానికి {2}/{3} వాడండి. సీట్‌బెల్ట్‌ను దాని నిజమైన నియంత్రణ లేదా {4}తో పెట్టుకోండి. బయలుదేరే ముందు నిజమైన అద్దాలను చూసి మూడు సెకన్లు ఇండికేటర్ వేయండి."
+],
+[
+"Follow the mounted sat nav. Park the whole van in the marked bay, facing with traffic, and set the parking brake. Press {0} to record the checkpoint, or use the same action on the device with {1}.",
+"అమర్చిన నావిగేషన్‌ను అనుసరించండి. వ్యాన్ మొత్తాన్ని గుర్తు స్థలంలో ట్రాఫిక్ దిశలో నిలిపి పార్కింగ్ బ్రేక్ వేయండి. చెక్‌పాయింట్ నమోదుకు {0} నొక్కండి, లేదా పరికరంలో అదే పనిని {1}తో చేయండి."
+],
+[
+"Press {0} to read the junction route and checkpoint details.",
+"జంక్షన్ రూట్, చెక్‌పాయింట్ వివరాలు చదవడానికి {0} నొక్కండి."
+],
+[
+"The finish bay is at {0}.",
+"ముగింపు స్థలం {0} వద్ద ఉంది."
+],
+[
+"Walk with {0}/{1}/{2}/{3} and look with the mouse or {4}. Select a nearby physical target with {5} and use it with {6}. Check the headlights at the front of the van before entering the cab.",
+"{0}/{1}/{2}/{3}తో నడిచి, మౌస్ లేదా {4}తో చూడండి. దగ్గరలోని నిజమైన లక్ష్యాన్ని {5}తో ఎంచుకుని {6}తో వాడండి. క్యాబిన్‌లోకి ఎక్కే ముందు వ్యాన్ ముందు వైపు హెడ్‌లైట్లను తనిఖీ చేయండి."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Press {4} for the seatbelt, {5} for the parking brake, {6} for the headlights, and {7}/{8} to signal. Look at the physical mirrors to check them.",
+"వేగం పెంచడానికి {0}, బ్రేక్‌కు {1}, తిప్పడానికి {2}/{3} వాడండి. సీట్‌బెల్ట్‌కు {4}, పార్కింగ్ బ్రేక్‌కు {5}, హెడ్‌లైట్లకు {6}, ఇండికేటర్‌కు {7}/{8} నొక్కండి. నిజమైన అద్దాలను చూసి తనిఖీ చేయండి."
+],
+[
+"Follow the mounted sat nav. Keep at least a three-second gap behind the lead vehicle. Drive within the distance the headlights illuminate. Park in the marked finish bay and press {0}, or use the finish option on the device with {1}.",
+"అమర్చిన నావిగేషన్‌ను అనుసరించండి. ముందు వెళ్తున్న వాహనం నుంచి కనీసం మూడు సెకన్ల దూరం ఉంచండి. హెడ్‌లైట్లు వెలుగిచ్చే దూరంలోనే నడపండి. గుర్తు ఉన్న ముగింపు స్థలంలో నిలిపి {0} నొక్కండి, లేదా పరికరంలో ముగింపు ఎంపికను {1}తో వాడండి."
+],
+[
+"Walk to the front of the van. Look at the headlights and press {0} to inspect them. Assess the light test and request a repair if needed. Inspect before the van moves.",
+"వ్యాన్ ముందు వైపుకు నడవండి. హెడ్‌లైట్లను చూసి, తనిఖీకి {0} నొక్కండి. లైట్ పరీక్షను అంచనా వేసి, అవసరమైతే మరమ్మతు కోరండి. వ్యాన్ కదిలే ముందే తనిఖీ చేయండి."
+],
+[
+"Enter the cab at the driver door with {0}. Fasten the seatbelt, switch on the headlights with {1} or their physical control, check the mirrors and signal before moving off.",
+"డ్రైవర్ తలుపు వద్ద {0} నొక్కి క్యాబిన్‌లోకి ఎక్కండి. సీట్‌బెల్ట్ పెట్టుకుని, {1} లేదా నిజమైన నియంత్రణతో హెడ్‌లైట్లు ఆన్ చేసి, అద్దాలను తనిఖీ చేసి, బయలుదేరే ముందు ఇండికేటర్ వేయండి."
+],
+[
+"Follow the sat nav to {0}. Keep at least a three-second gap behind the lead vehicle and drive within the headlight range. Park the whole van in the marked bay and set the parking brake, then press {1} or use the finish option on the device with {2}.",
+"నావిగేషన్‌ను అనుసరించి {0}కు వెళ్ళండి. ముందు వెళ్తున్న వాహనం నుంచి కనీసం మూడు సెకన్ల దూరం ఉంచి, హెడ్‌లైట్ల పరిధిలో నడపండి. వ్యాన్ మొత్తాన్ని గుర్తు స్థలంలో నిలిపి పార్కింగ్ బ్రేక్ వేసి, తర్వాత {1} నొక్కండి లేదా పరికరంలో ముగింపు ఎంపికను {2}తో వాడండి."
+],
+[
+"Press {0} to read the night route and finish details.",
+"రాత్రి రూట్, ముగింపు వివరాలు చదవడానికి {0} నొక్కండి."
+],
+[
+"Inspect the {0}. Press {1} to interact.",
+"తనిఖీ చేయండి: {0}. వాడటానికి {1} నొక్కండి."
+],
+[
+"The gauge reads {0}/32 inches.",
+"గేజ్ {0}/32 అంగుళాలు చూపిస్తుంది."
+],
+[
+"Plan route {0} of {1} on the sat nav.",
+"నావిగేషన్‌లో రూట్ {0}/{1}ను ప్రణాళిక చేయండి."
+],
+[
+"Press {0} to plan the route on the sat nav.",
+"నావిగేషన్‌లో రూట్ ప్రణాళికకు {0} నొక్కండి."
+],
+[
+"Route {0} starts at {1}.\n{2}",
+"రూట్ {0} {1} వద్ద మొదలవుతుంది.\n{2}"
+],
+[
+"The school zone is active between {0} and {1}. Driving through it adds {2} minutes.",
+"స్కూల్ జోన్ {0} నుంచి {1} వరకు అమలులో ఉంటుంది. దాని గుండా వెళ్తే {2} నిమిషాలు అదనంగా పడుతుంది."
+],
+[
+"The road is closed on {0} between {1} and {2}.",
+"{0}లో {1}, {2} మధ్య రోడ్డు మూసివేశారు."
+],
+[
+"Collect the pickup between {0} and {1}.",
+"పికప్‌ను {0} నుంచి {1} మధ్య తీసుకోండి."
+],
+[
+"Deliver this parcel by {0}.",
+"ఈ పార్సెల్‌ను {0} లోపు అందించండి."
+],
+[
+"The estimated arrival is {0}.",
+"అంచనా రాక {0}."
+],
+[
+"Stop {0} is at {1}.\n{2}\n{3}",
+"స్టాప్ {0} {1} వద్ద ఉంది.\n{2}\n{3}"
+],
+[
+"Route {0} contains {1} of {2} stops.",
+"రూట్ {0}లో {2}లో {1} స్టాప్‌లు ఉన్నాయి."
+],
+[
+"\nThe sequence is {0}.",
+"\nక్రమం {0}."
+],
+[
+"\nThe estimated return is {0}.",
+"\nఅంచనా తిరుగు రాక {0}."
+],
+[
+"Follow the mounted sat nav to the finish bay. Press {0} to finish after parking, or use the finish option on the device with {1}. Read a visible road sign with {2}. The rear camera is automatic in reverse. Look at the physical mirrors to check them.",
+"అమర్చిన నావిగేషన్‌ను అనుసరించి ముగింపు స్థలానికి వెళ్ళండి. నిలిపిన తర్వాత ముగించడానికి {0} నొక్కండి, లేదా పరికరంలో ముగింపు ఎంపికను {1}తో వాడండి. కనిపించే రోడ్డు గుర్తును {2}తో చదవండి. రివర్స్‌లో రియర్ కెమెరా దానంతట అదే పనిచేస్తుంది. నిజమైన అద్దాలను చూసి తనిఖీ చేయండి."
+],
+[
+"Use {0} to accelerate, {1} to brake, and {2}/{3} to steer. Fasten the seatbelt with its physical control or {4}. Look at the mirrors and signal before moving off.",
+"వేగం పెంచడానికి {0}, బ్రేక్‌కు {1}, తిప్పడానికి {2}/{3} వాడండి. సీట్‌బెల్ట్‌ను దాని నిజమైన నియంత్రణ లేదా {4}తో పెట్టుకోండి. బయలుదేరే ముందు అద్దాలను చూసి ఇండికేటర్ వేయండి."
+],
+[
+"Follow the sat nav to {0}. Park the whole van in the marked bay, set the parking brake and press {1} to finish. The mounted screen and {2} offer the same finish action. You can read the controls from the pause menu.",
+"నావిగేషన్‌ను అనుసరించి {0}కు వెళ్ళండి. వ్యాన్ మొత్తాన్ని గుర్తు స్థలంలో నిలిపి, పార్కింగ్ బ్రేక్ వేసి, ముగించడానికి {1} నొక్కండి. అమర్చిన స్క్రీన్‌లోనూ {2}లోనూ ఇదే ఎంపిక ఉంది. విరామ మెనూ నుంచి నియంత్రణలను చదవవచ్చు."
+],
+[
+"Press {0} to read the school route and finish details.",
+"స్కూల్ రూట్, ముగింపు వివరాలు చదవడానికి {0} నొక్కండి."
 ]
 ],
 "keep": [

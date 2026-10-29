@@ -1,0 +1,52 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+✔ low yaw 0: every ground-level inspection selects a nearby rendered van surface (1214.83222ms)
+✔ low yaw 1.5707963267948966: every ground-level inspection selects a nearby rendered van surface (204.825481ms)
+✔ low yaw 3.141592653589793: every ground-level inspection selects a nearby rendered van surface (180.755295ms)
+✔ low yaw -1: every ground-level inspection selects a nearby rendered van surface (126.955438ms)
+✔ high yaw 0: every ground-level inspection selects a nearby rendered van surface (356.569698ms)
+✔ high yaw 1.5707963267948966: every ground-level inspection selects a nearby rendered van surface (225.825534ms)
+✔ high yaw 3.141592653589793: every ground-level inspection selects a nearby rendered van surface (316.925766ms)
+✔ high yaw -1: every ground-level inspection selects a nearby rendered van surface (380.414317ms)
+✔ fallback yaw 0: every ground-level inspection selects a nearby rendered van surface (70.535305ms)
+✔ fallback yaw 1.5707963267948966: every ground-level inspection selects a nearby rendered van surface (40.018637ms)
+✔ fallback yaw 3.141592653589793: every ground-level inspection selects a nearby rendered van surface (91.972792ms)
+✔ fallback yaw -1: every ground-level inspection selects a nearby rendered van surface (80.686757ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3390.427285

@@ -1,0 +1,128 @@
+{
+  "checks": 110,
+  "runs": [
+    {
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "stops": [
+        {
+          "result": {
+            "hazard": {
+              "id": "phone",
+              "ok": true
+            },
+            "checkpoint": 0,
+            "diagnostics": {
+              "calls": 35,
+              "triangles": 944,
+              "textures": 2,
+              "geometries": 16,
+              "targetWidth": 832,
+              "targetHeight": 468,
+              "attachmentBytes": 3557376
+            },
+            "coaching": true
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6199999999999997,
+              "skew": 0,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 71,
+            "seconds": 0,
+            "violations": {
+              "rolling": 1
+            },
+            "signal": 0
+          }
+        },
+        {
+          "result": {
+            "hazard": {
+              "id": "ball",
+              "ok": true
+            },
+            "checkpoint": 1,
+            "diagnostics": {
+              "calls": 33,
+              "triangles": 948,
+              "textures": 2,
+              "geometries": 22,
+              "targetWidth": 832,
+              "targetHeight": 468,
+              "attachmentBytes": 3557376
+            },
+            "coaching": true
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6199999999999997,
+              "skew": 0,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 126,
+            "seconds": 0,
+            "violations": {
+              "rolling": 2
+            },
+            "signal": 0
+          }
+        },
+        {
+          "result": {
+            "hazard": {
+              "id": "door",
+              "ok": true
+            },
+            "checkpoint": 2,
+            "diagnostics": {
+              "calls": 32,
+              "triangles": 792,
+              "textures": 2,
+              "geometries": 24,
+              "targetWidth": 832,
+              "targetHeight": 468,
+              "attachmentBytes": 3557376
+            },
+            "coaching": true
+          },
+          "parking": {
+            "verdict": {
+              "ok": true,
+              "reason": "",
+              "gap": 0.6199999999999997,
+              "skew": 0,
+              "withTraffic": true
+            },
+            "rear": true,
+            "updates": 180,
+            "seconds": 0,
+            "violations": {
+              "rolling": 3
+            },
+            "signal": 0
+          }
+        }
+      ],
+      "shots": [
+        "c39-driving-development-low-en-normal-hazard-0.png",
+        "c39-driving-development-low-en-normal-park-0.png",
+        "c39-driving-development-low-en-normal-hazard-1.png",
+        "c39-driving-development-low-en-normal-park-1.png",
+        "c39-driving-development-low-en-normal-hazard-2.png",
+        "c39-driving-development-low-en-normal-park-2.png"
+      ]
+    }
+  ],
+  "errors": [],
+  "fixture": "The existing m1-driving id temporarily receives scene3d. Approach and pre-bay positions replace travel between exercises. Hazard and checkpoint verdicts, scores, results and records are never injected. The native throttle, brake, shifter, mirror gaze, signals and record controls drive every response and parking action. A non-scoring timeline jump to ten seconds shortens only the crosswalk wait outside the first ordinary Low English run.",
+  "failure": "TimeoutError: Waiting failed: 90000ms exceeded\n    at new WaitTask (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:49:34)\n    at IsolatedWorld.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:52:26)\n    at CdpFrame.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:583:43)\n    at CdpFrame.<anonymous> (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)\n    at CdpPage.waitForFunction (/workspace/Courier-training-game/test/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1451:37)\n    at /workspace/c39-route-driving/test/fpdrivinglessonbrowser.js:33:16"
+}

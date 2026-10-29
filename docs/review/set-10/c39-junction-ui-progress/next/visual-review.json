@@ -1,0 +1,17 @@
+{
+  "captures": [
+    {
+      "path": "artifacts/junction-final-high-ta/junction-final-high-ta-high-ta-large-mounted-route.png",
+      "sha256": "8c623ddb5f2ec884cda9873904ecd1712f16cd2c6ef357d787fca6328f10f82a"
+    },
+    {
+      "path": "artifacts/junction-final-high-ta/junction-final-high-ta-high-ta-large-bay-2.png",
+      "sha256": "29a5a094c5ba338afdfbfb65c7dd415803ea734c0e0bcf1aaedda905976d0a5e"
+    }
+  ],
+  "observations": [
+    "Device body, buttons and back label fit; cab and mirrors remain visible.",
+    "The third bay is physically painted in the horizontal orientation.",
+    "New module strings still need the shared catalogue/translation pass; this is a layout check, not translated-language acceptance."
+  ]
+}

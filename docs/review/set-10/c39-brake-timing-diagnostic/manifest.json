@@ -1,0 +1,31 @@
+{
+  "candidate": "b4e01e9739a0b461a6d81e2f80b12c2654a876bb",
+  "status": "failed native matrix; focused timing diagnosis, not acceptance",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "cf8eb640dfa9f8657bda7046bcf312145c57f224630911931effad80c22070ad",
+      "bytes": 683
+    },
+    {
+      "file": "c39-pretrip-final-native-failure.png",
+      "sha256": "78c106611d3632f726a2e8e951e6d588c36d00e084c69a220ba5e1006a0f35e1",
+      "bytes": 69519
+    },
+    {
+      "file": "c39-pretrip-final-native.json",
+      "sha256": "fd4e095b364eaf09b617c23d43c4cbc51734f86022de2fd3b018feee64aa40b9",
+      "bytes": 142935
+    },
+    {
+      "file": "c39-pretrip-final-native.log",
+      "sha256": "ee4883eed5a32069a5e957925892ffd98b4abe5c20ac1056819770ff7b81c6c2",
+      "bytes": 2424
+    },
+    {
+      "file": "slow-frame-timer.log",
+      "sha256": "d6ed51c8ab2aaa67270ad5502dc41a69f66c921f4f5e8529d803d88b15162f98",
+      "bytes": 7296
+    }
+  ]
+}

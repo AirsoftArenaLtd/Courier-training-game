@@ -1,0 +1,17 @@
+{
+  "status": "component and syntax draft, not loaded",
+  "tests": 7,
+  "pass": 7,
+  "fail": 0,
+  "nativeAcceptance": false,
+  "files": {
+    "pre-lead-wait-component.log": "ba662cccaf056089b5d4ea013650bddb021b0658c9bce49fb7062c970123a82f",
+    "fpnightlesson.proposed.js": "ee113b76396f906418baf66a75797a4f9a905e78b8fa4a0f62838e4d7193c6ec",
+    "night-bay.patch": "528319ba8de38aeb96f88c190b71715a87c4cd9abbe6ac5d1487b875bcc4ed06",
+    "fpnightlessonui.proposed.js": "99ae48c3aea04d903c6be54542f4ed7df83de894270a86d7200ca76e6784ad53",
+    "initial-component.log": "de155f7f465df168500764efd605219041ad56de874ae66195f9db6f206e1360",
+    "component.log": "e944d1fea5b178780924cf7d056eddc0c9ebbadfa9c473f90761cd11a4dc68bb",
+    "night-core.js": "26e06386a689befbf9b0df4ea999ac53da61153e9abb5738be79f6918c2d259f",
+    "README.md": "80e033c59068127dfe094a36818e9d79b79448c3d0accdc4b125c8552f7d0957"
+  }
+}

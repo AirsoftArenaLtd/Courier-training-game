@@ -1,0 +1,7 @@
+{
+  "path": "test/fpschoollessonbrowser.js",
+  "sha256": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2",
+  "runtimeSource": "ec9aaeae9461e15208942554d50509a204ccb1be",
+  "change": "Wait for the actual live bus to leave before staging the reverse pose. No actor state, score or verdict is injected.",
+  "englishSourceGuard": "Unchanged B-159 guard passed against the owned test tree."
+}

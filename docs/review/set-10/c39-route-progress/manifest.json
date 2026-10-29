@@ -1,0 +1,53 @@
+{
+  "status": "model/HUD/report-guard implementation progress only; native and resources pending",
+  "base": "64816b15",
+  "sources": {
+    "src/core/fproutelesson.js": "29f9633e9bee20d4d1271d14bf1e680860d02db6b320b155c7a737c814a324ce",
+    "src/core/fproutelessonui.js": "13164b9b8024d0d738f52ea5db542d97a2f89db6aff6c3e620cc7d425b94ec01",
+    "src/core/fphud.js": "ab6001dcc4613024fcf274b516da69e97a2e5eabf2e03057695c3736bf50a49e",
+    "index.html": "b50cfab041d60ebf48c1c7d81de4f453925c6f586d62848661968b8d423e1a94",
+    "test/fproutelesson.js": "6b1419a429d35c9530311c5310b849da3adddef261eadd17c4a9027c4ef672fe",
+    "test/fproutelessonbrowser.js": "88e22b15eb243e4fbc2b660d4ed7ad37b09f18e7e6bb97ef78a5e45226f5a953",
+    "test/fpbench.js": "b57bf8fa28247a9139c94ecc3dcb20817c0085e51a4e466cef98e165a292e927",
+    "test/fpquality.js": "6335bfa56a02d765c1bfc849238c0ea2385df532b4f65a55bd05bc2d66a7d94f",
+    "test/fpqualitygate.js": "d07a8a74fe021b0c5bea4c22c015775f147e70582b62b34e46504bd96ef0d085",
+    "test/tools/fp-route-lesson-fixture.js": "5b478a961b331c070d9b82361e0788948a2f9ad53a41432c1f6c261fc71f7a63"
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1563,
+      "sha256": "fb9b0d88e2dea0292031b5ed0c41b028ca06e49d8c3f3f756fd83d1776d66b21"
+    },
+    {
+      "file": "hud.log",
+      "bytes": 1095,
+      "sha256": "15412bd520f9a7fed5b2d6f1b5f124bbdc80f2eae21de1bf75bc1c075f18bc95"
+    },
+    {
+      "file": "model.log",
+      "bytes": 911,
+      "sha256": "1864b23888530560386b5976f9b9d8400525b00e14f9f348d85be6ea802c5140"
+    },
+    {
+      "file": "new-text.json",
+      "bytes": 1556,
+      "sha256": "99b9a2a43bbd39c66001b34ada5364600502aaad0d2c2d349ccc2684ac7b3d28"
+    },
+    {
+      "file": "quality-guards.log",
+      "bytes": 1918,
+      "sha256": "b7012c1f5a9ffcd5235fc685cf15b7986d260096359c2f5407b68c618c978651"
+    },
+    {
+      "file": "registry-route.patch",
+      "bytes": 423,
+      "sha256": "1f4cc502110f9c1ae858b1efd50379e954ee967d5efe13d59af9e6db238f3e33"
+    },
+    {
+      "file": "runner.log",
+      "bytes": 1461,
+      "sha256": "2ce2ab85b870b7e15932245d0d703900f30cc09de0d7c744e4436b1c0df69819"
+    }
+  ]
+}

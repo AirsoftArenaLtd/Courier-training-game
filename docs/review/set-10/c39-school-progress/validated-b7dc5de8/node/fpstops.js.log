@@ -1,0 +1,26 @@
+✔ the right intercom request waits for the buzz without a reaction deadline (3.5852ms)
+✔ a wrong button, wrong wording or premature opening cannot gain a clean check after retry (0.364126ms)
+✔ an unanswered intercom never opens a gate or fabricates a buzz (0.438375ms)
+✔ a mid-buzz checkpoint keeps the remaining wait and restoring it sends no report (0.256868ms)
+✔ business reception needs the actual name and signature; the named recipient is a separate route (0.371497ms)
+✔ a signature service also requires a signature when the named recipient receives it (0.173015ms)
+✔ an unnamed receptionist or a signature from another person cannot complete reception (0.6791ms)
+✔ switching from a receptionist to the recipient clears the first signature (0.243149ms)
+✔ a locker drop needs the matching compartment, parcel scan, deposit and closed-door photo (0.46199ms)
+✔ wrong locker and wrong parcel scans do not move a parcel; an open-door photo cannot complete it (0.56384ms)
+✔ reopening a photographed locker invalidates its photo, including after a reload (0.338549ms)
+✔ closing an empty locker is allowed without claiming a delivery or penalising a cancellation (0.190511ms)
+✔ a failed delivery books the specified next attempt only after a card and retention (0.345409ms)
+✔ skipping retention, booking the wrong day or slot cannot earn the reattempt check (0.247685ms)
+✔ retention records the actual reason rather than accepting an unrelated exception (0.343055ms)
+✔ partial locker and reattempt progress survives JSON checkpoints without side effects (0.2173ms)
+✔ malformed, mismatched and impossible checkpoints are rejected rather than granting progress (1.043146ms)
+✔ bounded specifications, unknown actions and invalid clocks cannot silently complete a stop (0.742623ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22.59312

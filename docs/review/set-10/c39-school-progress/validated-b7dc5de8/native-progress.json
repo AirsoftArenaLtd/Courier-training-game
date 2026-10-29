@@ -1,0 +1,55 @@
+{
+  "checks": 788,
+  "runs": [
+    {
+      "name": "school-low-en-normal",
+      "checks": 104,
+      "tag": "c39-school-current-low-en-normal",
+      "assessment": false
+    },
+    {
+      "name": "school-low-en-large",
+      "checks": 93,
+      "tag": "c39-current-school-low-en-large",
+      "assessment": true
+    },
+    {
+      "name": "school-low-ta-normal",
+      "checks": 104,
+      "tag": "c39-current-school-low-ta-normal",
+      "assessment": false
+    },
+    {
+      "name": "school-low-ta-large",
+      "checks": 93,
+      "tag": "c39-current-school-low-ta-large",
+      "assessment": true
+    },
+    {
+      "name": "school-high-en-normal",
+      "checks": 104,
+      "tag": "c39-current-school-high-en-normal",
+      "assessment": false
+    },
+    {
+      "name": "school-high-en-large",
+      "checks": 93,
+      "tag": "c39-current-school-high-en-large",
+      "assessment": true
+    },
+    {
+      "name": "school-high-ta-normal",
+      "checks": 104,
+      "tag": "c39-current-school-high-ta-normal",
+      "assessment": false
+    },
+    {
+      "name": "school-high-ta-large",
+      "checks": 93,
+      "tag": "c39-current-school-high-ta-large",
+      "assessment": true
+    }
+  ],
+  "complete": true,
+  "testSha256": "f87ef173bd40b5c1254e28f17503cc7775f92059a0b132b7d4e96e74949bb6c2"
+}
