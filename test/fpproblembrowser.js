@@ -1,4 +1,4 @@
-/* Native M4 journeys. Only existing-id registration, accessibility and a suspended workday are fixtures. */
+/* Native M4 journeys. Only existing-id registration, accessibility and a suspended workday are fixtures. @long-suite */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),cp=require('node:child_process'),crypto=require('node:crypto'),pp=require('puppeteer-core');
 const BASE=process.env.QA_BASE||'http://127.0.0.1:8384',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c42-problem-native',VARIANT=process.env.QA_VARIANT||'good';fs.mkdirSync(OUT,{recursive:true});
 (async()=>{

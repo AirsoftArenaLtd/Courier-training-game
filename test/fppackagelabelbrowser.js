@@ -1,4 +1,4 @@
-/* Native keys operate the physical turntable and stations. Only walking positions are fixtures. */
+/* Native keys operate the physical turntable and stations. Only walking positions are fixtures. @long-suite */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
 const BASE=process.env.QA_BASE||'http://127.0.0.1:8382',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c40-labels';fs.mkdirSync(OUT,{recursive:true});
 (async()=>{

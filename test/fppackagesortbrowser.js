@@ -1,4 +1,4 @@
-/* Native physical controls. Parcel positions and wave-end times are fixtures; decisions/timers/rays are live. */
+/* Native physical controls. Parcel positions and wave-end times are fixtures; decisions/timers/rays are live. @long-suite */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
 const DURABLE=process.env.QA_DURABLE==='1';
 const BASE=process.env.QA_BASE||'http://127.0.0.1:8382',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c40-sort-native';fs.mkdirSync(OUT,{recursive:true});

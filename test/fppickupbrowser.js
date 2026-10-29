@@ -1,4 +1,4 @@
-/* Real-key M7 browser journeys: original callbacks, physical counter controls, assessment and durable records. */
+/* Real-key M7 browser journeys: original callbacks, physical counter controls, assessment and durable records. @long-suite */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),cp=require('node:child_process'),crypto=require('node:crypto'),pp=require('puppeteer-core'),original=require('./tools/fp-pickup-original');
 const ROOT=path.resolve(__dirname,'..'),BASE=process.env.QA_BASE||'http://127.0.0.1:8387',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c45-counter-native',VARIANT=process.env.QA_VARIANT||'good';fs.mkdirSync(OUT,{recursive:true});
 if(!['good','bad-business','bad-docs','bad-call','abandon'].includes(VARIANT))throw Error('Unknown pickup variant');

@@ -1,4 +1,4 @@
-/* Native scanner stops: real movement, remapped targets, handheld photo/ID choices, signatures, tags and durable records. */
+/* Native scanner stops: real movement, remapped targets, handheld photo/ID choices, signatures, tags and durable records. @long-suite */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),cp=require('node:child_process'),crypto=require('node:crypto'),pp=require('puppeteer-core');
 const NEGATIVE=process.env.QA_VARIANT==='bad-id';
 const BASE=process.env.QA_BASE||'http://127.0.0.1:8385',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c43-scanner-native';fs.mkdirSync(OUT,{recursive:true});

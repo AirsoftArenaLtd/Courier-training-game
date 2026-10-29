@@ -1,0 +1,100 @@
+{
+  "parent": "9c267ed47c53f8eef43c0d69c138df33b5157626",
+  "pilotRunnerRevision": "a7bd8b5785f6b13ffeebce60070caa625a9340b5",
+  "pilotRunnerSha256": "7db0dc37d8f618f16ebcc74590b29384ad97f4dbbe00771f157bca682291f5d9",
+  "markerCount": 13,
+  "files": {
+    "test/fppackagelabelbrowser.js": {
+      "beforeSha256": "af2fa25eff1ecf48a26fc159d1e73e78a2b0ad23aad58ac6a10917ec1f930c75",
+      "afterSha256": "435a9b03fb12e06021cee2cc2a49208775496e7dec19dd49a593fb12993110b7",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    },
+    "test/fppackagesortbrowser.js": {
+      "beforeSha256": "b1c581fcc475fa678e8b6ee70ba395d8126263c2447dfe03633e0d928a92182f",
+      "afterSha256": "6fe0dc8abd27dcbd3d5821665d66dd292c4f77282813c874bd3fb3097fa0a289",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    },
+    "test/fppackageliftbrowser.js": {
+      "beforeSha256": "b7f7d927bb766f33204ab0be58b2309736d151f7d115d00beaaa7984691527bc",
+      "afterSha256": "637f28356b11484d44131be85dfe460cfae9ac450c8fd6ad3c000baf0c69e027",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    },
+    "test/fppackageheavybrowser.js": {
+      "beforeSha256": "19a549700bb3ca20b678851ddc7ebdaa6232d56eb3a252a4a616b46939130815",
+      "afterSha256": "cec10c0168734474d9ba330df3c843721790ee9d1dac64daf1cea315e7a037d5",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    },
+    "test/fpcustomerbrowser.js": {
+      "beforeSha256": "ed0236226e0a48ad7a8583b32e36cd526543c03750d1b8f36d8780919e1bce9a",
+      "afterSha256": "453257de955ec72380190b02b58678f6f72e2946de48528b33840763080cfc5a",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    },
+    "test/fpcustomerprotocolbrowser.js": {
+      "beforeSha256": "f414c5c08d7227d3a84c978998947a45e75ecda696fdfcba78be388895540ef7",
+      "afterSha256": "fe3ef76033110c9a72d555c93ef658dbfdf63270be8ad6317840ab8645afee33",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    },
+    "test/fpcustomerstopbrowser.js": {
+      "beforeSha256": "32f2585e12d33dc1a9fbcac6346d998e1067507527961425ed10b37508866953",
+      "afterSha256": "c169c7fb9277892fbbe2fff66fae679892299d210df9e9688e9e786d379a1545",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    },
+    "test/fpproblembrowser.js": {
+      "beforeSha256": "76587508824a83a69f71bd2060dc6c321119dc7e3687c1e71a5aff7a68805851",
+      "afterSha256": "ea7d0ef1f26be3b6a63de9dd2ba97ad62ed9e77679a944fe3f4e4d8effd8b94d",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    },
+    "test/fpproblemroutebrowser.js": {
+      "beforeSha256": "2e7a78fa36b43c29f7b52f9bcd0b294b7330c94b436c9e688418edffc7e43e49",
+      "afterSha256": "f9a9958f06c2456832bd7e9fbfb5f0c59a4bf9c8b5614309b41e927142e786d2",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    },
+    "test/fpproblemblockedbrowser.js": {
+      "beforeSha256": "15e4c1a4183491bcfe73a3787bc051541e956200074c01b4897ef7fce5d64796",
+      "afterSha256": "7c7213bdffc358d153a274fe37aa2d9a3e2364f9e686f6541cecfcc77fe11141",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    },
+    "test/fpscannerstopbrowser.js": {
+      "beforeSha256": "e56eadb3a9cde1a235d85b57f213df438e079ca151684da2b609df7439a426db",
+      "afterSha256": "fc347282647649f3fc43673277a87f0b65d4c1a0b0fb30b227cb4b58660f158f",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    },
+    "test/fploadingbrowser.js": {
+      "beforeSha256": "2b7790e60c24a4ee9982d2c05885d1ea0bb2b5ef5e733475d10757627f55d90f",
+      "afterSha256": "9c76e27d134f6472fdb56f57576db4707d25fe09749788a9d608fb6bff255b82",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    },
+    "test/fppickupbrowser.js": {
+      "beforeSha256": "39bec01f674d695005be4a11b2e807f6d54189e2048966098bf9dc467b9ed791",
+      "afterSha256": "c0541c808bfd265a4335f4f4b65597486567638adb49281a36ee25418e438e35",
+      "onlyInsertedText": " @long-suite",
+      "firstCommentOnly": true,
+      "syntaxPassed": true
+    }
+  },
+  "scope": "Only an in-comment @long-suite marker was inserted. Bodies, assertions, fixtures, UI actions and timeout values inside each suite are byte-identical to the pushed C46 parent. The pilot runner snapshot is review evidence, not a shared source edit."
+}

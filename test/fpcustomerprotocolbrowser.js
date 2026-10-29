@@ -1,4 +1,4 @@
-/* Optional descriptor and saved profile/workday are the only fixtures; all subsequent actions use real keys. */
+/* Optional descriptor and saved profile/workday are the only fixtures; all subsequent actions use real keys. @long-suite */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
 const BASE=process.env.QA_BASE||'http://127.0.0.1:8406',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c41-protocol-native',quality=process.env.QA_GFX||'low',lang=process.env.QA_LANG||'en',large=process.env.QA_LARGE==='1',kind=process.env.QA_KIND||'intercom',bad=process.env.QA_BAD==='1',id='m3-'+kind;fs.mkdirSync(OUT,{recursive:true});
 (async()=>{

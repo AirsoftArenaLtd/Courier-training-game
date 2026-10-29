@@ -1,4 +1,4 @@
-/* Native Tricky Doorsteps: real movement, targets, replies, signature widgets, door tag and durable course records. */
+/* Native Tricky Doorsteps: real movement, targets, replies, signature widgets, door tag and durable course records. @long-suite */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),cp=require('node:child_process'),crypto=require('node:crypto'),pp=require('puppeteer-core');
 const PHOTO=process.env.QA_VARIANT==='photo';
 const BASE=process.env.QA_BASE||'http://127.0.0.1:8383',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c41-doorstep-native';fs.mkdirSync(OUT,{recursive:true});

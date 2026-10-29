@@ -1,4 +1,4 @@
-/* Native blocked drive. Prepared optional metadata/profile/access settings are the only fixtures. */
+/* Native blocked drive. Prepared optional metadata/profile/access settings are the only fixtures. @long-suite */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
 const OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c42-blocked-native',BASE=process.env.QA_BASE||'http://127.0.0.1:8410',gfx=process.env.QA_GFX||'low',lang=process.env.QA_LANG||'en',large=process.env.QA_LARGE==='1',bad=process.env.QA_BAD==='1';fs.mkdirSync(OUT,{recursive:true});
 (async()=>{

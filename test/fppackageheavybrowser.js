@@ -1,4 +1,4 @@
-/* Real heavy bay keyboard flow; only the profile/suspended workday/optional descriptor are fixtures. */
+/* Real heavy bay keyboard flow; only the profile/suspended workday/optional descriptor are fixtures. @long-suite */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
 const BASE=process.env.QA_BASE||'http://127.0.0.1:8405',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c40-heavy-native',quality=process.env.QA_GFX||'low',lang=process.env.QA_LANG||'en',large=process.env.QA_LARGE==='1',unsafe=process.env.QA_UNSAFE==='1';fs.mkdirSync(OUT,{recursive:true});
 (async()=>{

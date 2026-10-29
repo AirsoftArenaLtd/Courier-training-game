@@ -1,0 +1,370 @@
+{
+  "scope": "Dry execution of the exact fetched-pilot B188 runner. Child processes and HTTP serving are stubbed; these are scheduling checks, not successful browser runs.",
+  "parent": "9c267ed47c53f8eef43c0d69c138df33b5157626",
+  "pilotRunnerRevision": "a7bd8b5785f6b13ffeebce60070caa625a9340b5",
+  "pilotRunnerSha256": "7db0dc37d8f618f16ebcc74590b29384ad97f4dbbe00771f157bca682291f5d9",
+  "commentOnlyFilesVerified": 13,
+  "inheritedMarkers": [
+    "fpicefatiguebrowser.js",
+    "fpwellnessbrowser.js",
+    "fpincidentbrowser.js",
+    "fpreversebrowser.js"
+  ],
+  "namedLessons": [
+    "fproutelessonbrowser.js",
+    "fphazardlessonbrowser.js",
+    "fpdrivinglessonbrowser.js",
+    "fpjunctionlessonbrowser.js",
+    "fpnightlessonbrowser.js",
+    "fpschoollessonbrowser.js"
+  ],
+  "ordinaryControls": [
+    "fpbrandingbrowser.js",
+    "fppackagelabelboundbrowser.js"
+  ],
+  "cases": [
+    {
+      "label": "defaults",
+      "environment": {},
+      "stubbedChildCount": 25,
+      "actualChildProcessesStarted": 0,
+      "actualServersStarted": 0,
+      "ordinaryTimeoutMs": 900000,
+      "longTimeoutMs": 3600000,
+      "orderAndLimits": [
+        {
+          "file": "fpbrandingbrowser.js",
+          "ms": 900000
+        },
+        {
+          "file": "fppackagelabelboundbrowser.js",
+          "ms": 900000
+        },
+        {
+          "file": "fpcustomerbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpcustomerprotocolbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpcustomerstopbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpdrivinglessonbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fphazardlessonbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpicefatiguebrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpincidentbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpjunctionlessonbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fploadingbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpnightlessonbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fppackageheavybrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fppackagelabelbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fppackageliftbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fppackagesortbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fppickupbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpproblemblockedbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpproblembrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpproblemroutebrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpreversebrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fproutelessonbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpscannerstopbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpschoollessonbrowser.js",
+          "ms": 3600000
+        },
+        {
+          "file": "fpwellnessbrowser.js",
+          "ms": 3600000
+        }
+      ],
+      "serverClosed": true
+    },
+    {
+      "label": "custom-limits",
+      "environment": {
+        "QA_TIMEOUT": "1200",
+        "QA_LONG_TIMEOUT": "1800"
+      },
+      "stubbedChildCount": 25,
+      "actualChildProcessesStarted": 0,
+      "actualServersStarted": 0,
+      "ordinaryTimeoutMs": 1200000,
+      "longTimeoutMs": 1800000,
+      "orderAndLimits": [
+        {
+          "file": "fpbrandingbrowser.js",
+          "ms": 1200000
+        },
+        {
+          "file": "fppackagelabelboundbrowser.js",
+          "ms": 1200000
+        },
+        {
+          "file": "fpcustomerbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpcustomerprotocolbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpcustomerstopbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpdrivinglessonbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fphazardlessonbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpicefatiguebrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpincidentbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpjunctionlessonbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fploadingbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpnightlessonbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fppackageheavybrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fppackagelabelbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fppackageliftbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fppackagesortbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fppickupbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpproblemblockedbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpproblembrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpproblemroutebrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpreversebrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fproutelessonbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpscannerstopbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpschoollessonbrowser.js",
+          "ms": 1800000
+        },
+        {
+          "file": "fpwellnessbrowser.js",
+          "ms": 1800000
+        }
+      ],
+      "serverClosed": true
+    },
+    {
+      "label": "ordinary-limit-remains-a-floor",
+      "environment": {
+        "QA_TIMEOUT": "4200",
+        "QA_LONG_TIMEOUT": "1800"
+      },
+      "stubbedChildCount": 25,
+      "actualChildProcessesStarted": 0,
+      "actualServersStarted": 0,
+      "ordinaryTimeoutMs": 4200000,
+      "longTimeoutMs": 4200000,
+      "orderAndLimits": [
+        {
+          "file": "fpbrandingbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fppackagelabelboundbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpcustomerbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpcustomerprotocolbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpcustomerstopbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpdrivinglessonbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fphazardlessonbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpicefatiguebrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpincidentbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpjunctionlessonbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fploadingbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpnightlessonbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fppackageheavybrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fppackagelabelbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fppackageliftbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fppackagesortbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fppickupbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpproblemblockedbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpproblembrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpproblemroutebrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpreversebrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fproutelessonbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpscannerstopbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpschoollessonbrowser.js",
+          "ms": 4200000
+        },
+        {
+          "file": "fpwellnessbrowser.js",
+          "ms": 4200000
+        }
+      ],
+      "serverClosed": true
+    }
+  ],
+  "allPassed": true
+}

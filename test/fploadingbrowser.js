@@ -1,4 +1,4 @@
-/* Real-key M6 journeys: physical cargo actions, original-callback equivalence, accessible layouts and durable records. */
+/* Real-key M6 journeys: physical cargo actions, original-callback equivalence, accessible layouts and durable records. @long-suite */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),cp=require('node:child_process'),crypto=require('node:crypto'),pp=require('puppeteer-core'),original=require('./tools/fp-loading-original');
 const ROOT=path.resolve(__dirname,'..'),BASE=process.env.QA_BASE||'http://127.0.0.1:8386',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c44-loading-native',VARIANT=process.env.QA_VARIANT||'good';fs.mkdirSync(OUT,{recursive:true});
 if(!['good','bad-load','wrong-find','abandon'].includes(VARIANT))throw Error('Unknown loading journey variant');

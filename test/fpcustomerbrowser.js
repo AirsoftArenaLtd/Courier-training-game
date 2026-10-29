@@ -1,4 +1,4 @@
-/* Native customer decisions and walking. Registration and a suspended real workday are the only fixtures. */
+/* Native customer decisions and walking. Registration and a suspended real workday are the only fixtures. @long-suite */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core');
 const BASE=process.env.QA_BASE||'http://127.0.0.1:8383',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c41-customer-native';fs.mkdirSync(OUT,{recursive:true});
 (async()=>{
