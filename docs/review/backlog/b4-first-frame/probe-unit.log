@@ -1,0 +1,11 @@
+✔ the observer preserves method receivers, results and the exact loaded bank (2.6705ms)
+✔ loading, hidden hub frames and an opaque transition cannot satisfy the first uncovered route frame (0.916353ms)
+✔ resume starts a separate sample and loader errors remain errors (3.284036ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12.408716
