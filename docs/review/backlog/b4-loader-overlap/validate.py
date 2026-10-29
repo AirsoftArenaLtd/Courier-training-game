@@ -3,7 +3,7 @@
 from pathlib import Path
 import os,json,hashlib,subprocess,fcntl,time,shutil,psutil
 BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3];OUT=BASE/'acceptance';OUT.mkdir(parents=True,exist_ok=True);os.chdir(ROOT)
-BASELINE=Path('/workspace/b4-first-frame-candidate/docs/review/backlog/b4-first-frame-c39/candidate/acceptance/status.json')
+BASELINE=Path('/workspace/b4-first-frame-candidate/docs/review/backlog/b4-first-frame-c39/candidate/resources-ready/status.json')
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 files=[p for name in ['src','data','lib','assets/3d','css','test/tools'] for p in Path(name).rglob('*') if p.is_file()]+[p for p in Path('test').glob('*.js')]+[Path(p) for p in ['index.html','first-person.html','assets/art-pack.js']]
 jobs=[{'tag': 'b4-overlap-assets', 'script': 'test/fpassetsbrowser.js', 'env': {}}, {'tag': 'b4-overlap-frame-low', 'script': 'test/fpfirstframebrowser.js', 'env': {'QA_GFX': 'low'}}, {'tag': 'b4-overlap-frame-high', 'script': 'test/fpfirstframebrowser.js', 'env': {'QA_GFX': 'high'}}, {'tag': 'b4-overlap-recovery-low', 'script': 'test/fpcontextrecoverybrowser.js', 'env': {'QA_GFX': 'low', 'QA_LANG': 'en', 'QA_LARGE': '0'}}, {'tag': 'b4-overlap-resources', 'script': 'test/tools/fp-startup-quality.js', 'env': {}}]

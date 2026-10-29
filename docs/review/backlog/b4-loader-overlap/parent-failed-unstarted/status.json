@@ -1,0 +1,8 @@
+{
+  "phase": "failed",
+  "controllerPid": 357778,
+  "jobs": [],
+  "startedAt": 1793291329.3897638,
+  "failure": "Parent candidate failed; preserve it and resolve before measuring loader overlap",
+  "endedAt": 1793300667.6306155
+}
