@@ -8,6 +8,7 @@
  *   node test/run-all.js --browser       those, then every browser suite (one at a time: they measure frame time)
  *   node test/run-all.js fpnav workday   only the suites whose file name contains one of these words
  *   QA_JOBS=1 ... / QA_TIMEOUT=900 ...   suites at a time for the Node group / seconds before a suite is stopped
+ *   QA_LONG_TIMEOUT=3600 ...             the same for a long 3D acceptance suite (B-188), which runs last
  *   node test/run-all.js --review <branch>  merge a Codex branch into pilot in a scratch worktree and run the review's
  *                                        first steps (test/tools/review-branch.js, B-69)
  *   node test/run-all.js --rc            the release-candidate pass (B-157): the Node and browser suites, then the 15
@@ -89,6 +90,11 @@ if (process.argv.includes('--list') || process.argv.includes('--readme')) {
   process.exit(0);
 }
 const TIMEOUT = (Number(process.env.QA_TIMEOUT) || 900) * 1000;
+// B-188: a 3D acceptance suite that plays whole drives in every quality, language and text size (C-39's lessons take
+// 7 to 52 minutes alone) declares itself long, by name (*lessonbrowser.js) or with "@long-suite" in its first lines;
+// it gets its own limit and runs after the others, so they report first
+const LONG_TIMEOUT = (Number(process.env.QA_LONG_TIMEOUT) || 3600) * 1000;
+const isLong = (f) => /lessonbrowser\.js$/.test(f) || /@long-suite/.test(fs.readFileSync(path.join(__dirname, f), 'utf8').slice(0, 2000));
 
 const findBrowser = () => [process.env.QA_BROWSER, '/opt/pw-browsers/chromium', '/usr/bin/chromium', '/usr/bin/chromium-browser',
   '/usr/bin/google-chrome', '/usr/bin/google-chrome-stable'].find(p => p && fs.existsSync(p));
@@ -123,11 +129,12 @@ const killTree = (pid) => {
 };
 
 const run = (file, env) => new Promise((resolve) => {
+  const limit = isLong(file) ? Math.max(TIMEOUT, LONG_TIMEOUT) : TIMEOUT;
   const t0 = Date.now(), log = fs.createWriteStream(path.join(OUT, file.replace(/\.js$/, '.log')));
   const child = spawn(process.execPath, [path.join(__dirname, file)], { cwd: ROOT, env });
   child.stdout.pipe(log, { end: false }); child.stderr.pipe(log, { end: false });
   let timedOut = false;
-  const timer = setTimeout(() => { timedOut = true; killTree(child.pid); }, TIMEOUT);
+  const timer = setTimeout(() => { timedOut = true; killTree(child.pid); }, limit);
   child.on('close', (code) => {
     clearTimeout(timer); log.end();
     resolve({ file, ok: code === 0 && !timedOut, why: timedOut ? 'timed out' : code === 0 ? '' : `exit ${code}`, s: (Date.now() - t0) / 1000 });
@@ -204,7 +211,7 @@ const releaseCandidate = async (results) => {
   await pool(nodeFiles.filter(opensPage), 1, env, results);
   if (withBrowser) {
     if (!exe) console.log('No Chromium found: set QA_BROWSER. Browser suites not run.');
-    else await pool(browserFiles, 1, env, results);
+    else await pool(browserFiles.filter(f => !isLong(f)).concat(browserFiles.filter(isLong)), 1, env, results);
   }
   if (rc) await releaseCandidate(results);
   server.close();
