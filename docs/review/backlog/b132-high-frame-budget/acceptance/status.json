@@ -1,6 +1,8 @@
 {
-  "phase": "queued",
+  "phase": "superseded-before-start-C39-rebase",
   "controllerPid": 289178,
   "jobs": [],
-  "startedAt": 1793244103.6309376
+  "startedAt": 1793244103.6309376,
+  "supersededAt": 1793262171.7110689,
+  "reason": "C39 merged and Claude requested the module rebase; retain this unstarted plan and retarget validation on the new source. No hourly automation was changed."
 }
