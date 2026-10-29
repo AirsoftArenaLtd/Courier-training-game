@@ -1,0 +1,57 @@
+{
+  "scope": "Current physical adapter integration; native/rendered validation pending.",
+  "suites": [
+    {
+      "file": "test/fpicefatigue.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpicefatiguestage.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpicefatiguegeometry.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fproute.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpday.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpreverselesson.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpproblemblockedworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0
+    }
+  ]
+}

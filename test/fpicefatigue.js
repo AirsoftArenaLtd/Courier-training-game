@@ -28,9 +28,12 @@ test('careful actual walking across the gritted route passes at four input rates
  }
 });
 test('fast motor movement onto ice fails immediately, remains failed after careful recovery, and is not critical',()=>{
- const c=fixture();c.s=c.K.ice(c.log,c.m,iceSpec);c.K.weather(c.s,'drive.weather',{ok:true});
+ const c=fixture();c.m.player.x=7;c.s=c.K.ice(c.log,c.m,iceSpec);c.K.weather(c.s,'drive.weather',{ok:true});
  while(!c.s.slipped){c.m.step({forward:1,back:0,left:0,right:0,careful:false},.05);c.K.observeIce(c.s,c.m,.05);}
  const slip=c.s.slipAt;assert.ok(slip>0);const result=walkIce(c);assert.ok(result.ratios.safety<1);assert.equal(c.s.slipAt,slip);assert.equal(c.log.criticals().length,0);
+});
+test('normal motor pace on the gritted strip does not count as running on bare ice',()=>{
+ const c=fixture();c.s=c.K.ice(c.log,c.m,iceSpec);c.K.weather(c.s,'drive.weather',{ok:true});const result=walkIce(c,{careful:false});assert.equal(c.s.slipped,false);assert.equal(result.ratios.safety,1);
 });
 test('a physical handrail can replace the gritted route, but a remote request or merely standing still cannot',()=>{
  const c=fixture();c.m.player.x=7;c.s=c.K.ice(c.log,c.m,iceSpec);c.K.weather(c.s,'drive.weather',{ok:true});const result=walkIce(c,{rail:true});assert.equal(result.ratios.safety,1);assert.equal(c.s.gritDistance,0);assert.ok(c.s.railDistance>=1);

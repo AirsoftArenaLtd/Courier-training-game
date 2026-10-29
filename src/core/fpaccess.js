@@ -109,6 +109,8 @@ OTR.fpAccess={
     if(id.startsWith('protocol-intercom-'))return `intercom button ${id.slice(18)}`;
     if(id.startsWith('protocol-locker-'))return `locker compartment ${id.slice(16)}`;
     if(id==='protocol-reception')return 'the reception desk';
+    if(id==='wellness-road-notice')return 'the mounted road-safety notice';
+    if(id==='wellness-handrail')return 'the handrail';
     if(scene.model?.customerStop?.wellness&&id.startsWith('wellness-'))return OTR.fpWellnessScenario.targetName(scene,id);
     if(scene.model?.loading&&id.startsWith('loading-'))return OTR.fpLoadingScenario.targetName(scene,id);
     if(scene.model?.pickupTask&&id.startsWith('pickup-'))return OTR.fpPickupScenario.targetName(scene,id);

@@ -1,0 +1,21 @@
+{
+  "scope": "Low CPU whole-world/mirror geometry only. Real loaded GLBs versus missing assets, both adapters, both cab gears, actual notices/rail/grit and pedestrian views. No rendered resource/native/Intel FPS acceptance.",
+  "reports": [
+    {
+      "loaded": true,
+      "poses": 444,
+      "peak": {
+        "calls": 40,
+        "triangles": 1534
+      }
+    },
+    {
+      "loaded": false,
+      "poses": 444,
+      "peak": {
+        "calls": 39,
+        "triangles": 1394
+      }
+    }
+  ]
+}

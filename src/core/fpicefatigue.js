@@ -1,4 +1,4 @@
-/* Unloaded M8 policy kernels. Physical adapters supply real motion and local reports; no saved workday writes. */
+/* M8 policy kernels. Physical adapters supply real motion and local reports; no saved workday writes. */
 window.OTR=window.OTR||{};
 OTR.fpIceFatigue={
   box(b){
@@ -31,7 +31,7 @@ OTR.fpIceFatigue={
     s.oldX=p.x;s.oldZ=p.z;if(!moving)return true;
     if(this.inside(p,s.start))s.started=true;
     if(!s.started)return true;s.distance+=distance;
-    if(this.inside(p,s.ice)&&distance/dt>1.5&&!s.slipped){s.slipped=true;s.slipAt=s.time;}
+    if(this.inside(p,s.ice)&&!this.inside(p,s.grit)&&distance/dt>1.5&&!s.slipped){s.slipped=true;s.slipAt=s.time;}
     if(this.inside(p,s.grit))s.gritDistance+=distance;
     if(!this.inside(p,s.rail))s.holdingRail=false;
     if(s.holdingRail)s.railDistance+=distance;

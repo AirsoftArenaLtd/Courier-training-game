@@ -62,6 +62,7 @@ OTR.fpRoute = {
     return false;
   },
   limit(m) {
+    if(!m.town)return 15;
     const s = m.town.school, v = m.van;
     return Math.abs(v.x - s.x) <= m.town.road / 2 && v.z >= s.z0 && v.z <= s.z1 ? m.town.schoolLimit : m.town.limit;
   },
