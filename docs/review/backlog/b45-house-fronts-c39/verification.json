@@ -1,0 +1,84 @@
+{
+  "scope": "B45 bounded High delivery fronts. Original Low/High town pixel checks and 48 static resource views; native full-route and owner Intel FPS remain separate.",
+  "sourceRevision": "b0c2263a19c13bf840e631fb707a4e8b033cbfda",
+  "planSha256": "bab9c7fa9283aeb1f50ec32b87ffd549fe29ae75d5875713674e82227c43df1a",
+  "sourceCount": 802,
+  "hostFontCount": 4,
+  "allInputHashesVerified": true,
+  "productionDifferencesFromParent": [
+    "src/core/fptown.js",
+    "src/core/fpworld.js"
+  ],
+  "parent": "29f421fd",
+  "cpuLogsVerified": 14,
+  "artifactCount": 76,
+  "nativeTownPixelChecks": 173,
+  "resourceMetadataRevision": "a809fa6ec3fdbfa745376e894a2318bc79149247",
+  "metadataOnlyDifference": [
+    "docs/COORDINATION.md"
+  ],
+  "resourceViews": 48,
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "views": 12,
+      "peak": {
+        "calls": 53,
+        "triangles": 2402,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2623766
+      }
+    },
+    {
+      "id": "loaded-high",
+      "views": 12,
+      "peak": {
+        "calls": 115,
+        "triangles": 244765,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 9027110
+      }
+    },
+    {
+      "id": "accessible-low",
+      "views": 12,
+      "peak": {
+        "calls": 53,
+        "triangles": 2402,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2990086
+      }
+    },
+    {
+      "id": "fallback-low",
+      "views": 12,
+      "peak": {
+        "calls": 53,
+        "triangles": 2168,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2623766
+      }
+    }
+  ],
+  "perViewLedger": [],
+  "visualReadings": 4,
+  "cleanup": {
+    "controllerPid": {
+      "pid": 374700,
+      "status": "zombie"
+    },
+    "serverPid": {
+      "pid": 377891,
+      "status": "gone"
+    },
+    "childPid": {
+      "pid": 378605,
+      "status": "gone"
+    }
+  },
+  "allPassed": true
+}

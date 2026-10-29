@@ -1,0 +1,122 @@
+{
+  "phase": "complete",
+  "controllerPid": 374700,
+  "jobs": [
+    {
+      "tag": "b45-c39-town-low",
+      "script": "test/fptownbrowser.js",
+      "env": {
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c27-low-town-shop.png": "88be7f1f4e051bbebb8ebdea8b2884047b11eec3243c7d51619c930d5e71a376",
+        "c27-low-town.json": "7295426151a9b16e097c8d39a37d6be4f4103a171eab1f72cd671789004ffc8c",
+        "c27-low-town-tree.png": "2832cdaea1c4fcb6e31f6ac030ca2655504ee426c9848c498878e503842e2cc9",
+        "c27-low-town-house.png": "8686082cf28c7c66db8b108bcb3db14f41d621d073609a85cc17fb5ddb82ddbd",
+        "c27-low-town-streetlight.png": "76ff9e28e1894596fc6d8b2cca668f6b4c1bcf709f837ed97be0cc9c589749a6",
+        "c27-low-town-fence.png": "26ad1e3ca4290363b827dc7c431a2ec0059bf5fb791b253a1705f2cd4b46889c",
+        "c27-low-town-house-wide.png": "505f347481abcc7a49d0cce639958b424295ef82acc77ad6f90af5a14fb9e7ca",
+        "c27-low-town-road.png": "a1be60113a32042f728a1000bf513ee8f9b0c25ee8e770258632f2e01299c9c5",
+        "c27-low-town-parked-car.png": "ec5529d2bf45504ad15037c882679335a8a0187ebf646fa6e1fc8e8c1c92cdb0"
+      }
+    },
+    {
+      "tag": "b45-c39-town-high",
+      "script": "test/fptownbrowser.js",
+      "env": {
+        "QA_GFX": "high"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c27-high-town.json": "ef692c7364fc7790f0b095c7618c45683d290da570a77c7c75105dc2557a6672",
+        "c27-high-town-house-wide.png": "609b84c7d9a351dd92343a251174dc331e1a4d2f58283692f9424ea8338b4f01",
+        "c27-high-town-parked-car.png": "a352796c6e2cfbd5680c70bc4d382025deae3def1e49700991b4357402dc85dc",
+        "c27-high-town-fence.png": "112d5d0097b8439d0cbfbfba4f5a352e9b88b51e9a6e8b178ce4e069571056b4",
+        "c27-high-town-streetlight.png": "ba10639e357b1ef0d9fd5e7c0776ad8e1cae0999fcce57a0e5d4a0ad4c70c753",
+        "c27-high-town-house.png": "4b3622966cb1ec8325b60ce5b25116541d4121630985807a23aea25a63ac88ca",
+        "c27-high-town-tree.png": "0cd5f84050136f1f3c6a2628814ae73f5fa97c70f4d39fad8d4efe3ee89e2bcb",
+        "c27-high-town-road.png": "973155ceff15d36eb0f669a7945bc69d199b4fe765c06510a31767450496f5c0",
+        "c27-high-town-shop.png": "f8719bbca6ef766322146867c01b0e8c2a166870220a2e2cba894b4658b0f856",
+        "c27-high-town-bench.png": "84379dd1e6eb684706f26bf9dae34cd8186e3d27cbce6eab9d13131952e903dd"
+      }
+    },
+    {
+      "tag": "b45-c39-front-resources",
+      "script": "test/tools/fp-delivery-front-quality.js",
+      "env": {
+        "QA_FPS_FLOOR": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b45-c39-front-resources-loaded-high-high-cab.png": "da6722be55a966443f023258060d99827f58ff00f822d3ce0acb274699da76c0",
+        "b45-c39-front-resources-fallback-low-low-doorsignature.png": "68145e3c9346c7c6fda7e5e015f7e3bd9ff70a2dbff7a4d0f48190eaacd4ff0b",
+        "b45-c39-front-resources-accessible-low-low-mirror.png": "cba48d13d3d73f593b81c643e5a2ba2739c495084c3b12e6707768bcc6a6dfa1",
+        "b45-c39-front-resources-fallback-low-low-trafficpeak.png": "ae55065ba8798df7f0398f1c31fa00dfffa3bcf8df5ad8eb71ae2efcfd800e03",
+        "b45-c39-front-resources-loaded-high-high-ambientnight.png": "3d9efbfd27154c3a3e0cdd3da37166ce0009a21ed5ab83f48dcf26796aa0579d",
+        "b45-c39-front-resources-fallback-low-low-doorstep.png": "612881008d1e78385d698b73afd9753bb6954ddb1b63052d7f8e041d714435dc",
+        "b45-c39-front-resources-loaded-high-high-visibleweatherrainnight.png": "b2d56d7fdfa353ec649427fac771d957185919a8a39524b149181efc7091a14d",
+        "b45-c39-front-resources-fallback-low-low-mirrorRight.png": "0be2b133a2e0f5623e198d99677d1a25cafa25c25d4a86d24bf4604605d42927",
+        "b45-c39-front-resources-accessible-low-low-mirrorRight.png": "639cf8c52732e3eb27b116979f8d766eb9b89f23956f274b10981fedcdf0c1fe",
+        "b45-c39-front-resources-loaded-high-high-lightingnightreverse.png": "62a45bd6cbb544138d20ca4974ad67503cbd46804542de2341a75f61334a7efe",
+        "b45-c39-front-resources-loaded-low-low-doorid.png": "23f70012b91b03ed276ae79e8406887cef21d60563d8d9fa78a2e1e15f12db5b",
+        "bench-b45-c39-front-resources-accessible-low-low.json": "7a030b6976ae61faded4f05b2b47d59451a0b8d646ed7f65b1f7dc2aabf28f36",
+        "b45-c39-front-resources-fallback-low.log": "bb326ef2b276f694cd38f02812b6b0f4dac3ec1a609d25369bd0061952e08371",
+        "b45-c39-front-resources-accessible-low.log": "490a8ce993ab827eb2e84a954c93f68a31333a2b551510d9e51b42958d5cc3b3",
+        "b45-c39-front-resources-accessible-low-low-visibleweatherrainnight.png": "87a0a0696c71e780b8331ce9d56314d0bf048971b3b1b7a412c65cff86121a31",
+        "b45-c39-front-resources-fallback-low-low-ambientnight.png": "318bff8d5a1b4b7a38ea3120c321d67dbabecde626b775a21da709ec3eb2c6bb",
+        "b45-c39-front-resources-loaded-low-low-ambientnight.png": "98e89d073fafa2790762ff8dc78cb7fb562779969626003239e7f1fd445baf9b",
+        "b45-c39-front-resources-fallback-low-low-cab.png": "280f29d7dde66cc3f14a20826a9ade353f3ebcc252770c2ffff57f775209a33e",
+        "b45-c39-front-resources-loaded-high-high-trafficpeak.png": "760cb5fb8b6f81ad355c5bfe8d1ce84509d94a394632bf2e7569ee093b7e4cad",
+        "b45-c39-front-resources-loaded-low-low-firstStop.png": "7d9a95abcefca28949baf10cf2ae41f3343eb591fe932fb3e71b6c1d757bc780",
+        "b45-c39-front-resources-loaded-high-high-doorsignature.png": "496be873a11f40934fbd6705bdee1cbec0fc8f5d09c3ea653b7ba0961dfdf45e",
+        "b45-c39-front-resources-loaded-low-low-mirrorInterior.png": "514f9431b8cc8425dad4b88198e757792a42b5d6891c2c5c24871e835a11078a",
+        "b45-c39-front-resources-fallback-low-low-visibleweatherrainnight.png": "a4282297b3144520664d77c9507387322c7b13ff67889f911bf00461c145bc79",
+        "b45-c39-front-resources-loaded-low-low-trafficpeak.png": "3571b2f5458ea4737648946fdfd1c1a0517d5583968c43f5d5520b2fd1aa36d3",
+        "b45-c39-front-resources-loaded-high-high-mirrorInterior.png": "2f35e927b2da6d272ca04e774c931cdd818b7bb2c17f0135fef44a9f19f6dc96",
+        "b45-c39-front-resources-fallback-low-low-doorid.png": "07ee9882b8e7a6c0ad0f256348f6417f59d6b1b6a8dc699eb0c626cc25832ffe",
+        "b45-c39-front-resources-loaded-high-high-mirrorRight.png": "900ffc9dae160dcc505909353fbe4d3b2d6945e6c4d297b823e44568f56c384e",
+        "b45-c39-front-resources-loaded-low-low-doorstep.png": "7dc58e5ebc148a497055f45d953c6813e2d48d02c85f9d56dedb03682c1b48c7",
+        "b45-c39-front-resources-accessible-low-low-ambientnight.png": "5581fe8cf27e1fe440c5065e10188a3508c1b0d910b6eae24608cc83e34b4209",
+        "b45-c39-front-resources-accessible-low-low-cab.png": "b8882183c51b488ba371894542d88b9ad0f83a84febb78bccf14701bddb86c7a",
+        "b45-c39-front-resources-loaded-low-low-lightingnightreverse.png": "33559b8fbf440b717d5f3460a78637ddff27d3d308b63a5395f9834667b01483",
+        "b45-c39-front-resources-fallback-low-low-lightingnightreverse.png": "d7590d980d74b3fd9dce59505d56d7d845a5ae729a84c79b8fd84944cf1d2271",
+        "b45-c39-front-resources-accessible-low-low-firstStop.png": "b60430e9132c571ecef622e89a8fabdeb920ec7d64880378161461ee60d86df3",
+        "b45-c39-front-resources-accessible-low-low-trafficpeak.png": "4d5879d8a81c9fe7f4c0f860c211cbc7c40ad6096f527743b93bbbbc077a2d9f",
+        "b45-c39-front-resources-loaded-high-high-firstStop.png": "5f1a21dd379c96f380a114ac0cafb8cb29ff29234994d7941e85523a9a6267c9",
+        "b45-c39-front-resources-accessible-low-low-doorid.png": "c85a26be47b62ff18d59339eccac391c6de89b4bd4b181d6fe1b778632ab157f",
+        "b45-c39-front-resources-loaded-high-high-doorid.png": "baedc341083fc5a5a205277c9635ba3f21fb600a8a8ff95632b295d2b81ecf32",
+        "b45-c39-front-resources-fallback-low-low-mirrorInterior.png": "386165ed4a9f527a1aeba61c9d5264d8b2da0f8919ab7ae159e2281881ec187a",
+        "b45-c39-front-resources-loaded-low-low-mirror.png": "cc2652e324008fc7c56afb52cbf4626c974f52bf333d80e1f0001f5194faee90",
+        "b45-c39-front-resources-loaded-low-low-doorsignature.png": "c336d92e829049c7e1e55b20e8d916c9f538a48dcd5e9dd1d8c322765799ea33",
+        "b45-c39-front-resources-loaded-high-high-doorstep.png": "dfd1a5d0bc4afef2b6d916f102ac302b7dcb57677188493636d3baa2cc9f0edf",
+        "b45-c39-front-resources-loaded-low-low-cab.png": "79ff49e9641c5878442ecdcd42067befea611e022900fbc14644a7f133362167",
+        "bench-b45-c39-front-resources-fallback-low-low.json": "5af0c89ec9c3d090279fafe8993449782a32814d4e424e8a68b7440d0af2e459",
+        "b45-c39-front-resources-accessible-low-low-mirrorInterior.png": "b60df4903747aa1d2a4b4605eb00697cda0eb7fc4ab9107084401206a6252f5d",
+        "b45-c39-front-resources-loaded-high.log": "83f7cf2b49a80c374fd091122293ee2cec02c1816f04303bd0d9573f062ff20d",
+        "b45-c39-front-resources-quality.json": "4248d20302ee72b2c72d1a4101b156c049be53044c9b6c605f87248f3e803591",
+        "b45-c39-front-resources-loaded-low-low-visibleweatherrainnight.png": "a96b4525e738d14596fbd201ce998e38fe7bc545734fa5fff717569359aeb2c7",
+        "b45-c39-front-resources-accessible-low-low-doorsignature.png": "aa9de91d6ea4a97684188132720399d0b451285a7e75852a90599483a639de57",
+        "bench-b45-c39-front-resources-loaded-high-high.json": "08eb2fb0ba4d1f2c949e3b105f5b8fd77730804f9638af44791e846ee4d659eb",
+        "b45-c39-front-resources-fallback-low-low-firstStop.png": "1475aaebed8889cfd0ceab9c4c08c7a327611c07d03f9540f759151b6eaadd2d",
+        "b45-c39-front-resources-accessible-low-low-doorstep.png": "9a41028115be1638e312805c28b9203d95378a207eaad573f5a31e1129685060",
+        "b45-c39-front-resources-fallback-low-low-mirror.png": "09fbf7381c8d827ca853f97b45839ca1580a2e895bd29c615f3782e89e509aec",
+        "bench-b45-c39-front-resources-loaded-low-low.json": "85af5612c6a1a951d0fbabfa2b5bfffa82634c0517672eaaecc858724b7c078d",
+        "b45-c39-front-resources-accessible-low-low-lightingnightreverse.png": "e9afc2e282625f631b38443af754c733d52690bcc427250876255c7ccb71ec7c",
+        "b45-c39-front-resources-loaded-low-low-mirrorRight.png": "f743d79e6629d536aa68ff41bbd1394f18a5a69887ca8b8edd53996832d626b9",
+        "b45-c39-front-resources-loaded-low.log": "a7299da143023ed65ad9d7b2d601f246bdd5239fdef4a0a98b846d403175d73b",
+        "b45-c39-front-resources-loaded-high-high-mirror.png": "99c80e4b3775cbd9c275514d01a9584f613757ad2164e6f109bc311f253ef259"
+      }
+    }
+  ],
+  "startedAt": 1793301978.2744277,
+  "serverPid": 377891,
+  "tag": "b45-c39-front-resources",
+  "childPid": 378605,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793304177.9514396
+}

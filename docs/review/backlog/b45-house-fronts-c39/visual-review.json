@@ -1,0 +1,41 @@
+{
+  "scope": "Four source-scoped static readings; original close doorway crops are explicitly retained, not claimed as an address reading audit.",
+  "captures": [
+    {
+      "path": "acceptance-ready/artifacts/b45-c39-front-resources/b45-c39-front-resources-loaded-high-high-firstStop.png",
+      "sha256": "5f1a21dd379c96f380a114ac0cafb8cb29ff29234994d7941e85523a9a6267c9",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Actual High facade pool is visible on the right of the cab with source town detail; mirrors and original cab remain. Resource proof independently verifies selected source instances and unchanged address/door anchors."
+    },
+    {
+      "path": "acceptance-ready/artifacts/b45-c39-front-resources/b45-c39-front-resources-loaded-high-high-doorstep.png",
+      "sha256": "dfd1a5d0bc4afef2b6d916f102ac302b7dcb57677188493636d3baa2cc9f0edf",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Close delivery view shows the original door in the imported brick facade, with the parcel carried. The inherited close fixture crops the top of the house number; approach readability belongs to the wider view and native reading controls."
+    },
+    {
+      "path": "acceptance-ready/artifacts/b45-c39-front-resources/b45-c39-front-resources-loaded-low-low-doorstep.png",
+      "sha256": "7dc58e5ebc148a497055f45d953c6813e2d48d02c85f9d56dedb03682c1b48c7",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Low keeps the original procedural wall/door and parcel. Its same inherited close fixture also crops the house number; no new loaded facade is present."
+    },
+    {
+      "path": "acceptance-ready/artifacts/b45-c39-front-resources/b45-c39-front-resources-fallback-low-low-firstStop.png",
+      "sha256": "1475aaebed8889cfd0ceab9c4c08c7a327611c07d03f9540f759151b6eaadd2d",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Missing-model Low preserves procedural houses/cab/mirrors and navigation. No imported facade is expected; resource proof requires zero selected model instances."
+    }
+  ]
+}

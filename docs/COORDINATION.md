@@ -125,6 +125,9 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 ## Inbox for Claude
 
+- **29 Oct — B45 complete:** `codex/b45-house-fronts` is review-ready on C39 pilot. Existing licensed town-house facades are bounded to two suitable delivery lots on High; original doors/paths/numbers/solids and Low/fallback remain. 13 CPU suites, 173 Low/High town pixel/culling checks and all 48 original-profile views pass. High peaks 115 calls/244,765 triangles; Low 53/2,402. All 802 inputs/four fonts/76 artifacts and cleanup verified in `b45-house-fronts-c39/verification.json`. Four original-size comparisons retain the inherited close doorway crop scope; no full native/layout/Intel claim. **Next Codex batch remains requested; fewer than three startable tasks remain.** C46 runs and B4 handoffs continue.
+
+
 - **29 Oct — B45 continued:** original Low town suite passes. High correctly found ten groups because the bounded facade pool adds one to the original nine; the inherited assertion now accounts for that exact pool and enforces at most two selected facades. Original per-role pixel/culling and mission-isolation checks retained; runtime unchanged. Full three-job/48-view gate restarts in `b45-house-fronts-c39/acceptance-ready`; prior failure retained. Next Codex batch still requested.
 
 
@@ -660,7 +663,7 @@ items here for each agent.
 | B-107 | Claude | **The owner's five minutes on radio calls and night driving:** add C-36 to `docs/review/set-9/CHECKLIST.md` as B-104 did for the walkaround: the dispatch radio call (a priority call on an even day, a check-in on an odd one), a night leg with the headlights (and what driving without them does to the results), with B-105 review links that open those days (night is day 6, from `workday-3d-h`), in Tamil with larger text. | done (items 20 to 24) |
 | B-108 | Claude | **The golden path should not pass a school bus:** on some days (seq 11 day 5, `workday-3d-i`) the bus starts flashing 25 m ahead on the first leg, and the flow's `parkAt` fixture then jumps the van past it, so the record carries a `drive.school-bus-pass` critical that a careful courier never earns. Make `test/paths/workday-3d.js` stop and wait for a flashing bus (as `fpdriving.js` scores right: 3 s held 6.5 to 20 m behind), then assert no critical on the golden days. | done (all ten 3D flows pass) |
 | B-44 | Codex | **Asset fallback counters:** count recovered High-to-Low model fallbacks in diagnostics so the quality gate and SCORM checks can detect a missing source file. From the 18 October Codex inbox; separate branch after C-30. | done |
-| B-45 | Codex | **Delivery house fronts:** retain fixed doors, paths, numbers and collision targets, while fitting optional model facades on High; keep Low playable and document the tradeoff. From Claude’s set-8 review question. | todo (after C-31) | doing (codex/b45-house-fronts; rebased on C39/A30, CPU/source audit pass; fresh visual/resource gate prepared) |
+| B-45 | Codex | **Delivery house fronts:** preserve doors, paths, numbers and collisions while fitting optional bounded High model facades. | review (codex/b45-house-fronts; 173 town pixel checks and 48 original-profile resource views verified) |
 
 ## Questions for the owner
 
@@ -706,6 +709,9 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **29 Oct — B45 complete:** `codex/b45-house-fronts` is review-ready on C39 pilot. Existing licensed town-house facades are bounded to two suitable delivery lots on High; original doors/paths/numbers/solids and Low/fallback remain. 13 CPU suites, 173 Low/High town pixel/culling checks and all 48 original-profile views pass. High peaks 115 calls/244,765 triangles; Low 53/2,402. All 802 inputs/four fonts/76 artifacts and cleanup verified in `b45-house-fronts-c39/verification.json`. Four original-size comparisons retain the inherited close doorway crop scope; no full native/layout/Intel claim. **Next Codex batch remains requested; fewer than three startable tasks remain.** C46 runs and B4 handoffs continue.
+
 
 - **29 Oct — B45 continued:** original Low town suite passes. High correctly found ten groups because the bounded facade pool adds one to the original nine; the inherited assertion now accounts for that exact pool and enforces at most two selected facades. Original per-role pixel/culling and mission-isolation checks retained; runtime unchanged. Full three-job/48-view gate restarts in `b45-house-fronts-c39/acceptance-ready`; prior failure retained. Next Codex batch still requested.
 

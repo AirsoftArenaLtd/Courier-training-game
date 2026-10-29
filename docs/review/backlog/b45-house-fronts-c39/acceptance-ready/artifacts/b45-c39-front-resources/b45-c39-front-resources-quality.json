@@ -1,0 +1,58 @@
+{
+  "sourceRevision": "a809fa6ec3fdbfa745376e894a2318bc79149247",
+  "scope": "Twelve existing delivery/cab/reflection/night/rain/traffic poses in each original quality profile (48 static views). Observation-only facade bounds/count/identity/state proof; separate from native progression and Intel acceptance.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-b45-c39-front-resources-loaded-low-low.json",
+      "log": "b45-c39-front-resources-loaded-low.log",
+      "peak": {
+        "calls": 53,
+        "triangles": 2402,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2623766
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-b45-c39-front-resources-loaded-high-high.json",
+      "log": "b45-c39-front-resources-loaded-high.log",
+      "peak": {
+        "calls": 115,
+        "triangles": 244765,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 9027110
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-b45-c39-front-resources-accessible-low-low.json",
+      "log": "b45-c39-front-resources-accessible-low.log",
+      "peak": {
+        "calls": 53,
+        "triangles": 2402,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2990086
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-b45-c39-front-resources-fallback-low-low.json",
+      "log": "b45-c39-front-resources-fallback-low.log",
+      "peak": {
+        "calls": 53,
+        "triangles": 2168,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2623766
+      }
+    }
+  ]
+}
