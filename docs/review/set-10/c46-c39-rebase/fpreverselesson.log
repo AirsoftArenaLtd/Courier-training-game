@@ -1,0 +1,18 @@
+✔ the bounded car crosses outside the physical bay walls and waits for real reverse movement (295.346609ms)
+✔ a real required path check and backing manoeuvre produce the unchanged workday wording locally (13.085284ms)
+✔ traffic contact from the actual motor is a local critical and cannot be repaired by later good observations (57.615031ms)
+✔ missing required checks fail and late safe manoeuvres never dilute an earlier mistake (6.57172ms)
+✔ event floods stay bounded and cannot finish an overflowed exercise (2.383428ms)
+✔ a slow physical reverse, stop for the crossing car, renewed checks and final parking earn the source checks (207.948ms)
+✔ even a very slow static-wall reverse contact is critical, below the ordinary HUD contact threshold (26.545956ms)
+✔ a model created before session binding never emits to the suspended workday (57.821041ms)
+✔ the existing five-mph backing limit records its exact failure without inventing a contact critical (8.583288ms)
+✔ the crossing car waits for a stopped van instead of creating an unavoidable NPC contact (235.193096ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 962.482088

@@ -1,0 +1,17 @@
+✔ each existing id keeps categories, source data/par, unchanged defaults and bounded counter collision (102.701133ms)
+✔ real walking around the outgoing table reaches the shipper and all counter papers (84.896799ms)
+✔ all three complete counter workflows use real parcel/paper rays, source outcomes and the receipt gate (456.635922ms)
+✔ repeated panel callbacks and actions after looking away cannot grade a second parcel or count (103.075712ms)
+✔ normal/larger panels expose remapped keys and assessment conversation never shows answer feedback (58.307527ms)
+✔ the ordinary workday pickup method never constructs module-only counter state (11.225995ms)
+✔ inspection retains one actually faced printed label after the panel hides the reticle target (107.596717ms)
+✔ closed, replaced and abandoned receipt pages cannot sign or complete from stale callbacks (118.336256ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1098.260519
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
