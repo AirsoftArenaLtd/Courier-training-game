@@ -1,0 +1,42 @@
+✔ the real vendored loader selects Low and High and parses the bundled CC0 variants (175.983669ms)
+✔ two repeated models share geometry and material, fit their existing footprint and remain visible after compaction (10.418698ms)
+✔ missing, truncated and wrong-size files retain the procedural fallback without blocking completion (9.819354ms)
+✔ High can fall back to the Low variant, while Low never fetches High (16.450235ms)
+✔ unlisted paths, duplicate variants and byte budgets fail before an asset request (47.901034ms)
+✔ external GLB buffers/images, unsupported compression and oversized decoded arrays never reach the parser (21.146365ms)
+✔ embedded images keep the 1k/2k dimension limits and the two-megabyte encoded texture budget (8.840887ms)
+✔ an unavailable loader, a network timeout and external cancellation all return safely (23.748772ms)
+✔ late decoder completion after cancellation releases geometry and material exactly once (7.125376ms)
+✔ a missing real High van is counted as a recovered model fallback (659.899277ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 997.714389
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.

@@ -1,0 +1,15 @@
+✔ every scenario with a 3D version keeps its 2D id, categories and star thresholds (2.988622ms)
+✔ the trainer's choice is kept per module, and anything else reads as "3D where ready" (0.558283ms)
+✔ a scenario starts its 2D scene unless a 3D version is chosen or ready, and the PC can run it (0.756001ms)
+✔ a 3D-only scenario on a PC without WebGL says so, and is left out of "every module passed" (0.552343ms)
+✔ passing every counted scenario completes the course, with optional ones left unplayed (3.190106ms)
+✔ a 3D result and a 2D result of the same scenario land in the same record (5.154351ms)
+✔ the hub lists a 3D-only scenario only once A-31's QA sets its default3d (0.335677ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23.581203

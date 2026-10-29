@@ -1,0 +1,14 @@
+{
+  "pilot": "29f421fd48a4d06c2f63edda07b175efa2418ba9",
+  "candidate": "3a9fb7bc5f86866213640595492b2f8bd5355ce8",
+  "backup": "codex/b45-before-c39-oct29",
+  "facadeImplementationMatchesPriorCandidate": true,
+  "sharedSourcesRegistryAndC39LessonsUnchanged": true,
+  "syntaxPassed": [
+    "src/core/fptown.js",
+    "src/core/fpworld.js",
+    "test/fpbench.js",
+    "test/fptown.js",
+    "test/tools/fp-delivery-front-quality.js"
+  ]
+}
