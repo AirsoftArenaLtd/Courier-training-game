@@ -1,3 +1,4 @@
+/* @long-suite: full native safety scenarios across quality, language and text sizes. */
 /* Real-key optional M8 journeys. Only prepared metadata, durable profile/workday and access preferences are fixtures. */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),pp=require('puppeteer-core'),decide=require('./tools/fp-wellness-road-input');
 const OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c46-wellness-road-native',BASE=process.env.QA_BASE||'http://127.0.0.1:8423',kind=process.env.QA_KIND||'ice',gfx=process.env.QA_GFX||'low',lang=process.env.QA_LANG||'en',large=process.env.QA_LARGE==='1',bad=process.env.QA_BAD||'';

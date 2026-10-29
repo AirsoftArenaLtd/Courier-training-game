@@ -1,3 +1,4 @@
+/* @long-suite: full native safety scenarios across quality, language and text sizes. */
 /* Playable M8 native journeys. Setup selects the adapter; all task actions use actual keys and rays. */
 const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),assert=require('node:assert/strict'),crypto=require('node:crypto'),pp=require('puppeteer-core'),original=require('./tools/fp-wellness-original');
 const ROOT=path.resolve(__dirname,'..'),OUT=path.join(__dirname,'out/fp-review'),BASE=process.env.QA_BASE||'http://127.0.0.1:8393',TAG=process.env.QA_TAG||'c46-wellness-native',VARIANT=process.env.QA_VARIANT||'good';

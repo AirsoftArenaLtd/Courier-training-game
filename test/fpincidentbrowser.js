@@ -1,3 +1,4 @@
+/* @long-suite: full native safety scenarios across quality, language and text sizes. */
 /* Native incident journeys: actual remapped keys, walking, original replies, durable records and reload. */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),cp=require('node:child_process'),crypto=require('node:crypto'),pp=require('puppeteer-core'),original=require('./tools/fp-incident-original');
 const ROOT=path.resolve(__dirname,'..'),BASE=process.env.QA_BASE||'http://127.0.0.1:8391',OUT=path.join(__dirname,'out/fp-review'),TAG=process.env.QA_TAG||'c46-incident-native',VARIANT=process.env.QA_VARIANT||'good';fs.mkdirSync(OUT,{recursive:true});if(!['good','critical','abandon'].includes(VARIANT))throw Error('Unknown incident variant');

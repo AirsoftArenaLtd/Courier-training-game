@@ -1,3 +1,4 @@
+/* @long-suite: full native safety scenarios across quality, language and text sizes. */
 /* One optional-id native journey. The test-only registry fixture is present before save/reload. */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),cp=require('node:child_process'),pp=require('puppeteer-core'),{BUDGETS}=require('./fpquality');
 const ROOT=path.resolve(__dirname,'..'),OUT=path.join(__dirname,'out/fp-review'),BASE=process.env.QA_BASE||'http://127.0.0.1:8397',TAG=process.env.QA_TAG||'c46-reverse-native',quality=process.env.QA_GFX||'low',lang=process.env.QA_LANG||'en',large=process.env.QA_LARGE!=='0',VARIANT=process.env.QA_VARIANT||'good';if(!['good','critical','omitted','abandon','timeout'].includes(VARIANT))throw Error('Unknown reverse variant');fs.mkdirSync(OUT,{recursive:true});
