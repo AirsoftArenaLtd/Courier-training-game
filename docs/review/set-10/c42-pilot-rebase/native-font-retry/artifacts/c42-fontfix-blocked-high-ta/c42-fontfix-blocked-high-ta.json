@@ -1,0 +1,375 @@
+{
+  "checks": 116,
+  "layouts": [
+    {
+      "name": "brief",
+      "texts": [
+        {
+          "source": "Blocked driveway.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Inspect the access and complete a safe delivery attempt.\n\nAssess the blocked driveway and complete a safe delivery attempt with the parcel secured.\n\nYou have 600 seconds to complete this scenario.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 364
+        },
+        {
+          "source": "1. Begin the scenario.",
+          "font": 22,
+          "scale": 1,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the station.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "early-finish",
+      "texts": [
+        {
+          "source": "Read the blocked-drive information.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Complete the exception, safe card, retained parcel and next-attempt records. Return to the legally parked van with its parcel secured and cargo doors closed.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 232
+        },
+        {
+          "source": "1. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "controls-0",
+      "texts": [
+        {
+          "source": "Use the blocked-drive controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Use W/A/S/D to walk. Look with the mouse or ←/→/↑/↓. Press O to select a nearby physical target and U to use it.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 232
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 22,
+          "scale": 1,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "controls-1",
+      "texts": [
+        {
+          "source": "Use the blocked-drive controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Keep the van on the public road. Read the access notice and inspect the driveway before choosing an exception. The delivery-card holder is at the safe public edge. Keep the parcel secured in the van when access prevents delivery.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 265
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 22,
+          "scale": 1,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "controls-2",
+      "texts": [
+        {
+          "source": "Use the blocked-drive controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Press TAB for the exception, retention and next-attempt records. Use the physical card holder to leave a card. Close the cargo doors and return to the legally parked van before finishing with F or the device.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 265
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 22,
+          "scale": 1,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "access-notice",
+      "texts": [
+        {
+          "source": "Read the blocked-drive information.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "The driveway is unsafe. Keep to the public path.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    }
+  ],
+  "shots": [
+    "c42-fontfix-blocked-high-ta-brief.png",
+    "c42-fontfix-blocked-high-ta-controls.png",
+    "c42-fontfix-blocked-high-ta-access-notice.png",
+    "c42-fontfix-blocked-high-ta-device.png",
+    "c42-fontfix-blocked-high-ta-failure.png"
+  ],
+  "walks": [
+    {
+      "x": 46.75000000000001,
+      "z": 15.016666666666671,
+      "steps": 49
+    },
+    {
+      "x": 50.1,
+      "z": 15.016666666666671,
+      "steps": 90
+    },
+    {
+      "x": 50.1,
+      "z": 16.61666666666667,
+      "steps": 50
+    },
+    {
+      "x": 50.1,
+      "z": 15.016666666666671,
+      "steps": 37
+    },
+    {
+      "x": 46.75000000000001,
+      "z": 15.016666666666671,
+      "steps": 43
+    },
+    {
+      "x": 46.75000000000001,
+      "z": 17.716666666666672,
+      "steps": 35
+    }
+  ],
+  "errors": [],
+  "gfx": "high",
+  "lang": "ta",
+  "large": true,
+  "bad": false,
+  "scope": "Real remapped target/action keys, voluntary walking, notice/card rays, cargo retrieval/replacement/restraint/doors, cab entry, records and result/reload. Only optional descriptor, durable profile/workday and explicit access settings are fixtures; no pose, parcel, protocol, timer or score writes.",
+  "fontProof": {
+    "lang": "ta",
+    "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "override": null,
+    "layout": {
+      "width": 793.21875,
+      "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    "platformFonts": [
+      {
+        "familyName": "Noto Sans Tamil",
+        "postScriptName": "NotoSansTamil-Bold",
+        "isCustomFont": false,
+        "glyphCount": 28
+      }
+    ]
+  },
+  "progress": {
+    "kind": "walk",
+    "x": 46.75000000000001,
+    "z": 17.716666666666672,
+    "player": {
+      "x": 46.96389400887617,
+      "z": 15.008508958926544,
+      "yaw": -1.6121576451874053,
+      "pitch": -0.5272179424122829
+    },
+    "elapsed": 9.143586666666357
+  },
+  "device": {
+    "top": 92,
+    "bottom": 544,
+    "texts": [
+      {
+        "scale": 1,
+        "top": 103,
+        "bottom": 125
+      },
+      {
+        "scale": 1,
+        "top": 104.5,
+        "bottom": 123.5
+      },
+      {
+        "scale": 1,
+        "top": 518.5,
+        "bottom": 537.5
+      },
+      {
+        "scale": 1,
+        "top": 150,
+        "bottom": 171
+      }
+    ],
+    "buttons": [
+      {
+        "font": 17,
+        "scale": 1,
+        "top": 294.32608695652175,
+        "bottom": 404.67391304347825
+      },
+      {
+        "font": 17,
+        "scale": 1,
+        "top": 342.8478260869565,
+        "bottom": 498.1521739130435
+      },
+      {
+        "font": 17,
+        "scale": 1,
+        "top": 440.5,
+        "bottom": 534.5
+      }
+    ]
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(value,msg)\n\n    at ok (/workspace/c42-problem-solving/test/fpproblemblockedbrowser.js:7:91)\n    at /workspace/c42-problem-solving/test/fpproblemblockedbrowser.js:29:136",
+  "state": {
+    "phase": "active",
+    "mode": "cab",
+    "player": {
+      "x": 46.760646088932305,
+      "z": 17.498709001786626,
+      "yaw": 1.7355774020396633,
+      "pitch": 0
+    },
+    "van": {
+      "x": 48.550000000000004,
+      "z": 19.41666666666667,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 2,
+      "hand": true,
+      "belt": false,
+      "look": 0,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ]
+    },
+    "target": null,
+    "panel": true,
+    "cargo": false,
+    "held": null,
+    "secured": true,
+    "atVan": true,
+    "ready": false,
+    "parcel": {
+      "id": "parcel0",
+      "location": "slot0"
+    },
+    "exception": null,
+    "sequence": {
+      "version": 1,
+      "kind": "reattempt",
+      "parcel": "parcel0",
+      "failed": false,
+      "card": false,
+      "retained": false,
+      "booked": false
+    },
+    "doorReached": false,
+    "hazards": 0,
+    "elapsed": 11.343586666666388,
+    "card": {
+      "x": 50.95,
+      "z": 24.91666666666667,
+      "y": 1.2
+    },
+    "warning": {
+      "x": 51.207499999999996,
+      "z": 16.61666666666667,
+      "w": 0.12,
+      "d": 0.12,
+      "h": 2.7
+    }
+  }
+}

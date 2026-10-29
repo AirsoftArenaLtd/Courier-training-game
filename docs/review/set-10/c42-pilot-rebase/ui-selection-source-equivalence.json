@@ -1,0 +1,7 @@
+{
+  "allProductionAndOtherInputsIdentical": true,
+  "onlyChanged": [
+    "test/fpproblemblockedbrowser.js"
+  ],
+  "reason": "showPanel pretranslates labels before constructing Phaser Text. Read-only panel.choices retains the original authored label; actual selection still uses Digit2/Digit1. The failed High run resolved Noto Tamil and reached the exception menu with 116 checks. Low/resources remain at their explicit frozen sources."
+}
