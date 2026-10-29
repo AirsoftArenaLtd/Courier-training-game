@@ -1,0 +1,168 @@
+{
+  "candidate": "e80e49ec80b35922e92bda23b22f1bdf9fa323f6",
+  "stackedOn": "010b1f23dbedc9f58ed73214e761e30107f4a208",
+  "suites": [
+    {
+      "file": "test/fploading.js",
+      "exit": 0,
+      "seconds": 0.48,
+      "log": "fploading.log"
+    },
+    {
+      "file": "test/fploadinggeometry.js",
+      "exit": 0,
+      "seconds": 8.22,
+      "log": "fploadinggeometry.log"
+    },
+    {
+      "file": "test/fploadingreference.js",
+      "exit": 0,
+      "seconds": 0.2,
+      "log": "fploadingreference.log"
+    },
+    {
+      "file": "test/fploadingscenario.js",
+      "exit": 0,
+      "seconds": 4.36,
+      "log": "fploadingscenario.log"
+    },
+    {
+      "file": "test/fploadingwalk.js",
+      "exit": 0,
+      "seconds": 14.64,
+      "log": "fploadingwalk.log"
+    },
+    {
+      "file": "test/fploadingworld.js",
+      "exit": 0,
+      "seconds": 0.79,
+      "log": "fploadingworld.log"
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0,
+      "seconds": 0.29,
+      "log": "fpscenario.log"
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0,
+      "seconds": 0.11,
+      "log": "fpcontext.log"
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0,
+      "seconds": 0.38,
+      "log": "fpgamepad.log"
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0,
+      "seconds": 1.03,
+      "log": "fpworld.log"
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0,
+      "seconds": 0.2,
+      "log": "fpaccess.log"
+    },
+    {
+      "file": "test/fpscannerstopworld.js",
+      "exit": 0,
+      "seconds": 5.28,
+      "log": "fpscannerstopworld.log"
+    },
+    {
+      "file": "test/fpproblemblockedworld.js",
+      "exit": 0,
+      "seconds": 0.48,
+      "log": "fpproblemblockedworld.log"
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0,
+      "seconds": 0.05,
+      "log": "englishtext.log"
+    },
+    {
+      "file": "test/fppretrip.js",
+      "exit": 0,
+      "seconds": 0.21,
+      "log": "fppretrip.log"
+    },
+    {
+      "file": "test/fproutelesson.js",
+      "exit": 0,
+      "seconds": 0.58,
+      "log": "fproutelesson.log"
+    },
+    {
+      "file": "test/fphazardlesson.js",
+      "exit": 0,
+      "seconds": 0.46,
+      "log": "fphazardlesson.log"
+    },
+    {
+      "file": "test/fpdrivinglesson.js",
+      "exit": 0,
+      "seconds": 1.32,
+      "log": "fpdrivinglesson.log"
+    },
+    {
+      "file": "test/fpjunctionlesson.js",
+      "exit": 0,
+      "seconds": 7.62,
+      "log": "fpjunctionlesson.log"
+    },
+    {
+      "file": "test/fpschoollesson.js",
+      "exit": 0,
+      "seconds": 5.24,
+      "log": "fpschoollesson.log"
+    },
+    {
+      "file": "test/fpnightlesson.js",
+      "exit": 0,
+      "seconds": 17.16,
+      "log": "fpnightlesson.log"
+    },
+    {
+      "file": "test/fppackagesortscenario.js",
+      "exit": 0,
+      "seconds": 0.37,
+      "log": "fppackagesortscenario.log"
+    },
+    {
+      "file": "test/fpcustomerscenario.js",
+      "exit": 0,
+      "seconds": 0.26,
+      "log": "fpcustomerscenario.log"
+    },
+    {
+      "file": "test/fpcustomerstopscenario.js",
+      "exit": 0,
+      "seconds": 0.53,
+      "log": "fpcustomerstopscenario.log"
+    },
+    {
+      "file": "test/fpproblemscenario.js",
+      "exit": 0,
+      "seconds": 0.52,
+      "log": "fpproblemscenario.log"
+    },
+    {
+      "file": "test/fpscannerstopscenario.js",
+      "exit": 0,
+      "seconds": 0.85,
+      "log": "fpscannerstopscenario.log"
+    },
+    {
+      "file": "test/scenario3d.js",
+      "exit": 0,
+      "seconds": 0.11,
+      "log": "scenario3d.log"
+    }
+  ]
+}

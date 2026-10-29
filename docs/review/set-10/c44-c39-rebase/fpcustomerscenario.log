@@ -1,0 +1,13 @@
+✔ the conversation point is a real nearby target and distant or wrong actions cannot advance (24.161206ms)
+✔ all three authored good paths finish through their panels, with a real walk between the two stops (87.52634ms)
+✔ reply/question/history pages share one decision deadline; pause and handheld freeze it (5.876121ms)
+✔ assessment ending/expiry is neutral, retains criticals and never invents an incomplete result (3.78797ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 126.5375
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

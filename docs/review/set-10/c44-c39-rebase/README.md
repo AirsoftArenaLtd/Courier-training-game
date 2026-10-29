@@ -1,0 +1,5 @@
+# C44 after C39 and A30
+
+Stacked on pushed C43 `010b1f23`, containing pilot `ee328d18` and C40-C42. Dedicated loading sources match the previous implementation on `codex/c44-before-c39-oct29`; the world additionally corrects the loading-only standing eye to its fitted floor plus 1.65 m. The new regression reproduces the former High top-envelope obstruction, passes with the correction, and verifies real P focus/ray/ink and outside height. No geometry, pass, texture, per-frame object, scoring or saved field is added. Tests walk back for middle/lower shelf markers within the normal look limit; static fixtures aim from the real camera. See `c44-c39-reach-diagnostic/`.
+
+27 focused CPU suites and 44 syntax checks pass. All parent module sources/imports and shared sources remain; two authorized m6 links only. Fresh six native journeys (the previously failing wrong-find first) and 56 original-profile resources are prepared. Old five successful journeys and the failed sixth remain tied to eca956a8. C44 stays doing until fresh acceptance/screenshots/cleanup are checked. A31 and existing Intel O1 remain separate.

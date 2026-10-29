@@ -1,0 +1,22 @@
+✔ each approach uses its actual signed junction, an in-bounds parked start and a reachable finish bay (15.765942ms)
+✔ only this round’s control key can satisfy its encounter; duplicates and unrelated reports cannot create credit (3.416819ms)
+✔ later positive pull-outs cannot dilute a failed signal or mirror observation (1.931316ms)
+✔ completion needs observed travel and the whole stopped van, facing traffic, inside the actual bay (9.467464ms)
+✔ the three-round result retains exact catalogue wording and a single one-point route obligation for the whole course (3.043416ms)
+✔ an actual wrong-route report stays failed at finish, and a red-light failure retains the catalogue critical (0.860018ms)
+✔ timeout retains current observations, supplies missing obligations and earns zero in both categories (1.503119ms)
+✔ a wrong turn in the first approach cannot be erased by later correct approaches (2.295826ms)
+✔ the real motor, gaze, indicator timing and traffic phases produce safe observations at all three controls (3873.311789ms)
+✔ driving into the actual red signal fails its real catalogue check (411.826255ms)
+✔ the real motor and sat-nav grace period report an unresolved wrong turn, without consuming time while paused (3111.861318ms)
+✔ round restarts cannot discard observations, and a bounded report overflow cannot finish successfully (1.057596ms)
+✔ the full van body must stay inside both painted lateral edges of a vertical finish bay (2.702368ms)
+✔ neither end of the parked van can extend past the painted finish bay (2.222504ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7487.45382
