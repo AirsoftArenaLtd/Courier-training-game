@@ -1,0 +1,17 @@
+{
+  "scope": "B132 current-pilot resource measurement protocol; actual browser measurements pending.",
+  "pilot": "a7bd8b5785f6b13ffeebce60070caa625a9340b5",
+  "candidate": "adb8fb3e8dfa9bf1a70183c67b4a197251dfa617",
+  "views": 57,
+  "profiles": {
+    "loaded-high": 15,
+    "loaded-low": 14,
+    "accessible-low": 14,
+    "fallback-low": 14
+  },
+  "allRuntimeDataAssetAndTestBytesIdenticalToPilot": true,
+  "originalProfileAndFixtureLogicUnchanged": true,
+  "controllerSyntaxPassed": true,
+  "controllerSha256": "68d64ac2d1c40a0201c00020694d57e28043b89e2fa8408978273e353447550f",
+  "originalQualityCheckerSha256": "c8bd330e370d6d17da7dc77571456b7111b3d1c2d4dda17ecf060c4036a1841d"
+}
