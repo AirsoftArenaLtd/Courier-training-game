@@ -1,0 +1,82 @@
+[
+  {
+    "file": "test/fpincidentstage.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpincidentworld.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpincidentgeometry.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpincidentscenario.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpwellnessstage.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpwellnessstop.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpwellnessstopworld.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpwellnessscenario.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpwellnesstalk.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpwellnessgeometry.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpreverselesson.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpreversescenario.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpcustomerstop.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpcustomertalk.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpworld.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpaccess.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpcontext.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpgamepad.js",
+    "exit": 0
+  },
+  {
+    "file": "test/fpscenario.js",
+    "exit": 0
+  },
+  {
+    "file": "test/englishtext.js",
+    "exit": 0
+  }
+]

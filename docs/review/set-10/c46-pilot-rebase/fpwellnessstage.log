@@ -1,0 +1,18 @@
+{"physicalStops":9,"hazardSurfaces":12}
+✔ all nine physical stops fit each source hazard once per surface, keep stable facts and never mutate source data (201.867158ms)
+✔ walking with the real motor preserves careful recovery and loaded fall criticals on a physical patch (47.86373ms)
+✔ one boundary between slippery stair treads cannot double the original fall timer (0.370019ms)
+✔ clearable clutter needs physical proximity, preserves a prior loaded incident and cannot be cleared twice (2.255664ms)
+✔ the closed gate blocks actual walking and its source action opens the same physical gap (12.98126ms)
+✔ entering a charging-dog volume starts the original graph once; returning retains its original critical (1.201813ms)
+✔ scripted retreat waits for voluntary physical movement and never changes player/camera coordinates or yaw (22.534216ms)
+✔ heat cooling facts require real shade or renderer-confirmed enclosure, with water restricted to the van (14.464608ms)
+✔ pause, settings, handheld and a finished stop cannot advance physical facts, timers or heat (41.111051ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 358.826628
