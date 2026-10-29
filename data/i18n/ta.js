@@ -4268,7 +4268,12 @@ window.OTR_I18N.ta = {
 "Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "புறப்படும் முன் முகப்பு விளக்குகளைச் சோதித்து, மற்றொரு வாகனத்தின் பின்னால் இரவு வழித்தடத்தைப் பின்பற்றுங்கள். பாதுகாப்பான இடைவெளி வைத்து, முகப்பு விளக்குகள் காட்டும் தூரத்துக்குள் ஓட்டி, குறிக்கப்பட்ட இடத்தில் வேனை நிறுத்துங்கள்.",
 "Checking the headlights before a night drive": "இரவுப் பயணத்துக்கு முன் முகப்பு விளக்குகளைச் சோதிப்பது",
 "A three-second gap behind the vehicle ahead": "முன்னால் செல்லும் வாகனத்திலிருந்து மூன்று வினாடி இடைவெளி",
-"Driving within the reach of your headlights": "முகப்பு விளக்குகளின் எல்லைக்குள் ஓட்டுவது"
+"Driving within the reach of your headlights": "முகப்பு விளக்குகளின் எல்லைக்குள் ஓட்டுவது",
+"Modules in 3D…": "3D இல் தொகுதிகள்…",
+"Modules in 3D": "3D இல் தொகுதிகள்",
+"Where ready": "தயாரானதும்",
+"No module has a 3D version yet.": "இன்னும் எந்தத் தொகுதிக்கும் 3D பதிப்பு இல்லை.",
+"Where ready: the 3D version once it has passed its checks, otherwise 2D. A PC without 3D graphics always plays 2D. Stars and records are the same in both. Press Save rules afterwards.": "தயாரானதும்: சோதனைகளில் தேறிய பிறகு 3D பதிப்பு, இல்லையெனில் 2D. 3D வரைகலை இல்லாத கணினி எப்போதும் 2D இயக்கும். இரண்டிலும் நட்சத்திரங்களும் பதிவுகளும் ஒன்றே. பிறகு விதிகளைச் சேமி அழுத்துங்கள்."
 },
 "templates": [
 [

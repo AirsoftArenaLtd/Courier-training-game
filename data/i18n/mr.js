@@ -4268,7 +4268,12 @@ window.OTR_I18N.mr = {
 "Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "निघण्यापूर्वी हेडलाइट तपासा, मग दुसऱ्या वाहनाच्या मागे रात्रीचा मार्ग चालवा. सुरक्षित अंतर ठेवा, हेडलाइट जितके दाखवतात त्यात चालवा आणि खुणा केलेल्या जागेत व्हॅन उभी करा.",
 "Checking the headlights before a night drive": "रात्रीच्या फेरीपूर्वी हेडलाइट तपासणे",
 "A three-second gap behind the vehicle ahead": "पुढच्या वाहनापासून तीन सेकंदांचे अंतर",
-"Driving within the reach of your headlights": "हेडलाइटच्या पोहोचीत चालवणे"
+"Driving within the reach of your headlights": "हेडलाइटच्या पोहोचीत चालवणे",
+"Modules in 3D…": "3D मधील मॉड्यूल…",
+"Modules in 3D": "3D मधील मॉड्यूल",
+"Where ready": "तयार झाल्यावर",
+"No module has a 3D version yet.": "अजून कोणत्याही मॉड्यूलची 3D आवृत्ती नाही.",
+"Where ready: the 3D version once it has passed its checks, otherwise 2D. A PC without 3D graphics always plays 2D. Stars and records are the same in both. Press Save rules afterwards.": "तयार झाल्यावर: तपासण्या उत्तीर्ण झाल्यावर 3D आवृत्ती, नाहीतर 2D. 3D ग्राफिक्स नसलेला पीसी नेहमी 2D चालवतो. दोन्हीमध्ये तारे आणि नोंदी सारख्याच. त्यानंतर नियम सेव्ह करा दाबा."
 },
 "templates": [
 [

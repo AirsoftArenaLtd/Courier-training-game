@@ -4268,7 +4268,12 @@ window.OTR_I18N.gu = {
 "Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "નીકળતા પહેલાં હેડલાઇટ તપાસો, પછી બીજા વાહનની પાછળ રાતના રૂટ પર ચાલો. સલામત અંતર રાખો, હેડલાઇટ જેટલું બતાવે તેટલામાં ચલાવો અને નિશાનીવાળી જગ્યામાં વૅન ઊભી કરો.",
 "Checking the headlights before a night drive": "રાતની સફર પહેલાં હેડલાઇટ તપાસવી",
 "A three-second gap behind the vehicle ahead": "આગળના વાહનથી ત્રણ સેકન્ડનું અંતર",
-"Driving within the reach of your headlights": "હેડલાઇટની પહોંચમાં ચલાવવું"
+"Driving within the reach of your headlights": "હેડલાઇટની પહોંચમાં ચલાવવું",
+"Modules in 3D…": "3Dમાં મોડ્યુલ…",
+"Modules in 3D": "3Dમાં મોડ્યુલ",
+"Where ready": "તૈયાર થાય ત્યારે",
+"No module has a 3D version yet.": "હજી કોઈ મોડ્યુલનું 3D સંસ્કરણ નથી.",
+"Where ready: the 3D version once it has passed its checks, otherwise 2D. A PC without 3D graphics always plays 2D. Stars and records are the same in both. Press Save rules afterwards.": "તૈયાર થાય ત્યારે: તપાસ પસાર કર્યા પછી 3D સંસ્કરણ, નહીં તો 2D. 3D ગ્રાફિક્સ વિનાનું પીસી હંમેશાં 2D ચલાવે છે. બંનેમાં તારા અને રેકોર્ડ સરખા છે. પછી નિયમો સેવ કરો દબાવો."
 },
 "templates": [
 [

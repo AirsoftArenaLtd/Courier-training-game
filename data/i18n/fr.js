@@ -4269,7 +4269,12 @@ window.OTR_I18N.fr = {
 "Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "Vérifiez les phares avant de partir, puis suivez l'itinéraire de nuit derrière un autre véhicule. Gardez une distance de sécurité, roulez dans ce qu'éclairent vos phares et garez-vous dans l'emplacement marqué.",
 "Checking the headlights before a night drive": "Vérifier les phares avant de rouler de nuit",
 "A three-second gap behind the vehicle ahead": "Trois secondes d'écart derrière le véhicule de devant",
-"Driving within the reach of your headlights": "Rouler dans la portée de vos phares"
+"Driving within the reach of your headlights": "Rouler dans la portée de vos phares",
+"Modules in 3D…": "Modules en 3D…",
+"Modules in 3D": "Modules en 3D",
+"Where ready": "Dès que prêt",
+"No module has a 3D version yet.": "Aucun module n'a encore de version 3D.",
+"Where ready: the 3D version once it has passed its checks, otherwise 2D. A PC without 3D graphics always plays 2D. Stars and records are the same in both. Press Save rules afterwards.": "Dès que prêt : la version 3D une fois ses vérifications réussies, sinon la 2D. Un PC sans graphismes 3D joue toujours en 2D. Les étoiles et les dossiers sont les mêmes dans les deux. Appuyez ensuite sur Enregistrer les règles."
 },
 "templates": [
 [
