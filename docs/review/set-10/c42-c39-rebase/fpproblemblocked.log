@@ -1,0 +1,14 @@
+✔ the canonical mission parcel, legal curb and safe card point define the protocol geometry (11.048684ms)
+✔ the actual cargo slot, held parcel, restraint and closed doors gate UN and retained completion (13.248074ms)
+✔ actual locked access accepts AC while a safe absent site requires an on-foot door approach before NA (116.967963ms)
+✔ actual careless walking into the unsafe approach keeps the major hazard and a corrected booking stays failed (7.667371ms)
+✔ paused/ended states freeze and timeout observations cannot enter the suspended workday (5.140478ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 203.485473
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

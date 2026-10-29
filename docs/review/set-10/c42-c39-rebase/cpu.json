@@ -1,0 +1,204 @@
+{
+  "candidate": "e8235616d5ca326837905d662ddba317677b370b",
+  "stackedOn": "705e7e567822190f759924d7f443311822503dfd",
+  "suites": [
+    {
+      "file": "test/fpjobrunner.js",
+      "exit": 0,
+      "seconds": 1.39,
+      "log": "fpjobrunner.log"
+    },
+    {
+      "file": "test/fpproblemblocked.js",
+      "exit": 0,
+      "seconds": 0.5,
+      "log": "fpproblemblocked.log"
+    },
+    {
+      "file": "test/fpproblemblockedcomponents.js",
+      "exit": 0,
+      "seconds": 0.34,
+      "log": "fpproblemblockedcomponents.log"
+    },
+    {
+      "file": "test/fpproblemblockedworld.js",
+      "exit": 0,
+      "seconds": 0.76,
+      "log": "fpproblemblockedworld.log"
+    },
+    {
+      "file": "test/fpproblemfixtures.js",
+      "exit": 0,
+      "seconds": 0.15,
+      "log": "fpproblemfixtures.log"
+    },
+    {
+      "file": "test/fpproblemgeometry.js",
+      "exit": 0,
+      "seconds": 20.86,
+      "log": "fpproblemgeometry.log"
+    },
+    {
+      "file": "test/fpproblemprotocol.js",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "fpproblemprotocol.log"
+    },
+    {
+      "file": "test/fpproblemroute.js",
+      "exit": 0,
+      "seconds": 0.78,
+      "log": "fpproblemroute.log"
+    },
+    {
+      "file": "test/fpproblemrouteworld.js",
+      "exit": 0,
+      "seconds": 8.64,
+      "log": "fpproblemrouteworld.log"
+    },
+    {
+      "file": "test/fpproblemscenario.js",
+      "exit": 0,
+      "seconds": 0.58,
+      "log": "fpproblemscenario.log"
+    },
+    {
+      "file": "test/fpproblemstage.js",
+      "exit": 0,
+      "seconds": 0.27,
+      "log": "fpproblemstage.log"
+    },
+    {
+      "file": "test/fpproblemworld.js",
+      "exit": 0,
+      "seconds": 7.86,
+      "log": "fpproblemworld.log"
+    },
+    {
+      "file": "test/fpproblemblockedfixture.js",
+      "exit": 0,
+      "seconds": 0.37,
+      "log": "fpproblemblockedfixture.log"
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0,
+      "seconds": 0.1,
+      "log": "fpcontext.log"
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0,
+      "seconds": 0.42,
+      "log": "fpgamepad.log"
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0,
+      "seconds": 1.16,
+      "log": "fpworld.log"
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0,
+      "seconds": 0.2,
+      "log": "fpaccess.log"
+    },
+    {
+      "file": "test/fpsigns.js",
+      "exit": 0,
+      "seconds": 0.72,
+      "log": "fpsigns.log"
+    },
+    {
+      "file": "test/fpsignlettering.js",
+      "exit": 0,
+      "seconds": 0.17,
+      "log": "fpsignlettering.log"
+    },
+    {
+      "file": "test/fpcustomerprotocol.js",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "fpcustomerprotocol.log"
+    },
+    {
+      "file": "test/fpcustomerprotocolscenario.js",
+      "exit": 0,
+      "seconds": 0.61,
+      "log": "fpcustomerprotocolscenario.log"
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "englishtext.log"
+    },
+    {
+      "file": "test/fppretrip.js",
+      "exit": 0,
+      "seconds": 0.21,
+      "log": "fppretrip.log"
+    },
+    {
+      "file": "test/fproutelesson.js",
+      "exit": 0,
+      "seconds": 0.39,
+      "log": "fproutelesson.log"
+    },
+    {
+      "file": "test/fphazardlesson.js",
+      "exit": 0,
+      "seconds": 0.37,
+      "log": "fphazardlesson.log"
+    },
+    {
+      "file": "test/fpdrivinglesson.js",
+      "exit": 0,
+      "seconds": 1.45,
+      "log": "fpdrivinglesson.log"
+    },
+    {
+      "file": "test/fpjunctionlesson.js",
+      "exit": 0,
+      "seconds": 9.17,
+      "log": "fpjunctionlesson.log"
+    },
+    {
+      "file": "test/fpschoollesson.js",
+      "exit": 0,
+      "seconds": 5.59,
+      "log": "fpschoollesson.log"
+    },
+    {
+      "file": "test/fpnightlesson.js",
+      "exit": 0,
+      "seconds": 20.68,
+      "log": "fpnightlesson.log"
+    },
+    {
+      "file": "test/fppackagesortscenario.js",
+      "exit": 0,
+      "seconds": 0.41,
+      "log": "fppackagesortscenario.log"
+    },
+    {
+      "file": "test/fpcustomerscenario.js",
+      "exit": 0,
+      "seconds": 0.23,
+      "log": "fpcustomerscenario.log"
+    },
+    {
+      "file": "test/fpcustomerstopscenario.js",
+      "exit": 0,
+      "seconds": 0.51,
+      "log": "fpcustomerstopscenario.log"
+    },
+    {
+      "file": "test/scenario3d.js",
+      "exit": 0,
+      "seconds": 0.16,
+      "log": "scenario3d.log"
+    }
+  ]
+}

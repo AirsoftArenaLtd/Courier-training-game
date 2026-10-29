@@ -1,0 +1,14 @@
+✔ both qualities use mounted closure lettering and the real destination without a floating closure notice (568.398962ms)
+✔ the finish key and mounted device share a physical completion gate; unrelated workday targets are consumed (17.794785ms)
+✔ all controls remain reachable with remapped keys and a short page at a time (15.999075ms)
+✔ the actual scenario shell keeps contact criticals and unfinished ratios local, freezing later reports (50.376605ms)
+✔ the real vehicle motor follows every detour gate and parks without contact at four control-sampling intervals (7834.215267ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8495.251562
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
