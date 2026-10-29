@@ -1,0 +1,702 @@
+{
+  "checks": 257,
+  "layouts": [
+    {
+      "name": "brief",
+      "texts": [
+        {
+          "source": "Blocked driveway.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Inspect the access and complete a safe delivery attempt.\n\nAssess the blocked driveway and complete a safe delivery attempt with the parcel secured.\n\nYou have 600 seconds to complete this scenario.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 364
+        },
+        {
+          "source": "1. சூழலைத் தொடங்கு.",
+          "font": 22,
+          "scale": 1,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. நிலையத்துக்குத் திரும்பு.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "early-finish",
+      "texts": [
+        {
+          "source": "Read the blocked-drive information.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Complete the exception, safe card, retained parcel and next-attempt records. Return to the legally parked van with its parcel secured and cargo doors closed.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 232
+        },
+        {
+          "source": "1. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "controls-0",
+      "texts": [
+        {
+          "source": "Use the blocked-drive controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Use W/A/S/D to walk. Look with the mouse or ←/→/↑/↓. Press O to select a nearby physical target and U to use it.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 232
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 22,
+          "scale": 1,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "controls-1",
+      "texts": [
+        {
+          "source": "Use the blocked-drive controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Keep the van on the public road. Read the access notice and inspect the driveway before choosing an exception. The delivery-card holder is at the safe public edge. Keep the parcel secured in the van when access prevents delivery.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 265
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 22,
+          "scale": 1,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "controls-2",
+      "texts": [
+        {
+          "source": "Use the blocked-drive controls.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Press TAB for the exception, retention and next-attempt records. Use the physical card holder to leave a card. Close the cargo doors and return to the legally parked van before finishing with F or the device.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 265
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "font": 22,
+          "scale": 1,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "access-notice",
+      "texts": [
+        {
+          "source": "Read the blocked-drive information.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "The driveway is unsafe. Keep to the public path.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "exception",
+      "texts": [
+        {
+          "source": "Choose an exception code.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Animal, hazard or threat at the address.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. exception UN.-ஐப் பதிவு செய்யுங்கள்",
+          "font": 22,
+          "scale": 1,
+          "top": 448,
+          "bottom": 474
+        },
+        {
+          "source": "2. Read the next exception code.",
+          "font": 22,
+          "scale": 1,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "3. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "safe-card",
+      "texts": [
+        {
+          "source": "Leave the delivery attempt card.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "The card holder is outside the blocked driveway.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. Leave the card in the holder.",
+          "font": 22,
+          "scale": 1,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "unsecured-parcel",
+      "texts": [
+        {
+          "source": "Read the blocked-drive information.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Return to the legally parked van and secure the retained parcel with the cargo doors closed.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 232
+        },
+        {
+          "source": "1. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "retention",
+      "texts": [
+        {
+          "source": "Record why the parcel is retained.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Access prevented delivery.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. பார்சலை வைத்திருக்கும் இந்தக் காரணத்தைப் பதிவு செய்யுங்கள்.",
+          "font": 22,
+          "scale": 1,
+          "top": 448,
+          "bottom": 474
+        },
+        {
+          "source": "2. Read the next retention reason.",
+          "font": 22,
+          "scale": 1,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "3. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "booking",
+      "texts": [
+        {
+          "source": "Book the next delivery attempt.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "The next available attempt is day 5 in the afternoon.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. Book day 5 in the afternoon.",
+          "font": 22,
+          "scale": 1,
+          "top": 448,
+          "bottom": 474
+        },
+        {
+          "source": "2. Book day 5 in the morning.",
+          "font": 22,
+          "scale": 1,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "3. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "wrong-booking",
+      "texts": [
+        {
+          "source": "Read the blocked-drive information.",
+          "font": 27,
+          "scale": 1,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "The next attempt record is incomplete.",
+          "font": 23,
+          "scale": 1,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. Return to the stop.",
+          "font": 22,
+          "scale": 1,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    }
+  ],
+  "shots": [
+    "c42-c39-blocked-bad-high-ta-brief.png",
+    "c42-c39-blocked-bad-high-ta-controls.png",
+    "c42-c39-blocked-bad-high-ta-access-notice.png",
+    "c42-c39-blocked-bad-high-ta-device.png",
+    "c42-c39-blocked-bad-high-ta-safe-card.png",
+    "c42-c39-blocked-bad-high-ta-card-left.png",
+    "c42-c39-blocked-bad-high-ta-cargo-secured.png",
+    "c42-c39-blocked-bad-high-ta-booking.png",
+    "c42-c39-blocked-bad-high-ta-result.png"
+  ],
+  "walks": [
+    {
+      "x": 46.75000000000001,
+      "z": 15.016666666666671,
+      "steps": 38
+    },
+    {
+      "x": 50.1,
+      "z": 15.016666666666671,
+      "steps": 63
+    },
+    {
+      "x": 50.1,
+      "z": 16.61666666666667,
+      "steps": 32
+    },
+    {
+      "x": 50.1,
+      "z": 15.016666666666671,
+      "steps": 29
+    },
+    {
+      "x": 46.75000000000001,
+      "z": 15.016666666666671,
+      "steps": 43
+    },
+    {
+      "x": 46.75000000000001,
+      "z": 17.716666666666672,
+      "steps": 37
+    },
+    {
+      "x": 46.75000000000001,
+      "z": 24.91666666666667,
+      "steps": 108
+    },
+    {
+      "x": 49.550000000000004,
+      "z": 24.91666666666667,
+      "steps": 45
+    },
+    {
+      "x": 48.550000000000004,
+      "z": 24.41666666666667,
+      "steps": 37
+    },
+    {
+      "x": 48.550000000000004,
+      "z": 21.31666666666667,
+      "steps": 32
+    },
+    {
+      "x": 48.550000000000004,
+      "z": 23.81666666666667,
+      "steps": 36
+    },
+    {
+      "x": 48.550000000000004,
+      "z": 24.41666666666667,
+      "steps": 42
+    },
+    {
+      "x": 46.75000000000001,
+      "z": 24.41666666666667,
+      "steps": 39
+    },
+    {
+      "x": 46.75000000000001,
+      "z": 17.716666666666672,
+      "steps": 70
+    }
+  ],
+  "errors": [],
+  "gfx": "high",
+  "lang": "ta",
+  "large": true,
+  "bad": true,
+  "scope": "Real remapped target/action keys, voluntary walking, notice/card rays, cargo retrieval/replacement/restraint/doors, cab entry, records and result/reload. Only optional descriptor, durable profile/workday and explicit access settings are fixtures; no pose, parcel, protocol, timer or score writes.",
+  "fontProof": {
+    "lang": "ta",
+    "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "override": null,
+    "layout": {
+      "width": 793.21875,
+      "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    "platformFonts": [
+      {
+        "familyName": "Noto Sans Tamil",
+        "postScriptName": "NotoSansTamil-Bold",
+        "isCustomFont": false,
+        "glyphCount": 28
+      }
+    ]
+  },
+  "progress": {
+    "kind": "walk",
+    "x": 46.75000000000001,
+    "z": 17.716666666666672,
+    "player": {
+      "x": 46.90843592149492,
+      "z": 24.416012119303392,
+      "yaw": -1.68023351247853,
+      "pitch": 0
+    },
+    "elapsed": 32.0052499999989
+  },
+  "device": {
+    "top": 92,
+    "bottom": 544,
+    "texts": [
+      {
+        "scale": 1,
+        "top": 103,
+        "bottom": 125
+      },
+      {
+        "scale": 1,
+        "top": 104.5,
+        "bottom": 123.5
+      },
+      {
+        "scale": 1,
+        "top": 518.5,
+        "bottom": 537.5
+      },
+      {
+        "scale": 1,
+        "top": 150,
+        "bottom": 171
+      }
+    ],
+    "buttons": [
+      {
+        "font": 17,
+        "scale": 1,
+        "top": 294.32608695652175,
+        "bottom": 404.67391304347825
+      },
+      {
+        "font": 17,
+        "scale": 1,
+        "top": 342.8478260869565,
+        "bottom": 498.1521739130435
+      },
+      {
+        "font": 17,
+        "scale": 1,
+        "top": 440.5,
+        "bottom": 534.5
+      }
+    ]
+  },
+  "finishedState": {
+    "phase": "active",
+    "mode": "cab",
+    "player": {
+      "x": 46.73877365728874,
+      "z": 17.91861899317046,
+      "yaw": 1.1791851143388465,
+      "pitch": 0
+    },
+    "van": {
+      "x": 48.550000000000004,
+      "z": 19.41666666666667,
+      "yaw": 0,
+      "speed": 0,
+      "steer": 0,
+      "gear": 2,
+      "hand": true,
+      "belt": false,
+      "look": 0,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ]
+    },
+    "target": null,
+    "panel": false,
+    "cargo": false,
+    "held": null,
+    "secured": true,
+    "atVan": true,
+    "ready": true,
+    "parcel": {
+      "id": "parcel0",
+      "location": "slot0"
+    },
+    "exception": "UN",
+    "sequence": {
+      "version": 1,
+      "kind": "reattempt",
+      "parcel": "parcel0",
+      "failed": true,
+      "card": true,
+      "retained": true,
+      "booked": true
+    },
+    "doorReached": false,
+    "hazards": 0,
+    "elapsed": 36.13343999999845,
+    "card": {
+      "x": 50.95,
+      "z": 24.91666666666667,
+      "y": 1.2
+    },
+    "warning": {
+      "x": 51.207499999999996,
+      "z": 16.61666666666667,
+      "w": 0.12,
+      "d": 0.12,
+      "h": 2.7
+    }
+  },
+  "result": {
+    "id": "m4-blocked",
+    "stars": {
+      "safety": 3,
+      "service": 0
+    },
+    "result": {
+      "score": 0,
+      "ratios": {
+        "safety": 1,
+        "service": 0
+      },
+      "untested": [],
+      "log": {
+        "items": [
+          {
+            "cat": "service",
+            "got": 0,
+            "max": 2,
+            "label": "Did not leave a card or record the retention for a failed delivery",
+            "good": false,
+            "partial": false,
+            "lesson": "Leave the card, record why, keep the parcel safe and book the next attempt.",
+            "feedback": null,
+            "group": "m4-blocked",
+            "kind": "check",
+            "critical": false,
+            "at": 1793271332788,
+            "where": null,
+            "type": "stop.reattempt"
+          }
+        ],
+        "group": "m4-blocked"
+      },
+      "lessons": [],
+      "stats": {
+        "completed": true,
+        "seconds": 36,
+        "par": 160,
+        "route": null,
+        "doorReached": false,
+        "exception": "UN",
+        "attempt": {
+          "type": "stop.reattempt",
+          "complete": true,
+          "ok": false,
+          "failed": true
+        }
+      }
+    },
+    "record": {
+      "plays": 1,
+      "bestScore": 0,
+      "bestStars": {
+        "safety": 3,
+        "efficiency": 0,
+        "service": 0
+      },
+      "lastPlayed": 1793271332789
+    },
+    "assessment": {
+      "attempts": 1,
+      "passed": false,
+      "startedAt": 1793270596581,
+      "pending": false,
+      "at": 1793271332789,
+      "stars": {
+        "safety": 3,
+        "service": 0
+      },
+      "score": 0,
+      "criticals": [],
+      "lessons": [
+        "Leave the card, record why, keep the parcel safe and book the next attempt."
+      ]
+    }
+  },
+  "durable": true,
+  "complete": true
+}

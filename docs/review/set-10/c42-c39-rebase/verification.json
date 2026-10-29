@@ -1,0 +1,599 @@
+{
+  "scope": "C42 on C41/C40/C39/A30: six native journeys include wrong reattempt booking with failed assessment, closure full gates/park, recovery and storm. Forty original-profile resources. Authored fixture/travel scopes remain; optional registry/A31 and Intel O1 separate.",
+  "cohorts": [
+    {
+      "sourceRevision": "b4e87e429f141a7f8de5e0a661a4d62e8cd83b8a",
+      "plan": "docs/review/set-10/c42-c39-rebase/acceptance/plan.json",
+      "planSha256": "942903d1cb50a9c70a109493c84e1b3c93374cef19e06d45d8295f5ff96a228a",
+      "sourceCount": 903,
+      "acceptedTags": [
+        "c42-c39-blocked-low",
+        "c42-c39-blocked-high-ta",
+        "c42-c39-blocked-bad-high-ta",
+        "c42-c39-closure-low",
+        "c42-c39-recovery-low",
+        "c42-c39-storm-high-ta",
+        "c42-c39-blocked-loaded-low",
+        "c42-c39-blocked-loaded-high",
+        "c42-c39-blocked-accessible-low",
+        "c42-c39-blocked-fallback-low",
+        "c42-c39-closure-loaded-low",
+        "c42-c39-closure-loaded-high",
+        "c42-c39-closure-accessible-low",
+        "c42-c39-closure-fallback-low"
+      ],
+      "excludedJobs": [],
+      "oldTestDifferences": []
+    }
+  ],
+  "liveInputCount": 903,
+  "hostFonts": {
+    "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf": "89c3c497f618fdaa0b2d1e98fef93582f28c71debd2c4a8cdf41f190ced2909d",
+    "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf": "e83493c945848ecd4a9ad0f6d19164541a0d3e23a9c952304a00a46e00272ac5",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Regular.ttf": "a7bb7f92f165479af2f0556c4fd669b74c5959f464f603e18389b532f4d07a71",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Bold.ttf": "7ef7071ba2fad67dcae397dc7f5bfd4dbce69d86cdc453c2cc4abe640df0b442"
+  },
+  "allInputHashesVerified": true,
+  "cpuSuites": 33,
+  "cpuLogHashes": {
+    "fpjobrunner.log": "9b370c39d7ca10dee83a9dae86560778b98bedcd5309f8c6c20f52897b15e5f1",
+    "fpproblemblocked.log": "4f37f0885740212ed72051cdc0eaabe996c1b217a6ce335ca8fc5b09931bf217",
+    "fpproblemblockedcomponents.log": "ba4fa932ae7a6293c01c7367469873948067c9c222e30988aa3a718cc4c53c63",
+    "fpproblemblockedworld.log": "33b1ac84e9a38d6b5a9f8e60ab11ecc105651087a77ac6cc8f7d279272d5a23a",
+    "fpproblemfixtures.log": "37a0a5d540b920cbdc05532ebbf0a3745d3fd4039fa78db48ce06d10ca87b42d",
+    "fpproblemgeometry.log": "d7b1496ef4627b234026aa51504fcf6bec553e1a468ea6d2c2175ff637271687",
+    "fpproblemprotocol.log": "a7ac1212ae97b8c3564966763333aa5057e7e6b5b80a7b4b39d745911ad52801",
+    "fpproblemroute.log": "8925900bdcedb9f124238258c0ee64b4f0a6cefcdb970e1e25ab0a3fc6c1eac6",
+    "fpproblemrouteworld.log": "61e3735f2824adb661283fa138744a7d782a646afd766e5772719fc2cc054c22",
+    "fpproblemscenario.log": "d91f81fdba66c38f0bbd97e47bfa25eab24465c98fb9a46874f7014b6b7aca08",
+    "fpproblemstage.log": "f284ee8d672120a53dc2aa21b9d6fffe54ecb72e8c1bfe095940177d3a3fcfcd",
+    "fpproblemworld.log": "eb1b208ffdedc1abdc9703b9d1a168535bff32c9fd5e8f83e4d72c67fc99dffb",
+    "fpproblemblockedfixture.log": "4bbf70afcea9c01a44319b535f3bf97ce42a1975bdd3f945137dfd80606fa682",
+    "fpcontext.log": "ee520af4b10a52021d9e629a41c4bc7e9599c4a9a66a12da9f8857e05e0220d2",
+    "fpgamepad.log": "4dbe0488d0744ea00bacf48e498260d2255d175e92e5242960a4c26e49a63b29",
+    "fpworld.log": "a4b2f75d11ebeda7be41744ed63e3a7f0907fa4f0525078b487a287690dac476",
+    "fpaccess.log": "a2e1bb7e17642efe0000067f7a49ca2ad0110922bbca9a967c425e71d0eaf03c",
+    "fpsigns.log": "2dbf907a1f96e420ab2ee6b8561b9bc61d4275ab6adfbf1bc14edbde381c38ad",
+    "fpsignlettering.log": "8be0368d40aea6caf5d9c239e39a9166ae1dd2c1abc49d94672dcac16d5fe574",
+    "fpcustomerprotocol.log": "91180c9e34b01724568aef132b780974950c170dcdf5409197aa6d04dfaeae9f",
+    "fpcustomerprotocolscenario.log": "510da6cff6211eba2d8c4549f19c83079750a4906ad532f943c698910b89064c",
+    "englishtext.log": "44378c4515546cb56962fbf5e51233af713aa75eb7f442ce1c2e4d1e06d97ad0",
+    "fppretrip.log": "4c3e22476e22c350db1e755e4ebdb882eca47f443f778756d0b0b50ac4c2f2b4",
+    "fproutelesson.log": "da71bddd35f17024c6eb8d580400028c4ad18c68be43d26bd3912678d8cb645f",
+    "fphazardlesson.log": "819640d6375c97ad748b02448b61f7497f16bd5a2313c423350ea62b6a849665",
+    "fpdrivinglesson.log": "bc5a0509cba5a741364f148df19f21d8c842f3857414e2ee91d4bb84299f5fd9",
+    "fpjunctionlesson.log": "69e6b63ee6f43829d11492f58fd1538a892bee12f4d80f1135f58f09f05d4f1e",
+    "fpschoollesson.log": "122ba7098941c929631bd037c691698d64880b9b9ce372dc5418e0ace194a062",
+    "fpnightlesson.log": "8c3e6afcf81820ca8972eca1b19ea365788e10966f33aa7fb7ede6af1a1a151d",
+    "fppackagesortscenario.log": "67678ccbe93eb14105c87543d5e1f144a984df2825d97e980b6245c021d894c1",
+    "fpcustomerscenario.log": "33b5136e8f1ff6120e6ec75c87e473656189bef36c7ccabdf1e16f4bc745b2ec",
+    "fpcustomerstopscenario.log": "cffeee21c7815fd59f8a9b113e2842da606a37fed798a2d58dbbdc4c80fb35b7",
+    "scenario3d.log": "20ddecc44a25dda7e16a5d08790c77bc6c2063a412dd0a4c2293db2b11d29f0c"
+  },
+  "nativeChecks": 2433,
+  "nativeJobs": [
+    {
+      "tag": "c42-c39-blocked-low",
+      "checks": 241,
+      "scope": "Real remapped target/action keys, voluntary walking, notice/card rays, cargo retrieval/replacement/restraint/doors, cab entry, records and result/reload. Only optional descriptor, durable profile/workday and explicit access settings are fixtures; no pose, parcel, protocol, timer or score writes.",
+      "outcomes": [
+        {
+          "quality": "low",
+          "lang": "en",
+          "large": false,
+          "score": 200,
+          "stars": {
+            "safety": 3,
+            "service": 3
+          },
+          "assessment": null,
+          "durable": true,
+          "fontProof": {
+            "lang": "en",
+            "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-low/c42-c39-blocked-low.json"
+    },
+    {
+      "tag": "c42-c39-blocked-high-ta",
+      "checks": 245,
+      "scope": "Real remapped target/action keys, voluntary walking, notice/card rays, cargo retrieval/replacement/restraint/doors, cab entry, records and result/reload. Only optional descriptor, durable profile/workday and explicit access settings are fixtures; no pose, parcel, protocol, timer or score writes.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": 200,
+          "stars": {
+            "safety": 3,
+            "service": 3
+          },
+          "assessment": {
+            "attempts": 1,
+            "passed": true,
+            "startedAt": 1793269772995,
+            "pending": false,
+            "at": 1793270558540,
+            "stars": {
+              "safety": 3,
+              "service": 3
+            },
+            "score": 200,
+            "criticals": [],
+            "lessons": []
+          },
+          "durable": true,
+          "fontProof": {
+            "lang": "ta",
+            "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null,
+            "layout": {
+              "width": 793.21875,
+              "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+            },
+            "platformFonts": [
+              {
+                "familyName": "Noto Sans Tamil",
+                "postScriptName": "NotoSansTamil-Bold",
+                "isCustomFont": false,
+                "glyphCount": 28
+              }
+            ]
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-high-ta/c42-c39-blocked-high-ta.json"
+    },
+    {
+      "tag": "c42-c39-blocked-bad-high-ta",
+      "checks": 257,
+      "scope": "Real remapped target/action keys, voluntary walking, notice/card rays, cargo retrieval/replacement/restraint/doors, cab entry, records and result/reload. Only optional descriptor, durable profile/workday and explicit access settings are fixtures; no pose, parcel, protocol, timer or score writes.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": 0,
+          "stars": {
+            "safety": 3,
+            "service": 0
+          },
+          "assessment": {
+            "attempts": 1,
+            "passed": false,
+            "startedAt": 1793270596581,
+            "pending": false,
+            "at": 1793271332789,
+            "stars": {
+              "safety": 3,
+              "service": 0
+            },
+            "score": 0,
+            "criticals": [],
+            "lessons": [
+              "Leave the card, record why, keep the parcel safe and book the next attempt."
+            ]
+          },
+          "durable": true,
+          "fontProof": {
+            "lang": "ta",
+            "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+            "override": null,
+            "layout": {
+              "width": 793.21875,
+              "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+            },
+            "platformFonts": [
+              {
+                "familyName": "Noto Sans Tamil",
+                "postScriptName": "NotoSansTamil-Bold",
+                "isCustomFont": false,
+                "glyphCount": 28
+              }
+            ]
+          },
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta.json"
+    },
+    {
+      "tag": "c42-c39-closure-low",
+      "checks": 122,
+      "scope": "Prepared optional descriptor bypasses the outstanding shared launcher/content support. Actual movement, menus, cab controls and finish use keys; no pose, timer, route-gate or verdict assignments.",
+      "outcomes": [
+        {
+          "quality": "low",
+          "lang": "en",
+          "large": false,
+          "score": 400,
+          "stars": {
+            "safety": 3,
+            "efficiency": 3
+          },
+          "assessment": null,
+          "durable": true,
+          "fontProof": null,
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-low/c42-c39-closure-low.json"
+    },
+    {
+      "tag": "c42-c39-recovery-low",
+      "checks": 773,
+      "scope": "Actual remapped keys, voluntary walking/aiming, cab/cargo access, all reply pages, durable scenario/assessment records and reloads. No position, node, timer, score or verdict fixtures. Existing ids are explicitly routed to the proposed adapter. Known shared Tamil glyph coverage remains a separate blocker; bounds checks alone do not certify readable Tamil.",
+      "outcomes": [
+        {
+          "quality": "low",
+          "lang": "en",
+          "large": false,
+          "score": 1900,
+          "stars": {
+            "service": 3,
+            "efficiency": 3
+          },
+          "assessment": null,
+          "durable": true,
+          "fontProof": null,
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low.json"
+    },
+    {
+      "tag": "c42-c39-storm-high-ta",
+      "checks": 795,
+      "scope": "Actual remapped keys, voluntary walking/aiming, cab/cargo access, all reply pages, durable scenario/assessment records and reloads. No position, node, timer, score or verdict fixtures. Existing ids are explicitly routed to the proposed adapter. Known shared Tamil glyph coverage remains a separate blocker; bounds checks alone do not certify readable Tamil.",
+      "outcomes": [
+        {
+          "quality": "high",
+          "lang": "ta",
+          "large": true,
+          "score": 2000,
+          "stars": {
+            "safety": 3,
+            "service": 3
+          },
+          "assessment": {
+            "attempts": 1,
+            "passed": true,
+            "startedAt": 1793271935397,
+            "pending": false,
+            "at": 1793272536428,
+            "stars": {
+              "safety": 3,
+              "service": 3
+            },
+            "score": 2000,
+            "criticals": [],
+            "lessons": [
+              "Severe weather: slow down, headlights on, increase following distance, and pull off somewhere safe (not in a travel lane) if visibility is poor.",
+              "Never drive through flooded roads \u2014 turn around, don't drown.",
+              "Delivery instructions never override your safety. When a note is unclear, don't guess \u2014 clarify through your normal process."
+            ]
+          },
+          "durable": true,
+          "fontProof": null,
+          "stages": 0,
+          "items": 0
+        }
+      ],
+      "report": "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta.json"
+    }
+  ],
+  "resourceViews": 40,
+  "resources": [
+    {
+      "tag": "c42-c39-blocked-loaded-low",
+      "profile": {
+        "id": "c42-c39-blocked-loaded-low",
+        "quality": "low",
+        "accessibility": "",
+        "fallback": false,
+        "views": "blockedcab,blockednotice,blockedcar,blockedcard,blockedcargo,blockeddevice,blockedcontrols,blockedgate"
+      },
+      "views": 8,
+      "peak": {
+        "calls": 45,
+        "triangles": 1530,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1958368
+      }
+    },
+    {
+      "tag": "c42-c39-blocked-loaded-high",
+      "profile": {
+        "id": "c42-c39-blocked-loaded-high",
+        "quality": "high",
+        "accessibility": "",
+        "fallback": false,
+        "views": "blockedcab,blockednotice,blockedcar,blockedcard,blockedcargo,blockeddevice,blockedcontrols,blockedgate"
+      },
+      "views": 8,
+      "peak": {
+        "calls": 77,
+        "triangles": 99056,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5330096
+      }
+    },
+    {
+      "tag": "c42-c39-blocked-accessible-low",
+      "profile": {
+        "id": "c42-c39-blocked-accessible-low",
+        "quality": "low",
+        "accessibility": "large,colour,reduced",
+        "fallback": false,
+        "views": "blockedcab,blockednotice,blockedcar,blockedcard,blockedcargo,blockeddevice,blockedcontrols,blockedgate"
+      },
+      "views": 8,
+      "peak": {
+        "calls": 45,
+        "triangles": 1530,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2209584
+      }
+    },
+    {
+      "tag": "c42-c39-blocked-fallback-low",
+      "profile": {
+        "id": "c42-c39-blocked-fallback-low",
+        "quality": "low",
+        "accessibility": "",
+        "fallback": true,
+        "views": "blockedcab,blockednotice,blockedcar,blockedcard,blockedcargo,blockeddevice,blockedcontrols,blockedgate"
+      },
+      "views": 8,
+      "peak": {
+        "calls": 41,
+        "triangles": 1268,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1958368
+      }
+    },
+    {
+      "tag": "c42-c39-closure-loaded-low",
+      "profile": {
+        "id": "c42-c39-closure-loaded-low",
+        "quality": "low",
+        "accessibility": "",
+        "fallback": false,
+        "views": "closurebarrier,closurebay"
+      },
+      "views": 2,
+      "peak": {
+        "calls": 40,
+        "triangles": 1102,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1403371
+      }
+    },
+    {
+      "tag": "c42-c39-closure-loaded-high",
+      "profile": {
+        "id": "c42-c39-closure-loaded-high",
+        "quality": "high",
+        "accessibility": "",
+        "fallback": false,
+        "views": "closurebarrier,closurebay"
+      },
+      "views": 2,
+      "peak": {
+        "calls": 67,
+        "triangles": 135950,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 4145531
+      }
+    },
+    {
+      "tag": "c42-c39-closure-accessible-low",
+      "profile": {
+        "id": "c42-c39-closure-accessible-low",
+        "quality": "low",
+        "accessibility": "large,colour,reduced",
+        "fallback": false,
+        "views": "closurebarrier,closurebay"
+      },
+      "views": 2,
+      "peak": {
+        "calls": 40,
+        "triangles": 1102,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1474224
+      }
+    },
+    {
+      "tag": "c42-c39-closure-fallback-low",
+      "profile": {
+        "id": "c42-c39-closure-fallback-low",
+        "quality": "low",
+        "accessibility": "",
+        "fallback": true,
+        "views": "closurebarrier,closurebay"
+      },
+      "views": 2,
+      "peak": {
+        "calls": 39,
+        "triangles": 906,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1403371
+      }
+    }
+  ],
+  "registryProof": {
+    "base": "705e7e56",
+    "onlyApprovedLinks": true
+  },
+  "artifactCount": 124,
+  "artifacts": {
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-low/c42-c39-blocked-low-controls.png": "7161912474b8aea902dc91fba3ac64ace966c9acb7fc3719f5909c6759b6c50a",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-low/c42-c39-blocked-low-access-notice.png": "b84c3cbec892126cc6532ffc88644cee0fe3195c7eaf3f91b5941784aead0b6f",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-low/c42-c39-blocked-low-safe-card.png": "1c87041195946243604b4d74f3aeaa55cd878759739abd3ddbe3a8d76cdd2477",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-low/c42-c39-blocked-low-device.png": "29d57321f79c76d28d7bdb9177aaf4e1566e5829362bd5acce04b42e718d67ed",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-low/c42-c39-blocked-low-card-left.png": "a6d8f83c5517c028511000cb378ba83e5244cc984f603946285d1e5f4460a739",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-low/c42-c39-blocked-low-brief.png": "265b670c1ed8f5d525f409071250fd291439182a78306a12bcdd6e96c6e6d8ea",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-low/c42-c39-blocked-low-result.png": "c799897599a66d40cb4b124dd525878864f61464b951c994c88bfdcb1e183f42",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-low/c42-c39-blocked-low-cargo-secured.png": "711ef352ce6b2e24c6f089cdd479e8d84f64a30ef31561d3017938ab29d6a9eb",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-low/c42-c39-blocked-low-booking.png": "204be4aecbbab12b0b81f2284cad1e9100ee5456323205cdd82440d2fe8d3ab7",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-low/c42-c39-blocked-low.json": "e3b1efd508e643ee7d19f9812d4a7869feb82c1e92ec39187125e7907d04371c",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-high-ta/c42-c39-blocked-high-ta-access-notice.png": "a9fcb25b92182bbb8df318fd7ff8b6c86eb93c5c522c6e2f668448103a279473",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-high-ta/c42-c39-blocked-high-ta-controls.png": "2a880d86caef1aa43afdde12246d48174def88e9b331e550e6d5d33f47f4f7a3",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-high-ta/c42-c39-blocked-high-ta-safe-card.png": "7c0ab8f9b4ddfc0f949b5f2e957863adc6bcacbb5560cda8a202d86294908642",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-high-ta/c42-c39-blocked-high-ta-device.png": "c4331a78ecffaea3ce50c501898c3aa175d2cbde8526cfc0fe9a000b8178789b",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-high-ta/c42-c39-blocked-high-ta.json": "fe8c06f68fc4d2caf38c639aaf1f220f3c9d7e418639e7906c98877119d8ca6b",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-high-ta/c42-c39-blocked-high-ta-cargo-secured.png": "03de5d53c2bfc15419152e2a1629daf6fa208a331dceb12f52d66a6638a09520",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-high-ta/c42-c39-blocked-high-ta-card-left.png": "45b219e168c4c9951f95f0f5bd60e2563e7acc666b03129b1400ab8b09899a5a",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-high-ta/c42-c39-blocked-high-ta-brief.png": "5c883b462a2120503bf4b07da4318efc893c7e41d3ed26dbf318218bfdc23443",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-high-ta/c42-c39-blocked-high-ta-result.png": "d98527008d8c51bb96b7dbd21797ab57bcf09df96a6c8189faef4bf88ed7a402",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-high-ta/c42-c39-blocked-high-ta-booking.png": "3dbbe391461cb6970be56d624a62e90272df60bdaafdd6d9492e4c7539c96dfe",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-access-notice.png": "c3829eb9cfdd8ab5ebdc4dddfc4bc7591da23f424a23a4ad853c7d3a70d2b583",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-cargo-secured.png": "f5e097eb6f2d4b997a0463d4e8b93aaf64ef33aa75fa98b335405fd5bf19f097",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-result.png": "a6cfd80f67241e8d0251f8cfa4fa694302c9d646b36ab9bf27f216d542db1bbc",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-booking.png": "3dbbe391461cb6970be56d624a62e90272df60bdaafdd6d9492e4c7539c96dfe",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-safe-card.png": "155a8c8a3bdd0d2fc05d0269af3065b54f03fd32fdb767c917120e9ef4e87536",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta.json": "6c7a96be57797b466429b0f28b028414c1acd6f5103052d4d3b86a56fc56e0ca",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-card-left.png": "203f270887772ebafa62a18cde5aa97a14940782cc59d2fe30cb38c9b331a9ed",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-device.png": "c4331a78ecffaea3ce50c501898c3aa175d2cbde8526cfc0fe9a000b8178789b",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-controls.png": "2a880d86caef1aa43afdde12246d48174def88e9b331e550e6d5d33f47f4f7a3",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-brief.png": "5c883b462a2120503bf4b07da4318efc893c7e41d3ed26dbf318218bfdc23443",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-low/c42-c39-closure-low-sign-reading.png": "fbb909a24255e4a8290ef7bd63ad0b7a3da9a1e54b4ce65f2ad8301b0110ad4f",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-low/c42-c39-closure-low-controls-0.png": "63467c1122fffdd52abc8cbaed047ea59b9e0effd8baa1ab84a7de46ebd19c78",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-low/c42-c39-closure-low-result.png": "ef083605bbb6c8b85135cd691b2a342424be2b9a3b74554acb14c0ea10029d1d",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-low/c42-c39-closure-low-controls-2.png": "b8bed3b2aa8f5b70b78493e4c1a38220a2bf5583eeaaa741216cebf5fa047f7a",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-low/c42-c39-closure-low-brief.png": "9f3b0e1d310b022b32f82143caf9a33ca17901cdd73f98e667039c6f7af1a1a3",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-low/c42-c39-closure-low-device.png": "92b68933fe307e236a3ff05699674d74d3c49278ff88b25158be6182a1ced7c8",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-low/c42-c39-closure-low-controls-1.png": "c488c1c914d3b8e34a09061039e0a6debecb7edf11958b2b21a3be0c19c75309",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-low/c42-c39-closure-low.json": "c11c7f48a82e4e5126257841521db36e6f546a04b6cbe13acf7767bd69f11828",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-low/c42-c39-closure-low-parked.png": "604b064035568c5d751d3dac8f1cc7f022f22bef634293d40aadb782049d924c",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-reply-n5.png": "0ebef7c6794b53100be6272f7d81f97ed2fccb96df96a125c3927736fd0670df",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-reply-n2.png": "ed64a0ddef459a7916bfbc1fd440a9f5aedfacd7e8177d3880683e91973f3e59",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-result.png": "404f48e0e38960584a77d08dc7b0a33dbaa2d33e1d8e61883195f8069dacfd74",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-arrival-2-cargo.png": "6be8522bf8a224c609bd4eb0b001f43d83207f9ab024871b016fd259de39627e",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-controls-3.png": "19851475d78d94fa34504e2b72b94acff411829f01ae8cec35e6e2b3e01a33dc",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-arrival-4-cab.png": "2a0a7ff9d236bd93f58bab5463b8fd751f3a6b7f7d3758124161d55dd3a77fb2",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-handheld.png": "12dc28d88f4b21c6c79e2752ce9e4562db3ea78ca745531e188ebfc8e89eb6a3",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-arrival-1-house.png": "a253c3a7a90fcf9c33c3d322766985b51acad5814a0ce0a48b1aa98f1c6394bb",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-physical.png": "8097f812ccde9e4063cfca876b5f90357fba4b17f2d267832d5251279922673d",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-reply-n3.png": "65b89741a020e4be695be6834143c0c8255264c295a8f5e8d99dc9c291e5d9ec",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-ending.png": "b135aeafd1d926804946524d68ea6bdc7e355ffdc960e3afc38b7406643e6e57",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-reply-n0.png": "7b45e062d0f2d99bedbace83cc112cb36cef442a40ad8d3dfe2e843124ec5ae2",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low.json": "d4efff0030434a55afa1593df6909b49ed7dc14de0f3aa38e86011a2c433354a",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-arrival-3-other.png": "c896947d7338a03f2dbea1997a479306f2b085167c5cc9db8f95c1ac5d05d48f",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-controls-0.png": "b652d5e38a31af73d3cf5cfac05ed087fc83af8f97b565104cd42fd79d47f3ec",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-controls-2.png": "f4a900e10615b27b1bbf5440283b693f8b1f2f05edd1a6316b29bfd6d7224c95",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-reply-n7.png": "f2b7868464394bf8de2f91907e5d8cefaa57f04da8514abba05c8d2b1cf4e9a3",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-address-reading.png": "3618f9b5eb25a4616046be5bb30b2827d453ea5be5345da0f35f33a295de1aaf",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-recovery-low/c42-c39-recovery-low-low-en-normal-recover-controls-1.png": "8f7d650db0feed8be4ee96b0a49ecfaacf71f77d4fe5054d9bb17d860b78bc5e",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-reply-n5.png": "484d50675774e9d615adb040e5885b4093fd488c3b3bd67a71279650ee4faa28",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-address-reading.png": "b7666bf1e1093300d40c2e2804061d504c10159aeb693905bcf2b503bcc84f90",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-reply-n0.png": "929c95729ddc9670e1ed842fc05a45dd4ea2c2361f2763d347e812c8afbc6514",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-ending.png": "b4ada8671d9db6c80f8f41f8cd4cc21e2e1036d5bf539db56736a696f43c3db4",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-reply-n2.png": "e86a2214bac15e53df4ed8131a962f8fc118277043f968605fc9ad320d0d30f0",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-reply-n4.png": "a71260a2d8b48d8160937b5cce3b724f1020e0807e7e79f58eea116df9e82a5d",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-arrival-2-cab.png": "5bca69fd2f949dd364ed3137a8ee4d8e6cd0fed73962bacd59dc543828751fee",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-controls-0.png": "057ba436f6ad07a6bfc4d8cd690b1fb62a7292bd1a597e948927f85b5d6ccf89",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-reply-n3.png": "542fcae1a20ead1eedb3d6d77e320ed0134be9c7ee33886097b381f5d717579f",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-reply-n6.png": "b951408a1f8c8021be9c5dfb3c03e51dc6281081d841ce368fb61387aa7d9cfe",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-controls-3.png": "ba7e76ba9c95f3657330d14fc8f936bf898fb95fa6dce8ad35dba99966af32d4",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-physical.png": "4347dfc6cfc77164d7af63fbdd6f20e857196b59e216f735cc06a63be4045637",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-arrival-1-gate.png": "98f0f5de3a4e0bf55a1fdf8e58ee6b541303c50a9309484bec81f70c0117c22c",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-result.png": "6741a846360bbf0b0035cd037da7ab22aba57407910deef182c31206948d09cf",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta.json": "e1114e7371f006ea14e25ae701c08e5ca42c5f822b0f48e7c1cd6111a844d4ae",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-controls-1.png": "3b29f2eaa86072dddf41bf6fd583c8512be28d40256f6a4a0dcd4abcfbce7cce",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-controls-2.png": "e305216a06fd15f35df1b1cb500e6bd0f7958fbac84d01362ffa906893b75ad1",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-storm-high-ta/c42-c39-storm-high-ta-high-ta-large-storm-handheld.png": "955c42f6e6185083d27222c9863830872a84eb0c3c5ad40246c83fd814e4c8b9",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-low/c42-c39-blocked-loaded-low-low-blockedcargo.png": "112d9bf4cf52b51a8689b1eca7674883879629041674790aff3a30d46d727d66",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-low/c42-c39-blocked-loaded-low-low-blockednotice.png": "0f6d83c145281cece8b69b3472c7b31a66d2b90bcd3807ce1a6e4a95b2c0f138",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-low/c42-c39-blocked-loaded-low-low-blockedcar.png": "fb85b88c9ef98e87ab60b4afed1acb4c0564c52938da56de8288e6362f3efbf5",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-low/c42-c39-blocked-loaded-low-low-blockeddevice.png": "29d57321f79c76d28d7bdb9177aaf4e1566e5829362bd5acce04b42e718d67ed",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-low/c42-c39-blocked-loaded-low-low-blockedcard.png": "ecb28320cd1378fe4519f84c59e4a5bcd4e56f09cdb5ee7761fe05b11f21ea41",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-low/c42-c39-blocked-loaded-low-low-blockedcab.png": "9f3a3e35a8815f2a93c4d99e6f3d27dc8a60956c338c77e241f5a3541a0cb777",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-low/c42-c39-blocked-loaded-low-low-blockedcontrols.png": "7161912474b8aea902dc91fba3ac64ace966c9acb7fc3719f5909c6759b6c50a",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-low/bench-c42-c39-blocked-loaded-low-low.json": "1fe5b2ec3f6bd58999e2a1243dc53af83723e45dd9278af135ab29b1bd2b6a65",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-low/c42-c39-blocked-loaded-low-low-blockedgate.png": "9f508b47184afbee8a9d74cd6a894b59e30da1788106ae59b908198b571c5638",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-high/c42-c39-blocked-loaded-high-high-blockedcab.png": "4ffd6f7d8d5b32a9ba7f282a287bac2fab94743925c19fb9ff4263ce5b6c3884",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-high/c42-c39-blocked-loaded-high-high-blockedgate.png": "e61ce65db7d99bac430d506e097d53f88db7259aca3bceafbaa6a7048820112a",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-high/c42-c39-blocked-loaded-high-high-blockedcargo.png": "bddeb3ac32d654ed04134f79ac2d3b8d69ed249f3ccdfcca2896644a06dfd840",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-high/c42-c39-blocked-loaded-high-high-blockeddevice.png": "b56b44f18251581d4488bd13b716dca7acf03de2f025430d36cab211de88f52f",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-high/c42-c39-blocked-loaded-high-high-blockedcar.png": "60415c3337b0cd518994d52c793da4290cb24e93ae6780e5ae60870cd358ca3f",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-high/c42-c39-blocked-loaded-high-high-blockednotice.png": "17addeead4f52e9d36917e3bdd8216a457c0c0c55b7a4b7e4723e6f360cd828b",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-high/c42-c39-blocked-loaded-high-high-blockedcard.png": "3f186603bffa04a9363460fc7f10b1d7320cc81a519ea13e78b43a98ed91982a",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-high/bench-c42-c39-blocked-loaded-high-high.json": "c20c84d011f110d0ccc3d8a788c8614b2bd0f96cb74017266cdd923855e4f224",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-loaded-high/c42-c39-blocked-loaded-high-high-blockedcontrols.png": "a63f300115891ffdbd3f37dfcfa2ff0d4732221afc50afe1dad44c3baa4bf526",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-accessible-low/c42-c39-blocked-accessible-low-low-blockeddevice.png": "493ef1baf1958e650515e937502caa36a2fd64576a7ac3b438ff20e88b7bf7bf",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-accessible-low/c42-c39-blocked-accessible-low-low-blockedgate.png": "93edbbaed887313e7cee4bf01b530369f34456c01ac1c5a682f8a485038e2468",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-accessible-low/c42-c39-blocked-accessible-low-low-blockednotice.png": "05e6dc96e8d429a285e6149ef5ae893629d97e7ffdb1650ca7b344937d5af5e6",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-accessible-low/c42-c39-blocked-accessible-low-low-blockedcard.png": "c9cc085ff94101c93842a1d54540b49d1ae211a956b15107ae05e36bd0363eba",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-accessible-low/c42-c39-blocked-accessible-low-low-blockedcab.png": "0559baea98b0554547dd855cf013582dd64e040b1118320ee31a382178571d36",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-accessible-low/c42-c39-blocked-accessible-low-low-blockedcar.png": "9a0f659c90da7a1cc00f702acb4865f1dbee8f291db4fc6d5c7b1385d7d678ba",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-accessible-low/c42-c39-blocked-accessible-low-low-blockedcargo.png": "5d77e710bfb8129e95a0c88cbcd294dd491e046b43e64a5507684f72606ada05",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-accessible-low/c42-c39-blocked-accessible-low-low-blockedcontrols.png": "901db8c4a96e82a12fc3bb1a4ded15b7602ad3529c6b152c51a35a89a6644681",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-accessible-low/bench-c42-c39-blocked-accessible-low-low.json": "d0d99498edd50330fd40b69f9fb925350d6a133df406d564a47e04afbd3026ad",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-fallback-low/bench-c42-c39-blocked-fallback-low-low.json": "4d548608d26efc298c3a04ece75821f1f8923e010308af62ebfab78b18c071e4",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-fallback-low/c42-c39-blocked-fallback-low-low-blockedcab.png": "640c767d7c19a638772f45bbc2f995ec86e3bfbad1d98569debecf10f65b633b",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-fallback-low/c42-c39-blocked-fallback-low-low-blockedgate.png": "12635131c8b5099a79e5334c8d05e59a674d024a7dbd44ead7ea4ec73a464717",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-fallback-low/c42-c39-blocked-fallback-low-low-blockedcontrols.png": "790f10ad5d063b90431cdcbe0bdacdb90b0d882df80dd2b584713637bc2dd852",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-fallback-low/c42-c39-blocked-fallback-low-low-blockedcard.png": "32344ec712c20828eed2f17594e243134fde76c0f195b8129c713f4ff3739299",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-fallback-low/c42-c39-blocked-fallback-low-low-blockednotice.png": "dcf7bb72542244f5f1e99f9ba574af513446af89348021e9c0e7229c5c49113e",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-fallback-low/c42-c39-blocked-fallback-low-low-blockedcar.png": "790278991991e1cae08c22cc0dc9313308ee13ed487ac7c713d3677b9166a41b",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-fallback-low/c42-c39-blocked-fallback-low-low-blockedcargo.png": "2d4bc1f3b0b14d07fc266b6884f31eceab782acfba1d1be0851a8cb22362509e",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-fallback-low/c42-c39-blocked-fallback-low-low-blockeddevice.png": "12421cb0a896e356e3379eb0b93a30a9d87a9a0724a811f7fc381db25e9513c9",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-loaded-low/bench-c42-c39-closure-loaded-low-low.json": "dfb5b9ac08ef391b6f3d24dfb3df0418fd63dffab23cc7113cd3cf8b0294b358",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-loaded-low/c42-c39-closure-loaded-low-low-closurebay.png": "3690dfd0b03b5c847a162db295a423a4673a83ea7c6ed09a4edd8d74a3541c81",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-loaded-low/c42-c39-closure-loaded-low-low-closurebarrier.png": "563739b5c263c5c50f54525c1f707d7a6b7fe31e89c6e600ad1f55ffbeefdef0",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-loaded-high/c42-c39-closure-loaded-high-high-closurebay.png": "21652807e34a82d9a99222162a5fe64271bc5a33fd557daffacca5f9f76e41be",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-loaded-high/bench-c42-c39-closure-loaded-high-high.json": "42af3467fdf63768959747af04e5efdbf4f86fae1e6839ffa599a690cb1a97e0",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-loaded-high/c42-c39-closure-loaded-high-high-closurebarrier.png": "15fd2bef13bec1eb872f8c1b2b1dd3b89ad330522180ae2c2ed2d2f75a2d2c71",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-accessible-low/c42-c39-closure-accessible-low-low-closurebarrier.png": "244a252f27817a354f203018aa4762285d361a8682f2a87cdbf44833af11b434",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-accessible-low/c42-c39-closure-accessible-low-low-closurebay.png": "bc05f1a96c725c8d9d0152c3f31e41f89948c4b417c2fe90fc32d80a8c7db50b",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-accessible-low/bench-c42-c39-closure-accessible-low-low.json": "28cfd621b24c9be0c29fcad1177c832c820b55584136a149c03dc62a0d9aaf3f",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-fallback-low/c42-c39-closure-fallback-low-low-closurebay.png": "7b2483c43ebc1c52fb4e95f44b144d76d2611299cd6c6b00fccf91408fded11e",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-fallback-low/c42-c39-closure-fallback-low-low-closurebarrier.png": "e2119f0b9501df8fc15a1b2c537e4e39f7431ec941f359f73cea16867fff45ba",
+    "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-fallback-low/bench-c42-c39-closure-fallback-low-low.json": "351cad415f795b1722462a6ba7d9453fd59c66b0debaa3fbac609bff1efd6302"
+  },
+  "cleanup": [
+    {
+      "directory": "docs/review/set-10/c42-c39-rebase/acceptance",
+      "serverExited": true,
+      "leaseReleased": true,
+      "ownedPidsGoneOrZombie": true
+    }
+  ],
+  "visualReview": [
+    {
+      "file": "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-safe-card.png",
+      "note": "Original-size High larger-text safe-card panel fits with the physical holder outside the blocked driveway; new copy remains for A31."
+    },
+    {
+      "file": "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-result.png",
+      "note": "Original-size High larger Tamil failed-booking result: service zero and failed assessment remain visible; headings, lesson and controls fit."
+    },
+    {
+      "file": "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-low/c42-c39-closure-low-parked.png",
+      "note": "Original-size Low end bay: all three physical mirrors remain visible with the original cab and accessible controls; native gate ledger separately proves all seven gates and whole-van parking."
+    }
+  ],
+  "allPassed": true
+}

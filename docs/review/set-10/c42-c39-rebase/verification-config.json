@@ -1,0 +1,57 @@
+{
+  "cohorts": [
+    {
+      "directory": "docs/review/set-10/c42-c39-rebase/acceptance"
+    }
+  ],
+  "nativeJobs": 6,
+  "resourceViews": 40,
+  "registryBase": "705e7e56",
+  "registryPattern": "^        scene3d: 'problem-conversation',\n",
+  "scope": "C42 on C41/C40/C39/A30: six native journeys include wrong reattempt booking with failed assessment, closure full gates/park, recovery and storm. Forty original-profile resources. Authored fixture/travel scopes remain; optional registry/A31 and Intel O1 separate.",
+  "nativePolicies": [
+    {
+      "suffix": "blocked-low",
+      "score": 200
+    },
+    {
+      "suffix": "blocked-high-ta",
+      "score": 200,
+      "assessmentPassed": true
+    },
+    {
+      "suffix": "blocked-bad-high-ta",
+      "score": 0,
+      "assessmentPassed": false,
+      "wrongBooking": true
+    },
+    {
+      "suffix": "closure-low",
+      "score": 400,
+      "fullClosure": true
+    },
+    {
+      "suffix": "recovery-low",
+      "score": 1900
+    },
+    {
+      "suffix": "storm-high-ta",
+      "score": 2000,
+      "assessmentPassed": true
+    }
+  ],
+  "visualReview": [
+    {
+      "file": "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-safe-card.png",
+      "note": "Original-size High larger-text safe-card panel fits with the physical holder outside the blocked driveway; new copy remains for A31."
+    },
+    {
+      "file": "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-blocked-bad-high-ta/c42-c39-blocked-bad-high-ta-result.png",
+      "note": "Original-size High larger Tamil failed-booking result: service zero and failed assessment remain visible; headings, lesson and controls fit."
+    },
+    {
+      "file": "docs/review/set-10/c42-c39-rebase/acceptance/artifacts/c42-c39-closure-low/c42-c39-closure-low-parked.png",
+      "note": "Original-size Low end bay: all three physical mirrors remain visible with the original cab and accessible controls; native gate ledger separately proves all seven gates and whole-van parking."
+    }
+  ]
+}

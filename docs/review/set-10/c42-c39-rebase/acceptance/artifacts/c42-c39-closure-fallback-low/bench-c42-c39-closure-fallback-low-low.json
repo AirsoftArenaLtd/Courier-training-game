@@ -1,0 +1,263 @@
+{
+  "tag": "c42-c39-closure-fallback-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "assetFailure": "missing-model-files",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 0,
+    "failed": 14,
+    "fallbacks": 0,
+    "bytes": 0,
+    "decodedBytes": 0,
+    "errors": [
+      {
+        "path": "kenney-city-starter/models/garage-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/building-type-c-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/tree-small-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-suburban/models/fence-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-commercial/models/building-a-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/road-straight-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-city-roads/models/light-curved-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/sedan-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "kenney-car-kit/models/delivery-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/worker-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-men/models/resident-low.glb",
+        "reason": "Asset could not load"
+      },
+      {
+        "path": "quaternius-modular-women/models/resident-low.glb",
+        "reason": "Asset could not load"
+      }
+    ]
+  },
+  "prototype": {
+    "closurebarrier": {
+      "frames": 98,
+      "avgFPS": 9.78,
+      "low1FPS": 4.23,
+      "p99ms": 236.5,
+      "maxMs": 236.5,
+      "peak": {
+        "calls": 25,
+        "triangles": 658,
+        "textures": 2,
+        "geometries": 11,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 91,
+        "baseLevelRGBABytes": 1052528,
+        "withMipmapsUpperBytes": 1403371
+      },
+      "worldProfile": {
+        "meshes": 88,
+        "instances": 113,
+        "geometries": 15,
+        "materials": 36,
+        "geometryBytes": 22028,
+        "instanceBytes": 50684,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          34,
+          34,
+          34,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 41,
+          "y": 1.65,
+          "z": 3.25,
+          "yaw": 3.641592653589793,
+          "pitch": -0.05,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 42.825,
+          "baseZ": -18.8,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "closurebay": {
+      "frames": 75,
+      "avgFPS": 7.43,
+      "low1FPS": 3.11,
+      "p99ms": 321.1,
+      "maxMs": 321.1,
+      "peak": {
+        "calls": 39,
+        "triangles": 906,
+        "textures": 2,
+        "geometries": 11,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 91,
+        "baseLevelRGBABytes": 1052528,
+        "withMipmapsUpperBytes": 1403371
+      },
+      "worldProfile": {
+        "meshes": 88,
+        "instances": 124,
+        "geometries": 15,
+        "materials": 36,
+        "geometryBytes": 22028,
+        "instanceBytes": 50684,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          27,
+          27,
+          26,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 44.550000000000004,
+          "y": 1.65,
+          "z": 26.41666666666667,
+          "yaw": 0.4,
+          "pitch": -0.12,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 42.825,
+          "baseZ": -18.8,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "closureProof": {
+    "closurebarrier": {
+      "source": "closure-static-resource-pose",
+      "id": "m4-closure",
+      "registered": true,
+      "phase": "active",
+      "mode": "walk",
+      "bounded": true,
+      "solidClosure": true,
+      "gates": 7,
+      "mountedSigns": 2,
+      "floatingClosure": false,
+      "fontLettering": false,
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "closurebay": {
+      "source": "closure-static-resource-pose",
+      "id": "m4-closure",
+      "registered": true,
+      "phase": "active",
+      "mode": "walk",
+      "bounded": true,
+      "solidClosure": true,
+      "gates": 7,
+      "mountedSigns": 2,
+      "floatingClosure": false,
+      "fontLettering": false,
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "closureFixture": true,
+  "phaserTextures": {
+    "count": 91,
+    "baseLevelRGBABytes": 1052528,
+    "withMipmapsUpperBytes": 1403371
+  },
+  "phaserTexturesPeak": {
+    "count": 91,
+    "baseLevelRGBABytes": 1052528,
+    "withMipmapsUpperBytes": 1403371
+  },
+  "missingViews": [],
+  "errors": []
+}

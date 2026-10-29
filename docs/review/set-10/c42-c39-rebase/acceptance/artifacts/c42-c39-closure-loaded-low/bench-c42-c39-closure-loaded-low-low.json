@@ -1,0 +1,205 @@
+{
+  "tag": "c42-c39-closure-loaded-low",
+  "quality": "low",
+  "textureDimensions": "intrinsic image/canvas",
+  "audioContext": "running",
+  "accessibility": [],
+  "renderer": {
+    "name": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 720
+  },
+  "actualQuality": "low",
+  "assets": {
+    "quality": "low",
+    "loaded": 14,
+    "failed": 0,
+    "fallbacks": 0,
+    "bytes": 824208,
+    "decodedBytes": 354468,
+    "errors": []
+  },
+  "prototype": {
+    "closurebarrier": {
+      "frames": 80,
+      "avgFPS": 7.92,
+      "low1FPS": 3.61,
+      "p99ms": 276.7,
+      "maxMs": 276.7,
+      "peak": {
+        "calls": 32,
+        "triangles": 994,
+        "textures": 2,
+        "geometries": 21,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 91,
+        "baseLevelRGBABytes": 1052528,
+        "withMipmapsUpperBytes": 1403371
+      },
+      "worldProfile": {
+        "meshes": 101,
+        "instances": 112,
+        "geometries": 29,
+        "materials": 40,
+        "geometryBytes": 86280,
+        "instanceBytes": 60604,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          27,
+          26,
+          26,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 41,
+          "y": 1.65,
+          "z": 3.25,
+          "yaw": 3.641592653589793,
+          "pitch": -0.05,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 42.825,
+          "baseZ": -18.8,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    },
+    "closurebay": {
+      "frames": 64,
+      "avgFPS": 6.21,
+      "low1FPS": 2.83,
+      "p99ms": 353.1,
+      "maxMs": 353.1,
+      "peak": {
+        "calls": 40,
+        "triangles": 1102,
+        "textures": 2,
+        "geometries": 19,
+        "attachmentBytes": 3557376
+      },
+      "target": {
+        "width": 832,
+        "height": 468
+      },
+      "contextLost": false,
+      "phaserTextures": {
+        "count": 91,
+        "baseLevelRGBABytes": 1052528,
+        "withMipmapsUpperBytes": 1403371
+      },
+      "worldProfile": {
+        "meshes": 101,
+        "instances": 119,
+        "geometries": 29,
+        "materials": 40,
+        "geometryBytes": 86280,
+        "instanceBytes": 60604,
+        "shadowCasters": 0
+      },
+      "mirrorViews": {
+        "updates": [
+          24,
+          24,
+          23,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      },
+      "camera": {
+        "fov": 68,
+        "pose": {
+          "x": 44.550000000000004,
+          "y": 1.65,
+          "z": 26.41666666666667,
+          "yaw": 0.4,
+          "pitch": -0.12,
+          "roll": 0,
+          "fov": 68,
+          "baseX": 42.825,
+          "baseZ": -18.8,
+          "bodyY": 0,
+          "bodyPitch": 0,
+          "bodyRoll": 0,
+          "heave": 0,
+          "roadImpact": 0
+        }
+      }
+    }
+  },
+  "closureProof": {
+    "closurebarrier": {
+      "source": "closure-static-resource-pose",
+      "id": "m4-closure",
+      "registered": true,
+      "phase": "active",
+      "mode": "walk",
+      "bounded": true,
+      "solidClosure": true,
+      "gates": 7,
+      "mountedSigns": 2,
+      "floatingClosure": false,
+      "fontLettering": false,
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    },
+    "closurebay": {
+      "source": "closure-static-resource-pose",
+      "id": "m4-closure",
+      "registered": true,
+      "phase": "active",
+      "mode": "walk",
+      "bounded": true,
+      "solidClosure": true,
+      "gates": 7,
+      "mountedSigns": 2,
+      "floatingClosure": false,
+      "fontLettering": false,
+      "handheld": false,
+      "panel": false,
+      "reverse": false,
+      "checkpointUnchanged": true,
+      "eventsUnchanged": true,
+      "workdayUnchanged": true
+    }
+  },
+  "closureFixture": true,
+  "phaserTextures": {
+    "count": 91,
+    "baseLevelRGBABytes": 1052528,
+    "withMipmapsUpperBytes": 1403371
+  },
+  "phaserTexturesPeak": {
+    "count": 91,
+    "baseLevelRGBABytes": 1052528,
+    "withMipmapsUpperBytes": 1403371
+  },
+  "missingViews": [],
+  "errors": []
+}
