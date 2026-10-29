@@ -1,0 +1,17 @@
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+✔ both optional models retain the real road/cab and restore their own starts after scenario-shell setup (2.153376ms)
+✔ the actual motor reaches both curbside bays at five input rates without a pose or clock shortcut (1763.178493ms)
+✔ a parked relocation cannot invent an ice-weather observation; a real safe motor drive does supply it (27.50671ms)
+✔ unsafe real driving reaches the catalogue weather sink once and cannot be repaired by later parking (42.102159ms)
+✔ the visible handrail is solid, has an actual ray target, and its mounted notice is readable from the public path (40.790493ms)
+✔ physical and panel guards reject remote/stale rail actions and repeated completion (0.419011ms)
+✔ the complete vehicle footprint stays on the public road and ice completion still requires its legal parking (17.320107ms)
+✔ fatigue warnings and actual rest time pause with the mission and never add time to it (283.935668ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2234.137219

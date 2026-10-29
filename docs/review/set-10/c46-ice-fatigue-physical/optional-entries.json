@@ -1,0 +1,27 @@
+[
+  {
+    "id": "m8-ice",
+    "module": "m8",
+    "title": "Slips on Ice",
+    "blurb": "Drive to the curbside bay, then use careful footing and the gritted path or physical handrail.",
+    "categories": [
+      "safety"
+    ],
+    "optional": true,
+    "default3d": false,
+    "scene3d": "wellness-ice"
+  },
+  {
+    "id": "m8-fatigue",
+    "module": "m8",
+    "title": "Tired at the Wheel",
+    "blurb": "Respond to the tiredness warning, park in the marked rest bay and take the required break.",
+    "categories": [
+      "safety",
+      "efficiency"
+    ],
+    "optional": true,
+    "default3d": false,
+    "scene3d": "wellness-fatigue"
+  }
+]

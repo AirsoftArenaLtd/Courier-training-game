@@ -1,0 +1,24 @@
+{
+  "scope": "Frozen final physical candidate syntax and touched source hashes; browser acceptance pending. CPU behavior gates preceded only final brief/control wording.",
+  "files": {
+    "src/core/fpaccess.js": "a3d71cd2607566bc81b12cb41208d45571ee3d9d7d805550d74b493413d1f60b",
+    "src/core/fpicefatigue.js": "32395deebcb28f3f0e83bc57dadeba38944cf3c2badc172097590cb4691ab425",
+    "src/core/fpicefatiguescenario.js": "c96c76f643820bfa327e816e2463e7a56ed7aefac02e2b063a9e04b70553cb44",
+    "src/core/fpicefatiguestage.js": "1d329c37a3dcff715762e1f26589b73f072b00c0ceaab977362e65bef03d4bd3",
+    "src/core/fpicefatigueworld.js": "330a858fefafb2047091fcbedd3712a0c35937ece7966338143452dfabab8ed6",
+    "src/core/fproute.js": "1f159c44337b31813469fdc0d4836508286c5553051c61603205555fe7596c25",
+    "src/core/fpworld.js": "63318eb3aebd500e1b2cdfbf91fcf7cbaf737f67a0c0cb85d2f0b455b7a7594e",
+    "test/fpbench.js": "d93fa128ac0a34572606a56fdb73ebd54e5a056330f5fb97743be1b6443f98d9",
+    "test/fpicefatigue.js": "b52de07e14a60e28bbbdb673bd4ad87d79aef8c4d255921caccbc0b887b7f0e1",
+    "test/fpicefatiguebrowser.js": "f1f87d930447e716d5400dc3e35422d6fe48070d879e5387fabbf6dde10ddbd8",
+    "test/fpicefatiguegeometry.js": "2d05e999279b93f83901918f514c7a3ea93c2c6d9127ed172a9d4111d2ab1904",
+    "test/fpicefatiguestage.js": "14dad7f2910ac445b41cd446115f4690a480095816404350bec62e44a0aabd1e",
+    "test/fpreversebrowser.js": "cd7682af6e3f3417fec829db85c6a3d07332d4cb2c68c659f32b0a5ffd942ddd",
+    "test/tools/fp-ice-fatigue-context.js": "35b45b9c35a17797084a071b8425536ac691399bfac52df20da15c0f9f29d872",
+    "test/tools/fp-wellness-road-fixture.js": "b3a18f5b00e02761b01845f6e520cc799065c129740a5205ba277ddde2c8dfc5",
+    "test/tools/fp-wellness-road-input.js": "fb97b2f73d82c8608584ad9a4a02d3ed52174e281d7085fc2c8e5f53ced0568a",
+    "test/tools/fp-wellness-road-pose.js": "a7961118b8214925c5bef74161fd92fe2598ebded6fc69c239aa129e675badcd",
+    "test/tools/fp-wellness-road-quality.js": "021c876f4d4628e228feb97f78e4fd9f066070b529861ec3abd323a06666e5cd"
+  },
+  "allPassed": true
+}

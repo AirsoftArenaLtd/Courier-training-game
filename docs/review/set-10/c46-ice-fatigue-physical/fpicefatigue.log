@@ -1,0 +1,19 @@
+✔ careful actual walking across the gritted route passes at four input rates with the catalogue weather check (90.73809ms)
+✔ fast motor movement onto ice fails immediately, remains failed after careful recovery, and is not critical (5.845281ms)
+✔ normal motor pace on the gritted strip does not count as running on bare ice (3.866805ms)
+✔ a physical handrail can replace the gritted route, but a remote request or merely standing still cannot (22.700807ms)
+✔ unsafe weather cannot be diluted by later reports, and unfinished ice traversal scores zero (1.147422ms)
+✔ the fatigue prompt uses fixed active scenario time and pauses stop both warning and break clocks (45.628906ms)
+✔ safe parking requires the whole turned van, P, the parking brake and a stopped motor (3.882689ms)
+✔ parking at the sixty-second boundary passes and parking after it fails without a critical (36.469565ms)
+✔ still driving after 120 seconds is a sticky major failure even after a completed break (68.23529ms)
+✔ break duration includes both boundaries; a short, interrupted or overlong break cannot be repaired for full credit (108.964031ms)
+✔ invalid time and inactive observations cannot advance or finish a fatigue attempt (1.152919ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 403.148283
