@@ -1,0 +1,16 @@
+✔ loss pauses once, clears held/scan input, and does not alter mission, cargo or observations (9.151908ms)
+✔ restoration is deferred until later renderer listeners finish and resolves waiting loaders once (0.838596ms)
+✔ an already paused external scene is not resumed and its panel identity and selection survive (0.338762ms)
+✔ handheld and transition state are preserved instead of replaced by a new pause menu (0.381596ms)
+✔ shutdown while lost resolves waiting work false, removes listeners and ignores late restore (0.418372ms)
+✔ a second loss before the restoration microtask never resumes a still-lost context (2.507826ms)
+✔ owned raw key actions reject lost-context events and repeats cannot rearm a cleared accelerator (1.066821ms)
+✔ a remapping prompt cannot consume or save a keyboard choice while the display is lost (5.860589ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31.904192

@@ -1,0 +1,12 @@
+✔ all four authored good paths use physical targets and voluntary walks without changing the workday (292.062608ms)
+✔ only a real nearby target advances; cargo is inspected only while open and cab decisions require the cab (6.803001ms)
+✔ storm timer pauses on the handheld and pause menu, but continues on reply and history pages (4.415774ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 322.631981
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation

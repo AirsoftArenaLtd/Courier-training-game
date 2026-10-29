@@ -1,0 +1,188 @@
+{
+  "candidate": "489c0659a3ae572ed4f27455c996b4e58926b8d6",
+  "stackedOn": "749cb9ec1f7442cc399a2cefd69caaf9c7018e81",
+  "suites": [
+    {
+      "file": "test/fppickup.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat.",
+      "seconds": 0.65,
+      "log": "fppickup.log"
+    },
+    {
+      "file": "test/fppickupreference.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat.",
+      "seconds": 0.11,
+      "log": "fppickupreference.log"
+    },
+    {
+      "file": "test/fppickupscenario.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat.",
+      "seconds": 0.91,
+      "log": "fppickupscenario.log"
+    },
+    {
+      "file": "test/fppickupgeometry.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat.",
+      "seconds": 9.87,
+      "log": "fppickupgeometry.log"
+    },
+    {
+      "file": "test/fppickupworld.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat.",
+      "seconds": 0.4,
+      "log": "fppickupworld.log"
+    },
+    {
+      "file": "test/fploadingworld.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat.",
+      "seconds": 0.82,
+      "log": "fploadingworld.log"
+    },
+    {
+      "file": "test/fpscannerstopworld.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat.",
+      "seconds": 7.38,
+      "log": "fpscannerstopworld.log"
+    },
+    {
+      "file": "test/fpproblemblockedworld.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat.",
+      "seconds": 0.53,
+      "log": "fpproblemblockedworld.log"
+    },
+    {
+      "file": "test/fpcustomerprotocolscenario.js",
+      "exit": 0,
+      "seconds": 0.62,
+      "log": "fpcustomerprotocolscenario.log"
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0,
+      "seconds": 0.18,
+      "log": "fpscenario.log"
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0,
+      "seconds": 1.12,
+      "log": "fpworld.log"
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0,
+      "seconds": 0.3,
+      "log": "fpaccess.log"
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0,
+      "seconds": 0.19,
+      "log": "fpcontext.log"
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0,
+      "seconds": 0.62,
+      "log": "fpgamepad.log"
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0,
+      "seconds": 0.19,
+      "log": "englishtext.log"
+    },
+    {
+      "file": "test/fppretrip.js",
+      "exit": 0,
+      "seconds": 0.37,
+      "log": "fppretrip.log"
+    },
+    {
+      "file": "test/fproutelesson.js",
+      "exit": 0,
+      "seconds": 0.58,
+      "log": "fproutelesson.log"
+    },
+    {
+      "file": "test/fphazardlesson.js",
+      "exit": 0,
+      "seconds": 0.42,
+      "log": "fphazardlesson.log"
+    },
+    {
+      "file": "test/fpdrivinglesson.js",
+      "exit": 0,
+      "seconds": 1.62,
+      "log": "fpdrivinglesson.log"
+    },
+    {
+      "file": "test/fpjunctionlesson.js",
+      "exit": 0,
+      "seconds": 9.1,
+      "log": "fpjunctionlesson.log"
+    },
+    {
+      "file": "test/fpschoollesson.js",
+      "exit": 0,
+      "seconds": 6.2,
+      "log": "fpschoollesson.log"
+    },
+    {
+      "file": "test/fpnightlesson.js",
+      "exit": 0,
+      "seconds": 17.7,
+      "log": "fpnightlesson.log"
+    },
+    {
+      "file": "test/fppackagesortscenario.js",
+      "exit": 0,
+      "seconds": 0.5,
+      "log": "fppackagesortscenario.log"
+    },
+    {
+      "file": "test/fpcustomerscenario.js",
+      "exit": 0,
+      "seconds": 0.31,
+      "log": "fpcustomerscenario.log"
+    },
+    {
+      "file": "test/fpcustomerstopscenario.js",
+      "exit": 0,
+      "seconds": 0.46,
+      "log": "fpcustomerstopscenario.log"
+    },
+    {
+      "file": "test/fpproblemscenario.js",
+      "exit": 0,
+      "seconds": 0.45,
+      "log": "fpproblemscenario.log"
+    },
+    {
+      "file": "test/fploadingscenario.js",
+      "exit": 0,
+      "seconds": 4.65,
+      "log": "fploadingscenario.log"
+    },
+    {
+      "file": "test/fploadingwalk.js",
+      "exit": 0,
+      "seconds": 14.05,
+      "log": "fploadingwalk.log"
+    },
+    {
+      "file": "test/scenario3d.js",
+      "exit": 0,
+      "seconds": 0.26,
+      "log": "scenario3d.log"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{"id":"m7-business","score":2300,"stars":{"service":3,"efficiency":3}}
+{"id":"m7-intl","score":1800,"stars":{"service":3,"efficiency":3}}
+{"id":"m7-dg","score":1700,"stars":{"safety":3,"service":3}}
+✔ m7-business original native observation retains full ratios, three stars and original checks (8.76056ms)
+✔ m7-intl original native observation retains full ratios, three stars and original checks (3.06588ms)
+✔ m7-dg original native observation retains full ratios, three stars and original checks (2.254245ms)
+✔ undeclared goods and incomplete customs receipts stay critical, and invented/repeated/incomplete observations fail (48.891475ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 69.029326
