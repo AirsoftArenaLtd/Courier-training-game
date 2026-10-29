@@ -4279,7 +4279,12 @@ window.OTR_I18N.es = {
 "Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "Revisa los faros antes de salir y sigue la ruta nocturna detrás de otro vehículo. Mantén una distancia segura, conduce dentro de lo que iluminan tus faros y aparca en el espacio marcado.",
 "Checking the headlights before a night drive": "Revisar los faros antes de conducir de noche",
 "A three-second gap behind the vehicle ahead": "Tres segundos de distancia con el vehículo de delante",
-"Driving within the reach of your headlights": "Conducir dentro del alcance de tus faros"
+"Driving within the reach of your headlights": "Conducir dentro del alcance de tus faros",
+"Modules in 3D…": "Módulos en 3D…",
+"Modules in 3D": "Módulos en 3D",
+"Where ready": "Cuando esté listo",
+"No module has a 3D version yet.": "Ningún módulo tiene todavía una versión 3D.",
+"Where ready: the 3D version once it has passed its checks, otherwise 2D. A PC without 3D graphics always plays 2D. Stars and records are the same in both. Press Save rules afterwards.": "Cuando esté listo: la versión 3D una vez superadas sus comprobaciones; si no, 2D. Un PC sin gráficos 3D siempre usa 2D. Las estrellas y los registros son iguales en ambas. Después pulsa Guardar reglas."
 },
 "templates": [
 [

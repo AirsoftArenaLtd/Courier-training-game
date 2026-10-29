@@ -4268,7 +4268,12 @@ window.OTR_I18N.te = {
 "Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "బయలుదేరే ముందు హెడ్‌లైట్లు తనిఖీ చేసి, మరో వాహనం వెనుక రాత్రి రూట్‌ను అనుసరించండి. సురక్షిత దూరం ఉంచండి, హెడ్‌లైట్లు చూపించే దూరంలోనే నడపండి, గుర్తు స్థలంలో వ్యాన్ నిలపండి.",
 "Checking the headlights before a night drive": "రాత్రి ప్రయాణానికి ముందు హెడ్‌లైట్లు తనిఖీ చేయడం",
 "A three-second gap behind the vehicle ahead": "ముందు వాహనం నుంచి మూడు సెకన్ల దూరం",
-"Driving within the reach of your headlights": "హెడ్‌లైట్ల పరిధిలో నడపడం"
+"Driving within the reach of your headlights": "హెడ్‌లైట్ల పరిధిలో నడపడం",
+"Modules in 3D…": "3D లో మాడ్యూల్స్…",
+"Modules in 3D": "3D లో మాడ్యూల్స్",
+"Where ready": "సిద్ధమైనప్పుడు",
+"No module has a 3D version yet.": "ఇంకా ఏ మాడ్యూల్‌కూ 3D వెర్షన్ లేదు.",
+"Where ready: the 3D version once it has passed its checks, otherwise 2D. A PC without 3D graphics always plays 2D. Stars and records are the same in both. Press Save rules afterwards.": "సిద్ధమైనప్పుడు: తనిఖీలు పాసైన తర్వాత 3D వెర్షన్, లేకపోతే 2D. 3D గ్రాఫిక్స్ లేని పీసీ ఎప్పుడూ 2D ఆడుతుంది. రెండింటిలోనూ నక్షత్రాలు, రికార్డులు ఒకటే. తర్వాత నియమాలు సేవ్ చేయండి నొక్కండి."
 },
 "templates": [
 [

@@ -4269,7 +4269,12 @@ window.OTR_I18N.pa = {
 "Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "ਤੁਰਨ ਤੋਂ ਪਹਿਲਾਂ ਹੈੱਡਲਾਈਟਾਂ ਜਾਂਚੋ, ਫਿਰ ਕਿਸੇ ਹੋਰ ਵਾਹਨ ਦੇ ਪਿੱਛੇ ਰਾਤ ਦਾ ਰੂਟ ਚੱਲੋ। ਸੁਰੱਖਿਅਤ ਫ਼ਾਸਲਾ ਰੱਖੋ, ਹੈੱਡਲਾਈਟਾਂ ਜਿੰਨਾ ਦਿਖਾਉਣ ਉਸ ਵਿੱਚ ਚਲਾਓ ਅਤੇ ਨਿਸ਼ਾਨ ਵਾਲੀ ਥਾਂ ਵਿੱਚ ਵੈਨ ਖੜ੍ਹੀ ਕਰੋ।",
 "Checking the headlights before a night drive": "ਰਾਤ ਦੇ ਸਫ਼ਰ ਤੋਂ ਪਹਿਲਾਂ ਹੈੱਡਲਾਈਟਾਂ ਜਾਂਚਣਾ",
 "A three-second gap behind the vehicle ahead": "ਅੱਗੇ ਵਾਲੇ ਵਾਹਨ ਤੋਂ ਤਿੰਨ ਸਕਿੰਟ ਦਾ ਫ਼ਾਸਲਾ",
-"Driving within the reach of your headlights": "ਹੈੱਡਲਾਈਟਾਂ ਦੀ ਪਹੁੰਚ ਵਿੱਚ ਚਲਾਉਣਾ"
+"Driving within the reach of your headlights": "ਹੈੱਡਲਾਈਟਾਂ ਦੀ ਪਹੁੰਚ ਵਿੱਚ ਚਲਾਉਣਾ",
+"Modules in 3D…": "3D ਵਿੱਚ ਮਾਡਿਊਲ…",
+"Modules in 3D": "3D ਵਿੱਚ ਮਾਡਿਊਲ",
+"Where ready": "ਤਿਆਰ ਹੋਣ 'ਤੇ",
+"No module has a 3D version yet.": "ਅਜੇ ਕਿਸੇ ਮਾਡਿਊਲ ਦਾ 3D ਰੂਪ ਨਹੀਂ ਹੈ।",
+"Where ready: the 3D version once it has passed its checks, otherwise 2D. A PC without 3D graphics always plays 2D. Stars and records are the same in both. Press Save rules afterwards.": "ਤਿਆਰ ਹੋਣ 'ਤੇ: ਜਾਂਚਾਂ ਪਾਸ ਕਰਨ ਤੋਂ ਬਾਅਦ 3D ਰੂਪ, ਨਹੀਂ ਤਾਂ 2D। 3D ਗ੍ਰਾਫਿਕਸ ਤੋਂ ਬਿਨਾਂ ਪੀਸੀ ਹਮੇਸ਼ਾ 2D ਚਲਾਉਂਦਾ ਹੈ। ਦੋਵਾਂ ਵਿੱਚ ਤਾਰੇ ਅਤੇ ਰਿਕਾਰਡ ਇੱਕੋ ਜਿਹੇ ਹਨ। ਫਿਰ ਨਿਯਮ ਸੇਵ ਕਰੋ ਦਬਾਓ।"
 },
 "templates": [
 [

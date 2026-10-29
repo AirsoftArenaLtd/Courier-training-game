@@ -4268,7 +4268,12 @@ window.OTR_I18N.kn = {
 "Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "ಹೊರಡುವ ಮೊದಲು ಹೆಡ್‌ಲೈಟ್ ಪರಿಶೀಲಿಸಿ, ನಂತರ ಇನ್ನೊಂದು ವಾಹನದ ಹಿಂದೆ ರಾತ್ರಿಯ ಮಾರ್ಗ ಅನುಸರಿಸಿ. ಸುರಕ್ಷಿತ ಅಂತರ ಇಡಿ, ಹೆಡ್‌ಲೈಟ್ ತೋರಿಸುವಷ್ಟರೊಳಗೆ ಚಾಲನೆ ಮಾಡಿ, ಗುರುತಿಸಿದ ಜಾಗದಲ್ಲಿ ವ್ಯಾನ್ ನಿಲ್ಲಿಸಿ.",
 "Checking the headlights before a night drive": "ರಾತ್ರಿ ಪ್ರಯಾಣದ ಮೊದಲು ಹೆಡ್‌ಲೈಟ್ ಪರಿಶೀಲನೆ",
 "A three-second gap behind the vehicle ahead": "ಮುಂದಿನ ವಾಹನದಿಂದ ಮೂರು ಸೆಕೆಂಡು ಅಂತರ",
-"Driving within the reach of your headlights": "ಹೆಡ್‌ಲೈಟ್ ವ್ಯಾಪ್ತಿಯೊಳಗೆ ಚಾಲನೆ"
+"Driving within the reach of your headlights": "ಹೆಡ್‌ಲೈಟ್ ವ್ಯಾಪ್ತಿಯೊಳಗೆ ಚಾಲನೆ",
+"Modules in 3D…": "3D ಯಲ್ಲಿ ಮಾಡ್ಯೂಲ್‌ಗಳು…",
+"Modules in 3D": "3D ಯಲ್ಲಿ ಮಾಡ್ಯೂಲ್‌ಗಳು",
+"Where ready": "ಸಿದ್ಧವಾದಾಗ",
+"No module has a 3D version yet.": "ಇನ್ನೂ ಯಾವ ಮಾಡ್ಯೂಲ್‌ಗೂ 3D ಆವೃತ್ತಿ ಇಲ್ಲ.",
+"Where ready: the 3D version once it has passed its checks, otherwise 2D. A PC without 3D graphics always plays 2D. Stars and records are the same in both. Press Save rules afterwards.": "ಸಿದ್ಧವಾದಾಗ: ಪರಿಶೀಲನೆಗಳಲ್ಲಿ ಉತ್ತೀರ್ಣವಾದ ನಂತರ 3D ಆವೃತ್ತಿ, ಇಲ್ಲದಿದ್ದರೆ 2D. 3D ಗ್ರಾಫಿಕ್ಸ್ ಇಲ್ಲದ ಪಿಸಿ ಯಾವಾಗಲೂ 2D ಆಡುತ್ತದೆ. ಎರಡರಲ್ಲೂ ನಕ್ಷತ್ರಗಳು ಮತ್ತು ದಾಖಲೆಗಳು ಒಂದೇ. ನಂತರ ನಿಯಮಗಳನ್ನು ಉಳಿಸಿ ಒತ್ತಿ."
 },
 "templates": [
 [

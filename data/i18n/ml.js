@@ -4268,7 +4268,12 @@ window.OTR_I18N.ml = {
 "Check the headlights before you leave, then follow the night route behind another vehicle. Keep a safe gap, drive within what your headlights show, and park in the marked bay.": "പുറപ്പെടുന്നതിനു മുമ്പ് ഹെഡ്‌ലൈറ്റുകൾ പരിശോധിച്ച്, മറ്റൊരു വാഹനത്തിനു പിന്നിൽ രാത്രി റൂട്ട് പിന്തുടരുക. സുരക്ഷിത അകലം പാലിക്കുക, ഹെഡ്‌ലൈറ്റുകൾ കാണിക്കുന്നതിനുള്ളിൽ ഓടിക്കുക, അടയാളമിട്ട സ്ഥലത്ത് വാൻ നിർത്തുക.",
 "Checking the headlights before a night drive": "രാത്രി യാത്രയ്ക്കു മുമ്പ് ഹെഡ്‌ലൈറ്റുകൾ പരിശോധിക്കുക",
 "A three-second gap behind the vehicle ahead": "മുന്നിലുള്ള വാഹനത്തിൽ നിന്ന് മൂന്ന് സെക്കൻഡ് അകലം",
-"Driving within the reach of your headlights": "ഹെഡ്‌ലൈറ്റുകളുടെ പരിധിക്കുള്ളിൽ ഓടിക്കുക"
+"Driving within the reach of your headlights": "ഹെഡ്‌ലൈറ്റുകളുടെ പരിധിക്കുള്ളിൽ ഓടിക്കുക",
+"Modules in 3D…": "3D-യിലെ മൊഡ്യൂളുകൾ…",
+"Modules in 3D": "3D-യിലെ മൊഡ്യൂളുകൾ",
+"Where ready": "തയ്യാറാകുമ്പോൾ",
+"No module has a 3D version yet.": "ഇതുവരെ ഒരു മൊഡ്യൂളിനും 3D പതിപ്പില്ല.",
+"Where ready: the 3D version once it has passed its checks, otherwise 2D. A PC without 3D graphics always plays 2D. Stars and records are the same in both. Press Save rules afterwards.": "തയ്യാറാകുമ്പോൾ: പരിശോധനകൾ വിജയിച്ച ശേഷം 3D പതിപ്പ്, അല്ലെങ്കിൽ 2D. 3D ഗ്രാഫിക്സ് ഇല്ലാത്ത പിസി എപ്പോഴും 2D കളിക്കും. രണ്ടിലും നക്ഷത്രങ്ങളും രേഖകളും ഒന്നുതന്നെ. തുടർന്ന് നിയമങ്ങൾ സേവ് ചെയ്യുക അമർത്തുക."
 },
 "templates": [
 [

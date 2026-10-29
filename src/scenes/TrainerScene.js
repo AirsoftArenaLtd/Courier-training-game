@@ -109,6 +109,37 @@ class TrainerScene extends Phaser.Scene {
         box.add(OTR.txt(this, 0, -190 + rows.length * 74 - 22, 'Fade by day: full help on the first workday, less on the next two, little from the fourth. Press Save rules afterwards.', 15, '#5B6B7D', { bold: false, align: 'center', wrap: 900, oy: 0 }));
         paint();
       },
+      buttons: [{ label: 'Modules in 3D…', skin: 'ghost', onClick: () => this.modules3d() }, { label: 'Done', skin: 'orange' }]
+    });
+  }
+
+  /**
+   * A-30: per module with a 3D version, which one trainees play. "Where ready" is the 3D version once A-31's QA has
+   * passed it, otherwise 2D; a PC without 3D graphics always plays 2D. Done keeps it in the draft, Save rules stores it.
+   */
+  modules3d() {
+    const p = this.draft.presentation = this.draft.presentation || {};
+    const mods = OTR.registry.modules().filter(m => m.scenarios.some(s => s.scene3d && s.scene));
+    const opts = [['auto', 'Where ready'], ['3d', '3D'], ['2d', '2D']];
+    OTR.ui.modal(this, {
+      title: 'Modules in 3D', w: 1000, h: 600, escClose: true,
+      build: (box) => {
+        const btns = [];
+        const paint = () => btns.forEach(b => b.setSkin((p[b.mod] || 'auto') === b.val ? 'purple' : 'ghost'));
+        const pitch = Math.min(64, 340 / Math.max(1, mods.length));
+        mods.forEach((m, r) => {
+          const y = -200 + r * pitch;
+          box.add(OTR.txt(this, -470, y, m.title, 17, '#243447', { ox: 0, weight: '900', fit: 380 }));
+          opts.forEach(([val, text], i) => {
+            const b = OTR.ui.button(this, 40 + i * 160, y, text, () => { if (val === 'auto') delete p[m.id]; else p[m.id] = val; OTR.audio.play('pop'); paint(); this.refreshRules(); }, { w: 150, h: Math.min(44, pitch - 8), skin: 'ghost', fontSize: 15 });
+            b.mod = m.id; b.val = val;
+            btns.push(b); box.add(b);
+          });
+        });
+        if (!mods.length) box.add(OTR.txt(this, 0, -160, 'No module has a 3D version yet.', 17, '#243447', { weight: '900' }));
+        box.add(OTR.txt(this, 0, 170, 'Where ready: the 3D version once it has passed its checks, otherwise 2D. A PC without 3D graphics always plays 2D. Stars and records are the same in both. Press Save rules afterwards.', 15, '#5B6B7D', { bold: false, align: 'center', wrap: 900, oy: 0 }));
+        paint();
+      },
       buttons: [{ label: 'Done', skin: 'orange' }]
     });
   }
