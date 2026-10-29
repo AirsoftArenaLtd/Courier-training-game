@@ -1,0 +1,46 @@
+{
+  "status": "four native captures inspected at original resolution",
+  "method": "Human-visible original-size inspection through view_image; raw PNGs unchanged",
+  "captures": [
+    {
+      "path": "acceptance/artifacts/c43-c39-pod-high/c43-c39-pod-high-high-ta-large-pod-photo-review.png",
+      "sha256": "8ad1e299093fa73050132ea5eed39b431af5d22f838cdd20bd863dc3e24ae00d",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The parcel and doorstep are present in the captured photograph. The preview, handheld review title, all three action rows and Back fit at 1280x720 with larger text. Newly introduced English scanner copy awaits A31; this is a layout and native-capture review, not a completed translation claim."
+    },
+    {
+      "path": "acceptance/artifacts/c43-c39-adult-bad-high-ta/c43-c39-adult-bad-high-ta-high-ta-large-adult-result.png",
+      "sha256": "c7ea5b9dc7bcb6efdcfc412d2d820f52b4a1040e10802284cac0b43a5b1ecb98",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The actual larger-Tamil assessment result shows failed assessment, seven of nine stars and service one star. Tamil glyphs render without tofu, feedback stays inside the panel, and both bottom buttons are legible. The new critical ID feedback remains English pending A31."
+    },
+    {
+      "path": "acceptance/artifacts/c43-c39-pod-high/c43-c39-pod-high-high-ta-large-pod-photo-framing.png",
+      "sha256": "a5a23c574b99beb26c6a9aae5b92f17beaba484c93d3eda6b1d11f9fbab014e8",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The parcel, planter and doorway are visible inside the physical capture rectangle. The top photo key instruction fits at larger text. New English copy remains pending A31."
+    },
+    {
+      "path": "acceptance/artifacts/c43-c39-pod-high/c43-c39-pod-high-high-ta-large-pod-result.png",
+      "sha256": "5ccfbebd20b2520d6ef56f465b5aabbb1d38ac1461226cb48ac3c2726ec00b7c",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The successful larger-Tamil result shows nine of nine stars and passed assessment. Actual Tamil glyphs are legible, result feedback fits the panel, and both bottom actions fit."
+    }
+  ],
+  "limitations": [
+    "No claim that new scanner copy is translated; A31 remains shared integration.",
+    "Cloud software-renderer timing does not certify owner Intel O1."
+  ]
+}

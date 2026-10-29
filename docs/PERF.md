@@ -1217,3 +1217,17 @@ The unchanged full High lighting pixel test fails identically on unchanged old
 and current pilot (black at 650,403 both off/on); that inherited exception is
 retained, not counted as a pass. No ceiling changed. Cloud SwiftShader cannot
 certify Intel 60 fps (O-1).
+
+
+## C-43 scanner after C39/A30 (29 October 2026)
+
+25 CPU suites and **11,063 actual-key native assertions** pass on `010b1f23` (stacked C42/C41/C40, pilot runtime `ee328d18`). POD, exception and adult-ID results persist; the unsafe ID variant retains service one star and a failed critical assessment. All **56 scanner resource views** pass the unchanged original profiles and limits.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 14 | 37 | 1,674 | 2 | 3,557,376 | 2,973,136 |
+| loaded-high | 14 | 42 | 29,614 | 4 | 11,239,424 | 5,996,518 |
+| accessible-low | 14 | 37 | 1,674 | 2 | 3,557,376 | 3,221,627 |
+| fallback-low | 14 | 40 | 1,344 | 2 | 3,557,376 | 2,967,739 |
+
+[Exact sources, reports, hashes and four original-size visual readings](review/set-10/c43-c39-rebase/README.md). All 918 frozen inputs, four host fonts, 25 CPU logs and 294 artifacts are rehashed; controller/browser/server exited and lease released. New scanner English copy awaits A31; owner Intel O1 remains separate. Historical matrices retain their earlier scope.
