@@ -1,0 +1,61 @@
+{
+  "scope": "B45 CPU checks only; browser appearance, pixel comparisons and original frame-resource gate remain pending.",
+  "base": "0fc3095911071d2fde039d9c3997f68ec699072c",
+  "cases": 68,
+  "suites": [
+    {
+      "file": "test/fptown.js",
+      "cases": 15,
+      "log": "cpu/fptown.log",
+      "exit": 0
+    },
+    {
+      "file": "test/fpworld.js",
+      "cases": 25,
+      "log": "cpu/fpworld.log",
+      "exit": 0
+    },
+    {
+      "file": "test/fpassets.js",
+      "cases": 10,
+      "log": "cpu/fpassets.log",
+      "exit": 0
+    },
+    {
+      "file": "test/fpmaterials.js",
+      "cases": 5,
+      "log": "cpu/fpmaterials.log",
+      "exit": 0
+    },
+    {
+      "file": "test/fplighting.js",
+      "cases": 13,
+      "log": "cpu/fplighting.log",
+      "exit": 0
+    }
+  ],
+  "sources": {
+    "src/core/fptown.js": "431303c26c09bf057f20b6a269d296df68204520a0ceb6b737dcde9ca1d312c6",
+    "src/core/fpworld.js": "95c26b452ea34b9b45c7365488e3b58fb18a263038858e8abce573d90943adcd",
+    "test/fptown.js": "7f7cd5239a446ed6b545468393efc7e58e3117d501edbbf0079b257445c1cb46",
+    "test/fpbench.js": "a30fcb34d6aa446da7c9a9e5f1431e870059e0b03c9456c782f7849ffb777bc1",
+    "test/tools/fp-delivery-front-quality.js": "338a94dcd7740e4cb5ef11dc4e8028b0e7d2d20a1eebffe87816c47014a37992"
+  },
+  "logs": {
+    "cpu/fptown.log": "edee4c04b6bb0c718b2d442a7413cef1ef856cda1e4670a962e90304962d9ada",
+    "cpu/fptown-before-new-cases.log": "d4c8a71f37080cae86eeda8f7d323cf45a4d416691b6879038299e06cf71c1d2",
+    "cpu/fpassets.log": "b2aef2f5bf1e62b6c6e26c26cca97a2a31a497d7b1801f3a49e430d54f974d25",
+    "cpu/fplighting.log": "e3a52fbe1e375a3ccf1a136566db203a14a0693411f3efb6d26620872193b703",
+    "cpu/fpmaterials.log": "6a8126677163a53e5a5f3eaca654a1728968ce1ff1378ef89004fcfa7d7ab8c1",
+    "cpu/fpworld.log": "16211b0d1137c91d3ce46dac12375a318680291a984f2ba2e0cbde04b1907392",
+    "cpu/fptown-detached-parent-diagnostic.log": "2e4c2dbb490ab3bfe94e38bf6c085ad68117c7ca3841d8c359372c51fa2c2f74"
+  },
+  "syntaxPassed": [
+    "src/core/fptown.js",
+    "src/core/fpworld.js",
+    "test/fptown.js",
+    "test/fpbench.js",
+    "test/tools/fp-delivery-front-quality.js"
+  ],
+  "diagnostic": "The first expanded town suite exited 137 while checking an incorrect assertion that a nested group parent becomes null on disposal. The existing lifecycle detaches the route root; the corrected case verifies that and shared-geometry retention. No product code changed between the two expanded-test attempts. The incomplete diagnostic is retained and excluded."
+}

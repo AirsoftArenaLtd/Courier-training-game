@@ -78,3 +78,37 @@ test('navigation obstacles reuse bounded car models and always remain visible wi
   w.art.dispose();
  }
 });
+test('delivery fronts use at most two shared High house instances inside the original lot volumes',()=>{
+ const w=world(true),fronts=w.art.deliveryFronts;assert.ok(fronts&&fronts.choices.length>0);assert.equal(fronts.limit,2);assert.equal(fronts.group.userData.batches.length,1);
+ const source=banks[true].models.get('town-house');assert.equal(fronts.group.children[0].geometry,source.parts[0].geometry);assert.equal(fronts.group.children[0].material,w.art.townArt.paint);
+ for(const batch of fronts.group.userData.batches)for(const e of batch.entries){const lot=w.m.town.lots.find(l=>l.id===e.town.lotId),b=batch.mesh.geometry.boundingBox.clone().applyMatrix4(e.matrix);
+  assert.ok(b.min.x>=lot.x-lot.w/2-1e-5&&b.max.x<=lot.x+lot.w/2+1e-5);assert.ok(b.min.z>=lot.z-lot.d/2-1e-5&&b.max.z<=lot.z+lot.d/2+1e-5);assert.ok(b.min.y>=-1e-5&&b.max.y<=lot.h+1e-5);
+ }
+ const before=JSON.stringify(w.m.snapshot());
+ for(const stop of w.m.stops){Object.assign(w.m.player,{x:stop.x-stop.side*1.5,z:stop.z});w.art.sync(w.m,null,'route');assert.ok(fronts.choices.filter(c=>c.selected).length<=2);assert.ok(fronts.group.children[0].count<=2);
+  for(const choice of fronts.choices){assert.equal(w.art.townArt.fallback({town:choice}),!choice.selected);assert.ok(choice.details.every(e=>e.visible===choice.selected));}
+ }
+ fronts.select(10000,10000);assert.ok(fronts.choices.every(c=>!c.selected&&c.details.every(e=>!e.visible)));
+ // Only the explicitly moved player differs; art selection never writes progression or scores.
+ const restored=JSON.parse(before);Object.assign(w.m.player,restored.player);assert.equal(JSON.stringify(w.m.snapshot()),before);w.art.dispose();
+});
+test('delivery fronts preserve exact collision proxies, door/path rays and address anchors with a missing source',()=>{
+ const source=banks[true].models.get('town-house'),loaded=world(true);banks[true].models.delete('town-house');let fallback;
+ try{fallback=world(true);assert.equal(fallback.art.deliveryFronts,null);}finally{banks[true].models.set('town-house',source);}
+ const proxies=w=>w.art.occluders.filter(o=>o.parent===w.art.route).map(o=>({p:o.position.toArray(),s:o.scale.toArray()}));
+ const addresses=w=>w.art.labels.filter(l=>l.address).map(l=>({text:l.text,point:l.point.toArray()}));
+ assert.deepEqual(proxies(loaded),proxies(fallback));assert.deepEqual(addresses(loaded),addresses(fallback));assert.equal(JSON.stringify(loaded.m.solids),JSON.stringify(fallback.m.solids));
+ for(const w of [loaded,fallback])for(const stop of w.m.stops){Object.assign(w.m.player,{x:stop.x-stop.side*1.5,z:stop.z});w.art.sync(w.m,null,'route');const door=w.art.interactions.find(o=>o.userData.interaction==='door'+stop.id);w.camera.lookAt(door.getWorldPosition(new THREE.Vector3()));w.camera.updateMatrixWorld(true);assert.equal(w.art.pick(),'door'+stop.id);}
+ loaded.art.dispose();fallback.art.dispose();
+});
+test('Low, isolated areas, nonresidential lots and shifted entrances keep procedural delivery buildings',()=>{
+ const low=world(false);assert.equal(low.art.deliveryFronts,null);low.art.dispose();
+ const w=world(true),O=c.OTR,build=m=>O.fpTown.deliveryFronts(w.scene,m,w.art.route,w.art.townArt.paint);assert.equal(build({...w.m,trainingArea:{street:true}}),null);assert.equal(build({...w.m,town:null}),null);
+ const stop=w.m.stops.find(s=>w.art.deliveryFronts.byStop.has(s.id)),lot=w.m.town.lots.find(l=>l.id===stop.lotId),single={...w.m,stops:[stop],town:{...w.m.town,lots:[lot]}};
+ assert.equal(build({...single,town:{...single.town,lots:[{...lot,h:7}]}}),null);assert.equal(build({...single,stops:[{...stop,z:stop.z+1}]}),null);
+ const bank=w.scene.assetBank;w.scene.assetBank={};assert.equal(build(single),null);w.scene.assetBank=bank;w.art.dispose();
+});
+test('disposing a delivery front releases its scene instance without disposing the shared source geometry',()=>{
+ const w=world(true),geometry=banks[true].models.get('town-house').parts[0].geometry;let disposed=0;const listen=()=>disposed++;geometry.addEventListener('dispose',listen);
+ const fronts=w.art.deliveryFronts;assert.ok(fronts);w.art.dispose();assert.equal(disposed,0);assert.equal(w.art.route.parent,null);geometry.removeEventListener('dispose',listen);
+});

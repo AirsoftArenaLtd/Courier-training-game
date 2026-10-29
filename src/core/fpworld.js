@@ -106,7 +106,7 @@ OTR.fpWorld = {
       if(base.trafficControl&&base.routePlan.day>=3){
         for(let i=0;i<7;i++)box(route,town.school.x-town.road/2+.8+i*(town.road-1.6)/6,.06,base.crossing.z,.6,.02,2,0xEFEEE5);
       }
-      // Town models replace non-delivery visual pieces. Delivery facades/solids remain their own geometry.
+      // Town scenery and delivery fronts share the shipped templates; delivery solids remain authoritative.
       const lots=town.lots.filter(l=>!base.stops.some(s=>s.lotId===l.id));
       townArt=OTR.fpTown?OTR.fpTown.build(scene,base,route,box,material):null;
       if(townArt)assetGroups.push(...townArt.groups);
@@ -152,12 +152,23 @@ OTR.fpWorld = {
     const dropMatrix=new T.Matrix4(),dropPosition=new T.Vector3(),dropScale=new T.Vector3(snow?.09:.025,snow?.09:.7,snow?.09:.025),dropRotation=new T.Quaternion();
     if(weatherDrops){weatherDrops.frustumCulled=false;route.add(weatherDrops);}
     const colors=[0xC9BCAB,0xBBC7BE,0xD5C3B0];
+    const deliveryFronts=OTR.fpTown?.deliveryFronts(scene,base,route,townArt?.paint);
+    if(deliveryFronts)assetGroups.push(deliveryFronts.group);
     base.stops.forEach((s,i)=>{
       if(base.trainingArea&&(s.x<base.bounds.x0||s.x>base.bounds.x1||s.z<base.bounds.z0||s.z>base.bounds.z1))return;
       const l=base.town?base.town.lots.find(l=>l.id===s.lotId):{x:13,z:s.z,w:6,d:9,h:4.2};
       const side=s.side||1;
-      box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,colors[i%colors.length],null,true,i%2?4:5);
-      box(route,l.x,l.h+0.15,l.z,l.w+0.5,0.3,l.d+0.5,roofColour);
+      const body=box(route,l.x,l.h/2,l.z,l.w,l.h,l.d,colors[i%colors.length],null,true,i%2?4:5);
+      const roof=box(route,l.x,l.h+0.15,l.z,l.w+0.5,0.3,l.d+0.5,roofColour),front=deliveryFronts?.byStop.get(i);
+      if(front){
+        body.userData.fpBatchEntry.town=roof.userData.fpBatchEntry.town=front;
+        // The plinth shows the unchanged solid footprint; the entrance bay keeps the real door/number clear.
+        for(const mesh of [box(route,l.x,.16,l.z,l.w,.32,l.d,0x62686A),
+          box(route,s.x+side*.38,1.8,s.z,.6,3.6,2.4,colors[i%colors.length],null,false,i%2?4:5),
+          box(route,s.x+side*.37,3.64,s.z,.68,.08,2.5,roofColour)]){
+          const entry=mesh.userData.fpBatchEntry;entry.visible=false;front.details.push(entry);
+        }
+      }
       box(route,s.x-side*1.7,0.08,s.z,3.4,0.15,2,0xC9C4B8,null,false,2);
       stopDoors[i]=box(route,s.x,1.3,s.z,0.08,2.5,1.25,0x654B70,'door'+i);
       const delivery=base._deliverySpecs&&base._deliverySpecs[i].protocol;
@@ -384,7 +395,7 @@ OTR.fpWorld = {
       for(const object of objects){let visible=true;for(let p=object;p;p=p.parent)if(!p.visible){visible=false;break;}if(visible)visibleObjects.push(object);}
       return ray.intersectObjects(visibleObjects,false,hits);
     };
-    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,actors,ambient,innerVan,damage,walkaroundTargets,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
+    const api={hub,route,surfaces,signLettering,van,chassis,cab,mirrors,rear,lighting,weatherEffects,weatherParticles,townArt,deliveryFronts,actors,ambient,innerVan,damage,walkaroundTargets,parcels,carried,brand,dogs,gates,hazards,deliveryArt,weatherDrops,busLamps,emergencyLamps,labels,occluders,interactions,assetGroups,ray,signs,trafficArt,trafficBike,schoolChildren,
       dispose() {
         const geometries=new Set();if(ambient)ambient.dispose();if(damage)damage.dispose();if(weatherEffects)weatherEffects.dispose();if(weatherParticles)weatherParticles.dispose();if(rear)rear.dispose();if(lighting)lighting.dispose();if(townArt)townArt.dispose();if(actors)actors.dispose();if(cab)cab.dispose();if(mirrors)mirrors.dispose();view.mirror.before=view.mirror.after=null;view.mirror.on=false;
         for(const root of [hub,route,carried,inspected,dash]) { root.traverse(o=>{if(o.geometry&&!o.userData.fpAsset&&!o.geometry.userData.otrSurfaceOwned)geometries.add(o.geometry);if(o.isInstancedMesh)o.dispose();});root.removeFromParent(); }
@@ -409,6 +420,7 @@ OTR.fpWorld = {
           const sceneryMoved=Math.abs(cx-sceneryX)>3||Math.abs(cz-sceneryZ)>3,solidMoved=cx!==solidX||cz!==solidZ;
           if(base.town&&(sceneryMoved||solidMoved)){
             if(sceneryMoved){if(townArt)townArt.select(cx,cz);else if(scene.assetBank)for(const group of assetGroups)scene.assetBank.cull(group,cx,cz,sceneryRadius);}
+            if(sceneryMoved&&deliveryFronts)deliveryFronts.select(cx,cz);
             if(sceneryMoved){sceneryX=cx;sceneryZ=cz;}solidX=cx;solidZ=cz;
           }
           if(base.town){
