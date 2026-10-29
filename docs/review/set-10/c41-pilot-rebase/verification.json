@@ -1,0 +1,486 @@
+{
+  "scope": "Completed C41 rebased acceptance: eleven native journeys combine three retained Low protocols and eight corrected-font continuation jobs with identical production inputs; two authored failure paths preserve failed assessments. Thirty-two static protocol resources retain original budgets. Shared optional registry integration, A31 translation and Intel O1 remain separate.",
+  "nativeSourceRevision": "9f8ea2ac42e697e97a560182e58d3224b8864368",
+  "retainedSourceRevision": "7d68ce44a61a763ac0157b6c3b13caaad28c97ee",
+  "nativePlanSha256": "0e96361d6f915b398e7321d73df00bbe2f303dc80aff876682683e2c7503a376",
+  "resourcePlanSha256": "e6bc1f832492dffe2d5c5af2989526d36658c5ef24c73b37780efaa239b82c2a",
+  "sourceCount": 772,
+  "hostFonts": {
+    "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf": "89c3c497f618fdaa0b2d1e98fef93582f28c71debd2c4a8cdf41f190ced2909d",
+    "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf": "e83493c945848ecd4a9ad0f6d19164541a0d3e23a9c952304a00a46e00272ac5",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Regular.ttf": "a7bb7f92f165479af2f0556c4fd669b74c5959f464f603e18389b532f4d07a71",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Bold.ttf": "7ef7071ba2fad67dcae397dc7f5bfd4dbce69d86cdc453c2cc4abe640df0b442"
+  },
+  "allInputHashesVerified": true,
+  "cpuSuites": 16,
+  "cpuTestOnlyChanges": [
+    "test/fpcustomerprotocolbrowser.js"
+  ],
+  "nativeChecks": 5608,
+  "nativeJobs": [
+    {
+      "tag": "c41-rebase-intercom-low",
+      "checks": 203,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "score": 1100,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": null,
+      "durable": true,
+      "fontProof": {
+        "lang": "en",
+        "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null
+      }
+    },
+    {
+      "tag": "c41-rebase-reception-low",
+      "checks": 192,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "score": 1100,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": null,
+      "durable": true,
+      "fontProof": {
+        "lang": "en",
+        "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null
+      }
+    },
+    {
+      "tag": "c41-rebase-locker-low",
+      "checks": 205,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "score": 1100,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": null,
+      "durable": true,
+      "fontProof": {
+        "lang": "en",
+        "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null
+      }
+    },
+    {
+      "tag": "c41-fontfix-intercom-high",
+      "checks": 206,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "score": 1100,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": true,
+      "durable": true,
+      "fontProof": {
+        "lang": "ta",
+        "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null,
+        "layout": {
+          "width": 793.21875,
+          "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+        },
+        "platformFonts": [
+          {
+            "familyName": "Noto Sans Tamil",
+            "postScriptName": "NotoSansTamil-Bold",
+            "isCustomFont": false,
+            "glyphCount": 28
+          }
+        ]
+      }
+    },
+    {
+      "tag": "c41-fontfix-reception-high",
+      "checks": 195,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "score": 1100,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": true,
+      "durable": true,
+      "fontProof": {
+        "lang": "ta",
+        "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null,
+        "layout": {
+          "width": 793.21875,
+          "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+        },
+        "platformFonts": [
+          {
+            "familyName": "Noto Sans Tamil",
+            "postScriptName": "NotoSansTamil-Bold",
+            "isCustomFont": false,
+            "glyphCount": 28
+          }
+        ]
+      }
+    },
+    {
+      "tag": "c41-fontfix-locker-high",
+      "checks": 208,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "score": 1100,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": true,
+      "durable": true,
+      "fontProof": {
+        "lang": "ta",
+        "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null,
+        "layout": {
+          "width": 793.21875,
+          "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+        },
+        "platformFonts": [
+          {
+            "familyName": "Noto Sans Tamil",
+            "postScriptName": "NotoSansTamil-Bold",
+            "isCustomFont": false,
+            "glyphCount": 28
+          }
+        ]
+      }
+    },
+    {
+      "tag": "c41-fontfix-intercom-bad",
+      "checks": 226,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "score": 900,
+      "stars": {
+        "service": 0,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": false,
+      "durable": true,
+      "fontProof": {
+        "lang": "ta",
+        "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null,
+        "layout": {
+          "width": 793.21875,
+          "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+        },
+        "platformFonts": [
+          {
+            "familyName": "Noto Sans Tamil",
+            "postScriptName": "NotoSansTamil-Bold",
+            "isCustomFont": false,
+            "glyphCount": 28
+          }
+        ]
+      }
+    },
+    {
+      "tag": "c41-fontfix-missing-low",
+      "checks": 588,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "score": 1800,
+      "stars": {
+        "service": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": null,
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      },
+      "fontProof": null
+    },
+    {
+      "tag": "c41-fontfix-twostops-high-ta",
+      "checks": 896,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "score": 2500,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": true,
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      },
+      "fontProof": null
+    },
+    {
+      "tag": "c41-fontfix-doorsteps-low",
+      "checks": 1341,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "score": 6400,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": null,
+      "durable": true,
+      "fontProof": null
+    },
+    {
+      "tag": "c41-fontfix-doorsteps-high-ta",
+      "checks": 1348,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "score": 5800,
+      "stars": {
+        "service": 1,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": false,
+      "durable": true,
+      "fontProof": null
+    }
+  ],
+  "resourceViews": 32,
+  "resourceProfiles": [
+    {
+      "tag": "c41-fontfix-protocol-budget-loaded-low",
+      "views": 8,
+      "peak": {
+        "calls": 28,
+        "triangles": 1146,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2063622
+      }
+    },
+    {
+      "tag": "c41-fontfix-protocol-budget-loaded-high",
+      "views": 8,
+      "peak": {
+        "calls": 43,
+        "triangles": 28936,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5500646
+      }
+    },
+    {
+      "tag": "c41-fontfix-protocol-budget-accessible-low",
+      "views": 8,
+      "peak": {
+        "calls": 28,
+        "triangles": 1146,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2187072
+      }
+    },
+    {
+      "tag": "c41-fontfix-protocol-budget-fallback-low",
+      "views": 8,
+      "peak": {
+        "calls": 31,
+        "triangles": 942,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2063622
+      }
+    }
+  ],
+  "registryProof": {
+    "parent": "555ce222",
+    "scene3dLinks": 4,
+    "allOtherBytesIdentical": true
+  },
+  "artifactCount": 110,
+  "artifacts": {
+    "acceptance/artifacts/c41-rebase-intercom-low/c41-rebase-intercom-low-intercom.png": "01cb8d7a885a0526954a3def6d8003b10f2cb8f7d276856d1d46af402a2145fa",
+    "acceptance/artifacts/c41-rebase-intercom-low/c41-rebase-intercom-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+    "acceptance/artifacts/c41-rebase-intercom-low/c41-rebase-intercom-low.json": "f8f412e49ee3cf20da9eb2446391096653582df298baeaa8c932db9eed7b75c2",
+    "acceptance/artifacts/c41-rebase-reception-low/c41-rebase-reception-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+    "acceptance/artifacts/c41-rebase-reception-low/c41-rebase-reception-low.json": "5ebcaeda55a92d9496e496a40a94eb529069e4dbfce700a030e15dc31fa4ce10",
+    "acceptance/artifacts/c41-rebase-reception-low/c41-rebase-reception-low-reception.png": "504806329f3290196cdcfbbd2913a0b42b1610100ec88bdccebaf0ccd7d2545e",
+    "acceptance/artifacts/c41-rebase-locker-low/c41-rebase-locker-low-camera-device.png": "a56e8c82fe565446696260aa966f3683f5e703b3aef26bab1185bed4b2db624e",
+    "acceptance/artifacts/c41-rebase-locker-low/c41-rebase-locker-low.json": "ac34e73f01e7b1770b8cc1176f29abcd353048172fc9640fb4ae0a645964aa32",
+    "acceptance/artifacts/c41-rebase-locker-low/c41-rebase-locker-low-locker.png": "ebf567c73e3458c5cccaf6a7182e50662d73f52afa6494eb8e01c59238495373",
+    "acceptance/artifacts/c41-rebase-locker-low/c41-rebase-locker-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+    "acceptance/artifacts/c41-rebase-locker-low/c41-rebase-locker-low-camera-frame.png": "2ca819d63ebb24ac4f80e091f544d36ffaf23880a6277bcc2ce3ba2d405ce07c",
+    "native-font-retry/artifacts/c41-fontfix-intercom-high/c41-fontfix-intercom-high-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+    "native-font-retry/artifacts/c41-fontfix-intercom-high/c41-fontfix-intercom-high.json": "31cbbe4676949d19f5bce6b6f6cca16a2f02d14997bb616ee801336d98d84498",
+    "native-font-retry/artifacts/c41-fontfix-intercom-high/c41-fontfix-intercom-high-intercom.png": "cdeee3559b9459e3501412fad4d00e11d5bc7b601c450cac5df772a4072c07f0",
+    "native-font-retry/artifacts/c41-fontfix-reception-high/c41-fontfix-reception-high-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+    "native-font-retry/artifacts/c41-fontfix-reception-high/c41-fontfix-reception-high.json": "1fa3d4a1e45e3850955660cd14fae4ed7e6b4db138a18f9277941291515e83c3",
+    "native-font-retry/artifacts/c41-fontfix-reception-high/c41-fontfix-reception-high-reception.png": "059e448d592d89955b81f726e46640b1b6c831002109c1517f98ef395ae94521",
+    "native-font-retry/artifacts/c41-fontfix-locker-high/c41-fontfix-locker-high-locker.png": "9d4ff1dd7f3addf10beb40ab818838c68d5f581b7015cebd562cd56e40f620b2",
+    "native-font-retry/artifacts/c41-fontfix-locker-high/c41-fontfix-locker-high-camera-frame.png": "73f4e7d18e0ef8e8f33254665a9dce7b292acc1a2f483f7a07b0a3883643a578",
+    "native-font-retry/artifacts/c41-fontfix-locker-high/c41-fontfix-locker-high-camera-device.png": "12824ef37e2f89aa2a45527e54ac60b6e24612142b6fa83497d5b5b5926f4230",
+    "native-font-retry/artifacts/c41-fontfix-locker-high/c41-fontfix-locker-high-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+    "native-font-retry/artifacts/c41-fontfix-locker-high/c41-fontfix-locker-high.json": "08da9f369a2e39ccb663e9e57148eb79754a5aabbbe60cd2e18fddfe512d226f",
+    "native-font-retry/artifacts/c41-fontfix-intercom-bad/c41-fontfix-intercom-bad-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+    "native-font-retry/artifacts/c41-fontfix-intercom-bad/c41-fontfix-intercom-bad-intercom.png": "5aa8928f5a58df863dc71cb63294af7d89232126f2282a4c5e6c59cd0d56a298",
+    "native-font-retry/artifacts/c41-fontfix-intercom-bad/c41-fontfix-intercom-bad.json": "56efbc5d6307b4e6412502e5afde2e6db0d9c2c8e3973cc6d595dc5bdea21c79",
+    "native-font-retry/artifacts/c41-fontfix-missing-low/c41-fontfix-missing-low-low-en-normal-missing-result.png": "e7779b4cc224938669222771df45c774fd5c05250b0cc5e09c97cc99a2f716c0",
+    "native-font-retry/artifacts/c41-fontfix-missing-low/c41-fontfix-missing-low.json": "888188870fce3996cd64ec155ba483a23ad94138e323d3ebdb5823526812c153",
+    "native-font-retry/artifacts/c41-fontfix-missing-low/c41-fontfix-missing-low-low-en-normal-missing-physical.png": "da33afe665fedb54726495cb954254c230ee1abe90c13b78ef3503de2955d775",
+    "native-font-retry/artifacts/c41-fontfix-missing-low/c41-fontfix-missing-low-low-en-normal-missing-ending.png": "b0cc83b418711a4b1f1eadf61c6e0843af8b36b81d764f6358a450761f17d357",
+    "native-font-retry/artifacts/c41-fontfix-twostops-high-ta/c41-fontfix-twostops-high-ta-high-ta-large-twostops-house.png": "29b4226959e02724672fb73960d80085087da5f4df0829f9c6bb49fb89b0326f",
+    "native-font-retry/artifacts/c41-fontfix-twostops-high-ta/c41-fontfix-twostops-high-ta-high-ta-large-twostops-physical.png": "29c9716679bf2b88186973f7878129311d93f579e1846e1187be35d051c74785",
+    "native-font-retry/artifacts/c41-fontfix-twostops-high-ta/c41-fontfix-twostops-high-ta.json": "49cace75176437cc07963ff55bf38f59787d11e542938b3b5585ef2b5a4cce1a",
+    "native-font-retry/artifacts/c41-fontfix-twostops-high-ta/c41-fontfix-twostops-high-ta-high-ta-large-twostops-result.png": "408d3c79d9cef0d70c024248ea8ac2622d2f3ce3a5ace734eebde1b73286db99",
+    "native-font-retry/artifacts/c41-fontfix-twostops-high-ta/c41-fontfix-twostops-high-ta-high-ta-large-twostops-ending.png": "ad025292f26d929f4af3d67ee71ec6641720dac9c186527e39e1c8e42211229b",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop1-name.png": "51c01529ed818be9b19a9cb9331f7f97e434dfef3465709cefd29fba1e4e2354",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop2-reply.png": "4dd559813a453bc457763bef12153bc76e447536a8d00d65a582160d5e7c1c57",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop3-customer.png": "f378129f831c10b3feb08671ad8715b2e788b7c1041e1e1a4f3cd2b1e91a3389",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop1-customer.png": "1b5fa004d5478bb612481c4373811153d907cb04ed84daf6fa9fa280cf134012",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop3-handheld.png": "b056121fa5f66489fb923189e2265b512e9caeb24df292e3b51c0ee1ef3f71f4",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-result.png": "9d3d65a5563d04bb4f2ef8ec4f7718c8b6284def6d74badc3dfd9b52ec97d24d",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop3-reply.png": "2d93cc5b989e437f0b1b5e67145861f409b0feee11ea26ff51928961083c3503",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop3-tag.png": "5bdb3fe665848aa989083729c14f7dc2e478d8fdc4bd95dc3ae3e8d4078e3f16",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop1-report.png": "832c306c77dcccd4cbfb3241426d2b810c94d7f81e79ba7f4fb5048bc71e99ba",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop1-reply.png": "304b207e00728a8ad0fecac9da346aec5862697d153fafcd876f23e4bdad651b",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop2-name.png": "c6f3b809270b2cc43213a507b703e74e5b6a4ab48277aba48f37b309cafe2ad9",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop3-cargo.png": "4fb7800041255766a34e1d02ae283277444cf3d1f8f8cd6f3ac952dbb2fb7106",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop1-handheld.png": "51eb6eddbaf24bdfc176ba69056d514eb4c70b86eabeddd9dd7c44219663f1b7",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low.json": "f55764dd423f62bd702676675cea16240495b33969f7d1e9d638c1bf2ef6eb31",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop2-report.png": "341b0141d98c35987c4f81f5454dea59eb75910f3f1f56813cca1785125fe843",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop2-customer.png": "4639b80166004a0411ef66b885363a1249c16dae220dfa3c74b5db6b135bd24a",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop3-report.png": "1a2b1d3900afa9ab6269b1965b813678134ef7750c5388a1930abb5a0e6b1990",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop1-cargo.png": "e1ac64fc18982c6a9d1988c243db16b21d37cacd35c259497c74a8b0c81fce11",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop2-cargo.png": "7266febeef7e26fa994f448de5540266b506495a6eb59cc4dbab2c5074e9ca1b",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop2-handheld.png": "32ff91de020dd4092ad89c9d3d3b3e6b6c55970bc1a4d11a6029664d4d5338f2",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop2-customer.png": "5b6087ec1ce1cc19804fbfdbe117b52f0db898703626775625c51cba45ec75fa",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop3-report.png": "cf88da7b0782fe1438d04e70446a1efffe926b875cffdabd27f17e33275220f3",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-result.png": "4003b5b9320f0a6d66514b71221a75dc5a6b12f853d9a6bb37babd434df2ba82",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop1-handheld.png": "4cf96a2c7e41132e9af675b1fb96b87206f5c1538a75dfca74c4c4ac577c39c7",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop1-reply.png": "38d9f383bf6c4f552d8b85324e352c30b2fe997664ef1933f4fef895dc093460",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop2-reply.png": "5c36f5f3953263bca31f126ec999a20c2ae70fc6089dc25ea973df46ed07cc9d",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop3-tag.png": "91139142e2b3ae0e4c1bc63cb677d6bba401a5f63b072958e2c3554b0bdd53ac",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop3-handheld.png": "23757921acb0947d2b0d5221d53854ec40fffcd3ef5f01fd2506f38a5926b218",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop1-cargo.png": "feec2ff5c9ad9b7c6a0997cb45a8935242af5c5d17fe37ca578563bcd94ab469",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop2-handheld.png": "a3c3ae6c364a1507a6633253ced83e74ff1e3113845e6ebf6dc703b565a2be0c",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop3-customer.png": "01b071dcaea634e8b637d40d4efa0eb42c4c3ed057000ffacedfeaf38809c2d4",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop1-name.png": "16d29fe5ec490dc1d307ba6eca99c3b9b891cea4619fd1012befe0240dfdf28e",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop1-report.png": "a90a5576fd010f322013d915a58a1285d8ef6e1ec996b3d6d3e7b33e12efd5fa",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop3-cargo.png": "7a5b891078db2e3a5c527f2818d12e893e172bbddaa2ccdbb8236a7ee6af3278",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop1-customer.png": "0d4260bff64c553e06061bc8dede3e7a86d14e769b6f84bf0fac6c512f26e096",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop3-reply.png": "bbd717cc6bf178def27fd2161764b7c5141b966a796de7aff7244ff705bd8cf9",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop2-report.png": "b99bc67bb38baa717cedd2d654c1446464a47f1b21ddad9e58a8097ff0cb23d5",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta.json": "beea7700756a9f0716f6381e72adba7d88a1e52215ae4cf7c33f549036f84fd3",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop2-cargo.png": "c3ebe595fd29830e17b88037142173e37e597d63b1251ca9542c5158962202a0",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-high-ta/c41-fontfix-doorsteps-high-ta-high-ta-large-stop2-name.png": "82936e031f5fe0d389e6dda061a22bbc40308517742d394d30dbee902587e974",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-low/c41-fontfix-protocol-budget-loaded-low-low-protocollockerclosed.png": "8e22e04c4a6ab51845dde874e4fff1b29dbd060766c5863a614fdce5fdc3e9cb",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-low/c41-fontfix-protocol-budget-loaded-low-low-protocollockeropen.png": "1a14721f0ff778ea80668c270a21bc93db82b6fb589708e5978ef560f777c4b1",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-low/c41-fontfix-protocol-budget-loaded-low-low-protocolreport.png": "6a9cbb9face1518579ffb48f98c11b6f9cf2e4a2bf28414ba879cb547acbfef8",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-low/c41-fontfix-protocol-budget-loaded-low-low-protocolstatus.png": "4a9e9fd327ce93eec2bb622129af90f990e468a8b9a691ab5fde7948469bd4df",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-low/c41-fontfix-protocol-budget-loaded-low-low-protocolintercom.png": "908118b0ee49512d609907d221112fef5326d10e1fbf71978cbede418453edc5",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-low/c41-fontfix-protocol-budget-loaded-low-low-protocolreception.png": "c8d47bc4d05caf362ac12eb71939751c0ff317b543ffb0a92e565adbb1a219fe",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-low/bench-c41-fontfix-protocol-budget-loaded-low-low.json": "8824ffd2401c1d2233a8ec7a39a16d78c4497b0ad1238a507f6e4fcb2b0a8f7d",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-low/c41-fontfix-protocol-budget-loaded-low-low-protocolcamera.png": "ed17ea2d2bb0c90cec339387899cd0ae95b9ffe499c5a71909ae3f1e91e47d19",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-low/c41-fontfix-protocol-budget-loaded-low-low-protocolsignature.png": "cd80978ffe64f7f8c16f6f30cc3512afc8a7b193faddf74e06c4cd064d056a92",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-high/c41-fontfix-protocol-budget-loaded-high-high-protocolintercom.png": "305bec60a58f2da9fb1959bcc7d09ea2c2d2139b5c180b28a6100ead72fb6ad1",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-high/c41-fontfix-protocol-budget-loaded-high-high-protocollockerclosed.png": "25a9fae00b35af4df2e531ad3074627a982784da9be69add7501ab84b9395da2",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-high/c41-fontfix-protocol-budget-loaded-high-high-protocolcamera.png": "16573d364b588196aae268a6d7ec5444cd27b6d7c7849373703bc692deddd9a1",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-high/bench-c41-fontfix-protocol-budget-loaded-high-high.json": "59c96147453d943b5e9cfd521eba933b631b3542dd742a841ae12998eb436ef6",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-high/c41-fontfix-protocol-budget-loaded-high-high-protocolstatus.png": "126618d907c3530dc1133a3daa6037d84c0c3dce72074d2cb59075e2e9247509",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-high/c41-fontfix-protocol-budget-loaded-high-high-protocolsignature.png": "2f2bf1463bc3ee7cc550afcd2e204e0a4da0c09844e02e78d5c77d51b9ed9d0a",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-high/c41-fontfix-protocol-budget-loaded-high-high-protocolreport.png": "325bda6b6a164eaf4980cef4efd71beb3ce230c6f2ce6c434b859710647b540b",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-high/c41-fontfix-protocol-budget-loaded-high-high-protocollockeropen.png": "9bbc0d3ffd7a4bd05a3a2ba4ad7b4f823cae5cd7a9736991e24fe6c25bdd1bb9",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-loaded-high/c41-fontfix-protocol-budget-loaded-high-high-protocolreception.png": "b0ad7df1641a8609ef38d0f90673b510c04b2272e7254c564d6077fce89003a3",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-accessible-low/c41-fontfix-protocol-budget-accessible-low-low-protocolsignature.png": "734e5aa3d8b6a5d1c3050e0dd7c37dd522089d355410a1dc70c0fd21789da55a",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-accessible-low/bench-c41-fontfix-protocol-budget-accessible-low-low.json": "f836f32ba097f0a7f0f1b7639c75ccfe99692b411da741207616d32ddcd7e4cd",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-accessible-low/c41-fontfix-protocol-budget-accessible-low-low-protocolintercom.png": "9425152f3bc6d3ea06230fc99235f3a96f29e41c1f372063cc81b2b696136664",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-accessible-low/c41-fontfix-protocol-budget-accessible-low-low-protocolcamera.png": "2917be9549759c63bbcccc4a180c853e150d20261c6c92f79ac6a2e5c7a1c3b1",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-accessible-low/c41-fontfix-protocol-budget-accessible-low-low-protocollockerclosed.png": "84744e4229b97f67b65ed18a22076d6343a3390a6d246f9bac5b204b62c33118",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-accessible-low/c41-fontfix-protocol-budget-accessible-low-low-protocolreport.png": "8274664c723735b7a74a129c5fe85b959028615cae1e037cce9ed30e85451d59",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-accessible-low/c41-fontfix-protocol-budget-accessible-low-low-protocollockeropen.png": "7bd13a9d37c8a77348c6da805fc2c11a3d56891910a834c27e3b012c34e90c48",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-accessible-low/c41-fontfix-protocol-budget-accessible-low-low-protocolstatus.png": "9145c28fc3020c7f12bc3e279e78a8ea670ac7780ba982e5f8e21b8d87238577",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-accessible-low/c41-fontfix-protocol-budget-accessible-low-low-protocolreception.png": "7a690a3569ccf5df3b99886ec76d43fd713430e511ae78d14eccc9d51f585ff8",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-fallback-low/c41-fontfix-protocol-budget-fallback-low-low-protocolreception.png": "0089e0752ad49ac8a34ab5b16968f91de9b47a86846f62fc5253b51c4ed1e2b8",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-fallback-low/c41-fontfix-protocol-budget-fallback-low-low-protocolintercom.png": "607eee87d543f59bbaf91cb75238195bdfc6149bf560d0ca24d413fadd88993a",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-fallback-low/bench-c41-fontfix-protocol-budget-fallback-low-low.json": "650e2ed632204e2e8be905cf8f9075599b05df0277e8e60983ed926eece54a48",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-fallback-low/c41-fontfix-protocol-budget-fallback-low-low-protocolreport.png": "3bafc15c1794f7392246d85c4ec57ec81601495f58f2ff54950650ed6c3750b2",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-fallback-low/c41-fontfix-protocol-budget-fallback-low-low-protocolstatus.png": "d7da6608de7370bb79afd053cd098afb856c85cc1e9e019a09fb99a63d9b8e44",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-fallback-low/c41-fontfix-protocol-budget-fallback-low-low-protocollockerclosed.png": "196eac01ea0ede3993ed00b716c50d7bced4c35ea41d4e4ef1fdba1fba260b7d",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-fallback-low/c41-fontfix-protocol-budget-fallback-low-low-protocolsignature.png": "8ae62df85ab50b3b951ad63e6dcbbaa43fad7c31ffce7ef50829691f7d2b42cb",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-fallback-low/c41-fontfix-protocol-budget-fallback-low-low-protocollockeropen.png": "eb98c13a3f9f6033faed03d2697ab62f1ea471499185b490984423c6ac2883fb",
+    "resources-font-probe/artifacts/c41-fontfix-protocol-budget-fallback-low/c41-fontfix-protocol-budget-fallback-low-low-protocolcamera.png": "be71b6a3d56fb6450b222cc20e4015905e3d8442873e6c9631232f7f394fea90"
+  },
+  "cleanup": {
+    "native-font-retry-controller": {
+      "pid": 262656,
+      "status": "zombie"
+    },
+    "native-font-retry-server": {
+      "pid": 284569,
+      "status": "gone"
+    },
+    "native-font-retry-child": {
+      "pid": 288358,
+      "status": "gone"
+    },
+    "resources-font-probe-controller": {
+      "pid": 262657,
+      "status": "zombie"
+    },
+    "resources-font-probe-server": {
+      "pid": 289332,
+      "status": "gone"
+    },
+    "resources-font-probe-child": {
+      "pid": 290404,
+      "status": "gone"
+    }
+  },
+  "visualReview": {
+    "resolution": "original 1280x720",
+    "views": [
+      "High larger Tamil authored-critical doorstep result",
+      "High reception desk choices"
+    ],
+    "finding": "Critical result, stars and Tamil glyphs are visible; result and reception controls fit. New protocol wording remains English pending shared A31."
+  },
+  "allPassed": true
+}
