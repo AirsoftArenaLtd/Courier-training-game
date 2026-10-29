@@ -112,12 +112,22 @@ const serve = () => new Promise((resolve) => {
   server.listen(0, '127.0.0.1', () => resolve(server));
 });
 
+// B-187: a suite stopped for time leaves its browser behind (puppeteer starts Chromium in a group of its own), and seven
+// left-over browsers once loaded a 4-core machine to 35 and timed out every suite after them. Stop the whole tree.
+const killTree = (pid) => {
+  let rows = [];
+  try { rows = require('child_process').execFileSync('ps', ['-A', '-o', 'pid=,ppid='], { encoding: 'utf8' }).trim().split('\n').map(l => l.trim().split(/\s+/).map(Number)); } catch (e) {}
+  const all = [pid];
+  for (let i = 0; i < all.length; i++) rows.forEach(([p, pp]) => { if (pp === all[i] && !all.includes(p)) all.push(p); });
+  all.forEach(p => { try { process.kill(p, 'SIGKILL'); } catch (e) {} });
+};
+
 const run = (file, env) => new Promise((resolve) => {
   const t0 = Date.now(), log = fs.createWriteStream(path.join(OUT, file.replace(/\.js$/, '.log')));
   const child = spawn(process.execPath, [path.join(__dirname, file)], { cwd: ROOT, env });
   child.stdout.pipe(log, { end: false }); child.stderr.pipe(log, { end: false });
   let timedOut = false;
-  const timer = setTimeout(() => { timedOut = true; child.kill('SIGKILL'); }, TIMEOUT);
+  const timer = setTimeout(() => { timedOut = true; killTree(child.pid); }, TIMEOUT);
   child.on('close', (code) => {
     clearTimeout(timer); log.end();
     resolve({ file, ok: code === 0 && !timedOut, why: timedOut ? 'timed out' : code === 0 ? '' : `exit ${code}`, s: (Date.now() - t0) / 1000 });
@@ -143,7 +153,7 @@ const flowGroup = (flows, port) => new Promise((resolve) => {
   const t0 = Date.now(), file = path.join(OUT, `flows-${port}.log`), log = fs.createWriteStream(file);
   const child = spawn(process.execPath, [path.join(__dirname, 'qa.js'), '--only', flows.join(',')], { cwd: ROOT, env: Object.assign({}, process.env, { QA_GFX: 'low', QA_PORT: String(port) }) });
   child.stdout.pipe(log, { end: false }); child.stderr.pipe(log, { end: false });
-  const timer = setTimeout(() => child.kill('SIGKILL'), 90 * 60 * 1000);
+  const timer = setTimeout(() => killTree(child.pid), 90 * 60 * 1000);
   child.on('close', () => {
     clearTimeout(timer); log.end(() => {
       // qa.js's summary prints "  pass  <flow> ..." or "  FAIL  <flow> ..." for each one it ran
