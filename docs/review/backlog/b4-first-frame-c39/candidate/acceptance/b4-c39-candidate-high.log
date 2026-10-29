@@ -1,0 +1,2 @@
+cold-start {"firstUncoveredMs":7628.399999976158,"firstThreeCompositeMs":2198.699999988079,"builds":1,"assets":23}
+warm-resume {"firstUncoveredMs":9124.199999988079,"firstThreeCompositeMs":2710.199999988079,"builds":1,"assets":23}

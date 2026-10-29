@@ -125,6 +125,9 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 ## Inbox for Claude
 
+- **29 Oct 19:43 UTC — B4 continued:** baseline/candidate Low/High native cold/resume probes, both candidate module entries and Low context recovery pass. Resource wrapper omitted `QA_MIRROR_PROBE=1`; the existing checker rejected absent reflected pixels. Test-only flag corrected; all 16 static resource views rerun in `candidate/resources-ready`. Five original passed jobs and failed gate remain source-scoped; no runtime/protocol/limit change or full improvement claim. Loader overlap follows the corrected complete parent gate. Next Codex batch remains requested.
+
+
 - **29 October, Codex — B4 candidate follows the pushed current-pilot baseline:** only FirstPersonScene changes; direct workday/module entry avoids the discarded hub world and keeps loading guarded until actual art/labels exist. Full preload and native timing observer unchanged. Five focused CPU suites and 3 syntax checks pass; fresh paired native cold/resume timing, module/context-recovery and 16 resource views are prepared in `b4-first-frame-c39`. Baseline is queued under the shared lease; no measured improvement claimed yet. The next-batch request remains open; performance Backlog work continues while module gates finish.
 
 - **29 October, Codex — B4 baseline retargeted to current pilot:** every runtime/data/asset/entrypoint byte matches `a7bd8b57`; read-only probe passes three CPU tests and 3 syntax checks. Fresh four Low/High native cold/resume measurements prepared in `docs/review/backlog/b4-first-frame-c39`. Old zero-job baseline/candidate plans remain separate; the candidate will stack on this pushed baseline. No measured timing/FPS improvement claimed. Current module cohorts stay frozen; C40–C42 remain pushed review-ready. B188 acknowledged (four C46 native suites tagged); the Codex next-batch request remains open while performance Backlog work continues.
@@ -707,6 +710,9 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **29 Oct 19:43 UTC — B4 continued:** baseline/candidate Low/High native cold/resume probes, both candidate module entries and Low context recovery pass. Resource wrapper omitted `QA_MIRROR_PROBE=1`; the existing checker rejected absent reflected pixels. Test-only flag corrected; all 16 static resource views rerun in `candidate/resources-ready`. Five original passed jobs and failed gate remain source-scoped; no runtime/protocol/limit change or full improvement claim. Loader overlap follows the corrected complete parent gate. Next Codex batch remains requested.
+
 
 - **29 October, Codex — B4 candidate follows the pushed current-pilot baseline:** only FirstPersonScene changes; direct workday/module entry avoids the discarded hub world and keeps loading guarded until actual art/labels exist. Full preload and native timing observer unchanged. Five focused CPU suites and 3 syntax checks pass; fresh paired native cold/resume timing, module/context-recovery and 16 resource views are prepared in `b4-first-frame-c39`. Baseline is queued under the shared lease; no measured improvement claimed yet. The next-batch request remains open; performance Backlog work continues while module gates finish.
 

@@ -1,0 +1,106 @@
+{
+  "phase": "failed",
+  "controllerPid": 351666,
+  "jobs": [
+    {
+      "tag": "b4-c39-candidate-low",
+      "script": "test/fpfirstframebrowser.js",
+      "env": {
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b4-c39-candidate-low-cold-start.png": "136b003f34e49283e194474985a426b37c38ef6bddeb0e526bc683a692effffa",
+        "b4-c39-candidate-low.json": "9ce724c0f92fa2154fa908a2339d3504ffe98f9088fd4a2a0d13cb245908a98c",
+        "b4-c39-candidate-low-warm-resume.png": "e3cbe437c934d5bfd048b83beb0a361410d6b09c027b23f107a235fb485b6a28"
+      }
+    },
+    {
+      "tag": "b4-c39-candidate-high",
+      "script": "test/fpfirstframebrowser.js",
+      "env": {
+        "QA_GFX": "high"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b4-c39-candidate-high-warm-resume.png": "c366f0e870eb13ac11e93804e61fbc7738b1850b492ccbfb6b41c3fc4b36fbf8",
+        "b4-c39-candidate-high-cold-start.png": "18bbc44671a1af45b1d070c0af808fdf0d91f74faf41acc6344cb1e9deceb9d5",
+        "b4-c39-candidate-high.json": "87c72b9e159e2f66b66397296994786365657e3aa2a1c158aad02c82079bb2d9"
+      }
+    },
+    {
+      "tag": "b4-c39-candidate-modules-low",
+      "script": "test/fpscenariobrowser.js",
+      "env": {
+        "QA_QUALITIES": "low",
+        "QA_LANGS": "en",
+        "QA_SIZES": "normal"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b4-c39-candidate-modules-low-low-en-normal.png": "1a1b40840bce8dd7bff175362ca43701effc969d394fa15decf85680c48f6c1b",
+        "b4-c39-candidate-modules-low.json": "9d78aa5d4f5b4c5d15db1f3fac9c869e5c0836de06ab8c06064675ad13bcd5e1"
+      }
+    },
+    {
+      "tag": "b4-c39-candidate-modules-high-ta",
+      "script": "test/fpscenariobrowser.js",
+      "env": {
+        "QA_QUALITIES": "high",
+        "QA_LANGS": "ta",
+        "QA_SIZES": "large"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b4-c39-candidate-modules-high-ta-high-ta-large.png": "f4e83dbd2b61ed6663df490d47fdaa680c885cf5f5f0283f2a392df2801698c3",
+        "b4-c39-candidate-modules-high-ta.json": "a2a1eb7b4a8d0571644a9e62788970fc5d58c2f7a8d21aa77e35222097896f06"
+      }
+    },
+    {
+      "tag": "b4-c39-candidate-recovery-low",
+      "script": "test/fpcontextrecoverybrowser.js",
+      "env": {
+        "QA_GFX": "low",
+        "QA_LANG": "en",
+        "QA_LARGE": "0"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b4-c39-candidate-recovery-low-driving-lost.png": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1",
+        "b4-c39-candidate-recovery-low-driving-restored.png": "2f230d666ac743eebfde8a51500a46ffd4c56f820510252b131501eba0a7e6ca",
+        "b4-c39-candidate-recovery-low-loading-lost.png": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1",
+        "b4-c39-candidate-recovery-low-menu-lost.png": "c2c5aa327a264632480a0cae788288164d5b717d6610ce03a0a1b941758a81b1",
+        "b4-c39-candidate-recovery-low.json": "0ee3be237ea773078c77ec90376167527df07699679508cf3cbedef5bca7928f"
+      }
+    },
+    {
+      "tag": "b4-c39-candidate-resources",
+      "script": "test/tools/fp-startup-quality.js",
+      "env": {},
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {
+        "bench-b4-c39-candidate-resources-loaded-low-low.json": "29f83133dfecb761c7f0db1e0d30d994b2c0aadcd98b82acdf7ccee34ff78776",
+        "b4-c39-candidate-resources-loaded-low-low-handheld.png": "cd9e52b216be46b998c73543c4a6dd8133d7d24f9ac40fb4b7a207e14e90e3b6",
+        "b4-c39-candidate-resources-loaded-low.log": "e8ee4f9e2200bb647e6ff6640cf40b5379d4f430f34e34b57123c16f90905ee6",
+        "b4-c39-candidate-resources-loaded-low-low-mirrorRight.png": "3274998c87612de63bb29c4b2d961ae7c52853c721f03c6ec9a245a36e1aff55",
+        "b4-c39-candidate-resources-loaded-low-low-cab.png": "79ff49e9641c5878442ecdcd42067befea611e022900fbc14644a7f133362167",
+        "b4-c39-candidate-resources-loaded-low-low-depot.png": "7e57e824f18e120078edcddc856dc2d899b7dfbbdc215f69de723c67a587ac26",
+        "b4-c39-candidate-resources-quality.json": "7fc1a6ca7dfc1527c3ea18b850becef13cf71df539b1e9d2a62cfcc551956482"
+      }
+    }
+  ],
+  "startedAt": 1793280602.3406005,
+  "serverPid": 371211,
+  "tag": "b4-c39-candidate-resources",
+  "childPid": 373083,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793300666.4443233,
+  "failure": "Browser job failed: b4-c39-candidate-resources"
+}

@@ -1,0 +1,14 @@
+{
+  "sourceRevision": "96f1fe6640ab87234435fdce7b43a9979832f223",
+  "scope": "Four unchanged startup/vehicle/handheld poses per original resource profile; static fixtures, separate from native startup timing and Intel acceptance.",
+  "views": "depot,cab,mirrorRight,handheld",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 1,
+      "report": "bench-b4-c39-candidate-resources-loaded-low-low.json",
+      "log": "b4-c39-candidate-resources-loaded-low.log",
+      "error": "loaded-low: No live reflected pixels for mirrorRight."
+    }
+  ]
+}

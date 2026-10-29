@@ -1,0 +1,495 @@
+{
+  "quality": "low",
+  "revision": "96f1fe6640ab87234435fdce7b43a9979832f223",
+  "errors": [],
+  "samples": [
+    {
+      "type": "cold-start",
+      "action": "start",
+      "startedAt": 4052.199999988079,
+      "worlds": [
+        {
+          "start": 5127.599999964237,
+          "end": 5264.800000011921,
+          "kind": "campaign",
+          "area": "hub"
+        }
+      ],
+      "assets": [
+        {
+          "start": 4626.800000011921,
+          "end": 4854.300000011921,
+          "stats": {
+            "quality": "low",
+            "loaded": 14,
+            "failed": 0,
+            "fallbacks": 0,
+            "bytes": 824208,
+            "decodedBytes": 354468,
+            "errors": []
+          },
+          "models": [
+            "town-garage",
+            "town-house",
+            "town-tree",
+            "town-house-wide",
+            "town-fence",
+            "town-shop",
+            "town-road",
+            "town-streetlight",
+            "town-parked-car",
+            "van-exterior",
+            "worker-men",
+            "worker-women",
+            "resident-men",
+            "resident-women"
+          ],
+          "textures": [],
+          "audio": []
+        }
+      ],
+      "stages": [
+        {
+          "name": "three-load",
+          "start": 4524.699999988079,
+          "end": 4622.300000011921
+        },
+        {
+          "name": "render-target-create",
+          "start": 4854.5,
+          "end": 4875
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 4454.599999964237,
+          "duration": 75
+        },
+        {
+          "start": 4751.300000011921,
+          "duration": 56
+        },
+        {
+          "start": 4846.099999964237,
+          "duration": 56
+        },
+        {
+          "start": 4903,
+          "duration": 67
+        },
+        {
+          "start": 5115.599999964237,
+          "duration": 467
+        }
+      ],
+      "firstThreeCompositeAt": 5582,
+      "firstPhaserCompositeAt": 5582.5,
+      "firstUncoveredAt": 5588.5,
+      "latestRender": {
+        "at": 6342.699999988079,
+        "frame": 43
+      },
+      "diagnostics": {
+        "calls": 37,
+        "triangles": 1322,
+        "textures": 2,
+        "geometries": 15,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376,
+        "restores": 0
+      },
+      "assetStats": {
+        "quality": "low",
+        "loaded": 14,
+        "failed": 0,
+        "fallbacks": 0,
+        "bytes": 824208,
+        "decodedBytes": 354468,
+        "errors": []
+      },
+      "firstThreeCompositeMs": 1529.800000011921,
+      "firstPhaserCompositeMs": 1530.300000011921,
+      "firstUncoveredMs": 1536.300000011921,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:8439/lib/three.min.js",
+          "start": 4527.399999976158,
+          "duration": 7.600000023841858,
+          "transferBytes": 651951,
+          "encodedBytes": 651651,
+          "decodedBytes": 651651
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/manifest.json",
+          "start": 4628.099999964237,
+          "duration": 4.700000047683716,
+          "transferBytes": 7436,
+          "encodedBytes": 7136,
+          "decodedBytes": 7136
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-starter/models/garage-low.glb",
+          "start": 4638.300000011921,
+          "duration": 5.399999976158142,
+          "transferBytes": 3016,
+          "encodedBytes": 2716,
+          "decodedBytes": 2716
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-suburban/models/building-type-a-low.glb",
+          "start": 4638.5,
+          "duration": 6.899999976158142,
+          "transferBytes": 4148,
+          "encodedBytes": 3848,
+          "decodedBytes": 3848
+        },
+        {
+          "name": "http://127.0.0.1:8439/lib/GLTFLoader.min.js",
+          "start": 4650.599999964237,
+          "duration": 4.900000035762787,
+          "transferBytes": 45896,
+          "encodedBytes": 45596,
+          "decodedBytes": 45596
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-suburban/models/building-type-c-low.glb",
+          "start": 4665.199999988079,
+          "duration": 38.69999998807907,
+          "transferBytes": 4148,
+          "encodedBytes": 3848,
+          "decodedBytes": 3848
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-suburban/models/tree-small-low.glb",
+          "start": 4665.399999976158,
+          "duration": 38.80000001192093,
+          "transferBytes": 5420,
+          "encodedBytes": 5120,
+          "decodedBytes": 5120
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-suburban/models/fence-low.glb",
+          "start": 4708.5,
+          "duration": 6.699999988079071,
+          "transferBytes": 2204,
+          "encodedBytes": 1904,
+          "decodedBytes": 1904
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-commercial/models/building-a-low.glb",
+          "start": 4709.599999964237,
+          "duration": 5.400000035762787,
+          "transferBytes": 2984,
+          "encodedBytes": 2684,
+          "decodedBytes": 2684
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-roads/models/road-straight-low.glb",
+          "start": 4718.899999976158,
+          "duration": 8.800000011920929,
+          "transferBytes": 4064,
+          "encodedBytes": 3764,
+          "decodedBytes": 3764
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-roads/models/light-curved-low.glb",
+          "start": 4720.599999964237,
+          "duration": 11,
+          "transferBytes": 3000,
+          "encodedBytes": 2700,
+          "decodedBytes": 2700
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-car-kit/models/sedan-low.glb",
+          "start": 4730.199999988079,
+          "duration": 3.600000023841858,
+          "transferBytes": 3768,
+          "encodedBytes": 3468,
+          "decodedBytes": 3468
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-car-kit/models/delivery-low.glb",
+          "start": 4735.399999976158,
+          "duration": 4.5,
+          "transferBytes": 18748,
+          "encodedBytes": 18448,
+          "decodedBytes": 18448
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/quaternius-modular-men/models/worker-low.glb",
+          "start": 4738.699999988079,
+          "duration": 6.899999976158142,
+          "transferBytes": 194180,
+          "encodedBytes": 193880,
+          "decodedBytes": 193880
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/quaternius-modular-women/models/worker-low.glb",
+          "start": 4748.099999964237,
+          "duration": 6,
+          "transferBytes": 194272,
+          "encodedBytes": 193972,
+          "decodedBytes": 193972
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/quaternius-modular-men/models/resident-low.glb",
+          "start": 4807.800000011921,
+          "duration": 25.69999998807907,
+          "transferBytes": 194184,
+          "encodedBytes": 193884,
+          "decodedBytes": 193884
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/quaternius-modular-women/models/resident-low.glb",
+          "start": 4825.399999976158,
+          "duration": 9.300000011920929,
+          "transferBytes": 194272,
+          "encodedBytes": 193972,
+          "decodedBytes": 193972
+        }
+      ],
+      "state": {
+        "area": "route",
+        "kind": "campaign",
+        "loading": false,
+        "transitioning": false,
+        "fade": 0,
+        "modelElapsed": 0,
+        "workdayId": "mvtwsqbq"
+      },
+      "shot": "b4-c39-candidate-low-cold-start.png"
+    },
+    {
+      "type": "warm-resume",
+      "action": "resume",
+      "startedAt": 9055.800000011921,
+      "worlds": [
+        {
+          "start": 10114.5,
+          "end": 10152.800000011921,
+          "kind": "campaign",
+          "area": "hub"
+        }
+      ],
+      "assets": [
+        {
+          "start": 9663.399999976158,
+          "end": 9804,
+          "stats": {
+            "quality": "low",
+            "loaded": 14,
+            "failed": 0,
+            "fallbacks": 0,
+            "bytes": 824208,
+            "decodedBytes": 354468,
+            "errors": []
+          },
+          "models": [
+            "town-garage",
+            "town-house",
+            "town-house-wide",
+            "town-tree",
+            "town-fence",
+            "town-shop",
+            "town-road",
+            "town-streetlight",
+            "town-parked-car",
+            "van-exterior",
+            "worker-men",
+            "worker-women",
+            "resident-men",
+            "resident-women"
+          ],
+          "textures": [],
+          "audio": []
+        }
+      ],
+      "stages": [
+        {
+          "name": "three-load",
+          "start": 9662.599999964237,
+          "end": 9662.899999976158
+        },
+        {
+          "name": "render-target-create",
+          "start": 9804,
+          "end": 9902.800000011921
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 9762.800000011921,
+          "duration": 143
+        },
+        {
+          "start": 10112.699999988079,
+          "duration": 269
+        }
+      ],
+      "firstThreeCompositeAt": 10380.899999976158,
+      "firstPhaserCompositeAt": 10381.199999988079,
+      "firstUncoveredAt": 10384.800000011921,
+      "latestRender": {
+        "at": 11145.099999964237,
+        "frame": 76
+      },
+      "diagnostics": {
+        "calls": 37,
+        "triangles": 1322,
+        "textures": 2,
+        "geometries": 15,
+        "targetWidth": 832,
+        "targetHeight": 468,
+        "attachmentBytes": 3557376,
+        "restores": 0
+      },
+      "assetStats": {
+        "quality": "low",
+        "loaded": 14,
+        "failed": 0,
+        "fallbacks": 0,
+        "bytes": 824208,
+        "decodedBytes": 354468,
+        "errors": []
+      },
+      "firstThreeCompositeMs": 1325.0999999642372,
+      "firstPhaserCompositeMs": 1325.3999999761581,
+      "firstUncoveredMs": 1329,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/manifest.json",
+          "start": 9663.800000011921,
+          "duration": 35.39999997615814,
+          "transferBytes": 0,
+          "encodedBytes": 7136,
+          "decodedBytes": 7136
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-starter/models/garage-low.glb",
+          "start": 9702,
+          "duration": 2.699999988079071,
+          "transferBytes": 0,
+          "encodedBytes": 2716,
+          "decodedBytes": 2716
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-suburban/models/building-type-a-low.glb",
+          "start": 9702.800000011921,
+          "duration": 2,
+          "transferBytes": 0,
+          "encodedBytes": 3848,
+          "decodedBytes": 3848
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-suburban/models/building-type-c-low.glb",
+          "start": 9706.599999964237,
+          "duration": 1.5,
+          "transferBytes": 0,
+          "encodedBytes": 3848,
+          "decodedBytes": 3848
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-suburban/models/tree-small-low.glb",
+          "start": 9707.899999976158,
+          "duration": 2.400000035762787,
+          "transferBytes": 0,
+          "encodedBytes": 5120,
+          "decodedBytes": 5120
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-suburban/models/fence-low.glb",
+          "start": 9710.899999976158,
+          "duration": 1.9000000357627869,
+          "transferBytes": 0,
+          "encodedBytes": 1904,
+          "decodedBytes": 1904
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-commercial/models/building-a-low.glb",
+          "start": 9713.800000011921,
+          "duration": 1.899999976158142,
+          "transferBytes": 0,
+          "encodedBytes": 2684,
+          "decodedBytes": 2684
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-roads/models/road-straight-low.glb",
+          "start": 9716.199999988079,
+          "duration": 2.100000023841858,
+          "transferBytes": 0,
+          "encodedBytes": 3764,
+          "decodedBytes": 3764
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-city-roads/models/light-curved-low.glb",
+          "start": 9717.300000011921,
+          "duration": 2.099999964237213,
+          "transferBytes": 0,
+          "encodedBytes": 2700,
+          "decodedBytes": 2700
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-car-kit/models/sedan-low.glb",
+          "start": 9720.199999988079,
+          "duration": 1.899999976158142,
+          "transferBytes": 0,
+          "encodedBytes": 3468,
+          "decodedBytes": 3468
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/kenney-car-kit/models/delivery-low.glb",
+          "start": 9723,
+          "duration": 1.5,
+          "transferBytes": 0,
+          "encodedBytes": 18448,
+          "decodedBytes": 18448
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/quaternius-modular-men/models/worker-low.glb",
+          "start": 9724.800000011921,
+          "duration": 2.299999952316284,
+          "transferBytes": 0,
+          "encodedBytes": 193880,
+          "decodedBytes": 193880
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/quaternius-modular-women/models/worker-low.glb",
+          "start": 9727.399999976158,
+          "duration": 2.900000035762787,
+          "transferBytes": 0,
+          "encodedBytes": 193972,
+          "decodedBytes": 193972
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/quaternius-modular-men/models/resident-low.glb",
+          "start": 9737.699999988079,
+          "duration": 4.699999988079071,
+          "transferBytes": 0,
+          "encodedBytes": 193884,
+          "decodedBytes": 193884
+        },
+        {
+          "name": "http://127.0.0.1:8439/assets/3d/quaternius-modular-women/models/resident-low.glb",
+          "start": 9752.599999964237,
+          "duration": 5.400000035762787,
+          "transferBytes": 0,
+          "encodedBytes": 193972,
+          "decodedBytes": 193972
+        }
+      ],
+      "state": {
+        "area": "route",
+        "kind": "campaign",
+        "loading": false,
+        "transitioning": false,
+        "fade": 0,
+        "modelElapsed": 0.03331999999999989,
+        "workdayId": "mvtwsqbq"
+      },
+      "shot": "b4-c39-candidate-low-warm-resume.png"
+    }
+  ],
+  "scope": "Actual Hub Start workday and same-workday Resume buttons, native mouse/confirmation and pause/save keys. Fresh browser per quality. Only local profile setup and observation wrappers are fixtures. No mission/pose/clock/score/loader-option/graphics-setting writes. First uncovered frame is the first Phaser postrender after a nonempty route composite with loading and fade complete. CPU/GPU wall times are relative software-rendering diagnostics, not Intel FPS or laptop timing acceptance.",
+  "complete": true
+}

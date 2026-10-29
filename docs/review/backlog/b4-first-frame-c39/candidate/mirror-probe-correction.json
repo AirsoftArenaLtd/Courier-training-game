@@ -1,0 +1,31 @@
+{
+  "parent": "96f1fe66",
+  "runtimeDifferences": [],
+  "cause": "Wrapper selected mirrorRight but omitted QA_MIRROR_PROBE=1; checkReport correctly refused absent reflected-pixel evidence.",
+  "retainedPassedJobs": [
+    {
+      "tag": "b4-c39-candidate-low",
+      "exit": 0
+    },
+    {
+      "tag": "b4-c39-candidate-high",
+      "exit": 0
+    },
+    {
+      "tag": "b4-c39-candidate-modules-low",
+      "exit": 0
+    },
+    {
+      "tag": "b4-c39-candidate-modules-high-ta",
+      "exit": 0
+    },
+    {
+      "tag": "b4-c39-candidate-recovery-low",
+      "exit": 0
+    }
+  ],
+  "prior": "acceptance/status.json",
+  "next": "resources-ready/status.json",
+  "nativeTimingProtocolUnchanged": true,
+  "limitsAndPixelChecksUnchanged": true
+}
