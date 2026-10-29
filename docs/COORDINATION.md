@@ -451,7 +451,7 @@ same module and scenario ids. Starts after the new cab and the new look (milesto
 | C-45 | Codex | **Pickups & Paperwork in 3D:** a business pickup, an international parcel and dangerous goods at a real counter. | review (codex/c45-pickups-paperwork; stacked on pushed C-44/C-43/C-38) |
 | C-46 | Codex | **Safety & Wellness in 3D:** steps, dogs, heat, an incident report; new: slips on ice, a reversing near-miss, fatigue. | todo (continue codex/c46-safety-wellness after C42; ice/fatigue policy answered 27 Oct) |
 | A-31 | Claude | **QA, translations and the review set for each 3D module** as it lands (flows in `test/paths/`, all 11 languages, larger text), and the switch to 3D by default per module once it passes. | doing (module 1, 29 Oct: `test/paths/modules-3d.js` opens each 3D scenario from the hub by the trainer's rule, audits the brief, play and pause in English and Tamil with larger text: clean; `default3d` waits on owner question 12; next modules as C-40 to C-46 land) |
-| A-32 | Claude | **Trainer guide and readiness** for the 3D modules and the 2D fallback. | todo (after A-31) |
+| A-32 | Claude | **Trainer guide and readiness** for the 3D modules and the 2D fallback. | doing (29 Oct: pilot guide section 7, Modules in 3D, in all 12 guides; WHATS-NEW has module 1 in 3D; the rest as modules land) |
 
 ## Backlog
 
