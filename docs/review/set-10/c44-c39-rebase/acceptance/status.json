@@ -1,0 +1,8 @@
+{
+  "phase": "superseded-before-start-obsolete-wait",
+  "controllerPid": 320043,
+  "jobs": [],
+  "startedAt": 1793265187.2126663,
+  "endedAt": 1793276402.0289075,
+  "reason": "Inherited C42 sentinel is obsolete on the pushed current stack; zero jobs/children. New plan uses only the shared browser lease."
+}

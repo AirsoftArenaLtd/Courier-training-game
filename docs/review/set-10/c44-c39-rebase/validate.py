@@ -2,7 +2,7 @@
 """Serial native blocked-drive journeys; frozen inputs and exact owned-process cleanup."""
 from pathlib import Path
 import os,json,hashlib,subprocess,fcntl,time,shutil,psutil
-BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3];OUT=BASE/'acceptance';OUT.mkdir(parents=True,exist_ok=True);os.chdir(ROOT)
+BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3];OUT=BASE/'acceptance-ready';OUT.mkdir(parents=True,exist_ok=True);os.chdir(ROOT)
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 files=[p for name in ['src','data','lib','assets/3d','css','test/tools'] for p in Path(name).rglob('*') if p.is_file()]+[p for p in Path('test').glob('*.js')]+[Path(p) for p in ['index.html','first-person.html','assets/art-pack.js']]
 jobs=[{'tag': 'c44-c39-wrong-find-high-ta', 'script': 'test/fploadingbrowser.js', 'env': {'QA_CASE': 'high-ta-large-find', 'QA_VARIANT': 'wrong-find'}}, {'tag': 'c44-c39-load-low-en', 'script': 'test/fploadingbrowser.js', 'env': {'QA_CASE': 'low-en-normal-load'}}, {'tag': 'c44-c39-find-low-en', 'script': 'test/fploadingbrowser.js', 'env': {'QA_CASE': 'low-en-normal-find'}}, {'tag': 'c44-c39-load-high-ta', 'script': 'test/fploadingbrowser.js', 'env': {'QA_CASE': 'high-ta-large-load'}}, {'tag': 'c44-c39-find-high-ta', 'script': 'test/fploadingbrowser.js', 'env': {'QA_CASE': 'high-ta-large-find'}}, {'tag': 'c44-c39-bad-load-high-ta', 'script': 'test/fploadingbrowser.js', 'env': {'QA_CASE': 'high-ta-large-load', 'QA_VARIANT': 'bad-load'}}, {'tag': 'c44-c39-loading-resources', 'script': 'test/tools/fp-loading-quality.js', 'env': {'QA_FPS_FLOOR': '0'}}]
@@ -11,8 +11,6 @@ plan={'sourceRevision':subprocess.check_output(['git','rev-parse','HEAD'],text=T
 (OUT/'plan.json').write_text(json.dumps(plan,indent=2)+'\n');state={'phase':'queued','controllerPid':os.getpid(),'jobs':[],'startedAt':time.time()}
 def save(): (OUT/'status.json').write_text(json.dumps(state,indent=2)+'\n')
 save()
-state['phase']='waiting-for-c42';save()
-while not Path('/workspace/otr-c42-release-validation').exists():time.sleep(2)
 with open('/workspace/.otr-browser-validation.lock','a') as lease:
  fcntl.flock(lease,fcntl.LOCK_EX);server=None
  try:
