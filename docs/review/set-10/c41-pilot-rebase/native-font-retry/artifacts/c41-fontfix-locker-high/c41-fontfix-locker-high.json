@@ -1,0 +1,634 @@
+{
+  "quality": "high",
+  "lang": "ta",
+  "large": true,
+  "kind": "locker",
+  "bad": false,
+  "checks": 208,
+  "layouts": [
+    {
+      "name": "brief",
+      "rows": [
+        {
+          "source": "Customer protocol practice",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Complete the customer protocol and return to the parked van.\n\nComplete the customer protocol, record the handover and return to the parked van.\n\nYou have 480 seconds to complete this scenario.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 331
+        },
+        {
+          "source": "1. Begin the scenario.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the station.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "controls 0",
+      "rows": [
+        {
+          "source": "Use the protocol controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Use W/A/S/D to walk. Press O to face a nearby physical target, then U to interact. The van stays parked during this scenario.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 232
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "controls 1",
+      "rows": [
+        {
+          "source": "Use the protocol controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Use the cargo doors to take and scan the parcel. Close the cargo doors before returning to the cab. Face the intercom, entrance, reception desk or locker to use its controls.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 232
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "controls 2",
+      "rows": [
+        {
+          "source": "Use the protocol controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Press TAB to read the stop details or open the locker camera. While using the camera, frame the actual closed compartment, then press U to capture it. Pause, handheld and control pages stop the scenario clocks.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 265
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "2. Return to the stop.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "climb down",
+      "rows": [
+        {
+          "source": "Choose how to climb down.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "The van is parked at the stop.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. Face the cab, hold the grab handle and step down.",
+          "scale": 1,
+          "font": 22,
+          "top": 448,
+          "bottom": 474
+        },
+        {
+          "source": "2. Hop down to the curb.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "3. Remain in the cab.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "parcel",
+      "rows": [
+        {
+          "source": "Read the package label.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "This package is for Ana Morales.\nIts address is 14 Alder Ln.\nIt weighs 8 pounds and uses standard service.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 265
+        },
+        {
+          "source": "1. Take this package from its shelf.",
+          "scale": 1,
+          "font": 22,
+          "top": 448,
+          "bottom": 474
+        },
+        {
+          "source": "2. Scan this package.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "3. Return to the stop.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "locker",
+      "rows": [
+        {
+          "source": "Use compartment B12.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "The compartment door is closed.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. Open the compartment door.",
+          "scale": 1,
+          "font": 22,
+          "top": 390,
+          "bottom": 416
+        },
+        {
+          "source": "2. Scan the parcel at this compartment.",
+          "scale": 1,
+          "font": 22,
+          "top": 448,
+          "bottom": 474
+        },
+        {
+          "source": "3. Read the parcel placement controls.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "4. Return to the stop.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "placement",
+      "rows": [
+        {
+          "source": "Place the parcel in compartment B12.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "Use the physical compartment at this target.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. Place the scanned parcel inside.",
+          "scale": 1,
+          "font": 22,
+          "top": 448,
+          "bottom": 474
+        },
+        {
+          "source": "2. Take the parcel back out.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "3. Return to the stop.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "photo recorded",
+      "rows": [
+        {
+          "source": "Read the stop information.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "The compartment photo has been recorded.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. Return to the stop.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "climb in",
+      "rows": [
+        {
+          "source": "Choose how to climb into the cab.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "The van is parked at the stop.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. Hold the grab handle and step up one foot at a time.",
+          "scale": 1,
+          "font": 22,
+          "top": 448,
+          "bottom": 474
+        },
+        {
+          "source": "2. Jump up in one move.",
+          "scale": 1,
+          "font": 22,
+          "top": 506,
+          "bottom": 532
+        },
+        {
+          "source": "3. Remain beside the van.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    },
+    {
+      "name": "stop report",
+      "rows": [
+        {
+          "source": "Review stop 1.",
+          "scale": 1,
+          "font": 27,
+          "top": 111,
+          "bottom": 143
+        },
+        {
+          "source": "This stop has ended.",
+          "scale": 1,
+          "font": 23,
+          "top": 170,
+          "bottom": 199
+        },
+        {
+          "source": "1. Finish the scenario.",
+          "scale": 1,
+          "font": 22,
+          "top": 564,
+          "bottom": 590
+        }
+      ]
+    }
+  ],
+  "shots": [
+    "c41-fontfix-locker-high-locker.png",
+    "c41-fontfix-locker-high-camera-device.png",
+    "c41-fontfix-locker-high-camera-frame.png",
+    "c41-fontfix-locker-high-report.png"
+  ],
+  "errors": [],
+  "scope": "Real persistent profile and suspended workday plus the prepared optional descriptor are setup fixtures. Walking, cargo, parcel, scanning, intercom, reception, signature, locker, camera, climbing and finish use real keyboard controls and physical rays. No subsequent pose, clock, score, verdict or completion writes. This build uses the shipped B-178 language font selection without an override, with an actual Phaser-font glyph-family probe. New sentences await translations; shared optional launcher and resource checks are separate.",
+  "fontProof": {
+    "lang": "ta",
+    "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+    "override": null,
+    "layout": {
+      "width": 793.21875,
+      "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+    },
+    "platformFonts": [
+      {
+        "familyName": "Noto Sans Tamil",
+        "postScriptName": "NotoSansTamil-Bold",
+        "isCustomFont": false,
+        "glyphCount": 28
+      }
+    ]
+  },
+  "completedStop": {
+    "mode": "cab",
+    "phase": "report",
+    "elapsed": 26.23445666666684,
+    "sequence": {
+      "version": 1,
+      "kind": "locker",
+      "parcel": "p1",
+      "failed": false,
+      "open": false,
+      "scanned": true,
+      "deposited": true,
+      "photo": true
+    },
+    "buzzed": false,
+    "state": {
+      "inVan": true,
+      "carrying": [],
+      "scanned": {
+        "p1": true
+      },
+      "scannedInVan": true,
+      "pulls": 1,
+      "wrongPulls": 0,
+      "addressChecked": false,
+      "knocks": 0,
+      "answered": false,
+      "talked": false,
+      "vanTrips": 0,
+      "outcome": "delivered",
+      "type": "locker",
+      "signer": null,
+      "code": null,
+      "tagPrinted": false,
+      "tagAttached": false,
+      "spot": null,
+      "photo": null,
+      "idResult": null,
+      "exitSafe": true,
+      "enterSafe": true,
+      "hazards": {},
+      "delivered": [
+        "p1"
+      ],
+      "elapsed": 26.23445666666684,
+      "done": true
+    }
+  },
+  "result": {
+    "id": "m3-locker",
+    "result": {
+      "score": 1100,
+      "ratios": {
+        "service": 1,
+        "safety": 1,
+        "efficiency": 1
+      },
+      "log": {
+        "items": [
+          {
+            "cat": "safety",
+            "got": 2,
+            "max": 2,
+            "label": "Climbed down from the cab with three points of contact",
+            "good": true,
+            "partial": false,
+            "lesson": "Use three points of contact getting in and out of the truck. Jumping down is one of the most common ways couriers get hurt.",
+            "feedback": null,
+            "group": "m3-locker",
+            "kind": "check",
+            "critical": false,
+            "at": 1793242672576,
+            "where": null
+          },
+          {
+            "cat": "safety",
+            "got": 2,
+            "max": 2,
+            "label": "Climbed back into the cab safely",
+            "good": true,
+            "partial": false,
+            "lesson": "Grab handle, one step at a time, and never jump up while carrying anything.",
+            "feedback": null,
+            "group": "m3-locker",
+            "kind": "check",
+            "critical": false,
+            "at": 1793242672576,
+            "where": null
+          },
+          {
+            "cat": "efficiency",
+            "got": 1,
+            "max": 1,
+            "label": "Scanned the package before leaving the truck",
+            "good": true,
+            "partial": false,
+            "lesson": "Scan before you step out. It confirms the stop and shows signature needs before you walk to the door.",
+            "feedback": null,
+            "group": "m3-locker",
+            "kind": "check",
+            "critical": false,
+            "at": 1793242672576,
+            "where": null
+          },
+          {
+            "cat": "efficiency",
+            "got": 3,
+            "max": 3,
+            "label": "Finished the stop in good time (26s, par 130s)",
+            "good": true,
+            "partial": false,
+            "lesson": "Plan the stop before you step out: package pulled, scanned and ready. It saves walks back to the truck.",
+            "feedback": null,
+            "group": "m3-locker",
+            "kind": "check",
+            "critical": false,
+            "at": 1793242672576,
+            "where": null
+          },
+          {
+            "cat": "efficiency",
+            "got": 1,
+            "max": 1,
+            "label": "Pulled only the right package from the shelves",
+            "good": true,
+            "partial": false,
+            "lesson": null,
+            "feedback": null,
+            "group": "m3-locker",
+            "kind": "check",
+            "critical": false,
+            "at": 1793242672576,
+            "where": null
+          },
+          {
+            "cat": "service",
+            "got": 2,
+            "max": 2,
+            "label": "Used the locker correctly",
+            "good": true,
+            "partial": false,
+            "lesson": "Right compartment, scan it, close the door and take the photo.",
+            "feedback": null,
+            "group": "m3-locker",
+            "kind": "check",
+            "critical": false,
+            "at": 1793242672576,
+            "where": null,
+            "type": "stop.locker"
+          }
+        ],
+        "group": "m3-locker"
+      },
+      "lessons": [],
+      "stats": {
+        "completed": true,
+        "stops": [
+          {
+            "outcome": "delivered",
+            "code": null,
+            "type": "locker",
+            "time": 26.23445666666684,
+            "id": "m3-locker"
+          }
+        ],
+        "protocol": {
+          "type": "stop.locker",
+          "complete": true,
+          "ok": true,
+          "failed": false
+        },
+        "seconds": 26
+      }
+    },
+    "stars": {
+      "service": 3,
+      "safety": 3,
+      "efficiency": 3
+    },
+    "record": {
+      "plays": 1,
+      "bestScore": 1100,
+      "bestStars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 3
+      },
+      "lastPlayed": 1793242677330
+    },
+    "assessment": {
+      "attempts": 1,
+      "passed": true,
+      "startedAt": 1793242314292,
+      "pending": false,
+      "at": 1793242677331,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "score": 1100,
+      "criticals": [],
+      "lessons": []
+    }
+  },
+  "durable": true,
+  "complete": true
+}
