@@ -1,0 +1,437 @@
+{
+  "checks": 795,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "storm",
+      "shots": [
+        "c42-uifix-storm-high-ta-high-ta-large-storm-controls-0.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-controls-1.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-controls-2.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-controls-3.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-address-reading.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-handheld.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-physical.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-reply-n0.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-reply-n2.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-reply-n3.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-reply-n4.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-arrival-1-gate.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-reply-n5.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-arrival-2-cab.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-reply-n6.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-ending.png",
+        "c42-uifix-storm-high-ta-high-ta-large-storm-result.png"
+      ],
+      "nodes": [
+        "n0",
+        "n2",
+        "n3",
+        "n4",
+        "n5",
+        "n6"
+      ],
+      "trips": [
+        "gate",
+        "cab"
+      ],
+      "pages": 14,
+      "handheld": {
+        "screen": {
+          "top": 92,
+          "bottom": 544
+        },
+        "lines": [
+          "Continue from the parked van’s communication device.",
+          "The conversation point is 3 meters away."
+        ],
+        "texts": [
+          {
+            "source": "Read the problem-solving details.",
+            "scale": 1,
+            "top": 103,
+            "bottom": 125
+          },
+          {
+            "source": "",
+            "scale": 1,
+            "top": 104.5,
+            "bottom": 123.5
+          },
+          {
+            "source": "⌫ Back",
+            "scale": 1,
+            "top": 518.5,
+            "bottom": 537.5
+          },
+          {
+            "source": "Continue from the parked van’s communication device.",
+            "scale": 1,
+            "top": 150,
+            "bottom": 194
+          },
+          {
+            "source": "The conversation point is 3 meters away.",
+            "scale": 1,
+            "top": 200,
+            "bottom": 244
+          }
+        ],
+        "choices": [
+          {
+            "font": 17,
+            "scale": 1,
+            "top": 404.5,
+            "bottom": 450.5
+          },
+          {
+            "font": 17,
+            "scale": 1,
+            "top": 456.5000009536743,
+            "bottom": 510.4999990463257
+          }
+        ]
+      },
+      "result": {
+        "id": "m4-storm",
+        "result": {
+          "score": 2000,
+          "ratios": {
+            "safety": 1,
+            "service": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "safety",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Speed down, visibility up, space cushion bigger. Pulling off safely is always an option.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793235424889,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 3,
+                "max": 3,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Turn around, don't drown. You can't see how deep the water is or whether the road underneath has washed away.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793235435674,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Checking in once you're safely stopped lets dispatch warn other drivers. Your report may keep a coworker out of that water.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793235448314,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Checking in once you're safely stopped lets dispatch warn other drivers. Your report may keep a coworker out of that water.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793235448314,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "When thunder roars, stay indoors — and your truck is safer than an open, flooded yard. A few minutes costs nothing.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793235463478,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 1,
+                "max": 1,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Unclear instructions + bad weather = clarify, don't improvise. The customer gets the outcome they actually want.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793235585297,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "Unclear instructions + bad weather = clarify, don't improvise. The customer gets the outcome they actually want.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793235585297,
+                "where": null
+              },
+              {
+                "cat": "service",
+                "got": 2,
+                "max": 2,
+                "label": "Conversation choice",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": "You solved today safely and improved every future delivery to this address.",
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793235800738,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Severe weather: slow down, headlights on, increase following distance, and pull off somewhere safe (not in a travel lane) if visibility is poor.",
+            "Never drive through flooded roads — turn around, don't drown.",
+            "Delivery instructions never override your safety. When a note is unclear, don't guess — clarify through your normal process."
+          ],
+          "stats": {
+            "outcome": "good",
+            "log": {
+              "items": [
+                {
+                  "cat": "safety",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Speed down, visibility up, space cushion bigger. Pulling off safely is always an option.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793235424889,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Turn around, don't drown. You can't see how deep the water is or whether the road underneath has washed away.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793235435674,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Checking in once you're safely stopped lets dispatch warn other drivers. Your report may keep a coworker out of that water.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793235448314,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Checking in once you're safely stopped lets dispatch warn other drivers. Your report may keep a coworker out of that water.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793235448314,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "When thunder roars, stay indoors — and your truck is safer than an open, flooded yard. A few minutes costs nothing.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793235463478,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 1,
+                  "max": 1,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Unclear instructions + bad weather = clarify, don't improvise. The customer gets the outcome they actually want.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793235585297,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "Unclear instructions + bad weather = clarify, don't improvise. The customer gets the outcome they actually want.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793235585297,
+                  "where": null
+                },
+                {
+                  "cat": "service",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Conversation choice",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": "You solved today safely and improved every future delivery to this address.",
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793235800738,
+                  "where": null
+                }
+              ]
+            },
+            "seconds": 33
+          }
+        },
+        "stars": {
+          "safety": 3,
+          "service": 3
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 2000,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 0,
+            "service": 3
+          },
+          "lastPlayed": 1793235806393
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1793235294175,
+          "pending": false,
+          "at": 1793235806394,
+          "stars": {
+            "safety": 3,
+            "service": 3
+          },
+          "score": 2000,
+          "criticals": [],
+          "lessons": [
+            "Severe weather: slow down, headlights on, increase following distance, and pull off somewhere safe (not in a travel lane) if visibility is poor.",
+            "Never drive through flooded roads — turn around, don't drown.",
+            "Delivery instructions never override your safety. When a note is unclear, don't guess — clarify through your normal process."
+          ]
+        }
+      },
+      "durable": true,
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      }
+    }
+  ],
+  "errors": [],
+  "sourceRevision": "2e34e5481607e75e539d2eb6ad5c6f790e2ae29f",
+  "uncommittedRuntime": false,
+  "sourceFiles": {
+    "index.html": "a40e53e9cc1419e3b022731f846a14ee0196d721d17f85fd0e2e241e43ffc756",
+    "src/core/fpcustomertalk.js": "aea1c7d30cffbb375a4f50804c8daf0185b166c12942b3bad762ee6a169affbb",
+    "src/core/fpcustomerscenario.js": "e164b4621bca1de8e6b934070f6ffb9edd2ee6dcdb4e80a794ac02476e943a29",
+    "src/core/fpcustomerworld.js": "d5e345b2086f31c0bf281d3f89c909403a4334cc484731fe48de70445f581e25",
+    "src/core/fpproblemstage.js": "e7ba12a62421d988518c09d086426ee72e5c0b998adf972ba90296ac22e9362b",
+    "src/core/fpproblemscenario.js": "e53ea666ad3280b260a22e3ac035914f181d63f9b26e5fec9182ed0508941179",
+    "src/core/fpmountedwords.js": "256fa361dc895443ce08006832beaafb73781e43401ea000743310b3a9a02de9",
+    "src/core/fpworld.js": "975918ade53bebf42865e0070933b3a59a1770d179d5fee234762642152711b1",
+    "src/core/talk.js": "d7c144562098fc2c869a2fc1e2c421e42b20ff5d81745a4f95d32533ce056ac2",
+    "src/scenes/shared/DialogueScene.js": "011facfd0af11825faf8c294a6c7cff023457bed54ebba69760a6ce20d732425",
+    "data/m4_dialogues.js": "f65be1542d633981beaadd3a33615e52056889e27aaada3577de02c8850e6f50",
+    "data/m4_recover.js": "953f97c04bb68fac9e11aa4de2be15931b0fd78240cf47268576971626c8309d",
+    "data/modules.js": "f3943d7729491cb2edfc81d1feac98897917ff2ae01efa4cdb4e00239fa21b7a"
+  },
+  "protocolSha256": "76587508824a83a69f71bd2060dc6c321119dc7e3687c1e71a5aff7a68805851",
+  "variant": "good",
+  "scope": "Actual remapped keys, voluntary walking/aiming, cab/cargo access, all reply pages, durable scenario/assessment records and reloads. No position, node, timer, score or verdict fixtures. Existing ids are explicitly routed to the proposed adapter. Known shared Tamil glyph coverage remains a separate blocker; bounds checks alone do not certify readable Tamil.",
+  "complete": true
+}

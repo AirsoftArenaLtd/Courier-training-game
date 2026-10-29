@@ -1,0 +1,618 @@
+{
+  "checks": 122,
+  "layouts": [
+    {
+      "label": "brief",
+      "texts": [
+        {
+          "source": "Road closure.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Follow the diversion to the delivery address.\n\nFollow the diversion around the road closure and park in the marked destination bay.\n\nYou have 600 seconds to complete this scenario.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 306
+        },
+        {
+          "source": "1. Begin the scenario.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the station.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "label": "early-finish",
+      "texts": [
+        {
+          "source": "Read the road-closure information.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Follow the diversion on the sat nav, then park the whole van inside the marked destination bay, facing with traffic. Set the parking brake before finishing.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Return to the road.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "label": "controls-0",
+      "texts": [
+        {
+          "source": "Use the diversion controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Use W to accelerate, S to brake, and A/D to steer. Use the mouse or ←/→/↑/↓ to look. Press O to select a nearby cab control and U to use it.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the road.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "label": "controls-1",
+      "texts": [
+        {
+          "source": "Use the diversion controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "Press SPACE for the parking brake, B for the seatbelt, and R for drive or reverse. Press Q/C for the signals and V to look forward. Look at the physical mirrors before moving off.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the road.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "label": "controls-2",
+      "texts": [
+        {
+          "source": "Use the diversion controls.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The road ahead is closed. Follow the mounted sat nav around the closure to 104 Maple Ave. Read a visible sign with J. Park inside the marked bay, facing with traffic. Press F to finish, or use the device with TAB.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 222
+        },
+        {
+          "source": "1. Read the next controls page.",
+          "scale": 1,
+          "font": 18,
+          "top": 508.5,
+          "bottom": 529.5
+        },
+        {
+          "source": "2. Return to the road.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    },
+    {
+      "label": "sign-reading",
+      "texts": [
+        {
+          "source": "Read the physical road sign.",
+          "scale": 1,
+          "font": 27,
+          "top": 111.5,
+          "bottom": 142.5
+        },
+        {
+          "source": "The street is closed. Follow another cross street.",
+          "scale": 1,
+          "font": 19,
+          "top": 170,
+          "bottom": 194
+        },
+        {
+          "source": "1. Return to the road.",
+          "scale": 1,
+          "font": 18,
+          "top": 566.5,
+          "bottom": 587.5
+        }
+      ]
+    }
+  ],
+  "shots": [
+    "c42-uifix-closure-low-brief.png",
+    "c42-uifix-closure-low-controls-0.png",
+    "c42-uifix-closure-low-controls-1.png",
+    "c42-uifix-closure-low-controls-2.png",
+    "c42-uifix-closure-low-device.png",
+    "c42-uifix-closure-low-sign-reading.png",
+    "c42-uifix-closure-low-parked.png",
+    "c42-uifix-closure-low-result.png"
+  ],
+  "errors": [],
+  "quality": "low",
+  "large": false,
+  "lang": "en",
+  "scope": "Prepared optional descriptor bypasses the outstanding shared launcher/content support. Actual movement, menus, cab controls and finish use keys; no pose, timer, route-gate or verdict assignments.",
+  "device": {
+    "top": 92,
+    "bottom": 544,
+    "texts": [
+      {
+        "source": "Read the diversion.",
+        "scale": 1,
+        "top": 104.5,
+        "bottom": 123.5
+      },
+      {
+        "source": "",
+        "scale": 1,
+        "top": 106.5,
+        "bottom": 121.5
+      },
+      {
+        "source": "⌫ Back",
+        "scale": 1,
+        "top": 520.5,
+        "bottom": 535.5
+      },
+      {
+        "source": "The destination is 104 Maple Ave.",
+        "scale": 1,
+        "top": 150,
+        "bottom": 167
+      }
+    ],
+    "buttons": [
+      {
+        "font": 15,
+        "scale": 1,
+        "top": 390.5,
+        "bottom": 484.5
+      },
+      {
+        "font": 15,
+        "scale": 1,
+        "top": 442.5,
+        "bottom": 536.5
+      }
+    ]
+  },
+  "physical": {
+    "mounted": [
+      {
+        "kind": "roadworks",
+        "words": [
+          4,
+          6
+        ]
+      },
+      {
+        "kind": "roadworks",
+        "words": [
+          4,
+          6
+        ]
+      }
+    ],
+    "floating": false,
+    "fonts": true,
+    "assessment": false
+  },
+  "gates": [
+    {
+      "next": 0,
+      "van": {
+        "x": 42.375,
+        "z": -20.25,
+        "yaw": 3.141592653589793,
+        "speed": 0,
+        "steer": 0,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 1
+      },
+      "elapsed": 1.5599733333333339
+    },
+    {
+      "next": 1,
+      "van": {
+        "x": 42.376723322316636,
+        "z": -20.222917030799724,
+        "yaw": 3.140585338639638,
+        "speed": 0.35859988790034947,
+        "steer": -0.18375000000000005,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 1
+      },
+      "elapsed": 1.709973333333334
+    },
+    {
+      "next": 2,
+      "van": {
+        "x": 43.70380830958232,
+        "z": -16.274276270681348,
+        "yaw": 2.866462211288015,
+        "speed": 1.514033061545792,
+        "steer": 0,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 1
+      },
+      "elapsed": 4.559973333333326
+    },
+    {
+      "next": 3,
+      "van": {
+        "x": 4.180019045172066,
+        "z": -11.862022329832032,
+        "yaw": -1.5132464747552392,
+        "speed": 1.5735259704519449,
+        "steer": 0.061250000000000006,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 1
+      },
+      "elapsed": 37.00997333333337
+    },
+    {
+      "next": 4,
+      "van": {
+        "x": -0.25898296046450686,
+        "z": 28.550739312069332,
+        "yaw": 3.1152373236281017,
+        "speed": 1.546942525043227,
+        "steer": 0,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 1
+      },
+      "elapsed": 68.60997333333158
+    },
+    {
+      "next": 5,
+      "van": {
+        "x": 40.79733801920382,
+        "z": 32.956533750652675,
+        "yaw": 1.5552172057927671,
+        "speed": 1.5140738313140303,
+        "steer": 0,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 1
+      },
+      "elapsed": 100.0599733333298
+    },
+    {
+      "next": 6,
+      "van": {
+        "x": 48.49363582900968,
+        "z": 21.81571603121072,
+        "yaw": 0.08322475210519444,
+        "speed": 1.5698541478152692,
+        "steer": -0.15125000000000027,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 1
+      },
+      "elapsed": 109.70997333332924
+    },
+    {
+      "next": 7,
+      "van": {
+        "x": 48.506598246819756,
+        "z": 21.50612190535741,
+        "yaw": 0.0764154429408939,
+        "speed": 1.5265866096032201,
+        "steer": -0.0737500000000003,
+        "gear": 1,
+        "hand": false,
+        "belt": true,
+        "look": 0,
+        "mirrors": [
+          -100,
+          -100,
+          -100,
+          -1,
+          0
+        ],
+        "shifts": 1
+      },
+      "elapsed": 109.90997333332923
+    }
+  ],
+  "progress": {
+    "iteration": 2100,
+    "next": 7,
+    "van": {
+      "x": 48.52409732922271,
+      "z": 21.04237200804453,
+      "yaw": 0.06717248994947363,
+      "speed": 1.5861598348728005,
+      "steer": -0.022500000000000034,
+      "gear": 1,
+      "hand": false,
+      "belt": true,
+      "look": 0,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ],
+      "shifts": 1
+    },
+    "elapsed": 110.20997333332922
+  },
+  "parked": {
+    "van": {
+      "x": 48.572265980447234,
+      "z": 18.664256650495155,
+      "yaw": 0.030821747481628373,
+      "speed": 0,
+      "steer": 0,
+      "gear": 1,
+      "hand": true,
+      "belt": true,
+      "look": 0,
+      "mirrors": [
+        -100,
+        -100,
+        -100,
+        -1,
+        0
+      ],
+      "shifts": 1
+    },
+    "next": 7,
+    "points": [
+      {
+        "x": 45,
+        "z": -20.25
+      },
+      {
+        "x": 45,
+        "z": -12.25
+      },
+      {
+        "x": 0,
+        "z": -12.25
+      },
+      {
+        "x": 0,
+        "z": 32.75
+      },
+      {
+        "x": 45,
+        "z": 32.75
+      },
+      {
+        "x": 45,
+        "z": 19.41666666666667
+      },
+      {
+        "x": 48.550000000000004,
+        "z": 19.41666666666667
+      }
+    ],
+    "goal": {
+      "x": 48.550000000000004,
+      "z": 19.41666666666667,
+      "yaw": 0
+    },
+    "phase": "active",
+    "elapsed": 111.95997333332912,
+    "remaining": 488.0400266666709,
+    "paused": false,
+    "ready": true,
+    "contacts": 0
+  },
+  "result": {
+    "id": "m4-closure",
+    "stars": {
+      "safety": 3,
+      "efficiency": 3
+    },
+    "result": {
+      "score": 400,
+      "ratios": {
+        "safety": 1,
+        "efficiency": 1
+      },
+      "untested": [],
+      "log": {
+        "items": [
+          {
+            "cat": "efficiency",
+            "got": 1,
+            "max": 1,
+            "label": "Followed the planned route",
+            "good": true,
+            "partial": false,
+            "lesson": "Look at the sat nav before each junction. A wrong turn costs time and fuel; when it happens, follow the reroute.",
+            "feedback": null,
+            "group": "m4-closure",
+            "kind": "check",
+            "critical": false,
+            "at": 1793235100427,
+            "where": null,
+            "type": "drive.route"
+          },
+          {
+            "cat": "efficiency",
+            "got": 3,
+            "max": 3,
+            "label": "Finished the stop in good time (112s, par 160s)",
+            "good": true,
+            "partial": false,
+            "lesson": "Plan the stop before you step out: package pulled, scanned and ready. It saves walks back to the truck.",
+            "feedback": null,
+            "group": "m4-closure",
+            "kind": "check",
+            "critical": false,
+            "at": 1793235100427,
+            "where": null
+          }
+        ],
+        "group": "m4-closure"
+      },
+      "lessons": [],
+      "stats": {
+        "completed": true,
+        "seconds": 112,
+        "par": 160,
+        "route": {
+          "visited": 7,
+          "total": 7
+        },
+        "doorReached": false,
+        "exception": null,
+        "attempt": null
+      }
+    },
+    "record": {
+      "plays": 1,
+      "bestScore": 400,
+      "bestStars": {
+        "safety": 3,
+        "efficiency": 3,
+        "service": 0
+      },
+      "lastPlayed": 1793235100432
+    }
+  },
+  "durable": true,
+  "complete": true
+}
