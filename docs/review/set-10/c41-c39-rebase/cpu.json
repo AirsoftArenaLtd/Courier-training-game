@@ -1,0 +1,168 @@
+{
+  "candidate": "cad73131184832c82b92066d30fecf59d9814a8c",
+  "stackedOn": "e8f4607387db36e8ec851c02f5171c9a060890fa",
+  "suites": [
+    {
+      "file": "test/fpcustomergeometry.js",
+      "exit": 0,
+      "seconds": 1.28,
+      "log": "fpcustomergeometry.log"
+    },
+    {
+      "file": "test/fpcustomerprotocol.js",
+      "exit": 0,
+      "seconds": 0.08,
+      "log": "fpcustomerprotocol.log"
+    },
+    {
+      "file": "test/fpcustomerprotocolscenario.js",
+      "exit": 0,
+      "seconds": 0.32,
+      "log": "fpcustomerprotocolscenario.log"
+    },
+    {
+      "file": "test/fpcustomerscenario.js",
+      "exit": 0,
+      "seconds": 0.14,
+      "log": "fpcustomerscenario.log"
+    },
+    {
+      "file": "test/fpcustomerstop.js",
+      "exit": 0,
+      "seconds": 0.1,
+      "log": "fpcustomerstop.log"
+    },
+    {
+      "file": "test/fpcustomerstopgeometry.js",
+      "exit": 0,
+      "seconds": 5.69,
+      "log": "fpcustomerstopgeometry.log"
+    },
+    {
+      "file": "test/fpcustomerstopscenario.js",
+      "exit": 0,
+      "seconds": 0.22,
+      "log": "fpcustomerstopscenario.log"
+    },
+    {
+      "file": "test/fpcustomerstopworld.js",
+      "exit": 0,
+      "seconds": 1.06,
+      "log": "fpcustomerstopworld.log"
+    },
+    {
+      "file": "test/fpcustomertalk.js",
+      "exit": 0,
+      "seconds": 0.58,
+      "log": "fpcustomertalk.log"
+    },
+    {
+      "file": "test/fpcustomerworld.js",
+      "exit": 0,
+      "seconds": 2.82,
+      "log": "fpcustomerworld.log"
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0,
+      "seconds": 0.11,
+      "log": "fpscenario.log"
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0,
+      "seconds": 0.05,
+      "log": "fpcontext.log"
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0,
+      "seconds": 0.19,
+      "log": "fpgamepad.log"
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0,
+      "seconds": 0.58,
+      "log": "fpworld.log"
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0,
+      "seconds": 0.1,
+      "log": "fpaccess.log"
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0,
+      "seconds": 0.05,
+      "log": "englishtext.log"
+    },
+    {
+      "file": "test/fppretrip.js",
+      "exit": 0,
+      "seconds": 0.09,
+      "log": "fppretrip.log"
+    },
+    {
+      "file": "test/fproutelesson.js",
+      "exit": 0,
+      "seconds": 0.19,
+      "log": "fproutelesson.log"
+    },
+    {
+      "file": "test/fphazardlesson.js",
+      "exit": 0,
+      "seconds": 0.14,
+      "log": "fphazardlesson.log"
+    },
+    {
+      "file": "test/fpdrivinglesson.js",
+      "exit": 0,
+      "seconds": 0.67,
+      "log": "fpdrivinglesson.log"
+    },
+    {
+      "file": "test/fpjunctionlesson.js",
+      "exit": 0,
+      "seconds": 5.1,
+      "log": "fpjunctionlesson.log"
+    },
+    {
+      "file": "test/fpschoollesson.js",
+      "exit": 0,
+      "seconds": 2.81,
+      "log": "fpschoollesson.log"
+    },
+    {
+      "file": "test/fpnightlesson.js",
+      "exit": 0,
+      "seconds": 10.14,
+      "log": "fpnightlesson.log"
+    },
+    {
+      "file": "test/fppackagelabelworld.js",
+      "exit": 0,
+      "seconds": 0.14,
+      "log": "fppackagelabelworld.log"
+    },
+    {
+      "file": "test/fppackagesortworld.js",
+      "exit": 0,
+      "seconds": 0.19,
+      "log": "fppackagesortworld.log"
+    },
+    {
+      "file": "test/fppackageliftworld.js",
+      "exit": 0,
+      "seconds": 0.11,
+      "log": "fppackageliftworld.log"
+    },
+    {
+      "file": "test/scenario3d.js",
+      "exit": 0,
+      "seconds": 0.06,
+      "log": "scenario3d.log"
+    }
+  ]
+}
