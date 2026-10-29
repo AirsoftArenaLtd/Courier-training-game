@@ -17,7 +17,8 @@ module.exports = async (page, ctx) => {
   if (!(await ctx.until(`OTR.game.scene.getScenes(true).some(s => s.sys.settings.key === 'HubScene')`, 15000))) throw new Error('never reached the hub');
   await wait(900);
 
-  const list = await ctx.eval('OTR.registry.all().map(s => ({ id: s.id, title: s.title }))');
+  // the scenarios the hub lists (a 3D-only one joins it when A-31 sets its default3d, A-30)
+  const list = await ctx.eval('OTR.registry.modules().flatMap(m => OTR.registry.listed(m)).map(s => ({ id: s.id, title: s.title }))');
   const bad = [];
   for (const sc of list) {
     await clickText(page, 'HubScene', new RegExp('^' + escape(sc.title) + '$'));

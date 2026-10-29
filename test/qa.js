@@ -65,6 +65,7 @@ const SCENARIOS = [
   { id: 'route-legs', scene: 'TownDriveScene', flow: 'index.html?dev=1&workday3d=0' },
   { id: 'town-traffic', scene: 'TownDriveScene', flow: 'index.html?dev=1&workday3d=0' },
   { id: 'hub-briefs', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=0' },
+  { id: 'modules-3d', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=0' },
   { id: 'academy-screens', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=0' },
   { id: 'drive-review', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=0' },
   { id: 'certificate', scene: 'HubScene', flow: 'index.html?dev=1&workday3d=0' },
