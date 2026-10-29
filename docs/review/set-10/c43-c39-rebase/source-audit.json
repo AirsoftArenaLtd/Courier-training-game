@@ -1,0 +1,41 @@
+{
+  "targetPilot": "ee328d1802162555c19a1d95dd692774666f14d9",
+  "stackedOn": "b4e87e429f141a7f8de5e0a661a4d62e8cd83b8a",
+  "candidate": "ea2597e54e2e77baa848b005bda6a48b61481f15",
+  "backup": "codex/c43-before-c39-oct29",
+  "parentImportsRetainedInOrder": true,
+  "scannerSourcesIdenticalToPriorAcceptedSource": [
+    "src/core/fpscannerstop.js",
+    "src/core/fpscanneridentity.js",
+    "src/core/fpscannerphoto.js",
+    "src/core/fpscannerstopworld.js",
+    "src/core/fpscannerstopscenario.js"
+  ],
+  "allOtherRegistryBytesUnchanged": true,
+  "newRegistryLinks": 3,
+  "parentModuleAndSharedSourcesUnchanged": true,
+  "retainsObservationAndScannerOverlayCallbacks": true,
+  "syntaxPassed": [
+    "data/modules.js",
+    "docs/review/set-10/c43-photo-correction/signature-race-20261025/previous-native-protocol.js",
+    "docs/review/set-10/c43-pilot-rebase/verify-resources.js",
+    "src/core/fpscanneridentity.js",
+    "src/core/fpscannerphoto.js",
+    "src/core/fpscannerstop.js",
+    "src/core/fpscannerstopscenario.js",
+    "src/core/fpscannerstopworld.js",
+    "src/core/fpworld.js",
+    "src/scenes/FirstPersonScenarioScene.js",
+    "test/fpbench.js",
+    "test/fpscannerphoto.js",
+    "test/fpscannerstop.js",
+    "test/fpscannerstopbrowser.js",
+    "test/fpscannerstopgeometry.js",
+    "test/fpscannerstopscenario.js",
+    "test/fpscannerstopworld.js",
+    "test/tools/fp-scanner-context.js",
+    "test/tools/fp-scanner-fixture.js",
+    "test/tools/fp-scanner-pose.js",
+    "test/tools/fp-scanner-quality.js"
+  ]
+}

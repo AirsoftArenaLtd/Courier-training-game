@@ -1,0 +1,16 @@
+✔ connecting with a held accelerator or action cannot move or trigger until neutral (1.499765ms)
+✔ drift stays neutral, fractional steering/movement/look/triggers stay analogue and bounded (0.348286ms)
+✔ focus loss, modal reset and reconnect each require a fresh neutral state (0.459694ms)
+✔ the selected device stays stable when another pad appears, and replacement cannot inherit its buttons (0.350249ms)
+✔ remapped inputs use only validated indices and a remap while held cannot fire (0.462819ms)
+✔ nonstandard, disconnected and out-of-range devices never supply commands; unavailable API is neutral (0.348606ms)
+✔ polling reuses one frame for long sessions and disposal stops reading the browser API (449.729333ms)
+✔ unchanged settings do not interrupt a held control, while an in-place remap rearms (3.398322ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 537.531476
