@@ -1,0 +1,156 @@
+{
+  "phase": "complete",
+  "controllerPid": 352602,
+  "jobs": [
+    {
+      "tag": "b132-c39-loaded-high",
+      "script": "test/fpbench.js",
+      "profile": {
+        "id": "loaded-high",
+        "quality": "high",
+        "views": "cab,mirror,mirrorRight,mirrorInterior,lightingnightreverse,visibleweatherrainnight,visibleweatherrainreverse,visibleweatherstorm,navdouble,trafficschool,trafficpeak,ambientcab,ambientmirror,ambientnight,ambientbench"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b132-c39-loaded-high-high-ambientbench.png": "ca26bfc94395f702606572a07c7157c281b1f118323e4745ef83226adae46036",
+        "b132-c39-loaded-high-high-cab.png": "da6722be55a966443f023258060d99827f58ff00f822d3ce0acb274699da76c0",
+        "b132-c39-loaded-high-high-trafficpeak.png": "24b95920dd335c2bd7bb34eb533f733b2926a62580c688a5a5f341e039c1311e",
+        "b132-c39-loaded-high-high-lightingnightreverse.png": "93ce77a57cd4f84fb4f0d78b7f42390b150dca92e091e666245816747471bea4",
+        "bench-b132-c39-loaded-high-high.json": "bfe5eb2cc5e234d5887bc8f5ffaa774d3c56a6d1cb84a69614098915f8a42b96",
+        "b132-c39-loaded-high-high-navdouble.png": "6f2e1146c899e4a8a26b83c3f5d507a45fef1549d0f3659be1ee48121d080781",
+        "b132-c39-loaded-high-high-ambientmirror.png": "d64e6381ce23c4d5fcba6a0ef2a0e9a8114d6aa6fce1033280e4fbd00cf01052",
+        "b132-c39-loaded-high-high-ambientnight.png": "fc06a0d9749b29434e81b04a99199edf4f30d686ea8f34ebc2273599861048d8",
+        "b132-c39-loaded-high-high-ambientcab.png": "77ad4a5202bbd9c56b99a8ef176fb8ebbefddbea922cf16b3df3feb5d1d41d09",
+        "b132-c39-loaded-high-high-mirrorInterior.png": "2f35e927b2da6d272ca04e774c931cdd818b7bb2c17f0135fef44a9f19f6dc96",
+        "b132-c39-loaded-high-high-visibleweatherstorm.png": "f90c21951bf0ad879b653d829f7c14f0d0faad01767616471f22f7008861e2e5",
+        "b132-c39-loaded-high-high-trafficschool.png": "ece4b354828bbcf7ce3e75e66b5ebc3657173b2cbd507745966cf51ed6c5633a",
+        "b132-c39-loaded-high-high-visibleweatherrainreverse.png": "e902e15095e79d1c6371cbdf5f24ae9b513c8de488461b403d312296302b8af0",
+        "b132-c39-loaded-high-high-mirror.png": "99c80e4b3775cbd9c275514d01a9584f613757ad2164e6f109bc311f253ef259",
+        "b132-c39-loaded-high-high-mirrorRight.png": "975e95d9db1d3ad35aaf35a61e13fa1ec5397427143fb5096dd3d53e9a25cd39",
+        "b132-c39-loaded-high-high-visibleweatherrainnight.png": "d8c046194a29abe8865bb202d110fec6771da126379a99c797e469782ba9e696"
+      },
+      "peak": {
+        "calls": 113,
+        "triangles": 240133,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 7974384
+      }
+    },
+    {
+      "tag": "b132-c39-loaded-low",
+      "script": "test/fpbench.js",
+      "profile": {
+        "id": "loaded-low",
+        "quality": "low",
+        "views": "cab,mirror,mirrorRight,mirrorInterior,lightingnightreverse,visibleweatherrainnight,visibleweatherrainreverse,visibleweatherstorm,navdouble,trafficschool,trafficpeak,ambientcab,ambientmirror,ambientnight"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b132-c39-loaded-low-low-ambientnight.png": "6b9050d5d292e5657b34cd7500127d55a9f85bde6d9cf440cad13a2f986bbc97",
+        "b132-c39-loaded-low-low-mirrorInterior.png": "514f9431b8cc8425dad4b88198e757792a42b5d6891c2c5c24871e835a11078a",
+        "b132-c39-loaded-low-low-cab.png": "79ff49e9641c5878442ecdcd42067befea611e022900fbc14644a7f133362167",
+        "b132-c39-loaded-low-low-visibleweatherrainnight.png": "c54c1a44a1b6b01806a08b385685903e3fa975b746878fb3dd28128db968c4a9",
+        "b132-c39-loaded-low-low-navdouble.png": "69fd0d60097d033c0a9933daa607712f892405d2c543a067408a0579fbd2c184",
+        "b132-c39-loaded-low-low-lightingnightreverse.png": "2870c6b95354cfe9dcaedc1d7e2e9637c8cdf02587bba2534c37d208828d5497",
+        "b132-c39-loaded-low-low-visibleweatherrainreverse.png": "97abc77c7074384d42ef3e1eafa005c6a4a745f18a5a427402d2ec2862fdc4e1",
+        "b132-c39-loaded-low-low-mirror.png": "cc2652e324008fc7c56afb52cbf4626c974f52bf333d80e1f0001f5194faee90",
+        "b132-c39-loaded-low-low-mirrorRight.png": "f743d79e6629d536aa68ff41bbd1394f18a5a69887ca8b8edd53996832d626b9",
+        "b132-c39-loaded-low-low-trafficschool.png": "a03aec98e0d6a67e1c0d6589ec1b7233b112bcd529fcb159a2e7c8fb1fbd4b4c",
+        "bench-b132-c39-loaded-low-low.json": "e98c4b4989161879e4b5467828bf801ac311090c1f9bdee891fcf23f43daae40",
+        "b132-c39-loaded-low-low-ambientcab.png": "3323e2d5bbcd127eaba6d775b18cfd5cd42aa6dce59c79e2fffc59edba6ea191",
+        "b132-c39-loaded-low-low-visibleweatherstorm.png": "01fed8cd0073607e1ab3a084e1a9b37279cc2540efb12aed6304c6a9be5b98ec",
+        "b132-c39-loaded-low-low-ambientmirror.png": "553c52191c8bbe0d140313a7212cf56a37c5fb28fc77ec8b63bcea21abe41d3c",
+        "b132-c39-loaded-low-low-trafficpeak.png": "3571b2f5458ea4737648946fdfd1c1a0517d5583968c43f5d5520b2fd1aa36d3"
+      },
+      "peak": {
+        "calls": 53,
+        "triangles": 2402,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2360416
+      }
+    },
+    {
+      "tag": "b132-c39-accessible-low",
+      "script": "test/fpbench.js",
+      "profile": {
+        "id": "accessible-low",
+        "quality": "low",
+        "accessibility": "large,colour,reduced",
+        "views": "cab,mirror,mirrorRight,mirrorInterior,lightingnightreverse,visibleweatherrainnight,visibleweatherrainreverse,visibleweatherstorm,navdouble,trafficschool,trafficpeak,ambientcab,ambientmirror,ambientnight"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b132-c39-accessible-low-low-mirror.png": "cba48d13d3d73f593b81c643e5a2ba2739c495084c3b12e6707768bcc6a6dfa1",
+        "b132-c39-accessible-low-low-cab.png": "b8882183c51b488ba371894542d88b9ad0f83a84febb78bccf14701bddb86c7a",
+        "b132-c39-accessible-low-low-trafficpeak.png": "4d5879d8a81c9fe7f4c0f860c211cbc7c40ad6096f527743b93bbbbc077a2d9f",
+        "b132-c39-accessible-low-low-mirrorRight.png": "639cf8c52732e3eb27b116979f8d766eb9b89f23956f274b10981fedcdf0c1fe",
+        "b132-c39-accessible-low-low-mirrorInterior.png": "b60df4903747aa1d2a4b4605eb00697cda0eb7fc4ab9107084401206a6252f5d",
+        "b132-c39-accessible-low-low-ambientmirror.png": "3b04bc5b279c7318e340614f9e7b8066521c395914b395c618c1e174ab3a2acb",
+        "bench-b132-c39-accessible-low-low.json": "a03aa6774b5be51447252db7df6c35716bd5e08a8eec3a86b6aabed95c0b6ce1",
+        "b132-c39-accessible-low-low-visibleweatherrainnight.png": "87a0a0696c71e780b8331ce9d56314d0bf048971b3b1b7a412c65cff86121a31",
+        "b132-c39-accessible-low-low-navdouble.png": "031a3e784a8bc9ff23f0fb2bafad48488c570c5b58d20aeec9417483f63ec4be",
+        "b132-c39-accessible-low-low-visibleweatherstorm.png": "4aa06d075a6959320a271714033056a4a788a0c39ca0df56eae0262e437d1a79",
+        "b132-c39-accessible-low-low-ambientcab.png": "b111c2a369b65ec28762f095165bcb615f6d783bf48f1bb10172fb7290fd1ae2",
+        "b132-c39-accessible-low-low-lightingnightreverse.png": "e9afc2e282625f631b38443af754c733d52690bcc427250876255c7ccb71ec7c",
+        "b132-c39-accessible-low-low-visibleweatherrainreverse.png": "213a41bf7ad4729352fbd353067be960ff1943be1f6d047b334076f761028c13",
+        "b132-c39-accessible-low-low-ambientnight.png": "5581fe8cf27e1fe440c5065e10188a3508c1b0d910b6eae24608cc83e34b4209",
+        "b132-c39-accessible-low-low-trafficschool.png": "3e0395760ada18efbcdfd14b815a07b87c61852f6c4753653aab9fc3e4773b30"
+      },
+      "peak": {
+        "calls": 53,
+        "triangles": 2402,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2943808
+      }
+    },
+    {
+      "tag": "b132-c39-fallback-low",
+      "script": "test/fpbench.js",
+      "profile": {
+        "id": "fallback-low",
+        "quality": "low",
+        "fallback": true,
+        "views": "cab,mirror,mirrorRight,mirrorInterior,lightingnightreverse,visibleweatherrainnight,visibleweatherrainreverse,visibleweatherstorm,navdouble,trafficschool,trafficpeak,ambientcab,ambientmirror,ambientnight"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "b132-c39-fallback-low-low-mirrorInterior.png": "386165ed4a9f527a1aeba61c9d5264d8b2da0f8919ab7ae159e2281881ec187a",
+        "b132-c39-fallback-low-low-mirror.png": "09fbf7381c8d827ca853f97b45839ca1580a2e895bd29c615f3782e89e509aec",
+        "bench-b132-c39-fallback-low-low.json": "0ff01cdf2676adffaa6327928e900fc0478bfc7b7d7a6ece82d0852d1d740dc8",
+        "b132-c39-fallback-low-low-ambientmirror.png": "eb58577a3330ca9e048ab4ef723d38e6d0c61234fd816215880de10f0c8a2e76",
+        "b132-c39-fallback-low-low-navdouble.png": "e1dba1f947ea6e364cc0560639fbfdfcffbd6167a63458db84d783f954f7ac4b",
+        "b132-c39-fallback-low-low-cab.png": "280f29d7dde66cc3f14a20826a9ade353f3ebcc252770c2ffff57f775209a33e",
+        "b132-c39-fallback-low-low-trafficschool.png": "48120a6986483ba2e6820dc5743ed004ba203b6ef906076243d9630ded944e06",
+        "b132-c39-fallback-low-low-visibleweatherrainnight.png": "534eec7529c57df59de785bb45d342d6a7ba173a2057c94d67fb5c4db3b70724",
+        "b132-c39-fallback-low-low-trafficpeak.png": "ae55065ba8798df7f0398f1c31fa00dfffa3bcf8df5ad8eb71ae2efcfd800e03",
+        "b132-c39-fallback-low-low-ambientcab.png": "914f31dff82e44f70d38c8fa20b6f462e575ce5a7c681b3c0da131045b169a9a",
+        "b132-c39-fallback-low-low-visibleweatherrainreverse.png": "4d085c90c87030b1f147cf3eedc77ac12b8a0e1b792e945714b3d05888a64a5c",
+        "b132-c39-fallback-low-low-lightingnightreverse.png": "d7590d980d74b3fd9dce59505d56d7d845a5ae729a84c79b8fd84944cf1d2271",
+        "b132-c39-fallback-low-low-ambientnight.png": "968b72ecfe88fbe6761d441bd0a81128d8a4bc54fae8a0b2675db549aaccdef9",
+        "b132-c39-fallback-low-low-visibleweatherstorm.png": "8aeafe76559b4e40b5fd7861b559a3c5a8ad578a3c0221c4d669c11dc937cb5d",
+        "b132-c39-fallback-low-low-mirrorRight.png": "0be2b133a2e0f5623e198d99677d1a25cafa25c25d4a86d24bf4604605d42927"
+      },
+      "peak": {
+        "calls": 53,
+        "triangles": 2168,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2360416
+      }
+    }
+  ],
+  "startedAt": 1793280988.0920334,
+  "serverPid": 368163,
+  "tag": "b132-c39-fallback-low",
+  "childPid": 369284,
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793300288.2695024
+}

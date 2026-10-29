@@ -1,0 +1,1584 @@
+{
+  "scope": "B132 static combined visual-pass resource measurement on current pilot; no gameplay, all-language layout or owner Intel FPS acceptance.",
+  "sourceRevision": "6421282464de573ea2d9a0aa43f741e23c761e55",
+  "planSha256": "7f3de1ffa3d54b4d34fe7c40dd433dd7869964a0880682564eee3a96f55f53c2",
+  "sourceCount": 801,
+  "hostFontCount": 4,
+  "allInputHashesVerified": true,
+  "productionDifferencesFromParent": [],
+  "parent": "a7bd8b57",
+  "cpuLogsVerified": 0,
+  "artifactCount": 61,
+  "resourceViews": 57,
+  "profiles": [
+    {
+      "id": "loaded-high",
+      "views": 15,
+      "peak": {
+        "calls": 113,
+        "triangles": 240133,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 7974384
+      },
+      "assets": 23,
+      "mirrorProof": {
+        "mirror": {
+          "index": 0,
+          "red": [
+            255,
+            0,
+            0,
+            255
+          ],
+          "blue": [
+            0,
+            0,
+            255,
+            255
+          ]
+        },
+        "mirrorRight": {
+          "index": 1,
+          "red": [
+            255,
+            0,
+            0,
+            255
+          ],
+          "blue": [
+            0,
+            0,
+            255,
+            255
+          ]
+        },
+        "mirrorInterior": {
+          "index": 2,
+          "red": [
+            255,
+            0,
+            0,
+            255
+          ],
+          "blue": [
+            0,
+            0,
+            255,
+            255
+          ]
+        }
+      },
+      "report": "bench-b132-c39-loaded-high-high.json"
+    },
+    {
+      "id": "loaded-low",
+      "views": 14,
+      "peak": {
+        "calls": 53,
+        "triangles": 2402,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2360416
+      },
+      "assets": 14,
+      "mirrorProof": {
+        "mirror": {
+          "index": 0,
+          "red": [
+            255,
+            0,
+            0,
+            255
+          ],
+          "blue": [
+            0,
+            0,
+            255,
+            255
+          ]
+        },
+        "mirrorRight": {
+          "index": 1,
+          "red": [
+            255,
+            0,
+            0,
+            255
+          ],
+          "blue": [
+            0,
+            0,
+            255,
+            255
+          ]
+        },
+        "mirrorInterior": {
+          "index": 2,
+          "red": [
+            255,
+            0,
+            0,
+            255
+          ],
+          "blue": [
+            0,
+            0,
+            255,
+            255
+          ]
+        }
+      },
+      "report": "bench-b132-c39-loaded-low-low.json"
+    },
+    {
+      "id": "accessible-low",
+      "views": 14,
+      "peak": {
+        "calls": 53,
+        "triangles": 2402,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2943808
+      },
+      "assets": 14,
+      "mirrorProof": {
+        "mirror": {
+          "index": 0,
+          "red": [
+            255,
+            42,
+            116,
+            255
+          ],
+          "blue": [
+            0,
+            29,
+            255,
+            255
+          ]
+        },
+        "mirrorRight": {
+          "index": 1,
+          "red": [
+            255,
+            42,
+            116,
+            255
+          ],
+          "blue": [
+            0,
+            29,
+            255,
+            255
+          ]
+        },
+        "mirrorInterior": {
+          "index": 2,
+          "red": [
+            255,
+            42,
+            116,
+            255
+          ],
+          "blue": [
+            0,
+            29,
+            255,
+            255
+          ]
+        }
+      },
+      "report": "bench-b132-c39-accessible-low-low.json"
+    },
+    {
+      "id": "fallback-low",
+      "views": 14,
+      "peak": {
+        "calls": 53,
+        "triangles": 2168,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2360416
+      },
+      "assets": 0,
+      "mirrorProof": {
+        "mirror": {
+          "index": 0,
+          "red": [
+            255,
+            0,
+            0,
+            255
+          ],
+          "blue": [
+            0,
+            0,
+            255,
+            255
+          ]
+        },
+        "mirrorRight": {
+          "index": 1,
+          "red": [
+            255,
+            0,
+            0,
+            255
+          ],
+          "blue": [
+            0,
+            0,
+            255,
+            255
+          ]
+        },
+        "mirrorInterior": {
+          "index": 2,
+          "red": [
+            255,
+            0,
+            0,
+            255
+          ],
+          "blue": [
+            0,
+            0,
+            255,
+            255
+          ]
+        }
+      },
+      "report": "bench-b132-c39-fallback-low-low.json"
+    }
+  ],
+  "perViewLedger": [
+    {
+      "profile": "loaded-high",
+      "view": "cab",
+      "calls": 72,
+      "triangles": 93750,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 5172219,
+      "frames": 15,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          9,
+          9,
+          8,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "mirror",
+      "calls": 70,
+      "triangles": 93714,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 5136379,
+      "frames": 15,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          23,
+          23,
+          22,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "mirrorRight",
+      "calls": 72,
+      "triangles": 93802,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 5324518,
+      "frames": 11,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          36,
+          36,
+          35,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "mirrorInterior",
+      "calls": 77,
+      "triangles": 93778,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 5153403,
+      "frames": 16,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          50,
+          50,
+          49,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "lightingnightreverse",
+      "calls": 68,
+      "triangles": 122953,
+      "textures": 3,
+      "attachmentBytes": 9142272,
+      "phaserBytes": 7974384,
+      "frames": 11,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          70,
+          63,
+          56,
+          6
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "visibleweatherrainnight",
+      "calls": 67,
+      "triangles": 110687,
+      "textures": 3,
+      "attachmentBytes": 9142272,
+      "phaserBytes": 7620464,
+      "frames": 12,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          76,
+          68,
+          61,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "visibleweatherrainreverse",
+      "calls": 103,
+      "triangles": 212105,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 7974384,
+      "frames": 9,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          80,
+          72,
+          64,
+          5
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "visibleweatherstorm",
+      "calls": 102,
+      "triangles": 201751,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 7500656,
+      "frames": 11,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          85,
+          77,
+          69,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "navdouble",
+      "calls": 52,
+      "triangles": 146033,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 6275280,
+      "frames": 13,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          97,
+          83,
+          75,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "trafficschool",
+      "calls": 79,
+      "triangles": 137711,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 6348752,
+      "frames": 11,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          119,
+          92,
+          82,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "trafficpeak",
+      "calls": 113,
+      "triangles": 240133,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 6537019,
+      "frames": 10,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          125,
+          97,
+          88,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "ambientcab",
+      "calls": 73,
+      "triangles": 125119,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 6509275,
+      "frames": 10,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          131,
+          103,
+          93,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "ambientmirror",
+      "calls": 77,
+      "triangles": 122414,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 6541531,
+      "frames": 13,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          138,
+          110,
+          99,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "ambientnight",
+      "calls": 55,
+      "triangles": 65602,
+      "textures": 3,
+      "attachmentBytes": 9142272,
+      "phaserBytes": 6912923,
+      "frames": 11,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          144,
+          116,
+          105,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-high",
+      "view": "ambientbench",
+      "calls": 68,
+      "triangles": 117450,
+      "textures": 4,
+      "attachmentBytes": 11239424,
+      "phaserBytes": 6251003,
+      "frames": 13,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          151,
+          122,
+          111,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "cab",
+      "calls": 38,
+      "triangles": 1054,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1659931,
+      "frames": 64,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          23,
+          23,
+          23,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "mirror",
+      "calls": 37,
+      "triangles": 1032,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1650971,
+      "frames": 72,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          55,
+          55,
+          54,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "mirrorRight",
+      "calls": 44,
+      "triangles": 1190,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1698006,
+      "frames": 54,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          84,
+          83,
+          83,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "mirrorInterior",
+      "calls": 41,
+      "triangles": 1100,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1655227,
+      "frames": 69,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          116,
+          116,
+          115,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "lightingnightreverse",
+      "calls": 50,
+      "triangles": 1794,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2360416,
+      "frames": 43,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          130,
+          127,
+          126,
+          22
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "visibleweatherrainnight",
+      "calls": 47,
+      "triangles": 1768,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2271936,
+      "frames": 51,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          150,
+          145,
+          144,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "visibleweatherrainreverse",
+      "calls": 50,
+      "triangles": 1794,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2360416,
+      "frames": 49,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          160,
+          155,
+          153,
+          24
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "visibleweatherstorm",
+      "calls": 47,
+      "triangles": 1788,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2241984,
+      "frames": 48,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          179,
+          174,
+          172,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "navdouble",
+      "calls": 31,
+      "triangles": 852,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1935696,
+      "frames": 62,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          215,
+          201,
+          193,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "trafficschool",
+      "calls": 43,
+      "triangles": 1384,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1974448,
+      "frames": 65,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          249,
+          224,
+          215,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "trafficpeak",
+      "calls": 53,
+      "triangles": 2402,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2021515,
+      "frames": 40,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          265,
+          239,
+          229,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "ambientcab",
+      "calls": 40,
+      "triangles": 856,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2014523,
+      "frames": 58,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          287,
+          261,
+          250,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "ambientmirror",
+      "calls": 40,
+      "triangles": 880,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2022587,
+      "frames": 62,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          311,
+          285,
+          274,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "loaded-low",
+      "view": "ambientnight",
+      "calls": 40,
+      "triangles": 856,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2115435,
+      "frames": 58,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          334,
+          306,
+          295,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "cab",
+      "calls": 38,
+      "triangles": 1054,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1989915,
+      "frames": 47,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          17,
+          17,
+          17,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "mirror",
+      "calls": 37,
+      "triangles": 1032,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1867344,
+      "frames": 49,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          43,
+          43,
+          42,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "mirrorRight",
+      "calls": 44,
+      "triangles": 1190,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1966432,
+      "frames": 45,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          67,
+          67,
+          67,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "mirrorInterior",
+      "calls": 41,
+      "triangles": 1100,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1873478,
+      "frames": 53,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          95,
+          95,
+          95,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "lightingnightreverse",
+      "calls": 50,
+      "triangles": 1794,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2943808,
+      "frames": 38,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          116,
+          106,
+          104,
+          20
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "visibleweatherrainnight",
+      "calls": 47,
+      "triangles": 1764,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2815008,
+      "frames": 42,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          133,
+          122,
+          119,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "visibleweatherrainreverse",
+      "calls": 50,
+      "triangles": 1794,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2850475,
+      "frames": 34,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          141,
+          130,
+          126,
+          17
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "visibleweatherstorm",
+      "calls": 47,
+      "triangles": 1788,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2667040,
+      "frames": 44,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          156,
+          145,
+          141,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "navdouble",
+      "calls": 31,
+      "triangles": 852,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2310080,
+      "frames": 44,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          187,
+          166,
+          158,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "trafficschool",
+      "calls": 43,
+      "triangles": 1384,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2341414,
+      "frames": 44,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          225,
+          188,
+          175,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "trafficpeak",
+      "calls": 53,
+      "triangles": 2402,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2467520,
+      "frames": 33,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          238,
+          201,
+          188,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "ambientcab",
+      "calls": 40,
+      "triangles": 856,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2436128,
+      "frames": 41,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          255,
+          218,
+          204,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "ambientmirror",
+      "calls": 40,
+      "triangles": 868,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2447995,
+      "frames": 52,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          276,
+          239,
+          224,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "accessible-low",
+      "view": "ambientnight",
+      "calls": 40,
+      "triangles": 856,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2547595,
+      "frames": 46,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          294,
+          256,
+          241,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "cab",
+      "calls": 32,
+      "triangles": 812,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1659931,
+      "frames": 63,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          21,
+          21,
+          20,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "mirror",
+      "calls": 33,
+      "triangles": 806,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1650971,
+      "frames": 72,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          55,
+          54,
+          54,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "mirrorRight",
+      "calls": 34,
+      "triangles": 974,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1698006,
+      "frames": 53,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          80,
+          79,
+          79,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "mirrorInterior",
+      "calls": 33,
+      "triangles": 892,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1655227,
+      "frames": 73,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          113,
+          113,
+          113,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "lightingnightreverse",
+      "calls": 47,
+      "triangles": 1594,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2360416,
+      "frames": 49,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          127,
+          127,
+          124,
+          24
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "visibleweatherrainnight",
+      "calls": 45,
+      "triangles": 1546,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2271936,
+      "frames": 51,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          146,
+          146,
+          143,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "visibleweatherrainreverse",
+      "calls": 47,
+      "triangles": 1594,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2360416,
+      "frames": 53,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          157,
+          156,
+          152,
+          27
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": true
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "visibleweatherstorm",
+      "calls": 45,
+      "triangles": 1566,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2241984,
+      "frames": 50,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          175,
+          172,
+          169,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "navdouble",
+      "calls": 29,
+      "triangles": 648,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1935696,
+      "frames": 58,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          213,
+          200,
+          187,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "trafficschool",
+      "calls": 44,
+      "triangles": 1146,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 1974448,
+      "frames": 65,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          255,
+          229,
+          210,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "trafficpeak",
+      "calls": 53,
+      "triangles": 2168,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2021515,
+      "frames": 42,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          272,
+          246,
+          226,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "ambientcab",
+      "calls": 35,
+      "triangles": 853,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2014523,
+      "frames": 54,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          291,
+          265,
+          245,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "ambientmirror",
+      "calls": 36,
+      "triangles": 867,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2022587,
+      "frames": 49,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          311,
+          285,
+          265,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    },
+    {
+      "profile": "fallback-low",
+      "view": "ambientnight",
+      "calls": 35,
+      "triangles": 853,
+      "textures": 2,
+      "attachmentBytes": 3557376,
+      "phaserBytes": 2115435,
+      "frames": 55,
+      "contextLost": false,
+      "mirror": {
+        "updates": [
+          330,
+          303,
+          283,
+          0
+        ],
+        "cells": 3,
+        "physical": true,
+        "rearCamera": true,
+        "reversing": false
+      }
+    }
+  ],
+  "visualReadings": 7,
+  "cleanup": {
+    "controllerPid": {
+      "pid": 352602,
+      "status": "zombie"
+    },
+    "serverPid": {
+      "pid": 368163,
+      "status": "gone"
+    },
+    "childPid": {
+      "pid": 369284,
+      "status": "gone"
+    }
+  },
+  "allPassed": true
+}

@@ -1,0 +1,68 @@
+{
+  "scope": "Seven original-size representative resource captures; separate from a complete layout/language/native audit.",
+  "captures": [
+    {
+      "path": "acceptance/artifacts/b132-c39-loaded-high/b132-c39-loaded-high-high-ambientbench.png",
+      "sha256": "ca26bfc94395f702606572a07c7157c281b1f118323e4745ef83226adae46036",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Shipped bench, textured brick/pavement and nearby town props are visible in rain. This is the bounded High ambient/source-art fixture."
+    },
+    {
+      "path": "acceptance/artifacts/b132-c39-loaded-high/b132-c39-loaded-high-high-mirrorRight.png",
+      "sha256": "975e95d9db1d3ad35aaf35a61e13fa1ec5397427143fb5096dd3d53e9a25cd39",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Physical cab, upper interior reflection, navigation and controls are present. Actual right-mirror reflected pixels are independently exercised by the retained color probe; this static framing is not a full cab layout audit."
+    },
+    {
+      "path": "acceptance/artifacts/b132-c39-loaded-high/b132-c39-loaded-high-high-trafficschool.png",
+      "sha256": "ece4b354828bbcf7ce3e75e66b5ebc3657173b2cbd507745966cf51ed6c5633a",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "School bus, two source children and crossing markings are visible with town detail. Caption fits the upper strip."
+    },
+    {
+      "path": "acceptance/artifacts/b132-c39-loaded-high/b132-c39-loaded-high-high-visibleweatherrainnight.png",
+      "sha256": "d8c046194a29abe8865bb202d110fec6771da126379a99c797e469782ba9e696",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Night rain, windshield streaks/wipers, headlights, cab, three mirrors and navigation are visible together. The existing bright bus paint is retained; no material change is claimed."
+    },
+    {
+      "path": "acceptance/artifacts/b132-c39-loaded-low/b132-c39-loaded-low-low-visibleweatherstorm.png",
+      "sha256": "01fed8cd0073607e1ab3a084e1a9b37279cc2540efb12aed6304c6a9be5b98ec",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Storm visibility/rain, procedural cab and three mirrors remain rendered within the original Low limits. The weather caption and wiper action fit."
+    },
+    {
+      "path": "acceptance/artifacts/b132-c39-accessible-low/b132-c39-accessible-low-low-cab.png",
+      "sha256": "b8882183c51b488ba371894542d88b9ad0f83a84febb78bccf14701bddb86c7a",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Larger caption and help wrap within the viewport, and the three mirrors/navigation remain visible. The projected RPM line sits close to the selector lettering; this resource audit does not certify all cab text separation or all-language layout."
+    },
+    {
+      "path": "acceptance/artifacts/b132-c39-fallback-low/b132-c39-fallback-low-low-ambientnight.png",
+      "sha256": "968b72ecfe88fbe6761d441bd0a81128d8a4bc54fae8a0b2675db549aaccdef9",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "With model files missing, procedural cab, rain/night, mirror reflection and navigation remain visible. Caption and navigation fit; loaded source art is not expected."
+    }
+  ]
+}

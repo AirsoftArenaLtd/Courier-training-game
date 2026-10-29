@@ -1,0 +1,63 @@
+# B132 per-view resource ledger
+
+All rows are actual static browser samples from source `64212824`, using unchanged current-pilot inputs and original ceilings. CPU/software frame times do not certify Intel FPS. Call, triangle and memory peaks can occur in different views.
+
+| Profile | View | Calls | Triangles | Three textures | Attachments | Phaser estimate |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| loaded-high | cab | 72 | 93750 | 4 | 11239424 | 5172219 |
+| loaded-high | mirror | 70 | 93714 | 4 | 11239424 | 5136379 |
+| loaded-high | mirrorRight | 72 | 93802 | 4 | 11239424 | 5324518 |
+| loaded-high | mirrorInterior | 77 | 93778 | 4 | 11239424 | 5153403 |
+| loaded-high | lightingnightreverse | 68 | 122953 | 3 | 9142272 | 7974384 |
+| loaded-high | visibleweatherrainnight | 67 | 110687 | 3 | 9142272 | 7620464 |
+| loaded-high | visibleweatherrainreverse | 103 | 212105 | 4 | 11239424 | 7974384 |
+| loaded-high | visibleweatherstorm | 102 | 201751 | 4 | 11239424 | 7500656 |
+| loaded-high | navdouble | 52 | 146033 | 4 | 11239424 | 6275280 |
+| loaded-high | trafficschool | 79 | 137711 | 4 | 11239424 | 6348752 |
+| loaded-high | trafficpeak | 113 | 240133 | 4 | 11239424 | 6537019 |
+| loaded-high | ambientcab | 73 | 125119 | 4 | 11239424 | 6509275 |
+| loaded-high | ambientmirror | 77 | 122414 | 4 | 11239424 | 6541531 |
+| loaded-high | ambientnight | 55 | 65602 | 3 | 9142272 | 6912923 |
+| loaded-high | ambientbench | 68 | 117450 | 4 | 11239424 | 6251003 |
+| loaded-low | cab | 38 | 1054 | 2 | 3557376 | 1659931 |
+| loaded-low | mirror | 37 | 1032 | 2 | 3557376 | 1650971 |
+| loaded-low | mirrorRight | 44 | 1190 | 2 | 3557376 | 1698006 |
+| loaded-low | mirrorInterior | 41 | 1100 | 2 | 3557376 | 1655227 |
+| loaded-low | lightingnightreverse | 50 | 1794 | 2 | 3557376 | 2360416 |
+| loaded-low | visibleweatherrainnight | 47 | 1768 | 2 | 3557376 | 2271936 |
+| loaded-low | visibleweatherrainreverse | 50 | 1794 | 2 | 3557376 | 2360416 |
+| loaded-low | visibleweatherstorm | 47 | 1788 | 2 | 3557376 | 2241984 |
+| loaded-low | navdouble | 31 | 852 | 2 | 3557376 | 1935696 |
+| loaded-low | trafficschool | 43 | 1384 | 2 | 3557376 | 1974448 |
+| loaded-low | trafficpeak | 53 | 2402 | 2 | 3557376 | 2021515 |
+| loaded-low | ambientcab | 40 | 856 | 2 | 3557376 | 2014523 |
+| loaded-low | ambientmirror | 40 | 880 | 2 | 3557376 | 2022587 |
+| loaded-low | ambientnight | 40 | 856 | 2 | 3557376 | 2115435 |
+| accessible-low | cab | 38 | 1054 | 2 | 3557376 | 1989915 |
+| accessible-low | mirror | 37 | 1032 | 2 | 3557376 | 1867344 |
+| accessible-low | mirrorRight | 44 | 1190 | 2 | 3557376 | 1966432 |
+| accessible-low | mirrorInterior | 41 | 1100 | 2 | 3557376 | 1873478 |
+| accessible-low | lightingnightreverse | 50 | 1794 | 2 | 3557376 | 2943808 |
+| accessible-low | visibleweatherrainnight | 47 | 1764 | 2 | 3557376 | 2815008 |
+| accessible-low | visibleweatherrainreverse | 50 | 1794 | 2 | 3557376 | 2850475 |
+| accessible-low | visibleweatherstorm | 47 | 1788 | 2 | 3557376 | 2667040 |
+| accessible-low | navdouble | 31 | 852 | 2 | 3557376 | 2310080 |
+| accessible-low | trafficschool | 43 | 1384 | 2 | 3557376 | 2341414 |
+| accessible-low | trafficpeak | 53 | 2402 | 2 | 3557376 | 2467520 |
+| accessible-low | ambientcab | 40 | 856 | 2 | 3557376 | 2436128 |
+| accessible-low | ambientmirror | 40 | 868 | 2 | 3557376 | 2447995 |
+| accessible-low | ambientnight | 40 | 856 | 2 | 3557376 | 2547595 |
+| fallback-low | cab | 32 | 812 | 2 | 3557376 | 1659931 |
+| fallback-low | mirror | 33 | 806 | 2 | 3557376 | 1650971 |
+| fallback-low | mirrorRight | 34 | 974 | 2 | 3557376 | 1698006 |
+| fallback-low | mirrorInterior | 33 | 892 | 2 | 3557376 | 1655227 |
+| fallback-low | lightingnightreverse | 47 | 1594 | 2 | 3557376 | 2360416 |
+| fallback-low | visibleweatherrainnight | 45 | 1546 | 2 | 3557376 | 2271936 |
+| fallback-low | visibleweatherrainreverse | 47 | 1594 | 2 | 3557376 | 2360416 |
+| fallback-low | visibleweatherstorm | 45 | 1566 | 2 | 3557376 | 2241984 |
+| fallback-low | navdouble | 29 | 648 | 2 | 3557376 | 1935696 |
+| fallback-low | trafficschool | 44 | 1146 | 2 | 3557376 | 1974448 |
+| fallback-low | trafficpeak | 53 | 2168 | 2 | 3557376 | 2021515 |
+| fallback-low | ambientcab | 35 | 853 | 2 | 3557376 | 2014523 |
+| fallback-low | ambientmirror | 36 | 867 | 2 | 3557376 | 2022587 |
+| fallback-low | ambientnight | 35 | 853 | 2 | 3557376 | 2115435 |
