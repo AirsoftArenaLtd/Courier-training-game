@@ -1,0 +1,12 @@
+{
+  "existingIds": [
+    "m7-business",
+    "m7-intl",
+    "m7-dg"
+  ],
+  "authorized": "Claude 27 October registry authorization",
+  "parentRegistrySha256": "6fd61bac7a019da15cbc89106cd008df35f7877d702979859d1b273aaae44bf4",
+  "candidateRegistrySha256": "3a69bcff16eab140443b0078781867bd1c31eb1db1558b3090774c4e10811266",
+  "onlyThreeScene3dLines": true,
+  "allOtherBytesIdentical": true
+}

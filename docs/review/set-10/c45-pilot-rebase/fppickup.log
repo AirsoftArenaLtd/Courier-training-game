@@ -1,0 +1,17 @@
+{"countComparisons":36}
+{"invoiceFlagComparisons":2048}
+{"originalResultComparisons":360,"criticalAnswers":45}
+✔ every count choice at each partial/full count matches actual source options, recounts and checks (45.519043ms)
+✔ raising a short count never reconciles it; the eventual full recount retains the source second-try penalty (0.502117ms)
+✔ all 2048 invoice flag sets retain original misses, false-positive subtraction, first lesson and irreversible submission (420.883064ms)
+✔ every parcel accept/refusal/reason and all time boundaries match original criticals, points, ratios and final results (328.392139ms)
+✔ all authored conversation answers keep original penalties and criticals, even when every subsequent parcel call is right (3.139298ms)
+✔ no count, inspection, invoice, receipt or duplicate decision can bypass its phase; pauses preserve clocks and outside state (0.799166ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 806.183914

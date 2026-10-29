@@ -1,0 +1,89 @@
+{
+  "base": "pushed C44 eca956a8 over current-pilot stack",
+  "candidate": "264a18bc0a4a03b437244bf144e8edf8bc5527c5",
+  "priorTip": "400a4748ef7441e3b9fe4a995f12a1ca801b6782",
+  "backupBranch": "codex/c45-before-pilot-oct29",
+  "suites": [
+    {
+      "file": "test/fppickup.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat."
+    },
+    {
+      "file": "test/fppickupreference.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat."
+    },
+    {
+      "file": "test/fppickupscenario.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat."
+    },
+    {
+      "file": "test/fppickupgeometry.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat."
+    },
+    {
+      "file": "test/fppickupworld.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat."
+    },
+    {
+      "file": "test/fploadingworld.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat."
+    },
+    {
+      "file": "test/fpscannerstopworld.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat."
+    },
+    {
+      "file": "test/fpproblemblockedworld.js",
+      "exit": 0,
+      "evidence": "Completed in initial rebase CPU execution; retained log, no repeat."
+    },
+    {
+      "file": "test/fpcustomerprotocolscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpscenario.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpworld.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpaccess.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpcontext.js",
+      "exit": 0
+    },
+    {
+      "file": "test/fpgamepad.js",
+      "exit": 0
+    },
+    {
+      "file": "test/englishtext.js",
+      "exit": 0
+    }
+  ],
+  "sources": {
+    "src/core/fpaccess.js": "31f9938bf798418daafd56c69d3c58c92364da29c355a61c7a5ef92e3c91dc41",
+    "src/core/fplighting.js": "5a76b1e83add0aa3348d4b6ba90559513e30b9682d17786dc0f434701af6fb9e",
+    "src/core/fppickup.js": "051c7e3b85e769d38a223d8fb3b30ba379a15f3e2ccfb12a6c48a01ba497422c",
+    "src/core/fppickupworld.js": "bdaab60750a670f5d49f11eb4e96c555d12531ecc739f1de178f34b98ca5761c",
+    "src/core/fppickupscenario.js": "3813f0c8be74b6672767171f73cb2083b455dc7419ab391841d22c154b800d06",
+    "src/core/fpworld.js": "f60060fe5527ca2d1d184b26d11cb968bdfe55a6b387e7b90858bec868a71df0",
+    "data/modules.js": "3a69bcff16eab140443b0078781867bd1c31eb1db1558b3090774c4e10811266",
+    "test/fppickupbrowser.js": "39bec01f674d695005be4a11b2e807f6d54189e2048966098bf9dc467b9ed791",
+    "test/fpbench.js": "6d362c18da03e474b3f80b8bc212f49c899c80482c69a4b3781623b435e1bf7c",
+    "index.html": "f40d538fa3a96777ca06089e7511918bc4e0b4bf5fe9bb0df5c4dfbb6af905e7"
+  },
+  "scope": "Fifteen focused current-stack CPU suites and syntax. Completed first eight suites were retained without repeat after correcting a nonexistent proposed suite filename; no product test failed. Historical native/resource scopes and shared A30/A31/Intel gates remain explicit."
+}
