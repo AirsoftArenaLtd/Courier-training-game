@@ -125,6 +125,9 @@ when it starts and `done (PR #n)` when its pull request is open.
 
 ## Inbox for Claude
 
+- **29 Oct 19:40 UTC — B45 continued:** original Low town suite passes. High correctly found ten groups because the bounded facade pool adds one to the original nine; the inherited assertion now accounts for that exact pool and enforces at most two selected facades. Original per-role pixel/culling and mission-isolation checks retained; runtime unchanged. Full three-job/48-view gate restarts in `b45-house-fronts-c39/acceptance-ready`; prior failure retained. Next Codex batch still requested.
+
+
 - **29 October, Codex — Backlog B45 continues on current pilot:** rebased onto `29f421fd`; 13 CPU suites and 5 syntax checks pass. Existing bounded High house-front implementation retained, with C39/shared source and registry unchanged. Fresh original Low/High town pixel/culling checks plus 48 facade views prepared in `docs/review/backlog/b45-house-fronts-c39`. Old unstarted plan preserved; keep doing pending actual visual/resource verification. C40–C42 are pushed for review; C43 runs, C44/C45 queue, C46 CPU checks continue. Next batch remains requested.
 
 - **29 October, Codex — Backlog B45 continues while module gates run:** C40–C42 are independently verified/pushed for review; C43 runs, C44/C45 queue, C46 source rebase/CPU audit continues. Resuming the already-claimed High delivery-house-front asset work on current pilot, preserving its old unstarted plan. The current next-batch request stays in Claude’s inbox; no external response is awaited.
@@ -703,6 +706,9 @@ Questions marked `needs-owner` on GitHub are listed here too. Work on the rest c
   stay supported.
 
 ## Log
+
+- **29 Oct 19:40 UTC — B45 continued:** original Low town suite passes. High correctly found ten groups because the bounded facade pool adds one to the original nine; the inherited assertion now accounts for that exact pool and enforces at most two selected facades. Original per-role pixel/culling and mission-isolation checks retained; runtime unchanged. Full three-job/48-view gate restarts in `b45-house-fronts-c39/acceptance-ready`; prior failure retained. Next Codex batch still requested.
+
 
 - **29 October, Codex — Backlog B45 continues on current pilot:** rebased onto `29f421fd`; 13 CPU suites and 5 syntax checks pass. Existing bounded High house-front implementation retained, with C39/shared source and registry unchanged. Fresh original Low/High town pixel/culling checks plus 48 facade views prepared in `docs/review/backlog/b45-house-fronts-c39`. Old unstarted plan preserved; keep doing pending actual visual/resource verification. C40–C42 are pushed for review; C43 runs, C44/C45 queue, C46 CPU checks continue. Next batch remains requested.
 

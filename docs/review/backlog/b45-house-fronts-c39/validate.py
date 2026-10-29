@@ -2,7 +2,7 @@
 """Serialize existing town pixel checks and focused facade resource evidence under the shared browser lease."""
 from pathlib import Path
 import os,json,hashlib,subprocess,fcntl,time,shutil,psutil
-BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3];OUT=BASE/'acceptance';OUT.mkdir(parents=True,exist_ok=True);os.chdir(ROOT)
+BASE=Path(__file__).resolve().parent;ROOT=BASE.parents[3];OUT=BASE/'acceptance-ready';OUT.mkdir(parents=True,exist_ok=True);os.chdir(ROOT)
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 files=[p for name in ['src','data','lib','assets/3d','css','test/tools'] for p in Path(name).rglob('*') if p.is_file()]+[p for p in Path('test').glob('*.js')]+[Path(p) for p in ['index.html','first-person.html','assets/art-pack.js']]
 jobs=[{'tag':'b45-c39-town-low','script':'test/fptownbrowser.js','env':{'QA_GFX':'low'}},{'tag':'b45-c39-town-high','script':'test/fptownbrowser.js','env':{'QA_GFX':'high'}},{'tag':'b45-c39-front-resources','script':'test/tools/fp-delivery-front-quality.js','env':{'QA_FPS_FLOOR':'0'}}]

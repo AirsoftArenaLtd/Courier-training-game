@@ -1,0 +1,7 @@
+{
+  "parent": "243962bf",
+  "runtimeDifferences": [],
+  "testOnly": "Nine inherited High template groups plus exactly one facade pool, at most two selected facade instances; original pixels, culling and score isolation retained.",
+  "previous": "attempt-1/status.json",
+  "next": "acceptance-ready/status.json"
+}

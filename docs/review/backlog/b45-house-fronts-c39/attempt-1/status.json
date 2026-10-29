@@ -1,0 +1,44 @@
+{
+  "phase": "failed",
+  "controllerPid": 348647,
+  "jobs": [
+    {
+      "tag": "b45-c39-town-low",
+      "script": "test/fptownbrowser.js",
+      "env": {
+        "QA_GFX": "low"
+      },
+      "exit": 0,
+      "changedSources": [],
+      "artifacts": {
+        "c27-low-town-shop.png": "88be7f1f4e051bbebb8ebdea8b2884047b11eec3243c7d51619c930d5e71a376",
+        "c27-low-town.json": "a2c3921acbcf93189dffcfddcba279ad72f402acf118b530f2e7cdfcf49e6cb8",
+        "c27-low-town-tree.png": "6e11554c5199f44700203456a37d7a76a17ef70b729a9259ce1314ede290028f",
+        "c27-low-town-house.png": "8686082cf28c7c66db8b108bcb3db14f41d621d073609a85cc17fb5ddb82ddbd",
+        "c27-low-town-streetlight.png": "76ff9e28e1894596fc6d8b2cca668f6b4c1bcf709f837ed97be0cc9c589749a6",
+        "c27-low-town-fence.png": "26ad1e3ca4290363b827dc7c431a2ec0059bf5fb791b253a1705f2cd4b46889c",
+        "c27-low-town-house-wide.png": "505f347481abcc7a49d0cce639958b424295ef82acc77ad6f90af5a14fb9e7ca",
+        "c27-low-town-road.png": "a1be60113a32042f728a1000bf513ee8f9b0c25ee8e770258632f2e01299c9c5",
+        "c27-low-town-parked-car.png": "ec5529d2bf45504ad15037c882679335a8a0187ebf646fa6e1fc8e8c1c92cdb0"
+      }
+    },
+    {
+      "tag": "b45-c39-town-high",
+      "script": "test/fptownbrowser.js",
+      "env": {
+        "QA_GFX": "high"
+      },
+      "exit": 1,
+      "changedSources": [],
+      "artifacts": {}
+    }
+  ],
+  "startedAt": 1793277832.8207643,
+  "serverPid": 366307,
+  "tag": "b45-c39-town-high",
+  "childPid": 366661,
+  "failure": "Browser job failed: b45-c39-town-high",
+  "serverExited": true,
+  "leaseReleased": true,
+  "endedAt": 1793298888.1254547
+}

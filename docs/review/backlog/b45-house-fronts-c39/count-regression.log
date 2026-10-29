@@ -1,0 +1,23 @@
+✔ High surface identities follow real reflection compaction without changing reports or bank geometry (897.362927ms)
+✔ Low retains fourteen templates and High adds uploaded people and one colour-only bench (0.618967ms)
+✔ Low scenery stays bounded through repeated culling and shares geometry/materials (84.012091ms)
+✔ High retains offscreen town instances for shadows when the trainee turns around (192.9283ms)
+✔ full source detail is limited by the existing High scenery distance (176.344098ms)
+✔ asset and procedural worlds keep identical snapshots, exact solids, all door targets and scores (937.950939ms)
+✔ missing individual models retain their procedural lots without hiding healthy neighbours (169.576835ms)
+✔ front-yard props stay inside their original lot and outside the building (217.331491ms)
+✔ all four reflection passes restore every static/asset matrix, colour, count and visibility (82.541276ms)
+✔ per-instance static colour batching retains several colours in one route draw (46.334952ms)
+✔ navigation obstacles reuse bounded car models and always remain visible with matching solids (266.901441ms)
+✔ delivery fronts use at most two shared High house instances inside the original lot volumes (181.357891ms)
+✔ delivery fronts preserve exact collision proxies, door/path rays and address anchors with a missing source (151.897067ms)
+✔ Low, isolated areas, nonresidential lots and shifted entrances keep procedural delivery buildings (102.256523ms)
+✔ disposing a delivery front releases its scene instance without disposing the shared source geometry (81.705934ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3657.767312
