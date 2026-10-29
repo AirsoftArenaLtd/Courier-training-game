@@ -1,0 +1,574 @@
+{
+  "scope": "Completed C44 fitted-floor eye correction on C39/A30 via C40-C43. Six actual-key journeys and 56 original-profile static cargo views. Failed earlier source eca956a8 stays separate; A31 and owner Intel O1 remain separate.",
+  "sourceRevision": "658047f2e2b0831eb6c044387728937be0f56785",
+  "planSha256": "701009b25367339b36596c5e6c56ee6cd9b9aebedf5d9cde9472bf4806dbeef0",
+  "sourceCount": 934,
+  "hostFonts": {
+    "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf": "89c3c497f618fdaa0b2d1e98fef93582f28c71debd2c4a8cdf41f190ced2909d",
+    "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf": "e83493c945848ecd4a9ad0f6d19164541a0d3e23a9c952304a00a46e00272ac5",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Regular.ttf": "a7bb7f92f165479af2f0556c4fd669b74c5959f464f603e18389b532f4d07a71",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Bold.ttf": "7ef7071ba2fad67dcae397dc7f5bfd4dbce69d86cdc453c2cc4abe640df0b442"
+  },
+  "allInputHashesVerified": true,
+  "cpuSuites": 27,
+  "cpuLogHashes": {
+    "fploading.log": "a943f8f1daa099bd95c3b25287eb8197dd9852335fe6407aa09e2b70dc0dc9a0",
+    "fploadinggeometry.log": "805a8cdaab19984b5eb63051421069d637412262abaa826b2a90029e885e103c",
+    "fploadingreference.log": "e005146197ceb036c17914ca9511adbb369fc5a8657e27a5ffd63eb475787b36",
+    "fploadingscenario.log": "483cd7835f9cf91c79e1195b5f8d2207302b66d16921b0be8e4e95cb77677cec",
+    "fploadingwalk.log": "a23c44d52ca8028edf8a30e558c5d93f19322d4cd935ae4a908b674ed8f63218",
+    "fploadingworld.log": "aca74ebc9af4bc5530309131625403464c97bb36622e126866149f7b89be0472",
+    "fpscenario.log": "3752d9bba496bb6b8da2a5a5eeb873a31b21cd5fca93747723c09ea3945bc4a3",
+    "fpcontext.log": "03f0cc3b746cf79039e43713ec6145c46a1961e295f7ef2c14f18fb62414aad0",
+    "fpgamepad.log": "85b4517e4112bb0e7601da88d8cbd85f9f7051381d81dc04ebafebc2dfd6ebd1",
+    "fpworld.log": "de43f581c348855bfb3bdcd999e58fc82a1822e152f6216f673208347c64e289",
+    "fpaccess.log": "d38890d348655f116364588448b6ebc46a58b4823ccc11eee2f31957d34fb1d3",
+    "fpscannerstopworld.log": "12fbf04f15199c1ed0a21ea4771c86e6a12b0b5d7008ffbab0309514f71eda57",
+    "fpproblemblockedworld.log": "d8ca8bcafacffb9613c4276a1fcd91773b8e52b84a31426bed7dcbefd081d2a7",
+    "englishtext.log": "3bbbeed440b0d6799c6e24bfa717253fbab3408b17ab0c3251982ec69465ca2c",
+    "fppretrip.log": "af08cc9e35654078f24de21687f39254682a42a2f6315bd2a526eee0ebf68559",
+    "fproutelesson.log": "9bbdb7390d3e4e48b25c20a0be6e8e689860ec7eb901d0e1dd607028012f2617",
+    "fphazardlesson.log": "864d69681073cd68d0b8f08c25d6fdc0d8c9349a4b6ce45ff858f4bc79baa0df",
+    "fpdrivinglesson.log": "e59015f6664cab2bfd3211b5cf1b15146c6ca04e7a79079508442a16981b76f5",
+    "fpjunctionlesson.log": "efb926c411db4cbaee59da4dc33f4fae6e6df4dffd3ac72652dcddd80999787a",
+    "fpschoollesson.log": "96cda97834a08b3b2d2bc4a3934774435a921c72938e1796957876c05f3ba5aa",
+    "fpnightlesson.log": "4746b98089b7feadc4374a07d1dce23f52b7885156c22b70f64d58d4f1b9700e",
+    "fppackagesortscenario.log": "3fe243d8d5697b51d8edaaadb76721e165a0068fdf8ff25c9ea2749b77297294",
+    "fpcustomerscenario.log": "ecad409e2178b4f50c03b901e8ad4272df00abb95b9360c21473824b153ddc36",
+    "fpcustomerstopscenario.log": "88b0653a66c3682af9f21e83977b4f66b863b9c0d9d4c602ef809e8a40a24dfa",
+    "fpproblemscenario.log": "8ccf1001e5ee66eb43035172b483a46c7f8d6fb6b23f2f49e53c46d2d19ddf6a",
+    "fpscannerstopscenario.log": "ca8fbec8db43be775a6d27effa2508f923d1abbe0faaa5fc84bfd6f00d6005a6",
+    "scenario3d.log": "803297cda5e0755831bbdac090e4b6a6497dcfa35e1306653bbd91754ea8a473"
+  },
+  "cpuToBrowserSourceDifferences": [],
+  "nativeJobs": [
+    {
+      "tag": "c44-c39-wrong-find-high-ta",
+      "sourceRevision": "658047f2e2b0831eb6c044387728937be0f56785",
+      "sourceEquivalentToPlan": true,
+      "checks": 370,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "find",
+      "variant": "wrong-find",
+      "score": 785,
+      "stars": {
+        "efficiency": 2,
+        "service": 0
+      },
+      "assessmentPassed": false,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c44-c39-load-low-en",
+      "sourceRevision": "658047f2e2b0831eb6c044387728937be0f56785",
+      "sourceEquivalentToPlan": true,
+      "checks": 816,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "load",
+      "variant": "good",
+      "score": 2100,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": null,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c44-c39-find-low-en",
+      "sourceRevision": "658047f2e2b0831eb6c044387728937be0f56785",
+      "sourceEquivalentToPlan": true,
+      "checks": 245,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "find",
+      "variant": "good",
+      "score": 1356,
+      "stars": {
+        "efficiency": 3,
+        "service": 3
+      },
+      "assessmentPassed": null,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c44-c39-load-high-ta",
+      "sourceRevision": "658047f2e2b0831eb6c044387728937be0f56785",
+      "sourceEquivalentToPlan": true,
+      "checks": 823,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "load",
+      "variant": "good",
+      "score": 2100,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": true,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c44-c39-find-high-ta",
+      "sourceRevision": "658047f2e2b0831eb6c044387728937be0f56785",
+      "sourceEquivalentToPlan": true,
+      "checks": 251,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "find",
+      "variant": "good",
+      "score": 1551,
+      "stars": {
+        "efficiency": 3,
+        "service": 3
+      },
+      "assessmentPassed": true,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c44-c39-bad-load-high-ta",
+      "sourceRevision": "0bbd990fa0aafde4bf3556c8a5e9295b2f4483ac",
+      "sourceEquivalentToPlan": true,
+      "checks": 801,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "load",
+      "variant": "bad-load",
+      "score": 1200,
+      "stars": {
+        "safety": 0,
+        "efficiency": 2
+      },
+      "assessmentPassed": false,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    }
+  ],
+  "nativeChecks": 3306,
+  "resourceProfiles": [
+    {
+      "id": "loaded-low",
+      "views": 14,
+      "peak": {
+        "calls": 41,
+        "triangles": 2290,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1931760
+      }
+    },
+    {
+      "id": "loaded-high",
+      "views": 14,
+      "peak": {
+        "calls": 77,
+        "triangles": 56200,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5223664
+      }
+    },
+    {
+      "id": "accessible-low",
+      "views": 14,
+      "peak": {
+        "calls": 41,
+        "triangles": 2290,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2101056
+      }
+    },
+    {
+      "id": "fallback-low",
+      "views": 14,
+      "peak": {
+        "calls": 45,
+        "triangles": 2124,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1931760
+      }
+    }
+  ],
+  "resourceViews": 56,
+  "registryProof": {
+    "parent": "010b1f23",
+    "scene3dLinks": 2,
+    "allOtherBytesIdentical": true
+  },
+  "artifactCount": 225,
+  "artifacts": {
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-controls-0.png": "093904c9fe2725e7d06b5da133c9038714660e4935fc2b50ec83ade27f4d122e",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f5.png": "ec73ab3243685c445dcbb1994f3b5e9f155315dbf066076aab8e1f45765650b5",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-brief.png": "b90b595789c5c12c2e6df249626cde4eb77c048c7fe50337a1c3ec07549303a3",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f12.png": "6a4a3bc25730f963475d9afa149b4529b8a0736c892975a9bfcb1dcbd5ec764d",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-controls-2.png": "24cbd0351f9452aed1fe563672908ab356bb136c8824e6101f661eb62ea8726b",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-open-cargo.png": "2422a6486c10dc750af2a16300b04a48a5b9a6e5abe0c9c88e8a7a01c5520eb3",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f6.png": "f9c70ae9063e1b83f3d102aed61806ca852cf444b04ff5bf2354d3f2892bf9db",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f11.png": "7e41b2893a9889589d2b3ee3e05a0d820b897e7f6ff4cda3d2cbe8d7a3af17ff",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f2.png": "0c4d2942a01714a3ee8da52505ba0f3a7dcee4642619a6944698cef45a1d35ff",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f7.png": "0860f5389f39a103b25d44f06e5c0d3f6e2156e1bf972c19d99498ba339b62bd",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f1.png": "6702c49542dac697bb6a6664ea8933dc2334d297cafd7c27e2c13fe5cefebebe",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-controls-3.png": "6b36cf25681b3917ceda887f53df12e98677a94e5f2b63d06fdd6b7a3bb22b5d",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-controls-1.png": "59d69f68eb7d411eb636f336021d21957055b0b7d6349342628b5091064b7c32",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-result.png": "3e2b01ea2f741abc7616d56cc2a650566582279cb96d423513ae32f9433e801f",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f9.png": "30f2612169bfe2562bb84605c8e143f7f283b33297a158d11345a24e84bda46e",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-handheld.png": "3536c181e931ee4b6b59bc1a3b5d9087e0eea5b3c7c96f5c26c16199ad397c75",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta.json": "00c0ce2590714b3ad3417a4f274413a8320f667d65ad5d1da3af521aee4adda7",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f4.png": "06016a52a6664094bb5d59dacc6fc35361e231d266c0172a94a09e8a896bcb01",
+    "acceptance-ready/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f10.png": "30b9ab6e5f54f343fd13a2768eb44f12205cc5eb746f0c23a85a096e7f3b063c",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-handheld.png": "f4b23c111138506f557a343908132c5488b9a0a6dc55f1eec37d2785889ce891",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-position-l11.png": "93b1ca83682889b4b41dc7efe84541182fccde4d72877402503b2c1a0cab2e94",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-result.png": "431463a266ef855162bf6ce5544a8cce5493656dbc0800164e77162c761340e0",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-position-l10.png": "d8a851efbfbc099558a21e02024ddad54d84592a8ceecb5758fc0f5dab1a7fa2",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-position-l9.png": "45dd21c55125694fb0beee672c0a42d2c23189426925e588d916f17ad494cae7",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-label-l6.png": "37dd4a7ff1457bc9a09b5c3c44f9438443a3c21d6f99c52ba5a2a5a8076e3da2",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-label-l12.png": "c7ac44e92ab0479d2044cab364046673b172f35d6c8791f55d26b3453c5624a1",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-label-l5.png": "3047dedab0ae808fdb2b3ff5e0f6fc3f7bf8b435d108f15b12e51a19283fa29a",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-controls-1.png": "3402fda13d07e83c72d716530afea3a85294e695a28067e522ece127fc873dca",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-incomplete-load.png": "1650403194597ecf87cfd4f2f4b3777e06c1291a0c50140a4c5ddc799f3ff303",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-label-l7.png": "66f2d5ca664a471dded44ac9c0303ee155ab917793cd6eec49a1010954b62bde",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-returned-to-cart.png": "c85264c2866371c0c89c042ae2f80fea7a9d0fd34559070ae62a97e982bea676",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-label-l8.png": "6f35e4a0352191602c92213fdc92ea3e4f6736321e9aa1d59758d723be1c2436",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-position-l2.png": "a433dfae589575abcd7148b945ff096c8f07a70bed1c1c30b7ecebeb1814772e",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-controls-2.png": "c84419cef3079f01365fcd36e0cdd55f26d2a74715275ea37f4e821e4e39b91f",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-controls-0.png": "e661f49f968d58a2a8d8b86f62a088dda22b1b5dc35793efb8c685e8b28d8dde",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-label-l4.png": "92fb1b49e021c59dc1d98a9eda26022d6c0b4e61473dac93c758710e8bda63dd",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-controls-3.png": "0345dc714a1293837c7285f1c78bed3adad9466a90cdf92203df02f6cf5730e5",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-carried-label.png": "7433ee427c559095184ac167538b9539798e2d2c594eaa5b34c27ba7499d7e81",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-position-l6.png": "d893499f9812f5fa15dc451075057bd95ec6decd3afd58d3d9f4fafc6712c83e",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-label-l10.png": "160324da09610cf6e5ee80bade5f15d1f86b881b653dc779d5f3e39d5ffae0dc",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-label-l11.png": "87f5bbaff789fc9c911b6c7f49829e533ebfe55d38edc38c72b824db88c0d7b0",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-brief.png": "949b33f2051dd5282b3df2b36f79b0c295388351e59c9e11e2f7b773cb04678e",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en.json": "3f582d1b2c29bc1343eb0828d10933285021003abcd3927a1c9c2b34f32ace02",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-position-l3.png": "bd1787adb56abc6713e2c0f56024d61ac39975abb008ef2f77b3e12dd116a7e8",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-label-l1.png": "b66399b12b9a1c1f19fe232843cfc9d5a703dc639ddb301ad7b7c9ef29332cc2",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-position-l7.png": "279d1ac5afbfc281d1e830ef1f59d750ed3fe5dc92951c5740181918a62872d2",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-position-l12.png": "53035be71c082d5be40508a64afc96a427d37cec05c3ee5d5e22bc5db3da7cdd",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-position-l1.png": "293d1f46426e439b0166bcbc614075d484443a263a7c502b9da4ecf098908792",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-position-l4.png": "63a633a0c58c0075611a9461fbe727b3a7cd8fb8598df6eda1a6bccf657f2850",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-label-l9.png": "125fbef97a3295c098002c20c8bc087ec2dd0bdf33c5c8d0a6d09626994aa586",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-strapped-load.png": "5f8fec644b44dad73758352547abcbe7b73bd6db85ae90b77dc8f92aa45923eb",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-label-l3.png": "908b22536fe909fb730f9f86ee9d3a7cf8731f70b16e82788cdff9dae84e80f4",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-position-l5.png": "17933a858280a36e25fa7a51b9987fda2e624ff05b2dc336165ed3e6fa72a12a",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-label-l2.png": "925a2902cb89c24a815090477312139e94fe20d6a9eedbf6b15752dbc38f15c5",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-open-cargo.png": "a03f818d54d8368656489307f8090db981d96788d683538ef23c2ec757f3ae08",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-load-report.png": "27473e6fd4f05830e78d8c12a8bd3e64a8c81090f2fdfd8baeac685f213adfeb",
+    "acceptance-ready/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-position-l8.png": "45a0eac19f827c04d1be989b538954cc6cc8473d827bf5653cc175028227c11a",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-brief.png": "60d76b81b532acba70172db5171f20a1ac59de1585e112ec8c8d7177cdde6c35",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-handheld.png": "da032d1619a31a431e7fcb2e3c7c3c663fcbdaa29b9e363724bc0ff5fe728f2f",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-result.png": "a4faa8623dce593e5d047c4c12e386220898f29ab4baf86261e32ff3a04546f5",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-find-label-f12.png": "d74cafe0de8691d2db517ef825c7d3767cf9a1c29496d0322fb9a8dea5c130cc",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-find-label-f4.png": "4df3290fa587efde7eb1f080947e5544b0243b1782dd3b3d7655923d4df93229",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-controls-1.png": "3c2bdeba290f0b9a2ccf62b1143fab911cf7306d13e8fc76b961b4b391b97d82",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-controls-0.png": "4d56996b059e302fe2eeb05b5b23588c4de50cfbb97954e8ec9af9852a21da1a",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-find-label-f6.png": "e733c8ee87e25ff3b9a29eb3d186b27b167db16e8f02e8cb86b085ee0b2768af",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-find-label-f1.png": "f4cb8cf5385cd1b8c3e6d25d75e9432291964b2dea58c2ebfdc8932cd2abee88",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-open-cargo.png": "3bf350392b337df0d0b1ff610457d63792021929767c0f00ea5a353f80b6e388",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-controls-2.png": "f676d1a54365e5cd873782323cbd40a5d4a154d997274b9ebd77d5acd05bc06a",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en.json": "0e53c6c3dad2d68f8df70fbd03ebfa2442c803ed2d4b27eac2497ec8a2b0dd13",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-find-label-f10.png": "e29f98fed76ce709f70b4c533096c6894955ef106e9d7d89dcbe88d10eb46741",
+    "acceptance-ready/artifacts/c44-c39-find-low-en/c44-c39-find-low-en-low-en-normal-find-controls-3.png": "888b4aa9af6984624e60c10415feac417d63137d2b10244e85bf631dfa77b457",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l10.png": "ec78b468e0f30b11cd9239028390191a82c1c4528e1115bc06e5bc2c7be38667",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l1.png": "e26de577cf892cf5a5decb3704c646ca966f4ae2fb17a760084c2f02454a8215",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-label-l9.png": "95d058397ded22eeaf08d59cc46969ae87cad6522c7c1abd6b852802089e50e3",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l3.png": "7b7e5c4eed418fe27583d99b55d3b19c8c85f3ace34b7e6d1a7ec63a10d65621",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-label-l5.png": "ec8561b1ce9b5f3e987c58bf59e32bd7263dc75e7c461715cb7a2ee753d3b522",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-label-l7.png": "4c28e3ec4c5edae7613845cc95e6b0773ff3e078d50d8c0a23f33dc0a9232b95",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-label-l3.png": "b3ee5e79bedfec94372c58cc9f517f3e261212128d1dcbe19e4f8cc4c6b9ec50",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l4.png": "eb119b65ea8cd9a3d5a6016c2d1f9003baf447c5306341316c3c852e96d18d75",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-label-l4.png": "f695e503cd4790ecc710db234d775d6d16fe4f9a84093d9da2b306afd7c8e3a9",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l7.png": "0f42f68e98ab47d19d4611eb681d2ed63150b7fce335d082569d1a92d651c38c",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-label-l1.png": "31902229e536afbde22a0687d715fc91ab4dce5c19299c27ef522e983254fcf1",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta.json": "f4bc72dc4b6fcfc8ba3326c565a4d4ba23880837348cb94d2aaeba8542364d4b",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l9.png": "7a5e2d01d6c556905ef0b122eeef2e35f1bd5886b685c7c29992672302bde115",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-label-l12.png": "c398ebc75dc93a931fe130bccf93e11ae0527d067c558ae623f261eb1c6ed6db",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-load-report.png": "92f538aeda9ea049807c459002907af33bcd370a65a41f9a6068a9a211a4321a",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l11.png": "229d672220647efb0789279637ae1de87e3c0e8970d16bd5fbbcabe959f1d9dd",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-incomplete-load.png": "74f17939f8cd1b38a2c2270e9b22e28805d99035d22e719bc74ad88d7ffa8896",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-open-cargo.png": "230b8ad874005c4354158a54f5f6ec4435ff2ab55990e598233aa3fa9d19784d",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-label-l6.png": "8120778c839051d5eef38497a9bb9bbe941ce60a1ba7e5f9b6e4d9c88fa7ee98",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-controls-2.png": "65a1d3196e69fbf202211987384324a656cdfdf829fc3ccebda49328b4e81e56",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l12.png": "31e212739c60b4f2f7635cb6c6e9cad3cf1877cd51abed60894470a0167ee630",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-controls-1.png": "a925fc30a18b80dc65f9587dd9b3a99f2e1d78be96d3ffe68af5c6985d437444",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-strapped-load.png": "7a69b7014eeefc4a93f2171b179aea0ba7d18153ec6511594d6defdaa4341c10",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-label-l10.png": "508798968e4084af858edaf3f1f33427af353138d17b90ccc19b13a3506496f7",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-label-l11.png": "fe643df605463a65431ce741be0f507eeca700b9dba11f78532c3e93791c933f",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-result.png": "3df9d0caefa111614c40597148f15aecfbd5b407f9e69524308b67868d708a06",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-label-l2.png": "b8ee0095e9aa97fa62e112210d47f38b642099957c4ee07ccfa132d654ede8ce",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-carried-label.png": "c60ffffbb39d5034cca95e8b8f5bd0b2af3fbcf20e19481ef16315a86ed03eab",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l8.png": "bc6b8bba42c4e315b903c8d296b34d7bc9f3b8213b79b3ae4762d34b8629bf2c",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-controls-3.png": "16c1ce6f0137e61e8fc1096736f553548ba52d5fd634ef73dc8794457556e994",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l2.png": "f3e3a49bcaa6b9779dc60f56dd808d6ba385387fdbae033ecd8bf5fc71101f3f",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-returned-to-cart.png": "80e5fb6b7990790ec0d3d6848d2e3cde074001e1bda1015ca000ae88bfec922d",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-controls-0.png": "dedfc29be10f6a7ada256fd35e927feee664108ee7a09ac0e37b118a88fc009f",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-label-l8.png": "bdc5af1971ede6a355f66b2eeb93039d254e84328c51fc3bd9c44bbd75d74839",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-handheld.png": "d835ca77dff9f1954feeef2b9428fbecbcad0d7a835113d36467bbe1a0ee3039",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l5.png": "49f98754d9712564867fbabe35e1ede5239986e61eb68da32e4b5d6fe9ca44f3",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-brief.png": "4c691b58d1ad8330550740ae1edb07e0b05baa5256e00cae7af4d65b356a8340",
+    "acceptance-ready/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l6.png": "edd671672305e13ab0a7d59dec8ba4158beb8957448b5cfd97fc2b7e37063ba9",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-find-label-f10.png": "c7c5bc280f0219a436b86c8a1280a88c9862648d81639e391a52423c1ca9095a",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-brief.png": "b90b595789c5c12c2e6df249626cde4eb77c048c7fe50337a1c3ec07549303a3",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-open-cargo.png": "2422a6486c10dc750af2a16300b04a48a5b9a6e5abe0c9c88e8a7a01c5520eb3",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-find-label-f4.png": "1fcbcc5638e152272eae5be2ab99d2de46fb457e84107f5e16570cdbc074ed55",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-find-label-f12.png": "f5bcf2182d376cbbb3dbf9ecc82b59f21a680899faaf760bcd92dcee86a401f0",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-controls-1.png": "59d69f68eb7d411eb636f336021d21957055b0b7d6349342628b5091064b7c32",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-result.png": "4728d9928d925a9cd2591416d86deab787509b0b64db3cc48b2b5a9faa5faff8",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-controls-3.png": "6b36cf25681b3917ceda887f53df12e98677a94e5f2b63d06fdd6b7a3bb22b5d",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-find-label-f1.png": "ca6bd281fcce971fa600f08e061275eb3494472f71f663ac796ec075bb4fa5ce",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta.json": "4a5b611988094ad7af8dc6a3a20fc09fde10e324289a924dedff8f94cb460c91",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-controls-2.png": "24cbd0351f9452aed1fe563672908ab356bb136c8824e6101f661eb62ea8726b",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-handheld.png": "3536c181e931ee4b6b59bc1a3b5d9087e0eea5b3c7c96f5c26c16199ad397c75",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-find-label-f6.png": "4bc9e834ba1ef6144155469c0b137ad0a233a8a2fb2c565f786f965e230cbb5e",
+    "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-controls-0.png": "093904c9fe2725e7d06b5da133c9038714660e4935fc2b50ec83ade27f4d122e",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-position-l1.png": "31e3230f8eec5fcb903f2b7b895d6860c46217ab4231e144e76f29a9b44cb1f6",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-label-l12.png": "c347f3a27e222aa3a53fef085263e13072de789e3904f6200915c41ec6c0decd",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-position-l2.png": "ab67c85f5887df23e6f8d40181798f058d50a09b353bb42d096930e902827cce",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-result.png": "dfb5a9bd93bc8bf45e43476593138c45389b3c218f7abb00f8b0eaba0adb67a1",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-controls-1.png": "a925fc30a18b80dc65f9587dd9b3a99f2e1d78be96d3ffe68af5c6985d437444",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-incomplete-load.png": "74f17939f8cd1b38a2c2270e9b22e28805d99035d22e719bc74ad88d7ffa8896",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-label-l7.png": "724b4a463fcd7ce2af585f0482246687321a6281a4406115e5afd7ed1319aacc",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-label-l1.png": "57358643dcc1cfd3d0d230f6abb674f5090478b04cf60f76d151e896a9b480a7",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-label-l10.png": "7cd7cef6a7eade121544785af7e293b7fcac635be402f3deb2a61a7256f3bef3",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-position-l12.png": "87f6a8afe70c6e08486ccebaf6879350a747487fb2cc31e9c44841b3e514fecb",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-position-l3.png": "aa7d5fcd7c2441eb2ae66a03d9757053acf7dfdc06b793991518c743ff603741",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-controls-3.png": "16c1ce6f0137e61e8fc1096736f553548ba52d5fd634ef73dc8794457556e994",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-position-l11.png": "80178cc8d3bb0321d392e6e75f07e6c0b8bee4c7a09a2c5396c49167d3e07d70",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-load-report.png": "baa8cda3444314f9f5b1d934511e116c9389f9d29f139904fbdaa734195c2ef7",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-label-l6.png": "53fc6a648766fb2b96c188033c60e67080be761dbece74638dade8c60517168c",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-label-l11.png": "5ce4351c46c0471e796dd1a4759f2ef1754b4207ee594a59842639b23b3d6d49",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-position-l8.png": "48f55f7f5bc116ed612246cae1d5805017a9d2aac01feff6a2a47820db7ed856",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-open-cargo.png": "230b8ad874005c4354158a54f5f6ec4435ff2ab55990e598233aa3fa9d19784d",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-brief.png": "4c691b58d1ad8330550740ae1edb07e0b05baa5256e00cae7af4d65b356a8340",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-position-l9.png": "417ecfaef974b38b554c327a2cc3821251c59bd610f95c946d12c69a03847459",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-label-l9.png": "f60b5e8192fb82ae92b21605fc138e3fa00536cc60b2a210e59ec176a5314f4e",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-position-l7.png": "4709d16bbcd037c2add9c1e92cfefb15bd53c03a9972c970b3d501fa3a5c8be4",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-label-l2.png": "50283142ff8e5764f6b3127cc49d9deb4071b7604100507e1b8f144c30221b53",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-controls-0.png": "dedfc29be10f6a7ada256fd35e927feee664108ee7a09ac0e37b118a88fc009f",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-label-l5.png": "89b7a72ecf706552db36473c451deceddfe85cd2ed9851598d81de36e438a8e8",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-label-l8.png": "58ee1081d901f2bc611eeea69467997d59522cd91c03736f8c734c649bf173b0",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-position-l10.png": "d079bcef777234bbac25f9b06e2757d6f6c49518c63d3c206542d628aeaa252f",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-carried-label.png": "5631dcda5fc1c663c29927c5203e227cae1918c3e1efdd1c6465c245dae75219",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-handheld.png": "d835ca77dff9f1954feeef2b9428fbecbcad0d7a835113d36467bbe1a0ee3039",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-position-l5.png": "f01ff129b21dc77da77f870ab56896a5c62e3eba54bf0728837a9269f8823731",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-returned-to-cart.png": "143c202a3f06be94515725eb1dd320e134230138d1a580db7c84cca2303ac2ee",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-position-l6.png": "8e5cf4c8adce8d0b79642722513db6e62cfb4f5fc9d72b411d4d24ed73528421",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-position-l4.png": "62563615a2a30514502973bac5d2be978140595b31497e15c589239760745129",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-label-l3.png": "faf955b0155bb655d51d88393daff9682fd5dd7e7466bee0e1084101b404db1c",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-label-l4.png": "e621772f48c59583d1c41942eefb7264d1a935b0d94fc7c5010e59b2fda68783",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta.json": "917a3b8527e3cc69d0ec46698fc7e39cf65a143ec0044da1db430e515e0beaa6",
+    "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-controls-2.png": "65a1d3196e69fbf202211987384324a656cdfdf829fc3ccebda49328b4e81e56",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-loadtop.png": "1ea6f430605d2e1252ba0f2c91e260fa504c4e741828e793be6bc26d8a19ce34",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-loadbottom.png": "eaaf7f16f216eff8224ad7aaa535b7d752298e316f5b80c91c1a5a3af4d3a34e",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-loadtop.png": "5ed76188d94d5c72cf866f0fcf16473e5ea9d70655bc8a005232144d75dcdd65",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high.log": "5f1642532b907ed03956ac4876fa0ccf4eb201b8914b5db87a554491b0ce5b8d",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-loadreport.png": "7db77d68ab94f1601c3ef27d590309185fa6c3f9c8832de461b481af35bf3736",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/bench-c44-c39-loading-resources-fallback-low-low.json": "be6dc95433c2dd2e9d927abf1f3178f4686f359763e02d859f70cb6c3a97db9c",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-loadstrapped.png": "8700ecbbebcd2459be179911fe5a00bc3711b1e2e20370f902c8e824b34bf661",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-findhelp.png": "ca71b4a147829e11e2e9b8b11c48865c3cf8ec791f3f86fc57313dd77d41c833",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-loadcargo.png": "59a03aa916f947ea3553249967f822832197cbbda906557c4e21ccd67a0d8fa5",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadhandheld.png": "1cac16be8283eb10f6b9fbd6da44a2c88c348d2e0e9c655039d918838273a4f4",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low.log": "c56fa0d0d366166c46f163f7b3b4d94afe0507076699e2fa59a8217dc613347f",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-loadcontrols.png": "f1ca9d395508997f107cee8d755f349525bdacb60d84dfa00d56848c8e27d204",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/bench-c44-c39-loading-resources-loaded-high-high.json": "38068fb84f898d643bddf87defe8521897d4d3620d77e8a320fd32b6b21c2476",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-findunit.png": "f0c3aaa59e813d335c087ffd751017b1140cdc26c1365962d13853933a86db59",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-loadcargo.png": "9caf205ee8fea2ddce89bd71cea6d6686f837bfec5ba0c2b24b57d2893def8e4",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-findcargo.png": "a5d36b684d6ca6403763ba5b75c4d9396b1f5a35cac39a1114a17053f8fa072a",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-findunit.png": "3bdc74cdec8900a24fc49eca66fec955ab924e1149d967ec074ffc7aa6661c2c",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-loadstrapped.png": "18c7a6371f892fa86557a255399950f1c2e405bd8c01203d9a9c228d4951260e",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-loadcarried.png": "e4f404b8de36ab6b1baff8073ead24166fd7a3ce786b42df1eb6ed2b64d8b912",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-findhelp.png": "059c40930b53a4e5b61cb76fea09b2bc6ed8cc5a3d7c45b6498eabac79031724",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/bench-c44-c39-loading-resources-loaded-low-low.json": "63c92a7e42bd515b4e588d23b9baf1eacd018a5ecae87182463b6fc3d905e466",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadstrapped.png": "a5a41a101c3f724068e32fd8966fb759d6ea4d90616b1c8071b07562123ff56b",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-loadcargo.png": "2decd73456de4a8e1519f97d116f637c414d0d4a79a028fd2e7b12361a6a8a31",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-loadstrapped.png": "a4b4e03e61e6b273d881a2accf4e86df63bd817c83a8b421572fb28cb6003b40",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-findunit.png": "388db69fd896739838d629d3cba6e6b8a4f716e48f8246bacafb4831b00083a0",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-loadbottom.png": "f7e4167b713a52e0504708cfd3917b5d3e089a03889de9feb6d0d1dd259f9c3d",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-loadreport.png": "908d99d11e340de34d87df434ce35c5124a4df265a1af2f3f90c9e235440823a",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadunsafe.png": "8c6f4b08afbddd51b3fd22be0e8b988b9e274ab696b4888ac532a76fddbf733b",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-loadcart.png": "13c9e293c40218e6c4d5956ac3369778f19546889e42ca8eec306d2158eef7da",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-loadcontrols.png": "1b64d2398528fe6c76e9e46361c0497bb8a682488fedc6d1f028d21eae5209de",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadtop.png": "9bc9b3d27a348af6dc77d80b58cdb7bff73c6c011238744d2b4af618b657d9e7",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadcontrols.png": "1e0705ceecee112f00b77303be4cc9c416005cbe1840f56b08982e64217582d1",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadbottom.png": "65601a4417683aabc94538f155daadeb92cbb7bd00f2d48045106d660d7d3e86",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadcarried.png": "fcde0f102220b7b75bc211a0f0147c00f7cab061c36949eb7434bda038e5735a",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-findhelp.png": "34c2edd89324b355575785ac77b0e927dbc990d1b799b90b924ec6b74fb2394b",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-findcargo.png": "64dba598e645f48b6a803419335ada70d06c537bc6ff1b1f650fb542563e3d5e",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-loadbottom.png": "96a267f7df52e11800cd652d2883c2b2524432dda1aa89a15222915bf0544eca",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-loadclosed.png": "91d5e99ef0f49c69482a29bb01f0f3d64ac7be60cbd7b32570dc7e388c347b5d",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-findhelp.png": "7ae3ad9410f05a708d520c6ef6b56e82228167f9c1f2fad5dc7de11bffea4b5b",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadreport.png": "81ef97e8763106ad49952af164814f87c2f81a7e45fe35ca401bfb8b5dbb096a",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-loadclosed.png": "700ee5b911dde7363d38c6afd4c44b45729dc9ca5faac8a2d96615c118589d66",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-quality.json": "97ed8ecd5131bde4c50ed56cca0c21b5616d3681f87bef34371868fbcf1b6b5d",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-loadtop.png": "95a9c6dd24d433c70c19bad11742f764a10c00657400e2bdea7eb0a48039205b",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-loadcarried.png": "c8a78162c06c097afb3b55187490297aee1186f019e789fbcf5c7b81e2f267a2",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadcargo.png": "980c56bdcca40cb28132586eca9bd7bb126d1bcd02c8708644f4d28c1ab14edf",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-loadhandheld.png": "921fd5e9b57c7b8217f30a818bbd91c89da4ef925e94c8cb4fbca7f0660633d7",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadclosed.png": "0dad0c17707e9588c9a6be38f8d80580957d5d212bec7309801d0adb21bbe9fa",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low.log": "f6624eaaf578be2334f106c69cf9ac14cf4bd828e91005e844d6888e5e66fd21",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-loadunsafe.png": "393a1ccbc9b989622cebe20b9297371b9bff8114f0a1d829bb28e199c0ce5b93",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-loadunsafe.png": "995aec146ff8360d63a14536d91a54d2a625a94e071e29ed8f7180f10994cd09",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-findcargo.png": "e3a54aedf09a8607ab8c676a87b29b09aed599982a4ba63bb5ad3367c8e5c961",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-loadunsafe.png": "6173cc4fd1bf166e8ad38dfe6202f3aa9a2d315d87c8d6d26c8e3ba470e231fa",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/bench-c44-c39-loading-resources-accessible-low-low.json": "422a30a5403203771ab3f7190345530fec4521ddf7147e1f01f8fbe7b880f249",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low.log": "3811cc17d3692e59e7c3bdc82284690e7947b9b1df4e8f05dcc1f938bcba7ffc",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-loadcart.png": "8529e49d9228a73978cc73a5dd7d5cb0e19d41c45478866634ca48846c96d056",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-loadcart.png": "dc00314fa4232eed59b9e38902837dd2455e28f741343a38c8d6f3c99b2f0ea3",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-accessible-low-low-loadhandheld.png": "ad9c2e7c3691d4662c87f595ec660bdf17eeb192765639657f1085b6d3744ad8",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-low-low-loadcarried.png": "9d4420cd85a114d989e0520527d913ca1812cce5c7eaa2730d9714369fbc200c",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-loadhandheld.png": "057fe542ae751a69d3753118da8da713181a38e5fb82eee7072965e1a5a61240",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-loadclosed.png": "061e1058d81bef12d8554d796abe5c7ce2f7ae555ceb62536d3f1bc8808e7d9b",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-findunit.png": "e3c8caa49002eb8735aa9c257ef92917c15a7c01781724724d3785446c7da5e8",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-loadreport.png": "87a63431c1990bdbc2ca24b505959001f155b9f687dabd3ffa0657f225cc68a4",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-loadcontrols.png": "ec12a28056c7c21ac66d7a202ef47e67aa410aff95a526cc3df7fcc15c3ecf55",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadcart.png": "494a902c8015070ad7556c6c95da50d4051351a14fb3bd754d4c82bc2598c8aa",
+    "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-fallback-low-low-findcargo.png": "f1eae0400ed38d2e9854dd3f457857fc8a4afa27cd11e0ee3ec224e4c30682f6"
+  },
+  "cleanup": {
+    "controller": {
+      "pid": 338431,
+      "status": "zombie"
+    },
+    "server": {
+      "pid": 353141,
+      "status": "gone"
+    },
+    "child": {
+      "pid": 357904,
+      "status": "gone"
+    }
+  },
+  "visualReview": {
+    "status": "twelve native/resource captures inspected at original resolution; full gate complete",
+    "captures": [
+      {
+        "path": "native-progress-29oct/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f9.png",
+        "sha256": "30f2612169bfe2562bb84605c8e143f7f283b33297a158d11345a24e84bda46e",
+        "resolution": [
+          1280,
+          720
+        ],
+        "notes": "The previously unreachable f9 opens the real label panel through the corrected standing eye and native selection. Recipient/address/weight and both actions fit at larger text. New loading instructions remain English pending A31; the modal obscures the parcel, so physical ink/ray reach is established by the native checks and separate geometry regression."
+      },
+      {
+        "path": "native-progress-29oct/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-result.png",
+        "sha256": "3e2b01ea2f741abc7616d56cc2a650566582279cb96d423513ae32f9433e801f",
+        "resolution": [
+          1280,
+          720
+        ],
+        "notes": "Actual larger-Tamil result shows failed assessment, two of six stars and service zero. Tamil glyphs, feedback, progress and both bottom actions fit without tofu or clipping."
+      },
+      {
+        "path": "native-progress-29oct/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-strapped-load.png",
+        "sha256": "5f8fec644b44dad73758352547abcbe7b73bd6db85ae90b77dc8f92aa45923eb",
+        "resolution": [
+          1280,
+          720
+        ],
+        "notes": "Low shows the physical cargo, printed parcel label and selected floor restraints after the restraint action. The top status and bottom native target/control prompts fit inside 1280x720; no decision panel is open in this capture."
+      },
+      {
+        "path": "native-progress-29oct/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-load-report.png",
+        "sha256": "27473e6fd4f05830e78d8c12a8bd3e64a8c81090f2fdfd8baeac685f213adfeb",
+        "resolution": [
+          1280,
+          720
+        ],
+        "notes": "The completed Low load report and its action fit inside the original panel; original loading feedback and state are retained."
+      },
+      {
+        "path": "native-progress-29oct/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l9.png",
+        "sha256": "7a5e2d01d6c556905ef0b122eeef2e35f1bd5886b685c7c29992672302bde115",
+        "resolution": [
+          1280,
+          720
+        ],
+        "notes": "The final High dangerous-goods placement panel shows the original zone warning and both native choices at larger text. The physical package label remains visible below the panel. New M6 prompt copy remains English pending A31."
+      },
+      {
+        "path": "native-progress-29oct/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-result.png",
+        "sha256": "3df9d0caefa111614c40597148f15aecfbd5b407f9e69524308b67868d708a06",
+        "resolution": [
+          1280,
+          720
+        ],
+        "notes": "The High larger-Tamil result shows passed assessment, six of six stars and all 12 placements correct. Feedback, progress and both bottom actions fit, with real Tamil glyphs and no tofu."
+      },
+      {
+        "path": "native-progress-29oct/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-strapped-load.png",
+        "sha256": "7a69b7014eeefc4a93f2171b179aea0ba7d18153ec6511594d6defdaa4341c10",
+        "resolution": [
+          1280,
+          720
+        ],
+        "notes": "High shows the physical van, printed parcel label, restraint model and reticle after the restraint action. The larger top status and remaining-time text fit. No bottom target/control hints are visible in this captured frame; camera reach is checked separately by native selection and geometry regression."
+      },
+      {
+        "path": "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadtop.png",
+        "sha256": "9bc9b3d27a348af6dc77d80b58cdb7bff73c6c011238744d2b4af618b657d9e7",
+        "resolution": [
+          1280,
+          720
+        ],
+        "notes": "Resource-only top-shelf view: the fixed historical upward pitch now shows too much roof and clips the lower package label after the standing-eye correction. This capture is not evidence of readable label framing. Native real-key top-envelope selection/label panels and the actual geometry regression establish reach. A separate static review-pose follow-up will aim from the actual eye without changing gameplay."
+      },
+      {
+        "path": "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadbottom.png",
+        "sha256": "65601a4417683aabc94538f155daadeb92cbb7bd00f2d48045106d660d7d3e86",
+        "resolution": [
+          1280,
+          720
+        ],
+        "notes": "High lower shelf and floor package labels are physically printed and visible. Status and native control prompts fit; the body remains inside the opened van."
+      },
+      {
+        "path": "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-findunit.png",
+        "sha256": "e3c8caa49002eb8735aa9c257ef92917c15a7c01781724724d3785446c7da5e8",
+        "resolution": [
+          1280,
+          720
+        ],
+        "notes": "The actual-eye static find-unit view shows the requested 5 Harbor View unit 3B label at the reticle, with nearby rack/parcel context. The address line and bottom prompts fit."
+      },
+      {
+        "path": "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-result.png",
+        "sha256": "dfb5a9bd93bc8bf45e43476593138c45389b3c218f7abb00f8b0eaba0adb67a1",
+        "resolution": [
+          1280,
+          720
+        ],
+        "notes": "The unsafe-load larger-Tamil result shows failed assessment and the original zero safety/two efficiency stars. Feedback, progress and both bottom actions fit without missing Tamil glyphs."
+      },
+      {
+        "path": "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-result.png",
+        "sha256": "4728d9928d925a9cd2591416d86deab787509b0b64db3cc48b2b5a9faa5faff8",
+        "resolution": [
+          1280,
+          720
+        ],
+        "notes": "The good find larger-Tamil result shows passed assessment and six of six stars. Tamil result text, progress and bottom actions fit."
+      }
+    ],
+    "limitations": [
+      "New loading prompts remain English pending A31.",
+      "Cloud software rendering cannot certify owner Intel O1.",
+      "The historical loadtop static pose is roof-heavy and clips the lower physical label; a separate review-fixture framing correction follows. Native real-key label selection and panels pass."
+    ]
+  },
+  "allPassed": true
+}

@@ -628,3 +628,17 @@ Pilot `c9e02e87` is now combined at `6040d70d`, retaining C-36 and B-114. All 11
 required cases and the current catalogue pass. The native/shared repeat and
 expanded 207-view gate are running on `5627336f`; no result is claimed for that
 combined gate yet. No ceiling changed. Native Intel 60 fps remains O-1.
+
+
+## C-44 fitted-floor cargo eye, completed C39/A30 gate (29 October 2026)
+
+The High top-envelope obstruction is corrected by using fitted floor +1.65 m for the standing eye inside the loading module’s open cargo. No geometry, texture, pass, scoring or saved field changes. **27 CPU suites, 3,306 actual-key native assertions and all 56 resource views pass** with the original caps. Correct and harmful outcomes match the original 2D callbacks and persist.
+
+| Profile | Views | Calls | Triangles | Three textures | Attachment bytes | Phaser bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| loaded-low | 14 | 41 | 2,290 | 2 | 3,557,376 | 1,931,760 |
+| loaded-high | 14 | 77 | 56,200 | 4 | 11,239,424 | 5,223,664 |
+| accessible-low | 14 | 41 | 2,290 | 2 | 3,557,376 | 2,101,056 |
+| fallback-low | 14 | 45 | 2,124 | 2 | 3,557,376 | 1,931,760 |
+
+[Exact source scopes, original-callback replay, hashes and twelve visual readings](review/set-10/c44-c39-rebase/README.md). All 934 inputs, four fonts, 27 CPU logs and 225 artifacts are rehashed; owned processes exited and the browser lease was released. The retained loadtop resource pose is roof-heavy; a separate static review-pose follow-up corrects its framing. New M6 English copy awaits A31; owner Intel O1 remains separate.

@@ -1,5 +1,5 @@
 {
-  "status": "seven native captures inspected at original resolution; remaining native/resource jobs pending",
+  "status": "twelve native/resource captures inspected at original resolution; full gate complete",
   "captures": [
     {
       "path": "native-progress-29oct/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f9.png",
@@ -63,10 +63,56 @@
         720
       ],
       "notes": "High shows the physical van, printed parcel label, restraint model and reticle after the restraint action. The larger top status and remaining-time text fit. No bottom target/control hints are visible in this captured frame; camera reach is checked separately by native selection and geometry regression."
+    },
+    {
+      "path": "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadtop.png",
+      "sha256": "9bc9b3d27a348af6dc77d80b58cdb7bff73c6c011238744d2b4af618b657d9e7",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Resource-only top-shelf view: the fixed historical upward pitch now shows too much roof and clips the lower package label after the standing-eye correction. This capture is not evidence of readable label framing. Native real-key top-envelope selection/label panels and the actual geometry regression establish reach. A separate static review-pose follow-up will aim from the actual eye without changing gameplay."
+    },
+    {
+      "path": "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-loadbottom.png",
+      "sha256": "65601a4417683aabc94538f155daadeb92cbb7bd00f2d48045106d660d7d3e86",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "High lower shelf and floor package labels are physically printed and visible. Status and native control prompts fit; the body remains inside the opened van."
+    },
+    {
+      "path": "acceptance-ready/artifacts/c44-c39-loading-resources/c44-c39-loading-resources-loaded-high-high-findunit.png",
+      "sha256": "e3c8caa49002eb8735aa9c257ef92917c15a7c01781724724d3785446c7da5e8",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The actual-eye static find-unit view shows the requested 5 Harbor View unit 3B label at the reticle, with nearby rack/parcel context. The address line and bottom prompts fit."
+    },
+    {
+      "path": "acceptance-ready/artifacts/c44-c39-bad-load-high-ta/c44-c39-bad-load-high-ta-high-ta-large-load-result.png",
+      "sha256": "dfb5a9bd93bc8bf45e43476593138c45389b3c218f7abb00f8b0eaba0adb67a1",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The unsafe-load larger-Tamil result shows failed assessment and the original zero safety/two efficiency stars. Feedback, progress and both bottom actions fit without missing Tamil glyphs."
+    },
+    {
+      "path": "acceptance-ready/artifacts/c44-c39-find-high-ta/c44-c39-find-high-ta-high-ta-large-find-result.png",
+      "sha256": "4728d9928d925a9cd2591416d86deab787509b0b64db3cc48b2b5a9faa5faff8",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The good find larger-Tamil result shows passed assessment and six of six stars. Tamil result text, progress and bottom actions fit."
     }
   ],
   "limitations": [
     "New loading prompts remain English pending A31.",
-    "Cloud software rendering cannot certify owner Intel O1."
+    "Cloud software rendering cannot certify owner Intel O1.",
+    "The historical loadtop static pose is roof-heavy and clips the lower physical label; a separate review-fixture framing correction follows. Native real-key label selection and panels pass."
   ]
 }

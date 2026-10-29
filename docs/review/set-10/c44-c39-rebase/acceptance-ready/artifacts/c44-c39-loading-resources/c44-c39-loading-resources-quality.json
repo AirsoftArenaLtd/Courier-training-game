@@ -1,0 +1,58 @@
+{
+  "sourceRevision": "0bbd990fa0aafde4bf3556c8a5e9295b2f4483ac",
+  "scope": "Fourteen static loading/find poses under the original four resource profiles. Native key journeys/records, default/current-pilot, corrected-font Tamil and Intel FPS remain separate gates.",
+  "profiles": [
+    {
+      "id": "loaded-low",
+      "exit": 0,
+      "report": "bench-c44-c39-loading-resources-loaded-low-low.json",
+      "log": "c44-c39-loading-resources-loaded-low.log",
+      "peak": {
+        "calls": 41,
+        "triangles": 2290,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1931760
+      }
+    },
+    {
+      "id": "loaded-high",
+      "exit": 0,
+      "report": "bench-c44-c39-loading-resources-loaded-high-high.json",
+      "log": "c44-c39-loading-resources-loaded-high.log",
+      "peak": {
+        "calls": 77,
+        "triangles": 56200,
+        "textures": 4,
+        "attachmentBytes": 11239424,
+        "phaserBytes": 5223664
+      }
+    },
+    {
+      "id": "accessible-low",
+      "exit": 0,
+      "report": "bench-c44-c39-loading-resources-accessible-low-low.json",
+      "log": "c44-c39-loading-resources-accessible-low.log",
+      "peak": {
+        "calls": 41,
+        "triangles": 2290,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 2101056
+      }
+    },
+    {
+      "id": "fallback-low",
+      "exit": 0,
+      "report": "bench-c44-c39-loading-resources-fallback-low-low.json",
+      "log": "c44-c39-loading-resources-fallback-low.log",
+      "peak": {
+        "calls": 45,
+        "triangles": 2124,
+        "textures": 2,
+        "attachmentBytes": 3557376,
+        "phaserBytes": 1931760
+      }
+    }
+  ]
+}
