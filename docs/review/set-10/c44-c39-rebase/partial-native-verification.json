@@ -1,0 +1,82 @@
+{
+  "scope": "Only currently completed native jobs; full resource gate is pending.",
+  "nativeJobs": [
+    {
+      "tag": "c44-c39-wrong-find-high-ta",
+      "sourceRevision": "658047f2e2b0831eb6c044387728937be0f56785",
+      "sourceEquivalentToPlan": true,
+      "checks": 370,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "find",
+      "variant": "wrong-find",
+      "score": 785,
+      "stars": {
+        "efficiency": 2,
+        "service": 0
+      },
+      "assessmentPassed": false,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c44-c39-load-low-en",
+      "sourceRevision": "658047f2e2b0831eb6c044387728937be0f56785",
+      "sourceEquivalentToPlan": true,
+      "checks": 816,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "load",
+      "variant": "good",
+      "score": 2100,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": null,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c44-c39-find-low-en",
+      "sourceRevision": "658047f2e2b0831eb6c044387728937be0f56785",
+      "sourceEquivalentToPlan": true,
+      "checks": 245,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "kind": "find",
+      "variant": "good",
+      "score": 1356,
+      "stars": {
+        "efficiency": 3,
+        "service": 3
+      },
+      "assessmentPassed": null,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    },
+    {
+      "tag": "c44-c39-load-high-ta",
+      "sourceRevision": "658047f2e2b0831eb6c044387728937be0f56785",
+      "sourceEquivalentToPlan": true,
+      "checks": 823,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "load",
+      "variant": "good",
+      "score": 2100,
+      "stars": {
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": true,
+      "durable": true,
+      "originalCallbacksReplayed": true
+    }
+  ],
+  "nativeChecks": 2254
+}

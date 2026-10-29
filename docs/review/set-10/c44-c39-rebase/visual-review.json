@@ -1,0 +1,72 @@
+{
+  "status": "seven native captures inspected at original resolution; remaining native/resource jobs pending",
+  "captures": [
+    {
+      "path": "native-progress-29oct/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-find-label-f9.png",
+      "sha256": "30f2612169bfe2562bb84605c8e143f7f283b33297a158d11345a24e84bda46e",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The previously unreachable f9 opens the real label panel through the corrected standing eye and native selection. Recipient/address/weight and both actions fit at larger text. New loading instructions remain English pending A31; the modal obscures the parcel, so physical ink/ray reach is established by the native checks and separate geometry regression."
+    },
+    {
+      "path": "native-progress-29oct/artifacts/c44-c39-wrong-find-high-ta/c44-c39-wrong-find-high-ta-high-ta-large-find-result.png",
+      "sha256": "3e2b01ea2f741abc7616d56cc2a650566582279cb96d423513ae32f9433e801f",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Actual larger-Tamil result shows failed assessment, two of six stars and service zero. Tamil glyphs, feedback, progress and both bottom actions fit without tofu or clipping."
+    },
+    {
+      "path": "native-progress-29oct/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-strapped-load.png",
+      "sha256": "5f8fec644b44dad73758352547abcbe7b73bd6db85ae90b77dc8f92aa45923eb",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "Low shows the physical cargo, printed parcel label and selected floor restraints after the restraint action. The top status and bottom native target/control prompts fit inside 1280x720; no decision panel is open in this capture."
+    },
+    {
+      "path": "native-progress-29oct/artifacts/c44-c39-load-low-en/c44-c39-load-low-en-low-en-normal-load-load-report.png",
+      "sha256": "27473e6fd4f05830e78d8c12a8bd3e64a8c81090f2fdfd8baeac685f213adfeb",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The completed Low load report and its action fit inside the original panel; original loading feedback and state are retained."
+    },
+    {
+      "path": "native-progress-29oct/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-position-l9.png",
+      "sha256": "7a5e2d01d6c556905ef0b122eeef2e35f1bd5886b685c7c29992672302bde115",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The final High dangerous-goods placement panel shows the original zone warning and both native choices at larger text. The physical package label remains visible below the panel. New M6 prompt copy remains English pending A31."
+    },
+    {
+      "path": "native-progress-29oct/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-result.png",
+      "sha256": "3df9d0caefa111614c40597148f15aecfbd5b407f9e69524308b67868d708a06",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "The High larger-Tamil result shows passed assessment, six of six stars and all 12 placements correct. Feedback, progress and both bottom actions fit, with real Tamil glyphs and no tofu."
+    },
+    {
+      "path": "native-progress-29oct/artifacts/c44-c39-load-high-ta/c44-c39-load-high-ta-high-ta-large-load-strapped-load.png",
+      "sha256": "7a69b7014eeefc4a93f2171b179aea0ba7d18153ec6511594d6defdaa4341c10",
+      "resolution": [
+        1280,
+        720
+      ],
+      "notes": "High shows the physical van, printed parcel label, restraint model and reticle after the restraint action. The larger top status and remaining-time text fit. No bottom target/control hints are visible in this captured frame; camera reach is checked separately by native selection and geometry regression."
+    }
+  ],
+  "limitations": [
+    "New loading prompts remain English pending A31.",
+    "Cloud software rendering cannot certify owner Intel O1."
+  ]
+}

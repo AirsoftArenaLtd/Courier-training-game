@@ -1,0 +1,750 @@
+{
+  "checks": 823,
+  "modes": [
+    {
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "kind": "load",
+      "shots": [
+        "c44-c39-load-high-ta-high-ta-large-load-brief.png",
+        "c44-c39-load-high-ta-high-ta-large-load-controls-0.png",
+        "c44-c39-load-high-ta-high-ta-large-load-controls-1.png",
+        "c44-c39-load-high-ta-high-ta-large-load-controls-2.png",
+        "c44-c39-load-high-ta-high-ta-large-load-controls-3.png",
+        "c44-c39-load-high-ta-high-ta-large-load-handheld.png",
+        "c44-c39-load-high-ta-high-ta-large-load-open-cargo.png",
+        "c44-c39-load-high-ta-high-ta-large-load-incomplete-load.png",
+        "c44-c39-load-high-ta-high-ta-large-load-label-l7.png",
+        "c44-c39-load-high-ta-high-ta-large-load-carried-label.png",
+        "c44-c39-load-high-ta-high-ta-large-load-returned-to-cart.png",
+        "c44-c39-load-high-ta-high-ta-large-load-position-l7.png",
+        "c44-c39-load-high-ta-high-ta-large-load-label-l8.png",
+        "c44-c39-load-high-ta-high-ta-large-load-position-l8.png",
+        "c44-c39-load-high-ta-high-ta-large-load-label-l12.png",
+        "c44-c39-load-high-ta-high-ta-large-load-position-l12.png",
+        "c44-c39-load-high-ta-high-ta-large-load-label-l4.png",
+        "c44-c39-load-high-ta-high-ta-large-load-position-l4.png",
+        "c44-c39-load-high-ta-high-ta-large-load-label-l5.png",
+        "c44-c39-load-high-ta-high-ta-large-load-position-l5.png",
+        "c44-c39-load-high-ta-high-ta-large-load-label-l6.png",
+        "c44-c39-load-high-ta-high-ta-large-load-position-l6.png",
+        "c44-c39-load-high-ta-high-ta-large-load-label-l11.png",
+        "c44-c39-load-high-ta-high-ta-large-load-position-l11.png",
+        "c44-c39-load-high-ta-high-ta-large-load-label-l3.png",
+        "c44-c39-load-high-ta-high-ta-large-load-position-l3.png",
+        "c44-c39-load-high-ta-high-ta-large-load-label-l2.png",
+        "c44-c39-load-high-ta-high-ta-large-load-position-l2.png",
+        "c44-c39-load-high-ta-high-ta-large-load-label-l1.png",
+        "c44-c39-load-high-ta-high-ta-large-load-position-l1.png",
+        "c44-c39-load-high-ta-high-ta-large-load-label-l10.png",
+        "c44-c39-load-high-ta-high-ta-large-load-position-l10.png",
+        "c44-c39-load-high-ta-high-ta-large-load-label-l9.png",
+        "c44-c39-load-high-ta-high-ta-large-load-position-l9.png",
+        "c44-c39-load-high-ta-high-ta-large-load-strapped-load.png",
+        "c44-c39-load-high-ta-high-ta-large-load-load-report.png",
+        "c44-c39-load-high-ta-high-ta-large-load-result.png"
+      ],
+      "findEvents": [],
+      "placements": [
+        {
+          "pkg": "l7",
+          "slot": "C-mid-0"
+        },
+        {
+          "pkg": "l8",
+          "slot": "C-bottom-0"
+        },
+        {
+          "pkg": "l12",
+          "slot": "C-top-0"
+        },
+        {
+          "pkg": "l4",
+          "slot": "B-top-0"
+        },
+        {
+          "pkg": "l5",
+          "slot": "B-bottom-0"
+        },
+        {
+          "pkg": "l6",
+          "slot": "B-mid-0"
+        },
+        {
+          "pkg": "l11",
+          "slot": "B-top-1"
+        },
+        {
+          "pkg": "l3",
+          "slot": "A-bottom-0"
+        },
+        {
+          "pkg": "l2",
+          "slot": "A-top-0"
+        },
+        {
+          "pkg": "l1",
+          "slot": "A-mid-0"
+        },
+        {
+          "pkg": "l10",
+          "slot": "A-mid-1"
+        },
+        {
+          "pkg": "l9",
+          "slot": "haz"
+        }
+      ],
+      "fontProof": {
+        "lang": "ta",
+        "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null,
+        "layout": {
+          "width": 793.21875,
+          "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+        },
+        "platformFonts": [
+          {
+            "familyName": "Noto Sans Tamil",
+            "postScriptName": "NotoSansTamil-Bold",
+            "isCustomFont": false,
+            "glyphCount": 28
+          }
+        ]
+      },
+      "renderedDoor": {
+        "cargoOpen": true,
+        "asset": true,
+        "opening": 1
+      },
+      "observation": {
+        "elapsed": 151.9638100000076,
+        "strapped": true,
+        "placement": {
+          "l1": "A-mid-0",
+          "l2": "A-top-0",
+          "l3": "A-bottom-0",
+          "l4": "B-top-0",
+          "l5": "B-bottom-0",
+          "l6": "B-mid-0",
+          "l7": "C-mid-0",
+          "l8": "C-bottom-0",
+          "l9": "haz",
+          "l10": "A-mid-1",
+          "l11": "B-top-1",
+          "l12": "C-top-0"
+        }
+      },
+      "original": {
+        "result": {
+          "score": 2100,
+          "ratios": {
+            "safety": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "efficiency",
+                "got": 12,
+                "max": 12,
+                "label": "Packages loaded in the right place (12/12)",
+                "good": true,
+                "partial": false,
+                "lesson": "Section by stop, heavy low, fragile off the floor, the floor bays for bulk and dangerous goods in the marked zone.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 3,
+                "max": 3,
+                "label": "Nothing heavy loaded up high",
+                "good": true,
+                "partial": false,
+                "lesson": "Anything above shoulder height should be light. Heavy overhead is how shoulders and heads get hurt.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Strapped the floor load before driving",
+                "good": true,
+                "partial": false,
+                "lesson": "Unsecured freight becomes a projectile in a hard stop. Strap or brace it.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Dangerous goods in the marked zone",
+                "good": true,
+                "partial": false,
+                "lesson": "Dangerous goods travel in their segregated spot, never stacked in with everything else.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Loaded in good time (152s, par 210s)",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "where": null
+              }
+            ]
+          },
+          "lessons": [
+            "Load in reverse stop order so the first stops are nearest the door: less digging at every stop.",
+            "Heavy low, light high. Weight above shoulder height is how backs and heads get hurt.",
+            "Strap or brace the floor load. Loose freight shifts the first time you brake hard."
+          ],
+          "summary": "12/12 placed right · nothing heavy up high · floor strapped · 152s",
+          "stats": {
+            "log": {
+              "items": [
+                {
+                  "cat": "efficiency",
+                  "got": 12,
+                  "max": 12,
+                  "label": "Packages loaded in the right place (12/12)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Section by stop, heavy low, fragile off the floor, the floor bays for bulk and dangerous goods in the marked zone.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Nothing heavy loaded up high",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Anything above shoulder height should be light. Heavy overhead is how shoulders and heads get hurt.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Strapped the floor load before driving",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Unsecured freight becomes a projectile in a hard stop. Strap or brace it.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Dangerous goods in the marked zone",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Dangerous goods travel in their segregated spot, never stacked in with everything else.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Loaded in good time (152s, par 210s)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "where": null
+                }
+              ]
+            },
+            "placement": {
+              "l2": {
+                "col": "A",
+                "row": "top",
+                "k": 0
+              },
+              "l1": {
+                "col": "A",
+                "row": "mid",
+                "k": 0
+              },
+              "l10": {
+                "col": "A",
+                "row": "mid",
+                "k": 1
+              },
+              "l3": {
+                "col": "A",
+                "row": "bottom",
+                "k": 0
+              },
+              "l4": {
+                "col": "B",
+                "row": "top",
+                "k": 0
+              },
+              "l11": {
+                "col": "B",
+                "row": "top",
+                "k": 1
+              },
+              "l6": {
+                "col": "B",
+                "row": "mid",
+                "k": 0
+              },
+              "l5": {
+                "col": "B",
+                "row": "bottom",
+                "k": 0
+              },
+              "l12": {
+                "col": "C",
+                "row": "top",
+                "k": 0
+              },
+              "l7": {
+                "col": "C",
+                "row": "mid",
+                "k": 0
+              },
+              "l8": {
+                "col": "C",
+                "row": "bottom",
+                "k": 0
+              },
+              "l9": {
+                "col": "haz",
+                "row": "floor",
+                "k": 0
+              }
+            }
+          }
+        },
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        }
+      },
+      "result": {
+        "id": "m6-load",
+        "result": {
+          "score": 2100,
+          "ratios": {
+            "safety": 1,
+            "efficiency": 1
+          },
+          "log": {
+            "items": [
+              {
+                "cat": "efficiency",
+                "got": 12,
+                "max": 12,
+                "label": "Packages loaded in the right place (12/12)",
+                "good": true,
+                "partial": false,
+                "lesson": "Section by stop, heavy low, fragile off the floor, the floor bays for bulk and dangerous goods in the marked zone.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793287240236,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 3,
+                "max": 3,
+                "label": "Nothing heavy loaded up high",
+                "good": true,
+                "partial": false,
+                "lesson": "Anything above shoulder height should be light. Heavy overhead is how shoulders and heads get hurt.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793287240236,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Strapped the floor load before driving",
+                "good": true,
+                "partial": false,
+                "lesson": "Unsecured freight becomes a projectile in a hard stop. Strap or brace it.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793287240236,
+                "where": null
+              },
+              {
+                "cat": "safety",
+                "got": 2,
+                "max": 2,
+                "label": "Dangerous goods in the marked zone",
+                "good": true,
+                "partial": false,
+                "lesson": "Dangerous goods travel in their segregated spot, never stacked in with everything else.",
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793287240236,
+                "where": null
+              },
+              {
+                "cat": "efficiency",
+                "got": 2,
+                "max": 2,
+                "label": "Loaded in good time (152s, par 210s)",
+                "good": true,
+                "partial": false,
+                "lesson": null,
+                "feedback": null,
+                "group": null,
+                "kind": "check",
+                "critical": false,
+                "at": 1793287240236,
+                "where": null
+              }
+            ],
+            "group": null
+          },
+          "lessons": [
+            "Load in reverse stop order so the first stops are nearest the door: less digging at every stop.",
+            "Heavy low, light high. Weight above shoulder height is how backs and heads get hurt.",
+            "Strap or brace the floor load. Loose freight shifts the first time you brake hard."
+          ],
+          "summary": "12/12 placed right · nothing heavy up high · floor strapped · 152s",
+          "stats": {
+            "log": {
+              "items": [
+                {
+                  "cat": "efficiency",
+                  "got": 12,
+                  "max": 12,
+                  "label": "Packages loaded in the right place (12/12)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Section by stop, heavy low, fragile off the floor, the floor bays for bulk and dangerous goods in the marked zone.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793287240236,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 3,
+                  "max": 3,
+                  "label": "Nothing heavy loaded up high",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Anything above shoulder height should be light. Heavy overhead is how shoulders and heads get hurt.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793287240236,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Strapped the floor load before driving",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Unsecured freight becomes a projectile in a hard stop. Strap or brace it.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793287240236,
+                  "where": null
+                },
+                {
+                  "cat": "safety",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Dangerous goods in the marked zone",
+                  "good": true,
+                  "partial": false,
+                  "lesson": "Dangerous goods travel in their segregated spot, never stacked in with everything else.",
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793287240236,
+                  "where": null
+                },
+                {
+                  "cat": "efficiency",
+                  "got": 2,
+                  "max": 2,
+                  "label": "Loaded in good time (152s, par 210s)",
+                  "good": true,
+                  "partial": false,
+                  "lesson": null,
+                  "feedback": null,
+                  "group": null,
+                  "kind": "check",
+                  "critical": false,
+                  "at": 1793287240236,
+                  "where": null
+                }
+              ]
+            },
+            "placement": {
+              "l2": {
+                "col": "A",
+                "row": "top",
+                "k": 0
+              },
+              "l1": {
+                "col": "A",
+                "row": "mid",
+                "k": 0
+              },
+              "l10": {
+                "col": "A",
+                "row": "mid",
+                "k": 1
+              },
+              "l3": {
+                "col": "A",
+                "row": "bottom",
+                "k": 0
+              },
+              "l4": {
+                "col": "B",
+                "row": "top",
+                "k": 0
+              },
+              "l11": {
+                "col": "B",
+                "row": "top",
+                "k": 1
+              },
+              "l6": {
+                "col": "B",
+                "row": "mid",
+                "k": 0
+              },
+              "l5": {
+                "col": "B",
+                "row": "bottom",
+                "k": 0
+              },
+              "l12": {
+                "col": "C",
+                "row": "top",
+                "k": 0
+              },
+              "l7": {
+                "col": "C",
+                "row": "mid",
+                "k": 0
+              },
+              "l8": {
+                "col": "C",
+                "row": "bottom",
+                "k": 0
+              },
+              "l9": {
+                "col": "haz",
+                "row": "floor",
+                "k": 0
+              }
+            },
+            "seconds": 152
+          }
+        },
+        "stars": {
+          "safety": 3,
+          "efficiency": 3
+        },
+        "verdict": {
+          "untested": [],
+          "criticals": [],
+          "takeaways": [
+            {
+              "text": "Load in reverse stop order so the first stops are nearest the door: less digging at every stop.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "Heavy low, light high. Weight above shoulder height is how backs and heads get hurt.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            },
+            {
+              "text": "Strap or brace the floor load. Loose freight shifts the first time you brake hard.",
+              "critical": false,
+              "n": 1,
+              "note": true
+            }
+          ],
+          "mistakes": 0
+        },
+        "record": {
+          "plays": 1,
+          "bestScore": 2100,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1793287250345
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1793283243680,
+          "pending": false,
+          "at": 1793287250346,
+          "stars": {
+            "safety": 3,
+            "efficiency": 3
+          },
+          "score": 2100,
+          "criticals": [],
+          "lessons": [
+            "Load in reverse stop order so the first stops are nearest the door: less digging at every stop.",
+            "Heavy low, light high. Weight above shoulder height is how backs and heads get hurt.",
+            "Strap or brace the floor load. Loose freight shifts the first time you brake hard."
+          ]
+        },
+        "elapsed": 151.9638100000076,
+        "runElapsed": 151.9638100000076,
+        "passStars": {
+          "safety": 2,
+          "efficiency": 2,
+          "service": 2
+        }
+      },
+      "resultPresentation": {
+        "active": true,
+        "counter": "6 / 6",
+        "expected": "6 / 6",
+        "modals": 0,
+        "scale": 1,
+        "bounds": {
+          "left": 206,
+          "top": 6,
+          "right": 1074,
+          "bottom": 722
+        },
+        "transition": false,
+        "rankUpDismissed": false
+      },
+      "durable": true,
+      "reload": {
+        "record": {
+          "plays": 1,
+          "bestScore": 2100,
+          "bestStars": {
+            "safety": 3,
+            "efficiency": 3,
+            "service": 0
+          },
+          "lastPlayed": 1793287250345
+        },
+        "assessment": {
+          "attempts": 1,
+          "passed": true,
+          "startedAt": 1793283243680,
+          "pending": false,
+          "at": 1793287250346,
+          "stars": {
+            "safety": 3,
+            "efficiency": 3
+          },
+          "score": 2100,
+          "criticals": [],
+          "lessons": [
+            "Load in reverse stop order so the first stops are nearest the door: less digging at every stop.",
+            "Heavy low, light high. Weight above shoulder height is how backs and heads get hurt.",
+            "Strap or brace the floor load. Loose freight shifts the first time you brake hard."
+          ]
+        },
+        "scene": "LoadingScene",
+        "default3d": false,
+        "scene3d": "loading-cargo"
+      }
+    }
+  ],
+  "errors": [],
+  "variant": "good",
+  "sourceRevision": "658047f2e2b0831eb6c044387728937be0f56785",
+  "uncommittedRuntime": false,
+  "sourceFiles": {
+    "index.html": "ad58c99f92f935d9b0e28ca5b2a12053d3f03c132c34f4f1066e1b3e90873c6c",
+    "src/core/fploading.js": "2a7bb76031c4bb9ad5f21bd7682f9149e36e1e8a24a7f88eafde85ccbf19a847",
+    "src/core/fploadingworld.js": "0b3233a157c21636892ee9761199539d1ad198c086dabeae7adb910ce3aa8fba",
+    "src/core/fploadingscenario.js": "352206b211b62e1b1223f08ddb8b885dd59ed25f51dd6901e5c8afca02e16d47",
+    "src/core/fpworld.js": "df1d128f928d821717e85996818d7f0e3b9b4703adee561fbbdaebda65e6f93d",
+    "src/core/fpaccess.js": "b60c64fd51bd9a64cda27c155708ca121aa2a5a19c3af79184a55a27f339f84a",
+    "src/core/fpscenario.js": "f45c916b79d86a4387c05434d76b8864dc0c0a6b60aa0785cafbb10fc141b8b1",
+    "src/scenes/FirstPersonScenarioScene.js": "7d17f5de04c4df9ddd03ede916ff78ae19436788bce1684db94c079cc26528d8",
+    "src/scenes/BaseScenarioScene.js": "7249bc0ebbf84ca584186ddb90979ebaea7c54791cc08aff5939609f2b016135",
+    "src/scenes/m6/LoadingScene.js": "33f83327a465eeea2f0a12f701dbcafbfc2ecb24c4d0e929413f06fa561d783d",
+    "data/m6_loading.js": "eb8c6b499efe80e539159b49f850718af0abadcb3ee92c4ad5188de0c505e192",
+    "data/modules.js": "45b0996efc589041b693fd2eab0b1e8c5cde348fc5472956a78a0e042142ff0c",
+    "src/core/scoring.js": "32bb8f741c9d7a32032d281d06cbd2b1a5c90a2da09a0b062d36a3abd2549ef0",
+    "src/core/scorelog.js": "46d435b82debdb8a6f8232c5d33ee980caa6f7ffe0d08d5ca5d4947eb8158c0d",
+    "test/tools/fp-loading-original.js": "113af86af72d1099ad78d1e86d43c616b1aea7e69fd2fedef203f752a13ab09d"
+  },
+  "protocolSha256": "2b7790e60c24a4ee9982d2c05885d1ea0bb2b5ef5e733475d10757627f55d90f",
+  "scope": "Only accessibility preferences and a real suspended workday are fixtures; existing IDs use their actual registered 3D adapter. All movement, target selection, label reading, carrying, placements, restraints, picks, pauses and completion use real keys. No position, action callback, clock, scoring, result or assessment-completion fixtures. Observations are replayed through actual original 2D callbacks in Node. Tamil glyph/translation readiness remains a separate shared gate.",
+  "complete": true
+}
