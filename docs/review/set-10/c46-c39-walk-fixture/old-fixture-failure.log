@@ -1,0 +1,66 @@
+✖ the observed missed waypoint terminates with one through four real frames between observations (118.016519ms)
+✖ the actual native cart and shelf route remains clear in both imported vans with batched frames (460.076128ms)
+✖ batched native walking keeps all five actual find labels reachable in both imported vans (222.358135ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 807.058881
+
+✖ failing tests:
+
+test at test/fploadingwalk.js:11:1
+✖ the observed missed waypoint terminates with one through four real frames between observations (118.016519ms)
+  TypeError: Cannot read properties of undefined (reading 'x')
+      at Object.walk (/workspace/c46-safety-wellness/test/tools/fp-loading-walk.js:8:31)
+      at async TestContext.<anonymous> (/workspace/c46-safety-wellness/test/fploadingwalk.js:14:39)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at test/fploadingwalk.js:17:1
+✖ the actual native cart and shelf route remains clear in both imported vans with batched frames (460.076128ms)
+  TypeError: Cannot read properties of undefined (reading 'x')
+      at /workspace/c46-safety-wellness/test/tools/fp-loading-walk.js:8:31
+      at async TestContext.<anonymous> (/workspace/c46-safety-wellness/test/fploadingwalk.js:23:132)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/fploadingwalk.js:33:1
+✖ batched native walking keeps all five actual find labels reachable in both imported vans (222.358135ms)
+  TypeError: Cannot read properties of undefined (reading 'x')
+      at Object.walk (/workspace/c46-safety-wellness/test/tools/fp-loading-walk.js:8:31)
+      at async TestContext.<anonymous> (/workspace/c46-safety-wellness/test/fploadingwalk.js:37:64)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.
+THREE.ImageBitmapLoader: createImageBitmap() not supported.

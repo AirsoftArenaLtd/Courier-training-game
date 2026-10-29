@@ -2,7 +2,7 @@
 const test=require('node:test'),assert=require('node:assert/strict'),makeWalk=require('./tools/fp-loading-walk');
 function controls(f,scene,batch){
  const held={};let checks=0,frames=0;
- const page={evaluate:async()=>({...scene.model.player}),keyboard:{down:async code=>{held[code]=true;},up:async code=>{delete held[code];}}};
+ const page={evaluate:async()=>({player:{...scene.model.player},controlsOpen:!!scene.panel||!!scene.handheld?.isOpen}),keyboard:{down:async code=>{held[code]=true;},up:async code=>{delete held[code];}}};
  const walk=makeWalk({page,ok:(value,message)=>{assert.ok(value,message);checks++;},frames:async()=>{for(let i=0;i<batch;i++){
   f.O.fpAccess.look(scene,held,.05);scene.model.step({forward:!!held.KeyW,back:!!held.KeyS,left:!!held.KeyA,right:!!held.KeyD,careful:!!held.ShiftLeft},.05);frames++;
  }}});
@@ -43,4 +43,11 @@ test('batched native walking keeps all five actual find labels reachable in both
    assert.equal(scene.completed.id,'m6-find');assert.equal(m.loading.cleanRounds,5);assert.deepEqual(input.held,{});
   }finally{scene.art.dispose();bank.dispose();}
  }
+});
+
+// C46 reuses the native helper while timed conversations can interrupt walking.
+test('native walking yields to an open conversation and releases held movement',async()=>{
+ const f=require('./tools/fp-loading-context')(),scene=f.fixture();
+ try{const input=controls(f,scene,3),before={...scene.model.player};scene.showPanel('Conversation','A real panel is open.',[]);const result=await input.walk(before.x+2,before.z,{stopOnPanel:true});assert.equal(result.interrupted,true);assert.deepEqual({...scene.model.player},before);assert.deepEqual(input.held,{});}
+ finally{scene.art.dispose();}
 });

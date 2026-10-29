@@ -1,0 +1,3 @@
+# C46 walking helper fixture
+
+The broader rebase check found that the existing CPU walking stub returned a player directly, while C46’s already-implemented shared native helper observes player plus controlsOpen. The stub now mirrors that observation shape. A new interruption case verifies that an open conversation stops walking and releases movement keys. The first new assertion compared objects from different JavaScript realms; it now compares their plain numeric fields. This changes tests only; native helper behavior and all runtime sources stay unchanged. Original failed diagnostics are retained here. Final checks are in c46-c39-rebase.
