@@ -1,0 +1,329 @@
+{
+  "scope": "Completed C41 native subsets only. Native continuation or resource gates may still be active; no complete cleanup, full-resource or review-ready claim. Three retained Low protocols share byte-identical production with the corrected offscreen-font-probe continuation. Actual Tamil glyph proof applies to protocol runs; original-id native regressions do not collect this probe.",
+  "sourceRevision": "9f8ea2ac42e697e97a560182e58d3224b8864368",
+  "retainedSourceRevision": "7d68ce44a61a763ac0157b6c3b13caaad28c97ee",
+  "retainedInputDifference": [
+    "test/tools/fp-script-font-proof.js"
+  ],
+  "planSha256": "0e96361d6f915b398e7321d73df00bbe2f303dc80aff876682683e2c7503a376",
+  "sourceCount": 772,
+  "hostFonts": {
+    "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf": "89c3c497f618fdaa0b2d1e98fef93582f28c71debd2c4a8cdf41f190ced2909d",
+    "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf": "e83493c945848ecd4a9ad0f6d19164541a0d3e23a9c952304a00a46e00272ac5",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Regular.ttf": "a7bb7f92f165479af2f0556c4fd669b74c5959f464f603e18389b532f4d07a71",
+    "/usr/share/fonts/truetype/noto/NotoSansTamil-Bold.ttf": "7ef7071ba2fad67dcae397dc7f5bfd4dbce69d86cdc453c2cc4abe640df0b442"
+  },
+  "allInputHashesVerified": true,
+  "nativeJobs": [
+    {
+      "tag": "c41-rebase-intercom-low",
+      "checks": 203,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "score": 1100,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": null,
+      "durable": true,
+      "fontProof": {
+        "lang": "en",
+        "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null
+      }
+    },
+    {
+      "tag": "c41-rebase-reception-low",
+      "checks": 192,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "score": 1100,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": null,
+      "durable": true,
+      "fontProof": {
+        "lang": "en",
+        "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null
+      }
+    },
+    {
+      "tag": "c41-rebase-locker-low",
+      "checks": 205,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "score": 1100,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": null,
+      "durable": true,
+      "fontProof": {
+        "lang": "en",
+        "family": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null
+      }
+    },
+    {
+      "tag": "c41-fontfix-intercom-high",
+      "checks": 206,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "score": 1100,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": true,
+      "durable": true,
+      "fontProof": {
+        "lang": "ta",
+        "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null,
+        "layout": {
+          "width": 793.21875,
+          "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+        },
+        "platformFonts": [
+          {
+            "familyName": "Noto Sans Tamil",
+            "postScriptName": "NotoSansTamil-Bold",
+            "isCustomFont": false,
+            "glyphCount": 28
+          }
+        ]
+      }
+    },
+    {
+      "tag": "c41-fontfix-reception-high",
+      "checks": 195,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "score": 1100,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": true,
+      "durable": true,
+      "fontProof": {
+        "lang": "ta",
+        "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null,
+        "layout": {
+          "width": 793.21875,
+          "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+        },
+        "platformFonts": [
+          {
+            "familyName": "Noto Sans Tamil",
+            "postScriptName": "NotoSansTamil-Bold",
+            "isCustomFont": false,
+            "glyphCount": 28
+          }
+        ]
+      }
+    },
+    {
+      "tag": "c41-fontfix-locker-high",
+      "checks": 208,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "score": 1100,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": true,
+      "durable": true,
+      "fontProof": {
+        "lang": "ta",
+        "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null,
+        "layout": {
+          "width": 793.21875,
+          "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+        },
+        "platformFonts": [
+          {
+            "familyName": "Noto Sans Tamil",
+            "postScriptName": "NotoSansTamil-Bold",
+            "isCustomFont": false,
+            "glyphCount": 28
+          }
+        ]
+      }
+    },
+    {
+      "tag": "c41-fontfix-intercom-bad",
+      "checks": 226,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "score": 900,
+      "stars": {
+        "service": 0,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": false,
+      "durable": true,
+      "fontProof": {
+        "lang": "ta",
+        "family": "\"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "themeFamily": "\"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif",
+        "override": null,
+        "layout": {
+          "width": 793.21875,
+          "font": "900 34px \"Nirmala UI\", \"Noto Sans Tamil\", \"Noto Sans Tamil\", \"Segoe UI\", \"Nirmala UI\", \"Trebuchet MS\", system-ui, -apple-system, sans-serif"
+        },
+        "platformFonts": [
+          {
+            "familyName": "Noto Sans Tamil",
+            "postScriptName": "NotoSansTamil-Bold",
+            "isCustomFont": false,
+            "glyphCount": 28
+          }
+        ]
+      }
+    },
+    {
+      "tag": "c41-fontfix-missing-low",
+      "checks": 588,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "score": 1800,
+      "stars": {
+        "service": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": null,
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      },
+      "fontProof": null
+    },
+    {
+      "tag": "c41-fontfix-twostops-high-ta",
+      "checks": 896,
+      "quality": "high",
+      "lang": "ta",
+      "large": true,
+      "score": 2500,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": true,
+      "durable": {
+        "stored": true,
+        "reloaded": true
+      },
+      "fontProof": null
+    },
+    {
+      "tag": "c41-fontfix-doorsteps-low",
+      "checks": 1341,
+      "quality": "low",
+      "lang": "en",
+      "large": false,
+      "score": 6400,
+      "stars": {
+        "service": 3,
+        "safety": 3,
+        "efficiency": 3
+      },
+      "assessmentPassed": null,
+      "durable": true,
+      "fontProof": null
+    }
+  ],
+  "nativeChecks": 4260,
+  "artifactCount": 54,
+  "artifacts": {
+    "acceptance/artifacts/c41-rebase-intercom-low/c41-rebase-intercom-low-intercom.png": "01cb8d7a885a0526954a3def6d8003b10f2cb8f7d276856d1d46af402a2145fa",
+    "acceptance/artifacts/c41-rebase-intercom-low/c41-rebase-intercom-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+    "acceptance/artifacts/c41-rebase-intercom-low/c41-rebase-intercom-low.json": "f8f412e49ee3cf20da9eb2446391096653582df298baeaa8c932db9eed7b75c2",
+    "acceptance/artifacts/c41-rebase-reception-low/c41-rebase-reception-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+    "acceptance/artifacts/c41-rebase-reception-low/c41-rebase-reception-low.json": "5ebcaeda55a92d9496e496a40a94eb529069e4dbfce700a030e15dc31fa4ce10",
+    "acceptance/artifacts/c41-rebase-reception-low/c41-rebase-reception-low-reception.png": "504806329f3290196cdcfbbd2913a0b42b1610100ec88bdccebaf0ccd7d2545e",
+    "acceptance/artifacts/c41-rebase-locker-low/c41-rebase-locker-low-camera-device.png": "a56e8c82fe565446696260aa966f3683f5e703b3aef26bab1185bed4b2db624e",
+    "acceptance/artifacts/c41-rebase-locker-low/c41-rebase-locker-low.json": "ac34e73f01e7b1770b8cc1176f29abcd353048172fc9640fb4ae0a645964aa32",
+    "acceptance/artifacts/c41-rebase-locker-low/c41-rebase-locker-low-locker.png": "ebf567c73e3458c5cccaf6a7182e50662d73f52afa6494eb8e01c59238495373",
+    "acceptance/artifacts/c41-rebase-locker-low/c41-rebase-locker-low-report.png": "693994c87f5a85f8fa0fa54e0500a6a7de33b00b9942ebd867d9a51c7bedf0b5",
+    "acceptance/artifacts/c41-rebase-locker-low/c41-rebase-locker-low-camera-frame.png": "2ca819d63ebb24ac4f80e091f544d36ffaf23880a6277bcc2ce3ba2d405ce07c",
+    "native-font-retry/artifacts/c41-fontfix-intercom-high/c41-fontfix-intercom-high-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+    "native-font-retry/artifacts/c41-fontfix-intercom-high/c41-fontfix-intercom-high.json": "31cbbe4676949d19f5bce6b6f6cca16a2f02d14997bb616ee801336d98d84498",
+    "native-font-retry/artifacts/c41-fontfix-intercom-high/c41-fontfix-intercom-high-intercom.png": "cdeee3559b9459e3501412fad4d00e11d5bc7b601c450cac5df772a4072c07f0",
+    "native-font-retry/artifacts/c41-fontfix-reception-high/c41-fontfix-reception-high-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+    "native-font-retry/artifacts/c41-fontfix-reception-high/c41-fontfix-reception-high.json": "1fa3d4a1e45e3850955660cd14fae4ed7e6b4db138a18f9277941291515e83c3",
+    "native-font-retry/artifacts/c41-fontfix-reception-high/c41-fontfix-reception-high-reception.png": "059e448d592d89955b81f726e46640b1b6c831002109c1517f98ef395ae94521",
+    "native-font-retry/artifacts/c41-fontfix-locker-high/c41-fontfix-locker-high-locker.png": "9d4ff1dd7f3addf10beb40ab818838c68d5f581b7015cebd562cd56e40f620b2",
+    "native-font-retry/artifacts/c41-fontfix-locker-high/c41-fontfix-locker-high-camera-frame.png": "73f4e7d18e0ef8e8f33254665a9dce7b292acc1a2f483f7a07b0a3883643a578",
+    "native-font-retry/artifacts/c41-fontfix-locker-high/c41-fontfix-locker-high-camera-device.png": "12824ef37e2f89aa2a45527e54ac60b6e24612142b6fa83497d5b5b5926f4230",
+    "native-font-retry/artifacts/c41-fontfix-locker-high/c41-fontfix-locker-high-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+    "native-font-retry/artifacts/c41-fontfix-locker-high/c41-fontfix-locker-high.json": "08da9f369a2e39ccb663e9e57148eb79754a5aabbbe60cd2e18fddfe512d226f",
+    "native-font-retry/artifacts/c41-fontfix-intercom-bad/c41-fontfix-intercom-bad-report.png": "cb44363884d2743bb3554435e904a3d5fcb9b578d0865fa0b346743abaf677fc",
+    "native-font-retry/artifacts/c41-fontfix-intercom-bad/c41-fontfix-intercom-bad-intercom.png": "5aa8928f5a58df863dc71cb63294af7d89232126f2282a4c5e6c59cd0d56a298",
+    "native-font-retry/artifacts/c41-fontfix-intercom-bad/c41-fontfix-intercom-bad.json": "56efbc5d6307b4e6412502e5afde2e6db0d9c2c8e3973cc6d595dc5bdea21c79",
+    "native-font-retry/artifacts/c41-fontfix-missing-low/c41-fontfix-missing-low-low-en-normal-missing-result.png": "e7779b4cc224938669222771df45c774fd5c05250b0cc5e09c97cc99a2f716c0",
+    "native-font-retry/artifacts/c41-fontfix-missing-low/c41-fontfix-missing-low.json": "888188870fce3996cd64ec155ba483a23ad94138e323d3ebdb5823526812c153",
+    "native-font-retry/artifacts/c41-fontfix-missing-low/c41-fontfix-missing-low-low-en-normal-missing-physical.png": "da33afe665fedb54726495cb954254c230ee1abe90c13b78ef3503de2955d775",
+    "native-font-retry/artifacts/c41-fontfix-missing-low/c41-fontfix-missing-low-low-en-normal-missing-ending.png": "b0cc83b418711a4b1f1eadf61c6e0843af8b36b81d764f6358a450761f17d357",
+    "native-font-retry/artifacts/c41-fontfix-twostops-high-ta/c41-fontfix-twostops-high-ta-high-ta-large-twostops-house.png": "29b4226959e02724672fb73960d80085087da5f4df0829f9c6bb49fb89b0326f",
+    "native-font-retry/artifacts/c41-fontfix-twostops-high-ta/c41-fontfix-twostops-high-ta-high-ta-large-twostops-physical.png": "29c9716679bf2b88186973f7878129311d93f579e1846e1187be35d051c74785",
+    "native-font-retry/artifacts/c41-fontfix-twostops-high-ta/c41-fontfix-twostops-high-ta.json": "49cace75176437cc07963ff55bf38f59787d11e542938b3b5585ef2b5a4cce1a",
+    "native-font-retry/artifacts/c41-fontfix-twostops-high-ta/c41-fontfix-twostops-high-ta-high-ta-large-twostops-result.png": "408d3c79d9cef0d70c024248ea8ac2622d2f3ce3a5ace734eebde1b73286db99",
+    "native-font-retry/artifacts/c41-fontfix-twostops-high-ta/c41-fontfix-twostops-high-ta-high-ta-large-twostops-ending.png": "ad025292f26d929f4af3d67ee71ec6641720dac9c186527e39e1c8e42211229b",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop1-name.png": "51c01529ed818be9b19a9cb9331f7f97e434dfef3465709cefd29fba1e4e2354",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop2-reply.png": "4dd559813a453bc457763bef12153bc76e447536a8d00d65a582160d5e7c1c57",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop3-customer.png": "f378129f831c10b3feb08671ad8715b2e788b7c1041e1e1a4f3cd2b1e91a3389",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop1-customer.png": "1b5fa004d5478bb612481c4373811153d907cb04ed84daf6fa9fa280cf134012",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop3-handheld.png": "b056121fa5f66489fb923189e2265b512e9caeb24df292e3b51c0ee1ef3f71f4",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-result.png": "9d3d65a5563d04bb4f2ef8ec4f7718c8b6284def6d74badc3dfd9b52ec97d24d",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop3-reply.png": "2d93cc5b989e437f0b1b5e67145861f409b0feee11ea26ff51928961083c3503",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop3-tag.png": "5bdb3fe665848aa989083729c14f7dc2e478d8fdc4bd95dc3ae3e8d4078e3f16",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop1-report.png": "832c306c77dcccd4cbfb3241426d2b810c94d7f81e79ba7f4fb5048bc71e99ba",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop1-reply.png": "304b207e00728a8ad0fecac9da346aec5862697d153fafcd876f23e4bdad651b",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop2-name.png": "c6f3b809270b2cc43213a507b703e74e5b6a4ab48277aba48f37b309cafe2ad9",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop3-cargo.png": "4fb7800041255766a34e1d02ae283277444cf3d1f8f8cd6f3ac952dbb2fb7106",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop1-handheld.png": "51eb6eddbaf24bdfc176ba69056d514eb4c70b86eabeddd9dd7c44219663f1b7",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low.json": "f55764dd423f62bd702676675cea16240495b33969f7d1e9d638c1bf2ef6eb31",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop2-report.png": "341b0141d98c35987c4f81f5454dea59eb75910f3f1f56813cca1785125fe843",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop2-customer.png": "4639b80166004a0411ef66b885363a1249c16dae220dfa3c74b5db6b135bd24a",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop3-report.png": "1a2b1d3900afa9ab6269b1965b813678134ef7750c5388a1930abb5a0e6b1990",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop1-cargo.png": "e1ac64fc18982c6a9d1988c243db16b21d37cacd35c259497c74a8b0c81fce11",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop2-cargo.png": "7266febeef7e26fa994f448de5540266b506495a6eb59cc4dbab2c5074e9ca1b",
+    "native-font-retry/artifacts/c41-fontfix-doorsteps-low/c41-fontfix-doorsteps-low-low-en-normal-stop2-handheld.png": "32ff91de020dd4092ad89c9d3d3b3e6b6c55970bc1a4d11a6029664d4d5338f2"
+  },
+  "continuationPhaseAtVerification": "running",
+  "completedContinuationJobs": 7,
+  "plannedContinuationJobs": 8,
+  "allPassedSubset": true
+}
